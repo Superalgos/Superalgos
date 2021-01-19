@@ -254,11 +254,11 @@ function newLayersPanel() {
         }
 
         if (event.y - thisObject.container.frame.position.y - CURRENT_TOP_MARGIN < headerHeight) { // Mouse wheel over the header, not a layer
-            desiredVisibleLayers = desiredVisibleLayers + event.delta
+            desiredVisibleLayers = desiredVisibleLayers - event.delta
             if (desiredVisibleLayers < 0) { desiredVisibleLayers = 0 }
             if (desiredVisibleLayers > thisObject.layers.length) { desiredVisibleLayers = thisObject.layers.length }
         } else {
-            firstVisibleLayer = firstVisibleLayer + event.delta
+            firstVisibleLayer = firstVisibleLayer - event.delta
         }
         desiredPanelHeight = (layerHeight + LAYER_SEPARATION) * desiredVisibleLayers + headerHeight + footerHeight
         calculateVisbleLayers()

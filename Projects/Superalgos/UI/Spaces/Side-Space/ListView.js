@@ -165,7 +165,7 @@ function newListView() {
             }
         }
 
-        firstVisibleListItem = firstVisibleListItem + event.delta
+        firstVisibleListItem = firstVisibleListItem - event.delta
 
         calculateVisbleListItems()
     }

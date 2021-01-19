@@ -248,7 +248,7 @@ function newViewport() {
         }
 
         let amount = event.delta
-        console.log('VIEWPORT AMOUNT EVENT DELTA:' + amount)
+        
         if (event.buttons === 4) { morePower = 2 } // Mouse wheel pressed.
         /* We adjust the sensitivity for Mac Users */
 

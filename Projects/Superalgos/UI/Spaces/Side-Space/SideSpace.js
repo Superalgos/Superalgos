@@ -145,6 +145,7 @@ function newSuperalgosSideSpace() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
         browserCanvasContext.lineWidth = 0.3
+        browserCanvasContext.setLineDash([0, 0])
         browserCanvasContext.stroke()
 
         /* Shadow */
@@ -161,6 +162,7 @@ function newSuperalgosSideSpace() {
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
                 browserCanvasContext.lineWidth = 1
+                browserCanvasContext.setLineDash([0, 0])
                 browserCanvasContext.stroke()
             }
         }

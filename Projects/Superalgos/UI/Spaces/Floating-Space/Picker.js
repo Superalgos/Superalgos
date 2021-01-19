@@ -179,7 +179,7 @@ function newPicker() {
             }
         }
 
-        selected = selected + event.delta
+        selected = selected - event.delta
         if (selected < 0) { selected = 0 }
         if (selected > optionsList.length - 1) {
             selected = optionsList.length - 1

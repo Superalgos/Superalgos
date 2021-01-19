@@ -21,7 +21,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
         return Array.from(filters.keys())
 
         function recursiveFilter(node) {
-            if (node.type === 'Javascript Code') {
+            if (node.type === 'Javascript Code' || node.type === 'Formula' ) {
                 filter(node.code)
             }            
 

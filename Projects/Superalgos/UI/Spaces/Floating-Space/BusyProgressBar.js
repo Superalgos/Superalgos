@@ -67,6 +67,8 @@ function newBusyProgressBar() {
         browserCanvasContext.lineWidth = 10
         browserCanvasContext.setLineDash([3, 4])
         browserCanvasContext.stroke()
+
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
     }
 }
 

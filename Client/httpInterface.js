@@ -723,7 +723,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 let message
                                 try {
-                                    message = await git.pull('upstream', currentBranch)
+                                    message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
                                     return message
                                 } catch (err) {
                                     console.log('[ERROR] Error updating ' + currentBranch)

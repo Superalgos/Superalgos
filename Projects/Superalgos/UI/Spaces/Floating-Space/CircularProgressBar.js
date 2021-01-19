@@ -135,12 +135,12 @@ function newCircularProgressBar() {
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY * 2 + ')'
             browserCanvasContext.lineWidth = 6 + opacityCounters[i] / 100 / 4
-            browserCanvasContext.setLineDash([1, 10])
+            //browserCanvasContext.setLineDash([1, 10])
             browserCanvasContext.stroke()
 
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
             browserCanvasContext.lineWidth = 0 + opacityCounters[i] / 100 / 4
-            browserCanvasContext.setLineDash([2, 10])
+            //browserCanvasContext.setLineDash([2, 10])
             browserCanvasContext.stroke()
         }
     }

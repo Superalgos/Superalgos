@@ -1538,28 +1538,28 @@ function newUiObject() {
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
             browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-            browserCanvasContext.setLineDash([0, chainLineCounter, 2, 3, 0, 500 - chainLineCounter])
+            //browserCanvasContext.setLineDash([0, chainLineCounter, 2, 3, 0, 500 - chainLineCounter])
             browserCanvasContext.lineWidth = 2
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
             browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-            browserCanvasContext.setLineDash([3, 47])
+            //browserCanvasContext.setLineDash([3, 47])
             browserCanvasContext.lineWidth = 3
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
             browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-            browserCanvasContext.setLineDash([1, 9])
+            //browserCanvasContext.setLineDash([1, 9])
             browserCanvasContext.lineWidth = 1
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
         }
 
         if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
@@ -1609,19 +1609,19 @@ function newUiObject() {
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
             browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-            browserCanvasContext.setLineDash([1, 9])
+            //browserCanvasContext.setLineDash([1, 9])
             browserCanvasContext.lineWidth = 0.75
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
 
             browserCanvasContext.beginPath()
             browserCanvasContext.moveTo(position.x, position.y)
             browserCanvasContext.lineTo(targetPoint.x, targetPoint.y)
             browserCanvasContext.strokeStyle = 'rgba(' + LINE_STYLE + ', 1)'
-            browserCanvasContext.setLineDash([0, referenceLineCounter, 1, 9, 2, 8, 3, 7, 4, 6, 0, 500 - referenceLineCounter])
+            //browserCanvasContext.setLineDash([0, referenceLineCounter, 1, 9, 2, 8, 3, 7, 4, 6, 0, 500 - referenceLineCounter])
             browserCanvasContext.lineWidth = 4
             browserCanvasContext.stroke()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
         }
 
         if (thisObject.payload.floatingObject.container.frame.radius > 0.5) {
@@ -2088,7 +2088,7 @@ function newUiObject() {
                     browserCanvasContext.closePath()
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.WHITE + ', ' + 1 + ')'
                     browserCanvasContext.lineWidth = 3
-                    browserCanvasContext.setLineDash([0, 0])
+                    //browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke()
 
                     browserCanvasContext.beginPath()
@@ -2096,7 +2096,7 @@ function newUiObject() {
                     browserCanvasContext.closePath()
                     browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + 1 + ')'
                     browserCanvasContext.lineWidth = 2
-                    browserCanvasContext.setLineDash([0, 0])
+                    //browserCanvasContext.setLineDash([0, 0])
                     browserCanvasContext.stroke()
 
                 }
@@ -2115,7 +2115,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([1, 10])
+                //browserCanvasContext.setLineDash([1, 10])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2124,9 +2124,9 @@ function newUiObject() {
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 1
                 if (thisObject.payload.node.isPlugin === true) {
-                    browserCanvasContext.setLineDash([0, 0])
+                    //browserCanvasContext.setLineDash([0, 0])
                 } else {
-                    browserCanvasContext.setLineDash([10, 20])
+                    //browserCanvasContext.setLineDash([10, 20])
                 }
                 browserCanvasContext.stroke()
             }
@@ -2146,10 +2146,10 @@ function newUiObject() {
 
                 if (thisObject.payload.floatingObject.isOnFocus === true) {
                     browserCanvasContext.lineWidth = 30
-                    browserCanvasContext.setLineDash([0, 0])
+                    //browserCanvasContext.setLineDash([0, 0])
                 } else {
                     browserCanvasContext.lineWidth = 30
-                    browserCanvasContext.setLineDash([1, 3])
+                    //browserCanvasContext.setLineDash([1, 3])
 
                 }
                 browserCanvasContext.stroke()
@@ -2167,7 +2167,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([2 + infoRingAnimation, 14 - infoRingAnimation])
+                //browserCanvasContext.setLineDash([2 + infoRingAnimation, 14 - infoRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2183,7 +2183,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([2 + warningRingAnimation, 14 - warningRingAnimation])
+                //browserCanvasContext.setLineDash([2 + warningRingAnimation, 14 - warningRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2199,7 +2199,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.RED + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([2 + errorRingAnimation, 14 - errorRingAnimation])
+                //browserCanvasContext.setLineDash([2 + errorRingAnimation, 14 - errorRingAnimation])
                 browserCanvasContext.stroke()
             }
 
@@ -2214,7 +2214,7 @@ function newUiObject() {
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
 
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([4, 20])
+                //browserCanvasContext.setLineDash([4, 20])
                 browserCanvasContext.stroke()
             }
 
@@ -2227,7 +2227,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([10, 90])
+                //browserCanvasContext.setLineDash([10, 90])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2235,7 +2235,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([5, 45])
+                //browserCanvasContext.setLineDash([5, 45])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2243,7 +2243,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 1
-                browserCanvasContext.setLineDash([2, 8])
+                //browserCanvasContext.setLineDash([2, 8])
                 browserCanvasContext.stroke()
             }
 
@@ -2256,7 +2256,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([8, 32])
+                //browserCanvasContext.setLineDash([8, 32])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2264,7 +2264,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.TURQUOISE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 2
-                browserCanvasContext.setLineDash([3, 5])
+                //browserCanvasContext.setLineDash([3, 5])
                 browserCanvasContext.stroke()
             }
 
@@ -2277,7 +2277,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([10, 90])
+                //browserCanvasContext.setLineDash([10, 90])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2285,7 +2285,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 5
-                browserCanvasContext.setLineDash([5, 45])
+                //browserCanvasContext.setLineDash([5, 45])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2293,7 +2293,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 1
-                browserCanvasContext.setLineDash([2, 8])
+                //browserCanvasContext.setLineDash([2, 8])
                 browserCanvasContext.stroke()
             }
 
@@ -2306,7 +2306,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 10
-                browserCanvasContext.setLineDash([8, 32])
+                //browserCanvasContext.setLineDash([8, 32])
                 browserCanvasContext.stroke()
 
                 browserCanvasContext.beginPath()
@@ -2314,7 +2314,7 @@ function newUiObject() {
                 browserCanvasContext.closePath()
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + OPACITY + ')'
                 browserCanvasContext.lineWidth = 2
-                browserCanvasContext.setLineDash([3, 5])
+                //browserCanvasContext.setLineDash([3, 5])
                 browserCanvasContext.stroke()
             }
         }

@@ -59,13 +59,13 @@ function newBusyProgressBar() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GOLDEN_ORANGE + ', ' + OPACITY * 2 + ')'
         browserCanvasContext.lineWidth = 15
-        browserCanvasContext.setLineDash([3, 4])
+        //browserCanvasContext.setLineDash([3, 4])
 
         browserCanvasContext.stroke()
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.DARK_TURQUOISE + ', ' + OPACITY + ')'
         browserCanvasContext.lineWidth = 10
-        browserCanvasContext.setLineDash([3, 4])
+        //browserCanvasContext.setLineDash([3, 4])
         browserCanvasContext.stroke()
     }
 }

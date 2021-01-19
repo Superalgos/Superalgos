@@ -718,7 +718,7 @@ function newPlotter() {
                             }
 
                             browserCanvasContext.lineWidth = strokeStyle.lineWidth
-                            browserCanvasContext.setLineDash(strokeStyle.lineDash)
+                            //browserCanvasContext.setLineDash(strokeStyle.lineDash)
                             browserCanvasContext.strokeStyle = 'rgba(' + strokeStyle.paletteColor + ', ' + strokeStyle.opacity + ')'
                             browserCanvasContext.stroke()
                         }

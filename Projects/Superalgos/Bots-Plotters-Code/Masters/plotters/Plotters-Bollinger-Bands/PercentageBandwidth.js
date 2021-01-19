@@ -858,10 +858,10 @@
                         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', 1)';
                     }
 
-                    browserCanvasContext.setLineDash([1, 4])
+                    //browserCanvasContext.setLineDash([1, 4])
                     browserCanvasContext.lineWidth = 1
                     browserCanvasContext.stroke()
-                    browserCanvasContext.setLineDash([0, 0])
+                    //browserCanvasContext.setLineDash([0, 0])
                 }
             }
 

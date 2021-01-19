@@ -544,7 +544,7 @@ function newLayersPanel() {
             browserCanvasContext.moveTo(barTopPoint.x, barTopPoint.y)
             browserCanvasContext.lineTo(barBottomPoint.x, barBottomPoint.y)
             browserCanvasContext.closePath()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
             browserCanvasContext.lineWidth = 1
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
             browserCanvasContext.stroke()
@@ -553,7 +553,7 @@ function newLayersPanel() {
             browserCanvasContext.moveTo(handleTopPoint.x, handleTopPoint.y)
             browserCanvasContext.lineTo(handleBottomPoint.x, handleBottomPoint.y)
             browserCanvasContext.closePath()
-            browserCanvasContext.setLineDash([0, 0])
+            //browserCanvasContext.setLineDash([0, 0])
             browserCanvasContext.lineWidth = 4
             browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.PATINATED_TURQUOISE + ', ' + 1 + ')'
             browserCanvasContext.stroke()

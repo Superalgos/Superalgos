@@ -243,9 +243,9 @@ function newTimeFrameScale() {
             let sensitivity
             if (event.delta < 0) {
                 if (event.shiftKey === true) {
-                    sensitivity = MAC_SCROLL_SENSITIVITY * 2
+                    sensitivity = MAC_ZOOM_SENSITIVITY
                 } else {
-                    sensitivity = MAC_ZOOM_SENSITIVITY * 2
+                    sensitivity = MAC_SCROLL_SENSITIVITY
                 }
                 if (wheelDeltaDirection === -1) {
                     wheelDeltaCounter++

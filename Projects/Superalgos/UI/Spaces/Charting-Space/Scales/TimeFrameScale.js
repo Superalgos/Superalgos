@@ -243,9 +243,9 @@ function newTimeFrameScale() {
             let sensitivity
             if (event.delta < 0) {
                 if (event.shiftKey === true) {
-                    sensitivity = MAC_SCROLL_SENSITIVITY
+                    sensitivity = MAC_SCROLL_SENSITIVITY * 2
                 } else {
-                    sensitivity = MAC_ZOOM_SENSITIVITY
+                    sensitivity = MAC_ZOOM_SENSITIVITY * 2
                 }
                 if (wheelDeltaDirection === -1) {
                     wheelDeltaCounter++
@@ -261,9 +261,9 @@ function newTimeFrameScale() {
                 }
             } else {
                 if (event.shiftKey === true) {
-                    sensitivity = MAC_SCROLL_SENSITIVITY
+                    sensitivity = MAC_SCROLL_SENSITIVITY * 2
                 } else {
-                    sensitivity = MAC_ZOOM_SENSITIVITY
+                    sensitivity = MAC_ZOOM_SENSITIVITY * 2
                 }
                 if (wheelDeltaDirection === 1) {
                     wheelDeltaCounter++

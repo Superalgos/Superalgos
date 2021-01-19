@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "If you trade at binance.us you need to do something with the Binance node to the right! The video on the next step shows you how!"
+            "text": "If you trade at binance.us you need to configure the Binance node to the right! The video on the next step shows you how!",
+            "updated": 1611076107190
         },
         {
             "style": "List",

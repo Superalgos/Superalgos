@@ -7,16 +7,14 @@
             "project": "Superalgos",
             "name": "run"
         },
-        "text": "The Run All Project Data Tasks button on the top-right corner of the Data Tasks node menu runs... well... all Project Data Tasks!"
+        "text": "Open the Data Tasks node menu and find the Run All Project Data Tasks button on the top-right corner...",
+        "updated": 1611076262685
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "And that is exactly what we want to do, so..."
-        },
-        {
             "style": "Callout",
-            "text": "Select the button on the menu and let's mine!"
+            "text": "Click the Run All Project Data Tasks button!",
+            "updated": 1611076332667
         },
         {
             "style": "Text",

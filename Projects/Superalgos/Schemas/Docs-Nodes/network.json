@@ -18,11 +18,13 @@
         },
         {
             "style": "List",
-            "text": "To control your data mining operation&mdash;that is, tasks running sensor and indicator bots. Data mining tasks process data that may be consumed by others; for example, so that your trading systems may count with quality information."
+            "text": "To control your data mining operation — that is, tasks running sensor and indicator bots. Data mining tasks process data that may be consumed by others; for example, so that your trading systems may count with quality information.",
+            "updated": 1611058647352
         },
         {
             "style": "List",
-            "text": "To control your testing environment&mdash;that is, trading sessions including backtesting and paper trading sessions."
+            "text": "To control your testing environment — that is, trading sessions including backtesting and paper trading sessions.",
+            "updated": 1611073262412
         },
         {
             "style": "List",

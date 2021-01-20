@@ -595,16 +595,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const token = unescape(requestParameters[5])
                             const currentBranch = unescape(requestParameters[6])
                             const contributionsBranch = unescape(requestParameters[7])
+                            let error
 
                             contribute()
 
                             async function contribute() {
-                                if (await doGit() === false) {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                await doGit()
+                                if (error !== undefined) {
+
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'App Error - Contribution Not Sent',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, result.error)
+
                                     return
                                 }
-                                if (await doGithub() === false) {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+
+                                await doGithub()
+                                if (error !== undefined) {
+
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'App Error - Contribution Not Sent',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+                                    console.log('respond with docs ')
+
+                                    respondWithDocsObject(docs, error)
+
                                     return
                                 }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
@@ -623,14 +648,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     await git.add('./*')
                                     await git.commit(commitMessage)
                                     await git.push('origin', currentBranch)
-                                    return true
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                    return false
+                                    error = err
                                 }
                             }
 
@@ -657,10 +681,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         head,
                                         base,
                                     });
-                                    return true
                                 } catch (err) {
                                     if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                        return true
+                                        return
                                     } else {
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
@@ -670,7 +693,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                        return false
+                                        error = err
                                     }
                                 }
                             }
@@ -693,6 +716,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+
                     case 'Update': {
                         try {
                             const currentBranch = unescape(requestParameters[3])
@@ -713,35 +737,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         project: 'Superalgos',
                                         category: 'Topic',
                                         type: 'App Error - Update Failed',
-                                        anchor: 'Anchor Update Failed',
+                                        anchor: undefined,
                                         placeholder: {}
                                     }
 
-                                    if (result.error.message !== undefined) {
-                                        docs.placeholder.errorMessage = {
-                                            style: 'Error',
-                                            text: result.error.message
-                                        }
-                                    }
-                                    if (result.error.stack !== undefined) {
-                                        docs.placeholder.errorStack = {
-                                            style: 'Javascript',
-                                            text: result.error.stack
-                                        }
-                                    }
-                                    if (result.error.code !== undefined) {
-                                        docs.placeholder.errorCode = {
-                                            style: 'Json',
-                                            text: result.error.code
-                                        }
-                                    }
+                                    respondWithDocsObject(docs, result.error)
 
-                                    let customResponse = {
-                                        result: global.CUSTOM_FAIL_RESPONSE.result,
-                                        docs: docs
-                                    }
-
-                                    respondWithContent(JSON.stringify(customResponse), httpResponse)
                                 }
                             }
 
@@ -831,6 +832,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+                }
+
+                function respondWithDocsObject(docs, error) {
+
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
+                        }
+                    }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    docs.placeholder.errorDetails = {
+                        style: 'Json',
+                        text: JSON.stringify(error, undefined, 4)
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+
                 }
             }
                 break

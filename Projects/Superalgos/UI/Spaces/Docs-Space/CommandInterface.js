@@ -82,7 +82,14 @@ function newSuperalgosDocsCommmandInterface() {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Contribution Done')
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Contribution Not Sent', 'Anchor Contribution Not Sent')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
                 }
             }
         }

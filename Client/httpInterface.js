@@ -625,7 +625,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         anchor: undefined,
                                         placeholder: {}
                                     }
-
+                                    console.log('respond with docs ')
                                     respondWithDocsObject(docs, result.error)
                                     return
                                 }
@@ -690,9 +690,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                        console.log('error ' ,error)
+                                        console.log('error ', error)
                                         console.log('err', err)
-                                       // error = err
+                                        error = err
                                     }
                                 }
                             }
@@ -830,35 +830,35 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+                }
 
-                        function respondWithDocsObject(docs, error) {
+                function respondWithDocsObject(docs, error) {
 
-                            if (error.message !== undefined) {
-                                docs.placeholder.errorMessage = {
-                                    style: 'Error',
-                                    text: error.message
-                                }
-                            }
-                            if (error.stack !== undefined) {
-                                docs.placeholder.errorStack = {
-                                    style: 'Javascript',
-                                    text: error.stack
-                                }
-                            }
-                            if (error.code !== undefined) {
-                                docs.placeholder.errorCode = {
-                                    style: 'Json',
-                                    text: error.code
-                                }
-                            }
-
-                            let customResponse = {
-                                result: global.CUSTOM_FAIL_RESPONSE.result,
-                                docs: docs
-                            }
-
-                            respondWithContent(JSON.stringify(customResponse), httpResponse)
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
                         }
+                    }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
                 }
             }
                 break

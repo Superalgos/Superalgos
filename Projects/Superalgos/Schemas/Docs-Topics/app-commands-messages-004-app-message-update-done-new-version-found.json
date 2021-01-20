@@ -9,8 +9,12 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You now have the latest version of Superalgos. Just remeber to restart the Client and the UI.",
-            "updated": 1610454408134
+            "text": "You now have the latest version of Superalgos. Just remeber to restart the Client and the UI. If you have Tasks running, you should first stop the tasks, and then restart the Client, so that you can run those task again using the updated codebase.",
+            "updated": 1611160648343
+        },
+        {
+            "style": "Note",
+            "text": "The update you made, only afffects the Client which you are connected to via http using your browser. If you have more Clients running as part of a Network, you will need to update them too, etither manually using Git or by navigating with your browser to their URL and doing running the App Update Command there."
         }
     ]
 }

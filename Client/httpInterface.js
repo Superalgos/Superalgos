@@ -834,31 +834,36 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                 function respondWithDocsObject(docs, error) {
 
-                    if (error.message !== undefined) {
-                        docs.placeholder.errorMessage = {
-                            style: 'Error',
-                            text: error.message
+                    try {
+                        if (error.message !== undefined) {
+                            docs.placeholder.errorMessage = {
+                                style: 'Error',
+                                text: error.message
+                            }
                         }
-                    }
-                    if (error.stack !== undefined) {
-                        docs.placeholder.errorStack = {
-                            style: 'Javascript',
-                            text: error.stack
+                        if (error.stack !== undefined) {
+                            docs.placeholder.errorStack = {
+                                style: 'Javascript',
+                                text: error.stack
+                            }
                         }
-                    }
-                    if (error.code !== undefined) {
-                        docs.placeholder.errorCode = {
-                            style: 'Json',
-                            text: error.code
+                        if (error.code !== undefined) {
+                            docs.placeholder.errorCode = {
+                                style: 'Json',
+                                text: error.code
+                            }
                         }
+    
+                        let customResponse = {
+                            result: global.CUSTOM_FAIL_RESPONSE.result,
+                            docs: docs
+                        }
+    
+                        respondWithContent(JSON.stringify(customResponse), httpResponse)
+                    } catch(err) {
+console.log(err)
                     }
 
-                    let customResponse = {
-                        result: global.CUSTOM_FAIL_RESPONSE.result,
-                        docs: docs
-                    }
-
-                    respondWithContent(JSON.stringify(customResponse), httpResponse)
                 }
             }
                 break

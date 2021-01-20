@@ -101,33 +101,6 @@ function newSuperalgosDocsCommmandInterface() {
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Update') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.update') !== 0) { return 'Not Update Commands' }
 
-            /* Set up the commit message */
-            let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
-            if (message.toLowerCase() === 'app.update') {
-                message = 'Updating my Superalgos Fork and local Repository'
-            }
-
-            /* Find the Username and Password */
-            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
-            if (apisNode === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Hierarchy APIs Not Found')
-                return
-            }
-            if (apisNode.githubAPI === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github API Node Not Found')
-                return
-            }
-
-            let config = JSON.parse(apisNode.githubAPI.config)
-            if (config.username === undefined || config.username === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Username Not Found')
-                return
-            }
-            if (config.token === undefined || config.token === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Token Not Found')
-                return
-            }
-
             httpRequest(undefined, 'App/Update/' + UI.projects.superalgos.spaces.docsSpace.currentBranch, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
 

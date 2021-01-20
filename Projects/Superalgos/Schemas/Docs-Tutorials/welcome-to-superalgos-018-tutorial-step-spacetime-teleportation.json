@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Right-click to open the map and left-click anywhere on the map to go to that specific spot!"
+            "text": "Right-click to open the map and left-click anywhere to go to that specific spot!",
+            "updated": 1611076477382
         },
         {
             "style": "Text",

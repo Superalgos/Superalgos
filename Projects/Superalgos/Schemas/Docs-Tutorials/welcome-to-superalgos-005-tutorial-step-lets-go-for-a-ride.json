@@ -20,11 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation."
-        },
-        {
-            "style": "Note",
-            "text": "But before we start, I have a question for you! Are you accessing the Client remotely?"
+            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. But before we start, I have a quick question for you: are you accessing the Client remotely?",
+            "updated": 1611075903071
         }
     ]
 }

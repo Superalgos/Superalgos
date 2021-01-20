@@ -1,6 +1,6 @@
-# Quick Getting Started Guide
+# Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS. Note: tested only on Google Chrome.
+All procedures are the same for Windows, Linux, or Mac OS.
 
 ![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
 
@@ -20,9 +20,7 @@ Node JS is an open-source server environment required to run Superalgos.
 
 ## Git
 
-Download and install Git. 
-
-**Important:** The latest version of Git is required.
+Download and install Git.
 
 Git is an open-source distributed version control system required to download and stay up to date with Superalgos.
 
@@ -32,27 +30,29 @@ Git is an open-source distributed version control system required to download an
 
 **c.** Run the installer with the default configuration — just click Next until Git is fully installed.
 
-## Google Chrome
+**IMPORTANT:** The latest version of Git is required to handle the authentication with GitHub.com.
 
-Use Chrome, the only tested browser.
+**NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
+
+## Google Chrome or Safari
+
+Use Chrome, or Safari on Mac. These are the only tested browsers.
 
 **a.** Go to the Chrome [download page](https://www.google.com/chrome/).
 
 **b.** Run the installer.
 
-Before you begin, it is recommended that you set up Chrome as your default browser.
+Before you begin, it is recommended that you set up Chrome/Safari as your default browser.
 
-**Important:** Use Chrome so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
+**IMPORTANT:** Use Chrome/Safari so that you have a similar environment as the dev team in case you need help. We are not testing on any other browsers, and it is a well-known fact that browsers behave differently.
 
 # Superalgos Client Installation
 
-**1.** If you are not there already, go to [https://github.com/Superalgos/Superalgos](https://github.com/Superalgos/Superalgos)
+**1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it. A Fork is required for your contributions to the project and to stay up to date with the latest version of the software (more on this later).
 
-**2.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it. A Fork is required for your contributions to the project and to stay up to date with the latest version of the software (more on this later).
+**2.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
-**3.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
-
-**4.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
+**3.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
 
 ```
 git clone 
@@ -70,17 +70,11 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-**5.** Change to the Superalgos directory/folder and run this commmand to switch to the develop branch.
-
-```
-git checkout develop
-```
-
 ## Instalation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
-**2.** You also need a fork to use the in-app self-update features. These will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly.
+**2.** You also need a fork to use the in-app self-update feature. It will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly, particularly if you choose to run the software in the ```develop``` branch (you may switch branches from within the app).
 
 **3.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
 
@@ -90,21 +84,21 @@ git checkout develop
 
 ![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
 
-**1.** To run the Superalgos client, from inside the Superalgos directory/folder, run this command: 
+**1.** To run the Superalgos client, go to the Superalgos directory/folder and run this command: 
 
 ```
 node run
 ```
 
-**2.** The command launches your default browser to load the UI. If Chrome is not your default browser, copy the URL, close the browser, open Chrome, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
+**2.** The command launches your default browser to load the UI. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
 
 **3.** A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish the setup and to learn the basics. It's the ultimate onboarding experience, superior to all other resources available, including videos and the docs.
 
 ## Usage Notes
 
-**1.** We are testing the UI on Google Chrome only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome first.
+**1.** We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 
- **Tip:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
+ **TIP:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
 
 # Uninstall
 
@@ -116,7 +110,7 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 ![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
 
- **Note:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 85% of the tutorial. The remaining 15% involves running a live trading session, which requires an account with the exchange. You may learn how to work with other exchanges later on.
+ **NOTE:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
 
 # Docker Deployments
 

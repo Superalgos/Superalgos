@@ -16,11 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Hover your mouse pointer over the Tutorial node and see what happens!"
-        },
-        {
-            "style": "Text",
-            "text": "Wow! Cool right? That's a lot of buttons!"
+            "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons!",
+            "updated": 1611075799669
         }
     ]
 }

@@ -595,12 +595,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             const token = unescape(requestParameters[5])
                             const currentBranch = unescape(requestParameters[6])
                             const contributionsBranch = unescape(requestParameters[7])
+                            let error
 
                             contribute()
 
                             async function contribute() {
-                                let error
-                                error = await doGit()
+                                await doGit()
                                 if (error !== undefined) {
 
                                     let docs = {
@@ -614,8 +614,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithDocsObject(docs, result.error)
                                     return
                                 }
-                                
-                                error = await doGithub()
+
+                                await doGithub()
                                 if (error !== undefined) {
 
                                     let docs = {
@@ -651,7 +651,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                    return err
+                                    error = err
                                 }
                             }
 
@@ -690,7 +690,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                        return err
+                                        error = err
                                     }
                                 }
                             }

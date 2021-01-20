@@ -16,8 +16,20 @@
         },
         {
             "style": "Title",
-            "text": "Error Message",
-            "updated": 1610971316249
+            "text": "Error Details",
+            "updated": 1611151211050
+        },
+        {
+            "style": "Text",
+            "text": "In the following section you will find the specific information received when this error occured."
+        },
+        {
+            "style": "Note",
+            "text": "You will only see it if you opened this page as a result of the error actually happening."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
         },
         {
             "style": "Text",
@@ -30,7 +42,7 @@
             "updated": 1610971337737
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Error Stack",
             "updated": 1610968600444
         },
@@ -45,7 +57,7 @@
             "updated": 1610968640796
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Error Code"
         },
         {

@@ -136,7 +136,14 @@ function newSuperalgosDocsCommmandInterface() {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Done - Already Up-To-Date')
                     }
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Update Failed', 'Anchor Update Failed')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
                 }
             }
         }

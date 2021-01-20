@@ -611,7 +611,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         placeholder: {}
                                     }
 
-                                    respondWithDocsObject(docs, result.error)
+                                    try {
+                                        respondWithDocsObject(docs, result.error)
+
+                                    } catch (err) {
+                                        console.log('new errro ', err)
+                                    }
                                     return
                                 }
 
@@ -715,6 +720,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+
                     case 'Update': {
                         try {
                             const currentBranch = unescape(requestParameters[3])
@@ -853,15 +859,15 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 text: error.code
                             }
                         }
-    
+
                         let customResponse = {
                             result: global.CUSTOM_FAIL_RESPONSE.result,
                             docs: docs
                         }
-    
+
                         respondWithContent(JSON.stringify(customResponse), httpResponse)
-                    } catch(err) {
-console.log(err)
+                    } catch (err) {
+                        console.log(err)
                     }
 
                 }

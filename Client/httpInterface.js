@@ -867,7 +867,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         docs: docs
                     }
 
-                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+                    respondWithContent(JSON.stringify(customResponse, undefined, 4), httpResponse)
 
                 }
             }

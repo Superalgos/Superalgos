@@ -627,12 +627,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         placeholder: {}
                                     }
                                     console.log('respond with docs ')
-                                    try {
-                                        respondWithDocsObject(docs, error)
 
-                                    } catch (err) {
-                                        console.log('new errro ', err)
-                                    }
+                                    respondWithDocsObject(docs, error)
+
                                     return
                                 }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
@@ -841,35 +838,36 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                 function respondWithDocsObject(docs, error) {
 
-                    try {
-                        if (error.message !== undefined) {
-                            docs.placeholder.errorMessage = {
-                                style: 'Error',
-                                text: error.message
-                            }
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
                         }
-                        if (error.stack !== undefined) {
-                            docs.placeholder.errorStack = {
-                                style: 'Javascript',
-                                text: error.stack
-                            }
-                        }
-                        if (error.code !== undefined) {
-                            docs.placeholder.errorCode = {
-                                style: 'Json',
-                                text: error.code
-                            }
-                        }
-
-                        let customResponse = {
-                            result: global.CUSTOM_FAIL_RESPONSE.result,
-                            docs: docs
-                        }
-
-                        respondWithContent(JSON.stringify(customResponse), httpResponse)
-                    } catch (err) {
-                        console.log(err)
                     }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    docs.placeholder.errorDetails = {
+                        style: 'Json',
+                        text: JSON.stringify(error)
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
 
                 }
             }

@@ -14,7 +14,8 @@
         },
         {
             "style": "Title",
-            "text": "Error Details"
+            "text": "Error Info",
+            "updated": 1611154606702
         },
         {
             "style": "Text",
@@ -60,6 +61,21 @@
         {
             "style": "Placeholder",
             "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details",
+            "updated": 1611154543778
+        },
+        {
+            "style": "Text",
+            "text": "The follwing are all the Error details of the Exception that occured at the Client:",
+            "updated": 1611154675224
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails",
+            "updated": 1611154555419
         },
         {
             "style": "Text",

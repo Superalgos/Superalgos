@@ -611,12 +611,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         placeholder: {}
                                     }
 
-                                    try {
-                                        respondWithDocsObject(docs, result.error)
+                                    respondWithDocsObject(docs, result.error)
 
-                                    } catch (err) {
-                                        console.log('new errro ', err)
-                                    }
                                     return
                                 }
 
@@ -632,7 +628,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     }
                                     console.log('respond with docs ')
                                     try {
-                                        respondWithDocsObject(docs, result.error)
+                                        respondWithDocsObject(docs, error)
 
                                     } catch (err) {
                                         console.log('new errro ', err)

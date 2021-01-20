@@ -612,7 +612,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     }
 
                                     respondWithDocsObject(docs, result.error)
-
                                     return
                                 }
 
@@ -629,7 +628,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     console.log('respond with docs ')
 
                                     respondWithDocsObject(docs, error)
-
                                     return
                                 }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
@@ -786,15 +784,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     case 'Checkout': {
                         try {
                             const currentBranch = unescape(requestParameters[3])
+                            let error
+
                             checkout()
 
                             async function checkout() {
-                                let result = await doGit()
+                                await doGit()
 
-                                if (result === true) {
+                                if (error === undefined) {
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
                                 }
                             }
 
@@ -811,9 +819,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 } catch (err) {
                                     console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                     console.log(err.stack)
-                                    return false
+                                    error = err
                                 }
-                                return true
                             }
 
                         } catch (err) {

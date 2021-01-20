@@ -1,5 +1,5 @@
 {
-    "type": "Backup Entity",
+    "type": "Backup Entity CONFLICT CREATED",
     "definition": {
         "text": "Downloads a JSON file with the entity, which may be to whole Workspace or a node, including references concerning the particular node and its offspring. Use this feature to save your entire workspace or any particular structure of nodes within your workspace so that you may later restore the information, including all references, should you need to. For your reference, the file downloaded is named Backup followed by the name of the entity you are backing up.",
         "updated": 1610032969934

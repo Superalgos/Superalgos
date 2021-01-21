@@ -46,7 +46,8 @@ function newFileStorage(host, port) {
       }
 
       /* Scaping # since it breaks the URL */
-      url = url.replaceAll('#', 'HASHTAG')
+      url = url.replaceAll('#', '_HASHTAG_')
+
       httpRequest(undefined, url, (response, fileContent) => {
         if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)

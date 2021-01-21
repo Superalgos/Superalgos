@@ -599,7 +599,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             /* Unsavping # */
                             for (let i = 0; i < 10; i++) {
-                                commitMessage = commitMessage.replace('HASHTAG', '#')
+                                commitMessage = commitMessage.replace('_SLASH_', '/')
+                                commitMessage = commitMessage.replace('_HASHTAG_', '#')
                             }
 
                             contribute()
@@ -1352,7 +1353,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let pathToFile = httpRequest.url.substring(9)
                     /* Unsavping # */
                     for (let i = 0; i < 10; i++) {
-                        pathToFile = pathToFile.replace('HASHTAG', '#')
+                        pathToFile = pathToFile.replace('_HASHTAG_', '#')
                     }
                     respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                 }

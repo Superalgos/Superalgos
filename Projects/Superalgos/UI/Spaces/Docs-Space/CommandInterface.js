@@ -62,10 +62,13 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
 
+            message = message.replaceAll('#', '_HASHTAG_')
+            message = message.replaceAll('/', '_SLASH_')
+
             httpRequest(
                 undefined,
                 'App/Contribute/' +
-                message.replaceAll('#', 'HASHTAG') + '/' +
+                message + '/' +
                 config.username + '/' +
                 config.token + '/' +
                 UI.projects.superalgos.spaces.docsSpace.currentBranch + '/' +

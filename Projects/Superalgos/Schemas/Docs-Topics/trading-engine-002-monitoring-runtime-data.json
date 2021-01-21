@@ -1,0 +1,68 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "2",
+    "type": "Monitoring Runtime Data",
+    "definition": {
+        "text": "Use the trading engine hierarchy to track every piece of information processed by the trading bot, candle by candle.",
+        "updated": 1611253725593
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The trading engine hierarchy is a portal into the trading bot’s machine room—the brain. Think of the trading engine as a terminal connected to each of the brain’s neurons, taking a snapshot for every candle, and registering with precision every piece of data handled by the trading bot during the trading session.",
+            "updated": 1611253749127
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos combines the time navigation features of the charts with the visual environment representing data structures of the design space, to create an immersive user experience."
+        },
+        {
+            "style": "Callout",
+            "text": "Each of the nodes in the hierarchy may display its value on the design space, right below the icon representing the node, for each candle."
+        },
+        {
+            "style": "Note",
+            "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
+            "updated": 1611253775463
+        },
+        {
+            "style": "Text",
+            "text": "As a quick refresher, the process is more or less as follows:"
+        },
+        {
+            "style": "List",
+            "text": "Run a trading session. Start with a backtest, so that you may get a quick feel of how the Trading Engine hierarchy displays data spanning any period.",
+            "updated": 1611253817389
+        },
+        {
+            "style": "List",
+            "text": "Go to the chart displaying the simulation and find one of the positions.",
+            "updated": 1611253824254
+        },
+        {
+            "style": "List",
+            "text": "Turn on the Current Position layer in the Trading Engine layer manager. This layer monitors the position structure of nodes under the current node, that is, the information regarding current positions.",
+            "updated": 1611253835635
+        },
+        {
+            "style": "List",
+            "text": "Split the screen to make room for both the design space and the charting space.",
+            "updated": 1611253840769
+        },
+        {
+            "style": "List",
+            "text": "Position the view on the design space so that you may see the corresponding structure of nodes.",
+            "updated": 1611253852074
+        },
+        {
+            "style": "List",
+            "text": "Slide the pointer of the mouse over the charts, across the position, and notice how the values for each node displayed on the design space change. Each node displays the corresponding value for each candle.",
+            "updated": 1611253859589
+        },
+        {
+            "style": "Success",
+            "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
+            "updated": 1611253891479
+        }
+    ]
+}

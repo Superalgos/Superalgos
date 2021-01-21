@@ -58,6 +58,7 @@
 
     function run(callBackFunction) {
         try {
+            require ('CACA')
             loop()
 
             function loop() {

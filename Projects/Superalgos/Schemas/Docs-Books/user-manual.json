@@ -50,12 +50,33 @@
             "text": ""
         },
         {
+            "style": "Chapter",
+            "text": "IX->Superalgos->Topic->Trading Engine->The trading engine is about making the data processed by the Trading Bot accessible. Use it while debugging strategies to visually track every piece of information processed by the trading bot at any point in time. Use it from within trading systems to feed strategies with the details of what happens at runtime.",
+            "updated": 1611260954268
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Text",
             "text": "Work in Progress"
         },
         {
             "style": "Text",
             "text": "Work in Progress"
+        },
+        {
+            "style": "Text",
+            "text": "Work in Progress"
+        },
+        {
+            "style": "Text",
+            "text": "Work in Progress"
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

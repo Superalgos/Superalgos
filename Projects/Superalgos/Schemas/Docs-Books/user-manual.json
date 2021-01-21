@@ -36,12 +36,18 @@
             "updated": 1610310832197
         },
         {
-            "style": "Text",
-            "text": "Work in Progress"
+            "style": "Chapter",
+            "text": "VII->Superalgos->Topic->Low-Frequency Trading Bot->In Superalgos, the Trading Bot plays no part in the definition of the trading logic. Instead, it is the program that executes the trading logic, interacts with the exchange, and keeps track of orders.",
+            "updated": 1611236020198
+        },
+        {
+            "style": "Chapter",
+            "text": "VIII->Superalgos->Topic->Order Management->One of the crucial aspects of trading automation is the management of orders. The system operates with assumptions that must be verified and synchronized with the exchange. Learning how the Low-Frequency Trading Bot manages orders will help you understand the life cycle of orders and how your definitions in the Open Stage and the Close Stage affect the results.",
+            "updated": 1611237227549
         },
         {
             "style": "Text",
-            "text": "Work in Progress"
+            "text": ""
         },
         {
             "style": "Text",

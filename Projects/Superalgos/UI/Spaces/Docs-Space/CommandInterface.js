@@ -65,7 +65,7 @@ function newSuperalgosDocsCommmandInterface() {
             httpRequest(
                 undefined,
                 'App/Contribute/' +
-                message + '/' +
+                message.replaceAll('#', 'HASHTAG') + '/' +
                 config.username + '/' +
                 config.token + '/' +
                 UI.projects.superalgos.spaces.docsSpace.currentBranch + '/' +
@@ -82,7 +82,14 @@ function newSuperalgosDocsCommmandInterface() {
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Contribution Done')
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Contribution Not Sent', 'Anchor Contribution Not Sent')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
                 }
             }
         }
@@ -93,33 +100,6 @@ function newSuperalgosDocsCommmandInterface() {
                 return
             }
             if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('App.Update') !== 0 && UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf('app.update') !== 0) { return 'Not Update Commands' }
-
-            /* Set up the commit message */
-            let message = UI.projects.superalgos.spaces.docsSpace.commandInterface.command.trim().substring(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.indexOf(' ') + 1, UI.projects.superalgos.spaces.docsSpace.commandInterface.command.length)
-            if (message.toLowerCase() === 'app.update') {
-                message = 'Updating my Superalgos Fork and local Repository'
-            }
-
-            /* Find the Username and Password */
-            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
-            if (apisNode === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Hierarchy APIs Not Found')
-                return
-            }
-            if (apisNode.githubAPI === undefined) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github API Node Not Found')
-                return
-            }
-
-            let config = JSON.parse(apisNode.githubAPI.config)
-            if (config.username === undefined || config.username === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Username Not Found')
-                return
-            }
-            if (config.token === undefined || config.token === "") {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Config Property Token Not Found')
-                return
-            }
 
             httpRequest(undefined, 'App/Update/' + UI.projects.superalgos.spaces.docsSpace.currentBranch, onResponse)
             UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Updating Your Local App')
@@ -136,7 +116,14 @@ function newSuperalgosDocsCommmandInterface() {
                         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Message - Update Done - Already Up-To-Date')
                     }
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Update Failed', 'Anchor Update Failed')
+                    UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
+                    )
                 }
             }
         }

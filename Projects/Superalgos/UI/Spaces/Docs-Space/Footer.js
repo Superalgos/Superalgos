@@ -98,8 +98,8 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<h4>Choose the Current Branch</h4>'
         HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.currentBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'master\')">Master</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'develop\')">Develop</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 

@@ -21,7 +21,7 @@ function newSuperalgosDocSpace() {
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials, Reviews or Books Schema in order to find it when we need to update them.
         textArea: undefined,
         changeLanguage: changeLanguage,
-        changeActiveBranch: changeActiveBranch,
+        changeCurrentBranch: changeCurrentBranch,
         changeContributionsBranch: changeContributionsBranch,
         enterEditMode: enterEditMode,
         exitEditMode: exitEditMode,
@@ -183,7 +183,7 @@ function newSuperalgosDocSpace() {
         initialize()
     }
 
-    function changeActiveBranch(branch) {
+    function changeCurrentBranch(branch) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
 
@@ -195,7 +195,14 @@ function newSuperalgosDocSpace() {
                 window.localStorage.setItem('Current Branch', branch)
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Not Changed')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                )
             }
         }
     }

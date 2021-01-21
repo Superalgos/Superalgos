@@ -590,12 +590,17 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            const commitMessage = unescape(requestParameters[3])
+                            let commitMessage = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])
                             const currentBranch = unescape(requestParameters[6])
                             const contributionsBranch = unescape(requestParameters[7])
                             let error
+
+                            /* Unsavping # */
+                            for (let i = 0; i < 10; i++) {
+                                commitMessage = commitMessage.replace('HASHTAG', '#')
+                            }
 
                             contribute()
 

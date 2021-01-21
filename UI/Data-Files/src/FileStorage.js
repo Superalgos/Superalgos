@@ -2,7 +2,7 @@ function newFileStorage(host, port) {
   const MODULE_NAME = 'File Storage'
   const INFO_LOG = false
   const logger = newWebDebugLog()
-  
+
 
   const MAX_RETRY = 2
   let currentRetry = 0
@@ -37,13 +37,16 @@ function newFileStorage(host, port) {
       if (pathComplete === false || pathComplete === undefined) {
         folder = 'Storage/'
       }
-      let url = folder + filePath
+      let url
+
       if (host !== undefined && port !== undefined) {
         url = 'http://' + host + ':' + port + '/' + folder + filePath
       } else {
         url = folder + filePath
       }
 
+      /* Scaping # since it breaks the URL */
+      url = url.replaceAll('#', 'HASHTAG')
       httpRequest(undefined, url, (response, fileContent) => {
         if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
           callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, fileContent)

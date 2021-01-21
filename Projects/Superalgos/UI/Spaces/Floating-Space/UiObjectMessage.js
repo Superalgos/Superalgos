@@ -25,6 +25,7 @@ function newUiObjectMessage() {
     thisObject.container.frame.radius = 0
 
     let selfMouseClickEventSubscriptionId
+    let hoverAnimationCounter = 0
 
     return thisObject
 
@@ -50,6 +51,7 @@ function newUiObjectMessage() {
     function getContainer(point) {
         if (thisObject.text === undefined) { return }
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
+            hoverAnimationCounter = 30
             return thisObject.container
         } else {
             return undefined
@@ -68,6 +70,11 @@ function newUiObjectMessage() {
 
         thisObject.container.frame.width = FRAME_WIDTH
         thisObject.container.frame.height = FRAME_HEIGHT
+
+        hoverAnimationCounter--
+        if (hoverAnimationCounter < 0) {
+            hoverAnimationCounter = 0
+        }
     }
 
     function onMouseClick(event) {
@@ -120,15 +127,29 @@ function newUiObjectMessage() {
         }
     }
 
-    function drawMessageBackground(borderColor) {
+    function drawMessageBackground(color) {
         if (thisObject.text === undefined) { return }
 
+        let backgroundColor
+        let borderColor
+        let lineWidth
+
+        if (hoverAnimationCounter > 0 && thisObject.docs !== undefined) {
+            backgroundColor =  UI_COLOR.LIGHT_GREY
+            borderColor = color
+            lineWidth = 2
+        } else {
+            backgroundColor = UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor
+            borderColor = color
+            lineWidth = 0.5
+        }
+
         let params = {
-            cornerRadius: 5,
-            lineWidth: 0.5,
+            cornerRadius: 10,
+            lineWidth: lineWidth,
             container: thisObject.container,
             borderColor: borderColor,
-            backgroundColor: UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor,
+            backgroundColor: backgroundColor,
             castShadow: false,
             opacity: 0.75
         }

@@ -621,11 +621,13 @@ function newSuperalgosTutorialSpace() {
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
-                                                case (repositionAtTimeMachineCounter > 10 && repositionAtTimeMachineCounter < 20): {
-                                                    let event = {
-                                                        delta: -1
+                                                case (repositionAtTimeMachineCounter > 1 && repositionAtTimeMachineCounter < 30): {
+                                                    for (let i = 0; i < 10; i++) {
+                                                        let event = {
+                                                            delta: -1
+                                                        }
+                                                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     }
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {
@@ -1189,9 +1191,9 @@ function newSuperalgosTutorialSpace() {
         syncConfigIconWithDocumentIcon()
         transformDocsInfoIntoTutorialInfo()
         createTheHTML()
-        
-        if (nodeConfig.controlDocs !== undefined ) {
-            if ( nodeConfig.controlDocs.closeTutorialEditor !== true) {
+
+        if (nodeConfig.controlDocs !== undefined) {
+            if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
             }
         } else {

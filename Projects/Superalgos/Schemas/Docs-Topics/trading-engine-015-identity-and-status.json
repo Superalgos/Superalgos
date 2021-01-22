@@ -1,0 +1,161 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "15",
+    "type": "Identity and Status",
+    "definition": {
+        "text": "Keep track of information related to the identity or status of the particular object, in the corresponding context. On this page: Index, Serial Number, Identifier, Exchange Id, Status, Exit Type, Situation Name, Situation Name, Algorithm Name, and Algorithm Name.",
+        "updated": 1611337690744
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This page compiles nodes common to many different contexts and which have a relationship with the identity, status, or similar properties of the object.",
+            "updated": 1611337706400
+        },
+        {
+            "style": "Title",
+            "text": "Index",
+            "updated": 1611338005986
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Index->Definition",
+            "updated": 1611338008928
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Index->Content",
+            "updated": 1611338011615
+        },
+        {
+            "style": "Title",
+            "text": "Serial Number",
+            "updated": 1611338019622
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Serial Number->Definition",
+            "updated": 1611338022203
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Serial Number->Content",
+            "updated": 1611338024711
+        },
+        {
+            "style": "Title",
+            "text": "Identifier",
+            "updated": 1611338034234
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Identifier->Definition",
+            "updated": 1611338037288
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Identifier->Content",
+            "updated": 1611338041111
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Id",
+            "updated": 1611338051756
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Id->Definition",
+            "updated": 1611338054763
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Id->Content",
+            "updated": 1611338057839
+        },
+        {
+            "style": "Title",
+            "text": "Status",
+            "updated": 1611338066340
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status->Definition",
+            "updated": 1611338069198
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status->Content",
+            "updated": 1611338075010
+        },
+        {
+            "style": "Title",
+            "text": "Exit Type",
+            "updated": 1611338088984
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exit Type->Definition",
+            "updated": 1611338091878
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exit Type->Content",
+            "updated": 1611338095878
+        },
+        {
+            "style": "Title",
+            "text": "Situation Name",
+            "updated": 1611338259000
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Situation Name->Definition",
+            "updated": 1611338261763
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Situation Name->Content",
+            "updated": 1611338265343
+        },
+        {
+            "style": "Title",
+            "text": "Strategy Name",
+            "updated": 1611338279553
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Name->Definition",
+            "updated": 1611338282513
+        },
+        {
+            "style": "Title",
+            "text": "Algorithm Name",
+            "updated": 1611338404013
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Algorithm Name->Definition",
+            "updated": 1611338523928
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Algorithm Name->Content",
+            "updated": 1611338526964
+        },
+        {
+            "style": "Title",
+            "text": "Order Name",
+            "updated": 1611338535849
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Name->Definition",
+            "updated": 1611338538713
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Name->Content",
+            "updated": 1611338541890
+        }
+    ]
+}

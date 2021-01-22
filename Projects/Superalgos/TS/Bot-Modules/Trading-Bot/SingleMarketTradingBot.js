@@ -679,13 +679,6 @@
                 }
             }
 
-            function sessionStopped() {
-                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Running') {
-                    TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Stopped')
-                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS = 'Stopped'
-                }
-            }
-
         } catch (err) {
             TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR = err
 

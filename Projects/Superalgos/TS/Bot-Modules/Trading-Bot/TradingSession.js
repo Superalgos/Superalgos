@@ -222,13 +222,22 @@
                 */
 
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters === undefined) {
-                    let errorMessage = "Session Node with no Parameters."
+                    let errorMessage = "Session Node With No Parameters"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(
                         processIndex,
                         TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE,
-                        errorMessage
+                        errorMessage,
+                        docs
                     )
                     return false
                 }
@@ -247,18 +256,34 @@
                     /* Check that we received valid dates */
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                         if (isNaN(new Date(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime)).valueOf()) {
-                            let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                            let errorMessage = "Initial Datetime Is Not A Valid Date"
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                            TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage)
+
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS Trading Session Error - ' + errorMessage,
+                                placeholder: {}
+                            }
+
+                            TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange, errorMessage, docs)
                             return false
                         }
                     }
                     if (isNaN(new Date(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.finalDatetime)).valueOf()) {
-                        let errorMessage = "sessionParameters.timeRange.config.initialDatetime is not a valid date."
+                        let errorMessage = "Final Datetime Is Not A Valid Date"
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage)
+
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS Trading Session Error - ' + errorMessage,
+                            placeholder: {}
+                        }
+
+                        TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange, errorMessage, docs)
                         return false
                     }
                 }

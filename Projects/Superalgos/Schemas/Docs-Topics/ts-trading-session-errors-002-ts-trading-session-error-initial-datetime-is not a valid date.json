@@ -1,0 +1,21 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "2",
+    "type": "TS Trading Session Error - Initial Datetime Is Not A Valid Date",
+    "definition": {
+        "text": "The initialDatetime  property configured at the Time Range node is not recongnized as a valid Javascript Datetime.",
+        "updated": 1611322806779
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The validation of sessionParameters.timeRange.config.initialDatetime did not pass, and therefore the Trading Session can not run.",
+            "updated": 1611322904690
+        },
+        {
+            "style": "Success",
+            "text": "Check Node JS Javsacript docs to learn how to correctly express a datetime value.",
+            "updated": 1611323830743
+        }
+    ]
+}

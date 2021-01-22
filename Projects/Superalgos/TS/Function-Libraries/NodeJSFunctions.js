@@ -43,6 +43,10 @@ exports.newSuperalgosFunctionLibrariesNodeJSFunctions = function () {
                     text: TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR.code
                 }
             }
+            docs.placeholder.errorDetails = {
+                style: 'Json',
+                text: JSON.stringify(TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR, undefined, 4)
+            }
         }
 
         if (TS.projects.superalgos.globals.taskVariables.FATAL_ERROR_MESSAGE || TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR) {

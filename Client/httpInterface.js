@@ -563,7 +563,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
 
                     function cleanFileName(fileName) {
-                        for (let i = 0; i < 10; i++) {
+                        for (let i = 0; i < 100; i++) {
                             fileName = fileName
                                 .replace(' ', '-')
                                 .replace('--', '-')

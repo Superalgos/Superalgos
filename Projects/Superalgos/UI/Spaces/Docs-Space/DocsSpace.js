@@ -225,9 +225,9 @@ function newSuperalgosDocSpace() {
         When an editor is on focus we will only
         take care of a few combinations of key strokes
         so as to tell the editor container when the user
-        would like to close the editor.
+        would like to close the editor. ESC key exits edit mode.    
         */
-        if (event.key === 'Escape') {
+        if (event.key === 'Escape') { 
             UI.projects.superalgos.spaces.docsSpace.exitEditMode()
         }
     }
@@ -242,8 +242,8 @@ function newSuperalgosDocSpace() {
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
             thisObject.documentPage.exitEditMode()
-            EDITOR_ON_FOCUS = false
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            EDITOR_ON_FOCUS = false
         }
     }
 

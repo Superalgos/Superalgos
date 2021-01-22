@@ -31,6 +31,8 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     TRADING_PROCESSING_DAILY_FILES          When in a trading process, this tell us if we are processing Daily Files or not.
     FILE_PATH_ROOT                          Stores the prefix of the path of any data or log file.
     WAIT_FOR_EXECUTION_FINISHED_EVENT       This boolean flag tell us if the process waits for an event to continue.
+    UNEXPECTED_ERROR:                       When we encounter an error that will produce the Process to be stopped, we store the err object here so that is properties can be extracted for logging purposes.
+
     */
     return thisObject
 }

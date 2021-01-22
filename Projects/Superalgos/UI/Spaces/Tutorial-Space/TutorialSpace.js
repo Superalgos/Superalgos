@@ -341,7 +341,7 @@ function newSuperalgosTutorialSpace() {
                 return
             }
             sliderCounter++
-            if (sliderCounter === 10 || sliderCounter === 100) {
+            if (sliderCounter === 1 || sliderCounter === 100) {
 
                 switch (config.slider) {
                     case "toTop": {
@@ -579,11 +579,13 @@ function newSuperalgosTutorialSpace() {
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
-                                                case (repositionAtTimeMachineCounter > 0 && repositionAtTimeMachineCounter < 20): {
+                                                case (repositionAtTimeMachineCounter > 1 && repositionAtTimeMachineCounter < 20): {
                                                     let event = {
                                                         delta: -1
                                                     }
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                                                    for (let i = 0; i < 100; i++) {
+                                                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                                                    }
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {

@@ -19,7 +19,6 @@
     return thisObject;
 
     function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
-
         statusDependencies = pStatusDependencies;
         dataDependenciesModule = pDataDependencies;
 

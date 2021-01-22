@@ -62,11 +62,6 @@ margin-bottom: 0px;
 margin-top: 0px;
 border: 0px solid #cdcdcd;
 padding: 5px;
-
-/* DELETE candidate
-margin: auto;
-margin-right: 20px;
-*/
 }
 
 .docs-table-cell{
@@ -817,7 +812,6 @@ padding-left: 180px;
 margin-top: 20px;
 }
 
-
 .docs-search-results-header-tabs-container > input {
 display: none;
 }
@@ -858,7 +852,8 @@ display: none;
 #tab4:checked ~ .docs-search-result-content #content4,
 #tab5:checked ~ .docs-search-result-content #content5,
 #tab6:checked ~ .docs-search-result-content #content6,
-#tab7:checked ~ .docs-search-result-content #content7 {
+#tab7:checked ~ .docs-search-result-content #content7,
+#tab8:checked ~ .docs-search-result-content #content8 {
 display: block;
 }
 

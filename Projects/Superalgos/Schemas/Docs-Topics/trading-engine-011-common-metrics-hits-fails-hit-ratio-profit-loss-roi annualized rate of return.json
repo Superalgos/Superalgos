@@ -1,17 +1,12 @@
 {
     "topic": "Trading Engine",
     "pageNumber": "11",
-    "type": "Metrics - Hits, Fails, Hit Ratio, Profit Loss, ROI, Annualized Rate of Return",
+    "type": "Common Metrics - Hits, Fails, Hit Ratio, Profit Loss, ROI, Annualized Rate of Return",
     "definition": {
-        "text": "Keep track of the number of hits, fails, and hit ratio, in any given context.",
-        "updated": 1611331870646
+        "text": "These metrics are available in different contexts, for instance, at the level of the Episode, the Position or the Position, and both for the base and quoted assets.",
+        "updated": 1611333971023
     },
     "paragraphs": [
-        {
-            "style": "Text",
-            "text": "The number of hits, fails, and their ratios are fundamental metrics.",
-            "updated": 1611331881268
-        },
         {
             "style": "Title",
             "text": "Hits",

@@ -1,0 +1,38 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "6",
+    "type": "TS Trading Session Error - Invalid Label Property Value",
+    "definition": {
+        "text": "This property expects you to define the Time Frame in which the Trading Session is going to run. The current value assigned to the property is not recognized as a valid value.",
+        "updated": 1611333049475
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "The value you currently have is invalid. You need to change it and run the Trading Session again.",
+            "updated": 1611333073771
+        },
+        {
+            "style": "Title",
+            "text": "Current Value"
+        },
+        {
+            "style": "Text",
+            "text": "The property at the moment has the following value. Note that a value will be shown below only if you received this error, not when you navigate to this error page via other means.",
+            "updated": 1611335162269
+        },
+        {
+            "style": "Placeholder",
+            "text": "currentValue"
+        },
+        {
+            "style": "Title",
+            "text": "Possible Values"
+        },
+        {
+            "style": "Json",
+            "text": "        \"24-hs\",\n        \"12-hs\",\n        \"08-hs\",\n        \"06-hs\",\n        \"04-hs\",\n        \"03-hs\",\n        \"02-hs\",\n        \"01-hs\"\n        \"45-min\",\n        \"40-min\",\n        \"30-min\",\n        \"20-min\",\n        \"15-min\",\n        \"10-min\",\n        \"05-min\",\n        \"04-min\",\n        \"03-min\",\n        \"02-min\",\n        \"01-min\"",
+            "updated": 1611332924603
+        }
+    ]
+}

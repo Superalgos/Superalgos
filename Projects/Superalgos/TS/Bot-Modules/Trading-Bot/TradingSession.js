@@ -222,7 +222,7 @@
                 */
 
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters === undefined) {
-                    let errorMessage = "Session Node With No Parameters"
+                    let errorMessage = "Parameters Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
 
@@ -256,7 +256,7 @@
                     /* Check that we received valid dates */
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
                         if (isNaN(new Date(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime)).valueOf()) {
-                            let errorMessage = "Initial Datetime Is Not A Valid Date"
+                            let errorMessage = "Invalid Initial Datetime Property Value"
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] initialize -> checkParemeters -> " + errorMessage)
 
@@ -264,7 +264,12 @@
                                 project: 'Superalgos',
                                 category: 'Topic',
                                 type: 'TS Trading Session Error - ' + errorMessage,
-                                placeholder: {}
+                                placeholder: {
+                                    currentValue: {
+                                        style: "Json",
+                                        text: TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime
+                                    }
+                                }
                             }
 
                             TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange, errorMessage, docs)
@@ -272,7 +277,7 @@
                         }
                     }
                     if (isNaN(new Date(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.finalDatetime)).valueOf()) {
-                        let errorMessage = "Final Datetime Is Not A Valid Date"
+                        let errorMessage = "Invalid Initial Datetime Property Value"
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[ERROR] initialize -> checkParemeters -> " + errorMessage)
 
@@ -280,7 +285,12 @@
                             project: 'Superalgos',
                             category: 'Topic',
                             type: 'TS Trading Session Error - ' + errorMessage,
-                            placeholder: {}
+                            placeholder: {
+                                currentValue: {
+                                    style: "Json",
+                                    text: TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.finalDatetime
+                                }
+                            }
                         }
 
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange, errorMessage, docs)
@@ -343,57 +353,118 @@
 
                 /* Time Frame */
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame === undefined) {
-                    let errorMessage = "Session Parameters Node with no Time Frame."
+                    let errorMessage = "Time Frame Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === undefined) {
-                    let errorMessage = "Session Parameters Node with no Time Frame Label configuration."
+                    let errorMessage = "Label Property Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame, errorMessage, docs)
                     return false
                 }
                 TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value = getTimeFrameFromLabel(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label)
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value === undefined) {
-                    let errorMessage = "Config error: label value not recognized. Try 01-min or 01-hs for example."
+                    let errorMessage = "Invalid Label Property Value"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {
+                            currentValue: {
+                                style: "Json",
+                                text: TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label
+                            }
+                        }
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame, errorMessage, docs)
                     return false
                 }
 
                 /* Session Base Asset */
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset === undefined) {
-                    let errorMessage = "Session Parameters Node with no Session Base Asset."
+                    let errorMessage = "Session Base Asset Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Session Parameters Session Base Asset with no initialBalance configuration."
+                    let errorMessage = "Initial Balance Property Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionBaseAsset, errorMessage, docs)
                     return false
                 }
 
                 /* Session Quoted Asset */
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset === undefined) {
-                    let errorMessage = "Session Parameters Node with no Session Quoted Asset."
+                    let errorMessage = "Session Quoted Asset Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Session Parameters Session Quoted Asset with no initialBalance configuration."
+                    let errorMessage = "Initial Balance Property Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.sessionQuotedAsset, errorMessage, docs)
                     return false
                 }
 

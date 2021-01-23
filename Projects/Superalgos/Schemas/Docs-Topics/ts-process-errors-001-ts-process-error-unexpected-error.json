@@ -3,12 +3,14 @@
     "pageNumber": "1",
     "type": "TS Process Error - Unexpected Error",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "There was an unexpected error and the process was shut down.",
+        "updated": 1611413113338
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "While running at the TS, the process where this error poped up encountered and unexpected error that forced the TS to shut the process down. The Task might still be running other not affected processes, but if all the processes stop running or this was the only one, then they Task itself might have stopped too.",
+            "updated": 1611413246602
         },
         {
             "style": "Error",

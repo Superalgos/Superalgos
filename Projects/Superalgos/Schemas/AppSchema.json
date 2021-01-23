@@ -14,8 +14,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isProjectHead": true,
@@ -67,8 +67,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "initialValues": {
@@ -106,8 +106,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isTitleAllwaysVisible": false,
@@ -143,8 +143,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isTitleAllwaysVisible": false,
@@ -204,8 +204,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isTitleAllwaysVisible": false,
@@ -220,20 +220,20 @@
             {
                 "action": "Pin / Unpin",
                 "currentStatus": true,
-                "iconPathOn": "unpinned",
-                "iconPathOff": "pinned",
+                "iconPathOn": "unpinned-node",
+                "iconPathOff": "pinned-node",
                 "actionFunction": "payload.executeAction",
                 "ring": 1
             },
             {
-                "iconPathOn": "share",
-                "iconPathOff": "share",
+                "iconPathOn": "share-entity",
+                "iconPathOff": "share-entity",
                 "actionFunction": "UI.projects.superalgos.spaces.designSpace.workspace.share",
                 "ring": 1
             },
             {
-                "iconPathOn": "backup",
-                "iconPathOff": "backup",
+                "iconPathOn": "backup-entity",
+                "iconPathOff": "backup-entity",
                 "actionFunction": "UI.projects.superalgos.spaces.designSpace.workspace.backup",
                 "ring": 1
             },
@@ -376,8 +376,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isTitleAllwaysVisible": true,
@@ -403,8 +403,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -412,7 +412,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesValues"
     },
     {
@@ -424,8 +424,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -433,7 +433,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesHighlights"
     },
     {
@@ -445,8 +445,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -454,7 +454,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesErrors"
     },
     {
@@ -466,8 +466,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -475,7 +475,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesWarnings"
     },
     {
@@ -487,8 +487,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -496,7 +496,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesInfos"
     },
     {
@@ -508,8 +508,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -517,7 +517,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesStatus"
     },
     {
@@ -529,8 +529,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -538,7 +538,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesProgress"
     },
     {
@@ -550,8 +550,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -559,7 +559,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesRunning"
     },
     {
@@ -571,8 +571,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -580,7 +580,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "nodesAnnouncements"
     },
     {
@@ -592,8 +592,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -601,7 +601,7 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "icon": "expand",
+        "icon": "expand-structure-of-nodes",
         "propertyNameAtParent": "recordValues"
     },
     {
@@ -668,8 +668,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -728,8 +728,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -791,8 +791,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -824,8 +824,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -857,8 +857,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -890,8 +890,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -924,8 +924,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -958,8 +958,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true,
@@ -993,8 +993,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1029,8 +1029,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1062,8 +1062,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1111,8 +1111,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "childrenNodesProperties": [
@@ -1159,8 +1159,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1199,8 +1199,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1251,8 +1251,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "childrenNodesProperties": [
@@ -1310,8 +1310,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1344,8 +1344,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1384,8 +1384,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1417,8 +1417,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1493,8 +1493,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1527,8 +1527,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1574,8 +1574,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1621,8 +1621,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1670,8 +1670,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1703,8 +1703,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1730,8 +1730,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -1758,8 +1758,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -1817,8 +1817,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -1863,8 +1863,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -1901,8 +1901,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -1944,8 +1944,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2002,8 +2002,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2043,8 +2043,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2086,8 +2086,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2121,8 +2121,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2152,8 +2152,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2185,8 +2185,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2218,8 +2218,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2290,8 +2290,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2375,8 +2375,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2470,8 +2470,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2532,8 +2532,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2580,8 +2580,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2614,8 +2614,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2643,8 +2643,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2712,8 +2712,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2784,8 +2784,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2871,8 +2871,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2929,8 +2929,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -2972,8 +2972,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3015,8 +3015,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3055,8 +3055,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3191,8 +3191,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3269,8 +3269,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3317,8 +3317,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3365,8 +3365,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3427,8 +3427,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3481,8 +3481,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3535,8 +3535,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3589,8 +3589,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3643,8 +3643,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3697,8 +3697,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3751,8 +3751,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3789,8 +3789,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3881,8 +3881,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -3979,8 +3979,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4071,8 +4071,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4125,8 +4125,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4179,8 +4179,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4233,8 +4233,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4287,8 +4287,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4341,8 +4341,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4379,8 +4379,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4437,8 +4437,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4489,8 +4489,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4541,8 +4541,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4629,8 +4629,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4717,8 +4717,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4787,8 +4787,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4863,8 +4863,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4915,8 +4915,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -4979,8 +4979,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5073,8 +5073,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "This",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5135,8 +5135,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5189,8 +5189,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5243,8 +5243,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5297,8 +5297,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5351,8 +5351,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5405,8 +5405,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5459,8 +5459,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5513,8 +5513,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5567,8 +5567,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5621,8 +5621,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5653,8 +5653,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5745,8 +5745,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5799,8 +5799,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5853,8 +5853,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5885,8 +5885,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -5989,8 +5989,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6043,8 +6043,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6097,8 +6097,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6151,8 +6151,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6205,8 +6205,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6259,8 +6259,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6313,8 +6313,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6367,8 +6367,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6421,8 +6421,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6453,8 +6453,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6517,8 +6517,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6581,8 +6581,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6663,8 +6663,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6745,8 +6745,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6867,8 +6867,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6921,8 +6921,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -6975,8 +6975,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7029,8 +7029,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7083,8 +7083,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7137,8 +7137,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7191,8 +7191,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7245,8 +7245,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7299,8 +7299,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7353,8 +7353,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7407,8 +7407,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7461,8 +7461,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7515,8 +7515,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7569,8 +7569,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7616,8 +7616,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7657,8 +7657,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7698,8 +7698,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7739,8 +7739,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7787,8 +7787,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7841,8 +7841,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -7873,8 +7873,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8025,8 +8025,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8079,8 +8079,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8133,8 +8133,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8187,8 +8187,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8241,8 +8241,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8295,8 +8295,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8349,8 +8349,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8403,8 +8403,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8457,8 +8457,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8511,8 +8511,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8565,8 +8565,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8619,8 +8619,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8673,8 +8673,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8727,8 +8727,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8781,8 +8781,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8813,8 +8813,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8865,8 +8865,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -8956,8 +8956,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9034,8 +9034,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9086,8 +9086,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9120,8 +9120,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9244,8 +9244,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9278,8 +9278,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9312,8 +9312,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9346,8 +9346,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9470,8 +9470,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9552,8 +9552,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9592,8 +9592,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9618,8 +9618,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9651,8 +9651,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9692,8 +9692,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9726,8 +9726,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9754,8 +9754,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9789,8 +9789,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9822,8 +9822,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9855,8 +9855,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9888,8 +9888,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9921,8 +9921,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9954,8 +9954,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -9987,8 +9987,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10020,8 +10020,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10053,8 +10053,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10125,8 +10125,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10226,8 +10226,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10281,8 +10281,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10353,8 +10353,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10454,8 +10454,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10523,8 +10523,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10580,8 +10580,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10646,8 +10646,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10707,8 +10707,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10763,8 +10763,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10819,8 +10819,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10874,8 +10874,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -10954,8 +10954,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11015,8 +11015,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11063,8 +11063,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11097,8 +11097,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11117,8 +11117,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11145,8 +11145,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11177,8 +11177,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11223,8 +11223,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11285,8 +11285,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11347,8 +11347,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11394,8 +11394,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11435,8 +11435,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11463,8 +11463,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11497,8 +11497,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11541,8 +11541,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11583,8 +11583,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11617,8 +11617,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11652,8 +11652,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11694,8 +11694,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11736,8 +11736,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11772,8 +11772,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11816,8 +11816,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11876,8 +11876,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -11949,8 +11949,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12010,8 +12010,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12066,8 +12066,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12109,8 +12109,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12168,8 +12168,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12225,8 +12225,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12270,8 +12270,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12315,8 +12315,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12360,8 +12360,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12417,8 +12417,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12456,8 +12456,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12502,8 +12502,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12558,8 +12558,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12614,8 +12614,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12659,8 +12659,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12701,8 +12701,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12737,8 +12737,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12773,8 +12773,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12809,8 +12809,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12845,8 +12845,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12879,8 +12879,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -12937,8 +12937,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13008,8 +13008,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13074,8 +13074,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13156,8 +13156,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13249,8 +13249,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13315,8 +13315,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13360,8 +13360,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13417,8 +13417,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13464,8 +13464,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13498,8 +13498,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13533,8 +13533,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13571,8 +13571,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13622,8 +13622,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13673,8 +13673,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13706,8 +13706,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13744,8 +13744,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13794,8 +13794,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13841,8 +13841,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13902,8 +13902,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13936,8 +13936,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -13981,8 +13981,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14023,8 +14023,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14083,8 +14083,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14194,8 +14194,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14234,8 +14234,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14342,8 +14342,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14410,8 +14410,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14457,8 +14457,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14502,8 +14502,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14543,8 +14543,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14577,8 +14577,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14606,8 +14606,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14643,8 +14643,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14687,8 +14687,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isHierarchyHead": true,
@@ -14736,8 +14736,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -14769,8 +14769,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "addLeftIcons": true
@@ -14823,8 +14823,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isHierarchyHead": true,
@@ -14879,8 +14879,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14926,8 +14926,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -14994,8 +14994,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15083,8 +15083,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15117,8 +15117,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15151,8 +15151,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15201,8 +15201,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15272,8 +15272,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15332,8 +15332,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15389,8 +15389,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15425,8 +15425,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15471,8 +15471,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15507,8 +15507,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15553,8 +15553,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15599,8 +15599,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15657,8 +15657,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15732,8 +15732,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15803,8 +15803,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15874,8 +15874,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -15945,8 +15945,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16017,8 +16017,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16089,8 +16089,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16161,8 +16161,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16232,8 +16232,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16303,8 +16303,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16374,8 +16374,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16445,8 +16445,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16508,8 +16508,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16579,8 +16579,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16642,8 +16642,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16713,8 +16713,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16776,8 +16776,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16819,8 +16819,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16869,8 +16869,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16911,8 +16911,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -16961,8 +16961,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17011,8 +17011,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17061,8 +17061,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17112,8 +17112,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17163,8 +17163,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17205,8 +17205,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17253,8 +17253,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17318,8 +17318,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17383,8 +17383,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17440,8 +17440,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17490,8 +17490,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17525,8 +17525,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17568,8 +17568,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17618,8 +17618,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17668,8 +17668,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17715,8 +17715,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17761,8 +17761,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17805,8 +17805,8 @@
                 "confirmationLabel": "Confirm to Delete",
                 "actionFunction": "payload.executeAction",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete"
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
             }
         ],
         "isHierarchyHead": true,
@@ -17843,8 +17843,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17926,8 +17926,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -17963,8 +17963,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18000,8 +18000,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18037,8 +18037,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18074,8 +18074,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18111,8 +18111,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18147,8 +18147,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18175,8 +18175,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18238,8 +18238,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18310,8 +18310,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18375,8 +18375,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18421,8 +18421,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18468,8 +18468,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],
@@ -18514,8 +18514,8 @@
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
                 "label": "Delete",
-                "iconPathOn": "delete",
-                "iconPathOff": "delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
             }
         ],

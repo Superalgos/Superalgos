@@ -1,0 +1,106 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "1",
+    "type": "Data Mine Hierarchy",
+    "definition": {
+        "text": "Data mines enable the processing of data by consuming datasets others have produced, performing calculations, and outputting a new value-added data product that others may consume.",
+        "updated": 1611407680590
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos puts a powerful data processing and visualization system in your hands. Use it to the fullest and you will see your intelligence increase by orders of magnitude.",
+            "updated": 1611407700153
+        },
+        {
+            "style": "Text",
+            "text": "Anyone may access raw trades and order book data from exchanges. Anyone may access information in the form of standard indicators and technical studies."
+        },
+        {
+            "style": "Callout",
+            "text": "However, Superalgos allows you to perform any sort of processing over existing information across the whole span of the market, store the results into new datasets, and make them available to trading strategies. Moreover, it allows you to produce elaborate graphical representations of data, which is instantly browsable over the charts."
+        },
+        {
+            "style": "Text",
+            "text": "Data mines’ functionality is highly flexible and works under the same paradigm used for building strategies. They provide a visual interface and a framework that leads you through the process of creating new bots, with minimal coding skills required."
+        },
+        {
+            "style": "Text",
+            "text": "The vast majority of the complexity of processing data is handled internally by the bots, and you don’t need to deal with it or even understand it. The system isolates complexity and only exposes you to the crucial elements that impact what you wish to accomplish."
+        },
+        {
+            "style": "Text",
+            "text": "This section of the documentation provides you with the technical understanding of how data is handled by the system. The core of the functionality this section unveils covers—in essence—the following points:"
+        },
+        {
+            "style": "Text",
+            "text": "The capacity to define any number of calculation processes that may feed on each other’s outputs, resulting in a wealth of information that may be consumed by trading strategies."
+        },
+        {
+            "style": "Text",
+            "text": "The properties and characteristics of datasets resulting from the execution of such processes—how and where they are stored, in what format, how they are consumed internally, and potentially, by other systems."
+        },
+        {
+            "style": "Text",
+            "text": "The capacity to visualize the data over the charts and browse it with all the features built in the charting system."
+        },
+        {
+            "style": "Title",
+            "text": "Data Mine",
+            "updated": 1611407778880
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Definition",
+            "updated": 1611407782909
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine->Content",
+            "updated": 1611407786577
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Mine->2",
+            "updated": 1611407832651
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot",
+            "updated": 1611407910652
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Sensor Bot->Definition",
+            "updated": 1611407914247
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Bot",
+            "updated": 1611407935038
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Bot->Definition",
+            "updated": 1611407948292
+        },
+        {
+            "style": "Title",
+            "text": "Plotter",
+            "updated": 1611407956192
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter->Definition",
+            "updated": 1611407972840
+        }
+    ]
+}

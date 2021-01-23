@@ -681,12 +681,6 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
-        "initialValues": {
-            "config": "{ \n  \"codeName\": \"\"\n}"
-        },
-        "editors": {
-            "config": true
-        },
         "childrenNodesProperties": [
             {
                 "name": "plotterPanelJavascriptCode",
@@ -701,13 +695,6 @@
             }
         ],
         "menuItems": [
-            {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -2514,14 +2501,6 @@
         "type": "Trading Bot Instance",
         "menuItems": [
             {
-                "action": "Configure",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add Process Instance",
                 "relatedUiObject": "Trading Process Instance",
@@ -2538,12 +2517,6 @@
             }
         ],
         "addLeftIcons": true,
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{}"
-        },
         "level": 3,
         "attachingRules": {
             "compatibleTypes": "->Task->"
@@ -10554,14 +10527,6 @@
         "type": "Indicator Bot Instance",
         "menuItems": [
             {
-                "action": "Configure",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "timeFramesFilter",
@@ -10587,12 +10552,6 @@
         ],
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{}"
-        },
         "level": 3,
         "attachingRules": {
             "compatibleTypes": "->Task->"
@@ -12041,13 +12000,6 @@
         "type": "Trading System",
         "menuItems": [
             {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add Trading Strategy",
                 "relatedUiObject": "Trading Strategy",
@@ -12074,12 +12026,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{ \n  \"codeName\": \"\"\n}"
-        },
         "childrenNodesProperties": [
             {
                 "name": "tradingStrategies",
@@ -14952,14 +14898,6 @@
         "type": "Time Machine",
         "menuItems": [
             {
-                "action": "Configure",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration",
-                "dontShowAtFullscreen": true,
-                "actionFunction": "uiObject.configEditor.activate"
-            },
-            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "timeScale",
@@ -14999,13 +14937,7 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "initialValues": {
-            "config": "{}"
-        },
         "addLeftIcons": true,
-        "editors": {
-            "config": true
-        },
         "level": 1,
         "isTitleAllwaysVisible": true,
         "referencingRules": {

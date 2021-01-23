@@ -1,10 +1,10 @@
 {
     "topic": "Data Mines",
-    "pageNumber": "2",
-    "type": "Indicator Bot - Process Definition",
+    "pageNumber": "3",
+    "type": "Indicator Bots - Process Definition",
     "definition": {
-        "text": "The process definition is the compilation of configurations, dependencies, and references that make up the process.",
-        "updated": 1611408469034
+        "text": "The process definition is the compilation of configurations, dependencies, and references that make up a process.",
+        "updated": 1611410324543
     },
     "paragraphs": [
         {

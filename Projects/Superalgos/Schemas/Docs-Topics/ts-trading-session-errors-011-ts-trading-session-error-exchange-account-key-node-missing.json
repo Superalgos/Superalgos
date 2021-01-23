@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "11",
+    "type": "TS Trading Session Error - Exchange Account Key Node Missing",
+    "definition": {
+        "text": "An Exchange Account Key Node is expected and needed in order to run a Live Trading Session or an Forward Testing Session.",
+        "updated": 1611392704049
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "From the Key Reference Node where this error poped up, you need to reference an Account Exchange Key holding your keys to access your account at the Exchange.",
+            "updated": 1611392779124
+        }
+    ]
+}

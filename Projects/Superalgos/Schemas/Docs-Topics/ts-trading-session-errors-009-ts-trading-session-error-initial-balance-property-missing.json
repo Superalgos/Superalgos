@@ -9,8 +9,16 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "Check the config at the Node reporting this error and make sure that this property exists. ",
-            "updated": 1611335725336
+            "text": "Check the config at the Node reporting this error and make sure that this property exists.",
+            "updated": 1611392878438
+        },
+        {
+            "style": "Title",
+            "text": "Property Missing"
+        },
+        {
+            "style": "Json",
+            "text": "initialBalance"
         }
     ]
 }

@@ -1,0 +1,24 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "12",
+    "type": "TS Trading Session Error - Codename Property Missing",
+    "definition": {
+        "text": "A property called codeName is expeceted at the Exchange Account Key Node config.",
+        "updated": 1611392953689
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Add this property and assign to it the value of your account key taken from the Exchange website.",
+            "updated": 1611393012580
+        },
+        {
+            "style": "Title",
+            "text": "Property Missing"
+        },
+        {
+            "style": "Json",
+            "text": "codeName"
+        }
+    ]
+}

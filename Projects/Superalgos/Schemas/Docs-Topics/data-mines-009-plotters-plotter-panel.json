@@ -1,0 +1,70 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "9",
+    "type": "Plotters - Plotter Panel",
+    "definition": {
+        "text": "A plotter panel allows building panels with numerical representations of data.",
+        "updated": 1611432021846
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter Panel->Definition",
+            "updated": 1611432049796
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter Panel->Content",
+            "updated": 1611432052734
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Plotter Panel->4",
+            "updated": 1611432061472
+        },
+        {
+            "style": "Title",
+            "text": "Panel Data",
+            "updated": 1611432322437
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Panel Data->Definition",
+            "updated": 1611432326601
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Panel Data->Content",
+            "updated": 1611432330023
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Formula",
+            "updated": 1611432338583
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Formula->Definition",
+            "updated": 1611432348376
+        },
+        {
+            "style": "Subtitle",
+            "text": "Text Style",
+            "updated": 1611432394440
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Text Style->Definition",
+            "updated": 1611432402298
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Text Style->Content",
+            "updated": 1611432405386
+        }
+    ]
+}

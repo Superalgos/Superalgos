@@ -517,31 +517,63 @@
 
             function checkKey() {
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference === undefined) {
-                    let errorMessage = "Key Reference not defined. Please check that and try again."
+                    let errorMessage = "Key Reference Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent === undefined) {
-                    let errorMessage = "Key Reference not referencing an Exchange Account Key. Please check that and try again."
+                    let errorMessage = "Exchange Account Key Node Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName === undefined) {
-                    let errorMessage = "Key 'codeName' undefined. Paste there you key. Please check that and try again."
+                    let errorMessage = "Codename Property Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent, errorMessage, docs)
                     return false
                 }
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret === undefined) {
-                    let errorMessage = "Key 'secret' undefined. Paste there you key secret. Please check that and try again."
+                    let errorMessage = "Secret Property Missing"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] initialize -> checkKey -> " + errorMessage)
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE, errorMessage)
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS Trading Session Error - ' + errorMessage,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent, errorMessage, docs)
                     return false
                 }
                 return true

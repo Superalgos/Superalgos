@@ -32,10 +32,6 @@
             "updated": 1609787745299
         },
         {
-            "style": "Text",
-            "text": "The image above shows a case of a self-reference status dependency as well as a market ending point status dependency."
-        },
-        {
             "style": "Block",
             "text": "Configuring"
         },

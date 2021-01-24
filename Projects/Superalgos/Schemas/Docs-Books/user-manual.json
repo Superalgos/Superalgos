@@ -59,20 +59,29 @@
             "text": ""
         },
         {
-            "style": "Text",
-            "text": "Work in Progress"
+            "style": "Chapter",
+            "text": "X->Superalgos->Topic->Trading Farms->Superalgos may coordinate Data Tasks and Trading Tasks across different machines on a network. Trading farms provide a robust environment for smart and scalable deployments.",
+            "updated": 1611503033139
         },
         {
-            "style": "Text",
-            "text": "Work in Progress"
+            "style": "Chapter",
+            "text": "XI->Superalgos->Topic->Crypto Ecosystem->The crypto ecosystem manages the interactions with parties external to Superalgos, primarily exchanges. ",
+            "updated": 1611503004599
         },
         {
-            "style": "Text",
-            "text": "Work in Progress"
+            "style": "Chapter",
+            "text": "XII->Superalgos->Topic->Data Mines->Data Mines deal with bots that process data and feature a visual scripting framework that solves most all of the infrastructure intricacies of building indicators and plotters.",
+            "updated": 1611503425133
         },
         {
-            "style": "Text",
-            "text": "Work in Progress"
+            "style": "Chapter",
+            "text": "XIII->Superalgos->Topic->Integrations->Superalgos integrates with Telegram Bots to broadcast announcements emerging from trading sessions. On the other hand, Superalgos supports receiving webhook messages, enabling automated actions originating from messages sent from third-party services, like TradingView.",
+            "updated": 1611503645995
+        },
+        {
+            "style": "Chapter",
+            "text": "XIV->Superalgos->Topic->Productivity Tools->This chapter discusses a collection of tools that help optimize productivity.",
+            "updated": 1611503697142
         },
         {
             "style": "Text",

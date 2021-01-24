@@ -1,0 +1,267 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "2",
+    "type": "How to Report an Issue",
+    "definition": {
+        "text": "Reporting an issue is a process that entails doing some basic research, carefully describing how to reproduce the issue, and gathering crucial information.",
+        "updated": 1611510213732
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before you consider reporting an issue, make sure you do everything within your reach to investigate the problem. In most cases, you will find that there is no issue at all and that you were making a mistake, skipping a step in the process, or not fulfilling a requirement.",
+            "updated": 1611510227112
+        },
+        {
+            "style": "Important",
+            "text": "The How to Troubleshoot an Issue guide takes you through a step-by-step process to investigate your issue and gather all relevant information. Carefully following the guide is a requirement for reporting an issue. If the very act of going through the troubleshooting steps does not solve your issue, then come back here once you have finished gathering the required information, as instructed in the guide. Remember, reporting an issue requires understanding what the issue is about, being able to explain how to reproduce it, and providing all relevant information.",
+            "updated": 1611510328837
+        },
+        {
+            "style": "Title",
+            "text": "1. Search for Similar Issues",
+            "updated": 1611511273179
+        },
+        {
+            "style": "Text",
+            "text": "Go to the Issues page in the Superalgos repository and use the search box to find issues that may be similar to yours."
+        },
+        {
+            "style": "List",
+            "text": "Search for open and closed issues (remove the is open tag).",
+            "updated": 1611510615215
+        },
+        {
+            "style": "List",
+            "text": "Try different keywords you would use to describe the issue."
+        },
+        {
+            "style": "Text",
+            "text": "If you find an issue that is similar to yours, read the whole thread. You may find information conducive to solving the issue, proposed workarounds, or reports on the status of the solution to the issue."
+        },
+        {
+            "style": "Text",
+            "text": "If you believe you have information relevant to the issue that has not yet been offered by other users, then go ahead and reply to the issue with everything you know about your case."
+        },
+        {
+            "style": "Text",
+            "text": "If there are no issues similar to yours, or your issue happens in a different context not addressed in the issues you’ve found, then go on with the next few steps."
+        },
+        {
+            "style": "Title",
+            "text": "2. Are you Ready to Report an Issue?",
+            "updated": 1611511264814
+        },
+        {
+            "style": "Text",
+            "text": "Please, make an honest assessment of the following questions:"
+        },
+        {
+            "style": "List",
+            "text": "Have you followed the How to Troubleshoot an Issue guide to the best of your abilities?",
+            "updated": 1611510652729
+        },
+        {
+            "style": "List",
+            "text": "Have you tested your issue with today’s version of the software?"
+        },
+        {
+            "style": "List",
+            "text": "Have you verified that none of the troubleshooting pages in the documentation addresses and solves your issue?"
+        },
+        {
+            "style": "List",
+            "text": "Have you captured and saved the associated errors in the browser console or the Log-Files folder?"
+        },
+        {
+            "style": "List",
+            "text": "In case your issue is related to the frontend… are you using Chrome or Safari to test the issue?",
+            "updated": 1611510679400
+        },
+        {
+            "style": "Text",
+            "text": "If you answer no to any of the above, then you are not ready to open an issue. If you may confidently answer yes to all questions, then please proceed."
+        },
+        {
+            "style": "Title",
+            "text": "3. Consider the Following",
+            "updated": 1611511254512
+        },
+        {
+            "style": "Text",
+            "text": "If the issue may be reproduced on one of the official workspaces, then report the issue as such. Issues occurring on custom workspaces have a lower priority."
+        },
+        {
+            "style": "Text",
+            "text": "Issues that may not be reproduced have lower priority than those that may be reproduced."
+        },
+        {
+            "style": "Title",
+            "text": "4. Open a New Issue",
+            "updated": 1611511249720
+        },
+        {
+            "style": "Text",
+            "text": "Click the New Issue button and select Get Started on the Bug report item. The following form will open:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/third-parties/report-an-issue-01.png",
+            "updated": 1611510882221
+        },
+        {
+            "style": "Text",
+            "text": "Carefully complete the form following the below guidelines:",
+            "updated": 1611510902570
+        },
+        {
+            "style": "Subtitle",
+            "text": "Title"
+        },
+        {
+            "style": "Text",
+            "text": "Do your best to describe the issue in a single, short sentence. Take your time. A good practice is describing what happens and in which context. For example: “WHB backtest stops short of finalDatetime”."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context"
+        },
+        {
+            "style": "Text",
+            "text": "Complete and adjust the contents leaving the information that fits your case and deleting the information that doesn’t."
+        },
+        {
+            "style": "List",
+            "text": "Operating System: Windows / MacOs / Linux / Other (include the version on either case)"
+        },
+        {
+            "style": "List",
+            "text": "Software version: today’s master branch / today’s develop branch"
+        },
+        {
+            "style": "List",
+            "text": "Workspace version: default Workspace.json (Getting Started Guide) / Simple Workspace.json / Workspace - Binance - WHB - BBTB.json / My custom workspace"
+        },
+        {
+            "style": "List",
+            "text": "Reproducible: the issue may / may not be reproduced."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Explain Your Issue",
+            "updated": 1611511238751
+        },
+        {
+            "style": "List",
+            "text": "Explain what the problem seems to be."
+        },
+        {
+            "style": "List",
+            "text": "Clearly explain what you wish to accomplish."
+        },
+        {
+            "style": "List",
+            "text": "Explain, step by step, what you’ve done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise."
+        },
+        {
+            "style": "List",
+            "text": "Explain what is the result you expect from your actions."
+        },
+        {
+            "style": "List",
+            "text": "Explain what happens instead of the expected results."
+        },
+        {
+            "style": "List",
+            "text": "Explain what errors you have found on-screen, on the browser console application, or in the Log-Files folder."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Reproduce the Issue on Video",
+            "updated": 1611511228776
+        },
+        {
+            "style": "Text",
+            "text": "The most important aspect of investigating an issue is being able to reproduce it. Capturing a video showing the steps that lead to the issue would be of great help."
+        },
+        {
+            "style": "Text",
+            "text": "If the issue happens within the browser, you may use the systems’ video capture feature:"
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F8 to capture a static PNG image."
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+        },
+        {
+            "style": "Text",
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+        },
+        {
+            "style": "Note",
+            "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
+            "updated": 1611511119973
+        },
+        {
+            "style": "Text",
+            "text": "In case the issue does not happen at the browser, for example, if it happens at the console, LICEcap is a lightweight, simple system that can help you capture GIF videos outside of Superalgos."
+        },
+        {
+            "style": "Note",
+            "text": "Bear in mind that GitHub issues accept files 10MB and lighter only.",
+            "updated": 1611511131091
+        },
+        {
+            "style": "Subtitle",
+            "text": "Attach Relevant Log Files",
+            "updated": 1611511219274
+        },
+        {
+            "style": "Text",
+            "text": "If you have on-screen errors or errors at the browser console, screen captures are fine."
+        },
+        {
+            "style": "Text",
+            "text": "If you have errors in the backend, attach the logs you have collected while following the troubleshooting guide."
+        },
+        {
+            "style": "Note",
+            "text": "GitHub issues do not allow uploading JSON files. Make a ZIP file with all relevant logs instead.",
+            "updated": 1611511170225
+        },
+        {
+            "style": "Subtitle",
+            "text": "Custom Workspace?",
+            "updated": 1611511208878
+        },
+        {
+            "style": "Text",
+            "text": "If the issue happens under specific conditions on a custom workspace, attach a share of the workspace. Do not attach backups as those may contain personal information such as API Keys."
+        },
+        {
+            "style": "Important",
+            "text": "Upload your workspace to the issue only if you feel comfortable with sharing it openly. If there are data structures that you prefer not to share, consider removing them so that you may share the non-sensitive bits only. If the issue happens precisely with the sensitive data structures in your workspace, then clearly explain the matter and wait for further instructions.",
+            "updated": 1611511186403
+        },
+        {
+            "style": "Title",
+            "text": "5. Enable Github Notifications",
+            "updated": 1611511204195
+        },
+        {
+            "style": "Text",
+            "text": "Make sure you enable GitHub notifications when someone responds to the issue, as developers may want to ask for more information."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

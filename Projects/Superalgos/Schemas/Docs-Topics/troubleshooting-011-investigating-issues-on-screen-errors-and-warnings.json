@@ -1,0 +1,25 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "11",
+    "type": "Investigating Issues - On-Screen Errors and Warnings",
+    "definition": {
+        "text": "When running a task or working on a strategy, errors in the session or the syntax of conditions and formulas are signaled at the offending node.",
+        "updated": 1611515342007
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The frontend application marks errors by drawing a red ring around the offending node and offers a brief description of the error on-screen. At the same time, a page describing the error details is made available on the documentation tab.",
+            "updated": 1611515405270
+        },
+        {
+            "style": "Text",
+            "text": "When running a trading session, the session node is usually the one featuring the error notice."
+        },
+        {
+            "style": "Text",
+            "text": "When working on a strategy, errors in the syntax or logic of conditions and formulas are displayed similarly. In such a context, make sure you turn on the Trading System Errors and Trading System Warnings layers of the corresponding session and look around within your workspace. Hover the mouse pointer over the node with a red ring and you should get a description of what is that is causing the unexpected behavior.",
+            "updated": 1611515450259
+        }
+    ]
+}

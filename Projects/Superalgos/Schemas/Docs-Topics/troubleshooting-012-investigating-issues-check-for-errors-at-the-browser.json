@@ -1,0 +1,20 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "12",
+    "type": "Investigating Issues - Check for Errors at the Browser",
+    "definition": {
+        "text": "When errors occur in the frontend application, you should either get an on-screen error, or an error should be logged in the browser console.",
+        "updated": 1611515570461
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Open Chrome’s DevTools with the F12 key (when the browser is in focus) and click the Console tab. Then go back to Superalgos and reproduce the issue. The console may display network errors and warnings of different sorts. Those are not important and you may safely ignore them.",
+            "updated": 1611515578715
+        },
+        {
+            "style": "Text",
+            "text": "Do pay attention to other kinds of errors, such as files that can not be loaded, or errors in specific system components."
+        }
+    ]
+}

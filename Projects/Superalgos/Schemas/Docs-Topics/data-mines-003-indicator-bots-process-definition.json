@@ -1,0 +1,228 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "3",
+    "type": "Indicator Bots - Process Definition",
+    "definition": {
+        "text": "The process definition is the compilation of configurations, dependencies, and references that make up a process.",
+        "updated": 1611410324543
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Process Definition->Definition",
+            "updated": 1611408487552
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Process Definition->Content",
+            "updated": 1611408491273
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Process Definition->2",
+            "updated": 1611409733095
+        },
+        {
+            "style": "Title",
+            "text": "Process Output",
+            "updated": 1611408788144
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Process Output->Definition",
+            "updated": 1611408791768
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1611409787758
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Process Output->2"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Output Dataset Folder",
+            "updated": 1611408893086
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Output Dataset Folder->Definition",
+            "updated": 1611408897031
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Output Dataset Folder->Content",
+            "updated": 1611408901554
+        },
+        {
+            "style": "Subtitle",
+            "text": "Output Dataset",
+            "updated": 1611408932688
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Output Dataset->Definition",
+            "updated": 1611408940761
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Output Dataset->Content",
+            "updated": 1611408945614
+        },
+        {
+            "style": "Title",
+            "text": "Process Dependencies",
+            "updated": 1611409011999
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Process Dependencies->Definition",
+            "updated": 1611409021282
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Process Dependencies->Content",
+            "updated": 1611409025810
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1611409846972
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Process Dependencies->4",
+            "updated": 1611409904800
+        },
+        {
+            "style": "Subtitle",
+            "text": "Status Dependency",
+            "updated": 1611409068335
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status Dependency->Definition",
+            "updated": 1611409075880
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status Dependency->Content",
+            "updated": 1611409079269
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Dependency",
+            "updated": 1611409226728
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Dependency->Definition",
+            "updated": 1611409243546
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Dependency->Content",
+            "updated": 1611409247489
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Mine Data Dependencies",
+            "updated": 1611409321781
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Data Dependencies->Definition",
+            "updated": 1611409326033
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Data Dependencies->Content",
+            "updated": 1611409329439
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bot Data Dependencies",
+            "updated": 1611409418545
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Bot Data Dependencies->Definition",
+            "updated": 1611409422639
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Bot Data Dependencies->Content",
+            "updated": 1611409426189
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Dependency Folder",
+            "updated": 1611409491551
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Dependency Folder->Definition",
+            "updated": 1611409495392
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Dependency Folder->Content",
+            "updated": 1611409498720
+        },
+        {
+            "style": "Title",
+            "text": "Status Report",
+            "updated": 1611409535037
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status Report->Definition",
+            "updated": 1611409555435
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Status Report->Content",
+            "updated": 1611409559374
+        },
+        {
+            "style": "Title",
+            "text": "Execution Started Event",
+            "updated": 1611409586862
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Started Event->Definition",
+            "updated": 1611409590304
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Started Event->Content",
+            "updated": 1611409593797
+        },
+        {
+            "style": "Title",
+            "text": "Execution Finished Event",
+            "updated": 1611409630398
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Finished Event->Definition",
+            "updated": 1611409635844
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Finished Event->Content",
+            "updated": 1611409640116
+        }
+    ]
+}

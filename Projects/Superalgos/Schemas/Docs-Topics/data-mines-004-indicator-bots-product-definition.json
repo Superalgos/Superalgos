@@ -1,0 +1,181 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "4",
+    "type": "Indicator Bots - Product Definition",
+    "definition": {
+        "text": "The product definition is the compilation of configurations, references, and JavaScript code that make up the data product.",
+        "updated": 1611425764441
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Product Definition->Definition",
+            "updated": 1611425809992
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Product Definition->Content",
+            "updated": 1611425814195
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Product Definition->2",
+            "updated": 1611425866970
+        },
+        {
+            "style": "Title",
+            "text": "Dataset Definition",
+            "updated": 1611425958957
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Dataset Definition->Definition",
+            "updated": 1611425968181
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Dataset Definition->Content",
+            "updated": 1611425972488
+        },
+        {
+            "style": "Title",
+            "text": "Record Definition",
+            "updated": 1611426032529
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Definition->Definition",
+            "updated": 1611426038754
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Definition->Content",
+            "updated": 1611426042645
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1611426075537
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Record Definition->4",
+            "updated": 1611426088183
+        },
+        {
+            "style": "Subtitle",
+            "text": "Record Property",
+            "updated": 1611426123252
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Property->Definition",
+            "updated": 1611426129988
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Property->Content",
+            "updated": 1611426133406
+        },
+        {
+            "style": "Subtitle",
+            "text": "Record Formula",
+            "updated": 1611426162635
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Formula->Definition",
+            "updated": 1611426176713
+        },
+        {
+            "style": "Title",
+            "text": "Calculations Procedure",
+            "updated": 1611426226554
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Calculations Procedure->Definition",
+            "updated": 1611426233636
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Calculations Procedure->Content",
+            "updated": 1611426238550
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Calculations Procedure->5",
+            "updated": 1611426280589
+        },
+        {
+            "style": "Subtitle",
+            "text": "Procedure Initialization",
+            "updated": 1611426543003
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Procedure Initialization->Definition",
+            "updated": 1611426555977
+        },
+        {
+            "style": "Subtitle",
+            "text": "Procedure Loop",
+            "updated": 1611426364374
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Procedure Loop->Definition",
+            "updated": 1611426368953
+        },
+        {
+            "style": "Subtitle",
+            "text": "Procedure Javascript Code",
+            "updated": 1611426387898
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Procedure Javascript Code->Definition",
+            "updated": 1611426391763
+        },
+        {
+            "style": "Title",
+            "text": "Data Building Procedure",
+            "updated": 1611426735172
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Building Procedure->Definition",
+            "updated": 1611426741534
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Building Procedure->Content",
+            "updated": 1611426749058
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Building Procedure->3",
+            "updated": 1611426785067
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

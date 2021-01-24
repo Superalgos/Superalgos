@@ -1,0 +1,20 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "8",
+    "type": "Perception Issues - Market Data or Indicators Seem to be Outdated",
+    "definition": {
+        "text": "For data to be up to date, the Masters and Sparta task managers need to be running.",
+        "updated": 1611514061066
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are running the system for the first time or you stopped running the system for some time, data will not be up to date. Every time you start the system, it will take some time for data to catch up with the present time.",
+            "updated": 1611514064800
+        },
+        {
+            "style": "Text",
+            "text": "To update your datasets until the present time you need to Run All Tasks in your Masters and Sparta task managers for the exchanges and markets you wish to work with, and allow enough time for the processes to go through the missing data."
+        }
+    ]
+}

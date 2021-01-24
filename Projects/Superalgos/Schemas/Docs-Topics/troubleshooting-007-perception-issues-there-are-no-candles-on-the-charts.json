@@ -1,0 +1,114 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "7",
+    "type": "Perception Issues - There Are No Candles on The Charts",
+    "definition": {
+        "text": "It takes time for your data mining operation to download data from the exchange and process the raw data to build candles. Check the progress of your data mining operation in the network hierarchy.",
+        "updated": 1611513813893
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are a few reasons why you may be having issues finding candles on the charts. Please, consider the following…",
+            "updated": 1611513833239
+        },
+        {
+            "style": "Title",
+            "text": "Check the Progress of the Data Mining Operation"
+        },
+        {
+            "style": "Text",
+            "text": "If you are just getting started with Superalgos, still following the getting started guide, bear in mind it takes time for data to be downloaded from the exchange. Depending on the power of your hardware and the speed of your internet connection, it may take anything from half an hour to several hours to see the first few candles, particularly those of the Binance exchange, as the market spans back to September 2017."
+        },
+        {
+            "style": "Text",
+            "text": "Check the data mining operation on the network hierarchy. You will be able to see candles on the screen only after the OHLCV Sensor Bot and the Candles Volumes indicator in the Masters task manager of the corresponding exchange data tasks node and market have both reached 100% progress."
+        },
+        {
+            "style": "Success",
+            "text": "If you are not sure what the above paragraph refers to, go back to the Welcome tutorial as a refresher.",
+            "updated": 1611513856516
+        },
+        {
+            "style": "Title",
+            "text": "Switch Candles Layer Off and Back On and Refresh the Page"
+        },
+        {
+            "style": "Text",
+            "text": "Zoom into the chart until you see the layer manager featuring the candles layer. Turn off the candles layer and turn it back on. This forces to candles layer to reload."
+        },
+        {
+            "style": "Title",
+            "text": "Check the Time, Rate and Time Frame Scales"
+        },
+        {
+            "style": "Text",
+            "text": "It may happen that you attempted to manipulate the charts and something went wrong in the process."
+        },
+        {
+            "style": "Text",
+            "text": "Try setting the time frame scale to 24 hours, and both the time scale and rate scale to automatic mode. Setting the time scale to automatic mode brings the whole span of the market in focus on the chart. Setting the rate scale to automatic mode sets the scale to fit the entire range of prices in the market. The goal is to make sure that all scales are set in a way in which—if there is any data to show—it will show."
+        },
+        {
+            "style": "Title",
+            "text": "Check the Integrity of Your Data"
+        },
+        {
+            "style": "Text",
+            "text": "Your PC may have been forcefully shut down or you may have closed the console running the Superalgos backend while running a data-mining operation. Such situations may cause some data to become corrupt."
+        },
+        {
+            "style": "Subtitle",
+            "text": "1. Check the integrity of the sensor bot data"
+        },
+        {
+            "style": "Text",
+            "text": "Go to the Exchange-Raw-Data folder under Data-Storage > Exchange > Market > Masters and keep opening the subfolders to get to the last day available, and open the Data.json file. If the file opens fine, this may mean that the data you downloaded from the exchange is safe."
+        },
+        {
+            "style": "Text",
+            "text": "If the last file in Exchange-Raw-Data does not open properly then delete the whole Data-Storage > Exchange > Market and run the data mining operation. This will have the OHLCV sensor bot download all the data from the exchange again, and all indicators calculated from scratch."
+        },
+        {
+            "style": "Text",
+            "text": "If the sensor data seems fine, then proceed with the next step."
+        },
+        {
+            "style": "Subtitle",
+            "text": "2. Check the integrity of indicator’s data"
+        },
+        {
+            "style": "Text",
+            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Period-Daily and Multi-Period-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles."
+        },
+        {
+            "style": "Text",
+            "text": "If you find any .tmp files or you can’t open some of the latest Data.json files in a regular text editor, or some files are empty, chances are the files have been corrupted."
+        },
+        {
+            "style": "Note",
+            "text": "Something similar may have happened with other indicators as well, so make sure you check the data storage folders of indicators that may not be working or that you may be experiencing issues with.",
+            "updated": 1611513920939
+        },
+        {
+            "style": "Text",
+            "text": "If that is the case, then you will delete the folder for each data mine within Data-Storage > Exchange > Market, but will leave Exchange-Raw-Data intact, and get the data mining operation running afterward. This will regenerate all indicators data products, including Candles Volumes."
+        },
+        {
+            "style": "Subtitle",
+            "text": "3. Remember that there is a proper way to close the system!"
+        },
+        {
+            "style": "Title",
+            "text": "Check for Errors at the Browser"
+        },
+        {
+            "style": "Text",
+            "text": "Open Chrome’s DevTools with the F12 key (when the browser is in focus) and click the Console tab. Then go back to Superalgos and reproduce the issue. The console may display network errors and warnings of different sorts. Those are not important and you may safely ignore them."
+        },
+        {
+            "style": "Text",
+            "text": "Do pay attention to other kinds of errors, such as files that can not be loaded, or errors in specific system components."
+        }
+    ]
+}

@@ -6,7 +6,7 @@ exports.newSuperalgosUtilitiesDocsFunctions = function () {
 
     return thisObject
 
-    function buildPlaceholder(docs, error, nodeName, nodeCode, nodeConfig, nodeValue) {
+    function buildPlaceholder(docs, error, nodeName, nodeCode, nodeConfig, nodeValue, contextInfo) {
         if (error !== undefined) {
             if (error.message !== undefined) {
                 docs.placeholder.errorMessage = {
@@ -54,6 +54,12 @@ exports.newSuperalgosUtilitiesDocsFunctions = function () {
             docs.placeholder.nodeValue = {
                 style: 'Json',
                 text: nodeValue
+            }
+        }
+        if (contextInfo !== undefined) {
+            docs.placeholder.contextInfo = {
+                style: 'Json',
+                text: JSON.stringify(contextInfo, undefined, 4)
             }
         }
     }

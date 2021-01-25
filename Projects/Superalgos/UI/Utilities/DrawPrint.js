@@ -224,7 +224,7 @@ function newSuperalgosUtilitiesDrawPrint() {
             if (fixedDecimals !== true) {
                 label = dynamicDecimals(labelToPrint, minDecimals)
             }
-            label = label.toLocaleString()
+            label = label.toUTCString()
             if (noDecimals === true) {
                 label = Math.trunc(label)
             }

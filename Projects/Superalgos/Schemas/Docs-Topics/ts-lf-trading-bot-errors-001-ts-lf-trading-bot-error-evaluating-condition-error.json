@@ -111,21 +111,6 @@
             "updated": 1611569590234
         },
         {
-            "style": "Subtitle",
-            "text": "Node Config",
-            "updated": 1611569510340
-        },
-        {
-            "style": "Text",
-            "text": "The follwing is the config stored at the node that produced the error  at the LF Trading Bot:",
-            "updated": 1611569573367
-        },
-        {
-            "style": "Placeholder",
-            "text": "nodeConfig",
-            "updated": 1611569598109
-        },
-        {
             "style": "Text",
             "text": ""
         }

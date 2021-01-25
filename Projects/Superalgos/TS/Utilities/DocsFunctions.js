@@ -6,29 +6,32 @@ exports.newSuperalgosUtilitiesDocsFunctions = function () {
 
     return thisObject
 
-    function buildPlaceholder(docs, error, nodeName, nodeCode, nodeConfig) {
-        if (error.message !== undefined) {
-            docs.placeholder.errorMessage = {
-                style: 'Error',
-                text: error.message
+    function buildPlaceholder(docs, error, nodeName, nodeCode, nodeConfig, nodeValue) {
+        if (error !== undefined) {
+            if (error.message !== undefined) {
+                docs.placeholder.errorMessage = {
+                    style: 'Error',
+                    text: error.message
+                }
             }
-        }
-        if (error.stack !== undefined) {
-            docs.placeholder.errorStack = {
-                style: 'Javascript',
-                text: error.stack
+            if (error.stack !== undefined) {
+                docs.placeholder.errorStack = {
+                    style: 'Javascript',
+                    text: error.stack
+                }
             }
-        }
-        if (error.nodeCode !== undefined) {
-            docs.placeholder.errorCode = {
+            if (error.nodeCode !== undefined) {
+                docs.placeholder.errorCode = {
+                    style: 'Json',
+                    text: error.nodeCode
+                }
+            }
+            docs.placeholder.errorDetails = {
                 style: 'Json',
-                text: error.nodeCode
+                text: JSON.stringify(error, undefined, 4)
             }
         }
-        docs.placeholder.errorDetails = {
-            style: 'Json',
-            text: JSON.stringify(error, undefined, 4)
-        }
+
         if (nodeName !== undefined) {
             docs.placeholder.nodeName = {
                 style: 'Json',
@@ -45,6 +48,12 @@ exports.newSuperalgosUtilitiesDocsFunctions = function () {
             docs.placeholder.nodeConfig = {
                 style: 'Json',
                 text: JSON.stringify(nodeConfig, undefined, 4)
+            }
+        }
+        if (nodeValue !== undefined) {
+            docs.placeholder.nodeValue = {
+                style: 'Json',
+                text: nodeValue
             }
         }
     }

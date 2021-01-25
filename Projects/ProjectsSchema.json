@@ -462,6 +462,12 @@
                     "propertyName": "miscellaneousFunctions",
                     "functionName": "newSuperalgosUtilitiesMiscellaneousFunctions",
                     "fileName": "MiscellaneousFunctions.js"
+                },
+                {
+                    "name": "Docs Functions",
+                    "propertyName": "docsFunctions",
+                    "functionName": "newSuperalgosUtilitiesDocsFunctions",
+                    "fileName": "DocsFunctions.js"
                 }
             ],
             "taskModules": [

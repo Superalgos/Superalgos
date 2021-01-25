@@ -1,10 +1,10 @@
 {
-    "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 107,
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 2,
     "type": "Tutorial Step - You Are In Command",
     "definition": {
-        "text": "The search box, my friend, has a double life. Sometimes she searches, but other times she commands, and does stuff... whatever you tell her!",
-        "updated": 1610657116033,
+        "text": "The search box in the Docs has a double life. Sometimes she searches, but other times she commands, and does stuff... whatever you tell her!",
+        "updated": 1611595553272,
         "icon": {
             "name": "strategy-manage-stage",
             "project": "Superalgos"
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Not just anything, of course. There's a list of available commands that have to do with two main subjects:",
-            "updated": 1610704166915
+            "text": "I mean the search box is also a command line interface! The list of available commands has to do with:",
+            "updated": 1611595675031
         },
         {
             "style": "List",

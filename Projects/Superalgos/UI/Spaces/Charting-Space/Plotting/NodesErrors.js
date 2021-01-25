@@ -26,21 +26,22 @@ function newNodesErrors() {
         for (let i = 0; i < array.length; i++) {
             let arrayItem = array[i]
             let nodeId = arrayItem[0]
-            let value = arrayItem[1]
-            applyValue(nodeId, value)
+            let errorMessage = arrayItem[1]
+            let docs = arrayItem[2]
+            applyValue(nodeId, errorMessage, docs)
         }
     }
 
-    async function applyValue(nodeId, value) {
+    async function applyValue(nodeId, errorMessage, docs) {
         if (UI.projects.superalgos.spaces.chartingSpace.visible !== true) { return }
         let node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(nodeId)
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }
-        if (value === '') {
+        if (errorMessage === '') {
             node.payload.uiObject.resetErrorMessage()
         } else {
-            node.payload.uiObject.setErrorMessage(value, 3)
+            node.payload.uiObject.setErrorMessage(errorMessage, 3, docs)
         }
     }
 }

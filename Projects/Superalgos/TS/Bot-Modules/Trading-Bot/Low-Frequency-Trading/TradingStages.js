@@ -601,7 +601,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                             }
                                         }
                                     } else {
-                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
+
+                                        let docs = {
+                                            project: 'Superalgos',
+                                            category: 'Topic',
+                                            type: 'TS LF Trading Bot Error - Reference to Phase Node Missing',
+                                            placeholder: {}
+                                        }
+
+                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
                                         continue
                                     }
 
@@ -700,7 +708,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                             }
                                         }
                                     } else {
-                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.'])
+
+                                        let docs = {
+                                            project: 'Superalgos',
+                                            category: 'Topic',
+                                            type: 'TS LF Trading Bot Error - Reference to Phase Node Missing',
+                                            placeholder: {}
+                                        }
+
+                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
                                         continue
                                     }
 

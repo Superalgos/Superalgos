@@ -201,11 +201,11 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
             let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetRate.formula.id)
             if (value === undefined) {
                 const message = 'Target Rate can not be undefined. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate.formula)
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate)
             }
             if (isNaN(value)) {
                 const message = 'Target Rate must be a number. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate.formula)
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate)
             }
 
             switch (tradingSystemStageNode.type) {
@@ -236,11 +236,11 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                     let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula.id)
                     if (value === undefined) {
                         const message = 'Target Size In Base Asset cannot be undefined. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset)
                     }
                     if (value === 0) {
                         const message = 'Target Size In Base Asset cannot be zero. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset)
                     }
 
                     switch (tradingSystemStageNode.type) {
@@ -272,11 +272,11 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                     let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula.id)
                     if (value === undefined) {
                         const message = 'Target Size In Quoted Asset cannot be undefined. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset)
                     }
                     if (value === 0) {
                         const message = 'Target Size In Quoted Asset cannot be zero. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset)
                     }
                     switch (tradingSystemStageNode.type) {
                         case 'Open Stage': {

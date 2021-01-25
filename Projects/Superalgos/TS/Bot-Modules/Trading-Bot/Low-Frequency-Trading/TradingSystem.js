@@ -290,6 +290,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
     function evalFormula(node) {
         let value
         let errorMessage
+        let docs
 
         try {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
@@ -301,21 +302,29 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             */
             value = 0
             errorMessage = err.message
+            docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Evaluating Formula Error',
+                placeholder: {}
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
 
         if (errorMessage !== undefined) {
-            tradingSystem.errors.push([node.id, errorMessage])
+            tradingSystem.errors.push([node.id, errorMessage, docs])
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
             return
-        }
-        if (value !== undefined) {
-            if (node.type === 'Formula' && isNaN(value)) {
-                tradingSystem.errors.push([node.id, 'Formula needs to return a number.'])
-                return
+        } else {
+            if (value !== undefined) {
+                if (node.type === 'Formula' && isNaN(value)) {
+                    tradingSystem.errors.push([node.id, 'Formula needs to return a number.'])
+                    return
+                }
+    
+                tradingSystem.values.push([node.id, value])
+                tradingSystem.formulas.set(node.id, value)
             }
-
-            tradingSystem.values.push([node.id, value])
-            tradingSystem.formulas.set(node.id, value)
         }
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)

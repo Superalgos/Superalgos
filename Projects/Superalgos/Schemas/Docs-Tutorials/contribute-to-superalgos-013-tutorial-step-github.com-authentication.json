@@ -1,6 +1,6 @@
 {
-    "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 118,
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 13,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
         "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",

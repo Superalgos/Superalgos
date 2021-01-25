@@ -1,10 +1,10 @@
 {
-    "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 111,
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 6,
     "type": "Tutorial Step - What About Free Riders?",
     "definition": {
-        "text": "Free riders are a problem, but we choose to assume goodwill! The ball is on your side of the court!",
-        "updated": 1610822537009,
+        "text": "Free riders are a problem, but we choose to assume goodwill! We trust that once you start helping the project, other people will be inspired and follow!",
+        "updated": 1611594822992,
         "icon": {
             "name": "bullet-error",
             "project": "Superalgos"
@@ -23,7 +23,8 @@
         },
         {
             "style": "Callout",
-            "text": "Are you ready to hit that ball? Let's get on with it!"
+            "text": "Enough preamble! Let's get on with it!",
+            "updated": 1611594786356
         }
     ]
 }

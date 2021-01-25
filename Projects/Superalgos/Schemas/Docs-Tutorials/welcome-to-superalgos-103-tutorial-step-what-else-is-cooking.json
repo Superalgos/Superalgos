@@ -1,6 +1,6 @@
 {
     "tutorial": "Welcome to Superalgos!",
-    "pageNumber": 102,
+    "pageNumber": 103,
     "type": "Tutorial Step - What Else Is Cooking?",
     "definition": {
         "icon": {
@@ -21,7 +21,8 @@
         },
         {
             "style": "List",
-            "text": "Mine blockchain data to access coin and contract information for all Ethereum-based projects, including De-Fi or what have you, visualizing data on the charts, building indicators, and leveraging the whole infrastructure."
+            "text": "Mine blockchain data to access coin and contract information for all Ethereum-based projects, including De-Fi or what have you, visualizing data on the charts, building indicators, and leveraging the rest of the Superalgos infrastructure.",
+            "updated": 1611584299475
         },
         {
             "style": "List",

@@ -1,20 +1,20 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "1",
-    "type": "TS LF Trading Bot Error - Evaluating Condition Error",
+    "pageNumber": "2",
+    "type": "TS LF Trading Bot Error - Evaluating Formula Error",
     "definition": {
-        "text": "An error occured while evaluation a User Defined Condition at the Trading System.",
+        "text": "An error occured while evaluation a User Defined Formula at the Trading System.",
         "updated": 1611568961215
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the Low Frequency Trading Bot encountered an error while trying to evaluate one of your conditions defined at the Trading System. Conditions are arbitrary Javascript Code that user can write as they want and in some cases they do not write valid Javascript for Nod JS. ",
+            "text": "While running at the TS, the Low Frequency Trading Bot encountered an error while trying to evaluate one of your formulas defined at the Trading System. Formulas are arbitrary Javascript Code that user can write as they want and in some cases they do not write valid Javascript for Nod JS. ",
             "updated": 1611569329977
         },
         {
             "style": "Error",
-            "text": "Evaluating Condition Error",
+            "text": "Evaluating Formula Error",
             "updated": 1611569347664
         },
         {

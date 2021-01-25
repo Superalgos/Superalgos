@@ -318,7 +318,16 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         } else {
             if (value !== undefined) {
                 if (node.type === 'Formula' && isNaN(value)) {
-                    tradingSystem.errors.push([node.id, 'Formula needs to return a number.'])
+
+                    docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - Formula Value Not A Number',
+                        placeholder: {}
+                    }
+                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+
+                    tradingSystem.errors.push([node.id, 'Formula needs to return a numeric value.', docs])
                     return
                 }
     

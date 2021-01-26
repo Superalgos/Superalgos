@@ -1,0 +1,46 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "14",
+    "type": "Debugging a Task",
+    "definition": {
+        "text": "Run the TaskManager project in your preferred IDE and use the Debug button on the task's menu.",
+        "updated": 1611648881024
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may debug any task, either a data mining task or a trading task by following these steps.",
+            "updated": 1611648894746
+        },
+        {
+            "style": "Text",
+            "text": "1. Run the Superalgos Client In the usual manner.",
+            "updated": 1611648991679
+        },
+        {
+            "style": "Text",
+            "text": "2. Open the TaskServer project in your preferred IDE, place a breakpoint in the part of the code you wish to debug, and run the TaskServer."
+        },
+        {
+            "style": "Text",
+            "text": "3. Click the Debug button on the menu of the task you wish to debug. The request will be routed to the TaskServer running in your IDE."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/troubleshooting/debugging-tasks.png",
+            "updated": 1611649086110
+        },
+        {
+            "style": "Text",
+            "text": "4. Run the trading session in case it is a trading task."
+        },
+        {
+            "style": "Text",
+            "text": "After a few seconds, execution should pause in the line where you put the breakpoint. Bear in mind the system runs slower in debug mode, thus, it may take a little while for the session to start processing, after loading all dependencies."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -75,8 +75,10 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
             }
 
         } catch (err) {
-            tradingSystem.errors.push([executionNode.id, err.message])
-            
+            if (err !== 'Error Already Recorded') {
+                tradingSystem.errors.push([executionNode.id, err.message])
+            }
+
             if (typeof err === 'string' || err instanceof String) {
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }

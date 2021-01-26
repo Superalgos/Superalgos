@@ -1,0 +1,19 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": "17",
+    "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Missing",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Percentage Of Algorithm Size Property Missing",
+            "updated": 1611651040820
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing property and try again."
+        }
+    ]
+}

@@ -526,6 +526,6 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         if (err !== undefined) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
-        throw 'Please fix the problem and try again.'
+        throw 'Error Already Recorded'
     }
 }

@@ -240,6 +240,18 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
                                 let value = eval(instruction)
                                 values.push(value)
                             } catch (err) {
+                                let docs = {
+                                    project: 'Superalgos',
+                                    category: 'Topic',
+                                    type: 'TS LF Trading Bot Error - Snapshot Instruction Evaluation Error',
+                                    placeholder: {}
+                                }
+
+                                let contextInfo = {
+                                    instruction: instruction
+                                }
+                                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined, undefined, contextInfo)
+
                                 tradingSystem.errors.push([nodeWithCode.id, 'Instruction ' + instruction + ' evalueates with error ' + err.message])
                                 values.push(0)
                             }
@@ -248,7 +260,15 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
                 }
             }
         } catch (err) {
-            tradingSystem.errors.push([nodeWithCode.id, err.message])
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Snapshot Unexpected Error',
+                placeholder: {}
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined)
+
+            tradingSystem.errors.push([nodeWithCode.id, err.message, docs])
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
         }

@@ -35,13 +35,23 @@ if (
     return
 }
 
+
+// 9808us Code -- Proposal to improve RAM issues
+const os = require("os")
+let totalRAM = os.totalmem() // Get total ram installed
+totalRAM = totalRAM / 1024 / 1024 
+let optimalRAM = totalRAM * 0.85 // Use 85% of installed RAM
+let maxOldSpaceSize = "--max-old-space-size="+(optimalRAM.toFixed(0)).toString()
+
+console.log('')
+console.log("Total RAM istalled in this system is: " + totalRAM.toFixed(0)) // Print the result in MB
 console.log('')
 console.log('OPTIONS ACCEPTED:')
 console.log('')
 let optionsAccepted = 0
 
 let options = {
-    execArgv: ['--max-old-space-size=8192'],
+    execArgv: [maxOldSpaceSize],
     stdio: 'inherit'
 }
 
@@ -50,16 +60,20 @@ if (process.argv.includes("minMemo")) {
         stdio: 'inherit'
     }
     optionsAccepted++
-    console.log('minMemo ............................ Running with Minimun Required Memory.')
+    console.log('minMemo ............................ Running with Minimun Required Memory')
+} else {
+    console.log('no minMemo configured .............. Running with 85% of installed Memory')
+    console.log('will use ........................... --max-old-space-size=' + optimalRAM.toFixed(0))
 }
 
 if (process.argv.includes("noBrowser")) {
     optionsAccepted++
-    console.log('noBrowser .......................... Running without User Interface.')
+    console.log('noBrowser .......................... Running without User Interface')
 }
 
 if (optionsAccepted === 0) {
-    console.log('none ............................... Running without any command line options.')
+    console.log('none ............................... Running without any command line options')
+    console.log('')
 }
 
 console.log('')
@@ -84,4 +98,3 @@ function fatalErrorHelp() {
     console.log('')
     console.log('node run minMemo noBrowser')
 }
-

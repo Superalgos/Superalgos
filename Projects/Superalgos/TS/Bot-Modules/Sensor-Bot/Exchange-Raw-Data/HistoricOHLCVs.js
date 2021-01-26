@@ -47,34 +47,39 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
+                /*
+                The config all ow us to define for the API different parameters for different
+                methods calls. At this point we are only interested of the parameters for the
+                fetch_ohlcv method, so we ignore the rest.
+                */
                 for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API.length; i++) {
-                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].method === 'fetch_ohlcv') {
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class !== undefined) {
-                            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class
+                    let API = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i]
+                    if (API.method === 'fetch_ohlcv') {
+                        if (API.class !== undefined) {
+                            exchangeId = API.class
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod !== undefined) {
+                        if (API.fetchOHLCVsMethod !== undefined) {
                             options = {
-                                'fetchOHLCVsMethod': TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod
+                                'fetchOHLCVsMethod': API.fetchOHLCVsMethod
                             }
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId !== undefined) {
-                            firstId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId
+                        if (API.firstId !== undefined) {
+                            firstId = API.firstId
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit !== undefined) {
-                            rateLimit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit
+                        if (API.rateLimit !== undefined) {
+                            rateLimit = API.rateLimit
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname !== undefined) {
-                            hostname = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname
+                        if (API.hostname !== undefined) {
+                            hostname = API.hostname
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType !== undefined) {
-                            fetchType = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType
+                        if (API.fetchType !== undefined) {
+                            fetchType = API.fetchType
+                        }
+                        if (API.limit !== undefined) {
+                            limit = API.limit
                         }
                     }
                 }
-            }
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit !== undefined) {
-                limit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit
             }
 
             let key
@@ -688,7 +693,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         we still need to save the full day of content, and 
                         we do it only if at least one candle has been processed.
                         */
-                        if (ohlcvArrayIndex > 0) { 
+                        if (ohlcvArrayIndex > 0) {
                             saveFile(currentDay)
                             return
                         }
@@ -698,7 +703,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         function saveFile(day) {
                             candlesFileContent = candlesFileContent + ']'
                             volumesFileContent = volumesFileContent + ']'
-                            
+
                             let fileName = 'Data.json'
 
                             filesToCreate++

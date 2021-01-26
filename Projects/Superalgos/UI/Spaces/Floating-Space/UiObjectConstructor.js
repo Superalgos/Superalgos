@@ -264,7 +264,7 @@ function newUiObjectConstructor() {
                 currentStatus: true,
                 label: undefined,
                 visible: true,
-                icons: ['set-node-arrangement-to-concave', 'set-node-arrangement-to-convex ', 'set-node-arrangement-to-vertical-right', 'set-node-arrangement-to-vertical-left', 'set-node-arrangement-to-horizontal-bottom', 'set-node-arrangement-to-horizontal-top'],
+                icons: ['set-node-arrangement-to-concave', 'set-node-arrangement-to-convex', 'set-node-arrangement-to-vertical-right', 'set-node-arrangement-to-vertical-left', 'set-node-arrangement-to-horizontal-bottom', 'set-node-arrangement-to-horizontal-top'],
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,

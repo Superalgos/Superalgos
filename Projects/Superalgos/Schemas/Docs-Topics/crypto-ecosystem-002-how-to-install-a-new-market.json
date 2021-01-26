@@ -1,0 +1,16 @@
+{
+    "topic": "Crypto Ecosystem",
+    "pageNumber": "2",
+    "type": "How to Install a New Market",
+    "definition": {
+        "text": "To install a new market, select Install Market on the menu of the market you wish to install. If the market is not set up, then you must set it up first.",
+        "updated": 1611651225966
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For the details, please follow the Install New Market tutorial on the Getting Started Workspace.",
+            "updated": 1611651240216
+        }
+    ]
+}

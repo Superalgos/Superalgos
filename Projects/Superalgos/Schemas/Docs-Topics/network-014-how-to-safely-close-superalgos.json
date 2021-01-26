@@ -1,0 +1,41 @@
+{
+    "topic": "Network",
+    "pageNumber": "14",
+    "type": "How to Safely Close Superalgos",
+    "definition": {
+        "text": "The correct way to close Superalgos is to stop all tasks in the data-mining and trading operations, wait a few seconds until the tasks stop, and only then close the browser. Before closing the console, you must wait around a minute until there is no further activity.",
+        "updated": 1611650579593
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The backend application runs independently from the frontend browser-based application. You may close the browser at any point without affecting your data-mining operation or the bots you may be running in your testing or prodution environments. Once you restart the browser and navigate to the correct URL, the frontend app reconnects with the backend and you regain control over the whole operation.",
+            "updated": 1611650588719
+        },
+        {
+            "style": "Important",
+            "text": "If you wish to completely close Superalgos and stop all operations, there is a safe way to do this while preventing the corruption of files that may be processing at any point.",
+            "updated": 1611650597554
+        },
+        {
+            "style": "Title",
+            "text": "Start Here"
+        },
+        {
+            "style": "Text",
+            "text": "1. Close all data-mining tasks. Select Stop All Exchange Data Tasks on the data mining node menu."
+        },
+        {
+            "style": "Text",
+            "text": "2. Close all tasks in the testing environment and the production environment. Select Stop All Task Managers in the testing and production environment nodes menus."
+        },
+        {
+            "style": "Text",
+            "text": "3. Wait a few seconds until all tasks are stopped and close the browser."
+        },
+        {
+            "style": "Text",
+            "text": "4. Wait for about one minute until all activity stops in the console, then close it."
+        }
+    ]
+}

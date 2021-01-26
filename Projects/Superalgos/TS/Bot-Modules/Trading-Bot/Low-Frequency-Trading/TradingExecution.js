@@ -51,16 +51,16 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
     ) {
         try {
             /* Trading Engine Stage Validations */
-            if (tradingEngineStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.targetSize === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.sizePlaced === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.sizeFilled === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'stageBaseAsset.feesPaid === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.targetSize === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.sizePlaced === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.sizeFilled === undefined', tradingEngineStage) }
-            if (tradingEngineStage.stageQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'stageQuotedAsset.feesPaid === undefined', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'Size Placed Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'Size Filled Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees Paid Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.sizePlaced === undefined) { badDefinitionUnhandledException(undefined, 'Size Placed Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'Size Filled Node Missing', tradingEngineStage) }
+            if (tradingEngineStage.stageQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees Paid Node Missing', tradingEngineStage) }
 
             await checkExecutionAlgorithms(executionNode)
 
@@ -89,7 +89,15 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
     }
 
     function badDefinitionUnhandledException(err, message, node) {
-        tradingSystem.errors.push([node.id, message])
+
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Error - ' + message,
+            placeholder: {}
+        }
+
+        tradingSystem.errors.push([node.id, message, docs])
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
@@ -98,7 +106,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
         if (err !== undefined) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
-        throw 'Please fix the problem and try again.'
+        throw 'Error Already Recorded'
     }
 }
 

@@ -8,9 +8,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This error happens when the conditions to switch phases are met but the LF Trading Bot cannot find a reference to the Phase where it should switch to.",
-            "updated": 1611581092289
+            "style": "Error",
+            "text": "Reference to Phase Node Missing",
+            "updated": 1611652631671
         },
         {
             "style": "Success",

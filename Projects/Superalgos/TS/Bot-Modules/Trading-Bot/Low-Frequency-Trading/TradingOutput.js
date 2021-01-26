@@ -223,6 +223,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
             }
 
         } catch (err) {
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[ERROR] start -> err = ' + err.stack)
             throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)

@@ -1,0 +1,202 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "10",
+    "type": "Plotters - Shapes",
+    "definition": {
+        "text": "Shapes define coordinate points to use as vertex for polygons, which are assigned styles.",
+        "updated": 1611432676884
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Shapes->Definition",
+            "updated": 1611432703073
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Shapes->Content",
+            "updated": 1611432706401
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Shapes->2",
+            "updated": 1611432712346
+        },
+        {
+            "style": "Title",
+            "text": "Chart Points",
+            "updated": 1611432774706
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Chart Points->Definition",
+            "updated": 1611432778350
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Chart Points->Content",
+            "updated": 1611432781813
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Chart Points->8",
+            "updated": 1611432807680
+        },
+        {
+            "style": "Title",
+            "text": "Point",
+            "updated": 1611432845898
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Point->Definition",
+            "updated": 1611432849816
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Point->Content",
+            "updated": 1611432853027
+        },
+        {
+            "style": "Subtitle",
+            "text": "Point Formula",
+            "updated": 1611432862646
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Point Formula->Definition",
+            "updated": 1611432866497
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Point Formula->Content",
+            "updated": 1611432870720
+        },
+        {
+            "style": "Title",
+            "text": "Polygon",
+            "updated": 1611433008071
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon->Definition",
+            "updated": 1611433012029
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon->Content",
+            "updated": 1611433015599
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Polygon->8",
+            "updated": 1611433074724
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Polygon Condition",
+            "updated": 1611433130396
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Condition->Definition",
+            "updated": 1611433134852
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Condition->Content",
+            "updated": 1611433139614
+        },
+        {
+            "style": "Title",
+            "text": "Polygon Body",
+            "updated": 1611433166294
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Body->Definition",
+            "updated": 1611433175296
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Body->Content",
+            "updated": 1611433178676
+        },
+        {
+            "style": "Subtitle",
+            "text": "Style",
+            "updated": 1611433231745
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Style->Definition",
+            "updated": 1611433235523
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Style->Content",
+            "updated": 1611433238663
+        },
+        {
+            "style": "Subtitle",
+            "text": "Style Condition",
+            "updated": 1611433273738
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Style Condition->Definition",
+            "updated": 1611433277376
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Style Condition->Content",
+            "updated": 1611433280995
+        },
+        {
+            "style": "Title",
+            "text": "Polygon Border",
+            "updated": 1611433347131
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Border->Definition",
+            "updated": 1611433354769
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Border->Content",
+            "updated": 1611433358287
+        },
+        {
+            "style": "Title",
+            "text": "Polygon Vertex",
+            "updated": 1611433401279
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Vertex->Definition",
+            "updated": 1611433405348
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Polygon Vertex->Content",
+            "updated": 1611433408699
+        }
+    ]
+}

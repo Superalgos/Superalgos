@@ -125,9 +125,9 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 let candle = candles[tradingEngine.current.episode.candle.index.value]
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toLocaleString())
+                    '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toLocaleString())
+                    '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
                 TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
 
@@ -139,7 +139,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                 if (checkInitialDatetime() === false) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toLocaleString())
+                        '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toUTCString())
                     continue
                 }
 
@@ -426,6 +426,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     }
                     return
                 } catch (err) {
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -517,12 +518,28 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     because there the balances have shifted from their resting position.
                     */
 
-                    let stopRunningDate = (new Date(tradingEngine.current.episode.candle.begin.value)).toLocaleString()
+                    let stopRunningDate = (new Date(tradingEngine.current.episode.candle.begin.value)).toUTCString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
                         if (tradingEngine.current.episode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Error - Minimum Balance Reached',
+                                placeholder: {}
+                            }
+
+                            let contextInfo = {
+                                timestamp: stopRunningDate,
+                                episodeBaseAssetBalance: tradingEngine.current.episode.episodeBaseAsset.balance.value,
+                                sessionBaseAssetMinimumBalance: sessionParameters.sessionBaseAsset.config.minimumBalance
+                            }
+
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -532,7 +549,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
                         if (tradingEngine.current.episode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Error - Maximum Balance Reached',
+                                placeholder: {}
+                            }
+
+                            let contextInfo = {
+                                timestamp: stopRunningDate,
+                                episodeBaseAssetBalance: tradingEngine.current.episode.episodeBaseAsset.balance.value,
+                                sessionBaseAssetMaximumBalance: sessionParameters.sessionBaseAsset.config.maximumBalance
+                            }
+
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -542,7 +575,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
                         if (tradingEngine.current.episode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Error - Minimum Balance Reached',
+                                placeholder: {}
+                            }
+
+                            let contextInfo = {
+                                timestamp: stopRunningDate,
+                                episodeQuotedAssetBalance: tradingEngine.current.episode.episodeQuotedAsset.balance.value,
+                                sessionQuotedAssetMinimumBalance: sessionParameters.sessionQuotedAsset.config.minimumBalance
+                            }
+
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -552,7 +601,23 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
                         if (tradingEngine.current.episode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage])
+
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Error - Maximum Balance Reached',
+                                placeholder: {}
+                            }
+
+                            let contextInfo = {
+                                timestamp: stopRunningDate,
+                                episodeQuotedAssetBalance: tradingEngine.current.episode.episodeQuotedAsset.balance.value,
+                                sessionQuotedAssetMaximumBalance: sessionParameters.sessionQuotedAsset.config.maximumBalance
+                            }
+
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            
+                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -563,6 +628,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 return true
             }
         } catch (err) {
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[ERROR] runSimulation -> err = ' + err.stack)
             throw (TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)

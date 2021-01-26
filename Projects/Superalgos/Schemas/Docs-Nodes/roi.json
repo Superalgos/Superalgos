@@ -5,8 +5,74 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1611332841853
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "In general financial terms, ROI is equal to the Net Return on Investment divided by the Cost of Investment, expressed as a percentage."
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, the Net Return on Investment is the profit loss, as defined elsewhere. The Cost of Investment is solely the begin balance, as the fees are subtracted from the balance to calculate the profit loss, so we don’t need to account for them in the divisor side of the ratio."
+        },
+        {
+            "style": "Text",
+            "text": "That is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "ROI = profit loss / begin balance * 100"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.current.episode.episodeBaseAsset.ROI.value =\n    tradingEngine.current.episode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.episode.episodeQuotedAsset.ROI.value =\n    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value * 100",
+            "updated": 1611332768337
+        },
+        {
+            "style": "Text",
+            "text": "    "
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the position base asset and position quoted asset, the size filled is used instead of the balance, so that ROI may be properly calculated for complex execution algorithms.",
+            "updated": 1611332787435
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.current.position.positionBaseAsset.ROI.value =\n    tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /\n    tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value\n    \ntradingEngine.current.position.positionQuotedAsset.ROI.value =\n    tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /\n    tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value",
+            "updated": 1611332799800
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition.",
+            "updated": 1611332810457
+        },
+        {
+            "style": "Text",
+            "text": " Note: When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.current.episode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.current.episode.endRate.value +\n        tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.current.episode.beginRate.value +\n        tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
+            "updated": 1611332824026
         },
         {
             "style": "Block",

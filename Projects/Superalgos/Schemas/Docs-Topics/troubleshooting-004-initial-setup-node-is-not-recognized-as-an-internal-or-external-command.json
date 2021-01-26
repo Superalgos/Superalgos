@@ -1,0 +1,45 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "4",
+    "type": "Initial Setup - Node is not Recognized as an Internal or External Command",
+    "definition": {
+        "text": "Make sure Node JS is properly installed and that you are running the commando from within the correct folder.",
+        "updated": 1611511701216
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Have You Installed Node JS?",
+            "updated": 1611511729403
+        },
+        {
+            "style": "Text",
+            "text": "The Download and Set Up guide walks you through the process of installing Node JS, an open-source server environment required to run Superalgos. Make sure you have installed the software correctly. Double-check in case the installation hasn’t finished yet."
+        },
+        {
+            "style": "Title",
+            "text": "Are you running the command from the correct folder?"
+        },
+        {
+            "style": "Text",
+            "text": "Make sure you run the command from within the Superalgos-master folder."
+        },
+        {
+            "style": "Title",
+            "text": "Test if Node JS is installed"
+        },
+        {
+            "style": "Text",
+            "text": "Run the command...",
+            "updated": 1611511888280
+        },
+        {
+            "style": "Javascript",
+            "text": "node --version"
+        },
+        {
+            "style": "Text",
+            "text": "... to test if Node JS is installed. If Node JS is installed, the system should return a version number. If it doesn’t, please install Node JS again."
+        }
+    ]
+}

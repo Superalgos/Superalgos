@@ -6,8 +6,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "style": "Warning",
+            "text": "This operation can not be undone.",
+            "updated": 1611398340598
         }
     ]
 }

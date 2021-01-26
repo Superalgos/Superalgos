@@ -153,7 +153,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         during the same candle.
         */
         node.finalValue.value = node.value
-     }
+    }
 
     function updateStopLossTakeProfitBeginEnd(node) {
         /*
@@ -181,8 +181,16 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     function initialTargets(tradingSystemStageNode, tradingEngineStageNode) {
 
         if (tradingSystemStageNode.initialTargets === undefined) {
-            const message = 'Stage without Initial Targets node. Add one please.'
-            badDefinitionUnhandledException(undefined, message, tradingSystemStageNode)
+            const message = 'Initial Targets Node Missing'
+
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - ' + message,
+                placeholder: {}
+            }
+
+            badDefinitionUnhandledException(undefined, message, tradingSystemStageNode, docs)
         }
 
         setTargetRate()
@@ -190,22 +198,56 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
 
         function setTargetRate() {
             if (tradingSystemStageNode.initialTargets.targetRate === undefined) {
-                const message = 'Target Rate Node not Found. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets)
+                const message = 'Target Rate Node Missing'
+
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets, docs)
             }
             if (tradingSystemStageNode.initialTargets.targetRate.formula === undefined) {
-                const message = 'Formula of Target Rate Node not Found. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate)
+                const message = 'Formula Node Missing'
+
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate, docs)
             }
 
             let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetRate.formula.id)
             if (value === undefined) {
-                const message = 'Target Rate can not be undefined. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate.formula)
+                const message = 'Target Rate Node Value Undefined'
+
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate, docs)
             }
             if (isNaN(value)) {
-                const message = 'Target Rate must be a number. Fix this please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate.formula)
+                const message = 'Target Rate Node Value Not A Number'
+
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, value, undefined)
+
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate, docs)
             }
 
             switch (tradingSystemStageNode.type) {
@@ -226,8 +268,17 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                 tradingSystemStageNode.initialTargets.targetSizeInBaseAsset !== undefined &&
                 tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset !== undefined
             ) {
-                const message = 'Only Target Size In Base Asset or Target Size In Quoted Asset is allowed. Remove one of them please.'
-                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode)
+                // 'Only Target Size In Base Asset or Target Size In Quoted Asset is allowed.'
+                const message = 'Only One Target Size Allowed'
+
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets, docs)
             }
 
             /* Position In Base Asset */
@@ -235,12 +286,28 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                 if (tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula !== undefined) {
                     let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula.id)
                     if (value === undefined) {
-                        const message = 'Target Size In Base Asset cannot be undefined. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
+                        const message = 'Target Size Value Undefined'
+
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Error - ' + message,
+                            placeholder: {}
+                        }
+
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                     }
                     if (value === 0) {
-                        const message = 'Target Size In Base Asset cannot be zero. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset.formula)
+                        const message = 'Target Size Value Zero'
+
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Error - ' + message,
+                            placeholder: {}
+                        }
+
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                     }
 
                     switch (tradingSystemStageNode.type) {
@@ -261,8 +328,16 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                     /* Remember how the end user defined this stage. */
                     tradingEngineStageNode.stageDefinedIn.value = 'Base Asset'
                 } else {
-                    const message = 'You need to specify a Formula for this.'
-                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset)
+                    const message = 'Formula Node Missing'
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - ' + message,
+                        placeholder: {}
+                    }
+
+                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                 }
             }
 
@@ -271,12 +346,28 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                 if (tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula !== undefined) {
                     let value = tradingSystem.formulas.get(tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula.id)
                     if (value === undefined) {
-                        const message = 'Target Size In Quoted Asset cannot be undefined. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                        const message = 'Target Size Value Undefined'
+
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Error - ' + message,
+                            placeholder: {}
+                        }
+
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset, docs)
                     }
                     if (value === 0) {
-                        const message = 'Target Size In Quoted Asset cannot be zero. Fix this please.'
-                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset.formula)
+                        const message = 'Target Size Value Zero'
+
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Error - ' + message,
+                            placeholder: {}
+                        }
+
+                        badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset, docs)
                     }
                     switch (tradingSystemStageNode.type) {
                         case 'Open Stage': {
@@ -296,8 +387,16 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                     /* Remember how the end user defined this stage. */
                     tradingEngineStageNode.stageDefinedIn.value = 'Quoted Asset'
                 } else {
-                    const message = 'You need to specify a Formula for this.'
-                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset)
+                    const message = 'Formula Node Missing'
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - ' + message,
+                        placeholder: {}
+                    }
+
+                    badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInQuotedAsset, docs)
                 }
             }
         }
@@ -417,8 +516,8 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         }
     }
 
-    function badDefinitionUnhandledException(err, message, node) {
-        tradingSystem.errors.push([node.id, message])
+    function badDefinitionUnhandledException(err, message, node, docs) {
+        tradingSystem.errors.push([node.id, message, docs])
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);

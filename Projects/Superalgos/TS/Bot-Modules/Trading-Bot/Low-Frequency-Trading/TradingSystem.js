@@ -236,16 +236,19 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
     function evalCondition(node) {
         let value
-        let error
+        let errorMessage
+        let docs
         /*
         The code can be at the condition node if it was done with the Conditions Editor, or it can also be
         at a Javascript Code node. If there is a Javascript object we will give it preference and take the code
         from there. Otherwise we will take the code from the Condition node.
         */
         let code = node.code
+        let nodeName = node.name
         if (node.javascriptCode !== undefined) {
             if (node.javascriptCode.code !== undefined) {
                 code = node.javascriptCode.code
+                nodeName = node.javascriptCode.name
             }
         }
 
@@ -258,7 +261,14 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                 will not be considered an error.
             */
             value = false
-            error = err.message
+            errorMessage = err.message
+            docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Evaluating Condition Error',
+                placeholder: {}
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeName, code, undefined)
         }
 
         tradingSystem.conditions.set(node.id, value)
@@ -266,20 +276,21 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         if (value === true) {
             tradingSystem.highlights.push(node.id)
         }
-        if (error !== undefined) {
-            tradingSystem.errors.push([node.id, error])
+        if (errorMessage !== undefined) {
+            tradingSystem.errors.push([node.id, errorMessage, docs])
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
         }
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
-        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> error = ' + error)
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> errorMessage = ' + errorMessage)
     }
 
     function evalFormula(node) {
         let value
-        let error
+        let errorMessage
+        let docs
 
         try {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
@@ -290,22 +301,39 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                 will not be considered an error.
             */
             value = 0
-            error = err.message
-        }
-
-        if (error !== undefined) {
-            tradingSystem.errors.push([node.id, error])
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> error = ' + error)
-            return
-        }
-        if (value !== undefined) {
-            if (node.type === 'Formula' && isNaN(value)) {
-                tradingSystem.errors.push([node.id, 'Formula needs to return a number.'])
-                return
+            errorMessage = err.message
+            docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Evaluating Formula Error',
+                placeholder: {}
             }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
+        }
 
-            tradingSystem.values.push([node.id, value])
-            tradingSystem.formulas.set(node.id, value)
+        if (errorMessage !== undefined) {
+            tradingSystem.errors.push([node.id, errorMessage, docs])
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+            return
+        } else {
+            if (value !== undefined) {
+                if (node.type === 'Formula' && isNaN(value)) {
+
+                    docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - Formula Value Not A Number',
+                        placeholder: {}
+                    }
+                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+
+                    tradingSystem.errors.push([node.id, 'Formula needs to return a numeric value.', docs])
+                    return
+                }
+    
+                tradingSystem.values.push([node.id, value])
+                tradingSystem.formulas.set(node.id, value)
+            }
         }
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)

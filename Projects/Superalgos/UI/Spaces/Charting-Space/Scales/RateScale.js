@@ -558,7 +558,7 @@ function newRateScale() {
 
         let labelArray = label.split('.')
         let label1 = thisObject.payload.node.payload.parentNode.name
-        let label2 = (Math.trunc(rate)).toLocaleString()
+        let label2 = (Math.trunc(rate)).toUTCString()
         let label3 = labelArray[1]
         if (label3 === undefined) { label3 = '00' }
 

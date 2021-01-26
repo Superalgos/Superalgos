@@ -1,6 +1,6 @@
 {
     "topic": "Alpha Data Mine",
-    "pageNumber": "1",
+    "pageNumber": 2,
     "type": "Average True Range (ATR)",
     "definition": {
         "text": "The indicator features 2 different smoothing functions: ATR - SMA (simple moving average) / ATR - RMA (exponential moving average).",

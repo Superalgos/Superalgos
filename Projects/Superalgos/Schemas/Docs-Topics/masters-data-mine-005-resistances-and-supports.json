@@ -1,6 +1,6 @@
 {
     "topic": "Masters Data Mine",
-    "pageNumber": "4",
+    "pageNumber": 5,
     "type": "Resistances and Supports",
     "definition": {
         "text": "The indicator keeps track of resistances and supports levels for the entire dataset.",

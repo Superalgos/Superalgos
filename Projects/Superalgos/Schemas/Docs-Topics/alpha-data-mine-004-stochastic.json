@@ -1,6 +1,6 @@
 {
     "topic": "Alpha Data Mine",
-    "pageNumber": "3",
+    "pageNumber": 4,
     "type": "Stochastic",
     "definition": {
         "text": "The indicator features the typical stochastic setting of 14, 3, 3.",

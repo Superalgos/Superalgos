@@ -1,6 +1,6 @@
 {
     "topic": "Alpha Data Mine",
-    "pageNumber": "2",
+    "pageNumber": 3,
     "type": "Rate of Change (ROC)",
     "definition": {
         "text": "The indicator features three products for the following periods: 9, 32, 76.",

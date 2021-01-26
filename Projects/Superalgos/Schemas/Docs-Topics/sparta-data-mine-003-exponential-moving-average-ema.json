@@ -1,6 +1,6 @@
 {
     "topic": "Sparta Data Mine",
-    "pageNumber": "2",
+    "pageNumber": 3,
     "type": "Exponential Moving Average (EMA)",
     "definition": {
         "text": "The indicator produces the Exponential Moving Avarge in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",

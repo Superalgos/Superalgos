@@ -1,6 +1,6 @@
 {
     "topic": "Buddha Data Mine",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Candle Patterns",
     "definition": {
         "text": "The indicator features a pattern-recognition algorithm classifying candles in multiple groups such as Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, and grouping pattern into on, two, and three-candle sequences.",

@@ -1,6 +1,6 @@
 {
     "topic": "Sparta Data Mine",
-    "pageNumber": "3",
+    "pageNumber": 4,
     "type": "Relative Strenght Index (RSI)",
     "definition": {
         "text": "The indicator produces the standard 14 setting of the Relative Strenght Index.",

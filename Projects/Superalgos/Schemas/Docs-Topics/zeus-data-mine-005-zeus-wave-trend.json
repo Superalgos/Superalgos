@@ -1,7 +1,7 @@
 {
     "topic": "Zeus Data Mine",
     "pageNumber": 5,
-    "type": "Wave Trend",
+    "type": "Zeus' Wave Trend",
     "definition": {
         "text": "The Wave Trend indicator identifies market trends through an oscillator.",
         "updated": 1611674538550

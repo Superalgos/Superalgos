@@ -76,7 +76,18 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
 
         } catch (err) {
             if (err !== 'Error Already Recorded') {
-                tradingSystem.errors.push([executionNode.id, err.message])
+
+                const message = 'Execution Unexpected Error'
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err)
+
+                tradingSystem.errors.push([executionNode.id, message, docs])
             }
 
             if (typeof err === 'string' || err instanceof String) {

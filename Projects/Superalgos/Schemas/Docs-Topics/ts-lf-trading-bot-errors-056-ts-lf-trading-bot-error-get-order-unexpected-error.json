@@ -1,0 +1,125 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": "56",
+    "type": "TS LF Trading Bot Error - Get Order Unexpected Error",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Getting an order means sending a request to the exchange via it's API to give us the order information. There are many different reasons why this can fail. Some of those reasons are under your control, and some are not. Some might be temporaly unavailability of the exchange servers, communication, network, or other issues. Below you can find the error details which will help you understand the nature of the problem. The LF Trading Bot expects that some issue may happens and has logic to handle these problems and continue operating.",
+            "updated": 1611736716112
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Error",
+            "text": "Get Order Unexpected Error",
+            "updated": 1611736734990
+        },
+        {
+            "style": "Title",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section you will find the specific information received when this error occured."
+        },
+        {
+            "style": "Note",
+            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "updated": 1611736750115
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The follwing is the Error Code of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The follwing are all the Error details of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name"
+        },
+        {
+            "style": "Text",
+            "text": "The follwing is the node's name of the Node most related to this error:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The follwing is the context information preserved when the error occured:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

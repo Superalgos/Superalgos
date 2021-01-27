@@ -36,7 +36,18 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                 try {
                     conditionValue = eval(announcement.announcementCondition.code)
                 } catch (err) {
-                    tradingSystem.errors.push([announcement.announcementCondition.id, err.message])
+
+                    const message = 'Annoucement Condition Evaluation Error'
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - ' + message,
+                        placeholder: {}
+                    }
+
+                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementCondition.name, announcement.announcementCondition.code, undefined, undefined, undefined)
+
+                    tradingSystem.errors.push([announcement.announcementCondition.id, err.message, docs])
                 }
                 if (conditionValue !== true) { canAnnounce = false }
             }
@@ -50,10 +61,18 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                     TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
                     tradingSystem.announcements.push([announcement.id, text])
                 } else {
-                    tradingSystem.errors.push([announcement.id, 'Could not announce because session does not have Social Bots.'])
+
+                    const message = 'Social Bots Node Missing'
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Error - ' + message,
+                        placeholder: {}
+                    }
+                    
+                    tradingSystem.errors.push([TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.id, message, docs])
                 }
             }
         }
-
     }
 }

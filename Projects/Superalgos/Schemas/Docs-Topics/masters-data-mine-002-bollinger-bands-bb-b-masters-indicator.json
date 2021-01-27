@@ -1,7 +1,7 @@
 {
     "topic": "Masters Data Mine",
     "pageNumber": 2,
-    "type": "Masters' Bollinger Bands (BB - %B)",
+    "type": "Bollinger Bands (BB - %B) - Masters Indicator",
     "definition": {
         "text": "The indicator produces the Bollinger Bands (BB) and Percentage Bandwith (%B), both in standard settings.",
         "updated": 1610387450406

@@ -1,7 +1,7 @@
 {
     "topic": "Masters Data Mine",
     "pageNumber": 5,
-    "type": "Masters' Resistances and Supports",
+    "type": "Resistances and Supports - Masters Indicator",
     "definition": {
         "text": "The indicator keeps track of resistances and supports levels for the entire dataset.",
         "updated": 1610398924843

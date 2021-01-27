@@ -1,7 +1,7 @@
 {
     "topic": "Sparta Data Mine",
     "pageNumber": 2,
-    "type": "Simple Moving Average (SMA)",
+    "type": "Sparta's Simple Moving Average (SMA)",
     "definition": {
         "text": "The indicator produces the Simple Moving Avarge in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
         "updated": 1611661320849
@@ -14,7 +14,8 @@
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react.”"
+            "text": "According to Investopedia, “A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react.”",
+            "updated": 1611764485658
         },
         {
             "style": "Gif",

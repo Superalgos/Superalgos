@@ -1,7 +1,7 @@
 {
     "topic": "Sparta Data Mine",
     "pageNumber": 1,
-    "type": "By @julian-molina",
+    "type": "Sparta By @julian-molina",
     "definition": {
         "text": "The set of indicators built in the Sparta data mine include Simple Moving Average (SMA), Exponential Moving Averege (EMA), Relative Strenght Index (RSI), and Moving Average convergence Divergence (MACD).",
         "updated": 1611685345604

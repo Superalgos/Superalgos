@@ -1,7 +1,7 @@
 {
     "topic": "Alpha Data Mine",
     "pageNumber": 1,
-    "type": "By @rico4dev",
+    "type": "Alpha By @rico4dev",
     "definition": {
         "text": "The set of indicators built in the Alpha data mine include Average True Range (ATR), Rate of Change (ROC), and Stochastic.",
         "updated": 1611684891911
@@ -10,7 +10,7 @@
         {
             "style": "Text",
             "text": "The Alpha data mine is brought to you by...",
-            "updated": 1611684925452
+            "updated": 1611764233624
         },
         {
             "style": "Link",

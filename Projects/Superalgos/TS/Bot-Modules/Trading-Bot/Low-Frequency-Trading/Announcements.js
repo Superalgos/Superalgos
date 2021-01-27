@@ -47,7 +47,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
 
                     TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementCondition.name, announcement.announcementCondition.code, undefined, undefined, undefined)
 
-                    tradingSystem.errors.push([announcement.announcementCondition.id, err.message, docs])
+                    tradingSystem.addError([announcement.announcementCondition.id, err.message, docs])
                 }
                 if (conditionValue !== true) { canAnnounce = false }
             }
@@ -70,7 +70,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                         placeholder: {}
                     }
                     
-                    tradingSystem.errors.push([TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.id, message, docs])
+                    tradingSystem.addError([TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.id, message, docs])
                 }
             }
         }

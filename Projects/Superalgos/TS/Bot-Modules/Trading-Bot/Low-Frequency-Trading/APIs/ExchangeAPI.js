@@ -89,7 +89,7 @@
 
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.errors.push([tradingSystemOrder.id, message, docs])
+            tradingSystem.addError([tradingSystemOrder.id, message, docs])
 
             logError("getOrder -> Error = " + err.message);
         }
@@ -199,7 +199,7 @@
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
 
-            tradingSystem.errors.push([exchangeApiKey.id, message, docs])
+            tradingSystem.addError([exchangeApiKey.id, message, docs])
 
             function errorFooter() {
                 logError('key: ->' + exchangeApiKey.config.codeName + '<-')
@@ -247,7 +247,7 @@
 
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.errors.push([tradingSystemOrder.id, message, docs])
+            tradingSystem.addError([tradingSystemOrder.id, message, docs])
             logError("cancelOrder -> Error = " + err.message);
         }
     }

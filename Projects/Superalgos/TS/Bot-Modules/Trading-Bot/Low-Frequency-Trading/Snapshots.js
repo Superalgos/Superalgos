@@ -253,7 +253,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
                                 }
                                 TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined, undefined, contextInfo)
 
-                                tradingSystem.errors.push([nodeWithCode.id, message, docs])
+                                tradingSystem.addError([nodeWithCode.id, message, docs])
                                 values.push(0)
                             }
                         }
@@ -270,7 +270,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined)
 
-            tradingSystem.errors.push([nodeWithCode.id, message, docs])
+            tradingSystem.addError([nodeWithCode.id, message, docs])
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
         }

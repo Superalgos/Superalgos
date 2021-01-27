@@ -1,7 +1,7 @@
 {
     "topic": "Zeus Data Mine",
     "pageNumber": 3,
-    "type": "Zeus' Donchian Channel on the Charts",
+    "type": "Donchian Channel - Zeus Indicator",
     "definition": {
         "text": "Measure the strength and direction.",
         "updated": 1611673550028

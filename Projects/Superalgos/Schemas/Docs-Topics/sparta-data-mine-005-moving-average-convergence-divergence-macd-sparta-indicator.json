@@ -1,7 +1,7 @@
 {
     "topic": "Sparta Data Mine",
     "pageNumber": 5,
-    "type": "Sparta's Moving Average Convergence Divergence (MACD)",
+    "type": "Moving Average Convergence Divergence (MACD) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces de MACD indicator in the most popular 12, 26, 9 setting, and the following less usual settings: a fast 3, 10, 16, an intermediate 8, 17, 9, and a slow 24, 52, 9.",
         "updated": 1611662439678

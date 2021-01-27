@@ -1,7 +1,7 @@
 {
     "topic": "Sparta Data Mine",
     "pageNumber": 4,
-    "type": "Sparta's Relative Strenght Index (RSI)",
+    "type": "Relative Strenght Index (RSI) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the standard 14 setting of the Relative Strenght Index.",
         "updated": 1611662214310

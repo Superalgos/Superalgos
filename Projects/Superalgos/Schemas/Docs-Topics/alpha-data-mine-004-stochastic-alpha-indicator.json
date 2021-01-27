@@ -1,7 +1,7 @@
 {
     "topic": "Alpha Data Mine",
     "pageNumber": 4,
-    "type": "Alpha's Stochastic",
+    "type": "Stochastic - Alpha Indicator",
     "definition": {
         "text": "The indicator features the typical stochastic setting of 14, 3, 3.",
         "updated": 1611654181677

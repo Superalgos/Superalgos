@@ -1,7 +1,7 @@
 {
     "topic": "Sparta Data Mine",
     "pageNumber": 2,
-    "type": "Sparta's Simple Moving Average (SMA)",
+    "type": "Simple Moving Average (SMA) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces the Simple Moving Avarge in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
         "updated": 1611661320849

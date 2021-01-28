@@ -30,28 +30,44 @@ if (
     console.log('                  minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
     console.log('')
     console.log('If you are having an error while trying to run this Client, consider this:')
-    
-    fatalErrorHelp() 
+
+    fatalErrorHelp()
     return
 }
 
+const OS = require("os")
+let totalRAM = OS.totalmem() // Get total ram installed
+totalRAM = totalRAM / 1024 / 1024
+let optimalRAM = totalRAM * 0.85 // Use 85% of installed RAM
+let maxOldSpaceSize = "--max-old-space-size=" + (optimalRAM.toFixed(0)).toString()
+let options
+
+console.log('')
+console.log("Total RAM istalled in this system is ..... " + (totalRAM / 1024).toFixed(2) + " GB")
+if (process.argv.includes("minMemo")) {
+    options = {
+        stdio: 'inherit'
+    }
+    console.log("Total RAM available for Superalgos is .... 512 MB")
+} else {
+    options = {
+        execArgv: [maxOldSpaceSize],
+        stdio: 'inherit'
+    }
+    console.log("Total RAM available for Superalgos is .... " + (optimalRAM / 1024).toFixed(2) + " GB")
+    console.log('')
+    console.log('If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.')
+}
 console.log('')
 console.log('OPTIONS ACCEPTED:')
 console.log('')
 let optionsAccepted = 0
 
-let options = {
-    execArgv: ['--max-old-space-size=8192'],
-    stdio: 'inherit'
-}
 
 if (process.argv.includes("minMemo")) {
-    options = {
-        stdio: 'inherit'
-    }
     optionsAccepted++
     console.log('minMemo ............................ Running with Minimun Required Memory.')
-}
+} 
 
 if (process.argv.includes("noBrowser")) {
     optionsAccepted++
@@ -61,7 +77,7 @@ if (process.argv.includes("noBrowser")) {
 if (optionsAccepted === 0) {
     console.log('none ............................... Running without any command line options.')
 }
-
+console.log('')
 console.log('')
 
 try {
@@ -72,7 +88,7 @@ try {
     console.log('Fail to create Client Process.')
     console.log('')
 
-    fatalErrorHelp() 
+    fatalErrorHelp()
 }
 
 function fatalErrorHelp() {
@@ -84,4 +100,3 @@ function fatalErrorHelp() {
     console.log('')
     console.log('node run minMemo noBrowser')
 }
-

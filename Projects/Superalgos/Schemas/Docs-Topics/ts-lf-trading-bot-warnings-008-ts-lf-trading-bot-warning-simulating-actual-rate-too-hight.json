@@ -1,9 +1,9 @@
 {
     "topic": "TS LF Trading Bot Warnings",
-    "pageNumber": "6",
-    "type": "TS LF Trading Bot Warning - Simulating - Slippage Added",
+    "pageNumber": "8",
+    "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Too Hight",
     "definition": {
-        "text": "Slippage Amount was calculated based on the Session Configuration and substracted from the Order Rate in order to have the Actual Rate. It was added because what we had was a Market Buy Order.",
+        "text": "The Actual Rate was adjusted to the Candle Max value because we had a Buy Order whose Actual Rate was above the Current Candle Max.",
         "updated": 1611823586499
     },
     "paragraphs": [
@@ -14,12 +14,12 @@
         },
         {
             "style": "Warning",
-            "text": "Slippage Added"
+            "text": "Actual Rate Too Hight"
         },
         {
             "style": "Title",
             "text": "Why This?",
-            "updated": 1611825659055
+            "updated": 1611825558276
         },
         {
             "style": "Text",

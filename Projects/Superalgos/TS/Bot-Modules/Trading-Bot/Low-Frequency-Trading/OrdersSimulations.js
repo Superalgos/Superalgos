@@ -208,10 +208,25 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
             switch (true) {
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
+                        
+                        const message = 'Simulating - Actual Rate Too Hight'
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Warning - ' + message,
+                            placeholder: {}
+                        }
+                        contextInfo = {
+                            previousActualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                            recalculatedActualRate: tradingEngine.current.episode.candle.max.value
+                        }
+                        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
                         tradingSystem.warnings.push(
                             [
                                 [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.max.id],
-                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too high. Changed to candle.max (' + tradingEngine.current.episode.candle.max.value + ')'
+                                message,
+                                docs
                             ]
                         )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
@@ -220,10 +235,25 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                 }
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
+
+                        const message = 'Simulating - Actual Rate Too Low'
+                        let docs = {
+                            project: 'Superalgos',
+                            category: 'Topic',
+                            type: 'TS LF Trading Bot Warning - ' + message,
+                            placeholder: {}
+                        }
+                        contextInfo = {
+                            previousActualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                            recalculatedActualRate: tradingEngine.current.episode.candle.max.value
+                        }
+                        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
                         tradingSystem.warnings.push(
                             [
                                 [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.min.id],
-                                'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') too low. Changed to candle.min (' + tradingEngine.current.episode.candle.max.value + ')'
+                                message,
+                                docs
                             ]
                         )
                         tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value

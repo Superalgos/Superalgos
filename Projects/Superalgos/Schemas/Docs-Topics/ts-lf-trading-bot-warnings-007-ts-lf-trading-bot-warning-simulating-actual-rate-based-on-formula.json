@@ -18,6 +18,19 @@
         },
         {
             "style": "Title",
+            "text": "Why This?",
+            "updated": 1611825630727
+        },
+        {
+            "style": "Text",
+            "text": "Check below how the Actual Rate is treated during a Simulation."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Simulating Sync With the Exchange->Actual Rate Simulation"
+        },
+        {
+            "style": "Title",
             "text": "Context Info"
         },
         {

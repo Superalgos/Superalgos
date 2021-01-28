@@ -2,7 +2,7 @@ function newPlotter() {
     const MODULE_NAME = 'Plotter'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         currentRecord: undefined,
@@ -521,9 +521,44 @@ function newPlotter() {
                             if (record[ratePropertyName] === undefined) {
                                 currentRecordChanged()
                             } else {
-                                /* Current Record depends also on rate */
-                                if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
+                                if (productDefinition.referenceParent.config.rateInArrayAtIndex !== undefined) {
+                                    /*
+                                    If this property is present, it means for us that the rate is not comming as 
+                                    a property of the record object, but instead, the record object contains an 
+                                    array at the property ratePropertyName, and inside that array there are other 
+                                    arrays from where we need to find the rate at some of its records at the index
+                                    position determined by rateInArrayIndex
+                                    */
+                                    let rateArray = record[ratePropertyName]
+                                    for (let i = 0; i < rateArray.length; i++) {
+                                        let rateArrayItem = rateArray[i]
+                                        let rate = rateArrayItem[productDefinition.referenceParent.config.rateInArrayAtIndex]
+                                        /*
+                                        We will try to find at which record is the mouse pointer close enough.
+                                        */
+                                        if (rate >= minUserPositionRate && rate <= maxUserPositionRate) {
+                                            /* 
+                                            We store the index found here so as to enable whoever receives this 
+                                            record to know which record the user is pointing at.
+                                            */
+                                            record.rateIndex = i
+                                            currentRecordChanged()
+                                            break
+                                        }
+                                    }
+                                    /*
+                                    If the User is not pointing to a rate in particular we are still going
+                                    to raise the event but without a rateindex property
+                                    */
+                                    record.rateIndex = undefined
                                     currentRecordChanged()
+                                } else {
+                                    /* 
+                                    Current Record depends that the mouse pointer is within a range close enought to the rate 
+                                    */
+                                    if (record[ratePropertyName] >= minUserPositionRate && record[ratePropertyName] <= maxUserPositionRate) {
+                                        currentRecordChanged()
+                                    }
                                 }
                             }
                         } else {
@@ -861,7 +896,7 @@ function newPlotter() {
             /* We use the datapoints already calculated. */
             dataPoints = record.dataPoints
         } else {
-             if (logged === false) {
+            if (logged === false) {
                 logged = true
             }
             let dataPoints = new Map()
@@ -873,7 +908,11 @@ function newPlotter() {
                     if (point.pointFormula !== undefined) {
                         let x = 0
                         let y = 0
-                        eval(point.pointFormula.code)
+                        try {
+                            eval(point.pointFormula.code)
+                        } catch (err) {
+                            continue
+                        }
                         let rawPoint = {
                             x: x,
                             y: y

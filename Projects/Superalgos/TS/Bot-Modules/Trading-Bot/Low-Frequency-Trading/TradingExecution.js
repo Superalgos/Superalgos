@@ -76,7 +76,18 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
 
         } catch (err) {
             if (err !== 'Error Already Recorded') {
-                tradingSystem.errors.push([executionNode.id, err.message])
+
+                const message = 'Execution Unexpected Error'
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - ' + message,
+                    placeholder: {}
+                }
+
+                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err)
+
+                tradingSystem.addError([executionNode.id, message, docs])
             }
 
             if (typeof err === 'string' || err instanceof String) {
@@ -97,7 +108,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
             placeholder: {}
         }
 
-        tradingSystem.errors.push([node.id, message, docs])
+        tradingSystem.addError([node.id, message, docs])
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);

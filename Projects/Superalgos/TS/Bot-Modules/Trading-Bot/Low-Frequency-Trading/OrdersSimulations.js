@@ -90,10 +90,25 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                                 tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
                                 tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
+                                const message = 'Simulating - Slippage Substracted'
+                                let docs = {
+                                    project: 'Superalgos',
+                                    category: 'Topic',
+                                    type: 'TS LF Trading Bot Warning - ' + message,
+                                    placeholder: {}
+                                }
+                                contextInfo = {
+                                    slippageAmount: slippageAmount,
+                                    orderRate: tradingEngineOrder.rate.value,
+                                    actualRate: tradingEngineOrder.orderStatistics.actualRate.value
+                                }
+                                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
                                 tradingSystem.warnings.push(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                                        'slippage.config.marketOrderRate Slippage Amount (' + slippageAmount + ') substracted from Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                        message,
+                                        docs
                                     ]
                                 )
                                 break
@@ -102,10 +117,25 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                                 tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value + slippageAmount
                                 tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
+                                const message = 'Simulating - Slippage Added'
+                                let docs = {
+                                    project: 'Superalgos',
+                                    category: 'Topic',
+                                    type: 'TS LF Trading Bot Warning - ' + message,
+                                    placeholder: {}
+                                }
+                                contextInfo = {
+                                    slippageAmount: slippageAmount,
+                                    orderRate: tradingEngineOrder.rate.value,
+                                    actualRate: tradingEngineOrder.orderStatistics.actualRate.value
+                                }
+                                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
                                 tradingSystem.warnings.push(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                                        'slippage.config.marketOrderRate Slippage Amount (' + slippageAmount + ') added to Order Rate (' + tradingEngineOrder.rate.value + ') to get the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ')'
+                                        message,
+                                        docs
                                     ]
                                 )
                                 break
@@ -136,10 +166,24 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                             let newValue = tradingSystem.formulas.get(tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id)
                             newValue = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(newValue, 10)
 
+                            const message = 'Simulating - Actual Rate Based On Formula'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                previousActualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                                recalculatedActualRate: newValue
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            
                             tradingSystem.warnings.push(
                                 [
                                     tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id,
-                                    'Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') calculated with this Formula (' + newValue + ')'
+                                    message,
+                                    docs
                                 ]
                             )
                             tradingEngineOrder.orderStatistics.actualRate.value = newValue
@@ -202,10 +246,26 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
 
             tradingEngineOrder.orderQuotedAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
 
+            const message = 'Simulating - Actual Size Recalculated'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                previousQuotedAssetActualSize: previousQuotedAssetActualSize,
+                recalculatedQuotedAssetActualSize: tradingEngineOrder.orderQuotedAsset.actualSize.value,
+                actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                orderRate: tradingEngineOrder.rate.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
             tradingSystem.warnings.push(
                 [
                     [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                    'Actual Size (' + previousQuotedAssetActualSize + ') recalculated (' + tradingEngineOrder.orderQuotedAsset.actualSize.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                    message,
+                    docs
                 ]
             )
         }
@@ -231,10 +291,26 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
 
             tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
+            const message = 'Simulating - Size Placed Recalculated'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                previousStageQuotedAssetSizePlaced: previousStageQuotedAssetSizePlaced,
+                recalculatedStageQuotedAssetSizePlaced: tradingEngineStage.stageQuotedAsset.sizePlaced.value,
+                actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                orderRate: tradingEngineOrder.rate.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
             tradingSystem.warnings.push(
                 [
                     [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                    'Size Placed (' + previousStageQuotedAssetSizePlaced + ') recalculated (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                    message,
+                    docs
                 ]
             )
         }

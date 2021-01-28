@@ -21,6 +21,10 @@
             "text": "Once the synchronization is done, the bot does the accounting (see Accounting), to keep the rest of the variables—like balances and the stage size—up to date with the reality of orders."
         },
         {
+            "style": "Block",
+            "text": "Actual Size Calculation"
+        },
+        {
             "style": "Title",
             "text": "Actual Size Calculation"
         },
@@ -89,6 +93,10 @@
             "updated": 1610221350195
         },
         {
+            "style": "Block",
+            "text": "Actual Rate Calculation"
+        },
+        {
             "style": "Title",
             "text": "Actual Rate Calculation"
         },
@@ -130,6 +138,10 @@
             "text": "And remember, the size in the base asset does not need to be recalculated, as it is not affected by the differences in rates."
         },
         {
+            "style": "Block",
+            "text": "Percentage Filled Calculation"
+        },
+        {
             "style": "Title",
             "text": "Percentage Filled Calculation"
         },
@@ -146,6 +158,10 @@
             "style": "Note",
             "text": "As you can see, the actual size in the base asset is used, as the size is always denominated in the base asset according to the exchange.",
             "updated": 1610221445535
+        },
+        {
+            "style": "Block",
+            "text": "Fees Paid Calculation"
         },
         {
             "style": "Title",
@@ -245,6 +261,10 @@
             "updated": 1610221607990
         },
         {
+            "style": "Block",
+            "text": "Size Filled Calculation"
+        },
+        {
             "style": "Title",
             "text": "Size Filled Calculation"
         },
@@ -264,6 +284,10 @@
             "style": "Javascript",
             "text": "tradingEngineOrder.orderQuotedAsset.sizeFilled.value =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
             "updated": 1610221632885
+        },
+        {
+            "style": "Block",
+            "text": "Amount Received Calculation"
         },
         {
             "style": "Title",

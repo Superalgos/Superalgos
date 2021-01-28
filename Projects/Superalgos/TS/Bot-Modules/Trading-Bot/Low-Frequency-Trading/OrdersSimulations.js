@@ -104,7 +104,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                                 }
                                 TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                                tradingSystem.warnings.push(
+                                tradingSystem.addWarning(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
                                         message,
@@ -131,7 +131,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                                 }
                                 TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                                tradingSystem.warnings.push(
+                                tradingSystem.addWarning(
                                     [
                                         [sessionParameters.slippage.id, tradingEngineOrder.rate.id, tradingEngineOrder.orderStatistics.actualRate.id],
                                         message,
@@ -179,7 +179,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
                             
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     tradingSystemOrder.simulatedExchangeEvents.simulatedActualRate.formula.id,
                                     message,
@@ -222,7 +222,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                         }
                         TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                        tradingSystem.warnings.push(
+                        tradingSystem.addWarning(
                             [
                                 [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.max.id],
                                 message,
@@ -249,7 +249,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                         }
                         TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                        tradingSystem.warnings.push(
+                        tradingSystem.addWarning(
                             [
                                 [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.min.id],
                                 message,
@@ -291,7 +291,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
                     message,
@@ -336,7 +336,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
                     message,

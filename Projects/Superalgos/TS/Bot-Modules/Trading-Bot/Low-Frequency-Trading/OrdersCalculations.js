@@ -176,7 +176,7 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
                     message,
@@ -216,7 +216,7 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
             }
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
                     message,

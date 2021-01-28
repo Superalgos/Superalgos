@@ -155,7 +155,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     /* Check Events that happens at the Exchange, if needed. */
                     let allGood = await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
-                    if (allGood !== true) {
+                    if (allGood !== true) 
+                    {
                         /*
                         For some reason we could not check the order at the exchange, so we will not even check if we 
                         need to cancel it, since we could end up with inconsistent information at the accounting level.
@@ -170,7 +171,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 placeholder: {}
                             }
 
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     tradingSystemOrder.cancelOrderEvent.id,
                                     message,
@@ -178,7 +179,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 ]
                             )
                         }
-                        return
+                    //    return
                     }
 
                     /* Check if we need to cancel the order */
@@ -276,7 +277,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-        if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
+        //if (tradingEngineOrder.orderBaseAsset.size.value <= 0) 
+        {
 
             const message = 'Order Size Value Zero Or Negative'
             let docs = {
@@ -286,17 +288,18 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 placeholder: {}
             }
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderBaseAsset.size.id, tradingSystemOrder.id],
                     message,
                     docs
                 ]
             )
-            return
+        //    return
         }
 
-        if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
+        //if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) 
+        {
 
             const message = 'Order Size Value Zero Or Negative'
             let docs = {
@@ -306,14 +309,14 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 placeholder: {}
             }
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id],
                     message,
                     docs
                 ]
             )
-            return
+        //    return
         }
 
         /* Place Order at the Exchange, if needed. */
@@ -328,7 +331,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 placeholder: {}
             }
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder],
                     message,
@@ -452,7 +455,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageBaseAsset.targetSize.id, tradingEngineOrder.orderBaseAsset.size.id, tradingEngineStage.stageBaseAsset.sizePlaced.id],
                                     message,
@@ -498,7 +501,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageQuotedAsset.targetSize.id, tradingEngineOrder.orderQuotedAsset.size.id, tradingEngineStage.stageQuotedAsset.sizePlaced.id],
                                     message,
@@ -535,7 +538,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
                                     message,
@@ -565,7 +568,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.warnings.push(
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
                                     message,
@@ -642,7 +645,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 placeholder: {}
             }
 
-            tradingSystem.warnings.push(
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder.id],
                     message,
@@ -1029,7 +1032,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     placeholder: {}
                 }
 
-                tradingSystem.warnings.push(
+                tradingSystem.addWarning(
                     [
                         [tradingSystemOrder.id, tradingEngineOrder.id],
                         message,

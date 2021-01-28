@@ -121,7 +121,7 @@ cursor: pointer;
 .docs-tooltip {
 position: relative;
 display: inline-block;
-border-bottom: 1px dashed #0295aa; 
+border-bottom: 1px dashed #999; 
 cursor: pointer;
 line-height: inherit;
 }

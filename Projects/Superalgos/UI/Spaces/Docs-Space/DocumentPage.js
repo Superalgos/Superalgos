@@ -123,8 +123,7 @@ function newSuperalgosDocsDocumentPage() {
 
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 0000, node)
-            setTimeout(positionAtNode, 3000, node)
-            setTimeout(positionAtNode, 5000, node)
+            setTimeout(positionAtNode, 1000, node) // In case the branch which contains the node is collapsed.
             function positionAtNode(node) {
                 let xOffset = -UI.projects.superalgos.globals.docs.DOCS_SPACE_WIDTH / 2
                 UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node, xOffset)

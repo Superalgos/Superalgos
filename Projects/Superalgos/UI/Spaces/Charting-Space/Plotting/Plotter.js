@@ -521,7 +521,6 @@ function newPlotter() {
                             if (record[ratePropertyName] === undefined) {
                                 currentRecordChanged()
                             } else {
-                                let rate
                                 if (productDefinition.referenceParent.config.rateInArrayAtIndex !== undefined) {
                                     /*
                                     If this property is present, it means for us that the rate is not comming as 

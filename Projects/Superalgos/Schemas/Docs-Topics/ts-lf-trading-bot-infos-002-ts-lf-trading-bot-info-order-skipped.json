@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Infos",
+    "pageNumber": "2",
+    "type": "TS LF Trading Bot Info - Order Skipped",
+    "definition": {
+        "text": "The order that generated this Info Message was not considered to be opened because the Lock at the referenced order at the Trading Engine was found closed. ",
+        "updated": 1611919981100
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Lock is a mechanism to prevent an order to be opened while another instance of the same order definition is already running and occupaying it's place at the Trading Engine.",
+            "updated": 1611920085962
+        },
+        {
+            "style": "Note",
+            "text": "Order Sikpped"
+        }
+    ]
+}

@@ -131,7 +131,16 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                             if (tradingEngineOrder.lock.value === 'Closed') {
-                                tradingSystem.infos.push(['Order ' + tradingSystemOrder.name + ' skipped because lock was closed.'])
+
+                                let message = "Order Skipped"
+                                let docs = {
+                                    project: 'Superalgos',
+                                    category: 'Topic',
+                                    type: 'TS LF Trading Bot Info - ' + message,
+                                    placeholder: {}
+                                }
+
+                                tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
                                 continue
                             }
                         }
@@ -668,7 +677,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             return
@@ -682,7 +704,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
@@ -705,7 +740,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
@@ -763,7 +811,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'percentageFilledSimulation -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
         }
 
         /* If the Stage is Closing and this order is still open, we need to cancel it now */
@@ -982,7 +1043,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
         updateEndsWithCycle(tradingEngineOrder)
-        tradingSystem.infos.push([tradingSystemOrder.id, 'simulateCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+        let message = "Order Closed"
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Info - ' + message,
+            placeholder: {}
+        }
+        contextInfo = {
+            exitType: tradingEngineOrder.exitType.value
+        }
+        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+        tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
         recalculateStageSize(tradingEngineStage, tradingEngineOrder)
     }
@@ -1051,7 +1125,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'exchangeCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 

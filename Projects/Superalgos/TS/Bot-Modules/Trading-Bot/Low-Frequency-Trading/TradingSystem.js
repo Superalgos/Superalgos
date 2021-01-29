@@ -62,7 +62,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             evalNode(startingNode, 'Formulas', descendentOfNodeType)
         }
 
-        tradingSystem.addError = function (errorInfoArray) {
+        tradingSystem.addError = function (errorDataArray) {
             /*
             This function adds to the array of error info a rate based on the amount of items
             already at the errors array. This rate will later help plotting the error at the
@@ -70,11 +70,11 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             */
             let baseRate = tradingEngine.current.episode.candle.close.value
             let rate = baseRate - baseRate * ((tradingSystem.errors.length + 1) + 0) / 100
-            errorInfoArray.push(rate)
-            tradingSystem.errors.push(errorInfoArray)
+            errorDataArray.push(rate)
+            tradingSystem.errors.push(errorDataArray)
         }
 
-        tradingSystem.addWarning = function (warningInfoArray) {
+        tradingSystem.addWarning = function (warningDataArray) {
             /*
             This function adds to the array of warning info a rate based on the amount of items
             already at the warning array. This rate will later help plotting the warning at the
@@ -82,8 +82,20 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             */
             let baseRate = tradingEngine.current.episode.candle.close.value
             let rate = baseRate + baseRate * ((tradingSystem.warnings.length + 1) + 0) / 100
-            warningInfoArray.push(rate)
-            tradingSystem.warnings.push(warningInfoArray)
+            warningDataArray.push(rate)
+            tradingSystem.warnings.push(warningDataArray)
+        }
+
+        tradingSystem.addInfo = function (infoDataArray) {
+            /*
+            This function adds to the array of warning info a rate based on the amount of items
+            already at the warning array. This rate will later help plotting the warning at the
+            charts.
+            */
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate + baseRate * ((tradingSystem.infos.length + 1) + 0.5) / 100
+            infoDataArray.push(rate)
+            tradingSystem.infos.push(infoDataArray)
         }
 
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {

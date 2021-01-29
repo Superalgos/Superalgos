@@ -3,14 +3,14 @@
     "pageNumber": "1",
     "type": "TS LF Trading Bot Error - Evaluating Condition Error",
     "definition": {
-        "text": "An error occured while evaluation a User Defined Condition at the Trading System.",
-        "updated": 1611568961215
+        "text": "An error occured while evaluating a user defined Condition in the Trading System.",
+        "updated": 1611925832560
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the Low Frequency Trading Bot encountered an error while trying to evaluate one of your conditions defined at the Trading System. Conditions are arbitrary Javascript Code that user can write as they want and in some cases they do not write valid Javascript for Nod JS. ",
-            "updated": 1611569329977
+            "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the conditions defined in the Trading System. Conditions are arbitrary Javascript Code that users may write. The code must be valid Javascript for Node JS.",
+            "updated": 1611925986913
         },
         {
             "style": "Error",
@@ -109,6 +109,15 @@
             "style": "Placeholder",
             "text": "nodeCode",
             "updated": 1611569590234
+        },
+        {
+            "style": "Title",
+            "text": "Learn More",
+            "updated": 1611926049613
+        },
+        {
+            "style": "List",
+            "text": "Syntax Overview"
         },
         {
             "style": "Text",

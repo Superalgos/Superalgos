@@ -3,7 +3,7 @@
     "pageNumber": "24",
     "type": "TS LF Trading Bot Error - Algorithm Name Node Missing",
     "definition": {
-        "text": "An Algorithm Name Node was expected but not found at the node where the error originated.",
+        "text": "An Algorithm Name node was expected but not found at the node where the error originated.",
         "updated": 1611649859527
     },
     "paragraphs": [

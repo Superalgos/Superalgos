@@ -3,7 +3,7 @@
     "pageNumber": "35",
     "type": "TS LF Trading Bot Error - Actual Size Node Missing",
     "definition": {
-        "text": "An Actual Size Node was expected but not found at the node where the error originated.",
+        "text": "An Actual Size node was expected but not found at the node where the error originated.",
         "updated": 1611650100230
     },
     "paragraphs": [

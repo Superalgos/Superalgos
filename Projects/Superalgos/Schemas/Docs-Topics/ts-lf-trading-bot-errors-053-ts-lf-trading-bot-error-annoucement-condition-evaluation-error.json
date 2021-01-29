@@ -22,11 +22,11 @@
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Note",
-            "text": "You will only see it if you opened this page as a result of the error actually happening."
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring."
         },
         {
             "style": "Subtitle",
@@ -58,7 +58,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -70,7 +70,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -82,7 +82,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the node's name of the Node most related to this error:"
+            "text": "The following is the node's name of the Node most related to this error:"
         },
         {
             "style": "Placeholder",
@@ -94,7 +94,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:"
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",

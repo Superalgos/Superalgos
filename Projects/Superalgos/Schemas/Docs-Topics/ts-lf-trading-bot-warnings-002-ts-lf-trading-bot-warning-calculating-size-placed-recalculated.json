@@ -1,0 +1,62 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "2",
+    "type": "TS LF Trading Bot Warning - Calculating - Size Placed Recalculated",
+    "definition": {
+        "text": "The Size Placed was recalculated because the Actual Rate is different than the Order Rate.",
+        "updated": 1611817875294
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is normal behaviour you should not worry about. This warning is created in order to let you know that this happened and help you track the details of each trade.",
+            "updated": 1611818214581
+        },
+        {
+            "style": "Warning",
+            "text": "Size Placed Recalculated"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The following are the values of variables at the time this warning was created. They might be useful for you to understand what exactly happened."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Title",
+            "text": "Function Involved"
+        },
+        {
+            "style": "Text",
+            "text": "This warning was triggered at the Recalculate Size Placed Function within the LF Trading Bot.",
+            "updated": 1611818476005
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Simulating Sync With the Exchange->Recalculate Size Placed",
+            "updated": 1611818361744
+        },
+        {
+            "style": "Title",
+            "text": "Learn More"
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:"
+        },
+        {
+            "style": "List",
+            "text": "Syncing With the Exchange"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

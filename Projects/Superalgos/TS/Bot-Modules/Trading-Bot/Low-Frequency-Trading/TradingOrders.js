@@ -158,13 +158,23 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     if (allGood !== true) {
                         /*
                         For some reason we could not check the order at the exchange, so we will not even check if we 
-                        need to cancel it, since we could end up with inconsisten information at the accounting level.
+                        need to cancel it, since we could end up with inconsistent information at the accounting level.
                         */
                         if (tradingSystemOrder.cancelOrderEvent !== undefined) {
-                            tradingSystem.warnings.push(
+
+                            const message = 'Skipping Cancel Order Event'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+
+                            tradingSystem.addWarning(
                                 [
                                     tradingSystemOrder.cancelOrderEvent.id,
-                                    'Skipping Cancel Event Checking because cheking the order at the exchange failed.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -234,7 +244,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         if (tradingEngineOrder.rate === undefined) { badDefinitionUnhandledException(undefined, 'Rate Node Missing', tradingEngineOrder) }
         if (tradingEngineOrder.status === undefined) { badDefinitionUnhandledException(undefined, 'Status Node Missing', tradingEngineOrder) }
         if (tradingEngineOrder.algorithmName === undefined) { badDefinitionUnhandledException(undefined, 'Algorithm Name Node Missing', tradingEngineOrder) }
-        
+
         if (tradingEngineOrder.orderCounters === undefined) { badDefinitionUnhandledException(undefined, 'Order Counters Node Missing', tradingEngineOrder) }
         if (tradingEngineOrder.orderCounters.periods === undefined) { badDefinitionUnhandledException(undefined, 'Periods Node Missing', tradingEngineOrder.orderCounters) }
 
@@ -267,20 +277,40 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
         if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Size Value Zero Or Negative'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderBaseAsset.size.id, tradingSystemOrder.id],
-                    'Could not open this order because its size is zero.'
+                    message,
+                    docs
                 ]
             )
             return
         }
 
         if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Size Value Zero Or Negative'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id],
-                    'Could not open this order because its size is zero.'
+                    message,
+                    docs
                 ]
             )
             return
@@ -289,10 +319,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         /* Place Order at the Exchange, if needed. */
         let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
         if (result !== true) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Could Not Be Opened'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder],
-                    'Could not open this order because something failed placing the order at the Exchange.'
+                    message,
+                    docs
                 ]
             )
             return
@@ -397,10 +437,26 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                             tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
 
-                            tradingSystem.warnings.push(
+                            const message = 'Order Size Shrinked'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                previousOrderSize: previousValue,
+                                recalculatedOrderSize: tradingEngineOrder.orderBaseAsset.size.value,
+                                sizePlaced: tradingEngineStage.stageBaseAsset.sizePlaced.value,
+                                targetSize: tradingEngineStage.stageBaseAsset.targetSize.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageBaseAsset.targetSize.id, tradingEngineOrder.orderBaseAsset.size.id, tradingEngineStage.stageBaseAsset.sizePlaced.id],
-                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderBaseAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageBaseAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageBaseAsset.targetSize.value + ') for the stage.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -427,10 +483,26 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                             tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
 
-                            tradingSystem.warnings.push(
+                            const message = 'Order Size Shrinked'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                previousOrderSize: previousValue,
+                                recalculatedOrderSize: tradingEngineOrder.orderQuotedAsset.size.value,
+                                sizePlaced: tradingEngineStage.stageQuotedAsset.sizePlaced.value,
+                                targetSize: tradingEngineStage.stageQuotedAsset.targetSize.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageQuotedAsset.targetSize.id, tradingEngineOrder.orderQuotedAsset.size.id, tradingEngineStage.stageQuotedAsset.sizePlaced.id],
-                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderQuotedAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageQuotedAsset.targetSize.value + ') for the stage.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -450,10 +522,24 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         if (
                             tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push(
+                            const message = 'Possible Negative Balance'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                orderQuotedAssetSize: tradingEngineOrder.orderQuotedAsset.size.value,
+                                episodeQuotedAssetBalance: tradingEngine.current.episode.episodeQuotedAsset.balance.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
-                                    'Order Size Quoted Asset (' + tradingEngineOrder.orderQuotedAsset.size.value + ') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                    message,
+                                    docs
                                 ]
                             )
 
@@ -466,10 +552,24 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         if (
                             tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push(
+                            const message = 'Possible Negative Balance'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                orderBaseAssetSize: tradingEngineOrder.orderBaseAsset.size.value,
+                                episodeBaseAssetBalance: tradingEngine.current.episode.episodeBaseAsset.balance.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
-                                    'Order Size Base Asset (' + tradingEngineOrder.orderBaseAsset.size.value + ') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                    message,
+                                    docs
                                 ]
                             )
 
@@ -533,10 +633,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
         if (order === undefined) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Status Not Sync With Exchange'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder.id],
-                    'Could not verify the status of this order at the exchange.'
+                    message,
+                    docs
                 ]
             )
             return false
@@ -910,10 +1020,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (order === undefined) {
-                tradingSystem.warnings.push(
+
+                const message = 'Order Status Not Sync With Exchange'
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Warning - ' + message,
+                    placeholder: {}
+                }
+
+                tradingSystem.addWarning(
                     [
                         [tradingSystemOrder.id, tradingEngineOrder.id],
-                        'Could not verify the status of this order at the exchange, and syncronize the accounting.'
+                        message,
+                        docs
                     ]
                 )
                 return false

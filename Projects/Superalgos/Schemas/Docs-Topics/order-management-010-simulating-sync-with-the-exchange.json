@@ -33,6 +33,10 @@
             "text": "Like with the real synchronization process, once all calculations are done, the trading bot does the bookkeeping (see Accounting)."
         },
         {
+            "style": "Block",
+            "text": "Actual Size Simulation"
+        },
+        {
             "style": "Title",
             "text": "Actual Size Simulation"
         },
@@ -46,9 +50,13 @@
             "updated": 1610222816044
         },
         {
-            "style": "Title",
+            "style": "Block",
             "text": "Actual Rate Simulation",
             "updated": 1610222855123
+        },
+        {
+            "style": "Title",
+            "text": "Actual Rate Simulation"
         },
         {
             "style": "Text",
@@ -207,6 +215,10 @@
             "updated": 1610223044937
         },
         {
+            "style": "Block",
+            "text": "Recalculate Actual Size"
+        },
+        {
             "style": "Title",
             "text": "Recalculate Actual Size"
         },
@@ -218,6 +230,10 @@
             "style": "Javascript",
             "text": "tradingEngineOrder.orderQuotedAsset.actualSize.value =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.actualRate.value",
             "updated": 1610223069460
+        },
+        {
+            "style": "Block",
+            "text": "Recalculate Size Placed"
         },
         {
             "style": "Title",
@@ -235,6 +251,10 @@
             "style": "Javascript",
             "text": "tradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value -\npreviousQuotedAssetActualSize\n\ntradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value +\ntradingEngineOrder.orderQuotedAsset.actualSize.value",
             "updated": 1610223111181
+        },
+        {
+            "style": "Block",
+            "text": "Percentage Filled Simulation"
         },
         {
             "style": "Title",
@@ -301,6 +321,10 @@
             "style": "Note",
             "text": "Of course, there is also a check to make sure that the percentage filled is never greater than 100.",
             "updated": 1610223219878
+        },
+        {
+            "style": "Block",
+            "text": "Fees Paid Simulation"
         },
         {
             "style": "Title",
@@ -389,6 +413,10 @@
             "updated": 1610223351171
         },
         {
+            "style": "Block",
+            "text": "Size Filled Simulation"
+        },
+        {
             "style": "Title",
             "text": "Size Filled Simulation"
         },
@@ -400,6 +428,10 @@
             "style": "Javascript",
             "text": "tradingEngineOrder.orderBaseAsset.sizeFilled.value =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
             "updated": 1610223373798
+        },
+        {
+            "style": "Block",
+            "text": "Amount Received Simulation"
         },
         {
             "style": "Title",

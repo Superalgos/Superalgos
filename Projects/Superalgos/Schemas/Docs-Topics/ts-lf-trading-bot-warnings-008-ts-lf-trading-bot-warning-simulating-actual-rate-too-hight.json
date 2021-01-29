@@ -17,10 +17,6 @@
             "text": "Actual Rate Too Hight"
         },
         {
-            "style": "Include",
-            "text": "Superalgos->Topic->Simulating Sync With the Exchange->Actual Rate Simulation"
-        },
-        {
             "style": "Title",
             "text": "Context Info"
         },
@@ -31,6 +27,10 @@
         {
             "style": "Placeholder",
             "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Simulating Sync With the Exchange->Actual Rate Simulation"
         },
         {
             "style": "Title",

@@ -108,17 +108,19 @@ function newWorkspace() {
                 UI.projects.superalgos.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
                 setTimeout(theEnd, 100)
                 function theEnd() {
-                    UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine()
+                    UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished)
 
-                    setupEventsServerClients()
-                    runTasksAndSessions()
-                    thisObject.enabled = true
-                    UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
-                    CAN_SPACES_DRAW = true
+                    function onIndexingFinished() {
+                        setupEventsServerClients()
+                        runTasksAndSessions()
+                        thisObject.enabled = true
+                        UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
+                        CAN_SPACES_DRAW = true
 
-                    thisObject.isInitialized = true
-                    savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
-                    UI.projects.superalgos.utilities.statusBar.changeStatus("Displaying the UI...")
+                        thisObject.isInitialized = true
+                        savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
+                        UI.projects.superalgos.utilities.statusBar.changeStatus("Displaying the UI...")
+                    }
                 }
             }
         } catch (err) {
@@ -368,12 +370,14 @@ function newWorkspace() {
                         workingAtTask = 0
 
                         function takeAction() {
-                            UI.projects.superalgos.spaces.docsSpace.reset()   
-                            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine() // The docs needs to index the loaded workspace.
-                            UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
-                            thisObject.isInitialized = true
-                            saveWorkspace()
-                            runTasksAndSessions()
+                            UI.projects.superalgos.spaces.docsSpace.reset()
+                            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished) // The docs needs to index the loaded workspace.
+                            function onIndexingFinished() {
+                                UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                                thisObject.isInitialized = true
+                                saveWorkspace()
+                                runTasksAndSessions()
+                            }
                         }
                         break
                     }

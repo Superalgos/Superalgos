@@ -1675,7 +1675,7 @@ function newSuperalgosDocsDocumentPage() {
                         sufix = ''
                         role = ''
                         key = key + '-youtube'
-                        innerHTML = UI.projects.superalgos.utilities.docs.UI.projects.superalgos.utilities.docs.parseYoutube(paragraph.text)
+                        innerHTML = UI.projects.superalgos.utilities.docs.parseYoutube(paragraph.text)
                         break
                     }
                     case 'Gif': {

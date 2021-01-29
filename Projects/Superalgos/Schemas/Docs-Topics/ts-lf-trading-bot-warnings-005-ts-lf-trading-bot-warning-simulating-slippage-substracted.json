@@ -3,27 +3,18 @@
     "pageNumber": "5",
     "type": "TS LF Trading Bot Warning - Simulating - Slippage Substracted",
     "definition": {
-        "text": "Slippage Amount was calculated based on the Session Configuration and substracted from the Order Rate in order to have the Actual Rate. It was subsctracted because what we had was a Market Sell Order.",
-        "updated": 1611823586499
+        "text": "Slippage was calculated based on the Trading Parameters and subtracted from the Order Rate to calculate the Actual Rate. Slippage was subtracted because the order is a Market Sell Order.",
+        "updated": 1611923152009
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is normal behaviour you should not worry about. This warning is created in order to let you know that this happened and help you track the details of each trade.",
-            "updated": 1611823620818
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611923165606
         },
         {
             "style": "Warning",
             "text": "Slippage Substracted"
-        },
-        {
-            "style": "Title",
-            "text": "Why This?",
-            "updated": 1611825720103
-        },
-        {
-            "style": "Text",
-            "text": "Check below how the Actual Rate is treated during a Simulation."
         },
         {
             "style": "Include",
@@ -35,7 +26,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are the values of variables at the time this warning was created. They might be useful for you to understand what exactly happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
         },
         {
             "style": "Placeholder",
@@ -52,6 +43,10 @@
         {
             "style": "List",
             "text": "Simulating Sync With the Exchange"
+        },
+        {
+            "style": "List",
+            "text": "Slippage"
         }
     ]
 }

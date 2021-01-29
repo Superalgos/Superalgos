@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1611914677651
+        },
+        {
             "style": "Title",
-            "text": "Check Cancel Order Event",
-            "updated": 1610222003919
+            "text": "Check Cancel Order Event"
         },
         {
             "style": "Text",

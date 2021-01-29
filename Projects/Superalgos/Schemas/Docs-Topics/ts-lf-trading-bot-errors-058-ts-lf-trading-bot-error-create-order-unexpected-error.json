@@ -9,8 +9,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Creating an order means sending a request to the exchange via it's API to create the order. There are many different reasons why this can fail. Some of those reasons are under your control, and some are not. Some might be temporaly unavailability of the exchange servers, communication, network, or other issues. Below you can find the error details which will help you understand the nature of the problem. The LF Trading Bot expects that some issue may happens and has logic to handle these problems and continue operating.",
-            "updated": 1611736616811
+            "text": "The process of creating an order involves sending a request to the exchange via its API. There are many different reasons why the process may fail. Some of those reasons are under your control, and some are not. Some may involve temporary unavailability of the exchange servers, communication and network errors, or other issues.",
+            "updated": 1611953009405
+        },
+        {
+            "style": "Text",
+            "text": "Find below the error details. They may help you understand the nature of the problem and maybe solve it should it be within your reach. The LF Trading Bot features logic to handle unexpected errors to continue operating despite their occurrence."
         },
         {
             "style": "Error",
@@ -23,11 +27,11 @@
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Success",
-            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
             "updated": 1611736382407
         },
         {
@@ -60,7 +64,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -72,7 +76,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -84,7 +88,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the node's name of the Node most related to this error:"
+            "text": "The following is the node's name of the Node most related to this error:"
         },
         {
             "style": "Placeholder",
@@ -96,7 +100,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:"
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -108,7 +112,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the context information preserved when the error occured:"
+            "text": "The following is the context information preserved when the error occured:"
         },
         {
             "style": "Placeholder",

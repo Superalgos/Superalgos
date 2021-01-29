@@ -3,8 +3,8 @@
     "pageNumber": "30",
     "type": "TS LF Trading Bot Error - Actual Rate Node Missing",
     "definition": {
-        "text": "A Actual Rate Node was expected but not found at the node where the error poped up.",
-        "updated": 1611649989038
+        "text": "An Actual Rate node was expected but not found at the node where the error originated.",
+        "updated": 1611942592362
     },
     "paragraphs": [
         {

@@ -3,14 +3,14 @@
     "pageNumber": "6",
     "type": "TS LF Trading Bot Error - Minimum Balance Reached",
     "definition": {
-        "text": "The execution of the Trading System was halted because the minimun balance configured was reached. ",
-        "updated": 1611588526786
+        "text": "The Trading Session stopped because the minimum balance configured for the session was reached.",
+        "updated": 1611937955267
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You are allowed to configure at the Session Base Asset and Session Quoted Asset nodes a minimum balance. If you do that -- because it is optional -- the LF Trading Bot will check at every candle during the Trading Simulation that the balance has not reached that minimum. If it does, this error is triggered and the Trading System stops it's execution inmediatelly.",
-            "updated": 1611588663021
+            "text": "The Session Base Asset and Session Quoted Asset Trading Parameters enable the setting of a minimumBalance. The parameter is optional. When you use it, the LF Trading Bot checks—for every candle during the Trading Session—that the balance has not reached the configured minimum. If it does, this error is triggered and the Trading Session stops immediatelly.",
+            "updated": 1611934902255
         },
         {
             "style": "Error",

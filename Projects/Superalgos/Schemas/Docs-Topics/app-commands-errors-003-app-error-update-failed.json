@@ -19,11 +19,11 @@
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Note",
-            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
             "updated": 1611151375974
         },
         {
@@ -58,7 +58,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the Client:",
+            "text": "The following is the Error Code of the Exception that occured at the Client:",
             "updated": 1611151443562
         },
         {
@@ -71,7 +71,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing are all the Error details of the Exception that occured at the Client:"
+            "text": "The following are all the Error details of the Exception that occured at the Client:"
         },
         {
             "style": "Placeholder",

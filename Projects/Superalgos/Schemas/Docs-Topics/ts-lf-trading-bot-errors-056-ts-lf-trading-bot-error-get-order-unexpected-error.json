@@ -3,13 +3,19 @@
     "pageNumber": "56",
     "type": "TS LF Trading Bot Error - Get Order Unexpected Error",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "An unexpected error occurred while attempting to get the information on an order from the exchange.",
+        "updated": 1611952202808
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Getting an order means sending a request to the exchange via it's API to give us the order information. There are many different reasons why this can fail. Some of those reasons are under your control, and some are not. Some might be temporaly unavailability of the exchange servers, communication, network, or other issues. Below you can find the error details which will help you understand the nature of the problem. The LF Trading Bot expects that some issue may happens and has logic to handle these problems and continue operating.",
-            "updated": 1611736716112
+            "text": "The process of getting an order involves sending a request to the exchange via its API expecting to receive an answer with the order information. There are many different reasons why the process may fail. Some of those reasons are under your control, and some are not. Some may involve temporary unavailability of the exchange servers, communication and network errors, or other issues.",
+            "updated": 1611952213926
+        },
+        {
+            "style": "Text",
+            "text": "Find below the error details. They may help you understand the nature of the problem and maybe solve it should it be within your reach. The LF Trading Bot features logic to handle unexpected errors to continue operating despite their occurrence.",
+            "updated": 1611952229461
         },
         {
             "style": "Text",
@@ -26,11 +32,11 @@
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Note",
-            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
             "updated": 1611736750115
         },
         {
@@ -63,7 +69,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -75,7 +81,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -87,7 +93,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the node's name of the Node most related to this error:"
+            "text": "The following is the node's name of the Node most related to this error:"
         },
         {
             "style": "Placeholder",
@@ -99,7 +105,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:"
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -111,7 +117,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the context information preserved when the error occured:"
+            "text": "The following is the context information preserved when the error occured:"
         },
         {
             "style": "Placeholder",

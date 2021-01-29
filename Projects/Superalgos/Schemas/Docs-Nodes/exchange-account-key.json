@@ -13,26 +13,6 @@
             "text": "Configuring Exchange Account Key"
         },
         {
-            "style": "Text",
-            "text": "Select Configure Key on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "\"codeName\": \"Paste your exchange API name or label here\","
-        },
-        {
-            "style": "Text",
-            "text": "\"secret\": \"Paste your exchange API secret key here.\""
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
             "style": "List",
             "text": "codeName is the name or label of your key, as supplied by the exchange."
         },

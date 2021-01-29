@@ -3,8 +3,8 @@
     "pageNumber": "18",
     "type": "TS LF Trading Bot Error - Serial Number Node Missing",
     "definition": {
-        "text": "A Serial Number Node was expected but not found at the node where the error poped up.",
-        "updated": 1611649736116
+        "text": "A Serial Number node was expected but not found at the node where the error originated.",
+        "updated": 1611942204063
     },
     "paragraphs": [
         {

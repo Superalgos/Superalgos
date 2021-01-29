@@ -9,8 +9,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Creating an order means sending a request to the exchange via it's API to create the order. There are many different reasons why this can fail. Some of those reasons are under your control, and some are not. Some might be temporaly unavailability of the exchange servers, communication, network, or other issues. Below you can find the error details which will help you understand the nature of the problem. The LF Trading Bot expects that some issue may happens and has logic to handle these problems and continue operating.",
-            "updated": 1611736616811
+            "text": "The process of creating an order involves sending a request to the exchange via its API. There are many different reasons why the process may fail. Some of those reasons are under your control, and some are not. Some may involve temporary unavailability of the exchange servers, communication and network errors, or other issues.",
+            "updated": 1611953009405
+        },
+        {
+            "style": "Text",
+            "text": "Find below the error details. They may help you understand the nature of the problem and maybe solve it should it be within your reach. The LF Trading Bot features logic to handle unexpected errors to continue operating despite their occurrence."
         },
         {
             "style": "Error",

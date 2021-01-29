@@ -143,7 +143,6 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
         recalculateSizePlaced()
 
         function recalculateActualSize() {
-            if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
             is not the same as the Rate we defined for the order, we need to syncronize 
@@ -162,10 +161,26 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
 
             tradingEngineOrder.orderQuotedAsset.actualSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.actualSize.value, 10)
 
-            tradingSystem.warnings.push(
+            const message = 'Calculating - Actual Size Recalculated'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                previousQuotedAssetActualSize: previousQuotedAssetActualSize,
+                recalculatedQuotedAssetActualSize: tradingEngineOrder.orderQuotedAsset.actualSize.value,
+                actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                orderRate: tradingEngineOrder.rate.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.actualSize.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                    'Actual Size (' + previousQuotedAssetActualSize + ') recalculated (' + tradingEngineOrder.orderQuotedAsset.actualSize.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                    message,
+                    docs
                 ]
             )
         }
@@ -186,10 +201,26 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
 
             tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
-            tradingSystem.warnings.push(
+            const message = 'Calculating - Size Placed Recalculated'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                previousStageQuotedAssetSizePlaced: previousStageQuotedAssetSizePlaced,
+                recalculatedStageQuotedAssetSizePlaced: tradingEngineStage.stageQuotedAsset.sizePlaced.value,
+                actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
+                orderRate: tradingEngineOrder.rate.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineStage.stageQuotedAsset.sizePlaced.id, tradingEngineOrder.orderStatistics.actualRate.id],
-                    'Size Placed (' + previousStageQuotedAssetSizePlaced + ') recalculated (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') because the Actual Rate (' + tradingEngineOrder.orderStatistics.actualRate.value + ') is different than the Order Rate (' + tradingEngineOrder.rate.value + '))'
+                    message,
+                    docs
                 ]
             )
         }

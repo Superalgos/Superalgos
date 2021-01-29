@@ -68,10 +68,22 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             already at the errors array. This rate will later help plotting the error at the
             charts.
             */
-           let baseRate = tradingEngine.current.episode.candle.close.value
-           let rate = baseRate - baseRate * ((tradingSystem.errors.length + 1) + 0) / 100
-           errorInfoArray.push(rate)
-           tradingSystem.errors.push(errorInfoArray)
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate - baseRate * ((tradingSystem.errors.length + 1) + 0) / 100
+            errorInfoArray.push(rate)
+            tradingSystem.errors.push(errorInfoArray)
+        }
+
+        tradingSystem.addWarning = function (warningInfoArray) {
+            /*
+            This function adds to the array of warning info a rate based on the amount of items
+            already at the warning array. This rate will later help plotting the warning at the
+            charts.
+            */
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate + baseRate * ((tradingSystem.warnings.length + 1) + 0) / 100
+            warningInfoArray.push(rate)
+            tradingSystem.warnings.push(warningInfoArray)
         }
 
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {

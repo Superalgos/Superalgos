@@ -121,7 +121,7 @@ cursor: pointer;
 .docs-tooltip {
 position: relative;
 display: inline-block;
-border-bottom: 1px dashed #0295aa; 
+border-bottom: 1px dashed #999; 
 cursor: pointer;
 line-height: inherit;
 }
@@ -564,9 +564,9 @@ margin: 0 0 0 15px;
 
 code.docs-code {
 color: #d9534f;
-background-color: rgba(230, 234, 234, 1);
+background-color: rgba(230, 234, 234, .5);
 /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
-border: 1px solid rgba(54, 85, 88, .3);
+border: 1px solid rgba(54, 85, 88, .1);
 border-radius: 3px;
 padding: 0 5;
 }

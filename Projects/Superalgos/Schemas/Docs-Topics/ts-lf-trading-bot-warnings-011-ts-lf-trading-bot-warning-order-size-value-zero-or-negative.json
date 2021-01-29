@@ -22,20 +22,20 @@
             "updated": 1611915818853
         },
         {
-            "style": "Include",
-            "text": "Superalgos->Topic->Opening Orders->Opening Orders"
-        },
-        {
             "style": "Title",
             "text": "Context Info"
         },
         {
             "style": "Text",
-            "text": "The following are the values of variables at the time this warning was created. They might be useful for you to understand what exactly happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
         },
         {
             "style": "Placeholder",
             "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Opening Orders->Opening Orders"
         },
         {
             "style": "Title",

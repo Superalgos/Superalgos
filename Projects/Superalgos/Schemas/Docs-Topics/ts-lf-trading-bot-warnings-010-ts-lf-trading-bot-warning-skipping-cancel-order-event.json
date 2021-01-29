@@ -17,21 +17,21 @@
             "text": "Skipping Cancel Order Event"
         },
         {
-            "style": "Include",
-            "text": "Superalgos->Topic->Canceling Orders->Content",
-            "updated": 1611914953795
-        },
-        {
             "style": "Title",
             "text": "Context Info"
         },
         {
             "style": "Text",
-            "text": "The following are the values of variables at the time this warning was created. They might be useful for you to understand what exactly happened."
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
         },
         {
             "style": "Placeholder",
             "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Canceling Orders->Content",
+            "updated": 1611914953795
         },
         {
             "style": "Title",

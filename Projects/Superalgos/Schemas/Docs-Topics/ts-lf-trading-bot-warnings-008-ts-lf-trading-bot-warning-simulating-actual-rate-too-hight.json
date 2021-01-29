@@ -3,27 +3,18 @@
     "pageNumber": "8",
     "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Too Hight",
     "definition": {
-        "text": "The Actual Rate was adjusted to the Candle Max value because we had a Buy Order whose Actual Rate was above the Current Candle Max.",
-        "updated": 1611823586499
+        "text": "The Actual Rate was adjusted to the Candle Max value because original Actual Rate of the Buy Order was above the Current Candle Max.",
+        "updated": 1611924275508
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is normal behaviour you should not worry about. This warning is created in order to let you know that this happened and help you track the details of each trade.",
-            "updated": 1611823620818
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611924194963
         },
         {
             "style": "Warning",
             "text": "Actual Rate Too Hight"
-        },
-        {
-            "style": "Title",
-            "text": "Why This?",
-            "updated": 1611825558276
-        },
-        {
-            "style": "Text",
-            "text": "Check below how the Actual Rate is treated during a Simulation."
         },
         {
             "style": "Include",
@@ -52,6 +43,10 @@
         {
             "style": "List",
             "text": "Simulating Sync With the Exchange"
+        },
+        {
+            "style": "List",
+            "text": "Actual Rate"
         }
     ]
 }

@@ -3,27 +3,18 @@
     "pageNumber": "6",
     "type": "TS LF Trading Bot Warning - Simulating - Slippage Added",
     "definition": {
-        "text": "Slippage Amount was calculated based on the Session Configuration and substracted from the Order Rate in order to have the Actual Rate. It was added because what we had was a Market Buy Order.",
-        "updated": 1611823586499
+        "text": "Slippage was calculated based on the Trading Parameters and added to the Order Rate to calculate the Actual Rate. Slippage was added because the order is a Market Buy Order.",
+        "updated": 1611923342547
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is normal behaviour you should not worry about. This warning is created in order to let you know that this happened and help you track the details of each trade.",
-            "updated": 1611823620818
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611923351551
         },
         {
             "style": "Warning",
             "text": "Slippage Added"
-        },
-        {
-            "style": "Title",
-            "text": "Why This?",
-            "updated": 1611825659055
-        },
-        {
-            "style": "Text",
-            "text": "Check below how the Actual Rate is treated during a Simulation."
         },
         {
             "style": "Include",
@@ -52,6 +43,10 @@
         {
             "style": "List",
             "text": "Simulating Sync With the Exchange"
+        },
+        {
+            "style": "List",
+            "text": "Slippage"
         }
     ]
 }

@@ -2840,6 +2840,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Switch To Paper Trading",
+                "label": "Switch To Paper Trading",
+                "relatedUiObject": "Paper Trading Session",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -10094,6 +10100,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Switch To Backtesting",
+                "label": "Switch To Backtesting",
+                "relatedUiObject": "Backtesting Session",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -10192,6 +10204,12 @@
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Trading Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Switch To Live Trading",
+                "label": "Switch To Live Trading",
+                "relatedUiObject": "Live Trading Session",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -10319,6 +10337,12 @@
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
                 "relatedUiObject": "Trading Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Switch To Forward Testing",
+                "label": "Switch To Forward Testing",
+                "relatedUiObject": "Forward Testing Session",
                 "actionFunction": "payload.executeAction"
             },
             {

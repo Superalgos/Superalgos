@@ -210,6 +210,12 @@ function newFloatingLayer() {
         let newInvisibleArray = []
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
             let floatingObject = invisibleFloatingObjects[i]
+            
+            if (floatingObject.payload === undefined) {
+                /* The floating object was replaced by another one. */
+                invisibleFloatingObjects.splice(i, 1)
+                return
+            }
 
             collapsePhysics(floatingObject)
 
@@ -226,6 +232,12 @@ function newFloatingLayer() {
         let newVisibleArray = []
         for (let i = 0; i < visibleFloatingObjects.length; i++) {
             let floatingObject = visibleFloatingObjects[i]
+
+            if (floatingObject.payload === undefined) {
+                /* The floating object was replaced by another one. */
+                visibleFloatingObjects.splice(i, 1)
+                return
+            }
 
             collapsePhysics(floatingObject)
 

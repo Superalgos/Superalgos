@@ -25,10 +25,22 @@ function newUiObjectConstructor() {
     }
 
     function createUiObject(userAddingNew, payload) {
+        
+        /*
+        In case we are replacing an existing uiObject and floatingObject
+        */
+        if (payload.floatingObject !== undefined) {
+            payload.floatingObject.finalize()
+        }
+        if (payload.uiObject !== undefined) {
+            payload.uiObject.finalize()
+        }
+
         let floatingObject = newFloatingObject()
         floatingObject.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
         floatingObject.container.connectToParent(UI.projects.superalgos.spaces.floatingSpace.container, false, false, false, false, false, false, false, false)
         floatingObject.initialize('UI Object', payload)
+
         payload.floatingObject = floatingObject
 
         /*

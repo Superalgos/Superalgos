@@ -3,13 +3,18 @@
     "pageNumber": "45",
     "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Not A Number",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "You must specify what percentage of the Size handled by the Stage is to be handled by the Execution Algorithm.",
+        "updated": 1611945195559
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "Percentage Of Algorithm Size Property Not A Number",
             "updated": 1611651354529
+        },
+        {
+            "style": "Success",
+            "text": "Check the algorithm's configuration and make sure the percentageOfStageTargetSize property exists and is defined with a number greater than zero."
         }
     ]
 }

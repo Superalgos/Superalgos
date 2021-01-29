@@ -156,7 +156,6 @@ function newSuperalgosFunctionLibraryNodeDeleter() {
         node.payload.targetPosition.x = undefined
         node.payload.targetPosition.y = undefined
         node.payload.visible = undefined
-        node.payload.subTitle = undefined
         node.payload.title = undefined
         node.payload.node = undefined
         node.payload.parentNode = undefined

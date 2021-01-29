@@ -155,8 +155,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     /* Check Events that happens at the Exchange, if needed. */
                     let allGood = await checkExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
 
-                    if (allGood !== true) 
-                    {
+                    if (allGood !== true) {
                         /*
                         For some reason we could not check the order at the exchange, so we will not even check if we 
                         need to cancel it, since we could end up with inconsistent information at the accounting level.
@@ -179,7 +178,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 ]
                             )
                         }
-                    //    return
+                        return
                     }
 
                     /* Check if we need to cancel the order */
@@ -277,8 +276,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         await calculateOrderSize()
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
-        //if (tradingEngineOrder.orderBaseAsset.size.value <= 0) 
-        {
+        if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
 
             const message = 'Order Size Value Zero Or Negative'
             let docs = {
@@ -295,11 +293,10 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     docs
                 ]
             )
-        //    return
+            return
         }
 
-        //if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) 
-        {
+        if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
 
             const message = 'Order Size Value Zero Or Negative'
             let docs = {
@@ -316,7 +313,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     docs
                 ]
             )
-        //    return
+            return
         }
 
         /* Place Order at the Exchange, if needed. */

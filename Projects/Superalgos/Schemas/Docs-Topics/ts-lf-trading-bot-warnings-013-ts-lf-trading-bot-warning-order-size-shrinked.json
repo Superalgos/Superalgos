@@ -3,8 +3,8 @@
     "pageNumber": "13",
     "type": "TS LF Trading Bot Warning - Order Size Shrinked",
     "definition": {
-        "text": "The Order Size wahs shrinked so that the Size Placed once the order is filled, does not produce that we go over the Target Size defined for the whole stage.",
-        "updated": 1611833827822
+        "text": "The Order Size was shrinked so that the Size Placed once the order is filled, does not produce that we go over the Target Size defined for the whole stage.",
+        "updated": 1611910725966
     },
     "paragraphs": [
         {

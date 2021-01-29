@@ -3,8 +3,8 @@
     "pageNumber": "8",
     "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Too Hight",
     "definition": {
-        "text": "The Actual Rate was adjusted to the Candle Max value because original Actual Rate of the Buy Order was above the Current Candle Max.",
-        "updated": 1611924275508
+        "text": "The Actual Rate was adjusted to the Candle Max value because the original Actual Rate of the Buy Order was above the Current Candle Max.",
+        "updated": 1611924420717
     },
     "paragraphs": [
         {

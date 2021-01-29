@@ -18,11 +18,6 @@
         },
         {
             "style": "Title",
-            "text": "Opening Orders",
-            "updated": 1611915818853
-        },
-        {
-            "style": "Title",
             "text": "Context Info"
         },
         {
@@ -32,6 +27,11 @@
         {
             "style": "Placeholder",
             "text": "contextInfo"
+        },
+        {
+            "style": "Title",
+            "text": "Opening Orders",
+            "updated": 1611953814899
         },
         {
             "style": "Include",

@@ -3,7 +3,7 @@
     "pageNumber": "37",
     "type": "TS LF Trading Bot Error - Fees To Be Paid Node Missing",
     "definition": {
-        "text": "A Fees To Be Paid Node was expected but not found at the node where the error poped up.",
+        "text": "A Fees To Be Paid Node was expected but not found at the node where the error originated.",
         "updated": 1611650142288
     },
     "paragraphs": [

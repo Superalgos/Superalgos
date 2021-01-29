@@ -3,7 +3,7 @@
     "pageNumber": "28",
     "type": "TS LF Trading Bot Error - Days Node Missing",
     "definition": {
-        "text": "A Days Node was expected but not found at the node where the error poped up.",
+        "text": "A Days Node was expected but not found at the node where the error originated.",
         "updated": 1611649947641
     },
     "paragraphs": [

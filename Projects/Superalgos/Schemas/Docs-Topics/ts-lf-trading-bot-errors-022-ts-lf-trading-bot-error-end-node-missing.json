@@ -3,7 +3,7 @@
     "pageNumber": "22",
     "type": "TS LF Trading Bot Error - End Node Missing",
     "definition": {
-        "text": "A End Node was expected but not found at the node where the error poped up.",
+        "text": "A End Node was expected but not found at the node where the error originated.",
         "updated": 1611649805035
     },
     "paragraphs": [

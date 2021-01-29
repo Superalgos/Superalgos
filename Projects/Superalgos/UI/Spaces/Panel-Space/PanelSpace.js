@@ -49,14 +49,16 @@ function newSuperalgosPanelSpace() {
                 }
             case 'Plotter Panel':
                 {
-                    if (pParameters.panelNode.config.isLegacy !== true) {
+                    let panelConfig = JSON.parse(pParameters.panelNode.config)
+
+                    if (panelConfig.isLegacy !== true) {
                         panel = newPlotterPanel()
                         panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
                         panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                         panel.session = pSession
                         panel.initialize(pParameters.panelNode)
                     } else {
-                        panel = getNewPlotterPanel(pParameters.mine, pParameters.plotterCodeName, pParameters.moduleCodeName, pParameters.panelNode.config.codeName)
+                        panel = getNewPlotterPanel(pParameters.mine, pParameters.plotterCodeName, pParameters.moduleCodeName, panelConfig.codeName)
                         panel.fitFunction = UI.projects.superalgos.spaces.chartingSpace.fitFunction
                         panel.container.isVisibleFunction = UI.projects.superalgos.spaces.chartingSpace.isThisPointVisible
                         panel.session = pSession

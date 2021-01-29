@@ -3,8 +3,8 @@
     "pageNumber": "8",
     "type": "TS LF Trading Bot Error - Target Rate Node Missing",
     "definition": {
-        "text": "A Target Rate Node was expected but not found at the node where the error originated.",
-        "updated": 1611595784678
+        "text": "A Target Rate node was expected but not found at the node where the error originated.",
+        "updated": 1611939274814
     },
     "paragraphs": [
         {
@@ -19,7 +19,8 @@
         },
         {
             "style": "Success",
-            "text": "Add the missing node and try again."
+            "text": "Add the missing node and try again. The session will not run free of errors until all required nodes are defined.",
+            "updated": 1611939243926
         }
     ]
 }

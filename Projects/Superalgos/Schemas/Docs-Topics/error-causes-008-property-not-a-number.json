@@ -3,7 +3,7 @@
     "pageNumber": "8",
     "type": "Property Not A Number",
     "definition": {
-        "text": "This type of error means that a property at the config of a node is expected to be a number but the value there it is not. To avoid this type of errors, check the node's config and make yourself sure that the property mentioned is indeed a number.",
+        "text": "This type of error means that a property at the config of a node is expected to be a number but the value there it is not. To avoid this type of errors, check the node's config and Make sure that the property mentioned is indeed a number.",
         "updated": 1611652575431
     },
     "paragraphs": [

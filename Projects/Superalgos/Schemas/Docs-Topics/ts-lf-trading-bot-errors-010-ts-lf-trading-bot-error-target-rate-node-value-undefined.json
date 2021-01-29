@@ -3,8 +3,8 @@
     "pageNumber": "10",
     "type": "TS LF Trading Bot Error - Target Rate Node Value Undefined",
     "definition": {
-        "text": "The value of the Target Rate Node can not be undefined.",
-        "updated": 1611595915288
+        "text": "The value of the Target Rate node can not be undefined.",
+        "updated": 1611939319876
     },
     "paragraphs": [
         {
@@ -14,7 +14,8 @@
         },
         {
             "style": "Success",
-            "text": "Check the Formula and try again."
+            "text": "Check the Formula and try again. The session will not run free of errors until all required nodes are defined.",
+            "updated": 1611939330494
         }
     ]
 }

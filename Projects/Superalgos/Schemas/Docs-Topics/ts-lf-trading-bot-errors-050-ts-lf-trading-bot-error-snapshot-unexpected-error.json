@@ -3,8 +3,8 @@
     "pageNumber": "50",
     "type": "TS LF Trading Bot Error - Snapshot Unexpected Error",
     "definition": {
-        "text": "The Trading Bot found an Unexpected Error during the generation of a Snapshot. The trading process continued but the task of generating the Snapshot was aborted.",
-        "updated": 1611681073241
+        "text": "The LF Trading Bot found an Unexpected Error during the generation of a Snapshot. The trading process continued but the task of generating the Snapshot was aborted.",
+        "updated": 1611945514982
     },
     "paragraphs": [
         {

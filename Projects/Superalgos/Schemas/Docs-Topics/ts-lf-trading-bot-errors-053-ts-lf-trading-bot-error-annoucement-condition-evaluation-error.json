@@ -13,6 +13,10 @@
             "updated": 1611732817870
         },
         {
+            "style": "Success",
+            "text": "Check the validity of the Javascript code in the Announcement Condition and try again."
+        },
+        {
             "style": "Title",
             "text": "Error Info"
         },

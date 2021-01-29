@@ -3,8 +3,8 @@
     "pageNumber": "46",
     "type": "TS LF Trading Bot Error - Stage Base Asset Node Missing",
     "definition": {
-        "text": "A Stage Base Asset Asset node was expected but not found at the node where the error originated.",
-        "updated": 1611677607596
+        "text": "A Stage Base Asset node was expected but not found at the node where the error originated.",
+        "updated": 1611945394200
     },
     "paragraphs": [
         {

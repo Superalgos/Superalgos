@@ -9,11 +9,11 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "This is normal behavior, so you do not need to worry about it. The trading bot created this warning to let you know that this happened, so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
-            "updated": 1611915330322
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611916340216
         },
         {
-            "style": "Important",
+            "style": "Warning",
             "text": "Order Size Value Zero Or Negative"
         },
         {

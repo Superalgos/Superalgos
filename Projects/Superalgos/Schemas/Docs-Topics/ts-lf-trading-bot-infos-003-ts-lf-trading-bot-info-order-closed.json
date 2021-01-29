@@ -1,0 +1,28 @@
+{
+    "topic": "TS LF Trading Bot Infos",
+    "pageNumber": "3",
+    "type": "TS LF Trading Bot Info - Order Closed",
+    "definition": {
+        "text": "The order that triggered this Infor Message has been closed.",
+        "updated": 1611920136713
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Details of the Exit Type for that order can be seen below.",
+            "updated": 1611920197722
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "Here are the context information preserved at the moment this Info Message was generated."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        }
+    ]
+}

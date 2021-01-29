@@ -121,7 +121,7 @@ cursor: pointer;
 .docs-tooltip {
 position: relative;
 display: inline-block;
-border-bottom: 1px dashed #999; 
+border-bottom: 1px dashed #0295aa; 
 cursor: pointer;
 line-height: inherit;
 }
@@ -880,6 +880,36 @@ color: #31708f;
 a:hover.docs-search-result-content-record-project-category-link {
 text-decoration: underline;
 cursor: pointer;
+}
+
+.docs-search-result-content-record-topic {
+font-size: 90%;
+color: #31708f;
+}
+
+.docs-search-result-content-record-tutorial {
+font-size: 90%;
+color: #31708f;
+}
+
+.docs-search-result-content-record-review {
+font-size: 90%;
+color: #31708f;
+}
+
+.docs-search-result-content-record-topic {
+font-size: 90%;
+color: #31708f;
+}
+
+.docs-search-result-content-record-tutorial {
+font-size: 90%;
+color: #31708f;
+}
+
+.docs-search-result-content-record-review {
+font-size: 90%;
+color: #31708f;
 }
 
 .docs-search-result-content-record-title {

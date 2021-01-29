@@ -271,15 +271,18 @@ function newSuperalgosDocsSearchResultsPage() {
 
                     switch (result.documentIndex.category) {
                         case 'Topic': {
-                            mainLink = result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            HTML = HTML + '<p class="docs-search-result-content-record-topic">' + result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         case 'Tutorial': {
-                            mainLink = result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            HTML = HTML + '<p class="docs-search-result-content-record-tutorial">' + result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         case 'Review': {
-                            mainLink = result.documentIndex.docsSchemaDocument.review + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + ' - ' + result.documentIndex.docsSchemaDocument.type
+                            HTML = HTML + '<p class="docs-search-result-content-record-review">' + result.documentIndex.docsSchemaDocument.review + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         default: {

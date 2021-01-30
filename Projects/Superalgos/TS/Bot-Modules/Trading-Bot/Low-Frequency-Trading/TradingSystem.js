@@ -62,6 +62,42 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             evalNode(startingNode, 'Formulas', descendentOfNodeType)
         }
 
+        tradingSystem.addError = function (errorDataArray) {
+            /*
+            This function adds to the array of error info a rate based on the amount of items
+            already at the errors array. This rate will later help plotting the error at the
+            charts.
+            */
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate - baseRate * ((tradingSystem.errors.length + 1) + 0) / 100
+            errorDataArray.push(rate)
+            tradingSystem.errors.push(errorDataArray)
+        }
+
+        tradingSystem.addWarning = function (warningDataArray) {
+            /*
+            This function adds to the array of warning info a rate based on the amount of items
+            already at the warning array. This rate will later help plotting the warning at the
+            charts.
+            */
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate + baseRate * ((tradingSystem.warnings.length + 1) + 0) / 100
+            warningDataArray.push(rate)
+            tradingSystem.warnings.push(warningDataArray)
+        }
+
+        tradingSystem.addInfo = function (infoDataArray) {
+            /*
+            This function adds to the array of warning info a rate based on the amount of items
+            already at the warning array. This rate will later help plotting the warning at the
+            charts.
+            */
+            let baseRate = tradingEngine.current.episode.candle.close.value
+            let rate = baseRate + baseRate * ((tradingSystem.infos.length + 1) + 0.5) / 100
+            infoDataArray.push(rate)
+            tradingSystem.infos.push(infoDataArray)
+        }
+
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {
             /* 
             The function is to allow in Conditions and Formulas to easily know when an element with timestamp (like the ones of single files) are inside the time range
@@ -277,7 +313,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             tradingSystem.highlights.push(node.id)
         }
         if (errorMessage !== undefined) {
-            tradingSystem.errors.push([node.id, errorMessage, docs])
+            tradingSystem.addError([node.id, errorMessage, docs])
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
@@ -312,7 +348,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         }
 
         if (errorMessage !== undefined) {
-            tradingSystem.errors.push([node.id, errorMessage, docs])
+            tradingSystem.addError([node.id, errorMessage, docs])
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
             return
         } else {
@@ -327,10 +363,10 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                     }
                     TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
 
-                    tradingSystem.errors.push([node.id, 'Formula needs to return a numeric value.', docs])
+                    tradingSystem.addError([node.id, 'Formula needs to return a numeric value.', docs])
                     return
                 }
-    
+
                 tradingSystem.values.push([node.id, value])
                 tradingSystem.formulas.set(node.id, value)
             }

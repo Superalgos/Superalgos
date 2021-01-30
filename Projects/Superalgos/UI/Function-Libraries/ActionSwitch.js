@@ -634,7 +634,7 @@ function newSuperalgosActionSwitch() {
                 {
                     let definition = getSchemaDocument(action.node)
                     if (definition !== undefined) {
-                        UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project,'Node', action.node.type)
+                        UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project, 'Node', action.node.type)
                     }
                 }
                 break
@@ -676,6 +676,30 @@ function newSuperalgosActionSwitch() {
             case 'Add Missing Workspace Projects':
                 {
                     UI.projects.superalgos.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
+                }
+                break
+            case 'Switch To Forward Testing':
+                {
+                    action.node.type = "Forward Testing Session"
+                    UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Live Trading':
+                {
+                    action.node.type = "Live Trading Session"
+                    UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Paper Trading':
+                {
+                    action.node.type = "Paper Trading Session"
+                    UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Backtesting':
+                {
+                    action.node.type = "Backtesting Session"
+                    UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
         }

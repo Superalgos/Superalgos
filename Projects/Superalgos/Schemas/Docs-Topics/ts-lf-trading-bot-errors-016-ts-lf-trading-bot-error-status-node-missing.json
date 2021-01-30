@@ -3,8 +3,8 @@
     "pageNumber": "16",
     "type": "TS LF Trading Bot Error - Status Node Missing",
     "definition": {
-        "text": "A Status Node was expected but not found at the node where the error poped up.",
-        "updated": 1611649715787
+        "text": "A Status node was expected but not found at the node where the error originated.",
+        "updated": 1611941288814
     },
     "paragraphs": [
         {

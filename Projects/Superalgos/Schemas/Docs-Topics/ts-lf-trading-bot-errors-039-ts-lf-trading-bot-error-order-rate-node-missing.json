@@ -3,8 +3,8 @@
     "pageNumber": "39",
     "type": "TS LF Trading Bot Error - Order Rate Node Missing",
     "definition": {
-        "text": "A Order Rate Node was expected but not found at the node where the error poped up.",
-        "updated": 1611650190281
+        "text": "An Order Rate node was expected but not found at the node where the error originated.",
+        "updated": 1611942638815
     },
     "paragraphs": [
         {

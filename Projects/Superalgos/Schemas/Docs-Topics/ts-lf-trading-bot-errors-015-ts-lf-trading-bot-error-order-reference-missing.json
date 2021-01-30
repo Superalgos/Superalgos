@@ -3,8 +3,8 @@
     "pageNumber": "15",
     "type": "TS LF Trading Bot Error - Order Reference Missing",
     "definition": {
-        "text": "Each order at the Trading System is expected to have a reference to an order at the Trading Engine Data Structure. This references tells the system where to track at runtime the values of the order properties while the bot is running.",
-        "updated": 1611649597701
+        "text": "Each order in the Trading System is expected to reference an order of the same type in the Trading Engine Data Structure. This reference tells the system where to track the values of the order properties while the bot is running.",
+        "updated": 1611940524337
     },
     "paragraphs": [
         {
@@ -14,7 +14,8 @@
         },
         {
             "style": "Success",
-            "text": "Set up the reference to an order of the Trading Engine and try again."
+            "text": "Set up the reference to an order of the same type in the Trading Engine and try again. Learn how to Establish and Remove References.",
+            "updated": 1611940690458
         }
     ]
 }

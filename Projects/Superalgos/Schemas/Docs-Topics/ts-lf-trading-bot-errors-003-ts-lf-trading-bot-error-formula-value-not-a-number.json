@@ -3,14 +3,14 @@
     "pageNumber": "3",
     "type": "TS LF Trading Bot Error - Formula Value Not A Number",
     "definition": {
-        "text": "When evaluated by teh LF Trading Bot, a Formula must return a numeric value. In this case it did not, and for that reason this error happened..",
-        "updated": 1611568961215
+        "text": "Formulas must always evaluate to a number. When they don't, this error happens.",
+        "updated": 1611926524667
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the Low Frequency Trading Bot encountered an error while trying to evaluate one of your formulas defined at the Trading System. Formulas are supposed to return a numeric value an this one did not.",
-            "updated": 1611579417164
+            "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the formulas defined in the Trading System. Formulas are expected to return a numeric value.",
+            "updated": 1611926775403
         },
         {
             "style": "Error",
@@ -19,15 +19,15 @@
         },
         {
             "style": "Title",
-            "text": "Error Details"
+            "text": "Error Info"
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Success",
-            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
             "updated": 1611569373599
         },
         {
@@ -37,7 +37,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the node's name of the Node most related to this error:",
+            "text": "The following is the node's name of the Node most related to this error:",
             "updated": 1611571455498
         },
         {
@@ -50,7 +50,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:",
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:",
             "updated": 1611569545869
         },
         {
@@ -65,7 +65,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the value of the node at the moment that this error happened at the LF Trading Bot:",
+            "text": "The following is the value of the node at the moment that this error happened at the LF Trading Bot:",
             "updated": 1611579550831
         },
         {

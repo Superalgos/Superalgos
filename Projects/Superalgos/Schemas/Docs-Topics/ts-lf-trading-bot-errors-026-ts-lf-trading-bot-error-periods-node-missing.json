@@ -3,7 +3,7 @@
     "pageNumber": "26",
     "type": "TS LF Trading Bot Error - Periods Node Missing",
     "definition": {
-        "text": "A Periods Node was expected but not found at the node where the error poped up.",
+        "text": "A Periods node was expected but not found at the node where the error originated.",
         "updated": 1611649909128
     },
     "paragraphs": [

@@ -1,0 +1,25 @@
+{
+    "topic": "Sparta Data Mine",
+    "pageNumber": 1,
+    "type": "Sparta By @julian-molina",
+    "definition": {
+        "text": "The set of indicators built in the Sparta data mine include Simple Moving Average (SMA), Exponential Moving Averege (EMA), Relative Strenght Index (RSI), and Moving Average convergence Divergence (MACD).",
+        "updated": 1611685345604
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Sparta data mine is brought to you by...",
+            "updated": 1611685372883
+        },
+        {
+            "style": "Link",
+            "text": "@julian-molina->github.com/julian-molina/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+        }
+    ]
+}

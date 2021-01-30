@@ -641,13 +641,6 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
             }
         }
 
-        /* Setting the title */
-        if (title !== undefined) {
-            payload.subTitle = title
-        } else {
-            payload.subTitle = uiObjectType
-        }
-
         payload.visible = true
         payload.title = name
         payload.node = node

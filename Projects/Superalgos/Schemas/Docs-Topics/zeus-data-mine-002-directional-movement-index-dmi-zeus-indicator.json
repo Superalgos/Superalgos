@@ -1,0 +1,89 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 2,
+    "type": "Directional Movement Index (DMI) - Zeus Indicator",
+    "definition": {
+        "text": "Measure the strength and direction.",
+        "updated": 1611673209800
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Directional Movement Index (DMI) on the Charts",
+            "updated": 1611673222345
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, the DMI is an indicator that can “measure the strength and direction of a price movement so traders may avoid false signals. The DMI is two different standard indicators, one negative and one positive, that are plotted as lines on the same chart. A third line, the average directional index, or ADX, is non-directional but shows movement strength.”"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/dmi-on-the-chart.png",
+            "updated": 1611673285901
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The ADX is used to indicate market direction, the existence or nonexistence of a trend and market momentum. Market direction is determined by the levels of the +DI and -DI. If +DI is the higher number, market direction is up; if -DI is the greater number, market direction is down. The ADX indicator, which varies in value from zero to 100, is the primary momentum indicator. A value over 20 indicates the existence of a trend; a value over 40 indicates a strong trend.”"
+        },
+        {
+            "style": "Text",
+            "text": "Standard parameters:"
+        },
+        {
+            "style": "List",
+            "text": "Value for DI Length = 14"
+        },
+        {
+            "style": "List",
+            "text": "Value for ADX Smoothing = 14"
+        },
+        {
+            "style": "Text",
+            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “DMI Directional Movement” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/dmi-setting-parameters.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Directional Movement Index (DMI) Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are three properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| DMI | DMI | plusDI, minusDI, adx |",
+            "updated": 1611673388901
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "Basic strategies can be built by checking if plusDI is greater than minusDI:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.DMI.adx < 20",
+            "updated": 1611673404081
+        },
+        {
+            "style": "Text",
+            "text": "There is no clear trend."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.DMI.plusDI > chart.at04hs.DMI.minusDI",
+            "updated": 1611673420170
+        },
+        {
+            "style": "Text",
+            "text": "Trend is up."
+        }
+    ]
+}

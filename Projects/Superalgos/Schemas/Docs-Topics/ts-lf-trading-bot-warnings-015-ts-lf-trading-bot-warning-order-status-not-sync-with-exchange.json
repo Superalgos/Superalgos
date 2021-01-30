@@ -1,0 +1,49 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "15",
+    "type": "TS LF Trading Bot Warning - Order Status Not Sync With Exchange",
+    "definition": {
+        "text": "For some reason, the trading bot could not verify the status of the order at the exchange. As a consequence, the accounting and other actions related to the order were suspended until the communication with the exchange is reestablished.",
+        "updated": 1611922128136
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611922148396
+        },
+        {
+            "style": "Warning",
+            "text": "Order Status Not Sync With Exchange"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Title",
+            "text": "Learn More"
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:"
+        },
+        {
+            "style": "List",
+            "text": "Checking Exchange Events",
+            "updated": 1611921970650
+        },
+        {
+            "style": "List",
+            "text": "Syncing With the Exchange"
+        }
+    ]
+}

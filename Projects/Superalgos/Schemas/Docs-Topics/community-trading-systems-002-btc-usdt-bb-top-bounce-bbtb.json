@@ -1,0 +1,647 @@
+{
+    "topic": "Community Trading Systems",
+    "pageNumber": "2",
+    "type": "BTC-USDT - BB Top Bounce (BBTB)",
+    "definition": {
+        "text": "A trading system based on the bounce off the upper Bollinger Band idea, designed to accumulate Bitcoin, targeting a big range of market situations.",
+        "updated": 1611678251886
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "BB Top Bounce was released in May 2020. This page explains the trading system and analyzes its performance.",
+            "updated": 1611678265942
+        },
+        {
+            "style": "Text",
+            "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit."
+        },
+        {
+            "style": "Note",
+            "text": "BB Top Bounce is available on the BB-Top-Bounce.json plugin workspace shipping with Superalgos.",
+            "updated": 1611678276521
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Read Whole Page Warning",
+            "updated": 1611678326543
+        },
+        {
+            "style": "Title",
+            "text": "BBTB Performance in Backtests (Binance)",
+            "updated": 1611678342250
+        },
+        {
+            "style": "Text",
+            "text": "The following was the performance in backtests at the time of publishing:"
+        },
+        {
+            "style": "Table",
+            "text": "| Details | Jan 2018 - Apr 2020 | 2020 Jan-Apr | 2019 | 2018 |\n| Trades: | 77 | 8 | 26 | 42 |\n| Hits: | 67 | 6 | 25 | 35 |\n| Fails: | 10 | 2 | 1 | 7 |\n| Hit Ratio: | 87 % | 75 % | 96 % | 83 % |\n| ROI: | 4,870 % | 140 % | 268 % | 453 % |",
+            "updated": 1611678486882
+        },
+        {
+            "style": "Subtitle",
+            "text": "Notes on Backtests Performance",
+            "updated": 1611678514454
+        },
+        {
+            "style": "List",
+            "text": "The table above shows the results for different periods tested independently."
+        },
+        {
+            "style": "List",
+            "text": "Each backtest starts with an initial capital. With the default configuration, the system reinvests accumulated profits on every trade (positionSize = balanceBaseAsset)."
+        },
+        {
+            "style": "List",
+            "text": "ROI is calculated over the initial capital for each backtest, and the result is rounded to the closest integer."
+        },
+        {
+            "style": "List",
+            "text": "Because the system reinvests accumulated profits, the sum of ROI in different periods is not the same as ROI for all periods run in one single test (first column)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Assumptions"
+        },
+        {
+            "style": "List",
+            "text": "Slippage: 0.1 % in all orders."
+        },
+        {
+            "style": "List",
+            "text": "Fees: 0.1 % in all orders."
+        },
+        {
+            "style": "Title",
+            "text": "Technical Sheet",
+            "updated": 1611678591094
+        },
+        {
+            "style": "Subtitle",
+            "text": "Market"
+        },
+        {
+            "style": "Text",
+            "text": "USDT-BTC, with BTC as the base asset."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategy Goal"
+        },
+        {
+            "style": "Text",
+            "text": "Accumulate bitcoin in a wide range of market situations, with a moderate approach to risk to trade as frequently as possible."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Approach"
+        },
+        {
+            "style": "Text",
+            "text": "Split the goal into two fundamental notions:"
+        },
+        {
+            "style": "List",
+            "text": "1. Target specific market situations: Each strategy in the trading system is specialized in a particular market situation. This allows describing different trading opportunities with very specific conditions for the take position event, and managing the trade taking into account the specific context.",
+            "updated": 1611678642237
+        },
+        {
+            "style": "List",
+            "text": "2. Filter out dubious opportunities: Opportunities occurring in specific market situations usually perform poorly and may be filtered out to avoid fails and preserve capital.",
+            "updated": 1611678652510
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading Idea"
+        },
+        {
+            "style": "Text",
+            "text": "The main trading idea is to identify bounces off the top band of the Bollinger Bands (BB) on the 1-hour chart to take short positions on bitcoin as the price leaves the top band and heads for the lower band."
+        },
+        {
+            "style": "Text",
+            "text": "Most trades are expected to be short, while others have the potential to run longer while under the management stage."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Size"
+        },
+        {
+            "style": "Text",
+            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any. You may change this formula as you see fit."
+        },
+        {
+            "style": "Important",
+            "text": "Please take enough time to consider the implications of the above statement and make your own judgment about what setting may be appropriate for you.",
+            "updated": 1611678674857
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading Frequency"
+        },
+        {
+            "style": "Text",
+            "text": "The strategy is designed with the one-hour time frame as the main decision-making instance, meaning that it makes trigger and take position decisions upon the closing of the one-hour candle. That said, when running live on Superalgos, it should be run on the 1-minute time frame to allow quick reactions when evaluating take profit and stop loss targets."
+        },
+        {
+            "style": "Text",
+            "text": "The average trading frequency according to backtests is of around 1 trade every 11 days."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Required Bots"
+        },
+        {
+            "style": "Text",
+            "text": "The following bots must be running and up to date to run paper trading, forward testing, and live trading sessions:"
+        },
+        {
+            "style": "Text",
+            "text": "Masters Data Mine:"
+        },
+        {
+            "style": "List",
+            "text": "OHLCVs"
+        },
+        {
+            "style": "List",
+            "text": "Candles & Volumes"
+        },
+        {
+            "style": "List",
+            "text": "Bollinger Bands & Percentage Bandwith"
+        },
+        {
+            "style": "List",
+            "text": "Bollinger Channels & SubChannels"
+        },
+        {
+            "style": "Text",
+            "text": "Sparta Data Mine:"
+        },
+        {
+            "style": "List",
+            "text": "EMA"
+        },
+        {
+            "style": "List",
+            "text": "RSI"
+        },
+        {
+            "style": "Title",
+            "text": "Implementation"
+        },
+        {
+            "style": "Text",
+            "text": "The trading system has eight different strategies, each specializing in a specific market situation. This section analyzes the principles governing each stage, taking the first strategy in the system as an example. The rest of the strategies in the system behave similarly, the main differences being:"
+        },
+        {
+            "style": "List",
+            "text": "Some of the conditions that define the take position event, in particular the ones representing the Market Structure Analysis and Filters (see below)."
+        },
+        {
+            "style": "List",
+            "text": "The specific conditions used to switch take profit management phases."
+        },
+        {
+            "style": "Title",
+            "text": "Trigger Stage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trigger On vs. Take Position"
+        },
+        {
+            "style": "Text",
+            "text": "The conditions at the take position event and the trigger-on event are the same. Therefore, when a strategy is triggered, it also takes a position."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading Idea"
+        },
+        {
+            "style": "Text",
+            "text": "The trading idea is described by the first three conditions in the take position event, which are common to all strategies:"
+        },
+        {
+            "style": "List",
+            "text": "Previous Breakup:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.close > \nchart.at01hs.bollingerBand.previous.movingAverage +\nchart.at01hs.bollingerBand.previous.deviation",
+            "updated": 1611678786644
+        },
+        {
+            "style": "Text",
+            "text": "The condition describes the closing above the upper Bollinger Band of the previous candle."
+        },
+        {
+            "style": "List",
+            "text": "Current Close In:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close < \nchart.at01hs.bollingerBand.movingAverage + \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1611678805144
+        },
+        {
+            "style": "Text",
+            "text": "The condition describes the closing below the upper Bollinger Band of the current candle."
+        },
+        {
+            "style": "List",
+            "text": "Current Red Candle:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close < chart.at01hs.candle.open"
+        },
+        {
+            "style": "Text",
+            "text": "The condition serves to confirm that the re-entry happened with a candle closing lower than the opening price—an early indication of a potential short-term reversal."
+        },
+        {
+            "style": "Text",
+            "text": "In short, these first three conditions describe the fact that the price went above the Bollinger Bands and eventually returned within the bands, which may be a sign that it may bounce back in the direction of the lower band."
+        },
+        {
+            "style": "List",
+            "text": "Market Structure Analysis"
+        },
+        {
+            "style": "Text",
+            "text": "The logic for segmenting the market in the particular structures targeted by each of the strategies derives exclusively from studying which market situations produced the best hit ratios while testing the trading idea with symmetrical stop loss and take profit targets. That is, it is purely an empirical approach on what worked best during the span of the dataset tested—from January 2018 until April 2020."
+        },
+        {
+            "style": "Text",
+            "text": "The criteria the trading system uses to analyze the market structure at the time the opportunity arises (as described by the trading idea) is based on the Bollinger Channels and Bollinger Subchannels indicators. These two indicators describe what is the direction (up or down) and the relative slope (side, gentle, medium, steep or extreme) of the 20-periods simple moving average (SMA)."
+        },
+        {
+            "style": "Text",
+            "text": "In essence, each strategy specializes in specific market structures as defined by three or four conditions that describe what is going on with the market in two or more time frames."
+        },
+        {
+            "style": "Text",
+            "text": "In particular, the fourth condition in each strategy defines the main characteristic of the specific market situation that the strategy specializes in."
+        },
+        {
+            "style": "Text",
+            "text": "For example, in the case of strategy S1 - 3H Down:"
+        },
+        {
+            "style": "List",
+            "text": "3H - Down:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at03hs.bollingerChannel.direction === \"Down\""
+        },
+        {
+            "style": "Text",
+            "text": "The condition defines that the Bollinger Channel direction at the 3-hours time frame is Down."
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the conditions that define the market structure that strategy S1 - H3 Down specializes in are:"
+        },
+        {
+            "style": "List",
+            "text": "3H - Medium, Steep or Extreme:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at03hs.bollingerSubChannel.slope === \"Medium\" || \nchart.at03hs.bollingerSubChannel.slope === \"Steep\" || \nchart.at03hs.bollingerSubChannel.slope === \"Extreme\"",
+            "updated": 1611678876058
+        },
+        {
+            "style": "Text",
+            "text": "The condition defines that the 3H sub channel (20-periods moving average) slope must be medium, steep or extreme."
+        },
+        {
+            "style": "Text",
+            "text": "Combined with the previous condition, the above means that—at the 3H time frame—there is a downward trend, with a relatively high slope."
+        },
+        {
+            "style": "List",
+            "text": "24H - Gentle:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope === \"Gentle\""
+        },
+        {
+            "style": "Text",
+            "text": "The condition defines that the 24H sub channel has a gentle slope."
+        },
+        {
+            "style": "Text",
+            "text": "These three conditions define the market structure that this particular strategy targets. Notice how the last condition, 24H - Gentle does not make a distinction whether the channel is going up or down. It simply requires that, whatever the trend is at the 24H chart, it must be gentle in slope."
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the strategies in the trading system define the market structure in which each operate in a similarly."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Filters"
+        },
+        {
+            "style": "Text",
+            "text": "The last few conditions in the take position event of each strategy may be filters. Filters describe particular market situations in which the trading idea has been found to perform poorly and thus are excluded, effectively deciding not to trade in such situations, even when the market situation may be the one the strategy specializes in."
+        },
+        {
+            "style": "Text",
+            "text": "For example, in the case of strategy S1 - 3H Down, the following filter is applied:"
+        },
+        {
+            "style": "List",
+            "text": "Filter 1: 08H Deviation > 200 < 1500:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at08hs.bollingerBand.deviation < 200 || chart.at08hs.bollingerBand.deviation > 1500)\n{false} else {true}",
+            "updated": 1611679006928
+        },
+        {
+            "style": "Text",
+            "text": "The condition dictates that in case the deviation of the Bollinger Bands at the 8H chart is lower than 200 or higher than 1500, the strategy will not take a postion."
+        },
+        {
+            "style": "Text",
+            "text": "The deviation of the Bollinger Bands is an indication of volatility, therefore, Filter 1 dictates that when volatility is very low or very high, the opportunity shall not be taken."
+        },
+        {
+            "style": "Callout",
+            "text": "Let’s unpack the syntax so that non-coders may easily understand it…"
+        },
+        {
+            "style": "Text",
+            "text": "The core idea of the condition is...",
+            "updated": 1611678938095
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at08hs.bollingerBand.deviation < 200 || \nchart.at08hs.bollingerBand.deviation > 1500",
+            "updated": 1611678945711
+        },
+        {
+            "style": "Text",
+            "text": "However, if used in this format, the condition would evaluate true when the deviation is lower than 200 or higher than 1500, which is the opposite of what is intended."
+        },
+        {
+            "style": "Text",
+            "text": "To reverse the logic so that the condition may act as a filter, a simple if () {} else {} statement is used. This piece of code is evaluated as follows: if the statement between brackets evaluates true, then the code between the first set of curly brackets is returned, else, the code in the second set of curly brackets is returned."
+        },
+        {
+            "style": "Text",
+            "text": "So, if the condition is meant to prevent the taking of the position when it evaluates true, then the code must return false when the condition evaluates true, and true when the condition evaluates false."
+        },
+        {
+            "style": "Text",
+            "text": "Any number of filters may be used, and different strategies may use different filters. However, all of them are built with the logic described above, using if () {} else {} statements to reverse the logic of the condition."
+        },
+        {
+            "style": "Title",
+            "text": "Open Stage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Initial Stop"
+        },
+        {
+            "style": "Text",
+            "text": "The initial stop is set at 3% above the position rate...",
+            "updated": 1611679041860
+        },
+        {
+            "style": "Javascript",
+            "text": "(positionRate + positionRate * 3 / 100)",
+            "updated": 1611679045289
+        },
+        {
+            "style": "Subtitle",
+            "text": "Initial Take Profit"
+        },
+        {
+            "style": "Text",
+            "text": "Initial take profit is set 5% below the position rate...",
+            "updated": 1611679059515
+        },
+        {
+            "style": "Javascript",
+            "text": "(positionRate - positionRate * 0.05)"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Size"
+        },
+        {
+            "style": "Text",
+            "text": "The positionSize is set to balanceBaseAsset by default. This means that the trading system takes positions with the whole balance, that is, the initialBalance as defined in the configuration of the base asset parameter of the trading session, plus all accumulated profits if any."
+        },
+        {
+            "style": "Text",
+            "text": "You may change this formula to fit your specific goals and risk management style."
+        },
+        {
+            "style": "Title",
+            "text": "Manage Stage"
+        },
+        {
+            "style": "Text",
+            "text": "The logic behind the management of trades varies between strategies, and is one of the key strategy design elements of the trading system. Being able to apply different management rules to trades that occur in diverse market situations is a highly valuable feature."
+        },
+        {
+            "style": "Text",
+            "text": "That said, the management is based on the same principles across the trading system, and what may vary across strategies are the specific conditions that implement the switching of phases."
+        },
+        {
+            "style": "Text",
+            "text": "The following is the overall description of the principles. You may look into the specific rules by analyzing the move to phase events of each strategy."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Stop Loss Management"
+        },
+        {
+            "style": "Text",
+            "text": "The intial formula is overriden when a candle closes 3% below the position rate...",
+            "updated": 1611679099625
+        },
+        {
+            "style": "Javascript",
+            "text": "(chart.at01hs.candle.previous.close < positionRate - positionRate * 3 / 100)",
+            "updated": 1611679108566
+        },
+        {
+            "style": "Text",
+            "text": "There is only one additional phase to manage the stop loss, which sets a trailling stop 2% above the 20-periods moving average...",
+            "updated": 1611679146316
+        },
+        {
+            "style": "Javascript",
+            "text": "(if (chart.at01hs.bollingerBand.movingAverage + chart.at01hs.bollingerBand.movingAverage * 2 / 100 < stopLoss) \n{chart.at01hs.bollingerBand.movingAverage + chart.at01hs.bollingerBand.movingAverage * 2 / 100} \nelse {stopLoss})",
+            "updated": 1611679158118
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Callout",
+            "text": "Let’s unpack the syntax, including the if () {} else {} statement you are already familiar with…"
+        },
+        {
+            "style": "Text",
+            "text": "In this case, the condition being evaluated is...",
+            "updated": 1611679223835
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.bollingerBand.movingAverage + \nchart.at01hs.bollingerBand.movingAverage * 2 / 100 < \nstopLoss ",
+            "updated": 1611679229311
+        },
+        {
+            "style": "Text",
+            "text": "... which intends to determine if the price 2% above the moving average is lower than the current value for the stop loss. In case the statement is true, then the same statement is set as the valid formula to calculate the trailing stop. In case the statement is false, then the stop loss value is left as is."
+        },
+        {
+            "style": "Text",
+            "text": "In other words, the new stop loss set for the current candle can never be higher than the one set for the previous candle. That is, the stop loss may not increase—it either decreases or stays the same."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Take Profit Management"
+        },
+        {
+            "style": "Text",
+            "text": "The initial formula is overriden when the following two conditions in the next phase event validate true:"
+        },
+        {
+            "style": "List",
+            "text": "1H EMA7 < positionRate:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.base7EMA.ema7 < positionRate"
+        },
+        {
+            "style": "Text",
+            "text": "The 7-periods exponential moving average (EMA) must go below the position rate."
+        },
+        {
+            "style": "List",
+            "text": "positionPeriods > 2:"
+        },
+        {
+            "style": "Javascript",
+            "text": "positionPeriods > 2"
+        },
+        {
+            "style": "Text",
+            "text": "The position must be more than two-periods long."
+        },
+        {
+            "style": "Text",
+            "text": "The management of take profit targets is handled with three different phases:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Manage Phase"
+        },
+        {
+            "style": "Text",
+            "text": "It is the phase that kicks in once the initial take profit next phase event validates true. The formula for the manage phase is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at01hs.base7EMA.ema7 - chart.at01hs.base7EMA.ema7 * 0.03 < \npositionRate - positionRate * 0.03) \n{chart.at01hs.base7EMA.ema7 - chart.at01hs.base7EMA.ema7 * 0.03} \nelse {positionRate - positionRate * 0.03}",
+            "updated": 1611679353148
+        },
+        {
+            "style": "Text",
+            "text": "This means that the take profit target is set 3% below the 7-periods EMA when the resulting value is at least 3% below the position rate. If that is not the case, then the take profit target is set 3% below the position rate."
+        },
+        {
+            "style": "Text",
+            "text": "The logic behind this formula is that some room should be allowed for the trade to develop, but still, profit shall be taken at 3% if a downward trend does not emerge. If price ranges above the position rate, then the target remains at 3%, pretty much like with the initial setting. If a sudden move or a wick drops to at least 3% below the take position rate, then the take position target is likely to be hit. However, if price starts dropping organically, then the 7 EMA will soon drop below the position rate and the formula will result in a value that is lower than 3% below the position rate, thus, allowing the trade to develop in the expected direction."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Close Phase"
+        },
+        {
+            "style": "Text",
+            "text": "The close phase is the phase that is activated every time there is an indication the market may turn against the trade. The take profit formula for this phase is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.deviation < \npositionRate - positionRate * 0.03) \n{chart.at01hs.bollingerBand.movingAverage - chart.at01hs.bollingerBand.standardDeviation * 2} \nelse {positionRate - positionRate * 0.03}",
+            "updated": 1611679384257
+        },
+        {
+            "style": "Text",
+            "text": "This means that the take profit target is set to the lower Bollinger Band when the value is at least 3% below the position rate, otherwise, it is set 3% below the position rate."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Run Phase"
+        },
+        {
+            "style": "Text",
+            "text": "This is the phase that is activated every time there is an indication that a downtrend may accelerate, favoring the trade and letting it run freely. The take profit formula for this phase is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at01hs.base7EMA.ema7 - chart.at01hs.base7EMA.ema7 * 0.2 < \npositionRate - positionRate * 0.03) \n{chart.at01hs.base7EMA.ema7 - chart.at01hs.base7EMA.ema7 * 0.2} \nelse {takeProfit}",
+            "updated": 1611679408922
+        },
+        {
+            "style": "Text",
+            "text": "The take profit target is set 20% below the 7 EMA if the value is at least 3% below the position rate, which is the most likely scenario, and to 3% below the position rate in case it is not. As hinted earlier, the goal of this phase is to let the trade run freely, still with the trailing stop securing profits 2% above the 7 EMA."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Switching Phases"
+        },
+        {
+            "style": "Text",
+            "text": "In general terms, the Manage Phase may switch to both the Close Phase and the Run Phase discretionarily. The Close Phase may cancel the close intention and go back to the Manage Phase, or even go straight to the Run Phase if the market situation demands it. And the Run phase may cancel the run and go back to the Manage Phase."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/trading-systems/BBTB-TP-Management.png",
+            "updated": 1611679968101
+        },
+        {
+            "style": "Text",
+            "text": "The specific conditions for switching from one phase to another phase may vary in each strategy. You may review each particular case to get the details, but conceptually, this is how it works:",
+            "updated": 1611680120628
+        },
+        {
+            "style": "List",
+            "text": "Move to Close Phase Event: A convergence between EMA 7 and EMA 14 signals that the downward move is losing steam, thus a switch to the close phase for a tighter take profit target is in order. The close phase may cancel when the convergence recedes and divergence is spotted."
+        },
+        {
+            "style": "List",
+            "text": "Move to Run Phase Event: A divergence between EMA 7 and EMA 14, confirmed by a divergence between EMA 14 and EMA 21 indicates that the downward trend is deepening and gaining momentum, thus, allowing the trade to run is the best bet, always with a tight top trailing behind the EMA 7. A run may cancel when the divergence recedes and convergence is spotted."
+        },
+        {
+            "style": "Title",
+            "text": "Warning and Disclaimer"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Live Trading Warning",
+            "updated": 1611680204418
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Trading System Disclaimer",
+            "updated": 1611680214453
+        }
+    ]
+}

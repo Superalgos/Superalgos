@@ -381,6 +381,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function initializeStageTargetSize() {
             /*
+            Validations that all needed nodes are there.
+            */
+            if (tradingEngine.current.strategyOpenStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.current.strategyOpenStage) }
+            if (tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyOpenStage.stageBaseAsset) }
+            if (tradingEngine.current.strategyOpenStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.current.strategyOpenStage) }
+            if (tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyOpenStage.stageQuotedAsset) }
+            /*
             Here we will transform the position size into targets for each asset of the stage.
             */
             tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
@@ -609,7 +616,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                             placeholder: {}
                                         }
 
-                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
+                                        tradingSystem.addError([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
                                         continue
                                     }
 
@@ -716,7 +723,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                             placeholder: {}
                                         }
 
-                                        tradingSystem.errors.push([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
+                                        tradingSystem.addError([moveToPhaseEvent.id, 'This Node needs to reference a Phase.', docs])
                                         continue
                                     }
 
@@ -851,6 +858,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
 
         function initializeStageTargetSize() {
+            /*
+            Validations that all needed nodes are there.
+            */
+            if (tradingEngine.current.strategyCloseStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.current.strategyCloseStage) }
+            if (tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyCloseStage.stageBaseAsset) }
+            if (tradingEngine.current.strategyCloseStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.current.strategyCloseStage) }
+            if (tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyCloseStage.stageQuotedAsset) }
             /*
             Here we will transform the position size into targets for each asset of the stage.
             */
@@ -1125,5 +1139,26 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
     function updateStatistics() {
 
+    }
+
+    function badDefinitionUnhandledException(err, message, node) {
+
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Error - ' + message,
+            placeholder: {}
+        }
+
+        tradingSystem.addError([node.id, message, docs])
+
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
+        if (err !== undefined) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
+        }
+        throw 'Error Already Recorded'
     }
 }

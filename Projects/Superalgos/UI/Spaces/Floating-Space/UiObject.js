@@ -1679,7 +1679,7 @@ function newUiObject() {
         if (radius > 6) {
             const MAX_LABEL_LENGTH = 30
 
-            label = thisObject.payload.subTitle
+            label = thisObject.payload.node.type
             label = addIndexNumber(label)
 
             if (label !== undefined) {

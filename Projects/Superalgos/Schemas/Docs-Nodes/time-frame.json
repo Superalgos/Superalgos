@@ -9,6 +9,28 @@
             "text": "Content"
         },
         {
+            "style": "Title",
+            "text": "In Live Sessions"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of live sessions, that is, paper trading, forward testing, and live trading, you may want to run the session on the 01-min time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets.",
+            "updated": 1611866615974
+        },
+        {
+            "style": "Important",
+            "text": "Remember that Superalgos does not place stop or take profit orders at the time of entering the position. Instead, the trading bot checks the current price upon each execution Cycle and determines whether Managed Stop Loss or Managed Take Profit targets have been hit or not. If targets are hit, the Close Stage opens and orders are placed on the next cycle, which happens to be on the next candle."
+        },
+        {
+            "style": "Text",
+            "text": "If for whatever reason you don't need to minimize the potential for slippage when hitting stop or take profit targets, you may choose whatever time frame you like, taking into account the explanations below."
+        },
+        {
+            "style": "Title",
+            "text": "In Backtesting Sessions",
+            "updated": 1611864433090
+        },
+        {
             "style": "Text",
             "text": "In the context of backtesting sessions, what time frame you decide to run the session depends on the trading system being tested. If the trading system makes decisions based on the 1-hour candle and above, then 01-hs may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frame accordingly."
         },
@@ -17,17 +39,49 @@
             "text": "In other words, in backtesting sessions, you should match the time frame to the smallest period on which the trading system makes decisions."
         },
         {
-            "style": "Text",
-            "text": "In the context of live sessions, that is, paper trading, forward testing, and live trading, you should run the session on the 01-min time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets.",
-            "updated": 1609676121406
-        },
-        {
             "style": "Important",
-            "text": "Remember that stop and take profit orders are not placed at the exchange after the take position event, that is, once you enter the position. Instead, the trading bot checks the current price upon each execution cycle and determines whether targets have been hit or not. If targets are hit, only then orders are placed. That is why running live trading sessions at the 01-min time frame is recommended. Learn more about the management of take profit and stop loss targets."
+            "text": "The above, however, is only partially correct. Setting the time frame to match the decision-making criteria of the Trading System is desirable to save time in backtests. You save time because the smallest reasonable collection of candles is evaluated. However, the time-saving may come at the cost of precision!",
+            "updated": 1611864503880
         },
         {
             "style": "Text",
-            "text": "If for whatever reason you don't need to minimize the potential for slippage when hitting stop or take profit targets, you may choose whatever time frame you like, taking into account the explanations below."
+            "text": "Remember what was said about stop loss and take profit orders earlier: they do not exist in Superalgos. When a target is hit, orders are placed in the following Cycle, which happens to be on the next candle!",
+            "updated": 1611867434260
+        },
+        {
+            "style": "Callout",
+            "text": "Let's take a minute to reflect on the implications of the above! If targets are hit on one candle and orders are placed on the next candle, there is the potential for huge Slippage if the session is run on higher time frames! This is the cost in precision mentioned earlier.",
+            "updated": 1611867460626
+        },
+        {
+            "style": "Text",
+            "text": "The above explanation seems to point in the following direction: if you want backtesting simulations to be comparable to live sessions run on the 01-min time frame, then you should run the backtesting session on the 01-min time frame as well. There is, however, a workaround.",
+            "updated": 1611865962360
+        },
+        {
+            "style": "Subtitle",
+            "text": "Workaround",
+            "updated": 1611865696092
+        },
+        {
+            "style": "Text",
+            "text": "You may use the Simulated Exchange Events structure of nodes to arbitrarily define the exit rate of the position.",
+            "updated": 1611866026489
+        },
+        {
+            "style": "Text",
+            "text": "For example, you may use the following formula in the Simulated Actual Rate node as well as in the Target Rate of the Close Stage:",
+            "updated": 1611866230721
+        },
+        {
+            "style": "Javascript",
+            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.current.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.current.episode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.current.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.current.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
+            "updated": 1611866140829
+        },
+        {
+            "style": "Text",
+            "text": "The formula sets the Simulated Actual Rate to be the last known takeProfit rate if the exit was triggered by hitting of the Managed Take Profit, or the last known stopLoss in case it was the Managed Stop Loss target.",
+            "updated": 1611866508554
         },
         {
             "style": "Title",
@@ -36,7 +90,8 @@
         },
         {
             "style": "Callout",
-            "text": "Running trading sessions of any given trading system on different time frames may produce different results. This is because the behavior of a trading session may vary depending on how well the time frame on which the session is run matches the logic of the strategy."
+            "text": "Running trading sessions of any given trading system on different time frames may produce different results. This is because the behavior of a trading session may vary depending on how well the time frame matches the logic of the strategy.",
+            "updated": 1611867546138
         },
         {
             "style": "Text",
@@ -109,16 +164,6 @@
         {
             "style": "Text",
             "text": "The above is true for all types of trading sessions."
-        },
-        {
-            "style": "Title",
-            "text": "Backtesting Vs. Live Sessions",
-            "updated": 1609675561159
-        },
-        {
-            "style": "Text",
-            "text": "In a backtesting session, the collection of candles evaluated is determined by the time frame selected, to better simulate what would happen if the live trading session was run in the same time frame.",
-            "updated": 1609676241233
         },
         {
             "style": "Block",

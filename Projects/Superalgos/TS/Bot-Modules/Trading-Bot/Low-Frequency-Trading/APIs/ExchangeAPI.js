@@ -24,9 +24,9 @@
         tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
 
         exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase()
-               
-        let key 
-        let secret 
+
+        let key
+        let secret
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
@@ -41,7 +41,7 @@
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,
-            'adjustForTimeDifference': true, 
+            'adjustForTimeDifference': true,
             options: options
         }
         exchange = new exchangeClass(exchangeConstructorParams)
@@ -75,7 +75,22 @@
             logInfo("getOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, "getOrder -> Error = " + err.message])
+            const message = 'Get Order Unexpected Error'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - ' + message,
+                placeholder: {}
+            }
+            let contextInfo = {
+                symbol: symbol,
+                orderId: orderId
+            }
+
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addError([tradingSystemOrder.id, message, docs])
+
             logError("getOrder -> Error = " + err.message);
         }
     }
@@ -134,7 +149,10 @@
             logInfo("createOrder -> Response from the Exchange: " + JSON.stringify(order));
             return order.id
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, "createOrder -> Error = " + err.message])
+
+            let exchangeApiKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+            let message = 'Create Order Unexpected Error'
+
             logError("createOrder -> Error = " + err.message)
             logError("createOrder -> symbol = " + symbol);
             logError("createOrder -> side = " + side);
@@ -142,27 +160,54 @@
             logError("createOrder -> amount = " + amount);
             logError("createOrder -> price = " + price);
             if (
-                err.message.indexOf('API-key format invalid') >= 0 || 
+                err.message.indexOf('API-key format invalid') >= 0 ||
                 err.message.indexOf('Invalid API-key, IP, or permissions for action.') >= 0 ||
                 err.message.indexOf('"code":-2015') >= 0
-                ) {
-                logError ('The exchange says the API key provided is not good or it is not in the correct format. This is what you are using:')
+            ) {
+                logError('The exchange says the API key provided is not good or it is not in the correct format. This is what you are using:')
                 errorFooter()
+
+                message = 'Invalid Exchange API Key'
             }
             if (
                 err.message.indexOf('Signature for this request is not valid.') >= 0 ||
                 err.message.indexOf('"code":-1022') >= 0
-                ) { 
-                logError ('The exchange says the secret provided is not good, incorrect or not in the correct format. This is what you are using:')
+            ) {
+                logError('The exchange says the secret provided is not good, incorrect or not in the correct format. This is what you are using:')
                 errorFooter()
+
+                message = 'Invalid Exchange API Secret'
             }
-            function errorFooter(){
-                logError ('key: ->' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName + '<-')
-                logError ('secret: ->' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret + '<-')
-                logError ('key.length:' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName.length )
-                logError ('secret.length:' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret.length )
-                logError ('Double check that you copied the key at the codeName property and the secret at secret property without bringing any invisible caracter from the exchange web site, or leaving any character from the sample text. Also check that the keys are not disabled at the exchange ot that they are not restricted by IP.')
-                logError ('As a remainder. Binance key and secret are 64 bytes in lenght each one. ' )
+
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - ' + message,
+                placeholder: {}
+            }
+
+            let contextInfo = {
+                symbol: symbol,
+                side: side,
+                type: type,
+                amount: amount,
+                price: price,
+                key: exchangeApiKey.config.codeName,
+                secret: exchangeApiKey.config.secret,
+                keyLength: exchangeApiKey.config.codeName.length,
+                secretLength: exchangeApiKey.config.secret.length
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
+
+            tradingSystem.addError([exchangeApiKey.id, message, docs])
+
+            function errorFooter() {
+                logError('key: ->' + exchangeApiKey.config.codeName + '<-')
+                logError('secret: ->' + exchangeApiKey.config.secret + '<-')
+                logError('key.length:' + exchangeApiKey.config.codeName.length)
+                logError('secret.length:' + exchangeApiKey.config.secret.length)
+                logError('Double check that you copied the key at the codeName property and the secret at secret property without bringing any invisible caracter from the exchange web site, or leaving any character from the sample text. Also check that the keys are not disabled at the exchange ot that they are not restricted by IP.')
+                logError('As a remainder. Binance key and secret are 64 bytes in lenght each one. ')
             }
         }
     }
@@ -188,7 +233,21 @@
             logInfo("cancelOrder -> Response from the Exchange: " + JSON.stringify(order));
             return true
         } catch (err) {
-            tradingSystem.errors.push([tradingSystemOrder.id, "cancelOrder -> Error = " + err.message])
+            const message = 'Cancel Order Unexpected Error'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - ' + message,
+                placeholder: {}
+            }
+            let contextInfo = {
+                symbol: symbol,
+                orderId: orderId
+            }
+
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addError([tradingSystemOrder.id, message, docs])
             logError("cancelOrder -> Error = " + err.message);
         }
     }

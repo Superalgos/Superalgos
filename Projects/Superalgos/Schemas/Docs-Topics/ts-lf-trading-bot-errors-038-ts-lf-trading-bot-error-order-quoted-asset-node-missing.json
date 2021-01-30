@@ -3,8 +3,8 @@
     "pageNumber": "38",
     "type": "TS LF Trading Bot Error - Order Quoted Asset Node Missing",
     "definition": {
-        "text": "A Order Quoted Asset Node was expected but not found at the node where the error poped up.",
-        "updated": 1611650168650
+        "text": "An Order Quoted Asset node was expected but not found at the node where the error originated.",
+        "updated": 1611677527859
     },
     "paragraphs": [
         {

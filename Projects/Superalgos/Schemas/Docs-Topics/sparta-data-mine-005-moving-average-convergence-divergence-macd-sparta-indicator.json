@@ -1,0 +1,62 @@
+{
+    "topic": "Sparta Data Mine",
+    "pageNumber": 5,
+    "type": "Moving Average Convergence Divergence (MACD) - Sparta Indicator",
+    "definition": {
+        "text": "The indicator produces de MACD indicator in the most popular 12, 26, 9 setting, and the following less usual settings: a fast 3, 10, 16, an intermediate 8, 17, 9, and a slow 24, 52, 9.",
+        "updated": 1611662439678
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Moving Average Convergence/Divergence Products & Properties",
+            "updated": 1611662450791
+        },
+        {
+            "style": "Text",
+            "text": "There are four different products, each configured with a specific setting for the fast and slow moving avarages and the MACD Signal line."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| MACD (12, 26, 9) | macd122609 | ema12, ema26 |\n| MACD (3, 10, 16) | macd031016 | ema3, ema10 |\n| MACD (8, 17, 9) | macd081709 | ema8, ema17 |\n| MACD (24, 52, 9) | macd245209 | ema24, ema52 |",
+            "updated": 1611662546677
+        },
+        {
+            "style": "Text",
+            "text": "The first few variables you may use from these products are those corresponding to the EMAs used to calculate the MACD line and the MACD signal line, as shown in the table above.",
+            "updated": 1611662568834
+        },
+        {
+            "style": "Text",
+            "text": "Also, each of the products in the above table feature the following properties:"
+        },
+        {
+            "style": "Table",
+            "text": "| Property | Description |\n| line | The MACD line, that is, the fast EMA minus the slow EMA. |\n| signal | The Signal line, that is, the n-period EMA of the MACD line (n is the last setting) |\n| histogram | The value of the histogram, that is, the difference between the MACD line and the MACD signal line. |",
+            "updated": 1611662631591
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.macd122609.line <= 0 && chart.at30min.macd122609.previous.line >= 0",
+            "updated": 1611662656647
+        },
+        {
+            "style": "Text",
+            "text": "A centerline crossover at the 30-minutes chart."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.macd031016.line >= chart.at15min.macd031016.signal && \nchart.at15min.macd031016.previous.line <= chart.at15min.macd031016.previous.signal",
+            "updated": 1611662681719
+        },
+        {
+            "style": "Text",
+            "text": "A signal line crossover at the 15-minutes chart."
+        }
+    ]
+}

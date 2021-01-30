@@ -1,0 +1,55 @@
+{
+    "topic": "Alpha Data Mine",
+    "pageNumber": 4,
+    "type": "Stochastic - Alpha Indicator",
+    "definition": {
+        "text": "The indicator features the typical stochastic setting of 14, 3, 3.",
+        "updated": 1611654181677
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Stochastic On the Charts",
+            "updated": 1611654194522
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals, utilizing a 0-100 bounded range of values.”"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/alpha-bots-layers-00-Stoch.png",
+            "updated": 1611654252670
+        },
+        {
+            "style": "Text",
+            "text": "The chart for this indicator shows a fast line and slow line oscillating in a range between 0 and 100. The fast line displays the current close price in relation to the high/low range of the previous period. The slow line is a simple moving average of the fast line. Major signals provided by the stochastic indicator are overbought and oversold conditions. The default area for oversold is below 20 and for overbought above 80. Divergences between price action and stochastic records can also be helpful to identify upcoming trend reversals."
+        },
+        {
+            "style": "Title",
+            "text": "Stochastic Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "Stochastic provides one product with a popular default setting."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
+            "updated": 1611654306810
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.stoch1433.slowLine >= 80 && chart.at04hs.stoch1433.fastLine < chart.at04hs.stoch1433.slowLine ",
+            "updated": 1611654322478
+        },
+        {
+            "style": "Text",
+            "text": "Checking for overbought condition and the fast line lower than the slow line, indicating trend reversal."
+        }
+    ]
+}

@@ -3,8 +3,8 @@
     "pageNumber": "19",
     "type": "TS LF Trading Bot Error - Identifier Node Missing",
     "definition": {
-        "text": "A Identifier Node was expected but not found at the node where the error poped up.",
-        "updated": 1611649754630
+        "text": "An Identifier node was expected but not found at the node where the error originated.",
+        "updated": 1611942222550
     },
     "paragraphs": [
         {

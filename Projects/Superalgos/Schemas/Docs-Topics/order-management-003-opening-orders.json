@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Opening Orders",
+            "updated": 1611915623601
+        },
+        {
             "style": "Text",
-            "text": "Before creating an order, a few calculations to determine what the order should look like are required, in particular about the rate of the order (see Calculate Order Rate) and the size of the order (see Calculate Order Size).",
-            "updated": 1610219986275
+            "text": "Before creating an order, a few calculations to determine what the order should look like are required, in particular about the rate of the order (see Calculate Order Rate) and the size of the order (see Calculate Order Size)."
         },
         {
             "style": "Text",
@@ -34,6 +38,10 @@
             "text": "If the order is placed successfully, then all related data structures in the trading engine are updated accordingly, including size placed for the stage in both assets, episode counters, and the particular order’s details."
         },
         {
+            "style": "Block",
+            "text": "Calculate Order Rate"
+        },
+        {
             "style": "Title",
             "text": "Calculate Order Rate"
         },
@@ -54,6 +62,10 @@
             "style": "Javascript",
             "text": "tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value",
             "updated": 1610220056132
+        },
+        {
+            "style": "Block",
+            "text": "Calculate Order Size"
         },
         {
             "style": "Title",
@@ -109,6 +121,10 @@
             "style": "Note",
             "text": "Notice that it is assumed that the target size for the stage is defined both in base asset and the quoted asset. This is because, although the user defines the target size in one asset only, the system converts the definition to the other asset (at an earlier moment), to keep track of accounts on both assets at all times, which is a design requirement.",
             "updated": 1610220163303
+        },
+        {
+            "style": "Block",
+            "text": "Not Passing Target Size Validation"
         },
         {
             "style": "Title",
@@ -170,6 +186,10 @@
             "style": "Javascript",
             "text": "tradingEngineOrder.orderBaseAsset.size.value =\ntradingEngineOrder.orderQuotedAsset.size.value /\ntradingEngineOrder.rate.value",
             "updated": 1610220292334
+        },
+        {
+            "style": "Block",
+            "text": "Not Negative Balance Validation"
         },
         {
             "style": "Title",

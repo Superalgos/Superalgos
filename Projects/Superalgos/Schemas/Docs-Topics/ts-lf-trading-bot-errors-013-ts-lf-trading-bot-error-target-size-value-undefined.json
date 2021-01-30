@@ -14,7 +14,8 @@
         },
         {
             "style": "Success",
-            "text": "Check the Formula and try again."
+            "text": "Check the Formula and try again. The session will not run free of errors until all required nodes are defined.",
+            "updated": 1611939664455
         }
     ]
 }

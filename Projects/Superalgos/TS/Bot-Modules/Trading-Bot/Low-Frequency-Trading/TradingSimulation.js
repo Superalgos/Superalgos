@@ -207,7 +207,14 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     let infoMessage = 'Processing candle # ' + tradingEngine.current.episode.candle.index.value + ' @ the ' + tradingEngine.current.episode.cycle.value + ' cycle.'
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> loop -> ' + infoMessage)
-                    tradingSystem.infos.push([tradingSystem.id, infoMessage])
+
+                    let docs = {
+                        project: 'Superalgos',
+                        category: 'Topic',
+                        type: 'TS LF Trading Bot Info - Candle And Cycle',
+                        placeholder: {}
+                    }
+                    tradingSystem.addInfo([tradingSystem.id, infoMessage, docs])
 
                     await tradingSystemModuleObject.run()
                 }
@@ -539,7 +546,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
+                            tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -564,8 +571,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                             }
 
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-                            
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
+
+                            tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -591,7 +598,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
+                            tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false
@@ -616,8 +623,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                             }
 
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-                            
-                            tradingSystem.errors.push([tradingSystem.id, errorMessage, docs])
+
+                            tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
                             return false

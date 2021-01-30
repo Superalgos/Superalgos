@@ -3,14 +3,14 @@
     "pageNumber": "2",
     "type": "TS LF Trading Bot Error - Evaluating Formula Error",
     "definition": {
-        "text": "An error occured while evaluation a User Defined Formula at the Trading System.",
-        "updated": 1611568961215
+        "text": "An error occured while evaluatiing a user-defined Formula at the Trading System.",
+        "updated": 1611926309593
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the Low Frequency Trading Bot encountered an error while trying to evaluate one of your formulas defined at the Trading System. Formulas are arbitrary Javascript Code that user can write as they want and in some cases they do not write valid Javascript for Nod JS. ",
-            "updated": 1611569329977
+            "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the formulas defined in the Trading System. Formulas are arbitrary Javascript Code that users may write. The code must be valid Javascript for Node JS.",
+            "updated": 1611926279221
         },
         {
             "style": "Error",
@@ -19,15 +19,15 @@
         },
         {
             "style": "Title",
-            "text": "Error Details"
+            "text": "Error Info"
         },
         {
             "style": "Text",
-            "text": "In the following section you will find the specific information received when this error occured."
+            "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
             "style": "Success",
-            "text": "You will only see it if you opened this page as a result of the error actually happening.",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
             "updated": 1611569373599
         },
         {
@@ -62,7 +62,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the LF Trading Bot:",
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:",
             "updated": 1611569440715
         },
         {
@@ -75,7 +75,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing are all the Error details of the Exception that occured at the LF Trading Bot:",
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:",
             "updated": 1611569446711
         },
         {
@@ -89,7 +89,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the node's name of the Node most related to this error:",
+            "text": "The following is the node's name of the Node most related to this error:",
             "updated": 1611571455498
         },
         {
@@ -102,7 +102,7 @@
         },
         {
             "style": "Text",
-            "text": "The follwing is the code stored at the node that produced the error at the LF Trading Bot:",
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:",
             "updated": 1611569545869
         },
         {

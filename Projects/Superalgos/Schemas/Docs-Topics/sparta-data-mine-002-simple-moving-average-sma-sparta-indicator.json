@@ -1,0 +1,89 @@
+{
+    "topic": "Sparta Data Mine",
+    "pageNumber": 2,
+    "type": "Simple Moving Average (SMA) - Sparta Indicator",
+    "definition": {
+        "text": "The indicator produces the Simple Moving Avarge in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Simple Moving Average On the Charts",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “A simple moving average (SMA) is an arithmetic moving average calculated by adding recent closing prices and then dividing that by the number of time frames in the calculation average. Short-term averages respond quickly to changes in the price of the underlying asset, while long-term averages are slow to react.”",
+            "updated": 1611764485658
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/sparta-bots-layers-01-SMA.gif",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "You will find several layers with different settings for SMAs, calculated on different periods. Each layer corresponds to a product made available by the indicator."
+        },
+        {
+            "style": "Text",
+            "text": "The information panel shows the numeric value for each SMA in the layer, in ascending order (i.e. SMA 20, SMA 50, SMA 100, etc.)."
+        },
+        {
+            "style": "Title",
+            "text": "Simple Moving Average Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are three products pre-configured to start calculating as soon as you start the corresponding task, each with different period configurations:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Popular SMAs | popularSMA | sma20, sma50, sma100, sma200 |\n| Base 7 | base7SMA | sma7, sma14, sma21, sma28, sma35, sma70, sma140, sma210, sma280, sma350, sma700, sma1400 |\n| Base 11 | base11SMA | sma11, sma22, sma33, sma55, sma111 |",
+            "updated": 1611661544067
+        },
+        {
+            "style": "Text",
+            "text": "There are four more products available but they will not be calculated unless you create the corresponding data outputs and reference them to the corresponding data sets:",
+            "updated": 1611661553639
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Base 5 | base5SMA | sma5, sma10, sma15, sma20, sma25, sma50, sma100, sma150, sma200, sma250, sma500, sma1000 |\n| Base 6 | base6SMA | sma6, sma12, sma18, sma24, sma30, sma60, sma120, sma180, sma240, sma300, sma600, sma1200 |\n| Base 12 | base12SMA | sma12, sma24, sma36, sma48, sma60, sma120, sma240, sma360, sma480, sma600, sma1200 |\n| Base 30 | base30SMA | sma30, sma60, sma90, sma120, sma150, sma300, sma600, sma900, sma1200, sma1500 |",
+            "updated": 1611661663605
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.popularSMA.sma50 > chart.at24hs.popularSMA.sma200",
+            "updated": 1611661680380
+        },
+        {
+            "style": "Text",
+            "text": "An indication of a bull market? Is the 50-day moving average above the 200-day moving average?"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.popularSMA.sma200 > chart.at24hs.base7SMA.sma350",
+            "updated": 1611661686525
+        },
+        {
+            "style": "Text",
+            "text": "Looking even further in the past, comparing a 200-day with a 350-day moving average. Notice how the two MA belong to different products."
+        },
+        {
+            "style": "Table",
+            "text": "aaasd\nasdf",
+            "updated": 1611661523824
+        }
+    ]
+}

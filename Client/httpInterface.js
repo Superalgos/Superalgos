@@ -563,7 +563,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
 
                     function cleanFileName(fileName) {
-                        for (let i = 0; i < 10; i++) {
+                        for (let i = 0; i < 100; i++) {
                             fileName = fileName
                                 .replace(' ', '-')
                                 .replace('--', '-')
@@ -590,21 +590,50 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 switch (requestParameters[2]) { // switch by command
                     case 'Contribute': {
                         try {
-                            const commitMessage = unescape(requestParameters[3])
+                            let commitMessage = unescape(requestParameters[3])
                             const username = unescape(requestParameters[4])
                             const token = unescape(requestParameters[5])
                             const currentBranch = unescape(requestParameters[6])
                             const contributionsBranch = unescape(requestParameters[7])
+                            let error
+
+                            /* Unsavping # */
+                            for (let i = 0; i < 10; i++) {
+                                commitMessage = commitMessage.replace('_SLASH_', '/')
+                                commitMessage = commitMessage.replace('_HASHTAG_', '#')
+                            }
 
                             contribute()
 
                             async function contribute() {
-                                if (await doGit() === false) {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                await doGit()
+                                if (error !== undefined) {
+
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'App Error - Contribution Not Sent',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
                                     return
                                 }
-                                if (await doGithub() === false) {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+
+                                await doGithub()
+                                if (error !== undefined) {
+
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'App Error - Contribution Not Sent',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+                                    console.log('respond with docs ')
+
+                                    respondWithDocsObject(docs, error)
                                     return
                                 }
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
@@ -623,14 +652,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     await git.add('./*')
                                     await git.commit(commitMessage)
                                     await git.push('origin', currentBranch)
-                                    return true
                                 } catch (err) {
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                     console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                    return false
+                                    error = err
                                 }
                             }
 
@@ -657,20 +685,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         head,
                                         base,
                                     });
-                                    return true
                                 } catch (err) {
                                     if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                        return true
+                                        return
                                     } else {
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...') 
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
                                         console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                        return false
+                                        error = err
                                     }
                                 }
                             }
@@ -693,22 +720,33 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+
                     case 'Update': {
                         try {
                             const currentBranch = unescape(requestParameters[3])
                             update()
 
                             async function update() {
-                                let message = await doGit()
+                                let result = await doGit()
 
-                                if (message !== undefined) {
+                                if (result.error === undefined) {
                                     let customResponse = {
                                         result: global.CUSTOM_OK_RESPONSE.result,
-                                        message: message
+                                        message: result.message
                                     }
                                     respondWithContent(JSON.stringify(customResponse), httpResponse)
                                 } else {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'App Error - Update Failed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, result.error)
+
                                 }
                             }
 
@@ -724,10 +762,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 let message
                                 try {
                                     message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
-                                    return message
+                                    return { message: message }
                                 } catch (err) {
                                     console.log('[ERROR] Error updating ' + currentBranch)
                                     console.log(err.stack)
+                                    return { error: err }
                                 }
                             }
 
@@ -751,15 +790,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     case 'Checkout': {
                         try {
                             const currentBranch = unescape(requestParameters[3])
+                            let error
+
                             checkout()
 
                             async function checkout() {
-                                let result = await doGit()
+                                await doGit()
 
-                                if (result === true) {
+                                if (error === undefined) {
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    let docs = {
+                                        project: 'Superalgos',
+                                        category: 'Topic',
+                                        type: 'Switching Branches - Current Branch Not Changed',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
                                 }
                             }
 
@@ -776,9 +825,8 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 } catch (err) {
                                     console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                     console.log(err.stack)
-                                    return false
+                                    error = err
                                 }
-                                return true
                             }
 
                         } catch (err) {
@@ -797,6 +845,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         }
                         break
                     }
+                }
+
+                function respondWithDocsObject(docs, error) {
+
+                    if (error.message !== undefined) {
+                        docs.placeholder.errorMessage = {
+                            style: 'Error',
+                            text: error.message
+                        }
+                    }
+                    if (error.stack !== undefined) {
+                        docs.placeholder.errorStack = {
+                            style: 'Javascript',
+                            text: error.stack
+                        }
+                    }
+                    if (error.code !== undefined) {
+                        docs.placeholder.errorCode = {
+                            style: 'Json',
+                            text: error.code
+                        }
+                    }
+
+                    docs.placeholder.errorDetails = {
+                        style: 'Json',
+                        text: JSON.stringify(error, undefined, 4)
+                    }
+
+                    let customResponse = {
+                        result: global.CUSTOM_FAIL_RESPONSE.result,
+                        docs: docs
+                    }
+
+                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+
                 }
             }
                 break
@@ -1267,7 +1350,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'Storage':
                 {
-                    respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + httpRequest.url.substring(9), httpResponse)
+                    let pathToFile = httpRequest.url.substring(9)
+                    /* Unsavping # */
+                    for (let i = 0; i < 10; i++) {
+                        pathToFile = pathToFile.replace('_HASHTAG_', '#')
+                    }
+                    respondWithFile(global.env.PATH_TO_DATA_STORAGE + '/' + pathToFile, httpResponse)
                 }
                 break
 

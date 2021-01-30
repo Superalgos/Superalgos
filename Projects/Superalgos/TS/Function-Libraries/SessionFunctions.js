@@ -58,21 +58,33 @@ exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
         }
     }
 
-    function sessionError(processIndex, node, errorMessage) {
+    function sessionError(processIndex, node, errorMessage, docs) {
         let event
         if (node !== undefined) {
             event = {
                 nodeName: node.name,
                 nodeType: node.type,
                 nodeId: node.id,
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                docs: docs
             }
         } else {
             event = {
-                errorMessage: errorMessage
+                errorMessage: errorMessage,
+                docs: docs
             }
         }
-        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Error', event)
+        TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Error', event)
+
+        if (node !== undefined && node.id !== TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.id) {
+            event = {
+                warningMessage: "Session could not be ran. Check the Workspace Map for Nodes with errors."
+            }
+            
+            TS.projects.superalgos.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)    
+        }
 
         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING = true

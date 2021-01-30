@@ -1,0 +1,25 @@
+{
+    "topic": "Trading Farms",
+    "pageNumber": "3",
+    "type": "Set Up Each Node on the Network",
+    "definition": {
+        "text": "Install the markets you wish to work with and remove the tasks where you don't need them.",
+        "updated": 1611344470552
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When you install a market, several structures of nodes are created on each of the main sections of the network hierarchy for all nodes defined on the network: data storage, data mining, testing environment, and production environment, as well as the corresponding time machines in the charting space.",
+            "updated": 1611344492853
+        },
+        {
+            "style": "Text",
+            "text": "In other words, the process of installing a new market replicates all data structures in all nodes."
+        },
+        {
+            "style": "Success",
+            "text": "You will most likely want to delete the tasks that you don’t need on certain nodes, and keep only those that you wish each node to handle.",
+            "updated": 1611344498395
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "8",
+    "type": "Plotters",
+    "definition": {
+        "text": "Plotters read data products created by bots and map certain coordinate points to use them as vertices for polygons, which are assigned styles to create graphic representations of the underlying data.",
+        "updated": 1611431276108
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter->Definition",
+            "updated": 1611431307735
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter->Content",
+            "updated": 1611431313998
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Plotter->2",
+            "updated": 1611431826589
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Plotter Module",
+            "updated": 1611431881154
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter Module->Definition",
+            "updated": 1611431891320
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Plotter Module->Content",
+            "updated": 1611431894467
+        }
+    ]
+}

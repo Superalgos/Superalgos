@@ -1,0 +1,46 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "5",
+    "type": "Initial Setup - Superalgos Failed to Connect Via Websockets",
+    "definition": {
+        "text": "If you are accessing the backend from another computer in the network, you need to configure the Network Node with the appropriate IP Address.",
+        "updated": 1611513085643
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When you create a trading farm set up by which you intend to access the backend services running on a machine from a remote computer in the network, you must configure the Network Node in the remote computer to use the IP Address of the machine where the backend services are running.",
+            "updated": 1611513097561
+        },
+        {
+            "style": "Title",
+            "text": "Configuring the Network Node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"host\": \"localhost\",\n\"webPort\": \"34248\",\n\"webSocketsPort\": \"18041\"\n}",
+            "updated": 1611513108585
+        },
+        {
+            "style": "Text",
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+        },
+        {
+            "style": "List",
+            "text": "webPort is the port used by the Web Server, at this stage 34248."
+        },
+        {
+            "style": "List",
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+        },
+        {
+            "style": "Note",
+            "text": "After configuring the network node refresh the page with F5 and the GIU should connect with the backend.",
+            "updated": 1611513135633
+        }
+    ]
+}

@@ -1,0 +1,288 @@
+{
+    "topic": "Integrations",
+    "pageNumber": "1",
+    "type": "Telegram Announcements",
+    "definition": {
+        "text": "Setup a Telegram bot to broadcast the activity of trading sessions to a Telegram group. You may produce plain-text or dynamic-content announcements at every event in your trading systems.",
+        "updated": 1611484869105
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1611484892100
+        },
+        {
+            "style": "Text",
+            "text": "The announcements feature allows users to set up notifications tied to specific events, and triggered once each particular event becomes active while running any of the available types of trading sessions."
+        },
+        {
+            "style": "Text",
+            "text": "You may use this feature to stay informed about the actions of your strategies while trading live, or to broadcast signals over a Telegram group while paper trading, for instance."
+        },
+        {
+            "style": "Text",
+            "text": "Supported events are:"
+        },
+        {
+            "style": "List",
+            "text": "Trigger-on event"
+        },
+        {
+            "style": "List",
+            "text": "Trigger-off event"
+        },
+        {
+            "style": "List",
+            "text": "Take position event"
+        },
+        {
+            "style": "List",
+            "text": "Stop and take profit next-phase events"
+        },
+        {
+            "style": "Text",
+            "text": "In addition, you can implement announcements at the level of stop and take profit phases, a particular case that shall be discussed too."
+        },
+        {
+            "style": "Text",
+            "text": "The current implementation is based on broadcasting announcements via Telegram bots. The system uses Telegram’s bots API to interact with a Telegram bot you will create. The bot will be added as a user in the Telegram group of your choice in which it will deliver the announcements as per the configuration you will set up in the system."
+        },
+        {
+            "style": "Title",
+            "text": "Setting Up a Telegram Bot and a Telegram Group"
+        },
+        {
+            "style": "Text",
+            "text": "Telegram’s documentation explains the details of how to use Telegram bots:",
+            "updated": 1611485108327
+        },
+        {
+            "style": "Link",
+            "text": "Bots: An introduction for developers->core.telegram.org/bots",
+            "updated": 1611485151851
+        },
+        {
+            "style": "Text",
+            "text": "You may choose to read Telegram’s documentation or simple follow the next few steps, which have been extracted for your convenience:"
+        },
+        {
+            "style": "List",
+            "text": "1. Go to Telegram and find the user @BotFather: You may use the link or simply search for the user.",
+            "updated": 1611485257909
+        },
+        {
+            "style": "List",
+            "text": "2. Type and send /newbot: BotFather will ask you to pick a name for your bot. Once the name is set, it will respond with the token (a text string) to access the HTTP API.",
+            "updated": 1611485277898
+        },
+        {
+            "style": "Text",
+            "text": "You will need this token at a later time."
+        },
+        {
+            "style": "List",
+            "text": "3. Create a Telegram: Your bot will broadcast the announcements here.",
+            "updated": 1611485421498
+        },
+        {
+            "style": "List",
+            "text": "4. Add your bot in the group: And add @myidbot as user in the group too.",
+            "updated": 1611485472896
+        },
+        {
+            "style": "List",
+            "text": "5. Type and send /getgroupid in the group: IDBot will answer with the group’s ID.",
+            "updated": 1611485491256
+        },
+        {
+            "style": "Text",
+            "text": "You will need this ID at a later time."
+        },
+        {
+            "style": "Title",
+            "text": "Setting Up the Telegram Bot in Superalgos"
+        },
+        {
+            "style": "Text",
+            "text": "You will set up your bot in a backtesting session, so that you may easily test the announcements."
+        },
+        {
+            "style": "List",
+            "text": "1. Go to any of your backtesting sessions and add a Social Bot node using the session’s menu: A social bot will be added along with a telegram bot.",
+            "updated": 1611485546279
+        },
+        {
+            "style": "List",
+            "text": "2. Select Edit Telegram Bot on the telegram bot menu: Replace the placeholder text with the actual botToken and chatId you got earlier.",
+            "updated": 1611485581216
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"botToken\": \"927642627:2B1QkNX2620C2B1ZTp9JrQUV04YKtJrQ2t4\",\n\"chatId\":-388158765\n}",
+            "updated": 1611485597629
+        },
+        {
+            "style": "Text",
+            "text": "The system now has everything it needs to communicate with your Telegram bot."
+        },
+        {
+            "style": "Title",
+            "text": "Create Your Announcements"
+        },
+        {
+            "style": "Text",
+            "text": "You may create as many announcements as you wish, on any of the events listed in the Overview section above by clicking Add Announcement on the corresponding event node menu."
+        },
+        {
+            "style": "Text",
+            "text": "There are two different ways in which you may customize announcements:"
+        },
+        {
+            "style": "List",
+            "text": "Plain text"
+        },
+        {
+            "style": "List",
+            "text": "Dynamic content"
+        },
+        {
+            "style": "Success",
+            "text": "The Weak-hands buster strategy shipping with Superalgos features a complete set of announcements. Check them out and reuse them in your setup!",
+            "updated": 1611485640517
+        },
+        {
+            "style": "Title",
+            "text": "Plain Text"
+        },
+        {
+            "style": "Text",
+            "text": "To set a plain text announcement, click Edit Announcement on the announcement node menu and set a message on the field text."
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"text\": \"WHB Triggered-on!\"\n}",
+            "updated": 1611485680647
+        },
+        {
+            "style": "Title",
+            "text": "Dynamic Content"
+        },
+        {
+            "style": "Text",
+            "text": "To broadcast more elaborate messages that may include dynamic values of any of the current indicators or internal variables, set the message in the formula attached to the announcement instead."
+        },
+        {
+            "style": "Text",
+            "text": "The typical set up for a dynamic message consists of building a string by alternating “text between double quotes” with variables, separating them with plus signs (+)."
+        },
+        {
+            "style": "Text",
+            "text": "For example, a typical announcement formula for the take position event may look like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"Selling BTC at $\" + candle.close.toFixed(0) + \", with stop at $\" + stopLoss.toFixed(0) + \" and TP target at $\" +  takeProfit.toFixed(0)"
+        },
+        {
+            "style": "Text",
+            "text": ".toFixed(0) rounds the number to zero decimal places. The above formula would result in something like:"
+        },
+        {
+            "style": "Json",
+            "text": "Selling BTC at $9703, with stop at $9896 and TP target at $9115"
+        },
+        {
+            "style": "Note",
+            "text": "If your formula is valid, the system will ignore the plain text version you may have set up in the announcement configuration. If for any reason the formula results in an error, then the plain text version will be used.",
+            "updated": 1611485748590
+        },
+        {
+            "style": "Title",
+            "text": "Announcements on Stop and Take Profit Phases"
+        },
+        {
+            "style": "Text",
+            "text": "We mentioned earlier that, beyond setting announcements on events, you may also implement announcements at the level of a stop or take profit phase. These are useful to broadcast the management of dynamic stop and take profit targets."
+        },
+        {
+            "style": "Text",
+            "text": "When implemented at the level of a phase, the announcement is triggered every time the value of the underlying variable (the stop or take profit target) changes. This is an important difference, as the value may change at every candle (if you are using formulas that use variables)."
+        },
+        {
+            "style": "Text",
+            "text": "This could result in too many announcements in relatively short intervals."
+        },
+        {
+            "style": "Text",
+            "text": "The valueVariation parameter introduced in the announcement configuration may be used to filter out announcements until a certain threshold is achieved. The value you enter will set the percentage of variation that needs to occur before a new announcement is broadcasted."
+        },
+        {
+            "style": "Text",
+            "text": "For instance, \"valueVariation\": 0.5 means a new announcement will be broadcasted every time the value of the underlying variable changes by 0.5%."
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"text\": \"Write here what you want to announce.\",\n\"valueVariantion\": 0.5\n}",
+            "updated": 1611485849624
+        },
+        {
+            "style": "Title",
+            "text": "Finishing the Setup"
+        },
+        {
+            "style": "Text",
+            "text": "It is unlikely that you will want to use the announcements feature from within a backtesting session. A more likely scenario is you will want to use it with a paper trading session (to generate signals) or from a live trading session, to monitor the activity of your live trading."
+        },
+        {
+            "style": "Text",
+            "text": "All you need to do to finish your set up is detach the social bot node from the backtesting session and attach it to the session you wish to use it in. Make sure the corresponding tasks are stopped before detaching and attaching the social bot."
+        },
+        {
+            "style": "Title",
+            "text": "Commercial Setups"
+        },
+        {
+            "style": "Text",
+            "text": "If you are settting up a signals business or require a more complex setup to broadcast announcements from multiple sessions, multiple strategies, or even to multiple groups, the following considerations may help you decide how to move forwards."
+        },
+        {
+            "style": "Important",
+            "text": "Telegram does not allow running multiple instances of the same bot. Doing so may produce warnings, cause errors, delays in message delivery, lost messages, and erratic behavior in general.",
+            "updated": 1611485876079
+        },
+        {
+            "style": "Text",
+            "text": "The solution is quite simple. Set up multiple bots. The rule of thumb is you should use one bot for each trading session. Remember you can include as many bots as you wish in your Telegram groups. That is, you may have different bots broadcast from different sessions in the same group."
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to broadcast signals from multiple sessions to the same Telegram Group, you may name each bot in a way that each references their specific session, so that group members know exactly what each message is referring to.",
+            "updated": 1611485909076
+        },
+        {
+            "style": "Text",
+            "text": "For example, let’s say you are broadcasting signals from different markets… you may name your bots BTC/USDT, ETH/USDT and XMR/BTC."
+        },
+        {
+            "style": "Text",
+            "text": "Or maybe you have different strategies, then simply name the bots after each strategy."
+        },
+        {
+            "style": "Text",
+            "text": "This makes it really easy for group members to know what market or strategy the bot broadcasting the signal is referring to."
+        },
+        {
+            "style": "Text",
+            "text": "Another example… let’s say you are running a trading operation for friends and family. Each person is working with a different initial capital, different assets or different exchanges. in such case, you may set up multiple Telegram groups and multiple bots, so that each person may get precise information on what the bots are doing."
+        }
+    ]
+}

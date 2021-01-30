@@ -88,12 +88,12 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 for (let i = 0; i < orders.length; i++) {
                     let tradingSystemOrder = orders[i]
                     if (tradingSystemOrder.referenceParent === undefined) {
-                        badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder)
+                        badDefinitionUnhandledException(undefined, 'Order Reference Missing', tradingSystemOrder)
                     }
                     let tradingEngineOrder = TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
 
                     if (tradingEngineOrder.status === undefined) {
-                        badDefinitionUnhandledException(undefined, 'tradingEngineOrder.status === undefined', tradingEngineOrder)
+                        badDefinitionUnhandledException(undefined, 'Status Node Missing', tradingEngineOrder)
                     }
 
                     if (mantain === true) {
@@ -131,7 +131,16 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                             if (tradingEngineOrder.lock.value === 'Closed') {
-                                tradingSystem.infos.push(['Order ' + tradingSystemOrder.name + ' skipped because lock was closed.'])
+
+                                let message = "Order Skipped"
+                                let docs = {
+                                    project: 'Superalgos',
+                                    category: 'Topic',
+                                    type: 'TS LF Trading Bot Info - ' + message,
+                                    placeholder: {}
+                                }
+
+                                tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
                                 continue
                             }
                         }
@@ -158,13 +167,23 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     if (allGood !== true) {
                         /*
                         For some reason we could not check the order at the exchange, so we will not even check if we 
-                        need to cancel it, since we could end up with inconsisten information at the accounting level.
+                        need to cancel it, since we could end up with inconsistent information at the accounting level.
                         */
                         if (tradingSystemOrder.cancelOrderEvent !== undefined) {
-                            tradingSystem.warnings.push(
+
+                            const message = 'Skipping Cancel Order Event'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+
+                            tradingSystem.addWarning(
                                 [
                                     tradingSystemOrder.cancelOrderEvent.id,
-                                    'Skipping Cancel Event Checking because cheking the order at the exchange failed.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -220,39 +239,44 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
     function tradingSystemValidations(tradingSystemOrder) {
         /* Trading System Validations */
-        if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder) }
-        if (tradingSystemOrder.referenceParent === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.referenceParent === undefined', tradingSystemOrder) }
+        if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) { badDefinitionUnhandledException(undefined, 'Percentage Of Algorithm Size Property Missing', tradingSystemOrder) }
+        if (tradingSystemOrder.referenceParent === undefined) { badDefinitionUnhandledException(undefined, 'Order Reference Missing', tradingSystemOrder) }
     }
 
     function tradingEngineValidations(tradingEngineOrder) {
         /* Trading Engine Order Validations */
-        if (tradingEngineOrder.serialNumber === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.serialNumber === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.identifier === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.identifier === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.exchangeId === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.exchangeId === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.begin === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.begin === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.end === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.end === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.rate === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.status === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.status === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.algorithmName === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.algorithmName === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderCounters === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderCounters === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderCounters.periods === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderCounters.periods === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderStatistics.days === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderStatistics.days === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderStatistics.percentageFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderStatistics.percentageFilled === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderStatistics.actualRate === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderStatistics.actualRate === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.serialNumber === undefined) { badDefinitionUnhandledException(undefined, 'Serial Number Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.identifier === undefined) { badDefinitionUnhandledException(undefined, 'Identifier Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.exchangeId === undefined) { badDefinitionUnhandledException(undefined, 'Exchange Id Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.begin === undefined) { badDefinitionUnhandledException(undefined, 'Begin Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.end === undefined) { badDefinitionUnhandledException(undefined, 'End Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.rate === undefined) { badDefinitionUnhandledException(undefined, 'Rate Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.status === undefined) { badDefinitionUnhandledException(undefined, 'Status Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.algorithmName === undefined) { badDefinitionUnhandledException(undefined, 'Algorithm Name Node Missing', tradingEngineOrder) }
 
-        if (tradingEngineOrder.orderBaseAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.size === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.sizeFilled === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.feesPaid === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderBaseAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.actualSize === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderBaseAsset.amountReceived === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.amountReceived === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderBaseAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderBaseAsset.feesToBePaid === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderCounters === undefined) { badDefinitionUnhandledException(undefined, 'Order Counters Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.orderCounters.periods === undefined) { badDefinitionUnhandledException(undefined, 'Periods Node Missing', tradingEngineOrder.orderCounters) }
 
-        if (tradingEngineOrder.orderQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.size === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesPaid === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderQuotedAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.actualSize === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderQuotedAsset.amountReceived === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.amountReceived === undefined', tradingEngineOrder) }
-        if (tradingEngineOrder.orderQuotedAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.orderQuotedAsset.feesToBePaid === undefined', tradingEngineOrder) }
+        if (tradingEngineOrder.orderStatistics === undefined) { badDefinitionUnhandledException(undefined, 'Order Statistics Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.orderStatistics.days === undefined) { badDefinitionUnhandledException(undefined, 'Days Node Missing', tradingEngineOrder.orderStatistics) }
+        if (tradingEngineOrder.orderStatistics.percentageFilled === undefined) { badDefinitionUnhandledException(undefined, 'Percentage Filled Node Missing', tradingEngineOrder.orderStatistics) }
+        if (tradingEngineOrder.orderStatistics.actualRate === undefined) { badDefinitionUnhandledException(undefined, 'Actual Rate Node Missing', tradingEngineOrder.orderStatistics) }
+
+        if (tradingEngineOrder.orderBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Order Base Asset Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.orderBaseAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'Size Node Missing', tradingEngineOrder.orderBaseAsset) }
+        if (tradingEngineOrder.orderBaseAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'Size Filled Node Missing', tradingEngineOrder.orderBaseAsset) }
+        if (tradingEngineOrder.orderBaseAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees Paid Node Missing', tradingEngineOrder.orderBaseAsset) }
+        if (tradingEngineOrder.orderBaseAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'Actual Size Node Missing', tradingEngineOrder.orderBaseAsset) }
+        if (tradingEngineOrder.orderBaseAsset.amountReceived === undefined) { badDefinitionUnhandledException(undefined, 'Amount Received Node Missing', tradingEngineOrder.orderBaseAsset) }
+        if (tradingEngineOrder.orderBaseAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees To Be Paid Node Missing', tradingEngineOrder.orderBaseAsset) }
+
+        if (tradingEngineOrder.orderQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Order Quoted Asset Node Missing', tradingEngineOrder) }
+        if (tradingEngineOrder.orderQuotedAsset.size === undefined) { badDefinitionUnhandledException(undefined, 'Size Node Missing', tradingEngineOrder.orderQuotedAsset) }
+        if (tradingEngineOrder.orderQuotedAsset.sizeFilled === undefined) { badDefinitionUnhandledException(undefined, 'Size Filled Node Missing', tradingEngineOrder.orderQuotedAsset) }
+        if (tradingEngineOrder.orderQuotedAsset.feesPaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees Paid Node Missing', tradingEngineOrder.orderQuotedAsset) }
+        if (tradingEngineOrder.orderQuotedAsset.actualSize === undefined) { badDefinitionUnhandledException(undefined, 'Actual Size Node Missing', tradingEngineOrder.orderQuotedAsset) }
+        if (tradingEngineOrder.orderQuotedAsset.amountReceived === undefined) { badDefinitionUnhandledException(undefined, 'Amount Received Node Missing', tradingEngineOrder.orderQuotedAsset) }
+        if (tradingEngineOrder.orderQuotedAsset.feesToBePaid === undefined) { badDefinitionUnhandledException(undefined, 'Fees To Be Paid Node Missing', tradingEngineOrder.orderQuotedAsset) }
     }
 
     async function tryToOpenOrder(tradingEngineStage, executionAlgorithm, tradingSystemOrder, tradingEngineOrder, situationName) {
@@ -262,20 +286,40 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
         /* Check Size: We are not going to create Orders which size is equal or less to zero.  */
         if (tradingEngineOrder.orderBaseAsset.size.value <= 0) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Size Value Zero Or Negative'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderBaseAsset.size.id, tradingSystemOrder.id],
-                    'Could not open this order because its size is zero.'
+                    message,
+                    docs
                 ]
             )
             return
         }
 
         if (tradingEngineOrder.orderQuotedAsset.size.value <= 0) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Size Value Zero Or Negative'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingEngineOrder.orderQuotedAsset.size.id, tradingSystemOrder.id],
-                    'Could not open this order because its size is zero.'
+                    message,
+                    docs
                 ]
             )
             return
@@ -284,10 +328,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         /* Place Order at the Exchange, if needed. */
         let result = await createOrderAtExchange(tradingSystemOrder, tradingEngineOrder)
         if (result !== true) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Could Not Be Opened'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder],
-                    'Could not open this order because something failed placing the order at the Exchange.'
+                    message,
+                    docs
                 ]
             )
             return
@@ -319,16 +373,16 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
             /* Optional Rate Definition */
             if (tradingSystemOrder.type === 'Limit Buy Order' || tradingSystemOrder.type === 'Limit Sell Order') {
-                if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate === undefined', tradingSystemOrder) }
-                if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'tradingSystemOrder.orderRate.formula === undefined', tradingSystemOrder) }
+                if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'Order Rate Node Missing', tradingSystemOrder) }
+                if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'Formula Node Missing', tradingSystemOrder) }
 
                 /* Extract the rate value from the user-defined formula */
                 tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
                 /* Final rate validations */
-                if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value === undefined', tradingSystemOrder) }
-                if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'isNaN(tradingEngineOrder.rate.value) === true', tradingSystemOrder) }
-                if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'tradingEngineOrder.rate.value <= 0', tradingSystemOrder) }
+                if (tradingEngineOrder.rate.value === undefined) { badDefinitionUnhandledException(undefined, 'Rate Value Undefined', tradingEngineOrder.rate) }
+                if (isNaN(tradingEngineOrder.rate.value) === true) { badDefinitionUnhandledException(undefined, 'Rate Value Not A Number', tradingSystemOrder) }
+                if (tradingEngineOrder.rate.value <= 0) { badDefinitionUnhandledException(undefined, 'Rate Value Zero Or Negative', tradingSystemOrder) }
 
                 tradingEngineOrder.rate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.rate.value, 10)
             } else {
@@ -351,10 +405,10 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             function requiredConfigurationValidation() {
                 /* Validate that this config exists */
                 if (executionAlgorithm.config.percentageOfStageTargetSize === undefined) {
-                    badDefinitionUnhandledException(undefined, 'executionAlgorithm.config.percentageOfStageTargetSize === undefined', executionAlgorithm)
+                    badDefinitionUnhandledException(undefined, 'Percentage Of Stage Target Size Property Missing', executionAlgorithm)
                 }
                 if (isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true) {
-                    badDefinitionUnhandledException(undefined, 'isNaN(executionAlgorithm.config.percentageOfStageTargetSize) === true', executionAlgorithm)
+                    badDefinitionUnhandledException(undefined, 'Percentage Of Stage Target Size Property Not A Number', executionAlgorithm)
                 }
 
                 algorithmSizeInBaseAsset = tradingEngineStage.stageBaseAsset.targetSize.value * executionAlgorithm.config.percentageOfStageTargetSize / 100
@@ -362,10 +416,10 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                 /* Validate that this config exists */
                 if (tradingSystemOrder.config.percentageOfAlgorithmSize === undefined) {
-                    badDefinitionUnhandledException(undefined, 'tradingSystemOrder.config.percentageOfAlgorithmSize === undefined', tradingSystemOrder)
+                    badDefinitionUnhandledException(undefined, 'Percentage Of Algorithm Size Property Missing', tradingSystemOrder)
                 }
                 if (isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true) {
-                    badDefinitionUnhandledException(undefined, 'isNaN(tradingSystemOrder.config.percentageOfAlgorithmSize) === true', tradingSystemOrder)
+                    badDefinitionUnhandledException(undefined, 'Percentage Of Algorithm Size Property Not A Number', tradingSystemOrder)
                 }
             }
 
@@ -392,10 +446,26 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                             tradingEngineOrder.orderBaseAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.size.value, 10)
 
-                            tradingSystem.warnings.push(
+                            const message = 'Order Size Shrinked'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                previousOrderSize: previousValue,
+                                recalculatedOrderSize: tradingEngineOrder.orderBaseAsset.size.value,
+                                sizePlaced: tradingEngineStage.stageBaseAsset.sizePlaced.value,
+                                targetSize: tradingEngineStage.stageBaseAsset.targetSize.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageBaseAsset.targetSize.id, tradingEngineOrder.orderBaseAsset.size.id, tradingEngineStage.stageBaseAsset.sizePlaced.id],
-                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderBaseAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageBaseAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageBaseAsset.targetSize.value + ') for the stage.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -422,10 +492,26 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                             tradingEngineOrder.orderQuotedAsset.size.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderQuotedAsset.size.value, 10)
 
-                            tradingSystem.warnings.push(
+                            const message = 'Order Size Shrinked'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                previousOrderSize: previousValue,
+                                recalculatedOrderSize: tradingEngineOrder.orderQuotedAsset.size.value,
+                                sizePlaced: tradingEngineStage.stageQuotedAsset.sizePlaced.value,
+                                targetSize: tradingEngineStage.stageQuotedAsset.targetSize.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngineStage.stageQuotedAsset.targetSize.id, tradingEngineOrder.orderQuotedAsset.size.id, tradingEngineStage.stageQuotedAsset.sizePlaced.id],
-                                    'Order size (' + previousValue + ') shrinked (' + tradingEngineOrder.orderQuotedAsset.size.value + ') so that the Size Placed (' + tradingEngineStage.stageQuotedAsset.sizePlaced.value + ') does not exceed the Target Size (' + tradingEngineStage.stageQuotedAsset.targetSize.value + ') for the stage.'
+                                    message,
+                                    docs
                                 ]
                             )
                         }
@@ -445,10 +531,24 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         if (
                             tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push(
+                            const message = 'Possible Negative Balance'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                orderQuotedAssetSize: tradingEngineOrder.orderQuotedAsset.size.value,
+                                episodeQuotedAssetBalance: tradingEngine.current.episode.episodeQuotedAsset.balance.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
-                                    'Order Size Quoted Asset (' + tradingEngineOrder.orderQuotedAsset.size.value + ') changed to Balance Quoted Asset (' + tradingEngine.current.episode.episodeQuotedAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                    message,
+                                    docs
                                 ]
                             )
 
@@ -461,10 +561,24 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         if (
                             tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
                         ) {
-                            tradingSystem.warnings.push(
+                            const message = 'Possible Negative Balance'
+                            let docs = {
+                                project: 'Superalgos',
+                                category: 'Topic',
+                                type: 'TS LF Trading Bot Warning - ' + message,
+                                placeholder: {}
+                            }
+                            contextInfo = {
+                                orderBaseAssetSize: tradingEngineOrder.orderBaseAsset.size.value,
+                                episodeBaseAssetBalance: tradingEngine.current.episode.episodeBaseAsset.balance.value
+                            }
+                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+                            tradingSystem.addWarning(
                                 [
                                     [tradingEngine.current.episode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
-                                    'Order Size Base Asset (' + tradingEngineOrder.orderBaseAsset.size.value + ') changed to Balance Base Asset (' + tradingEngine.current.episode.episodeBaseAsset.balance.value + ') so that the Balance does not drop below zero.'
+                                    message,
+                                    docs
                                 ]
                             )
 
@@ -528,10 +642,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
         if (order === undefined) {
-            tradingSystem.warnings.push(
+
+            const message = 'Order Status Not Sync With Exchange'
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
                 [
                     [tradingSystemOrder.id, tradingEngineOrder.id],
-                    'Could not verify the status of this order at the exchange.'
+                    message,
+                    docs
                 ]
             )
             return false
@@ -553,7 +677,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             return
@@ -567,7 +704,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
@@ -590,7 +740,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'checkExchangeEvents -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
             await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
@@ -648,7 +811,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'percentageFilledSimulation -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
         }
 
         /* If the Stage is Closing and this order is still open, we need to cancel it now */
@@ -867,7 +1043,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
         updateEndsWithCycle(tradingEngineOrder)
-        tradingSystem.infos.push([tradingSystemOrder.id, 'simulateCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+        let message = "Order Closed"
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Info - ' + message,
+            placeholder: {}
+        }
+        contextInfo = {
+            exitType: tradingEngineOrder.exitType.value
+        }
+        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+        tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
         recalculateStageSize(tradingEngineStage, tradingEngineOrder)
     }
@@ -905,10 +1094,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
             if (order === undefined) {
-                tradingSystem.warnings.push(
+
+                const message = 'Order Status Not Sync With Exchange'
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Warning - ' + message,
+                    placeholder: {}
+                }
+
+                tradingSystem.addWarning(
                     [
                         [tradingSystemOrder.id, tradingEngineOrder.id],
-                        'Could not verify the status of this order at the exchange, and syncronize the accounting.'
+                        message,
+                        docs
                     ]
                 )
                 return false
@@ -926,7 +1125,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
-            tradingSystem.infos.push([tradingSystemOrder.id, 'exchangeCancelOrder -> Closing Order with Exit Type ' + tradingEngineOrder.exitType.value])
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
 
@@ -1061,7 +1273,15 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
     }
 
     function badDefinitionUnhandledException(err, message, node) {
-        tradingSystem.errors.push([node.id, message])
+
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Error - ' + message,
+            placeholder: {}
+        }
+
+        tradingSystem.addError([node.id, message, docs])
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
@@ -1070,7 +1290,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         if (err !== undefined) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
-        throw 'Please fix the problem and try again.'
+        /*
+        Now we are going to abort this execution and jump to the latest error handler
+        signaling that we already recorded the error to avoid duplicates.
+        */
+        throw 'Error Already Recorded'
     }
 }
 

@@ -1,0 +1,29 @@
+{
+    "topic": "Crypto Ecosystem",
+    "pageNumber": "3",
+    "type": "How to Uninstall an Existing Market",
+    "definition": {
+        "text": "To uninstall an existing market, select Uninstall Market on the menu of the market you wish to uninstall.",
+        "updated": 1611650874487
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "1. Expand the exchange markets node of your preferred crypto exchange in the crypto ecosystem hierarchy.",
+            "updated": 1611650884837
+        },
+        {
+            "style": "Text",
+            "text": "2. Select Uninstall Market on the menu of the market you wish to uninstall."
+        },
+        {
+            "style": "Note",
+            "text": "The function deletes all the infrastructure associated with the market that may have been created using the Install Market function.",
+            "updated": 1611650909369
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

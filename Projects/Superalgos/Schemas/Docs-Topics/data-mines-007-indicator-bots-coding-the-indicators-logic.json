@@ -1,0 +1,194 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "7",
+    "type": "Indicator Bots - Coding the Indicator's Logic",
+    "definition": {
+        "text": "Learn how to use data dependencies, the variable object, and how to deal with indicators with irregular periods.",
+        "updated": 1611429211176
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Main Data Dependency",
+            "updated": 1611430812568
+        },
+        {
+            "style": "Text",
+            "text": "The data building procedure works under the premise that the algorithm loops around a data collection and that—for each loop—generates a record for the product being built. For example, the SMA indicator loops around the candles product of the Candles Volumes indicator, thus, candles is the main data dependency. In the case of the bollingerChannels product, the main data dependency is the bollingerBands product of the Bollinger Bands indicator."
+        },
+        {
+            "style": "Text",
+            "text": "The main data dependency is the first dependency declared at the level of the processes. This dependency is made available in the record object, which features three properties:"
+        },
+        {
+            "style": "List",
+            "text": "previous: ",
+            "updated": 1611429276716
+        },
+        {
+            "style": "Javascript",
+            "text": "mainDependency.records[index - 1]"
+        },
+        {
+            "style": "List",
+            "text": "current: ",
+            "updated": 1611429281291
+        },
+        {
+            "style": "Javascript",
+            "text": "mainDependency.records[index]",
+            "updated": 1611429297570
+        },
+        {
+            "style": "List",
+            "text": "next: ",
+            "updated": 1611429287433
+        },
+        {
+            "style": "Javascript",
+            "text": "mainDependency.records[index + 1]"
+        },
+        {
+            "style": "Text",
+            "text": "The variable index is the index in the array of the main dependency."
+        },
+        {
+            "style": "Text",
+            "text": "For example, you may use the statement record.propertyName to access the value of any of the properties in the input datasets for the current record, or record.previous.propertyName to access the value of the property in the previous record."
+        },
+        {
+            "style": "Note",
+            "text": "The order in which dependencies are defined determines which one is the main data dependency.",
+            "updated": 1611429327162
+        },
+        {
+            "style": "Title",
+            "text": "Multiple Data Dependencies",
+            "updated": 1611430826204
+        },
+        {
+            "style": "Text",
+            "text": "The products object features a property for each data dependency, and each property is named with the pluralVariableName defined in the product’s configuration. Each property features an array with the dependency’s data collection."
+        },
+        {
+            "style": "Text",
+            "text": "Data collections of different products may begin and end at different points in time. For example, it takes 20 candles to build the first bollingerBands object of the Bollinger Bands indicator, or 200 candles to build the first popularSMAs object of the SMA indicator. Therefore, the record in i position in the array of one product may not correspond to the same period of time of the record in the same position of a different product."
+        },
+        {
+            "style": "Text",
+            "text": "To overcome that hurdle, the getElement function, which takes two parameters, may be used:"
+        },
+        {
+            "style": "List",
+            "text": "The name of the data collection (pluralVariableName) you wish to consult."
+        },
+        {
+            "style": "List",
+            "text": "An object with begin and end properties, for example, the tenth candle."
+        },
+        {
+            "style": "Text",
+            "text": "The function returns the record that matches the begin and end datetime of the second parameter."
+        },
+        {
+            "style": "Text",
+            "text": "This is an example from the Candle Patterns indicator, which has the candles product of the Candles Volumes indicator as the main data dependency:"
+        },
+        {
+            "style": "Javascript",
+            "text": "let candle = record.current                                      // Calling \"Candles\"\nlet basicCandle = getElement ('basicCandles', candle)            // Calling \"Basic Candles\"",
+            "updated": 1611430980056
+        },
+        {
+            "style": "Title",
+            "text": "Variable Object",
+            "updated": 1611431014179
+        },
+        {
+            "style": "Text",
+            "text": "The output generated must be stored as new properties of the variable object, which is made available to record properties under the record definition node."
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the data building procedure loop, the variable object may also be used to store and—later—retrieve information between different loop cycles, or even between different executions of the indicator process. Such a feature is not available in the calculations procedure loop, as the object does not persist beyond each loop in that context."
+        },
+        {
+            "style": "Title",
+            "text": "Multi-Period-Daily"
+        },
+        {
+            "style": "Text",
+            "text": "In time frames below one hour, the system allows to access data up to 48 hours in the past, relative to the current record. If more than 48-hours worth of data is required to produce the desired data building, then data must be stored into the variable object to be retrieved later on, as explained above."
+        },
+        {
+            "style": "Important",
+            "text": "Procedures may only access data up to 48 hours in the past counting from the datetime of the record being processed. For example, the calculation of a moving average spanning 100 periods requires temporarily storing data in an array, as the 45 minutes time frame needs 75-hours worth of data.",
+            "updated": 1611431032118
+        },
+        {
+            "style": "Text",
+            "text": "The following is an example of a procedure loop code, in particular, the code that calculates the Popular SMAs product of the Simple Moving Average (SMA) indicator. Notice how the output generated by the calculateSMA function is stored into the variable object, and how an array stored in the variable object is used to overcome the 48-hours data-access limitation of Multi-Priod-Daily time frames."
+        },
+        {
+            "style": "Javascript",
+            "text": "/* Loop Code. */\n\nlet candle = record.current // Our main dependency is candles \nvariable.last200.push(candle.close) // Add the current close value to the last 200 array.\n\nif (variable.last200.length > 200) { // Store data in the variable object to overcome the limitations in multi-period-daily.\n    variable.last200.splice(0, 1) // Remove the first element of the array to keep it at a maximun of 200 elements.\n}\n\nvariable.sma20 = calculateSMA(20)\nvariable.sma50 = calculateSMA(50)\nvariable.sma100 = calculateSMA(100)\nvariable.sma200 = calculateSMA(200)\n\nfunction calculateSMA(periods) {  // Having a function saves us from duplicating code.\n    /* We check we have enough values to make the calculation */\n    if (variable.last200.length < periods) { return 0 } // If we dont, we define the value is zero.\n\n    let sum = 0 // Initialize sum variable. \n    for (let i = variable.last200.length - periods; i < variable.last200.length; i++) { // Iterate through the last periods\n        sum = sum + variable.last200[i]\n    }\n    let sma = sum / periods\n    return sma\n}",
+            "updated": 1611431047895
+        },
+        {
+            "style": "Title",
+            "text": "Irregular Periods",
+            "updated": 1611431066723
+        },
+        {
+            "style": "Text",
+            "text": "Occasionally, a one-to-one mapping of the periods of the data dependency with the periods of the resulting product does not exist. For example, in the case of the bollingerChannels product, using the bollingerBands as the main dependency. In such a case, the algorithm may read the 1-hour bollingerBands as input but the resulting object may span several hours."
+        },
+        {
+            "style": "Text",
+            "text": "By default, the system pushes a record into the data collection for every loop. To build products that span several periods of the main dependency, you must make the push from within your own code."
+        },
+        {
+            "style": "Text",
+            "text": "When the system detects a push in the procedure loop code, it cancels the automatic push on each loop."
+        },
+        {
+            "style": "Text",
+            "text": "The following example taken from the data building procedure loop of the Bollinger Channels Object indicator features several instances of arbitrary use of pushes."
+        },
+        {
+            "style": "Javascript",
+            "text": "if (record.next !== undefined) {\n\n    if (\n        record.current.direction === record.next.direction) {\n\n        if (variable.channel === undefined) {\n\n            variable.channel = {\n                begin: undefined,\n                end: undefined,\n                direction: undefined,\n                period: 0,\n                firstMovingAverage: 0,\n                lastMovingAverage: 0,\n                firstDeviation: 0,\n                lastDeviation: 0\n            }\n\n            variable.channel.direction = record.current.direction\n            variable.channel.period = 2\n\n            variable.channel.begin = record.current.begin\n            variable.channel.end = record.next.end\n\n            variable.channel.firstMovingAverage = record.current.movingAverage\n            variable.channel.lastMovingAverage = record.next.movingAverage\n\n            variable.channel.firstDeviation = record.current.deviation\n            variable.channel.lastDeviation = record.next.deviation\n\n        } else {\n\n            variable.channel.period++\n            variable.channel.end = record.next.end\n            variable.channel.lastMovingAverage = record.next.movingAverage\n            variable.channel.lastDeviation = record.next.deviation\n\n        }\n    } else {\n\n        if (variable.channel !== undefined) {\n            results.push(variable.channel)\n            variable.channel = undefined\n        } else {\n            /* The variable.channel has only one period */\n\n            variable.channel = {}\n\n            variable.channel.direction = record.current.direction\n            variable.channel.period = 1\n\n            variable.channel.begin = record.current.begin\n            variable.channel.end = record.current.end\n\n            variable.channel.firstMovingAverage = record.current.movingAverage\n            variable.channel.lastMovingAverage = record.current.movingAverage\n\n            variable.channel.firstDeviation = record.current.deviation\n            variable.channel.lastDeviation = record.current.deviation\n\n            results.push(variable.channel)\n            variable.channel = undefined\n        }\n    }\n} else {\n    if (variable.channel !== undefined) {\n        variable.channel.period++\n        variable.channel.end = record.current.end\n        variable.channel.lastMovingAverage = record.current.movingAverage\n        variable.channel.lastDeviation = record.current.deviation\n        results.push(variable.channel)\n        variable.channel = undefined\n    } else {\n        /* The variable.channel has only one period */\n\n        variable.channel = {}\n\n        variable.channel.direction = record.current.direction\n        variable.channel.period = 1\n\n        variable.channel.begin = record.current.begin\n        variable.channel.end = record.current.end\n\n        variable.channel.firstMovingAverage = record.current.movingAverage\n        variable.channel.lastMovingAverage = record.current.movingAverage\n\n        variable.channel.firstDeviation = record.current.deviation\n        variable.channel.lastDeviation = record.current.deviation\n\n        results.push(variable.channel)\n        variable.channel = undefined\n    }\n}",
+            "updated": 1611431088524
+        },
+        {
+            "style": "Title",
+            "text": "Managing Undefined Objects",
+            "updated": 1611431116629
+        },
+        {
+            "style": "Text",
+            "text": "In many instances, objects may be undefined. For example, the first 199 candles in the data collection corresponding to a 200-period moving average may be undefined, as the data building procedure may only build the object once the 200th candle is evaluated."
+        },
+        {
+            "style": "Text",
+            "text": "Storing undifined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer."
+        },
+        {
+            "style": "Text",
+            "text": "The Bollinger Channels Object example above features deliberate handling of undefined objects."
+        },
+        {
+            "style": "Text",
+            "text": "In the case of a 200-period moving average discussed above, the developer may want to produce an arbitrary estimation of the moving average for the first 199 candles, or simply set the value to zero for the first 199 candles. The later was the choice for the popularSMAs product as may be observed in the code of the initialization procedure:"
+        },
+        {
+            "style": "Javascript",
+            "text": "/* Initialization Code*/\n\nvariable.previousEMA20 = 0\nvariable.previousEMA50 = 0\nvariable.previousEMA100 = 0\nvariable.previousEMA200 = 0",
+            "updated": 1611431131070
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

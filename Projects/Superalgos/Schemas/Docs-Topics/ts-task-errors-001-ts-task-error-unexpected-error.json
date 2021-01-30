@@ -16,8 +16,20 @@
         },
         {
             "style": "Title",
-            "text": "Error Message",
-            "updated": 1610971316249
+            "text": "Error Info",
+            "updated": 1611151211050
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Note",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
         },
         {
             "style": "Text",
@@ -30,7 +42,7 @@
             "updated": 1610971337737
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Error Stack",
             "updated": 1610968600444
         },
@@ -45,16 +57,33 @@
             "updated": 1610968640796
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Error Code"
         },
         {
             "style": "Text",
-            "text": "The follwing is the Error Code of the Exception that occured at the TS:"
+            "text": "The following is the Error Code of the Exception that occured at the TS:"
         },
         {
             "style": "Placeholder",
             "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the TS:",
+            "updated": 1611257840235
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Text",

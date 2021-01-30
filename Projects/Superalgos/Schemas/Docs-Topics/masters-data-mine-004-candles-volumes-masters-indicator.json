@@ -1,0 +1,131 @@
+{
+    "topic": "Masters Data Mine",
+    "pageNumber": 4,
+    "type": "Candles Volumes - Masters Indicator",
+    "definition": {
+        "text": "The indicator processes one-minute candles into candles and volumes information for all time frames.",
+        "updated": 1610398384051
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "On the Charts",
+            "updated": 1610398373620
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle"
+        },
+        {
+            "style": "Text",
+            "text": "Typical candlesticks."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-00-candles.gif",
+            "updated": 1610399061405
+        },
+        {
+            "style": "Subtitle",
+            "text": "Volume"
+        },
+        {
+            "style": "Text",
+            "text": "We innovated a bit placing the buy volume at the bottom (in green), and the sell volume at the top (in red)."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-01-volumes.gif",
+            "updated": 1610399087669
+        },
+        {
+            "style": "Anchor",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle"
+        },
+        {
+            "style": "Text",
+            "text": "The product candle features five different properties."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Candles | candle | min, max, open, close, direction |",
+            "updated": 1610398497568
+        },
+        {
+            "style": "List",
+            "text": "candle.min: The minimum price of the last closed candle (low)."
+        },
+        {
+            "style": "List",
+            "text": "candle.max: The maximum price of the last closed candle (high)."
+        },
+        {
+            "style": "List",
+            "text": "candle.open: The price at which the last closed candle opened."
+        },
+        {
+            "style": "List",
+            "text": "candle.close: The price at which the last closed candle closed."
+        },
+        {
+            "style": "List",
+            "text": "candle.direction:"
+        },
+        {
+            "style": "Text",
+            "text": "\"Down\": ",
+            "updated": 1610398542509
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close < candle.open (bearish candle)"
+        },
+        {
+            "style": "Text",
+            "text": "\"Up\": ",
+            "updated": 1610398557109
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close > candle.open (bullish candle)"
+        },
+        {
+            "style": "Text",
+            "text": "\"Side\": ",
+            "updated": 1610398582953
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close = candle.open (neutral candle)"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Volume"
+        },
+        {
+            "style": "Text",
+            "text": "The product volume features two properties."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Volumes | volume | buy, sell |",
+            "updated": 1610398633204
+        },
+        {
+            "style": "List",
+            "text": "volume.buy: The buy volume of the last closed candle."
+        },
+        {
+            "style": "List",
+            "text": "volume.sell: The sell volume of the last closed candle."
+        }
+    ]
+}

@@ -25,10 +25,22 @@ function newUiObjectConstructor() {
     }
 
     function createUiObject(userAddingNew, payload) {
+        
+        /*
+        In case we are replacing an existing uiObject and floatingObject
+        */
+        if (payload.floatingObject !== undefined) {
+            payload.floatingObject.finalize()
+        }
+        if (payload.uiObject !== undefined) {
+            payload.uiObject.finalize()
+        }
+
         let floatingObject = newFloatingObject()
         floatingObject.fitFunction = UI.projects.superalgos.spaces.floatingSpace.fitIntoVisibleArea
         floatingObject.container.connectToParent(UI.projects.superalgos.spaces.floatingSpace.container, false, false, false, false, false, false, false, false)
         floatingObject.initialize('UI Object', payload)
+
         payload.floatingObject = floatingObject
 
         /*
@@ -218,8 +230,8 @@ function newUiObjectConstructor() {
                 currentStatus: false,
                 label: undefined,
                 visible: true,
-                iconPathOn: 'pinned',
-                iconPathOff: 'unpinned',
+                iconPathOn: 'pinned-node',
+                iconPathOff: 'unpinned-node',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -234,7 +246,7 @@ function newUiObjectConstructor() {
                 currentStatus: true,
                 label: undefined,
                 visible: true,
-                icons: ['angle-to-parent-000', 'angle-to-parent-360', 'angle-to-parent-180', 'angle-to-parent-090', 'angle-to-parent-045'],
+                icons: ['remove-angle-to-parent-node', 'set-angle-to-parent-node-to-360-degrees', 'set-angle-to-parent-node-to-180-degrees', 'set-angle-to-parent-node-to-90-degrees', 'set-angle-to-parent-node-to-45-degrees'],
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -249,7 +261,7 @@ function newUiObjectConstructor() {
                 currentStatus: true,
                 label: undefined,
                 visible: true,
-                icons: ['distance-to-parent-000', 'distance-to-parent-025', 'distance-to-parent-050', 'distance-to-parent-100', 'distance-to-parent-150', 'distance-to-parent-200'],
+                icons: ['remove-distance-to-parent-node', 'set-distance-to-parent-node-to-one-fourth', 'set-distance-to-parent-node-to-one-half', 'set-distance-to-parent-node-to-one', 'set-distance-to-parent-node-to-one-and-a-half', 'set-distance-to-parent-node-to-two'],
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -264,7 +276,7 @@ function newUiObjectConstructor() {
                 currentStatus: true,
                 label: undefined,
                 visible: true,
-                icons: ['arrangement-concave', 'arrangement-convex', 'arrangement-vertical-right', 'arrangement-vertical-left', 'arrangement-horizontal-bottom', 'arrangement-horizontal-top'],
+                icons: ['set-node-arrangement-to-concave', 'set-node-arrangement-to-convex', 'set-node-arrangement-to-vertical-right', 'set-node-arrangement-to-vertical-left', 'set-node-arrangement-to-horizontal-bottom', 'set-node-arrangement-to-horizontal-top'],
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -279,8 +291,8 @@ function newUiObjectConstructor() {
                 currentStatus: true,
                 label: undefined,
                 visible: true,
-                iconPathOn: 'unfreeze',
-                iconPathOff: 'freeze',
+                iconPathOn: 'unfreeze-structure-of-nodes',
+                iconPathOff: 'freeze-structure-of-nodes',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -295,8 +307,8 @@ function newUiObjectConstructor() {
                 currentStatus: false,
                 label: undefined,
                 visible: true,
-                iconPathOn: 'expand',
-                iconPathOff: 'collapse',
+                iconPathOn: 'expand-structure-of-nodes',
+                iconPathOff: 'collapse-structure-of-nodes',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -310,8 +322,8 @@ function newUiObjectConstructor() {
                 actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
-                iconPathOn: 'backup',
-                iconPathOff: 'backup',
+                iconPathOn: 'backup-entity',
+                iconPathOff: 'backup-entity',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -325,8 +337,8 @@ function newUiObjectConstructor() {
                 actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
-                iconPathOn: 'clone',
-                iconPathOff: 'clone',
+                iconPathOn: 'clone-entity',
+                iconPathOff: 'clone-entity',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -341,8 +353,8 @@ function newUiObjectConstructor() {
                     actionProject: 'Superalgos',
                     label: undefined,
                     visible: true,
-                    iconPathOn: 'share',
-                    iconPathOff: 'share',
+                    iconPathOn: 'share-entity',
+                    iconPathOff: 'share-entity',
                     rawRadius: 12,
                     targetRadius: 0,
                     currentRadius: 0,
@@ -357,8 +369,8 @@ function newUiObjectConstructor() {
                 actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
-                iconPathOn: 'detach',
-                iconPathOff: 'detach',
+                iconPathOn: 'detach-node',
+                iconPathOff: 'detach-node',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,
@@ -372,8 +384,8 @@ function newUiObjectConstructor() {
                 actionProject: 'Superalgos',
                 label: undefined,
                 visible: true,
-                iconPathOn: 'delink',
-                iconPathOff: 'delink',
+                iconPathOn: 'delink-node',
+                iconPathOff: 'delink-node',
                 rawRadius: 12,
                 targetRadius: 0,
                 currentRadius: 0,

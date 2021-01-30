@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "project": "Superalgos",
-            "name": "expand"
+            "name": "expand-structure-of-nodes"
         },
         "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node."
     },

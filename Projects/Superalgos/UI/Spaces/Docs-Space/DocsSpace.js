@@ -20,8 +20,9 @@ function newSuperalgosDocSpace() {
         currentBookBeingRendered: undefined,
         paragraphMap: undefined,  // Here we will store a map of paragraphs from the Docs Node, Concept, Topics, Tutorials, Reviews or Books Schema in order to find it when we need to update them.
         textArea: undefined,
+        sharePage: sharePage,
         changeLanguage: changeLanguage,
-        changeActiveBranch: changeActiveBranch,
+        changeCurrentBranch: changeCurrentBranch,
         changeContributionsBranch: changeContributionsBranch,
         enterEditMode: enterEditMode,
         exitEditMode: exitEditMode,
@@ -183,7 +184,7 @@ function newSuperalgosDocSpace() {
         initialize()
     }
 
-    function changeActiveBranch(branch) {
+    function changeCurrentBranch(branch) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
 
@@ -195,7 +196,14 @@ function newSuperalgosDocSpace() {
                 window.localStorage.setItem('Current Branch', branch)
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Not Changed')
+                UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                    data.docs.project,
+                    data.docs.category,
+                    data.docs.type,
+                    data.docs.anchor,
+                    undefined,
+                    data.docs.placeholder
+                )
             }
         }
     }
@@ -213,12 +221,17 @@ function newSuperalgosDocSpace() {
         UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
 
+    function sharePage() {
+        let clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type 
+        UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
+    }
+
     function onKeyDown(event) {
         /* 
         When an editor is on focus we will only
         take care of a few combinations of key strokes
         so as to tell the editor container when the user
-        would like to close the editor.
+        would like to close the editor. ESC key exits edit mode.    
         */
         if (event.key === 'Escape') {
             UI.projects.superalgos.spaces.docsSpace.exitEditMode()
@@ -235,8 +248,8 @@ function newSuperalgosDocSpace() {
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
             thisObject.documentPage.exitEditMode()
-            EDITOR_ON_FOCUS = false
             UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            EDITOR_ON_FOCUS = false
         }
     }
 
@@ -258,6 +271,7 @@ function newSuperalgosDocSpace() {
     }
 
     function onClosing() {
+        thisObject.contextMenu.removeContextMenuFromScreen()
         UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
         thisObject.isVisible = false
     }

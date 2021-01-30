@@ -29,6 +29,38 @@
             "style": "Text",
             "text": "To remove a reference or delink two nodes, use the delink button on the node where the reference originates.",
             "updated": 1609949517565
+        },
+        {
+            "style": "Title",
+            "text": "What If the Nodes Are Far Away or in Different Hierarchies?",
+            "updated": 1611941072895
+        },
+        {
+            "style": "Text",
+            "text": "The process is exactly the same. All you need to do is master a few tricks so that you may drag one of the nodes all the way to where the second node is.",
+            "updated": 1611940896508
+        },
+        {
+            "style": "Text",
+            "text": "These UI tricks may make your life easier:",
+            "updated": 1611940968078
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other.",
+            "updated": 1611940996169
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!"
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
         }
     ]
 }

@@ -16,7 +16,10 @@ function newSuperalgosDocsSearchEngine() {
         thisObject.docsIndex = undefined
     }
 
-    function setUpSearchEngine() {
+    function setUpSearchEngine(callbackFunction) {
+
+        let totalAsyncCallsMade = 0
+        let totalAsyncCallsFinished = 0
 
         setUpWorkspaceSchemas()
         thisObject.docsIndex = []
@@ -26,82 +29,125 @@ function newSuperalgosDocsSearchEngine() {
 
             let documentIndex
 
-            /* Search in Nodes */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
-                    category: 'Node',
-                    project: project
+            totalAsyncCallsMade++
+            setTimeout(searchInNodes, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInConcepts, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInNTopics, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInTutorials, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInReviews, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInBooks, 0) 
+            totalAsyncCallsMade++
+            setTimeout(searchInWorkspaces, 0) 
+
+            function searchInNodes() {
+                /* Search in Nodes */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
+                        category: 'Node',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Concepts */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
-                    category: 'Concept',
-                    project: project
+            function searchInConcepts() {
+                /* Search in Concepts */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
+                        category: 'Concept',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Topics */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
-                    category: 'Topic',
-                    project: project
+            function searchInNTopics() {
+                /* Search in Topics */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
+                        category: 'Topic',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Tutorials */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i],
-                    category: 'Tutorial',
-                    project: project
+            function searchInTutorials() {
+                /* Search in Tutorials */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i],
+                        category: 'Tutorial',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Reviews */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i],
-                    category: 'Review',
-                    project: project
+            function searchInReviews() {
+                /* Search in Reviews */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i],
+                        category: 'Review',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Books */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i],
-                    category: 'Book',
-                    project: project
+            function searchInBooks() {
+                /* Search in Books */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i],
+                        category: 'Book',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
             }
-            /* Search in Workspace */
-            for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
-                documentIndex = {
-                    phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
-                    docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
-                    category: 'Workspace',
-                    project: project
+            function searchInWorkspaces() {
+                /* Search in Workspace */
+                for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
+                    documentIndex = {
+                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
+                        category: 'Workspace',
+                        project: project
+                    }
+                    indexDocument(documentIndex)
+                    thisObject.docsIndex.push(documentIndex)
                 }
-                indexDocument(documentIndex)
-                thisObject.docsIndex.push(documentIndex)
+                asyncCallFinished()
+            }
+
+            function asyncCallFinished() {
+                totalAsyncCallsFinished++
+                if (totalAsyncCallsMade === totalAsyncCallsFinished) {
+                    callbackFunction()
+                }
             }
         }
 

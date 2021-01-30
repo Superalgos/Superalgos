@@ -20,7 +20,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
     let fetchType = "by Time"
     let lastId
     let firstId
-    let allOHLCVs = []
     let thisReport;
     let since
     let initialProcessTimestamp
@@ -48,34 +47,39 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
+                /*
+                The config all ow us to define for the API different parameters for different
+                methods calls. At this point we are only interested of the parameters for the
+                fetch_ohlcv method, so we ignore the rest.
+                */
                 for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API.length; i++) {
-                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].method === 'fetch_ohlcv') {
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class !== undefined) {
-                            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].class
+                    let API = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i]
+                    if (API.method === 'fetch_ohlcv') {
+                        if (API.class !== undefined) {
+                            exchangeId = API.class
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod !== undefined) {
+                        if (API.fetchOHLCVsMethod !== undefined) {
                             options = {
-                                'fetchOHLCVsMethod': TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchOHLCVsMethod
+                                'fetchOHLCVsMethod': API.fetchOHLCVsMethod
                             }
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId !== undefined) {
-                            firstId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].firstId
+                        if (API.firstId !== undefined) {
+                            firstId = API.firstId
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit !== undefined) {
-                            rateLimit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].rateLimit
+                        if (API.rateLimit !== undefined) {
+                            rateLimit = API.rateLimit
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname !== undefined) {
-                            hostname = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].hostname
+                        if (API.hostname !== undefined) {
+                            hostname = API.hostname
                         }
-                        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType !== undefined) {
-                            fetchType = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API[i].fetchType
+                        if (API.fetchType !== undefined) {
+                            fetchType = API.fetchType
+                        }
+                        if (API.limit !== undefined) {
+                            limit = API.limit
                         }
                     }
                 }
-            }
-
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit !== undefined) {
-                limit = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.fetchLimit
             }
 
             let key
@@ -102,6 +106,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
 
             /* CCXT Supported Exchanges */
@@ -119,6 +124,11 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
     function start(callBackFunction) {
         try {
+            /* 
+            Initialize the array where we are going to receive the 
+            data from the exchange. 
+            */
+            let rawDataArray = []
 
             if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
@@ -195,6 +205,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                     }
 
                 } catch (err) {
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] start -> getContextVariables -> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
@@ -252,7 +263,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getOHLCVs -> Fetching OHLCVs  @ " + processingDate + "-> exchange = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " -> symbol = " + symbol + " -> since = " + since + " -> limit = " + limit)
-                            let heartBeatText = "Fetching " + allOHLCVs.length.toFixed(0) + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
+                            let heartBeatText = "Fetching " + rawDataArray.length.toFixed(0) + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate
                             let currentDate = new Date(since)
                             let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                             TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, heartBeatText, percentage) // tell the world we are alive and doing well
@@ -332,7 +343,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
                                 let OHLCVKey = OHLCV[0] + '-' + OHLCV[1].toFixed(16) + '-' + OHLCV[2].toFixed(16) + '-' + OHLCV[3].toFixed(16) + '-' + OHLCV[4].toFixed(16) + '-' + OHLCV[5].toFixed(16)
                                 if (OHLCVKey !== lastOHLCVKey) {
-                                    allOHLCVs.push(OHLCV)
+                                    rawDataArray.push(OHLCV)
                                 }
                                 lastOHLCVKey = OHLCVKey
                             }
@@ -343,7 +354,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         if (
                             OHLCVs.length < limit - 1 ||
                             TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true ||
-                            allOHLCVs.length >= MAX_OHLCVs_PER_EXECUTION
+                            rawDataArray.length >= MAX_OHLCVs_PER_EXECUTION
                         ) {
                             break
                         }
@@ -376,18 +387,27 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             }
 
             async function saveOHLCVs() {
+                /* 
+                What we are going to do in this function is to save all the candles 
+                received from the exchage. We need to partition the batch of candles
+                into 1 day files. At the same time we need to take care of the situation
+                that some exchanges send inconsitent data. We have detected some cases
+                where candles do not begin at second 0 of the minute but are a little
+                bit shifted. We will try to detectthis and fix it as we go. 
 
+                We have the data received from the exchage at the arrary rawDataArray
+                */
                 try {
 
                     let candlesFileContent = '['
                     let volumesFileContent = '['
-                    let previousDay = Math.trunc((initialProcessTimestamp - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
-                    let currentDay = Math.trunc((initialProcessTimestamp - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                     let needSeparator = false
                     let error
                     let separator
                     let heartBeatCounter = 0
-                    let headOfTheMarketReached = false
+                    let savingProcedureFinished = false
+                    let endOfTheOHLCVArrayReached = false
+                    let currentDay = Math.trunc((initialProcessTimestamp - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                     let lastCandle = {
                         begin: 0,
@@ -405,55 +425,104 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         sell: 0
                     }
 
-                    let i = 0
+                    let ohlcvArrayIndex = 0
                     lastId = undefined
 
                     if (lastCandleOfTheDay !== undefined) {
                         lastCandle = JSON.parse(JSON.stringify(lastCandleOfTheDay))
                     }
 
+                    /* 
+                    At a macro level, we will be creating one file per day, so we will
+                    run into a loop that each run will represent one day.
+                    */
                     controlLoop()
 
                     function loop() {
+                        /*
+                        Here we will try to match the OHLCVs received with each possible
+                        candle of a single day.
+                        */
 
                         let filesToCreate = 0
                         let filesCreated = 0
 
-                        /* Go through all possible 1 min candles of a day. */
-                        for (let j = 0; j < 60 * 24; j++) {
+                        /* 
+                        We will loop aroud all the possible 1 minute candles that be found
+                        on a single day. For each minute of the day, we will try to find
+                        the matching OHLCV. This would be an easy task if the exchanges 
+                        would allways return consistent data, but that is not the case.
+                        Sometimes, some candles are missing. We have seen also candles that
+                        do not start at an UTC minute, they are shifted in time some seconds. 
+                        In order to address all these inconsistencies the process gets a little 
+                        bit complicated.
+                        */
+                        for (let minuteOfTheDay = 0; minuteOfTheDay < 60 * 24; minuteOfTheDay++) {
 
+                            /* 
+                            We initialize our candle and volume objecs positioning them
+                            at the current minute of the day of the current day. We also
+                            initialize them with the last candle and volume property values.
+                            The reason we do this last thing is because we don't knwo if 
+                            we are going to find or not a matching OHLCV. If we do find one
+                            these property values will be overwritten, and if not, they will 
+                            hold at least the last know value.
+                            */
                             let candle = {
-                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j,
-                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
+                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
+                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 open: lastCandle.close,
                                 close: lastCandle.close,
                                 min: lastCandle.close,
                                 max: lastCandle.close
                             }
+
                             let volume = {
-                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j,
-                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * j + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
+                                begin: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay,
+                                end: currentDay * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * minuteOfTheDay + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1,
                                 buy: lastVolume.buy,
                                 sell: lastVolume.sell
                             }
 
-                            let processingDate = new Date(candle.begin)
-                            processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                            /* 
+                            Here we will check that the current candle is not going into the future.
+                            Remember we are looping around all possible minutes of a day, and when 
+                            that day is the current actual day, and the current minute is in the future,
+                            it manke no more sense to continue inside this loop since we are not going 
+                            to find more OHLCVs matchings.
 
-                            if (candle.begin > (new Date()).valueOf()) {
+                            At the same time, we are going to check that we haven't processed the whole
+                            OHLCV array. Once we reached the end of it, it makes no sense to continue
+                            inside this loop.
+                            */
+                            if (
+                                candle.begin > (new Date()).valueOf() ||
+                                endOfTheOHLCVArrayReached === true
+                            ) {
                                 /* We stop when the current candle is pointing to a time in the future.*/
-                                headOfTheMarketReached = true
+                                savingProcedureFinished = true
+                                /* 
+                                This will be our last file saved.
+                                */
                                 saveFile(currentDay)
 
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length)
-                                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
+                                /*
+                                We will produce our last log and heartbeat, since we have just 
+                                reached the head of the market.
+                                */
+                                logAndHeartBeat()
 
                                 /* We exit the loop and we aint comming back*/
                                 return
                             }
 
-                            let OHLCV = { // these values should be overrided unless there are no OHLVCs fetched from the exchange.
+                            /* 
+                             We initialize here the OHLCV object. These initial 
+                             values should be overrided unless there are no 
+                             OHLVCs fetched from the exchange. We need the 
+                             timestamp in order to calculate OHLCVMinute.
+                            */
+                            let OHLCV = {
                                 timestamp: (new Date()).valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS,
                                 open: 0,
                                 hight: 0,
@@ -462,9 +531,16 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 volume: 0
                             }
 
-                            let record = allOHLCVs[i]
+                            let record = rawDataArray[ohlcvArrayIndex]
 
-                            if (record !== undefined) { // can be undefined if there is no candle fetched from the exchange
+                            /* 
+                            We will check that we can have a record to 
+                            analize. It might happen that we don't have one
+                            in the situation that we could not get a single
+                            record from the exchange. We still want to be
+                            here so that everything is properly logged.
+                            */
+                            if (record !== undefined) {
                                 OHLCV = {
                                     timestamp: record[0],
                                     open: record[1],
@@ -477,48 +553,73 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
                             let candleMinute = Math.trunc(candle.begin / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                             let OHLCVMinute
+                            /*
+                            Some exchanges return inconsistent data. It is not guaranteed 
+                            that each candle will have a timeStamp exactly at the begining of an
+                            UTC minute. It is also not guaranteed that the distance
+                            between timestamps will be the same. To fix this, we will do this.
+                            */
 
-                            checkOHLCVMinute()
+                            OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
 
-                            function checkOHLCVMinute() {
-                                /*
-                                Some exchanges return inconsistent data. It is not guaranteed that each candle will have a timeStamp exactly at the begining of an
-                                UTC minute. It is also not guaranteed that the distance between timestamps will be the same. To fix this, we will do this.
-                                */
+                            /*
+                            If the minute of the record item received from the exchange is
+                            less than the minute of the current minute in our loop, 
+                            that means that we need to reposition the inded at the rawDataArray 
+                            array, moving it one record fordward, and that is what we are 
+                            doing here. 
+                            */
+                            while (OHLCVMinute < candleMinute) {
 
-                                OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
+                                /* Move fordward at the rawDataArray array. */
+                                ohlcvArrayIndex++
 
-                                if (OHLCVMinute < candleMinute) {
-                                    if (i >= allOHLCVs.length - 1) {
-                                        /* We run out of OHLCVs, we can not move to the next OHLCV, we leave this function. */
-                                        return
-                                    }
-
-                                    i++
-                                    record = allOHLCVs[i]
-                                    OHLCV = {
-                                        timestamp: record[0],
-                                        open: record[1],
-                                        hight: record[2],
-                                        low: record[3],
-                                        close: record[4],
-                                        volume: record[5],
-                                        id: record[6]
-                                    }
-                                    setImmediate (checkOHLCVMinute)
+                                /* Check that we have not passed the end of the array */
+                                if (ohlcvArrayIndex > rawDataArray.length - 1) {
+                                    /* 
+                                    We run out of OHLCVs, we can not move to the next OHLCV, 
+                                    we need to leave this loop. 
+                                    */
+                                    break
                                 }
+
+                                record = rawDataArray[ohlcvArrayIndex]
+
+                                /*
+                                Once this loop is broken, this is the OHLCV that needs 
+                                to be considered. All the ones in the past are ignored.
+                                */
+                                OHLCV = {
+                                    timestamp: record[0],
+                                    open: record[1],
+                                    hight: record[2],
+                                    low: record[3],
+                                    close: record[4],
+                                    volume: record[5],
+                                    id: record[6]
+                                }
+
+                                /* Recalculate this to see if we need to break the loop*/
+                                OHLCVMinute = Math.trunc(OHLCV.timestamp / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                             }
 
-                            /* Reporting we are doing well */
-                            heartBeatCounter--
-                            if (heartBeatCounter <= 0) {
-                                heartBeatCounter = 1440
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> saveOHLCVs -> After Fetch -> Saving OHLCVs  @ " + processingDate + " -> i = " + i + " -> total = " + allOHLCVs.length)
-                                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + i.toFixed(0) + " / " + allOHLCVs.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well
-                            }
-                            /* End Reporting */
+                            /*
+                            If the candleMinute and the OHLCVMinute matches, then
+                            we transfer the properties of the OHLCV into the 
+                            candle object and the volume object. Two things to 
+                            consider here:
 
+                            1. If they do not match, at this point it could only means
+                            that the OHLCVMinute is in the future, in which case the
+                            candle and volume will keep their initialization values
+                            which in turn are equal to the latest candle and volumes.
+                            
+                            2. They might be equal even though the OHLCV timestamp
+                            did not match exactly the UTC minute, but since we are 
+                            comparing truncated values, then we force the matching
+                            and we correct the shifting in time that sometimes happens
+                            with exchange data.
+                            */
                             if (candleMinute === OHLCVMinute) {
                                 candle.open = OHLCV.open
                                 candle.close = OHLCV.close
@@ -527,14 +628,25 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 volume.buy = OHLCV.volume / 2
                                 volume.sell = OHLCV.volume / 2
 
-                                if (i < allOHLCVs.length - 1) {
-                                    i++
+                                /* 
+                                Since we extracted this OHLCV value, we move 
+                                fordward our array index. 
+                                */
+                                if (ohlcvArrayIndex < rawDataArray.length - 1) {
+                                    ohlcvArrayIndex++
+                                } else {
+                                    endOfTheOHLCVArrayReached = true
                                 }
 
                                 lastId = OHLCV.id
-
                             }
+
+                            /*
+                            Here we remeber the last candle and volumen, in case
+                            we need it.
+                            */
                             lastCandle = candle
+                            lastVolume = volume
 
                             if (needSeparator === false) {
                                 needSeparator = true;
@@ -548,14 +660,40 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             volumesFileContent = volumesFileContent + separator + '[' + volume.buy + "," + volume.sell + "," + volume.begin + "," + volume.end + "]";
 
                             /* We store the last candle of the day in order to have a previous candles during next execution. */
-                            if (j === 1440 - 1) {
+                            if (minuteOfTheDay === 1440 - 1) {
                                 lastCandleOfTheDay = JSON.parse(JSON.stringify(candle))
+                            }
+
+                            /* Reporting we are doing well */
+                            heartBeatCounter--
+                            if (heartBeatCounter <= 0) {
+                                heartBeatCounter = 1440
+                                logAndHeartBeat()
+                            }
+
+                            function logAndHeartBeat() {
+                                /* We need thi processing date for logging purposes only */
+                                let processingDate = new Date(candle.begin)
+                                processingDate =
+                                    processingDate.getUTCFullYear() + '-' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[INFO] start -> saveOHLCVs -> Before Fetch -> Saving OHLCVs  @ " + processingDate + " -> ohlcvArrayIndex = " + ohlcvArrayIndex + " -> total = " + rawDataArray.length)
+                                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Saving " + (ohlcvArrayIndex + 1).toFixed(0) + " / " + rawDataArray.length + " OHLCVs from " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + symbol + " @ " + processingDate) // tell the world we are alive and doing well                                
                             }
                         }
 
-                        previousDay = currentDay
-
-                        if (i > 0) { // Only start saving at the day of the first candle.
+                        /* 
+                        When the bot is processing historical information, it
+                        happens that during the whole processing of one day
+                        it did not reach either the head of the market (a future time)
+                        nor the end of the Raw Data Array. In this situation
+                        we still need to save the full day of content, and 
+                        we do it only if at least one candle has been processed.
+                        */
+                        if (ohlcvArrayIndex > 0) {
                             saveFile(currentDay)
                             return
                         }
@@ -577,7 +715,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             candlesFileContent = '['
                             volumesFileContent = '['
                             needSeparator = false
-
                         }
 
                         function onFileCreated(err) {
@@ -605,42 +742,64 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                     }
 
                     function controlLoop() {
+                        /* 
+                        This loop advances one day, and if it does not need to stop
+                        for any reason, it will execute the loop function so as to process
+                        the next day. 
+                        */
+                        currentDay++
+
+                        /*
+                        It might have happened that the User is stopping the Task. If that
+                        is the case, we need to stop this processing here.
+                        */
                         if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                             return
                         }
 
+                        /* 
+                        If we had any problem saving the latest file, we will also abort 
+                        this process here, so that we can record our progress until it stopped
+                        working.
+                        */
                         if (error) {
                             callBackFunction(error);
                             return;
                         }
 
-                        currentDay++
-
                         /*
-                        One possible exit is when we reached the amount of candles downloaded. This not necesary happens at the end of the market
-                        if the process was canceled for any reason at the middle.
+                        One possible exit is when we reached the amount of candles downloaded. 
+                        This does not necesary happens at the end of the market
+                        if the process was canceled for any reason at the middle, 
+                        or the exchange became unavailable.
                         */
-
-                        if (i >= allOHLCVs.length - 1) {
+                        if (ohlcvArrayIndex >= rawDataArray.length - 1) {
                             writeStatusReport()
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because i reached the end of the candles array. ")
+                                "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because i reached the end of the rawDataArray array. ")
                             return
                         }
 
-
-                        /* The natural exit is at the end of the market */
-                        if (headOfTheMarketReached === false) {
-                            setImmediate(loop)
-                        } else {
+                        /* 
+                        The most common exit is at the end of the market. There is 
+                        nothing else to save, so we finish here. 
+                        */
+                        if (savingProcedureFinished === true) {
+                            writeStatusReport()
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> saveOHLCVs -> controlLoop -> Exit because we reached the end of the market. ")
-                            writeStatusReport()
+                            return
                         }
+
+                        /*
+                        If there is no reson to exit, we will process the next day.
+                        */
+                        setImmediate(loop)
                     }
 
                 } catch (err) {
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] start -> saveOHLCVs -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
@@ -686,6 +845,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                     }
                 } catch (err) {
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] start -> writeStatusReport -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
@@ -694,6 +854,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
 
         } catch (err) {
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] start -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);

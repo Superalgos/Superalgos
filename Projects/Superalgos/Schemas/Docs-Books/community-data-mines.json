@@ -1,0 +1,38 @@
+{
+    "type": "Community Data Mines",
+    "definition": {
+        "text": "The Community Data Mines books is a compendium of data mines&mdash;and their indicators&mdash;contributed by the Community.",
+        "updated": 1611686533662
+    },
+    "paragraphs": [
+        {
+            "style": "Chapter",
+            "text": "I->Superalgos->Topic->Alpha Data Mine",
+            "updated": 1611686360926
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Superalgos->Topic->Buddha Data Mine->",
+            "updated": 1611686389041
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Superalgos->Topic->Masters Data Mine->",
+            "updated": 1611686401703
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Superalgos->Topic->Sparta Data Mine->",
+            "updated": 1611686413735
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Superalgos->Topic->Zeus Data Mine->",
+            "updated": 1611686424488
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -31,6 +31,10 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
+
+        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
+            HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.sharePage()"><button>SHARE</button></span>'
+        }
         HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.scrollToElement(\'docs-space-div\')"><button>TO TOP</button></span>'
         if (UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered.type + '\')"><button>BACK</button></span>'
@@ -98,8 +102,8 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<h4>Choose the Current Branch</h4>'
         HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.currentBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'master\')">Master</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeActiveBranch(\'develop\')">Develop</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 

@@ -214,6 +214,13 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         type: 'TS LF Trading Bot Info - Candle And Cycle',
                         placeholder: {}
                     }
+                    
+                    contextInfo = {
+                        candleIndex: tradingEngine.current.episode.candle.index.value,
+                        cycle: tradingEngine.current.episode.cycle.value
+                    }
+                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
                     tradingSystem.addInfo([tradingSystem.id, infoMessage, docs])
 
                     await tradingSystemModuleObject.run()

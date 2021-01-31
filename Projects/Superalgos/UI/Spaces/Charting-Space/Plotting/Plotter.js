@@ -151,16 +151,20 @@ function newPlotter() {
     function onMouseOver(event) {
         let userPosition = UI.projects.superalgos.utilities.dateRateTransformations.getDateFromPointAtBrowserCanvas(event, thisObject.container, coordinateSystem)
         userPositionDate = userPosition.valueOf()
+        let rateRange = 10
+        if (productDefinition.referenceParent.config.rateRange !== undefined) {
+            rateRange = productDefinition.referenceParent.config.rateRange
+        }
 
         let minPositionPoint = {
             x: event.x,
-            y: event.y + 10
+            y: event.y + rateRange
         }
         minUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(minPositionPoint, thisObject.container, coordinateSystem)
 
         let maxPositionPoint = {
             x: event.x,
-            y: event.y - 10
+            y: event.y - rateRange
         }
         maxUserPositionRate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(maxPositionPoint, thisObject.container, coordinateSystem)
     }
@@ -530,9 +534,26 @@ function newPlotter() {
                                     position determined by rateInArrayIndex
                                     */
                                     let rateArray = record[ratePropertyName]
+                                    let rateInRange = false
                                     for (let i = 0; i < rateArray.length; i++) {
                                         let rateArrayItem = rateArray[i]
+                                        /* 
+                                        Here we will take the rate for this array item and we will apply the offset
+                                        rules defined at the Plotter Module Config for this kind of sitiations.
+                                        */
                                         let rate = rateArrayItem[productDefinition.referenceParent.config.rateInArrayAtIndex]
+                                        let point = {
+                                            x: 0,
+                                            y: rate
+                                        }
+                                        point = coordinateSystem.transformThisPoint(point)
+                                        point = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(point, container)
+                                        point.y =
+                                            point.y -
+                                            productDefinition.referenceParent.config.rateOffsetBasedOnArrayIndex * i -
+                                            productDefinition.referenceParent.config.rateOffset
+                                        rate = UI.projects.superalgos.utilities.dateRateTransformations.getRateFromPointAtBrowserCanvas(point, thisObject.container, coordinateSystem)
+
                                         /*
                                         We will try to find at which record is the mouse pointer close enough.
                                         */
@@ -541,17 +562,21 @@ function newPlotter() {
                                             We store the index found here so as to enable whoever receives this 
                                             record to know which record the user is pointing at.
                                             */
+                                            DEBUG.variable1 = 'i: ' + i
                                             record.rateIndex = i
                                             currentRecordChanged()
+                                            rateInRange = true
                                             break
                                         }
                                     }
-                                    /*
-                                    If the User is not pointing to a rate in particular we are still going
-                                    to raise the event but without a rateindex property
-                                    */
-                                    record.rateIndex = undefined
-                                    currentRecordChanged()
+                                    if (rateInRange === false) {
+                                        /*
+                                        If the User is not pointing to a rate in particular we are still going
+                                        to raise the event but without a rateindex property
+                                        */
+                                        record.rateIndex = undefined
+                                        currentRecordChanged()
+                                    }
                                 } else {
                                     /* 
                                     Current Record depends that the mouse pointer is within a range close enought to the rate 

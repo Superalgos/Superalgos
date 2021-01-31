@@ -10,7 +10,7 @@ function newSuperalgosChartingSpace() {
     const MODULE_NAME = 'Charting Space'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         visible: false,
@@ -252,8 +252,8 @@ function newSuperalgosChartingSpace() {
                 returnPoint.y = COCKPIT_SPACE_POSITION
             }
         } else {
-            if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
-                returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
+            if (point.y > COCKPIT_SPACE_POSITION) {
+                returnPoint.y = COCKPIT_SPACE_POSITION
             }
         }
 
@@ -273,7 +273,7 @@ function newSuperalgosChartingSpace() {
             return false
         }
 
-        if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+        if (point.y > COCKPIT_SPACE_POSITION) {
             return false
         }
 

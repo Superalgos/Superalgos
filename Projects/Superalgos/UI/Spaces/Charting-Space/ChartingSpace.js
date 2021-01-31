@@ -252,7 +252,7 @@ function newSuperalgosChartingSpace() {
                 returnPoint.y = COCKPIT_SPACE_POSITION
             }
         } else {
-            if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+            if (point.y > COCKPIT_SPACE_POSITION ) {
                 returnPoint.y = COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2
             }
         }
@@ -273,7 +273,7 @@ function newSuperalgosChartingSpace() {
             return false
         }
 
-        if (point.y > COCKPIT_SPACE_POSITION + COCKPIT_SPACE_HEIGHT / 2) {
+        if (point.y > COCKPIT_SPACE_POSITION) {
             return false
         }
 

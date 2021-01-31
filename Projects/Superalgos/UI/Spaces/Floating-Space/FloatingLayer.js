@@ -306,8 +306,6 @@ function newFloatingLayer() {
                 /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
 
                 try {
-                    DEBUG.variable1 = 'Invisible Floating Objets: ' + invisibleFloatingObjects.length
-                    DEBUG.variable2 = 'Visible Floating Objets: ' + visibleFloatingObjects.length
 
                     if (UI.projects.superalgos.spaces.floatingSpace.settings.physics !== true) {return}
 

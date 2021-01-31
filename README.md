@@ -2,7 +2,7 @@
 
 All procedures are the same for Windows, Linux, or Mac OS.
 
-![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
+![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
 # Pre-Requisites
 

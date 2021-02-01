@@ -1,5 +1,12 @@
 exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
 
+    /*
+    IMPORTANT: If you are reviewing the code of the project please note 
+    that this file is the single file in the whole system that accumulated
+    more technical debt by far. I did not have the time yet to pay the 
+    technical debt, and therefore there is a lot to reorganize in here. 
+    I will remove this note once this job is done.
+    */
     let thisObject = {
         initialize: initialize,
         finalize: finalize,

@@ -68,7 +68,7 @@
                     dependencyLoopBody()
 
                     function dependencyLoopBody() {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         getFile()
@@ -96,7 +96,7 @@
 
                     function dependencyControlLoop() {
                         dependencyIndex++;
-                        if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
+                        if (dependencyIndex < dataDependenciesModule.curatedNodeArray.length) {
                             dependencyLoopBody()
                         } else {
                             generateOutput()

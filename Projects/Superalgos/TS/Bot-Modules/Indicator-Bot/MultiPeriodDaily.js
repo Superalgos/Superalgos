@@ -328,7 +328,7 @@
                     dependencyLoopBody()
 
                     function dependencyLoopBody() {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
                         if (dependency === undefined) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -453,7 +453,7 @@
 
                     function dependencyControlLoop() {
                         dependencyIndex++;
-                        if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
+                        if (dependencyIndex < dataDependenciesModule.curatedNodeArray.length) {
                             dependencyLoopBody()
                         } else {
                             generateOutput()

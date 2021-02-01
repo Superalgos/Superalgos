@@ -332,8 +332,8 @@
             async function processSingleFiles() {
                 dataFiles = new Map()
 
-                for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
-                    let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
+                    let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
                     let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                     if (datasetModule.node.config.codeName !== "Single-File") {
@@ -385,12 +385,15 @@
 
                     dataFiles = new Map()
 
+                    /* Current Time Frame detection */
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
                         currentTimeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
                         currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
                     }
-                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+
+                    /* Loop across the list of curated dependencies */
+                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
+                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         if (dependency.referenceParent.config.codeName !== "Multi-Period-Market") {
@@ -499,8 +502,8 @@
                     We will iterate through all dependencies, in order to load the
                     files that later will end up at the chart data structure.
                     */
-                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.nodeArray.length; dependencyIndex++) {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
+                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {

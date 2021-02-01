@@ -3,7 +3,10 @@
     This module mantains a curated array of Data Dependency nodes, 
     which is not exactly the ones listed at the Process Dependencies,
     but a smaller subset based on the circunstances found at the user's
-    workspace.
+    workspace. For example:
+    
+    1. Dependencies without a Reference Parent are filtered out.
+    2. Dependencies which don't have a Data Set are filtered out. 
 
     It also mantains an array of Data Set Modules, which are the
     one's that ultimately know how to load a file based on the 
@@ -17,7 +20,7 @@
     const MODULE_NAME = "Data Dependencies";
 
     let thisObject = {
-        nodeArray: undefined,
+        curatedNodeArray: undefined,
         dataSetsModulesArray: [],
         isItADepenency: isItADepenency,
         initialize: initialize,
@@ -35,8 +38,8 @@
                 /* 
                 First we will get all the data dependencies of the bot, as defined at the Trading Mine.
                 */
-                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
-                if (thisObject.nodeArray.length === 0) {
+                thisObject.curatedNodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                if (thisObject.curatedNodeArray.length === 0) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.");
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                     return
@@ -46,7 +49,7 @@
                 This will allow the user to have less Data Mines loaded at the workspace
                 that the ones that a Trading Mine depends on.
                 */
-                thisObject.nodeArray = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.nodeArray)
+                thisObject.curatedNodeArray = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedNodeArray)
 
             } else {
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.");
@@ -54,7 +57,7 @@
                 return
             }
 
-            if (thisObject.nodeArray.length === 0) {
+            if (thisObject.curatedNodeArray.length === 0) {
 
                 // We allow old indicators not to declare their data dependencies.
 
@@ -71,14 +74,14 @@
             }
 
             /*
-            For each dependency declared at the nodeArray, we will initialize a DataSet as part of this initialization process.
+            For each dependency declared at the curatedNodeArray, we will initialize a DataSet as part of this initialization process.
             */
             let alreadyCalledBack = false
             let addCount = 0
             let skipCount = 0
 
             /* 
-            The current nodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
+            The current curatedNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
             not present at the workspace. From all the remaining dependencies there will be others that we need to 
             filter out, and they are the ones which the user does not have a data product anywhere on the network where
@@ -89,9 +92,9 @@
             */
             let newNodeArray = []
 
-            for (let i = 0; i < thisObject.nodeArray.length; i++) {
+            for (let i = 0; i < thisObject.curatedNodeArray.length; i++) {
                 let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex);
-                dataSetModule.initialize(thisObject.nodeArray[i], onInitilized);
+                dataSetModule.initialize(thisObject.curatedNodeArray[i], onInitilized);
 
                 function onInitilized(err, wasInitialized) {
 
@@ -105,7 +108,7 @@
 
                     if (wasInitialized === true) {
                         addCount++;
-                        newNodeArray.push(thisObject.nodeArray[i])
+                        newNodeArray.push(thisObject.curatedNodeArray[i])
                         addDataSet()
                     } else {
                         skipCount++
@@ -118,10 +121,10 @@
                 }
 
                 function checkIfWeAreDone() {
-                    if (addCount + skipCount === thisObject.nodeArray.length) {
+                    if (addCount + skipCount === thisObject.curatedNodeArray.length) {
                         if (alreadyCalledBack === false) {
                             alreadyCalledBack = true
-                            thisObject.nodeArray = newNodeArray
+                            thisObject.curatedNodeArray = newNodeArray
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                             return;
                         }

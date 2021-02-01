@@ -3,7 +3,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
     A Dependency Filter is list of Indicators a Strategy depends 
     on, that is later used to filter out all the other indicators
     the Trading Bot depends on.
-    
+
     The function will scen a node branch, most likely a Trading System,
     looking into the code property of each node. It will analyze it's
     content and try to make a list of all indicators mentioned at the code 
@@ -64,20 +64,38 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
 
         function filter(code) {
             if (code === undefined) { return }
-
+            /*
+            We will clean the code from symbols that we do not need during our dependency analysis.
+            */
+            code = code.replaceAll(',', '')
+            code = code.replaceAll('(', '')
+            code = code.replaceAll(')', '')
+            code = code.replaceAll('{', '')
+            code = code.replaceAll('}', '')
+            code = code.replaceAll('!', '')
+            code = code.replaceAll('|', '')
+            code = code.replaceAll('<', '')
+            code = code.replaceAll('>', '')
+            code = code.replaceAll('=', '')
+            code = code.replaceAll('\n', '')
+            /*
+            We will analyze each instruction of the code.
+            */
             let instructionsArray = code.split(' ')
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
-                if (instruction.indexOf('chart') >= 0) {
+                /*
+                The first kind of instruction we will handle are the ones
+                related to the chart structure. For that we need the 
+                instruction to start with the keyword 'chart'.
+                */
+                if (instruction.indexOf('chart') === 0) {  // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
                     let product = parts[2]
-                    let productParts = product.split(',')
-                    product = productParts[0]
-                    productParts = product.split(')')
-                    product = productParts[0]
-
-                    // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }

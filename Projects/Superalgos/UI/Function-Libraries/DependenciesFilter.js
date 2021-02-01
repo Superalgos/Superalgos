@@ -25,9 +25,9 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
         return Array.from(filters.keys())
 
         function recursiveFilter(node) {
-            if (node.type === 'Javascript Code' || node.type === 'Formula' ) {
+            if (node.type === 'Javascript Code' || node.type === 'Formula') {
                 filter(node.code)
-            }            
+            }
 
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument !== undefined) {
@@ -77,7 +77,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
             code = code.replaceAll('<', '')
             code = code.replaceAll('>', '')
             code = code.replaceAll('=', '')
-            code = code.replaceAll('\n', '')
+            code = code.replaceAll('\n', ' ')
             /*
             We will analyze each instruction of the code.
             */
@@ -100,6 +100,45 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.set(timeFrame + '-' + product, true)
+                }
+                /*
+                The second kind of instruction we will handle are the ones
+                related to the market data structure. For that we need
+                the instruction to start with the keyword 'market'
+                */
+                if (instruction.indexOf('market') === 0) {  // Example: market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                    let parts = instruction.split('.')
+                    let baseAsset = parts[1]
+                    let quotedAsset = parts[2]
+                    let timeFrame = parts[4]
+                    let product = parts[5]
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
+                    if (timeFrame !== 'atAnyTimeFrame') {
+                        timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                    }
+                    filters.set(baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                }
+                /*
+                The third kind of instruction we will handle are the ones
+                related to the exchange data structure. For that we need
+                the instruction to start with the keyword 'market'
+                */
+                if (instruction.indexOf('exchange') === 0) {  // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                    let parts = instruction.split('.')
+                    let exchange = parts[1]
+                    let baseAsset = parts[3]
+                    let quotedAsset = parts[4]
+                    let timeFrame = parts[6]
+                    let product = parts[7]
+                    /*
+                    From the instruction syntax we will get the timeFrame
+                    */
+                    if (timeFrame !== 'atAnyTimeFrame') {
+                        timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
+                    }
+                    filters.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
                 }
             }
         }

@@ -19,10 +19,33 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
     return thisObject
 
     function createDependencyFilter(node) {
-        let filters = new Map()
+        let filters = {
+            chart: {
+                list: new Map(),
+                products: new Map()
+            },
+            market: {
+                list: new Map(),
+                products: new Map()
+            },
+            exchange: {
+                list: new Map(),
+                products: new Map()
+            }
+        }
         recursiveFilter(node)
 
-        return Array.from(filters.keys())
+        /* Transform the Map into arrays */
+        filters.chart.list = Array.from(filters.chart.list.keys())
+        filters.chart.products = Array.from(filters.chart.products.keys())
+
+        filters.market.list = Array.from(filters.market.list.keys())
+        filters.market.products = Array.from(filters.market.products.keys())
+
+        filters.exchange.list = Array.from(filters.exchange.list.keys())
+        filters.exchange.products = Array.from(filters.exchange.products.keys())
+
+        return filters
 
         function recursiveFilter(node) {
             if (node.type === 'Javascript Code' || node.type === 'Formula') {
@@ -99,7 +122,8 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.set(timeFrame + '-' + product, true)
+                    filters.chart.products.set(timeFrame + '-' + product, true)
+                    filters.chart.list.set(timeFrame, true)
                 }
                 /*
                 The second kind of instruction we will handle are the ones
@@ -118,7 +142,8 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.set(baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.market.products.set(baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.market.list.set(baseAsset + '-' + quotedAsset, true)
                 }
                 /*
                 The third kind of instruction we will handle are the ones
@@ -138,7 +163,8 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.exchange.list.set(exchange, true)
                 }
             }
         }

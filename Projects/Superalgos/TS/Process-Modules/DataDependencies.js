@@ -20,6 +20,7 @@
     const MODULE_NAME = "Data Dependencies";
 
     let thisObject = {
+        filters: undefined,
         curatedNodeArray: undefined,
         dataSetsModulesArray: [],
         isItADepenency: isItADepenency,
@@ -27,7 +28,20 @@
         finalize: finalize
     };
 
-    let filter = new Map()
+    thisObject.filters = {
+        chart: {
+            list: new Map(),
+            products: new Map()
+        },
+        market: {
+            list: new Map(),
+            products: new Map()
+        },
+        exchange: {
+            list: new Map(),
+            products: new Map()
+        }
+    }
 
     return thisObject;
 
@@ -60,19 +74,47 @@
             if (thisObject.curatedNodeArray.length === 0) {
 
                 // We allow old indicators not to declare their data dependencies.
-
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return;
             }
 
-            /* Session based dependency filters */
-            if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER !== undefined) {
-                for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER.length; i++) {
-                    let key = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER[i]
-                    filter.set(key, true)
+            /* Session based dependency thisObject.filters */
+            let dependencyFilter = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER
+            if (dependencyFilter !== undefined) {
+
+                /* 
+                Javascript Maps can not travel stringified at ta JSON object, so we receive
+                these maps in an Array format, and here we will just convert them to Maps, 
+                that is how we need them.
+                */
+                arrayToMap(dependencyFilter.chart.list, thisObject.filters.chart.list)
+                arrayToMap(dependencyFilter.chart.products, thisObject.filters.chart.products)
+
+                arrayToMap(dependencyFilter.market.list, thisObject.filters.market.list)
+                arrayToMap(dependencyFilter.market.products, thisObject.filters.market.products)
+
+                arrayToMap(dependencyFilter.exchange.list, thisObject.filters.exchange.list)
+                arrayToMap(dependencyFilter.exchange.products, thisObject.filters.exchange.products)
+
+                function arrayToMap(array, map) {
+                    for (let i = 0; i < array.length; i++) {
+                        let key = array[i]
+                        map.set(key, true)
+                    }
                 }
             }
-
+            /*
+            At our filter structure, we will add the Task default exchange and market. 
+            This will help us lateer to build other structures in a generic way.
+            */
+            thisObject.filters.exchange.list.set(
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+            )
+            thisObject.filters.market.list.set(
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+                "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            )
             /*
             For each dependency declared at the curatedNodeArray, we will initialize a DataSet as part of this initialization process.
             */
@@ -145,13 +187,14 @@
             dataSetModule.finalize()
         }
         thisObject.dataSetsModulesArray = undefined
-        filter = undefined
+        thisObject.curatedNodeArray = undefined
+        thisObject.filters = undefined
         bot = undefined
     }
 
     function isItADepenency(timeFrame, product) {
         let key = timeFrame + '-' + product
 
-        return filter.get(key)
+        return thisObject.filters.get(key)
     }
 };

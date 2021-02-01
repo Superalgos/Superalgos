@@ -587,23 +587,44 @@
             }
 
             function buildCharts(chart) {
+                /* Fisrt Phase: Validations */
                 let mainDependency = {}
-
-                /* The first phase here is about checking that we have everything we need at the definition level. */
+                /* 
+                THe first thing we do is to build an array of all the 
+                declared dependencies of the Trading Bot.
+                */
                 let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 /* 
-                We will filter ourt declared dependencies that are not present in the workspace.
-                This will allow the user to have less Data Mines loaded at the workspace
-                that the ones that a Trading Mine depends on.
+                Then we will filter out declared dependencies that are 
+                not referencing nodes currently present at the workspace.
+                This will allow the user to have less Data Mines loaded at 
+                the workspace that the ones that a Trading Bot depends on.
                 */
                 dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
-
+                /*
+                We will run some validations to prevent starting the process
+                if all needed config and nodes are not present.
+                */
                 if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateDataDependencies(processIndex, dataDependencies, callBackFunction) !== true) { return }
-
+                /*
+                Next we will build an array of output datasets of this process.
+                We are not going to use it right now, but later down the line,
+                we do it just to be able to validate that all nodes and config
+                are ok before letting this provess run too far.
+                */
                 let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                /*
+                Here we check that all output datasets configs are ok. 
+                */
                 if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }
 
-                /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
+                /* Second Phase: Bilding the chart data structure */
+
+                /* 
+                This phase is about transforming the inputs into a format,
+                or data structure that can be used in Javascript Code and 
+                Formula nodes to access Indicator's data. 
+                */
                 for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
                     let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
                     let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)

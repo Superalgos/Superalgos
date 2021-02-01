@@ -1,5 +1,19 @@
 ﻿exports.newSuperalgosProcessModulesDataDependencies = function (processIndex) {
+    /*
+    This module mantains a curated array of Data Dependency nodes, 
+    which is not exactly the ones listed at the Process Dependencies,
+    but a smaller subset based on the circunstances found at the user's
+    workspace.
 
+    It also mantains an array of Data Set Modules, which are the
+    one's that ultimately know how to load a file based on the 
+    network configuration found at the workspace at the moment this
+    Task was launched.
+
+    Finally it mantains a Filter map, that allows the users of this module
+    to filter out data dependencies based on the code written by users
+    at the Javascript Code and Formula nodes.
+    */
     const MODULE_NAME = "Data Dependencies";
 
     let thisObject = {
@@ -28,7 +42,7 @@
                     return
                 }
                 /* 
-                We will filter ourt declared dependencies that are not present in the workspace.
+                We will filter out declared dependencies that are not present in the workspace.
                 This will allow the user to have less Data Mines loaded at the workspace
                 that the ones that a Trading Mine depends on.
                 */
@@ -72,7 +86,7 @@
             out is by analizyng the response of the initialization call to the DataSet module. If it did not fail but
             it was not initialized, then we will assume this happened because the data could not be located and we will
             assume the user did this on purpose and we will filter out this dependency by not putting it on this new array.
-            */ 
+            */
             let newNodeArray = []
 
             for (let i = 0; i < thisObject.nodeArray.length; i++) {
@@ -92,14 +106,14 @@
                     if (wasInitialized === true) {
                         addCount++;
                         newNodeArray.push(thisObject.nodeArray[i])
-                        addDataSet()                        
+                        addDataSet()
                     } else {
                         skipCount++
                     }
-                    checkIfWeAreDone()                
+                    checkIfWeAreDone()
                 }
 
-                function addDataSet() {                    
+                function addDataSet() {
                     thisObject.dataSetsModulesArray.push(dataSetModule);
                 }
 

@@ -1,5 +1,9 @@
 exports.newSuperalgosProcessModulesDataset = function (processIndex) {
-
+    /*
+    This module represents a Dataset at a certain localtion on the 
+    network, and it is able to load a file from that dataset or 
+    write one into it.
+    */
     const MODULE_NAME = "Dataset";
 
     let thisObject = {
@@ -12,8 +16,6 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
     };
 
     /* Storage account to be used here. */
-
-    
     let fileStorage
 
     return thisObject;

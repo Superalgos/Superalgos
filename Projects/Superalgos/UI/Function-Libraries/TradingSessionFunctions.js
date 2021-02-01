@@ -123,7 +123,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
+        let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createDependencyFilter(node.tradingSystemReference.payload.referenceParent)
 
         /* Raise event to run the session */
         let event = {

@@ -1,20 +1,24 @@
 function newSuperalgosFunctionLibraryDependenciesFilter() {
     /* 
+    A Dependency Filter is list of Indicators a Strategy depends 
+    on, that is later used to filter out all the other indicators
+    the Trading Bot depends on.
+    
     The function will scen a node branch, most likely a Trading System,
     looking into the code property of each node. It will analyze it's
     content and try to make a list of all indicators mentioned at the code 
     text and at which time frames they are mentioned.
 
-    It is important to note that all node that are not of the type
-    Javascript Code are going to be filtered out.
+    It is important to note that all nodes that are not of the type
+    Javascript Code or Formula are going to be ignored.
     */
     thisObject = {
-        createFilter: createFilter
+        createDependencyFilter: createDependencyFilter
     }
 
     return thisObject
 
-    function createFilter(node) {
+    function createDependencyFilter(node) {
         let filters = new Map()
         recursiveFilter(node)
 

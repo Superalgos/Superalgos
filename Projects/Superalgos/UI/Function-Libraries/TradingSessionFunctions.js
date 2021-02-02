@@ -133,8 +133,11 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let defaultExchange = validationsResult.exchange.config.codeName
-        let defaultMarket = validationsResult.market.baseAsset.payload.referenceParent.config.codeName + '-' + validationsResult.market.quotedAsset.payload.referenceParent.config.codeName
+        let defaultExchange = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.exchange.payload, 'codeName')
+        let defaultMarket =
+            UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            + '-' + 
+            UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
@@ -296,6 +299,6 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         result.exchange = result.market.payload.parentNode.payload.parentNode
 
-        return result.networkNode
+        return result
     }
 }

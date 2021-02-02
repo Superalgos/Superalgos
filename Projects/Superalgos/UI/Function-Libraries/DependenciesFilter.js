@@ -18,7 +18,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
 
     return thisObject
 
-    function createDependencyFilter(tradingSystem, defaultExchange, defaultMarket) {
+    function createDependencyFilter(defaultExchange, defaultMarket, tradingSystem) {
         let filters = {
             market: {
                 list: new Map()

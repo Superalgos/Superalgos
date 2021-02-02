@@ -250,37 +250,37 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         result.market = result.taskManager.payload.parentNode.payload.parentNode.payload.referenceParent
 
-        if (market.payload.parentNode === undefined) {
+        if (result.market.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Default Market needs to be a child of Exchange Markets.')
             return
         }
 
-        if (market.payload.parentNode.payload.parentNode === undefined) {
+        if (result.market.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Exchange Markets neeed to be a child of Crypto Exchange.')
             return
         }
 
-        if (market.baseAsset === undefined) {
+        if (result.market.baseAsset === undefined) {
             node.payload.uiObject.setErrorMessage('Default Market needs to have a Base Asset.')
             return
         }
 
-        if (market.quotedAsset === undefined) {
+        if (result.market.quotedAsset === undefined) {
             node.payload.uiObject.setErrorMessage('Default Market needs to have a Quoted Asset.')
             return
         }
 
-        if (market.baseAsset.payload.referenceParent === undefined) {
+        if (result.market.baseAsset.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('Market Base Asset needs to reference an Asset.')
             return
         }
 
-        if (market.quotedAsset.payload.referenceParent === undefined) {
+        if (result.market.quotedAsset.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('Market Quoted Asset needs to reference an Asset.')
             return
         }
 
-        result.exchange = market.payload.parentNode.payload.parentNode
+        result.exchange = result.market.payload.parentNode.payload.parentNode
 
         return result.networkNode
     }

@@ -340,7 +340,11 @@
                         continue
                     }
 
-                    if (dataDependenciesModule.isItAChartDepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                    if (dataDependenciesModule.filters.timeFrames.get(datasetModule.exchange, datasetModule.market, datasetModule.product, 'atAnyTimeFrame') !== true) {
+                        /*
+                        If we can not find the current data set is used at the current time 
+                        frame we will skip this file.
+                        */
                         continue
                     }
 
@@ -515,10 +519,12 @@
                             continue
                         }
 
-                        /*
-                        If it is not a dependency then we pass..
-                        */
-                        if (dataDependenciesModule.isItAChartDepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                        if (dataDependenciesModule.filters.timeFrames.get(datasetModule.exchange, datasetModule.market, datasetModule.product, timeFrameLabel) !== true) {
+                            /*
+                            If we can not find the current data set is used at the current time 
+                            frame we will skip this file, unless we are in the only special 
+                            case that we are retrieving candles.
+                            */
                             if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }

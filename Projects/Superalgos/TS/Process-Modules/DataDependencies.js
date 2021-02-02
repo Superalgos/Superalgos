@@ -23,7 +23,6 @@
         filters: undefined,
         curatedDependencyNodeArray: undefined,
         dataSetsModulesArray: [],
-        isItAChartDepenency: isItAChartDepenency,
         initialize: initialize,
         finalize: finalize
     }
@@ -245,11 +244,5 @@
         thisObject.curatedDependencyNodeArray = undefined
         thisObject.filters = undefined
         bot = undefined
-    }
-
-    function isItAChartDepenency(timeFrame, product) {
-        let key = timeFrame + '-' + product
-
-        return thisObject.filters.chart.products.get(key)
     }
 }

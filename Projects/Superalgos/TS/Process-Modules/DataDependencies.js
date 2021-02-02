@@ -76,6 +76,15 @@
                 return
             }
 
+            /*
+            Store here the default exchange and market.
+            */
+            thisObject.defaultExchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+            thisObject.defaultMarket =
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+                "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+
             /* Session based dependency thisObject.filters */
             let receivedDependencyFilters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER
             if (receivedDependencyFilters !== undefined) {
@@ -98,22 +107,20 @@
                         map.set(key, true)
                     }
                 }
+            } else {
+                /*
+                If we did not receive any filters, like in the case of Indicators and Sensors,
+                we need to add the default exchange and market to these maps in order
+                for the following sections to work.
+                */
+                thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
+                thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defautMarket, true)
             }
             /*
-            At our filter structure, we will add the Task default exchange and market. 
-            This will help us lateer to build other structures in a generic way.
-            */
-            thisObject.defaultExchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
-            thisObject.defautMarket =
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
-                "-" +
-                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-            /*
-            For each dependency declared at the curatedDependencyNodeArray, we will initialize a DataSet as part of this initialization process.
-            */
+             For each dependency declared at the curatedDependencyNodeArray, we will initialize a 
+             DataSet as part of this initialization process.
+             */
             let alreadyCalledBack = false
-            let addCount = 0
-            let skipCount = 0
 
             /* 
             The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Learning Mine
@@ -156,6 +163,13 @@
                 }
             }
 
+            if (alreadyCalledBack === false) {
+                alreadyCalledBack = true
+                thisObject.curatedDependencyNodeArray = newNodeArray
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                return
+            }
+
             function addDataSets(exchange, market) {
                 for (let i = 0; i < thisObject.curatedDependencyNodeArray.length; i++) {
 
@@ -190,6 +204,7 @@
                     }
 
                     function addDataSet(exchange, market) {
+
                         let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex)
                         dataSetModule.initialize(exchange, market, dataDependency, onInitilized)
 
@@ -204,27 +219,8 @@
                             }
 
                             if (wasInitialized === true) {
-                                addCount++
                                 newNodeArray.push(thisObject.curatedDependencyNodeArray[i])
-                                addDataSet()
-                            } else {
-                                skipCount++
-                            }
-                            checkIfWeAreDone()
-                        }
-
-                        function addDataSet() {
-                            thisObject.dataSetsModulesArray.push(dataSetModule)
-                        }
-
-                        function checkIfWeAreDone() {
-                            if (addCount + skipCount === thisObject.curatedDependencyNodeArray.length) {
-                                if (alreadyCalledBack === false) {
-                                    alreadyCalledBack = true
-                                    thisObject.curatedDependencyNodeArray = newNodeArray
-                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
-                                    return
-                                }
+                                thisObject.dataSetsModulesArray.push(dataSetModule)
                             }
                         }
                     }

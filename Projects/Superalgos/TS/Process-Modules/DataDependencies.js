@@ -108,9 +108,6 @@
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-            thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
-            thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defautMarket, true)
-            thisObject.filters.market.list.set(true)
             /*
             For each dependency declared at the curatedDependencyNodeArray, we will initialize a DataSet as part of this initialization process.
             */
@@ -184,46 +181,50 @@
                         */
                         let product = dataDependency.referenceParent.parentNode.config.singularVariableName
 
-                        if (thisObject.filters.products.get(exchange + '-' + market + '-' + product) !== true) {
+                        if (thisObject.filters.exchange.products.get(exchange + '-' + market + '-' + product) !== true) {
                             continue
                         }
-                        addDataSets(exchange, market)
+                        addDataSet(exchange, market)
+                    } else {
+                        addDataSet(exchange, market)
                     }
 
-                    let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex)
-                    dataSetModule.initialize(exchange, market, dataDependency, onInitilized)
+                    function addDataSet(exchange, market) {
+                        let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex)
+                        dataSetModule.initialize(exchange, market, dataDependency, onInitilized)
 
-                    function onInitilized(err, wasInitialized) {
+                        function onInitilized(err, wasInitialized) {
 
-                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + JSON.stringify(err))
+                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> err = " + JSON.stringify(err))
 
-                            alreadyCalledBack = true
-                            callBackFunction(err)
-                            return
-                        }
-
-                        if (wasInitialized === true) {
-                            addCount++
-                            newNodeArray.push(thisObject.curatedDependencyNodeArray[i])
-                            addDataSet()
-                        } else {
-                            skipCount++
-                        }
-                        checkIfWeAreDone()
-                    }
-
-                    function addDataSet() {
-                        thisObject.dataSetsModulesArray.push(dataSetModule)
-                    }
-
-                    function checkIfWeAreDone() {
-                        if (addCount + skipCount === thisObject.curatedDependencyNodeArray.length) {
-                            if (alreadyCalledBack === false) {
                                 alreadyCalledBack = true
-                                thisObject.curatedDependencyNodeArray = newNodeArray
-                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                callBackFunction(err)
                                 return
+                            }
+
+                            if (wasInitialized === true) {
+                                addCount++
+                                newNodeArray.push(thisObject.curatedDependencyNodeArray[i])
+                                addDataSet()
+                            } else {
+                                skipCount++
+                            }
+                            checkIfWeAreDone()
+                        }
+
+                        function addDataSet() {
+                            thisObject.dataSetsModulesArray.push(dataSetModule)
+                        }
+
+                        function checkIfWeAreDone() {
+                            if (addCount + skipCount === thisObject.curatedDependencyNodeArray.length) {
+                                if (alreadyCalledBack === false) {
+                                    alreadyCalledBack = true
+                                    thisObject.curatedDependencyNodeArray = newNodeArray
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                    return
+                                }
                             }
                         }
                     }

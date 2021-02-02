@@ -280,7 +280,7 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
                 if (startingNode.referenceParent.parentNode.parentNode === undefined) {
                     return
                 }
-                if (startingNode.referenceParent.parentNode.parentNode.codeName !== exchange) {
+                if (startingNode.referenceParent.parentNode.parentNode.config.codeName !== exchange) {
                     return
                 }
             }
@@ -292,14 +292,18 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
 
                     switch (property.type) {
                         case 'node': {
-                            scanNodeMesh(startingNode[property.name])
+                            if (found !== true) {
+                                scanNodeMesh(startingNode[property.name])
+                            }
                         }
                             break
                         case 'array': {
                             let startingNodePropertyArray = startingNode[property.name]
                             if (startingNodePropertyArray !== undefined) {
                                 for (let m = 0; m < startingNodePropertyArray.length; m++) {
-                                    scanNodeMesh(startingNodePropertyArray[m])
+                                    if (found !== true) {
+                                        scanNodeMesh(startingNodePropertyArray[m])
+                                    }
                                 }
                             }
                             break
@@ -309,11 +313,15 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
             }
             /* We scan parents nodes. */
             if (startingNode.parentNode !== undefined) {
-                scanNodeMesh(startingNode.parentNode)
+                if (found !== true) {
+                    scanNodeMesh(startingNode.parentNode)
+                }
             }
             /* We scan reference parents too. */
             if (startingNode.referenceParent !== undefined) {
-                scanNodeMesh(startingNode.referenceParent)
+                if (found !== true) {
+                    scanNodeMesh(startingNode.referenceParent)
+                }
             }
         }
     }

@@ -158,6 +158,8 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Project Data Products->Project Trading Products->Project Learning Products->' +
             'Exchange Data Products->Exchange Trading Products->Exchange Learning Products->' +
             'Market Data Products->Market Trading Products->Market Learning Products->' +
+            'Market->Market Base Asset->Market Quoted Asset->Asset->' + 
+            'Exchange Markets->Crypto Exchange->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +

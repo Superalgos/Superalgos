@@ -29,18 +29,14 @@
     }
 
     thisObject.filters = {
-        chart: {
-            list: new Map(),
-            products: new Map()
-        },
         market: {
-            list: new Map(),
-            products: new Map()
+            list: new Map()
         },
         exchange: {
             list: new Map(),
             markets: new Map(),
-            products: new Map()
+            products: new Map(),
+            timeFrames: new Map()
         }
     }
 
@@ -88,15 +84,12 @@
                 these maps in an Array format, and here we will just convert them to Maps, 
                 that is how we need them.
                 */
-                arrayToMap(receivedDependencyFilters.chart.list, thisObject.filters.chart.list)
-                arrayToMap(receivedDependencyFilters.chart.products, thisObject.filters.chart.products)
-
                 arrayToMap(receivedDependencyFilters.market.list, thisObject.filters.market.list)
-                arrayToMap(receivedDependencyFilters.market.products, thisObject.filters.market.products)
 
                 arrayToMap(receivedDependencyFilters.exchange.list, thisObject.filters.exchange.list)
                 arrayToMap(receivedDependencyFilters.exchange.markets, thisObject.filters.exchange.markets)
                 arrayToMap(receivedDependencyFilters.exchange.products, thisObject.filters.exchange.products)
+                arrayToMap(receivedDependencyFilters.exchange.timeFrames, thisObject.filters.exchange.timeFrames)
 
                 function arrayToMap(array, map) {
                     for (let i = 0; i < array.length; i++) {
@@ -168,32 +161,36 @@
             function addDataSets(exchange, market) {
                 for (let i = 0; i < thisObject.curatedDependencyNodeArray.length; i++) {
 
+                    let dataDependency = thisObject.curatedDependencyNodeArray[i]
+
                     if (receivedDependencyFilters !== undefined) {
                         /*
                         If we received a Dependency Filter from the UI, we will make these excta checks
                         before instantiating a Data Set Module.
                         */
-                        if (exchange === defaultExchange && market === defautMarket) {
-
+                        if (dataDependency.referenceParent === undefined) {
+                            continue
                         }
-
-                        // Validaciones para llegar hasta el producto: datasetModule.node.parentNode.config.singularVariableName
-                        // Que el producto este en el filtro
-                        // Necesito un filtro exchange mercado producto que venga desde la UI
-                        // Para eso la funcion que los arma tiene que saber cual es el default Exchange y el Defautl market.
-                        // Quizas vuele el concepto de filtro de chart , de market y de exchange separados
-
-                        // dentro del dataset que se valide que el network node que llega hasta el producto pase por el market y exchange
-
-                        if (thisObject.filters.exchange.markets.get(exchange + '-' + market) === true) {
-                            addDataSets(exchange, market)
+                        if (dataDependency.referenceParent.parentNode === undefined) {
+                            continue
                         }
+                        if (dataDependency.referenceParent.parentNode.config.singularVariableName === undefined) {
+                            continue
+                        }
+                        /*
+                        This is the product related to this Data Dependency, as the user would type it 
+                        at a Condition or Formula and appear at the UI provided filter.
+                        */
+                        let product = dataDependency.referenceParent.parentNode.config.singularVariableName
+
+                        if (thisObject.filters.products.get(exchange + '-' + market + '-' + product) !== true) {
+                            continue
+                        }
+                        addDataSets(exchange, market)
                     }
 
-
-                    
                     let dataSetModule = TS.projects.superalgos.processModules.dataset.newSuperalgosProcessModulesDataset(processIndex)
-                    dataSetModule.initialize(exchange, market, thisObject.curatedDependencyNodeArray[i], onInitilized)
+                    dataSetModule.initialize(exchange, market, dataDependency, onInitilized)
 
                     function onInitilized(err, wasInitialized) {
 

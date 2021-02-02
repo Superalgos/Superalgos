@@ -11,6 +11,7 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
         networkNode: undefined,
         exchange: undefined,
         market: undefined,
+        product: undefined,
         initialize: initialize,
         finalize: finalize,
         getTextFile: getTextFile,
@@ -81,6 +82,7 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
             /* Now we will see where do we need to fetch this data from. */
             let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
             let productDefinition = thisObject.node.parentNode
+            thisObject.product = productDefinition.config.singularVariableName
 
             /* 
             We will find the networkNode that leads to this Product Definition 

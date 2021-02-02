@@ -18,34 +18,27 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
 
     return thisObject
 
-    function createDependencyFilter(node) {
+    function createDependencyFilter(tradingSystem, defaultExchange, defaultMarket) {
         let filters = {
-            chart: {
-                list: new Map(),
-                products: new Map()
-            },
             market: {
-                list: new Map(),
-                products: new Map()
+                list: new Map()
             },
             exchange: {
                 list: new Map(),
                 markets: new Map(),
-                products: new Map()
+                products: new Map(),
+                timeFrames: new Map()
             }
         }
-        recursiveFilter(node)
+        recursiveFilter(tradingSystem)
 
         /* Transform the Map into arrays */
-        filters.chart.list = Array.from(filters.chart.list.keys())
-        filters.chart.products = Array.from(filters.chart.products.keys())
-
         filters.market.list = Array.from(filters.market.list.keys())
-        filters.market.products = Array.from(filters.market.products.keys())
 
         filters.exchange.list = Array.from(filters.exchange.list.keys())
         filters.exchange.markets = Array.from(filters.exchange.markets.keys())
         filters.exchange.products = Array.from(filters.exchange.products.keys())
+        filters.exchange.timeFrames = Array.from(filters.exchange.timeFrames.keys())
 
         return filters
 
@@ -124,8 +117,12 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.chart.products.set(timeFrame + '-' + product, true)
-                    filters.chart.list.set(timeFrame, true)
+                    filters.market.list.set(defaultMarket, true)
+
+                    filters.exchange.timeFrames.set(defaultExchange + '-' + defaultMarket + '-' + product + '-' + timeFrame, true)
+                    filters.exchange.products.set(defaultExchange + '-' + defaultMarket + '-' + product, true)
+                    filters.exchange.markets.set(defaultExchange + '-' + defaultMarket, true)
+                    filters.exchange.list.set(defaultExchange, true)
                 }
                 /*
                 The second kind of instruction we will handle are the ones
@@ -144,8 +141,12 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.market.products.set(baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
                     filters.market.list.set(baseAsset + '-' + quotedAsset, true)
+
+                    filters.exchange.timeFrames.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                    filters.exchange.products.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
+                    filters.exchange.markets.set(defaultExchange + '-' + baseAsset + '-' + quotedAsset, true)
+                    filters.exchange.list.set(defaultExchange, true)
                 }
                 /*
                 The third kind of instruction we will handle are the ones
@@ -165,7 +166,10 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
-                    filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.market.list.set(baseAsset + '-' + quotedAsset, true)
+
+                    filters.exchange.timeFrames.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product + '-' + timeFrame, true)
+                    filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + product, true)
                     filters.exchange.markets.set(exchange + '-' + baseAsset + '-' + quotedAsset, true)
                     filters.exchange.list.set(exchange, true)
                 }

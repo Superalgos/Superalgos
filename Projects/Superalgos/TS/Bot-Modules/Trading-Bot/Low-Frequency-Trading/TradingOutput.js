@@ -28,8 +28,8 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
 
     async function start(
         chart,
-        exchange,
         market,
+        exchange,
         timeFrame,
         timeFrameLabel,
         tradingProcessDate
@@ -80,8 +80,8 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
 
             await tradingSimulationModuleObject.runSimulation(
                 chart,
-                exchange,
                 market,
+                exchange,
                 outputDatasetsMap,
                 writeFiles
             )

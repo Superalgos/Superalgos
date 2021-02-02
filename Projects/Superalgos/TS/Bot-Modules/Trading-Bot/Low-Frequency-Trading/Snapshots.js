@@ -38,7 +38,13 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
     let positionValues
     let addToPositionValues
 
+    /* 
+    These 3 are the main data structures available to users
+    when writing conditions and formulas.
+    */
     let chart
+    let exchange
+    let market
 
     return thisObject
 
@@ -58,10 +64,18 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
         strategyKeys = undefined
 
         chart = undefined
+        exchange = undefined
+        market = undefined
     }
 
-    function updateChart(pChart) {
+    function updateChart(pChart, pExchange, pMarket) {
+        /* 
+        We need these 3 data structures  to be a local objects 
+        accessible while evaluating conditions and formulas.
+        */
         chart = pChart
+        exchange = pExchange
+        market = pMarket
     }
 
     function strategyEntry() {

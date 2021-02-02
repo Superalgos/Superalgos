@@ -17,8 +17,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
     async function runSimulation(
         chart,
-        exchange,
         market,
+        exchange,
         outputDatasetsMap,
         writeFiles,
     ) {
@@ -152,7 +152,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     chart,
                     exchange,
                     market
-                    )
+                )
 
                 /* 
                 Do the stuff needed previous to the run like 
@@ -220,7 +220,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         type: 'TS LF Trading Bot Info - Candle And Cycle',
                         placeholder: {}
                     }
-                    
+
                     contextInfo = {
                         candleIndex: tradingEngine.current.episode.candle.index.value,
                         cycle: tradingEngine.current.episode.cycle.value
@@ -368,6 +368,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         let propertyName = 'at' + mapKey.replace('-', '')
                         let thisChart = chart[propertyName]
 
+                        if (thisChart === undefined) { continue }
+
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k]
                             if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
@@ -389,6 +391,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     let propertyName = 'at' + mapKey.replace('-', '')
                     let thisChart = chart[propertyName]
 
+                    if (thisChart === undefined) { continue }
+
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
                         if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
@@ -406,6 +410,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 /* Finding the Current Element At Single Files*/
                 let propertyName = 'atAnyTimeFrame'
                 let thisChart = chart[propertyName]
+
+                if (thisChart === undefined) { return }
 
                 for (let k = 0; k < dataDependencies.length; k++) {
                     let dataDependencyNode = dataDependencies[k]

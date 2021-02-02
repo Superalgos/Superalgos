@@ -341,7 +341,7 @@
                         continue
                     }
 
-                    if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange, datasetModule.market, datasetModule.product, 'atAnyTimeFrame') !== true) {
+                    if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange + '-' + datasetModule.market + '-' + datasetModule.product + '-' + 'atAnyTimeFrame') !== true) {
                         /*
                         If we can not find the current data set is used at the current time 
                         frame we will skip this file.
@@ -405,7 +405,7 @@
                             continue
                         }
 
-                        if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange, datasetModule.market, datasetModule.product, timeFrameLabel) !== true) {
+                        if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange + '-' + datasetModule.market + '-' + datasetModule.product + '-' + timeFrameLabel) !== true) {
                             /*
                             If we can not find the current data set is used at the current time 
                             frame we will skip this file, unless we are in the only special 
@@ -520,7 +520,7 @@
                             continue
                         }
 
-                        if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange, datasetModule.market, datasetModule.product, timeFrameLabel) !== true) {
+                        if (dataDependenciesModule.filters.exchange.timeFrames.get(datasetModule.exchange + '-' + datasetModule.market + '-' + datasetModule.product + '-' + timeFrameLabel) !== true) {
                             /*
                             If we can not find the current data set is used at the current time 
                             frame we will skip this file, unless we are in the only special 
@@ -662,7 +662,7 @@
                                 TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                                 let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                                addProducs(propertyName)
+                                addProducs(propertyName, products)
                             }
                         }
 
@@ -676,22 +676,24 @@
                                 TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
                                 let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                                addProducs(propertyName)
+                                addProducs(propertyName, products)
                             }
                         }
 
                         /* Single Files */
-                        let dataFiles = multiTimeFrameDataFiles.get('Single Files')
-                        let products = {}
+                        {
+                            let dataFiles = multiTimeFrameDataFiles.get('Single Files')
+                            let products = {}
 
-                        if (dataFiles !== undefined && dataFiles.size > 0) {
-                            TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                            if (dataFiles !== undefined && dataFiles.size > 0) {
+                                TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
 
-                            let propertyName = 'atAnyTimeFrame'
-                            addProducs(propertyName)
+                                let propertyName = 'atAnyTimeFrame'
+                                addProducs(propertyName, products)
+                            }
                         }
 
-                        function addProducs(propertyName) {
+                        function addProducs(propertyName, products) {
                             /*
                             The chart data structure allow users to simplify the syntax when they are using 
                             the default exchange and the default market. 

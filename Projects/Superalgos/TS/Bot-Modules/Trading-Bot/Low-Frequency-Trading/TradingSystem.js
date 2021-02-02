@@ -169,7 +169,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         exchange = pExchange
         market = pMarket
 
-        tradingStagesModuleObject.updateChart(pChart)
+        tradingStagesModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function buildDynamicIndicators() {

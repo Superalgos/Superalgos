@@ -8,7 +8,12 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     return thisObject
 
     function syncronizeSessionWithBackEnd(node) {
-        let networkNode = validations(node).networkNode
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
+        let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
             return
@@ -38,6 +43,10 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
     function runSession(node, resume, callBackFunction) {
         let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
         let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* This means that the validations failed. */
@@ -155,7 +164,12 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
-        let networkNode = validations(node).networkNode
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
+        let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)

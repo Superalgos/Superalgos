@@ -103,7 +103,7 @@ exports.newSuperalgosUtilitiesNodeFunctions = function () {
 
     function nodeMeshToPathArray (node, nodeId) {
         /*
-        This function scans a node mesh for a certain node if and 
+        This function scans a node mesh for a certain node id and 
         returns an array with the path within that mesh to the
         requested node. 
         */

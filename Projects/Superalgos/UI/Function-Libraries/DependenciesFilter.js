@@ -30,6 +30,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
             },
             exchange: {
                 list: new Map(),
+                markets: new Map(),
                 products: new Map()
             }
         }
@@ -43,6 +44,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
         filters.market.products = Array.from(filters.market.products.keys())
 
         filters.exchange.list = Array.from(filters.exchange.list.keys())
+        filters.exchange.markets = Array.from(filters.exchange.markets.keys())
         filters.exchange.products = Array.from(filters.exchange.products.keys())
 
         return filters
@@ -164,6 +166,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
                     filters.exchange.products.set(exchange + '-' + baseAsset + '-' + quotedAsset + '-' + timeFrame + '-' + product, true)
+                    filters.exchange.markets.set(exchange + '-' + baseAsset + '-' + quotedAsset, true)
                     filters.exchange.list.set(exchange, true)
                 }
             }

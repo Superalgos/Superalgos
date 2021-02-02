@@ -332,15 +332,15 @@
             async function processSingleFiles() {
                 dataFiles = new Map()
 
-                for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
-                    let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
+                for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length; dependencyIndex++) {
+                    let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                     let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                     if (datasetModule.node.config.codeName !== "Single-File") {
                         continue
                     }
 
-                    if (dataDependenciesModule.isItADepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                    if (dataDependenciesModule.isItAChartDepenency('atAnyTimeFrame', datasetModule.node.parentNode.config.singularVariableName) !== true) {
                         continue
                     }
 
@@ -392,15 +392,15 @@
                     }
 
                     /* Loop across the list of curated dependencies */
-                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
-                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
+                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length; dependencyIndex++) {
+                        let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         if (dependency.referenceParent.config.codeName !== "Multi-Period-Market") {
                             continue
                         }
 
-                        if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                        if (dataDependenciesModule.isItAChartDepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
                             if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
@@ -502,8 +502,8 @@
                     We will iterate through all dependencies, in order to load the
                     files that later will end up at the chart data structure.
                     */
-                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedNodeArray.length; dependencyIndex++) {
-                        let dependency = dataDependenciesModule.curatedNodeArray[dependencyIndex]
+                    for (let dependencyIndex = 0; dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length; dependencyIndex++) {
+                        let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
                         if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
@@ -513,7 +513,7 @@
                         /*
                         If it is not a dependency then we pass..
                         */
-                        if (dataDependenciesModule.isItADepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
+                        if (dataDependenciesModule.isItAChartDepenency(timeFrameLabel, datasetModule.node.parentNode.config.singularVariableName) !== true) {
                             if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }

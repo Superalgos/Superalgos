@@ -9,6 +9,8 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
     let thisObject = {
         node: undefined,
         networkNode: undefined,
+        exchange: undefined,
+        market: undefined,
         initialize: initialize,
         finalize: finalize,
         getTextFile: getTextFile,
@@ -20,10 +22,12 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
 
     return thisObject;
 
-    function initialize(dataDependency, callBackFunction) {
+    function initialize(exchange, market, dataDependency, callBackFunction) {
 
         try {
             thisObject.node = dataDependency.referenceParent;
+            thisObject.exchange = exchange
+            thisObject.market = market
 
             /* Some very basic validations that we have all the information needed. */
             if (thisObject.node === undefined) {
@@ -76,15 +80,18 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
 
             /* Now we will see where do we need to fetch this data from. */
             let network = TS.projects.superalgos.globals.taskConstants.NETWORK_NODE
-            let datasetProductDefinition = thisObject.node.parentNode
+            let productDefinition = thisObject.node.parentNode
 
-            let nodeArray = TS.projects.superalgos.utilities.nodeFunctions.nodeMeshToPathArray(network, datasetProductDefinition.id)
-            let networkNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeArray(nodeArray, 'Network Node')
+            /* 
+            We will find the networkNode that leads to this Product Definition 
+            and is related to this exchange and market. 
+            */
+            let networkNode = fincNetworkNode(network, productDefinition, thisObject.exchange, thisObject.market)
 
             if (networkNode === undefined) {
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + datasetProductDefinition.name + " for " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + " " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + " is stored within the network.");
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + productDefinition.name + " for " + thisObject.exchange + " " + thisObject.market + " is stored within the network.");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE, false);
                 return
             }
@@ -105,6 +112,8 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
     function finalize() {
         fileStorage = undefined
         thisObject.networkNode = undefined
+        thisObject.exchange = undefined
+        thisObject.market = undefined
         bot = undefined
         thisObject = undefined
     }
@@ -117,7 +126,7 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
             let project = thisObject.node.parentNode.parentNode.parentNode.project
             let botCodeName = thisObject.node.parentNode.parentNode.config.codeName
 
-            let filePathRoot = 'Project/' + project + "/" + mineType + "/" + mine + "/" + botCodeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            let filePathRoot = 'Project/' + project + "/" + mineType + "/" + mine + "/" + botCodeName + '/' + thisObject.exchange + "/" + thisObject.market
             let filePath = filePathRoot + "/Output/" + pFolderPath;
             filePath += '/' + pFileName
 
@@ -155,7 +164,7 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
                 return;
             }
 
-            let filePathRoot = 'Project/' + thisObject.node.project + "/" + thisObject.node.mineType + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            let filePathRoot = 'Project/' + thisObject.node.project + "/" + thisObject.node.mineType + "/" + thisObject.node.dataMine + "/" + thisObject.node.bot + '/' + thisObject.exchange + "/" + thisObject.market
             let filePath = filePathRoot + "/Output/" + pFolderPath + '/' + pFileName;
 
             fileStorage.createTextFile(filePath, pFileContent, onFileCreated);
@@ -168,6 +177,142 @@ exports.newSuperalgosProcessModulesDataset = function (processIndex) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] 'createTextFile' -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+        }
+    }
+
+    function fincNetworkNode(network, productDefinition, exchange, market) {
+        /*
+        
+        The problem that we need to solve here is the following:
+
+        A. We are interested in a particular Exchange and Market.
+        B. We have the Network we received from the UI whe the user ran the Task.
+        C. We have the Product Definition that is the parent node of the Data Set represented by this object.
+        D. This Product Definition is referenced by one or more Data Products nodes at some branch of the Network Hirierchy.
+        E. We need to find the right Data Product node, the one who is itself a descendent of the Market Data Products
+        node that is referencing the market and exchange that we have as a parameter of this function.
+
+        So, the strategy we will implement is the following:
+
+        1. We will scan all the branches of the Network received from the UI.
+        2. Once we find a Market Data Products, Market Trading Products o Market Learning Products we will check
+        that they are referencing the market and exchange we need, other wise we ignore them and continue
+        with the scanning.
+        3. Once found, we will go into their own branches and find a path until the Product Definition we need to reach.
+        4. Once reached, we will know which Network Node is on the full path from the Network to the Product Definition and
+        we solved the problem.
+        
+        */
+        let found = false
+        let networkNode
+        let splittedMarket = market.split('-')
+        let baseAsset = splittedMarket[0]
+        let quotedAsset = splittedMarket[1]
+
+        scanNodeMesh(network)
+
+        if (found === true) {
+            return networkNode
+        } else {
+            return
+        }
+
+        function scanNodeMesh(startingNode) {
+            if (startingNode === undefined) { return }
+
+            let schemaDocument = TS.projects.superalgos.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (schemaDocument === undefined) { return }
+
+            if (startingNode.id === productDefinition.id) {
+                /*
+                We reached the point that we found a path to the Product Definition. 
+                Now we know that the last netwrokNode is the node that has the correct
+                path.
+                */
+                found = true
+                return
+            }
+
+            if (startingNode.type === 'Network Node') {
+                /*
+                We will store the Network Node here so that if we find the rignt path
+                we can know from which Netwrok Node it going through.
+                */
+                networkNode = startingNode
+            }
+
+            if (
+                startingNode.type === 'Market Data Products' ||
+                startingNode.type === 'Market Trading Products' ||
+                startingNode.type === 'Market Learning Products'
+            ) {
+                /*
+                We will check that this guy is referencing the right market and the 
+                market is a descendant of the right exchange. Otherwise we wont process
+                their children.
+                */
+                if (startingNode.referenceParent === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.baseAsset === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.quotedAsset === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.baseAsset.referenceParent === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.quotedAsset.referenceParent === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.baseAsset.referenceParent.config.codeName !== baseAsset) {
+                    return
+                }
+                if (startingNode.referenceParent.quotedAsset.referenceParent.config.codeName !== quotedAsset) {
+                    return
+                }
+                if (startingNode.referenceParent.parentNode === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.parentNode.parentNode === undefined) {
+                    return
+                }
+                if (startingNode.referenceParent.parentNode.parentNode.codeName !== exchange) {
+                    return
+                }
+            }
+
+            /* We scan through this node children */
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
+
+                    switch (property.type) {
+                        case 'node': {
+                            scanNodeMesh(startingNode[property.name])
+                        }
+                            break
+                        case 'array': {
+                            let startingNodePropertyArray = startingNode[property.name]
+                            if (startingNodePropertyArray !== undefined) {
+                                for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                    scanNodeMesh(startingNodePropertyArray[m])
+                                }
+                            }
+                            break
+                        }
+                    }
+                }
+            }
+            /* We scan parents nodes. */
+            if (startingNode.parentNode !== undefined) {
+                scanNodeMesh(startingNode.parentNode)
+            }
+            /* We scan reference parents too. */
+            if (startingNode.referenceParent !== undefined) {
+                scanNodeMesh(startingNode.referenceParent)
+            }
         }
     }
 };

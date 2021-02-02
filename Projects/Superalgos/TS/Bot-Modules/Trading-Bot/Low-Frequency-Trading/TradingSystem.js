@@ -13,7 +13,14 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         finalize: finalize
     }
 
+    /* 
+    These 3 are the main data structures available to users
+    when writing conditions and formulas.
+    */
     let chart
+    let exchange
+    let market
+
     let tradingSystem
     let tradingEngine
     let sessionParameters
@@ -115,6 +122,8 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingStagesModuleObject = undefined
 
         chart = undefined
+        exchange = undefined
+        market = undefined
 
         tradingSystem.conditions = undefined
         tradingSystem.formulas = undefined
@@ -151,8 +160,15 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingSystem.announcements = []
     }
 
-    function updateChart(pChart) {
-        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
+    function updateChart(pChart, pExchange, pMarket) {
+        /* 
+        We need these 3 data structures  to be a local objects 
+        accessible while evaluating conditions and formulas.
+        */
+        chart = pChart
+        exchange = pExchange
+        market = pMarket
+
         tradingStagesModuleObject.updateChart(pChart)
     }
 

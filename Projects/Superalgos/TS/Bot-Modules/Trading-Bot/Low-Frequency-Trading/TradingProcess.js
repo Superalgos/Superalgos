@@ -14,7 +14,7 @@
     let statusDependencies
     let dataDependenciesModule
     let dataFiles = new Map()
-    let multiPeriodDataFiles = new Map()
+    let multiTimeFrameDataFiles = new Map()
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
     TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
     let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex)
@@ -47,7 +47,7 @@
         tradingOutputModuleObject = undefined
 
         dataFiles = undefined
-        multiPeriodDataFiles = undefined
+        multiTimeFrameDataFiles = undefined
         statusDependencies = undefined
         dataDependenciesModule = undefined
         fileStorage = undefined
@@ -115,10 +115,11 @@
                 return
             }
             /*
-            This is the Data Structure used at the Simulation with all indicator data.
-            We start creating it right here.
+            These are the Data Structures used by end users at Conditions Code or Formulas.
             */
             let chart = {}
+            let market = {}
+            let exchange = {}
             /*
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
@@ -133,7 +134,7 @@
                 data structure that will be used in user-defied conditions and formulas.
                 */
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waking up')
-                buildCharts(chart)
+                buildDataStructures(chart)
 
                 if (checkThereAreCandles(chart) === true) {
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
@@ -172,7 +173,7 @@
                     With all the indicators data files loaded, we will build the chart object 
                     data structure that will be used in user-defied conditions and formulas.
                     */
-                    buildCharts(chart)
+                    buildDataStructures(chart)
                     /*
                     The process of generating the output includes the trading simulation.
                     */
@@ -209,7 +210,7 @@
             */
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
-            function checkThereAreCandles(chart) {
+            function checkThereAreCandles() {
                 let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
@@ -373,7 +374,7 @@
                 }
 
                 let mapKey = "Single Files"
-                multiPeriodDataFiles.set(mapKey, dataFiles)
+                multiTimeFrameDataFiles.set(mapKey, dataFiles)
             }
 
             async function processMarketFiles() {
@@ -472,7 +473,7 @@
                     }
 
                     let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
-                    multiPeriodDataFiles.set(mapKey, dataFiles)
+                    multiTimeFrameDataFiles.set(mapKey, dataFiles)
                 }
                 return true
             }
@@ -569,7 +570,7 @@
                         }
                     }
                     let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
-                    multiPeriodDataFiles.set(mapKey, dataFiles)
+                    multiTimeFrameDataFiles.set(mapKey, dataFiles)
                 }
                 return true
             }
@@ -600,7 +601,7 @@
                 }
             }
 
-            function buildCharts(chart) {
+            function buildDataStructures() {
                 /* Fisrt Phase: Validations */
                 let mainDependency = {}
                 /* 
@@ -639,47 +640,108 @@
                 or data structure that can be used in Javascript Code and 
                 Formula nodes to access Indicator's data. 
                 */
-                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
-                    let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                    let products = {}
 
-                    if (dataFiles !== undefined) {
-                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                let exchangeList = Array.from(dataDependenciesModule.filters.exchange.list.keys())
+                let marketList = Array.from(dataDependenciesModule.filters.market.list.keys())
 
-                        let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                        chart[propertyName] = products
+                for (let e = 0; e < exchangeList.length; e++) {
+                    let currentExchange = exchangeList[e]
+                    for (let m = 0; m < marketList.length; m++) {
+                        let currentMarket = marketList[m]
+                        let splittedMarket = currentMarket.split('-')
+                        let baseAsset = splittedMarket[0]
+                        let quotedAsset = splittedMarket[1]
+
+                        /* Market Files */
+                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
+                            let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
+                            let dataFiles = multiTimeFrameDataFiles.get(timeFrameLabel)
+                            let products = {}
+
+                            if (dataFiles !== undefined) {
+                                TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+
+                                let propertyName = 'at' + timeFrameLabel.replace('-', '')
+                                addProducs(propertyName)
+                            }
+                        }
+
+                        /* Daily Files */
+                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
+                            let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                            let dataFiles = multiTimeFrameDataFiles.get(timeFrameLabel)
+                            let products = {}
+
+                            if (dataFiles !== undefined) {
+                                TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+
+                                let propertyName = 'at' + timeFrameLabel.replace('-', '')
+                                addProducs(propertyName)
+                            }
+                        }
+
+                        /* Single Files */
+                        let dataFiles = multiTimeFrameDataFiles.get('Single Files')
+                        let products = {}
+
+                        if (dataFiles !== undefined) {
+                            TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+
+                            let propertyName = 'atAnyTimeFrame'
+                            addProducs(propertyName)
+                        }
+
+                        function addProducs(propertyName) {
+                            /*
+                            The chart data structure allow users to simplify the syntax when they are using 
+                            the default exchange and the default market. 
+                            */
+                            if (currentExchange === dataDependenciesModule.defaultExchange && currentMarket === dataDependenciesModule.defaultMarket) {
+                                chart[propertyName] = products
+                            }
+                            /*
+                            The market data structure allow users to simplify the syntax when they are using 
+                            the default exchange. 
+                            */
+                            if (currentExchange === dataDependenciesModule.defaultExchange) {
+                                if (market[baseAsset] === undefined) {
+                                    market[baseAsset] = {}
+                                }
+                                if (market[baseAsset][quotedAsset] === undefined) {
+                                    market[baseAsset][quotedAsset] = {}
+                                }
+                                if (market[baseAsset][quotedAsset].chart === undefined) {
+                                    market[baseAsset][quotedAsset].chart = {}
+                                }
+                                market[baseAsset][quotedAsset].chart[propertyName] = products
+                            }
+
+                            if (exchange[currentExchange] === undefined) {
+                                exchange[currentExchange] = {}
+                            }
+                            if (exchange[currentExchange].market === undefined) {
+                                exchange[currentExchange].market = {}
+                            }
+                            if (exchange[currentExchange].market[baseAsset] === undefined) {
+                                exchange[currentExchange].market[baseAsset] = {}
+                            }
+                            if (exchange[currentExchange].market[baseAsset][quotedAsset] === undefined) {
+                                exchange[currentExchange].market[baseAsset][quotedAsset] = {}
+                            }
+                            if (exchange[currentExchange].market[baseAsset][quotedAsset].chart === undefined) {
+                                exchange[currentExchange].market[baseAsset][quotedAsset].chart = {}
+                            }
+                            exchange[currentExchange].market[baseAsset][quotedAsset].chart[propertyName] = products
+                        }
                     }
-                }
-
-                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
-                    let dataFiles = multiPeriodDataFiles.get(timeFrameLabel)
-                    let products = {}
-
-                    if (dataFiles !== undefined) {
-                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
-
-                        let propertyName = 'at' + timeFrameLabel.replace('-', '')
-                        chart[propertyName] = products
-                    }
-                }
-
-                /* Single Files */
-                let dataFiles = multiPeriodDataFiles.get('Single Files')
-                let products = {}
-
-                if (dataFiles !== undefined) {
-                    TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
-
-                    let propertyName = 'atAnyTimeFrame'
-                    chart[propertyName] = products
                 }
             }
 
-            async function generateOutput(chart) {
+            async function generateOutput() {
                 await tradingOutputModuleObject.start(
                     chart,
+                    market,
+                    exchange,
                     currentTimeFrame,
                     currentTimeFrameLabel,
                     tradingProcessDate

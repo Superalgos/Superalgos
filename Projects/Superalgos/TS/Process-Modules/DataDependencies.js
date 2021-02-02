@@ -21,6 +21,8 @@
 
     let thisObject = {
         filters: undefined,
+        defaultExchange: undefined,
+        defaultMarket: undefined,
         curatedDependencyNodeArray: undefined,
         dataSetsModulesArray: [],
         initialize: initialize,
@@ -101,13 +103,13 @@
             At our filter structure, we will add the Task default exchange and market. 
             This will help us lateer to build other structures in a generic way.
             */
-            let defaultExchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
-            let defautMarket =
+            thisObject.defaultExchange = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+            thisObject.defautMarket =
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-            thisObject.filters.exchange.list.set(defaultExchange, true)
-            thisObject.filters.exchange.markets.set(defaultExchange + '-' + defautMarket, true)
+            thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
+            thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defautMarket, true)
             thisObject.filters.market.list.set(true)
             /*
             For each dependency declared at the curatedDependencyNodeArray, we will initialize a DataSet as part of this initialization process.
@@ -243,6 +245,8 @@
         thisObject.dataSetsModulesArray = undefined
         thisObject.curatedDependencyNodeArray = undefined
         thisObject.filters = undefined
+        thisObject.defaultExchange = undefined
+        thisObject.defaultMarket = undefined
         bot = undefined
     }
 }

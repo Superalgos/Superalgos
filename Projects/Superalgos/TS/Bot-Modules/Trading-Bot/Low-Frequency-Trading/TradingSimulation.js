@@ -17,6 +17,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
     async function runSimulation(
         chart,
+        exchange,
+        market,
         outputDatasetsMap,
         writeFiles,
     ) {
@@ -146,7 +148,11 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 positionChartAtCurrentCandle()
 
                 /* The chart was recalculated based on the current candle. */
-                tradingSystemModuleObject.updateChart(chart)
+                tradingSystemModuleObject.updateChart(
+                    chart,
+                    exchange,
+                    market
+                    )
 
                 /* 
                 Do the stuff needed previous to the run like 

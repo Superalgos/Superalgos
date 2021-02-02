@@ -26,7 +26,14 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
 
     }
 
-    async function start(chart, timeFrame, timeFrameLabel, tradingProcessDate) {
+    async function start(
+        chart,
+        exchange,
+        market,
+        timeFrame,
+        timeFrameLabel,
+        tradingProcessDate
+    ) {
         try {
 
             if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
@@ -73,6 +80,8 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
 
             await tradingSimulationModuleObject.runSimulation(
                 chart,
+                exchange,
+                market,
                 outputDatasetsMap,
                 writeFiles
             )

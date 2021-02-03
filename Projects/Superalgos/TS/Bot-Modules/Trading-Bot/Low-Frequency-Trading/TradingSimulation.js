@@ -145,7 +145,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     continue
                 }
 
-                positionChartAtCurrentCandle()
+                positionDataStructuresAtCurrentCandle()
 
                 /* The chart was recalculated based on the current candle. */
                 tradingSystemModuleObject.updateChart(
@@ -352,19 +352,56 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                 }
             }
 
-            function positionChartAtCurrentCandle() {
+            function positionDataStructuresAtCurrentCandle() {
                 /*
                 In conditions and Formulas, we want users to have an easy sintax to refer to indicators. In order to achieve that, we need the user to have
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
-                let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
-                dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
-                /* Finding the Current Element on Market Files */
-                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
-                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
-                        let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                for (const exchangeCodeName in exchange) {
+                    let currentExchange = exchange[exchangeCodeName]
+                    for (const baseAssetCodeName in currentExchange.market) {
+                        let currentBaseAsset = currentExchange.market[baseAssetCodeName]
+                        for (const quotedAssetCodeName in currentBaseAsset) {
+                            let currentQuotedAsset = currentBaseAsset[quotedAssetCodeName]
+                            let currentChart = currentQuotedAsset.chart
+                            positionChart(currentChart)
+                        }
+                    }
+                }
+
+                function positionChart(chart) {
+                    let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                    dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
+
+                    /* Finding the Current Element on Market Files */
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
+                            let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                            let propertyName = 'at' + mapKey.replace('-', '')
+                            let thisChart = chart[propertyName]
+
+                            if (thisChart === undefined) { continue }
+
+                            for (let k = 0; k < dataDependencies.length; k++) {
+                                let dataDependencyNode = dataDependencies[k]
+                                if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
+                                let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
+                                let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
+                                if (thisChart[pluralVariableName] !== undefined) {
+                                    let currentElement = getElement(thisChart[pluralVariableName], 'Daily' + '-' + mapKey + '-' + pluralVariableName)
+                                    if (currentElement !== undefined) {
+                                        thisChart[singularVariableName] = currentElement
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    /* Finding the Current Element on Market Files */
+                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
                         let thisChart = chart[propertyName]
 
@@ -372,58 +409,36 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k]
-                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
+                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                             if (thisChart[pluralVariableName] !== undefined) {
-                                let currentElement = getElement(thisChart[pluralVariableName], 'Daily' + '-' + mapKey + '-' + pluralVariableName)
+                                let currentElement = getElement(thisChart[pluralVariableName], 'Market' + '-' + mapKey + '-' + pluralVariableName)
                                 if (currentElement !== undefined) {
                                     thisChart[singularVariableName] = currentElement
                                 }
                             }
                         }
                     }
-                }
 
-                /* Finding the Current Element on Market Files */
-                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
-                    let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
-                    let propertyName = 'at' + mapKey.replace('-', '')
+                    /* Finding the Current Element At Single Files*/
+                    let propertyName = 'atAnyTimeFrame'
                     let thisChart = chart[propertyName]
 
-                    if (thisChart === undefined) { continue }
+                    if (thisChart === undefined) { return }
 
                     for (let k = 0; k < dataDependencies.length; k++) {
                         let dataDependencyNode = dataDependencies[k]
-                        if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
+                        if (dataDependencyNode.referenceParent.config.codeName !== 'Single-File') { continue }
                         let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                         let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                        if (thisChart[pluralVariableName] !== undefined) {
-                            let currentElement = getElement(thisChart[pluralVariableName], 'Market' + '-' + mapKey + '-' + pluralVariableName)
-                            if (currentElement !== undefined) {
-                                thisChart[singularVariableName] = currentElement
-                            }
+                        let elementArray = thisChart[pluralVariableName]
+                        let currentElement
+                        if (elementArray !== undefined) {
+                            currentElement = elementArray[elementArray.length - 1]
                         }
+                        thisChart[singularVariableName] = currentElement
                     }
-                }
-
-                /* Finding the Current Element At Single Files*/
-                let propertyName = 'atAnyTimeFrame'
-                let thisChart = chart[propertyName]
-
-                if (thisChart === undefined) { return }
-
-                for (let k = 0; k < dataDependencies.length; k++) {
-                    let dataDependencyNode = dataDependencies[k]
-                    if (dataDependencyNode.referenceParent.config.codeName !== 'Single-File') { continue }
-                    let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
-                    let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
-                    let elementArray = thisChart[pluralVariableName]
-                    let currentElement
-                    if (elementArray !== undefined) {
-                        currentElement = elementArray[elementArray.length - 1]
-                    }
-                    thisChart[singularVariableName] = currentElement
                 }
             }
 

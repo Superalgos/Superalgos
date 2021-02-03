@@ -1,0 +1,72 @@
+{
+    "topic": "LF Trading Bot Available Data Structures",
+    "pageNumber": "1",
+    "type": "LF Trading Bot - Chart Data Structure",
+    "definition": {
+        "text": "The Chart Data Structure is an object that contains Indicator or Sensor bots data, available at runtime, that can be accessed from the code of Conditions and Formulas.",
+        "updated": 1612349390525
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "This Javascript object, together with the other two data structures available, ultimately defines the syntax that can be used to write conditions and formulas, and more precisely the sintax to retrieve Indicator Bot and Sensor Bot data.",
+            "updated": 1612349521002
+        },
+        {
+            "style": "Title",
+            "text": "Structure"
+        },
+        {
+            "style": "List",
+            "text": "The root of the object is called...",
+            "updated": 1612351077417
+        },
+        {
+            "style": "Json",
+            "text": "chart"
+        },
+        {
+            "style": "List",
+            "text": "After it these are it's valid properties...",
+            "updated": 1612351085368
+        },
+        {
+            "style": "Json",
+            "text": "at01min, at02min ... at45min, at01hs ... at24hs",
+            "updated": 1612349768772
+        },
+        {
+            "style": "List",
+            "text": "After that, it is expected the singleVariableName defined at the config of the Product Definition of an Indicator or Sensor.",
+            "updated": 1612351093008
+        },
+        {
+            "style": "List",
+            "text": "Finally the last property must be the codeName of a Record Property Node, belonging to the same Product Definition mentioned earlier.",
+            "updated": 1612350081190
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1612350235632
+        },
+        {
+            "style": "Text",
+            "text": "chart.at01min.support.support5Rate",
+            "updated": 1612349808636
+        },
+        {
+            "style": "Text",
+            "text": "chart.at05min.candle.open",
+            "updated": 1612350213519
+        },
+        {
+            "style": "Text",
+            "text": "chart.at24hs.bollingerBand.movingAverage"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -71,8 +71,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         tradingEpisodeModuleObject = undefined
     }
 
-    function updateChart(pChart) {
-        snapshotsModuleObject.updateChart(pChart)
+    function updateChart(pChart, pExchange, pMarket) {
+        snapshotsModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function mantain() {

@@ -43,7 +43,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
         try {
             statusDependencies = pStatusDependencies;
 
-            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase().replace(' ', '')
+            exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
 
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {

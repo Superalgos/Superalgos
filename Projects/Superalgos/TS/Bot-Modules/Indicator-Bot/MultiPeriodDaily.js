@@ -328,7 +328,7 @@
                     dependencyLoopBody()
 
                     function dependencyLoopBody() {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                        let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         if (dependency === undefined) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -453,7 +453,7 @@
 
                     function dependencyControlLoop() {
                         dependencyIndex++;
-                        if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
+                        if (dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length) {
                             dependencyLoopBody()
                         } else {
                             generateOutput()
@@ -549,7 +549,7 @@
                     }
                     let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + productCodeName + "-" +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" +
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                     let event = {

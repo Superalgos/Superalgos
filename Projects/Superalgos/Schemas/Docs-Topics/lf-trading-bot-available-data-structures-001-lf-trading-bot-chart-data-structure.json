@@ -65,6 +65,35 @@
             "text": "chart.at24hs.bollingerBand.movingAverage"
         },
         {
+            "style": "Title",
+            "text": "Advance Usage"
+        },
+        {
+            "style": "Text",
+            "text": "You also have access to the set of indicators objects loaded in memory though this same data structure. If instead of using the sinleVariableName you use the pluralVariableName what you get is an array of objects, that depending on the time frame, could be the object for that time frame of all market or the current and previous day for time frames < 1 hour.",
+            "updated": 1612353614216
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Text",
+            "text": "chart.at05min.candles"
+        },
+        {
+            "style": "Text",
+            "text": "Will return an array of candles of the previous day concatenated with the candles of the current day. You then can use this information as you wish."
+        },
+        {
+            "style": "Text",
+            "text": "chart.at24hs.bollingerBands"
+        },
+        {
+            "style": "Text",
+            "text": "Will return an array of all bollingerBands object of the whole market, since the time frame is >= 1 hour."
+        },
+        {
             "style": "Text",
             "text": ""
         }

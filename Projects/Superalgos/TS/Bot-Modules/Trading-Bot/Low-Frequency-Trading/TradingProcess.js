@@ -134,11 +134,11 @@
                 data structure that will be used in user-defied conditions and formulas.
                 */
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waking up')
-                buildDataStructures(chart)
+                buildDataStructures()
 
-                if (checkThereAreCandles(chart) === true) {
+                if (checkThereAreCandles() === true) {
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
-                    await generateOutput(chart)
+                    await generateOutput()
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
                     await writeProcessFiles()
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
@@ -173,13 +173,13 @@
                     With all the indicators data files loaded, we will build the chart object 
                     data structure that will be used in user-defied conditions and formulas.
                     */
-                    buildDataStructures(chart)
+                    buildDataStructures()
                     /*
                     The process of generating the output includes the trading simulation.
                     */
-                    if (checkThereAreCandles(chart) === true) {
+                    if (checkThereAreCandles() === true) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
-                        await generateOutput(chart)
+                        await generateOutput()
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
                         await writeProcessFiles()
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
@@ -544,7 +544,6 @@
                         We will iterate through all posible timeFrames.
                         */
                         for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
                             const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
 
                             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validtimeFrames !== undefined) {

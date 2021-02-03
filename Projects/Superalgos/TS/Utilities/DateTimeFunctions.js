@@ -8,7 +8,7 @@ exports.newSuperalgosUtilitiesDateTimeFunctions = function () {
 
     return thisObject
 
-    function  removeTime (datetime) {
+    function removeTime(datetime) {
         let date = new Date(datetime)
         return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
     }
@@ -21,6 +21,7 @@ exports.newSuperalgosUtilitiesDateTimeFunctions = function () {
         if ((lastDays - fromDays) === 0) {
             percentage = 100
         }
+        if (percentage > 100) { percentage = 100 }
         return percentage
     }
 

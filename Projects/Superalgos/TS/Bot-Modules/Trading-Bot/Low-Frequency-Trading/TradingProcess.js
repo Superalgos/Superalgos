@@ -337,7 +337,7 @@
                             let filePath = datasetModule.node.parentNode.config.codeName + '/' + datasetModule.node.config.codeName
 
                             /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                            let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+                            let response = await TS.projects.superalgos.utilities.miscellaneousFunctions.asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                             if (response.err.message === 'File does not exist.') {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -429,7 +429,7 @@
                                 let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel
 
                                 /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                                let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+                                let response = await TS.projects.superalgos.utilities.miscellaneousFunctions.asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                                 if (response.err.message === 'File does not exist.') {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -582,7 +582,7 @@
                                     let fileName = "Data.json"
 
                                     /* We cut the async calls via callBacks at this point, so as to have a clearer code upstream */
-                                    let response = await asyncGetDatasetFile(datasetModule, filePath, fileName)
+                                    let response = await TS.projects.superalgos.utilities.miscellaneousFunctions.asyncGetDatasetFile(datasetModule, filePath, fileName)
 
                                     if (response.err.message === 'File does not exist.') {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -932,23 +932,5 @@
                 return
             }
         }
-    }
-
-    async function asyncGetDatasetFile(datasetModule, filePath, fileName) {
-
-        let promise = new Promise((resolve, reject) => {
-
-            datasetModule.getTextFile(filePath, fileName, onFileReceived)
-            function onFileReceived(err, text) {
-
-                let response = {
-                    err: err,
-                    text: text
-                }
-                resolve(response)
-            }
-        })
-
-        return promise
     }
 }

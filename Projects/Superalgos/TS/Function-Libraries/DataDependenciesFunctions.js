@@ -16,7 +16,12 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
 
     return thisObject
 
-    async function processSingleFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule) {
+    async function processSingleFiles(
+        processIndex,
+        dataFiles,
+        multiTimeFrameDataFiles,
+        dataDependenciesModule
+    ) {
 
         /* 
         We will iterate through all the exchanges and markets involved.
@@ -85,7 +90,14 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         }
     }
 
-    async function processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame) {
+    async function processMarketFiles(
+        processIndex,
+        dataFiles,
+        multiTimeFrameDataFiles,
+        dataDependenciesModule,
+        currentTimeFrame,
+        userDefinedTimeFrame
+    ) {
         /* 
         We do market files first since if the simulation is run on daily files, there will 
         be a loop to get each of those files and we do not need that loop to reload market files. 
@@ -111,7 +123,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     dataFiles = new Map()
 
                     /* Current Time Frame detection */
-                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
+                    if (userDefinedTimeFrame === timeFrameLabel) {
                         currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
                         currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
                     }
@@ -139,7 +151,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                             frame we will skip this file, unless we are in the only special 
                             case that we are retrieving candles.
                             */
-                            if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(userDefinedTimeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                             if (currentExchange !== dataDependenciesModule.defaultExchange || currentMarket !== dataDependenciesModule.defaultMarket) {
@@ -211,9 +223,17 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         return true
     }
 
-    async function processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame, tradingProcessDate) {
+    async function processDailyFiles(
+        processIndex,
+        dataFiles,
+        multiTimeFrameDataFiles,
+        dataDependenciesModule,
+        currentTimeFrame,
+        userDefinedTimeFrame,
+        processDate
+    ) {
         /*  Telling the world we are alive and doing well and which date we are processing right now. */
-        let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2)
+        let processingDateString = processDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
 
         /* 
@@ -243,7 +263,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         }
                     }
 
-                    if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
+                    if (userDefinedTimeFrame === timeFrameLabel) {
                         currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
                         currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
                     }
@@ -276,7 +296,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                             frame we will skip this file, unless we are in the only special 
                             case that we are retrieving candles.
                             */
-                            if (!(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
+                            if (!(userDefinedTimeFrame === timeFrameLabel && datasetModule.node.parentNode.config.pluralVariableName === 'candles')) {
                                 continue
                             }
                             if (currentExchange !== dataDependenciesModule.defaultExchange || currentMarket !== dataDependenciesModule.defaultMarket) {
@@ -287,8 +307,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         /*
                         We will need to fetch the data of the current day and the previous day, in order for .previous properties in conditions and formulas to work well.
                         */
-                        let previousDate = new Date(tradingProcessDate.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
-                        let currentDate = new Date(tradingProcessDate.valueOf())
+                        let previousDate = new Date(processDate.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        let currentDate = new Date(processDate.valueOf())
 
                         let previousFile = await getDataFileFromDate(previousDate)
                         if (previousFile === false) { return false }
@@ -297,9 +317,9 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         let bothFiles = previousFile.concat(currentFile)
                         dataFiles.set(dependency.id, bothFiles)
 
-                        async function getDataFileFromDate(processDate) {
+                        async function getDataFileFromDate(dataFileDate) {
 
-                            let dateForPath = processDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processDate.getUTCDate(), 2)
+                            let dateForPath = dataFileDate.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(dataFileDate.getUTCDate(), 2)
                             let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath
                             let fileName = "Data.json"
 

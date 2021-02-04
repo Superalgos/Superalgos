@@ -72,13 +72,26 @@
             */
             let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
 
-            if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processSingleFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule) === false) {
+            if (
+                await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processSingleFiles(
+                    processIndex,
+                    dataFiles,
+                    multiTimeFrameDataFiles,
+                    dataDependenciesModule
+                ) === false) {
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 return
             }
 
-            if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame) === false) {
+            if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processMarketFiles(
+                processIndex,
+                dataFiles,
+                multiTimeFrameDataFiles,
+                dataDependenciesModule,
+                currentTimeFrame,
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label
+            ) === false) {
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 return
@@ -142,7 +155,16 @@
                     if (checkStopProcessing() === false) { break }
 
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waking up')
-                    if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame, tradingProcessDate) === false) {
+                    if (
+                        await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processDailyFiles(
+                            processIndex,
+                            dataFiles,
+                            multiTimeFrameDataFiles,
+                            dataDependenciesModule,
+                            currentTimeFrame,
+                            TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label,
+                            tradingProcessDate
+                        ) === false) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return

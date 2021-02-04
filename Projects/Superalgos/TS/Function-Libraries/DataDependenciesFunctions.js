@@ -96,7 +96,9 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         multiTimeFrameDataFiles,
         dataDependenciesModule,
         currentTimeFrame,
-        userDefinedTimeFrame
+        userDefinedTimeFrame,
+        initialDatetime,
+        finalDatetime
     ) {
         /* 
         We do market files first since if the simulation is run on daily files, there will 
@@ -207,8 +209,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end + timeFrame < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime - 1) { continue } // /1 because we need the previous closed element
-                                if (begin > TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.finalDatetime) { continue }
+                                if (end + timeFrame < initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                if (begin > finalDatetime) { continue }
                                 result.push(dataRecord)
                             }
                             return result
@@ -365,14 +367,14 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         let mainDependency = {}
         /* 
         THe first thing we do is to build an array of all the 
-        declared dependencies of the Trading Bot.
+        declared dependencies of the Bot Process.
         */
         let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
         /* 
         Then we will filter out declared dependencies that are 
         not referencing nodes currently present at the workspace.
         This will allow the user to have less Data Mines loaded at 
-        the workspace that the ones that a Trading Bot depends on.
+        the workspace that the ones that a the Bot process depends on.
         */
         dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
         /*

@@ -442,6 +442,12 @@
                     "propertyName": "singleMarketFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesSingleMarketFunctions",
                     "fileName": "SingleMarketFunctions.js"
+                },
+                {
+                    "name": "Data Dependencies Functions",
+                    "propertyName": "dataDependenciesFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesDataDependenciesFunctions",
+                    "fileName": "DataDependenciesFunctions.js"
                 }
             ],
             "utilities": [

@@ -11,13 +11,13 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
         writeProcessFiles: writeProcessFiles
     }
 
-    function getContextVariables(processIndex, contextVariables, statusDependencies, callBackFunction) {
+    function getContextVariables(processIndex, contextVariables, statusDependencies, initialDatetime, callBackFunction) {
         try {
             let thisReport
             let statusReport
 
             /* We are going to use the start date as beging of market date. */
-            contextVariables.dateBeginOfMarket = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime)
+            contextVariables.dateBeginOfMarket = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(initialDatetime)
             /*
             Here we get the status report from the bot who knows which is the end of the market.
             */
@@ -119,7 +119,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
         }
     }
 
-    async function writeProcessFiles(processIndex, contextVariables, currentTimeFrame, tradingProcessDate, statusDependencies) {
+    async function writeProcessFiles(processIndex, contextVariables, currentTimeFrame, processDate, statusDependencies) {
 
         let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
         let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
@@ -146,7 +146,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
             async function writeDataRange(productCodeName) {
                 let dataRange = {
                     begin: contextVariables.dateBeginOfMarket.valueOf(),
-                    end: tradingProcessDate.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                    end: processDate.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 }
 
                 let fileContent = JSON.stringify(dataRange)
@@ -204,7 +204,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
             let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
             let thisReport = statusDependencies.statusReports.get(reportKey)
 
-            thisReport.file.lastFile = tradingProcessDate
+            thisReport.file.lastFile = processDate
             thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
             thisReport.file.timeFrames = currentTimeFrame.label
             await thisReport.asyncSave()
@@ -218,7 +218,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
             thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
             thisReport.file.timeFrames = currentTimeFrame.label
 
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(tradingProcessDate)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(processDate)
             await thisReport.asyncSave()
         }
     }

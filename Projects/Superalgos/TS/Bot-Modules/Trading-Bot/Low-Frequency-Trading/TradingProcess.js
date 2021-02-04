@@ -28,7 +28,14 @@
                 dateEndOfMarket: undefined          // Datetime of the last file available to be used as an input of this process.
             }
 
-            if (TS.projects.superalgos.functionLibraries.processFilesFunctions.getContextVariables(processIndex, contextVariables, statusDependencies, callBackFunction) !== true) { return }
+            if (
+                TS.projects.superalgos.functionLibraries.processFilesFunctions.getContextVariables(
+                    processIndex,
+                    contextVariables,
+                    statusDependencies,
+                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime,
+                    callBackFunction
+                ) !== true) { return }
 
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 

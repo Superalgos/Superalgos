@@ -341,7 +341,6 @@
 
                             function onFinished(err) {
                                 try {
-                                    processFramework.finalize()
                                     processFramework = undefined
                                     dataDependencies.finalize()
                                     dataDependencies = undefined

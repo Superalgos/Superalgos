@@ -6,35 +6,19 @@
     const MODULE_NAME = "Trading Process"
 
     thisObject = {
-        finalize: finalize,
         start: start
     }
 
-    let dataFiles = new Map()
-    let multiTimeFrameDataFiles = new Map()
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
-    TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
-    let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex)
-
     return thisObject
-
-    function finalize() {
-
-        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.finalize()
-        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = undefined
-
-        tradingOutputModuleObject = undefined
-
-        dataFiles = undefined
-        multiTimeFrameDataFiles = undefined
-        statusDependencies = undefined
-        dataDependenciesModule = undefined
-        fileStorage = undefined
-        thisObject = undefined
-    }
 
     async function start(statusDependencies, dataDependenciesModule, callBackFunction) {
         try {
+
+            let dataFiles = new Map()
+            let multiTimeFrameDataFiles = new Map()
+            let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
+            let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex)
 
             let currentTimeFrame
             let currentTimeFrameLabel

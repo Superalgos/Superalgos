@@ -1,7 +1,8 @@
 exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
     /*
     This module contains the functions that will allow you to load the 
-    process context variables, and to save the process once you are done.
+    process context variables before you do your work, and to save the 
+    process files once you are done.
     */
     const MODULE_NAME = "Process Files Function"
 

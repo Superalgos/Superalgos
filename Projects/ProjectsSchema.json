@@ -448,6 +448,12 @@
                     "propertyName": "dataDependenciesFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesDataDependenciesFunctions",
                     "fileName": "DataDependenciesFunctions.js"
+                },
+                {
+                    "name": "Process Files Functions",
+                    "propertyName": "processFilesFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
+                    "fileName": "ProcessFilesFunctions.js"
                 }
             ],
             "utilities": [

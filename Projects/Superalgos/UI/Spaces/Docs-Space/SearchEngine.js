@@ -17,6 +17,8 @@ function newSuperalgosDocsSearchEngine() {
     }
 
     function setUpSearchEngine(callbackFunction) {
+        callbackFunction()
+        return
 
         let totalAsyncCallsMade = 0
         let totalAsyncCallsFinished = 0

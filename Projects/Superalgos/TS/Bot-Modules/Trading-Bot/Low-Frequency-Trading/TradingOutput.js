@@ -6,25 +6,10 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
     const MODULE_NAME = 'Trading Output'
 
     let thisObject = {
-        initialize: initialize,
-        finalize: finalize,
         start: start
     }
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
-
     return thisObject
-
-    function finalize() {
-        thisObject = undefined
-        utilities = undefined
-        fileStorage = undefined
-        commons = undefined
-    }
-
-    function initialize() {
-
-    }
 
     async function start(
         chart,
@@ -35,6 +20,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
         tradingProcessDate
     ) {
         try {
+            let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
             if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = false

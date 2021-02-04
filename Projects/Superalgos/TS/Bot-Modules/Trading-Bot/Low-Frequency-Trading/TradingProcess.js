@@ -20,8 +20,7 @@
             TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
             let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex)
 
-            let currentTimeFrame
-            let currentTimeFrameLabel
+            let currentTimeFrame = {}
 
             /* Context Variables */
             let contextVariables = {
@@ -73,7 +72,7 @@
                 return
             }
 
-            if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule) === false) {
+            if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame) === false) {
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                 return
@@ -88,10 +87,10 @@
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
                 dependencies on Daily Files. The way we recognize that is by checking if 
-                we alreaady set a value to currentTimeFrame. We are also not going to loop
+                we alreaady set a value to currentTimeFrame.value. We are also not going to loop
                 through days if we are processing market files.
             */
-            if (currentTimeFrame) {
+            if (currentTimeFrame.value) {
                 /* We are processing Market Files */
                 /*
                 With all the indicators data files loaded, we will build the chart object 
@@ -102,6 +101,7 @@
                     processIndex,
                     dataDependenciesModule,
                     multiTimeFrameDataFiles,
+                    currentTimeFrame,
                     chart,
                     market,
                     exchange,
@@ -136,7 +136,7 @@
                     if (checkStopProcessing() === false) { break }
 
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waking up')
-                    if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, tradingProcessDate) === false) {
+                    if (await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame, tradingProcessDate) === false) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
@@ -149,6 +149,7 @@
                         processIndex,
                         dataDependenciesModule,
                         multiTimeFrameDataFiles,
+                        currentTimeFrame,
                         chart,
                         market,
                         exchange,
@@ -341,8 +342,8 @@
                     chart,
                     market,
                     exchange,
-                    currentTimeFrame,
-                    currentTimeFrameLabel,
+                    currentTimeFrame.value,
+                    currentTimeFrame.label,
                     tradingProcessDate
                 )
 
@@ -357,13 +358,13 @@
             async function writeProcessFiles() {
                 let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
-                await writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel)
+                await writeTimeFramesFiles()
                 await writeDataRanges()
 
-                if (currentTimeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
-                    await writeMarketStatusReport(currentTimeFrameLabel)
+                if (currentTimeFrame.value > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
+                    await writeMarketStatusReport()
                 } else {
-                    await writeDailyStatusReport(currentTimeFrameLabel)
+                    await writeDailyStatusReport()
                 }
 
                 async function writeDataRanges() {
@@ -404,7 +405,7 @@
                     }
                 }
 
-                async function writeTimeFramesFiles(currentTimeFrame, currentTimeFrameLabel) {
+                async function writeTimeFramesFiles() {
 
                     for (
                         let outputDatasetIndex = 0;
@@ -412,13 +413,13 @@
                         outputDatasetIndex++
                     ) {
                         let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName
-                        await writeTimeFramesFile(currentTimeFrameLabel, productCodeName, 'Multi-Period-Daily')
-                        await writeTimeFramesFile(currentTimeFrameLabel, productCodeName, 'Multi-Period-Market')
+                        await writeTimeFramesFile(productCodeName, 'Multi-Period-Daily')
+                        await writeTimeFramesFile(productCodeName, 'Multi-Period-Market')
 
-                        async function writeTimeFramesFile(currentTimeFrameLabel, productCodeName, processType) {
+                        async function writeTimeFramesFile(productCodeName, processType) {
 
                             let timeFramesArray = []
-                            timeFramesArray.push(currentTimeFrameLabel)
+                            timeFramesArray.push(currentTimeFrame.label)
 
                             let fileContent = JSON.stringify(timeFramesArray)
                             let fileName = '/Time.Frames.json'
@@ -433,23 +434,23 @@
                     }
                 }
 
-                async function writeDailyStatusReport(currentTimeFrameLabel) {
+                async function writeDailyStatusReport() {
                     let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastFile = tradingProcessDate
                     thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
-                    thisReport.file.timeFrames = currentTimeFrameLabel
+                    thisReport.file.timeFrames = currentTimeFrame.label
                     await thisReport.asyncSave()
                 }
 
-                async function writeMarketStatusReport(currentTimeFrameLabel) {
+                async function writeMarketStatusReport() {
                     let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME
                     thisReport.file.simulationState = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE
-                    thisReport.file.timeFrames = currentTimeFrameLabel
+                    thisReport.file.timeFrames = currentTimeFrame.label
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(tradingProcessDate)
                     await thisReport.asyncSave()

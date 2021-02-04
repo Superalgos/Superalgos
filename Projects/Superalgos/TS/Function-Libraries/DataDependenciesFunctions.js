@@ -5,6 +5,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
     data structures that will allow users to write conditions and formulas
     using these data structures.
     */
+    const MODULE_NAME = "Data Dependency Function"
 
     let thisObject = {
         processSingleFiles: processSingleFiles,
@@ -84,7 +85,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         }
     }
 
-    async function processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule) {
+    async function processMarketFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame) {
         /* 
         We do market files first since if the simulation is run on daily files, there will 
         be a loop to get each of those files and we do not need that loop to reload market files. 
@@ -111,8 +112,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
 
                     /* Current Time Frame detection */
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
-                        currentTimeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
-                        currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
+                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
                     }
 
                     /* Loop across the list of curated dependencies */
@@ -210,7 +211,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         return true
     }
 
-    async function processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, tradingProcessDate) {
+    async function processDailyFiles(processIndex, dataFiles, multiTimeFrameDataFiles, dataDependenciesModule, currentTimeFrame, tradingProcessDate) {
         /*  Telling the world we are alive and doing well and which date we are processing right now. */
         let processingDateString = tradingProcessDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2)
         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, processingDateString, undefined, "Running...")
@@ -243,8 +244,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     }
 
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label === timeFrameLabel) {
-                        currentTimeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
-                        currentTimeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
+                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
                     }
 
                     dataFiles = new Map()
@@ -334,6 +335,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
         processIndex,
         dataDependenciesModule,
         multiTimeFrameDataFiles,
+        currentTimeFrame,
         chart,
         market,
         exchange,
@@ -396,7 +398,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     let products = {}
 
                     if (dataFiles !== undefined && dataFiles.size > 0) {
-                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame.value)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         addProducs(propertyName, products)
@@ -410,7 +412,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     let products = {}
 
                     if (dataFiles !== undefined && dataFiles.size > 0) {
-                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame.value)
 
                         let propertyName = 'at' + timeFrameLabel.replace('-', '')
                         addProducs(propertyName, products)
@@ -423,7 +425,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     let products = {}
 
                     if (dataFiles !== undefined && dataFiles.size > 0) {
-                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame)
+                        TS.projects.superalgos.functionLibraries.singleMarketFunctions.inflateDatafiles(processIndex, dataFiles, dataDependencies, products, mainDependency, currentTimeFrame.value)
 
                         let propertyName = 'atAnyTimeFrame'
                         addProducs(propertyName, products)

@@ -310,7 +310,6 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         let currentDateString = heartBeatDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
                         let currentDate = new Date(heartBeatDate)
                         let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
-
                         /*
                         Theere are a few tasks that we need to do only when the date changes,
                         otherwise it would be suboptimal.

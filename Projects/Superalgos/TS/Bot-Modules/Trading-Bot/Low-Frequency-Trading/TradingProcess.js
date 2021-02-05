@@ -131,7 +131,7 @@
 
                 if (checkThereAreCandles() === true) {
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
-                    await generateOutput()
+                    await outputManagement()
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
                     await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, tradingProcessDate, statusDependencies)
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
@@ -190,7 +190,7 @@
                     */
                     if (checkThereAreCandles() === true) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
-                        await generateOutput()
+                        await outputManagement()
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
                         await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, tradingProcessDate, statusDependencies)
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
@@ -259,7 +259,7 @@
                 }
             }
 
-            async function generateOutput() {
+            async function outputManagement() {
                 await tradingOutputModuleObject.start(
                     chart,
                     market,

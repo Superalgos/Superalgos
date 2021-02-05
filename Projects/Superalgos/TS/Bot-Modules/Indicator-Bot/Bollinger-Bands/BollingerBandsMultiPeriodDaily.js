@@ -258,7 +258,7 @@
                     let n;
                     processDate = new Date(contextVariables.lastBandFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
                     let fromDate = new Date(processDate.valueOf())
-                    let lastDate = new Date()
+                    let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> buildBands -> processDate = " + processDate)

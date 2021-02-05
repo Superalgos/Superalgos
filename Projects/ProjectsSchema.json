@@ -454,6 +454,12 @@
                     "propertyName": "processFilesFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
                     "fileName": "ProcessFilesFunctions.js"
+                },
+                {
+                    "name": "Output Management Functions",
+                    "propertyName": "outputManagementFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesOutputManagementFunctions",
+                    "fileName": "OutputManagementFunctions.js"
                 }
             ],
             "utilities": [

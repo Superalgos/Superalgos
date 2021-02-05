@@ -4,12 +4,13 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
     process context variables before you do your work, and to save the 
     process files once you are done.
     */
-    const MODULE_NAME = "Process Files Function"
+    const MODULE_NAME = "Process Files Functions"
 
     let thisObject = {
         getContextVariables: getContextVariables,
         writeProcessFiles: writeProcessFiles
     }
+    return thisObject
 
     function getContextVariables(processIndex, contextVariables, statusDependencies, initialDatetime, callBackFunction) {
         try {
@@ -222,5 +223,4 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
             await thisReport.asyncSave()
         }
     }
-    return thisObject
 }

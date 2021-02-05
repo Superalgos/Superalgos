@@ -1,4 +1,4 @@
-# Getting Started Guide
+# Superalgos Beta 9 - Getting Started Guide
 
 All procedures are the same for Windows, Linux, or Mac OS.
 
@@ -72,6 +72,8 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
+Ok, you have installed Superalgos. To run the App, jump to the section Usage below.
+
 ## Instalation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
@@ -84,13 +86,13 @@ git clone https://github.com/John/Superalgos
 
 # Usage
 
-![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
-
 **1.** To run the Superalgos client, go to the Superalgos directory/folder and run this command: 
 
 ```
 node run
 ```
+
+![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 
 **2.** The command launches your default browser to load the UI. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
 
@@ -104,13 +106,13 @@ node run
 
 # Uninstall
 
-Superalgos writes nothing out of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder. 
+Superalgos writes nothing outside of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder. 
 
 # Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
-![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
+![welcome-tutorial-00](https://user-images.githubusercontent.com/13994516/107038771-4a6bf100-67bd-11eb-92e0-353525a972a9.gif)
 
  **NOTE:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
 
@@ -244,7 +246,7 @@ Subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UC
 
 ## In-App Tutorials
 
-There are many interactive tutorials you can use to learn from.
+There are many interactive tutorials you may do and learn from.
 
 # Other Resources
 
@@ -254,9 +256,13 @@ For an overview of what Superalgos can do for you, check the [Superalgos Website
 
 ## Telegram
 
+For official news, join the [Superalgos Announcements Channel](https://t.me/superalgos).
+
 Meet other users in the [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
 
-Meet the developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+
+Meet designers in the [Superalgos Telegram UX/UI Group](https://t.me/superalgosuxui).
 
 Spanish speaking users hang out in the [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
 
@@ -274,7 +280,7 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 # Contributing
 
-Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://superalgos.org/community-contribute.shtml).
 
 ## Top Contributors 
 

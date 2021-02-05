@@ -111,13 +111,15 @@ function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
             let fordwardTestingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Trading Session')
-            let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Session')
+            let backLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Back Learning Session')
+            let liveLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Learning Session')
 
             scanSessionArray(backtestingSessionsArray)
             scanSessionArray(fordwardTestingSessionsArray)
             scanSessionArray(paperTradingSessionsArray)
             scanSessionArray(liveTradingSessionsArray)
-            scanSessionArray(learningSessionsArray)
+            scanSessionArray(backLearningSessionsArray)
+            scanSessionArray(liveLearningSessionsArray)
 
             function scanSessionArray(sessionsArray) {
                 for (let i = 0; i < sessionsArray.length; i++) {

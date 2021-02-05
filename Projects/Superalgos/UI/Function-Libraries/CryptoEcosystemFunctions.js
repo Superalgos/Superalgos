@@ -331,8 +331,11 @@ function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
                             UI.projects.superalgos.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
 
                             /* This will be needed at the charting space, for creating Dashboards */
-                            let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketLearningTask, 'Learning Session')
-                            learningSessionsCreatedArray = learningSessionsCreatedArray.concat(learningSessionsArray)
+                            let backLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketLearningTask, 'Back Learning Session')
+                            let liveLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(marketLearningTask, 'Live Learning Session')
+                            learningSessionsCreatedArray = learningSessionsCreatedArray
+                                .concat(backLearningSessionsArray)
+                                .concat(liveLearningSessionsArray)
                         }
                     }
 

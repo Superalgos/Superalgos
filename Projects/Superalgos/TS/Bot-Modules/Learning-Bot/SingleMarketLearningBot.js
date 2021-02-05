@@ -1,8 +1,8 @@
-﻿exports.newSuperalgosBotModulesSingleMarketTradingBot = function (processIndex) {
+﻿exports.newSuperalgosBotModulesSingleMarketLearningBot = function (processIndex) {
 
-    const MODULE_NAME = "Single Market Trading Bot";
+    const MODULE_NAME = "Single Market Learning Bot";
 
-    let session = TS.projects.superalgos.botModules.tradingSession.newSuperalgosBotModulesTradingSession(processIndex)
+    let session = TS.projects.superalgos.botModules.learningSession.newSuperalgosBotModulesLearningSession(processIndex)
     let nextLoopTimeoutHandle;
 
     let thisObject = {
@@ -280,8 +280,8 @@
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[INFO] run -> loop -> initializeDataDependencies -> onInizialized -> Execution finished well.")
                                             switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
-                                                case 'Low-Frequency-Trading-Process': {
-                                                    processFramework = TS.projects.superalgos.botModules.tradingProcess.newSuperalgosBotModulesTradingProcess(processIndex);
+                                                case 'Low-Frequency-Learning-Process': {
+                                                    processFramework = TS.projects.superalgos.botModules.learningProcess.newSuperalgosBotModulesLearningProcess(processIndex);
                                                     startProcessFramework();
                                                     break;
                                                 }
@@ -517,19 +517,11 @@
                                         waitTime = 0
                                     } else {
                                         switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                                            case 'Live Trading Session': {
-                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
+                                            case 'Live Learning Session': {
+                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeFrame.config.value
                                                 break
                                             }
-                                            case 'Fordward Tessting Session': {
-                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
-                                                break
-                                            }
-                                            case 'Paper Trading Session': {
-                                                waitTime = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
-                                                break
-                                            }
-                                            case 'Backtesting Session': {
+                                            case 'Back Learning Session': {
                                                 waitTime = 0
                                                 break
                                             }

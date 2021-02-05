@@ -228,7 +228,7 @@
             function buildCandles() {
                 try {
                     let fromDate = new Date(contextVariables.lastCandleFile.valueOf())
-                    let lastDate = new Date()
+                    let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
                     let outputCandles
                     let outputVolumes
 

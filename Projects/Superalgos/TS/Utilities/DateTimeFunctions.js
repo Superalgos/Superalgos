@@ -14,9 +14,9 @@ exports.newSuperalgosUtilitiesDateTimeFunctions = function () {
     }
 
     function getPercentage(fromDate, currentDate, lastDate) {
-        let fromDays = Math.trunc(fromDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
-        let currentDays = Math.trunc(currentDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
-        let lastDays = Math.trunc((lastDate.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+        let fromDays = fromDate.valueOf()
+        let currentDays = currentDate.valueOf()
+        let lastDays = lastDate.valueOf()
         let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
         if ((lastDays - fromDays) === 0) {
             percentage = 100

@@ -123,7 +123,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->Project Definition->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
-            'Learning Session->' +
+            'Back Learning Session->Live Learning Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -171,7 +171,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Task Manager->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Learning Session->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Back Learning Session->Live Learning Session->' +
             'Market->' +
             'Process Definition->'
 
@@ -719,23 +719,28 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
 
         function addDataTasks() {
-            addTaskForTradinSystem()
+            addTasks()
         }
 
         function addLearningTasks() {
-            addTaskForTradinSystem()
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
+                if (rootNode.type === 'Learning System') {
+                    addTasks(rootNode)
+                }
+            }
         }
 
         function addTradingTasks() {
             for (let i = 0; i < rootNodes.length; i++) {
                 let rootNode = rootNodes[i]
                 if (rootNode.type === 'Trading System') {
-                    addTaskForTradinSystem(rootNode)
+                    addTasks(rootNode)
                 }
             }
         }
 
-        function addTaskForTradinSystem(tradingSystem) {
+        function addTasks(systemNode) {
             let mine = node.payload.referenceParent
 
             addTasksForBotArray(mine.sensorBots)
@@ -751,8 +756,8 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
                     let task = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
-                    if (tradingSystem !== undefined) {
-                        task.name = tradingSystem.name
+                    if (systemNode !== undefined) {
+                        task.name = systemNode.name
                     } else {
                         task.name = bot.name
                     }
@@ -833,7 +838,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                         if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
                                             let tradingEngine = rootNode
                                             session.tradingEngineReference.payload.referenceParent = tradingEngine
-                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                            session.tradingSystemReference.payload.referenceParent = systemNode
                                         }
                                     }
                                 }
@@ -842,9 +847,26 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                 processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
                                 processInstance.payload.referenceParent = process
 
+                                if (node.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+
+                                let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
                                 let session
 
-                                addSession('Learning Session')
+                                switch (environment.type) {
+                                    case 'Testing Learning Tasks': {
+                                        addSession('Backtesting Session')
+                                        break
+                                    }
+                                    case 'Production Learning Tasks': {
+                                        addSession('Live Learning Session')
+                                        break
+                                    }
+                                }
                                 break
 
                                 function addSession(sessionType) {
@@ -856,10 +878,10 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
                                     for (let m = 0; m < rootNodes.length; m++) {
                                         let rootNode = rootNodes[m]
-                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
-                                            let tradingEngine = rootNode
-                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
-                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                        if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {
+                                            let learningEngine = rootNode
+                                            session.learningEngineReference.payload.referenceParent = learningEngine
+                                            session.learningSystemReference.payload.referenceParent = systemNode
                                         }
                                     }
                                 }

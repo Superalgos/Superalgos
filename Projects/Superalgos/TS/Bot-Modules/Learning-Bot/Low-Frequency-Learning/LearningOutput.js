@@ -1,9 +1,9 @@
-exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
+exports.newSuperalgosBotModulesLearningOutput = function (processIndex) {
     /*
     This module will load if necesary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
     */
-    const MODULE_NAME = 'Trading Output'
+    const MODULE_NAME = 'Learning Output'
 
     let thisObject = {
         start: start
@@ -17,7 +17,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
         exchange,
         timeFrame,
         timeFrameLabel,
-        tradingProcessDate
+        learningProcessDate
     ) {
         try {
             let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
@@ -29,7 +29,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
             }
 
             /* Preparing everything for the Simulation */
-            let tradingSimulationModuleObject = TS.projects.superalgos.botModules.tradingSimulation.newSuperalgosBotModulesTradingSimulation(processIndex)
+            let learningSimulationModuleObject = TS.projects.superalgos.botModules.learningSimulation.newSuperalgosBotModulesLearningSimulation(processIndex)
 
             let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
@@ -39,11 +39,11 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
                 outputDatasets,
                 outputDatasetsMap,
                 timeFrameLabel,
-                tradingProcessDate,
+                learningProcessDate,
                 fileStorage
             )
 
-            await tradingSimulationModuleObject.runSimulation(
+            await learningSimulationModuleObject.runSimulation(
                 chart,
                 market,
                 exchange,
@@ -51,7 +51,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
                 writeOutputFiles
             )
 
-            tradingSimulationModuleObject.finalize()
+            learningSimulationModuleObject.finalize()
             return
 
             function writeOutputFiles() {
@@ -60,7 +60,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
                     outputDatasets,
                     outputDatasetsMap,
                     timeFrameLabel,
-                    tradingProcessDate,
+                    learningProcessDate,
                     fileStorage
                 )
             }

@@ -389,7 +389,7 @@
 
                 try {
                     let fromDate = new Date(contextVariables.lastCandleFile.valueOf())
-                    let lastDate = new Date()
+                    let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
                     /*
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
                     */

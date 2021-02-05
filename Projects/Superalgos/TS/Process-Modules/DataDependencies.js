@@ -113,8 +113,10 @@
                 we need to add the default exchange and market to these maps in order
                 for the following sections to work.
                 */
+                thisObject.filters.market.list.set(thisObject.defaultMarket, true)
+
                 thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
-                thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defautMarket, true)
+                thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defaultMarket, true)
             }
             /*
              For each dependency declared at the curatedDependencyNodeArray, we will initialize a 

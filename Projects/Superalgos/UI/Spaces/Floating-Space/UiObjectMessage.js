@@ -141,7 +141,7 @@ function newUiObjectMessage() {
         } else {
             backgroundColor = UI.projects.superalgos.spaces.floatingSpace.style.backgroundColor
             borderColor = color
-            lineWidth = 0.5
+            lineWidth = 0
         }
 
         let params = {

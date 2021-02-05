@@ -234,7 +234,7 @@
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME =
                     new Date(contextVariables.lastFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
                 let fromDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf())
-                let lastDate = new Date()
+                let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
 
                 advanceTime()
 

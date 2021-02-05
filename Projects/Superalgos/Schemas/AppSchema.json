@@ -2740,8 +2740,16 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Learning Session",
-                "relatedUiObject": "Learning Session",
+                "label": "Add Back Learning Session",
+                "relatedUiObject": "Back Learning Session",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Live Learning Session",
+                "relatedUiObject": "Live Learning Session",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2779,7 +2787,12 @@
             {
                 "name": "session",
                 "type": "node",
-                "childType": "Learning Session"
+                "childType": "Back Learning Session"
+            },
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Live Learning Session"
             },
             {
                 "name": "executionStartedEvent",
@@ -2936,6 +2949,31 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Learning Engine",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Dynamic Indicators",
@@ -9539,7 +9577,7 @@
         "addLeftIcons": true,
         "level": 2,
         "attachingRules": {
-            "compatibleTypes": "->Learning Session->"
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
         },
         "childrenNodesProperties": [
             {
@@ -9614,6 +9652,60 @@
             "compatibleTypes": "->Trading Engine->"
         },
         "propertyNameAtParent": "tradingEngineReference"
+    },
+    {
+        "type": "Learning System Reference",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "attachingRules": {
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+        },
+        "referencingRules": {
+            "compatibleTypes": "->Learning System->"
+        },
+        "propertyNameAtParent": "learningSystemReference",
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Learning Engine Reference",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "attachingRules": {
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+        },
+        "referencingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "learningEngineReference",
+        "icon": "bitcoin"
     },
     {
         "type": "Session Base Asset",
@@ -10398,7 +10490,7 @@
         "propertyNameAtParent": "session"
     },
     {
-        "type": "Learning Session",
+        "type": "Back Learning Session",
         "menuItems": [
             {
                 "action": "Run Learning Session",
@@ -10496,7 +10588,110 @@
                 "childType": "Social Bots"
             }
         ],
-        "propertyNameAtParent": "session"
+        "propertyNameAtParent": "session",
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Live Learning Session",
+        "menuItems": [
+            {
+                "action": "Run Learning Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Learning Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Resume Learning Session",
+                "label": "Resume",
+                "workingLabel": "Resume Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Resumed",
+                "secondaryAction": "Stop Learning Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Trading Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
+        },
+        "level": 2,
+        "referencingRules": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Learning Process Instance->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "learningParameters",
+                "type": "node",
+                "childType": "Learning Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "tradingSystemReference",
+                "type": "node",
+                "childType": "Trading System Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "tradingEngineReference",
+                "type": "node",
+                "childType": "Trading Engine Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session",
+        "icon": "bitcoin"
     },
     {
         "type": "Sensor Bot Instance",
@@ -12064,6 +12259,25 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Learning System",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Trading Strategy",
@@ -13684,7 +13898,7 @@
         "addLeftIcons": true,
         "level": 4,
         "attachingRules": {
-            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Learning Session->"
+            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Back Learning Session->Live Learning Session->"
         },
         "childrenNodesProperties": [
             {
@@ -17289,7 +17503,7 @@
         "level": 3,
         "alternativeIcons": "Use Reference Parent",
         "referencingRules": {
-            "compatibleTypes": "->Learning Session->"
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
         },
         "attachingRules": {
             "compatibleTypes": "->Market Learning Products->"

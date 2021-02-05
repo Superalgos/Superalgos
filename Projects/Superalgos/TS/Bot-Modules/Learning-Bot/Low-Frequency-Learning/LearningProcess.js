@@ -1,9 +1,9 @@
-﻿exports.newSuperalgosBotModulesTradingProcess = function (processIndex) {
+﻿exports.newSuperalgosBotModulesLearningProcess = function (processIndex) {
     /*
     This Module will load all the process data dependencies from files and send them downstream.
     After execution, will save the time range and status report of the process.
     */
-    const MODULE_NAME = "Trading Process"
+    const MODULE_NAME = "Learning Process"
 
     thisObject = {
         start: start
@@ -16,8 +16,8 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.tradingEngine.newSuperalgosBotModulesTradingEngine(processIndex)
-            let tradingOutputModuleObject = TS.projects.superalgos.botModules.tradingOutput.newSuperalgosBotModulesTradingOutput(processIndex)
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.superalgos.botModules.learningEngine.newSuperalgosBotModulesLearningEngine(processIndex)
+            let learningOutputModuleObject = TS.projects.superalgos.botModules.learningOutput.newSuperalgosBotModulesLearningOutput(processIndex)
 
             let currentTimeFrame = {}
 
@@ -33,44 +33,44 @@
                     processIndex,
                     contextVariables,
                     statusDependencies,
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime,
+                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeRange.config.initialDatetime,
                     callBackFunction
                 ) !== true) { return }
 
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
-                Here is where the Trading Engine and Trading Systems received are moved to the simulation state.
+                Here is where the Learning Engine and Learning Systems received are moved to the simulation state.
                 */
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningSystem = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE
             }
 
-            /* We set up the Trading Engine Module. */
+            /* We set up the Learning Engine Module. */
             TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initialize()
 
-            /* Initializing the Trading Process Date */
+            /* Initializing the Learning Process Date */
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 /* 
-                This funcion is going to be called many times by the Trading Bot Loop.
+                This funcion is going to be called many times by the Learning Bot Loop.
                 Only during the first execution and when the User is not resuming the execution
                 of a stopped session / task; we are going to initialize the Process Date Time.
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value =
-                    TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.current.episode.processDate.value =
+                    TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeRange.config.initialDatetime).valueOf()
             }
 
             /* 
-            This is the Date that is going to be used across the execution of this Trading Process. 
+            This is the Date that is going to be used across the execution of this Learning Process. 
             We need this because it has a different life cycle than the processData stored at the 
-            Trading Engine data structure. This date has to remain the same during the whole execution
-            of the Trading Process until the end, inclusind the writting of Data Ranges and Status Reports.
-            The processDate of the Trading Engine data structure on the other hand can be changed during
+            Learning Engine data structure. This date has to remain the same during the whole execution
+            of the Learning Process until the end, inclusind the writting of Data Ranges and Status Reports.
+            The processDate of the Learning Engine data structure on the other hand can be changed during
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
+            let learningProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.current.episode.processDate.value)
 
             if (
                 await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processSingleFiles(
@@ -90,9 +90,9 @@
                 multiTimeFrameDataFiles,
                 dataDependenciesModule,
                 currentTimeFrame,
-                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label,
-                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime,
-                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.finalDatetime
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeFrame.config.label,
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeRange.config.initialDatetime,
+                TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeRange.config.finalDatetime
             ) === false) {
                 TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -133,7 +133,7 @@
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
                     await outputManagement()
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
-                    await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, tradingProcessDate, statusDependencies)
+                    await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, learningProcessDate, statusDependencies)
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
                 } else {
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
@@ -146,12 +146,12 @@
                 do {
                     TS.projects.superalgos.functionLibraries.sessionFunctions.emitSessionStatus(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS, TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY)
                     /* 
-                    We update the Trading Process Date with the date calculated at the simulation.
+                    We update the Learning Process Date with the date calculated at the simulation.
                     We will use this date to load indicator and output files. After that we will 
                     use it to save Output Files and later the Data Ranges. This is the point where
-                    the date calculated by the Simulation is applied at the Trading Process Level.
+                    the date calculated by the Simulation is applied at the Learning Process Level.
                     */
-                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
+                    learningProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.current.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -164,8 +164,8 @@
                             multiTimeFrameDataFiles,
                             dataDependenciesModule,
                             currentTimeFrame,
-                            TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.label,
-                            tradingProcessDate
+                            TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.timeFrame.config.label,
+                            learningProcessDate
                         ) === false) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be run')
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -186,13 +186,13 @@
                         callBackFunction
                     )
                     /*
-                    The process of generating the output includes the trading simulation.
+                    The process of generating the output includes the learning simulation.
                     */
                     if (checkThereAreCandles() === true) {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Running')
                         await outputManagement()
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Saving')
-                        await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, tradingProcessDate, statusDependencies)
+                        await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, learningProcessDate, statusDependencies)
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
                     } else {
                         TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be up to date')
@@ -222,7 +222,7 @@
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
             function checkThereAreCandles() {
-                let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
+                let sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
 
@@ -240,7 +240,7 @@
                 indicators to be built and continue the processing once this process is called
                 again. 
                 */
-                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.current.episode.headOfTheMarket.value === true) {
                     return false
                 }
             }
@@ -260,13 +260,13 @@
             }
 
             async function outputManagement() {
-                await tradingOutputModuleObject.start(
+                await learningOutputModuleObject.start(
                     chart,
                     market,
                     exchange,
                     currentTimeFrame.value,
                     currentTimeFrame.label,
-                    tradingProcessDate
+                    learningProcessDate
                 )
 
                 /*

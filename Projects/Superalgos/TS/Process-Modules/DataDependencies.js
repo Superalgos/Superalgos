@@ -198,7 +198,13 @@
                         let product = dataDependency.referenceParent.parentNode.config.singularVariableName
 
                         if (thisObject.filters.exchange.products.get(exchange + '-' + market + '-' + product) !== true) {
-                            continue
+                            /*
+                            We will filter out all the data dependencies which are not at the filters, except for candles, 
+                            because we will need the candles dataset to run the simulation.
+                            */
+                            if (dataDependency.referenceParent.parentNode.config.codeName !== 'Candles') {
+                                continue
+                            }                            
                         }
                         addDataSet(exchange, market)
                     } else {

@@ -136,7 +136,7 @@
                     await TS.projects.superalgos.functionLibraries.processFilesFunctions.writeProcessFiles(processIndex, contextVariables, currentTimeFrame, learningProcessDate, statusDependencies)
                     TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Sleeping')
                 } else {
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found at.')
+                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionHeartBeat(processIndex, undefined, undefined, 'Waiting for Data Mining to be up to date. No candles found.')
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
@@ -226,7 +226,7 @@
                 let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
                 let candles = chart[propertyName].candles
 
-                if (candles.length === 0) {
+                if (candles === undefined || candles.length === 0) {
                     return false
                 } else {
                     return true

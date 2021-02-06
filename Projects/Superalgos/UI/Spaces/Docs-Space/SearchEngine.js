@@ -17,8 +17,8 @@ function newSuperalgosDocsSearchEngine() {
     }
 
     function setUpSearchEngine(callbackFunction) {
-        callbackFunction()
-        return
+        //callbackFunction()
+        //return
 
         let totalAsyncCallsMade = 0
         let totalAsyncCallsFinished = 0
@@ -32,19 +32,20 @@ function newSuperalgosDocsSearchEngine() {
             let documentIndex
 
             totalAsyncCallsMade++
-            setTimeout(searchInNodes, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInConcepts, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInNTopics, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInTutorials, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInReviews, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInBooks, 0) 
             totalAsyncCallsMade++
-            setTimeout(searchInWorkspaces, 0) 
+
+            setTimeout(searchInNodes, 10) 
+            setTimeout(searchInConcepts, 20) 
+            setTimeout(searchInNTopics, 30) 
+            setTimeout(searchInTutorials, 40) 
+            setTimeout(searchInReviews, 50) 
+            setTimeout(searchInBooks, 60) 
+            setTimeout(searchInWorkspaces, 70) 
 
             function searchInNodes() {
                 /* Search in Nodes */

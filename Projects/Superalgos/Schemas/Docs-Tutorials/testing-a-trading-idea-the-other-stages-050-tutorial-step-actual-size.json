@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "actual-size"
         },
-        "text": "What happens if the actual rate of the order is different than the rate established as a target? Recalculation time!"
+        "text": "What happens if the actual rate of the order is different than the rate established as a target? Time for the bot to do some calculations!",
+        "updated": 1612715192513
     },
     "paragraphs": [
         {
@@ -16,7 +17,8 @@
         },
         {
             "style": "Callout",
-            "text": "Check the warning in the Actual Size node!"
+            "text": "Point to the second warning on Feb 28th and read!",
+            "updated": 1612715290308
         },
         {
             "style": "Note",

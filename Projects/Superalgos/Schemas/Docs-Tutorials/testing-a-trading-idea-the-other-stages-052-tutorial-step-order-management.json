@@ -16,11 +16,13 @@
         },
         {
             "style": "Callout",
-            "text": "If you wish to get to the bone on this matter, you should read this whole Order Management section of the Documentation."
+            "text": "If you wish to get to the bone on this matter, you should read the twelve pages on the Order Management topic of the Documentation.",
+            "updated": 1612715667430
         },
         {
             "style": "Success",
-            "text": "You don't need to read it now, but feel free to dive into it if so you wish! We'll get back to these pages later on!"
+            "text": "You don't need to read it now, but feel free to dive into it if so you wish! ",
+            "updated": 1612715638597
         }
     ]
 }

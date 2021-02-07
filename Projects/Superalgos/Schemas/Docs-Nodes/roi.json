@@ -35,7 +35,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.ROI.value =\n    tradingEngine.current.episode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.episode.episodeQuotedAsset.ROI.value =\n    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value * 100",
+            "text": "tradingEngine.tradingCurrent.episode.episodeBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.episode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.episode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.episode.episodeQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.episode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.episode.episodeQuotedAsset.beginBalance.value * 100",
             "updated": 1611332768337
         },
         {
@@ -53,7 +53,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.position.positionBaseAsset.ROI.value =\n    tradingEngine.current.position.positionBaseAsset.profitLoss.value * 100 /\n    tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value\n    \ntradingEngine.current.position.positionQuotedAsset.ROI.value =\n    tradingEngine.current.position.positionQuotedAsset.profitLoss.value * 100 /\n    tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value",
+            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value * 100 /\n    tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value\n    \ntradingEngine.current.position.positionQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value * 100 /\n    tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value",
             "updated": 1611332799800
         },
         {
@@ -71,7 +71,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.episode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.current.episode.endRate.value +\n        tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.current.episode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.current.episode.beginRate.value +\n        tradingEngine.current.episode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
+            "text": "tradingEngine.tradingCurrent.episode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.episode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.episode.endRate.value +\n        tradingEngine.tradingCurrent.episode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.episode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.episode.beginRate.value +\n        tradingEngine.tradingCurrent.episode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
             "updated": 1611332824026
         },
         {

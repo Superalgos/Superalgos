@@ -16,7 +16,7 @@
         },
         {
             "style": "Text",
-            "text": "The following string should end up in your clipboard:<br/>tradingEngine.current.episode.<br/>episodeBaseAsset.balance.value"
+            "text": "The following string should end up in your clipboard:<br/>tradingEngine.tradingCurrent.episode.<br/>episodeBaseAsset.balance.value"
         },
         {
             "style": "Note",

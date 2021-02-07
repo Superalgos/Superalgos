@@ -60,7 +60,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value",
+            "text": "tradingEngineOrder.rate.value = tradingEngine.tradingCurrent.episode.candle.close.value",
             "updated": 1610220056132
         },
         {
@@ -209,7 +209,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.episode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.size.value => 0",
+            "text": "tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.size.value => 0",
             "updated": 1610220335526
         },
         {

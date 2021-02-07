@@ -57,7 +57,7 @@
                 This variable tell us which day we are standing at, specially while working
                 with Daily Files. From this Date is that we are going to load the Daily Files.
                 */
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value =
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.episode.processDate.value =
                     TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeRange.config.initialDatetime).valueOf()
             }
 
@@ -70,7 +70,7 @@
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
             */
-            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
+            let tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.episode.processDate.value)
 
             if (
                 await TS.projects.superalgos.functionLibraries.dataDependenciesFunctions.processSingleFiles(
@@ -151,7 +151,7 @@
                     use it to save Output Files and later the Data Ranges. This is the point where
                     the date calculated by the Simulation is applied at the Trading Process Level.
                     */
-                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.processDate.value)
+                    tradingProcessDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.episode.processDate.value)
 
                     if (checkStopTaskGracefully() === false) { break }
                     if (checkStopProcessing() === false) { break }
@@ -240,7 +240,7 @@
                 indicators to be built and continue the processing once this process is called
                 again. 
                 */
-                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.episode.headOfTheMarket.value === true) {
                     return false
                 }
             }

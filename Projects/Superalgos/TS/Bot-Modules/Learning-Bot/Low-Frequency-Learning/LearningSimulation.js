@@ -55,7 +55,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                 let dailyCandles = []
                 for (let i = 0; i < candles.length; i++) {
                     let candle = candles[i]
-                    if (candle.begin >= TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.current.episode.processDate.value) {
+                    if (candle.begin >= TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.learningCurrent.episode.processDate.value) {
                         dailyCandles.push(candle)
                     }
                 }
@@ -99,7 +99,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                 In this case we already have at the last candle index the next candle to be
                 processed. We will just continue with this candle.
                 */
-                initialCandle = learningEngine.current.episode.candle.index.value
+                initialCandle = learningEngine.learningCurrent.episode.candle.index.value
             }
             /*
             Main Simulation Loop
@@ -113,7 +113,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
             loop is not empty, then the lascCandle() check will override this value
             depending on if we really are at the head of the market or not.
             */
-            learningEngine.current.episode.headOfTheMarket.value = true
+            learningEngine.learningCurrent.episode.headOfTheMarket.value = true
             /*
             This is the main simulation loop. It will go through the initial candle
             until one less than the last candle available. We will never process the last
@@ -121,10 +121,10 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
             that still can change. So effectively will be processing all closed candles. 
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                learningEngine.current.episode.candle.index.value = i
+                learningEngine.learningCurrent.episode.candle.index.value = i
 
                 /* This is the current candle the Simulation is working at. */
-                let candle = candles[learningEngine.current.episode.candle.index.value]
+                let candle = candles[learningEngine.learningCurrent.episode.candle.index.value]
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
@@ -210,7 +210,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     learningEpisodeModuleObject.reset()
                     TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.reset()
 
-                    let infoMessage = 'Processing candle # ' + learningEngine.current.episode.candle.index.value + ' @ the ' + learningEngine.current.episode.cycle.value + ' cycle.'
+                    let infoMessage = 'Processing candle # ' + learningEngine.learningCurrent.episode.candle.index.value + ' @ the ' + learningEngine.learningCurrent.episode.cycle.value + ' cycle.'
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> loop -> ' + infoMessage)
 
@@ -222,8 +222,8 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     }
 
                     contextInfo = {
-                        candleIndex: learningEngine.current.episode.candle.index.value,
-                        cycle: learningEngine.current.episode.cycle.value
+                        candleIndex: learningEngine.learningCurrent.episode.candle.index.value,
+                        cycle: learningEngine.learningCurrent.episode.cycle.value
                     }
                     TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
@@ -302,7 +302,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
                         /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                        heartBeatDate = new Date(Math.trunc(learningEngine.current.episode.candle.begin.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        heartBeatDate = new Date(Math.trunc(learningEngine.learningCurrent.episode.candle.begin.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
@@ -320,7 +320,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                             let processingDate = heartBeatDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + learningEngine.current.episode.candle.index.value + ' @ ' + processingDate)
+                                '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + learningEngine.learningCurrent.episode.candle.index.value + ' @ ' + processingDate)
 
                             /*  Logging to console and disk */
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
@@ -344,7 +344,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                             if (sessionParameters.heartbeats.config.date === true) {
                                 hartbeatText = hartbeatText + currentDateString
                             }
-                            hartbeatText = hartbeatText + ' Candle # ' + learningEngine.current.episode.candle.index.value
+                            hartbeatText = hartbeatText + ' Candle # ' + learningEngine.learningCurrent.episode.candle.index.value
                             TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                         }
                     }
@@ -448,15 +448,15 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     for (let i = 0; i < pArray.length; i++) {
                         element = pArray[i]
 
-                        if (learningEngine.current.episode.candle.end.value === element.end) { // when there is an exact match at the end we take that element
+                        if (learningEngine.learningCurrent.episode.candle.end.value === element.end) { // when there is an exact match at the end we take that element
                             return element
                         } else {
                             if (
                                 i > 0 &&
-                                element.end > learningEngine.current.episode.candle.end.value
+                                element.end > learningEngine.learningCurrent.episode.candle.end.value
                             ) {
                                 let previousElement = pArray[i - 1]
-                                if (previousElement.end < learningEngine.current.episode.candle.end.value) {
+                                if (previousElement.end < learningEngine.learningCurrent.episode.candle.end.value) {
                                     return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
                                 } else {
                                     return
@@ -485,7 +485,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                 The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
                 last candle of the dataset available.)
                 */
-                if (learningEngine.current.episode.candle.index.value + 1 + 1 === candles.length) {
+                if (learningEngine.learningCurrent.episode.candle.index.value + 1 + 1 === candles.length) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
                     That mechanism is the one implemented here. If we detect that the next candle is the last candle of 
@@ -495,7 +495,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     let candlesPerDay = TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
-                        learningEngine.current.episode.candle.index.value + 1 + 1 === candlesPerDay
+                        learningEngine.learningCurrent.episode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*
                         Here we found that the next candle of the dataset is the last candle of the day.
@@ -504,9 +504,9 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                         the first candle of the new dataset we shall receive. The first candle of the next day starts
                         at index 0, so we will position the index now at zero.
                         */
-                        learningEngine.current.episode.candle.index.value = 0
-                        learningEngine.current.episode.processDate.value =
-                            learningEngine.current.episode.processDate.value + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                        learningEngine.learningCurrent.episode.candle.index.value = 0
+                        learningEngine.learningCurrent.episode.processDate.value =
+                            learningEngine.learningCurrent.episode.processDate.value + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                         return false
                     }
 
@@ -516,21 +516,21 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     next execution it will likely have more candles at the dataset. And if it does not, 
                     it will just wait there until it does.
                     */
-                    learningEngine.current.episode.headOfTheMarket.value = true
-                    learningEngine.current.episode.candle.index.value++
+                    learningEngine.learningCurrent.episode.headOfTheMarket.value = true
+                    learningEngine.learningCurrent.episode.candle.index.value++
                     return false
                 } else {
 
                     /* Wd did not reach the head of the market */
-                    learningEngine.current.episode.headOfTheMarket.value = false
-                    learningEngine.current.episode.candle.index.value++
+                    learningEngine.learningCurrent.episode.headOfTheMarket.value = false
+                    learningEngine.learningCurrent.episode.candle.index.value++
                     return true
                 }
             }
 
             function checkInitialDatetime() {
                 /* Here we check that the current candle is not before the initial datetime defined at the session parameters.*/
-                if (learningEngine.current.episode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
+                if (learningEngine.learningCurrent.episode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
                     return false
@@ -540,7 +540,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
             function checkFinalDatetime() {
                 /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters.*/
-                if (learningEngine.current.episode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
+                if (learningEngine.learningCurrent.episode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.')
                     return false
@@ -551,17 +551,17 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
             function checkMinimunAndMaximunBalance() {
                 /* Checks for Minimun and Maximun Balance. We do the check while not inside any strategy only. */
                 if (
-                    learningEngine.current.strategy.index.value === learningEngine.current.strategy.index.config.initialValue
+                    learningEngine.learningCurrent.strategy.index.value === learningEngine.learningCurrent.strategy.index.config.initialValue
                 ) {
                     /*
                     We will perform this check only when we are not inside a position,
                     because there the balances have shifted from their resting position.
                     */
 
-                    let stopRunningDate = (new Date(learningEngine.current.episode.candle.begin.value)).toUTCString()
+                    let stopRunningDate = (new Date(learningEngine.learningCurrent.episode.candle.begin.value)).toUTCString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                        if (learningEngine.current.episode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                        if (learningEngine.learningCurrent.episode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
 
                             let docs = {
@@ -573,7 +573,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                             let contextInfo = {
                                 timestamp: stopRunningDate,
-                                episodeBaseAssetBalance: learningEngine.current.episode.episodeBaseAsset.balance.value,
+                                episodeBaseAssetBalance: learningEngine.learningCurrent.episode.episodeBaseAsset.balance.value,
                                 sessionBaseAssetMinimumBalance: sessionParameters.sessionBaseAsset.config.minimumBalance
                             }
 
@@ -587,7 +587,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     }
 
                     if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
-                        if (learningEngine.current.episode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
+                        if (learningEngine.learningCurrent.episode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
 
                             let docs = {
@@ -599,7 +599,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                             let contextInfo = {
                                 timestamp: stopRunningDate,
-                                episodeBaseAssetBalance: learningEngine.current.episode.episodeBaseAsset.balance.value,
+                                episodeBaseAssetBalance: learningEngine.learningCurrent.episode.episodeBaseAsset.balance.value,
                                 sessionBaseAssetMaximumBalance: sessionParameters.sessionBaseAsset.config.maximumBalance
                             }
 
@@ -613,7 +613,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
-                        if (learningEngine.current.episode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
+                        if (learningEngine.learningCurrent.episode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
 
                             let docs = {
@@ -625,7 +625,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                             let contextInfo = {
                                 timestamp: stopRunningDate,
-                                episodeQuotedAssetBalance: learningEngine.current.episode.episodeQuotedAsset.balance.value,
+                                episodeQuotedAssetBalance: learningEngine.learningCurrent.episode.episodeQuotedAsset.balance.value,
                                 sessionQuotedAssetMinimumBalance: sessionParameters.sessionQuotedAsset.config.minimumBalance
                             }
 
@@ -639,7 +639,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     }
 
                     if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
-                        if (learningEngine.current.episode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
+                        if (learningEngine.learningCurrent.episode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
                             const errorMessage = 'Max Balance reached @ ' + stopRunningDate
 
                             let docs = {
@@ -651,7 +651,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                             let contextInfo = {
                                 timestamp: stopRunningDate,
-                                episodeQuotedAssetBalance: learningEngine.current.episode.episodeQuotedAsset.balance.value,
+                                episodeQuotedAssetBalance: learningEngine.learningCurrent.episode.episodeQuotedAsset.balance.value,
                                 sessionQuotedAssetMaximumBalance: sessionParameters.sessionQuotedAsset.config.maximumBalance
                             }
 

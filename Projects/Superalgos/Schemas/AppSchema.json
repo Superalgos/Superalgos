@@ -2989,9 +2989,9 @@
         "level": 0,
         "childrenNodesProperties": [
             {
-                "name": "current",
+                "name": "tradingCurrent",
                 "type": "node",
-                "childType": "Current",
+                "childType": "Trading Current",
                 "autoAdd": true
             },
             {
@@ -3138,7 +3138,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "episode",
         "childrenNodesProperties": [
@@ -5715,7 +5715,7 @@
         "propertyNameAtParent": "hitFail"
     },
     {
-        "type": "Current",
+        "type": "Trading Current",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -5738,7 +5738,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "propertyNameAtParent": "current",
+        "propertyNameAtParent": "tradingCurrent",
         "childrenNodesProperties": [
             {
                 "name": "episode",
@@ -6536,7 +6536,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyTriggerStage",
         "childrenNodesProperties": [
@@ -6600,7 +6600,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyManageStage",
         "childrenNodesProperties": [
@@ -6664,7 +6664,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyOpenStage",
         "childrenNodesProperties": [
@@ -6746,7 +6746,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyCloseStage",
         "childrenNodesProperties": [
@@ -6828,7 +6828,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->Last->"
+            "compatibleTypes": "->Trading Current->Last->"
         },
         "propertyNameAtParent": "strategy",
         "childrenNodesProperties": [
@@ -7956,7 +7956,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->Last->"
+            "compatibleTypes": "->Trading Current->Last->"
         },
         "propertyNameAtParent": "position",
         "childrenNodesProperties": [

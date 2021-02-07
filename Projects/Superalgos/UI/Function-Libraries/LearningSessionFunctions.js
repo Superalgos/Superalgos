@@ -89,7 +89,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         lightingPath = '' +
             'Learning Engine->' +
             'Dynamic Indicators->Indicator Function->' +
-            'Current->Last->Previous->' +
+            'Trading Current->Last->Previous->' +
             'Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +

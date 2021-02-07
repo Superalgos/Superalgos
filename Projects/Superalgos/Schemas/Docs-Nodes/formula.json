@@ -37,7 +37,7 @@
         },
         {
             "style": "Json",
-            "text": "tradingEngine.current.position.entryTargetRate.value * 1.03"
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03"
         },
         {
             "style": "Note",
@@ -59,7 +59,7 @@
         },
         {
             "style": "Javascript",
-            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.current.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.current.position.stopLoss.value}\n",
+            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.current.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.tradingCurrent.position.stopLoss.value}\n",
             "updated": 1609346601773
         },
         {
@@ -82,7 +82,7 @@
         },
         {
             "style": "Javascript",
-            "text": "function orderRate() {\nconst ORDER_STEP_NUMBER = 1 // Secuential step number, starting with 1 from the closest to the price.\nconst BUY_SELL_SIGN = -1 // 1 for buy orders, -1 for sell orders.\nconst STEP_SEPARATION = 0.15 // % of separation of stair steps between them.\nconst BASE_FACTOR = 0.2 // % above or below bollinger band without bias.\nconst BIAS_FACTOR = 0.3 // % to move the whole stair of orders up or down depending on the bias.\nconst BAND_RATE = chart.at01min.bollingerBand.lowerBand // Upper Bollinger Band for sell orders, and Lower for buy orders.\nlet inbalance = tradingEngine.current.episode.episodeBaseAsset.beginBalance.value - tradingEngine.current.episode.episodeBaseAsset.balance.value\nlet BIAS_SIGN\nif (inbalance === 0) {\nBIAS_SIGN = 0\n}\nif (inbalance < 0) {\nBIAS_SIGN = + 1\n}\nif (inbalance > 0) {\nBIAS_SIGN = - 1\n}\nlet rate = BAND_RATE + BUY_SELL_SIGN BAND_RATE (BASE_FACTOR + ORDER_STEP_NUMBER STEP_SEPARATION + BIAS_SIGN BIAS_FACTOR) / 100\nreturn rate\n}\norderRate()",
+            "text": "function orderRate() {\nconst ORDER_STEP_NUMBER = 1 // Secuential step number, starting with 1 from the closest to the price.\nconst BUY_SELL_SIGN = -1 // 1 for buy orders, -1 for sell orders.\nconst STEP_SEPARATION = 0.15 // % of separation of stair steps between them.\nconst BASE_FACTOR = 0.2 // % above or below bollinger band without bias.\nconst BIAS_FACTOR = 0.3 // % to move the whole stair of orders up or down depending on the bias.\nconst BAND_RATE = chart.at01min.bollingerBand.lowerBand // Upper Bollinger Band for sell orders, and Lower for buy orders.\nlet inbalance = tradingEngine.tradingCurrent.episode.episodeBaseAsset.beginBalance.value - tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value\nlet BIAS_SIGN\nif (inbalance === 0) {\nBIAS_SIGN = 0\n}\nif (inbalance < 0) {\nBIAS_SIGN = + 1\n}\nif (inbalance > 0) {\nBIAS_SIGN = - 1\n}\nlet rate = BAND_RATE + BUY_SELL_SIGN BAND_RATE (BASE_FACTOR + ORDER_STEP_NUMBER STEP_SEPARATION + BIAS_SIGN BIAS_FACTOR) / 100\nreturn rate\n}\norderRate()",
             "updated": 1609346807464
         }
     ]

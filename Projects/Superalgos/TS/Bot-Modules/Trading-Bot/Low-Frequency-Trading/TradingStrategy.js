@@ -63,7 +63,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.strategy, tradingEngine.last.strategy)
+        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.strategy, tradingEngine.tradingLast.strategy)
     }
 
     function updateEnds() {

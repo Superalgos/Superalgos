@@ -2995,9 +2995,9 @@
                 "autoAdd": true
             },
             {
-                "name": "last",
+                "name": "tradingLast",
                 "type": "node",
-                "childType": "Last",
+                "childType": "Trading Last",
                 "autoAdd": true
             },
             {
@@ -6828,7 +6828,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Current->Last->"
+            "compatibleTypes": "->Trading Current->Trading Last->"
         },
         "propertyNameAtParent": "strategy",
         "childrenNodesProperties": [
@@ -7956,7 +7956,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Current->Last->"
+            "compatibleTypes": "->Trading Current->Trading Last->"
         },
         "propertyNameAtParent": "position",
         "childrenNodesProperties": [
@@ -8875,7 +8875,7 @@
         "propertyNameAtParent": "headOfTheMarket"
     },
     {
-        "type": "Last",
+        "type": "Trading Last",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -8898,7 +8898,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "propertyNameAtParent": "last",
+        "propertyNameAtParent": "tradingLast",
         "childrenNodesProperties": [
             {
                 "name": "position",
@@ -9203,7 +9203,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Last->"
+            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Trading Last->"
         },
         "propertyNameAtParent": "marketOrders",
         "childrenNodesProperties": [
@@ -9429,7 +9429,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Last->"
+            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Trading Last->"
         },
         "propertyNameAtParent": "limitOrders",
         "childrenNodesProperties": [

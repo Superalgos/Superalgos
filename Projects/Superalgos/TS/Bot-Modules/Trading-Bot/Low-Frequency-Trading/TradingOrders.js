@@ -199,11 +199,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     if (tradingEngineOrder.status.value === 'Closed') {
                         switch (tradingEngineOrder.type) {
                             case 'Market Order': {
-                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
                                 break
                             }
                         }

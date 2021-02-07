@@ -103,7 +103,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
-        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.position, tradingEngine.last.position)
+        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.position, tradingEngine.tradingLast.position)
 
         cycleBasedStatistics()
 

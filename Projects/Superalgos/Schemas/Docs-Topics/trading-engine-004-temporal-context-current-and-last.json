@@ -50,17 +50,17 @@
         },
         {
             "style": "Title",
-            "text": "Last",
+            "text": "Trading Last",
             "updated": 1611254547170
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Last->Definition",
+            "text": "Superalgos->Node->Trading Last->Definition",
             "updated": 1611254556715
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Last->Content"
+            "text": "Superalgos->Node->Trading Last->Content"
         },
         {
             "style": "Include",
@@ -69,7 +69,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Last->2",
+            "text": "Superalgos->Trading Last->2",
             "updated": 1611255233693
         }
     ]

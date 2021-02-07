@@ -9645,6 +9645,18 @@
                 "autoAdd": true
             },
             {
+                "name": "timeRange",
+                "type": "node",
+                "childType": "Time Range",
+                "autoAdd": true
+            },
+            {
+                "name": "timeFrame",
+                "type": "node",
+                "childType": "Time Frame",
+                "autoAdd": true
+            },
+            {
                 "name": "heartbeats",
                 "type": "node",
                 "childType": "Heartbeats",
@@ -9932,7 +9944,7 @@
         },
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Parameters->"
+            "compatibleTypes": "->Trading Parameters->Learning Parameters->"
         },
         "propertyNameAtParent": "timeRange"
     },
@@ -9965,7 +9977,7 @@
         },
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Parameters->"
+            "compatibleTypes": "->Trading Parameters->Learning Parameters->"
         },
         "propertyNameAtParent": "timeFrame"
     },

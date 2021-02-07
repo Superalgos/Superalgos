@@ -782,6 +782,21 @@
                     "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
                 },
                 {
+                    "name": "Single Market Learning Bot",
+                    "propertyName": "singleMarketLearningBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketLearningBot",
+                    "fileName": "SingleMarketLearningBot.js",
+                    "folderName": "Learning-Bot",
+                    "botType": "Learning Bot"
+                },
+                {
+                    "name": "Learning Session",
+                    "propertyName": "learningSession",
+                    "functionName": "newSuperalgosBotModulesLearningSession",
+                    "fileName": "LearningSession.js",
+                    "folderName": "Learning-Bot"
+                },
+                {
                     "name": "Learning Process",
                     "propertyName": "learningProcess",
                     "functionName": "newSuperalgosBotModulesLearningProcess",

@@ -295,19 +295,11 @@
                 let aYearAgo = today - TS.projects.superalgos.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + TS.projects.superalgos.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 switch (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                    case 'Backtesting Session': {
+                    case 'Back Learning Session': {
                         useDefaultDatetimes(aYearAgo, today)
                         break
                     }
                     case 'Live Learning Session': {
-                        useDefaultDatetimes(today, aYearFromNow)
-                        break
-                    }
-                    case 'Fordward Testing Session': {
-                        useDefaultDatetimes(today, aYearFromNow)
-                        break
-                    }
-                    case 'Paper Learning Session': {
                         useDefaultDatetimes(today, aYearFromNow)
                         break
                     }
@@ -396,110 +388,6 @@
                     return false
                 }
 
-                /* Session Base Asset */
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionBaseAsset === undefined) {
-                    let errorMessage = "Session Base Asset Node Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionBaseAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Initial Balance Property Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionBaseAsset, errorMessage, docs)
-                    return false
-                }
-
-                /* Session Quoted Asset */
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionQuotedAsset === undefined) {
-                    let errorMessage = "Session Quoted Asset Node Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionQuotedAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Initial Balance Property Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.sessionQuotedAsset, errorMessage, docs)
-                    return false
-                }
-
-                /* Slippage */
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage === undefined) { // if the Slippage is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage = {
-                        name: 'Missing Slippage',
-                        type: 'Slippage',
-                        config: {
-                            marketOrderRate: 0,
-                            stopLoss: 0,
-                            takeProfit: 0
-                        }
-                    }
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.marketOrderRate === undefined) { // if the marketOrderRate is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.marketOrderRate = 0
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.stopLoss === undefined) { // if the stopLoss is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.stopLoss = 0
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.takeProfit === undefined) { // if the takeProfit is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.slippage.config.takeProfit = 0
-                }
-
-                /* Fee Structure */
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure === undefined) { // if the Fee Structure is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure = {
-                        name: 'Missing Fee Structure',
-                        type: 'Fee Structure',
-                        config: {
-                            maker: 0,
-                            taker: 0
-                        }
-                    }
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure.config.maker === undefined) { // if the maker is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure.config.maker = 0
-                }
-                if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure.config.taker === undefined) { // if the taker is missing we create a default one.
-                    TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.feeStructure.config.taker = 0
-                }
-
                 return true
             }
 
@@ -507,72 +395,8 @@
                 return true
             }
 
-            function checkKey() {
-                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference === undefined) {
-                    let errorMessage = "Key Reference Node Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkKey -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent === undefined) {
-                    let errorMessage = "Exchange Account Key Node Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkKey -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName === undefined) {
-                    let errorMessage = "Codename Property Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkKey -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret === undefined) {
-                    let errorMessage = "Secret Property Missing"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkKey -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Superalgos',
-                        category: 'Topic',
-                        type: 'TS Learning Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.superalgos.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent, errorMessage, docs)
-                    return false
-                }
-                return true
-            }
-
             function startLiveLearning() {
-                return checkKey()
+                return true
             }
 
             function getTimeFrameFromLabel(timeFrameLabel) {

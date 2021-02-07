@@ -7,20 +7,19 @@
             "project": "Superalgos",
             "name": "bullet-warning"
         },
-        "text": "I'm sure that was a bit confusing! There are more than three nodes with messages, and messages are hard to relate to one another!"
+        "text": "Don't worry! You'll get used to this level of feedback from the LF Trading Bot, and will certainly get to appreciate it!",
+        "updated": 1612715858929
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "But don't worry! I'll help you figure this out!"
-        },
-        {
-            "style": "Callout",
-            "text": "First of all, remember that warnings are not errors!"
+            "text": "With this level of feedback, you won't ever need to dive into obscure log files or bang your head against the wall trying to figure out what the bot is doing, or why things don't happen as you would expect.",
+            "updated": 1612715954517
         },
         {
             "style": "Note",
-            "text": "We don't need to worry about warnings! Warnings are created every time the trading bot has to make adjustments to information that would otherwise not be obvious. It's kind of a verbose mode that the bot uses to leave a trace of its actions."
+            "text": "Intuitions about what the Trading Bot should or should not do are often simplistic. It took deep analysis and several iterations to get the bot to handle orders consistently in the myriads of situations that may emerge while trading.",
+            "updated": 1612716228900
         }
     ]
 }

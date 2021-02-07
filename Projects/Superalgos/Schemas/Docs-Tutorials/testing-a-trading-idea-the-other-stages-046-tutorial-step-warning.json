@@ -7,20 +7,24 @@
             "project": "Superalgos",
             "name": "bullet-warning"
         },
-        "text": "I see a warning sign with a number 3 below it, on Feb 28th at the 9 hs candle. We should take a look and see what it is about!"
+        "text": "I see three warning signs on Feb 28th at the 9 hs candle. We should take a look and see what the warnings are about!",
+        "updated": 1612712860187
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The number 3 means there are 3 warnings at the same time. In case you forgot, this is what you need to do:"
+            "text": "Like with errors, the number and size of bullets indicate the sequence in which warnings where recorded!",
+            "updated": 1612713206057
         },
         {
             "style": "Callout",
-            "text": "Pull the slider up to the middle of the screen or higher and put the pointer of the mouse on the tiny warning sign or the candle in which the warning happens."
+            "text": "Point to the first warning bullet, the bigger one, on Feb 28th at 10 hs...",
+            "updated": 1612712986948
         },
         {
             "style": "Success",
-            "text": "Now go and track the warnings in the design space using the map feature to find them!"
+            "text": "Warnings are created every time the trading bot makes adjustments to information that would otherwise not be obvious. It's like a verbose mode that the bot uses to leave a trace of its actions.",
+            "updated": 1612713241626
         }
     ]
 }

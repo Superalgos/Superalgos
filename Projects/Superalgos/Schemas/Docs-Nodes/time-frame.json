@@ -75,7 +75,7 @@
         },
         {
             "style": "Javascript",
-            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.tradingCurrent.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.tradingCurrent.episode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.tradingCurrent.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.tradingCurrent.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
+            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.tradingCurrent.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.tradingCurrent.tradingEpisode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.tradingCurrent.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.tradingCurrent.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
             "updated": 1611866140829
         },
         {

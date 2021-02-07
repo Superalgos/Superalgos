@@ -145,7 +145,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     tradingStrategyModuleObject.openStrategy(j, situation.name, strategy.name)
 
                                     /* Initialize this */
-                                    tradingEngine.tradingCurrent.episode.distanceToEvent.triggerOn.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value = 1
 
                                     announcementsModuleObject.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnoucements(triggerStage)
@@ -192,7 +192,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(triggerStage.triggerOff.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingEngine.tradingCurrent.episode.distanceToEvent.triggerOff.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
                                 announcementsModuleObject.makeAnnoucements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
@@ -400,7 +400,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
     function runManageStage() {
 
-        if (tradingEngine.tradingCurrent.episode.cycle.value !== 'First') { return }
+        if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value !== 'First') { return }
 
         runWhenStatusIsOpening()
         runWhenStatusIsOpen()
@@ -572,7 +572,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.tradingCurrent.episode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -623,7 +623,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.tradingCurrent.episode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -679,7 +679,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.tradingCurrent.episode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -730,7 +730,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.tradingCurrent.episode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -751,11 +751,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     if (
                         (
                             tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
-                            tradingEngine.tradingCurrent.episode.candle.max.value >= tradingEngine.tradingCurrent.position.stopLoss.value
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.stopLoss.value
                         ) ||
                         (
                             tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Below' &&
-                            tradingEngine.tradingCurrent.episode.candle.min.value <= tradingEngine.tradingCurrent.position.stopLoss.value
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.stopLoss.value
                         )
                     ) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
@@ -771,11 +771,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     if (
                         (
                             tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Below' &&
-                            tradingEngine.tradingCurrent.episode.candle.min.value <= tradingEngine.tradingCurrent.position.takeProfit.value
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.takeProfit.value
                         ) ||
                         (
                             tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Above' &&
-                            tradingEngine.tradingCurrent.episode.candle.max.value >= tradingEngine.tradingCurrent.position.takeProfit.value
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.takeProfit.value
                         )
                     ) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
@@ -933,8 +933,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 tradingStrategyModuleObject.closeStrategy('Position Closed')
 
                 /* Distance to Events Updates */
-                tradingEngine.tradingCurrent.episode.distanceToEvent.closePosition.value = 1
-                tradingEngine.tradingCurrent.episode.distanceToEvent.triggerOff.value = 1
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value = 1
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
 
             }
         }
@@ -1073,15 +1073,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         */
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.tradingCurrent.episode.cycle.lastBegin.value
-            stage.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
-            stage.beginRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            stage.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value
+            stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+            stage.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
-            stage.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+            stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
     }
 
@@ -1092,19 +1092,19 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         */
         if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
             tradingEngine.tradingCurrent.strategyTriggerStage.end.value = tradingEngine.tradingCurrent.strategyTriggerStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategyTriggerStage.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            tradingEngine.tradingCurrent.strategyTriggerStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
         if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
             tradingEngine.tradingCurrent.strategyOpenStage.end.value = tradingEngine.tradingCurrent.strategyOpenStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategyOpenStage.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            tradingEngine.tradingCurrent.strategyOpenStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
         if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
             tradingEngine.tradingCurrent.strategyManageStage.end.value = tradingEngine.tradingCurrent.strategyManageStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategyManageStage.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            tradingEngine.tradingCurrent.strategyManageStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
         if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
             tradingEngine.tradingCurrent.strategyCloseStage.end.value = tradingEngine.tradingCurrent.strategyCloseStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategyCloseStage.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            tradingEngine.tradingCurrent.strategyCloseStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
     }
 

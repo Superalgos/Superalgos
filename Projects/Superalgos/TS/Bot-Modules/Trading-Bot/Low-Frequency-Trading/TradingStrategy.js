@@ -38,28 +38,28 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
 
     function openStrategy(index, situationName, strategyName) {
         /* Starting begin and end */
-        tradingEngine.tradingCurrent.strategy.begin.value = tradingEngine.tradingCurrent.episode.cycle.lastBegin.value
-        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
+        tradingEngine.tradingCurrent.strategy.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value
+        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.tradingCurrent.strategy.status.value = 'Open'
-        tradingEngine.tradingCurrent.strategy.serialNumber.value = tradingEngine.tradingCurrent.episode.episodeCounters.strategies.value
+        tradingEngine.tradingCurrent.strategy.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.strategies.value
         tradingEngine.tradingCurrent.strategy.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
-        tradingEngine.tradingCurrent.strategy.beginRate.value = tradingEngine.tradingCurrent.episode.candle.min.value
+        tradingEngine.tradingCurrent.strategy.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
 
         tradingEngine.tradingCurrent.strategy.index.value = index
         tradingEngine.tradingCurrent.strategy.situationName.value = situationName
         tradingEngine.tradingCurrent.strategy.strategyName.value = strategyName
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.episode.episodeCounters.strategies.value++
+        tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.strategies.value++
     }
 
     function closeStrategy(exitType) {
         tradingEngine.tradingCurrent.strategy.status.value = 'Closed'
         tradingEngine.tradingCurrent.strategy.exitType.value = exitType
-        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
-        tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.episode.candle.min.value
+        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+        tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
@@ -69,7 +69,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
     function updateEnds() {
         if (tradingEngine.tradingCurrent.strategy.status.value === 'Open') {
             tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.strategy.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
+            tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
     }
 

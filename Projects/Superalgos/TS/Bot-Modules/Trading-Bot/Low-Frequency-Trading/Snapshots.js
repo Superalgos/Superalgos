@@ -294,7 +294,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
 
         let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
         closeValues = [
-            tradingEngine.tradingCurrent.episode.episodeCounters.positions.value,                                     // Position Number
+            tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value,                                     // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
             (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
             tradingEngine.tradingCurrent.strategy.strategyName.value,                                                 // Strategy Name

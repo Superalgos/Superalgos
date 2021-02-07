@@ -75,7 +75,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the error at the
             charts.
             */
-            let rate = tradingEngine.tradingCurrent.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             errorDataArray.push(rate)
             tradingSystem.errors.push(errorDataArray)
         }
@@ -86,7 +86,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = tradingEngine.tradingCurrent.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             warningDataArray.push(rate)
             tradingSystem.warnings.push(warningDataArray)
         }
@@ -97,7 +97,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = tradingEngine.tradingCurrent.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             infoDataArray.push(rate)
             tradingSystem.infos.push(infoDataArray)
         }

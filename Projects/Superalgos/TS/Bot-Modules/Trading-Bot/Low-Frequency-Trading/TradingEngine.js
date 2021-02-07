@@ -56,36 +56,36 @@ exports.newSuperalgosBotModulesTradingEngine = function (processIndex) {
     }
 
     function setCurrentCandle(candle) {
-        tradingEngine.tradingCurrent.episode.candle.begin.value = candle.begin
-        tradingEngine.tradingCurrent.episode.candle.end.value = candle.end
-        tradingEngine.tradingCurrent.episode.candle.open.value = candle.open
-        tradingEngine.tradingCurrent.episode.candle.close.value = candle.close
-        tradingEngine.tradingCurrent.episode.candle.min.value = candle.min
-        tradingEngine.tradingCurrent.episode.candle.max.value = candle.max
+        tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value = candle.begin
+        tradingEngine.tradingCurrent.tradingEpisode.candle.end.value = candle.end
+        tradingEngine.tradingCurrent.tradingEpisode.candle.open.value = candle.open
+        tradingEngine.tradingCurrent.tradingEpisode.candle.close.value = candle.close
+        tradingEngine.tradingCurrent.tradingEpisode.candle.min.value = candle.min
+        tradingEngine.tradingCurrent.tradingEpisode.candle.max.value = candle.max
     }
 
     function setCurrentCycle(cycle) {
-        tradingEngine.tradingCurrent.episode.cycle.value = cycle
-        tradingEngine.tradingCurrent.episode.cycle.lastBegin.value = tradingEngine.tradingCurrent.episode.cycle.begin.value
-        tradingEngine.tradingCurrent.episode.cycle.lastEnd.value = tradingEngine.tradingCurrent.episode.cycle.end.value
+        tradingEngine.tradingCurrent.tradingEpisode.cycle.value = cycle
+        tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value
+        tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
         switch (cycle) {
             case 'First': {
-                tradingEngine.tradingCurrent.episode.cycle.begin.value =
-                    tradingEngine.tradingCurrent.episode.candle.begin.value +
+                tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value =
+                    tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value
-                tradingEngine.tradingCurrent.episode.cycle.end.value =
-                    tradingEngine.tradingCurrent.episode.candle.begin.value +
+                tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value =
+                    tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value / 2 - 1
                 break
             }
             case 'Second': {
-                tradingEngine.tradingCurrent.episode.cycle.begin.value =
-                    tradingEngine.tradingCurrent.episode.candle.begin.value +
+                tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value =
+                    tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value / 2
-                tradingEngine.tradingCurrent.episode.cycle.end.value =
-                    tradingEngine.tradingCurrent.episode.candle.begin.value +
+                tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value =
+                    tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value * 4 / 4 - 1
                 break
@@ -96,11 +96,11 @@ exports.newSuperalgosBotModulesTradingEngine = function (processIndex) {
         objects starting with lastBegin in zero to being saved on file. For that reason
         we will do this:
         */
-        if (tradingEngine.tradingCurrent.episode.cycle.lastBegin.value === 0) {
-            tradingEngine.tradingCurrent.episode.cycle.lastBegin.value = tradingEngine.tradingCurrent.episode.cycle.begin.value
+        if (tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value === 0) {
+            tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value
         }
-        if (tradingEngine.tradingCurrent.episode.cycle.lastEnd.value === 0) {
-            tradingEngine.tradingCurrent.episode.cycle.lastEnd.value = tradingEngine.tradingCurrent.episode.cycle.end.value
+        if (tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value === 0) {
+            tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
         }
     }
 

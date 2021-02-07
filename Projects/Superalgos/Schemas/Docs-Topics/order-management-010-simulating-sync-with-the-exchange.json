@@ -190,7 +190,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.episode.candle.max.value",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.max.value",
             "updated": 1610223027648
         },
         {
@@ -211,7 +211,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.episode.candle.min.value",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.min.value",
             "updated": 1610223044937
         },
         {
@@ -270,7 +270,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.episode.candle.min.value <=\ntradingEngineOrder.actualRate.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <=\ntradingEngineOrder.actualRate.value",
             "updated": 1610223130690
         },
         {
@@ -279,7 +279,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.episode.candle.max.value >=\ntradingEngineOrder.actualRate.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >=\ntradingEngineOrder.actualRate.value",
             "updated": 1610223149566
         },
         {

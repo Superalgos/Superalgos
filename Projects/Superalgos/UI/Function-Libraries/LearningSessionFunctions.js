@@ -90,7 +90,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Learning Engine->' +
             'Dynamic Indicators->Indicator Function->' +
             'Learning Current->Learning Last->Previous->' +
-            'Episode->' +
+            'Learning Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +

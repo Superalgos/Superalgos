@@ -36,7 +36,7 @@
         },
         {
             "style": "Javascript",
-            "text": "(tradingEngine.tradingCurrent.episode.cycle.value === 'First')"
+            "text": "(tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'First')"
         },
         {
             "style": "List",
@@ -78,7 +78,7 @@
         },
         {
             "style": "Javascript",
-            "text": "(tradingEngine.tradingCurrent.episode.cycle.value === 'Second')"
+            "text": "(tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'Second')"
         },
         {
             "style": "List",

@@ -60,7 +60,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.rate.value = tradingEngine.tradingCurrent.episode.candle.close.value",
+            "text": "tradingEngineOrder.rate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value",
             "updated": 1610220056132
         },
         {
@@ -209,7 +209,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.size.value => 0",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.size.value => 0",
             "updated": 1610220335526
         },
         {
@@ -218,7 +218,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngine.current.episode.episodeQuotedAsset.balance.value",
+            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value",
             "updated": 1610220358264
         },
         {

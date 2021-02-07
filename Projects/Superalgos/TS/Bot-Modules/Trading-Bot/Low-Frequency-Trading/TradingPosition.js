@@ -52,16 +52,16 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     function openPosition(situationName) {
 
         /* Starting begin and end */
-        tradingEngine.tradingCurrent.position.begin.value = tradingEngine.tradingCurrent.episode.cycle.lastBegin.value
-        tradingEngine.tradingCurrent.position.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
+        tradingEngine.tradingCurrent.position.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value
+        tradingEngine.tradingCurrent.position.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.tradingCurrent.position.status.value = 'Open'
-        tradingEngine.tradingCurrent.position.serialNumber.value = tradingEngine.tradingCurrent.episode.episodeCounters.positions.value + 1
+        tradingEngine.tradingCurrent.position.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value + 1
         tradingEngine.tradingCurrent.position.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
-        tradingEngine.tradingCurrent.position.beginRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
-        tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance.value = tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value
-        tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance.value = tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value
+        tradingEngine.tradingCurrent.position.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+        tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+        tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
         tradingEngine.tradingCurrent.position.situationName.value = situationName
 
         /* Initializing Stop and Take Phase */
@@ -69,14 +69,14 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value = 1
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.episode.episodeCounters.positions.value++
+        tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value++
 
         /* Inicializing this counter */
-        tradingEngine.tradingCurrent.episode.distanceToEvent.takePosition.value = 1
+        tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value = 1
 
         /* Remember the balance we had before taking the position to later calculate profit or loss */
-        tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance = tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value
-        tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance = tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value
+        tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+        tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
     }
 
     function closingPosition(exitType) {
@@ -95,10 +95,10 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
 
     function closePosition() {
         tradingEngine.tradingCurrent.position.status.value = 'Closed'
-        tradingEngine.tradingCurrent.position.end.value = tradingEngine.tradingCurrent.episode.cycle.lastEnd.value
-        tradingEngine.tradingCurrent.position.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
-        tradingEngine.tradingCurrent.position.positionBaseAsset.endBalance.value = tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value
-        tradingEngine.tradingCurrent.position.positionQuotedAsset.endBalance.value = tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value
+        tradingEngine.tradingCurrent.position.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+        tradingEngine.tradingCurrent.position.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+        tradingEngine.tradingCurrent.position.positionBaseAsset.endBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+        tradingEngine.tradingCurrent.position.positionQuotedAsset.endBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
 
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
@@ -109,16 +109,16 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
 
         /* Updating Hits & Fails */
         if (tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value > 0) {
-            tradingEngine.tradingCurrent.episode.episodeBaseAsset.hits.value++
+            tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hits.value++
         }
         if (tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value < 0) {
-            tradingEngine.tradingCurrent.episode.episodeBaseAsset.fails.value++
+            tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.fails.value++
         }
         if (tradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value > 0) {
-            tradingEngine.tradingCurrent.episode.episodeQuotedAsset.hits.value++
+            tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hits.value++
         }
         if (tradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value < 0) {
-            tradingEngine.tradingCurrent.episode.episodeQuotedAsset.fails.value++
+            tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.fails.value++
         }
     }
 
@@ -163,10 +163,10 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         end of the position itself. 
         */
         node.begin.value =
-            tradingEngine.tradingCurrent.episode.candle.begin.value +
+            tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value +
             sessionParameters.timeFrame.config.value
         node.end.value =
-            tradingEngine.tradingCurrent.episode.candle.end.value +
+            tradingEngine.tradingCurrent.tradingEpisode.candle.end.value +
             sessionParameters.timeFrame.config.value
     }
 
@@ -405,9 +405,9 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     function updateEnds() {
         if (tradingEngine.tradingCurrent.position.status.value === 'Open') {
             tradingEngine.tradingCurrent.position.end.value = tradingEngine.tradingCurrent.position.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.position.endRate.value = tradingEngine.tradingCurrent.episode.candle.close.value
-            tradingEngine.tradingCurrent.position.positionBaseAsset.endBalance.value = tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.endBalance.value = tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value
+            tradingEngine.tradingCurrent.position.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+            tradingEngine.tradingCurrent.position.positionBaseAsset.endBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+            tradingEngine.tradingCurrent.position.positionQuotedAsset.endBalance.value = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
         }
     }
 
@@ -431,11 +431,11 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         function calculateAssetsStatistics() {
             /* Profit Loss Calculation */
             tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value =
-                tradingEngine.tradingCurrent.episode.episodeBaseAsset.balance.value -
+                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -
                 tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance
 
             tradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value =
-                tradingEngine.tradingCurrent.episode.episodeQuotedAsset.balance.value -
+                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -
                 tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance
 
             tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value, 10)
@@ -478,8 +478,8 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
             /* Profit Loss Calculation */
             tradingEngine.tradingCurrent.position.positionStatistics.profitLoss.value =
                 (
-                    tradingEngine.tradingCurrent.episode.episodeBaseAsset.profitLoss.value * tradingEngine.tradingCurrent.position.endRate.value +
-                    tradingEngine.tradingCurrent.episode.episodeQuotedAsset.profitLoss.value
+                    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * tradingEngine.tradingCurrent.position.endRate.value +
+                    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value
                 )
 
             tradingEngine.tradingCurrent.position.positionStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.position.positionStatistics.profitLoss.value, 10)

@@ -35,7 +35,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.episode.episodeBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.episode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.episode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.episode.episodeQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.episode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.episode.episodeQuotedAsset.beginBalance.value * 100",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value * 100",
             "updated": 1611332768337
         },
         {
@@ -71,7 +71,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.episode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.episode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.episode.endRate.value +\n        tradingEngine.tradingCurrent.episode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.episode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.episode.beginRate.value +\n        tradingEngine.tradingCurrent.episode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.tradingEpisode.endRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
             "updated": 1611332824026
         },
         {

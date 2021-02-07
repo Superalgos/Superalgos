@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the process where this error poped up encountered and unexpected error that forced the TS to shut the process down. The Task might still be running other not affected processes, but if all the processes stop running or this was the only one, then they Task itself might have stopped too.",
+            "text": "While running at the TS, the process encountered and unexpected error that forced the TS to shut the process down. The Task may still be running other unaffected processes, but if all the processes stop running or this was the only process under the Task, then the Task may have stopped too.",
             "updated": 1611413246602
         },
         {

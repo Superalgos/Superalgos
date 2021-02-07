@@ -7,16 +7,19 @@
             "project": "Superalgos",
             "name": "bullet-error"
         },
-        "text": "Did you find the error? What? You haven't looked? I just split the screen so that you may do your thing!"
+        "text": "Have you figured out the error? What? You haven't looked? I just split the screen so that you may find the offending node too!",
+        "updated": 1612698780503
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The Trading System Errors layer is on! Go ahead and track the error on the Trading System!"
+            "text": "The Trading System Errors layer is on! Go ahead and investigate what the error is about!",
+            "updated": 1612698824818
         },
         {
             "style": "Success",
-            "text": "Remember... You just need to point to the error at the bottom of the chart, find the red circle on the design space, read the error message, and interpret it! Good luck!"
+            "text": "Remember... You just need to point to the first error at the chart, read the description of the error, find the red ring marking the offending node on the design space, and interpret the available information! Good luck!",
+            "updated": 1612698958200
         }
     ]
 }

@@ -3,9 +3,6 @@
     "pageNumber": 44,
     "type": "Tutorial Step - Trading Systems Tracking Errors",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

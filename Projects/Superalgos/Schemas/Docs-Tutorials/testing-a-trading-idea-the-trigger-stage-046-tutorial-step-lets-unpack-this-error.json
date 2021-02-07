@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "bullet-error"
         },
-        "text": "The error is associated with one of our conditions, so we must check the Javascript Code we used!"
+        "text": "The error is associated with one of our conditions. The error details clearly pointed to the Javascript Code we used!",
+        "updated": 1612639466412
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is the code in our condition:<br/>chart.at24hs.bollingerSubChannel.direction === 'Down'"
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction ==='Down'",
+            "updated": 1612639481785
         },
         {
             "style": "Callout",

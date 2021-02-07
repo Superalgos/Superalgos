@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "project": "Superalgos",
-            "name": "episode"
+            "name": "trading-episode"
         },
         "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?"
     },

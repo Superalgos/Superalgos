@@ -31,17 +31,17 @@
         },
         {
             "style": "Title",
-            "text": "Episode",
+            "text": "Trading Episode",
             "updated": 1611257045974
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Episode->Definition",
+            "text": "Superalgos->Node->Trading Episode->Definition",
             "updated": 1611257060021
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Episode->Content",
+            "text": "Superalgos->Node->Trading Episode->Content",
             "updated": 1611257063548
         },
         {
@@ -50,7 +50,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Episode->2",
+            "text": "Superalgos->Trading Episode->2",
             "updated": 1611257076886
         },
         {

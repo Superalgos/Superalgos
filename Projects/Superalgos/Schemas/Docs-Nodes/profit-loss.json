@@ -31,7 +31,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.episode.episodeBaseAsset.profitLoss.value =\n    tradingEngine.current.episode.episodeBaseAsset.balance.value -\n    sessionParameters.sessionBaseAsset.config.initialBalance\n    \ntradingEngine.current.episode.episodeQuotedAsset.profitLoss.value =\n    tradingEngine.current.episode.episodeQuotedAsset.balance.value -\n    sessionParameters.sessionQuotedAsset.config.initialBalance",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    sessionParameters.sessionBaseAsset.config.initialBalance\n    \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    sessionParameters.sessionQuotedAsset.config.initialBalance",
             "updated": 1609880593226
         },
         {
@@ -45,7 +45,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.position.positionBaseAsset.profitLoss.value =\n    tradingEngine.current.episode.episodeBaseAsset.balance.value -\n    tradingEngine.current.position.positionBaseAsset.beginBalance\n    \ntradingEngine.current.position.positionQuotedAsset.profitLoss.value =\n    tradingEngine.current.episode.episodeQuotedAsset.balance.value -\n    tradingEngine.current.position.positionQuotedAsset.beginBalance",
+            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance\n    \ntradingEngine.current.position.positionQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance",
             "updated": 1609880668611
         },
         {
@@ -66,7 +66,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.episode.episodeStatistics.profitLoss.value =\n    tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.current.episode.candle.close.value +\n    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.tradingCurrent.tradingEpisode.candle.close.value +\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value",
             "updated": 1609880717964
         },
         {
@@ -75,7 +75,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.position.positionStatistics.profitLoss.value =\n    tradingEngine.current.episode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.current.position.endRate.value +\n    tradingEngine.current.episode.episodeQuotedAsset.profitLoss.value",
+            "text": "tradingEngine.tradingCurrent.position.positionStatistics.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.tradingCurrent.position.endRate.value +\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value",
             "updated": 1609880790493
         },
         {

@@ -22,7 +22,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.position.entryTargetRate.value * 1.03"
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03"
         },
         {
             "style": "Success",

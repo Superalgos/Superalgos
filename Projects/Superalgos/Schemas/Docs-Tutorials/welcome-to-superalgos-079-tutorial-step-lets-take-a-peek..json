@@ -21,7 +21,7 @@
         },
         {
             "style": "Text",
-            "text": "tradingEngine.current.position.exitTargetRate.value"
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value"
         },
         {
             "style": "Text",

@@ -56,36 +56,36 @@ exports.newSuperalgosBotModulesLearningEngine = function (processIndex) {
     }
 
     function setCurrentCandle(candle) {
-        learningEngine.current.episode.candle.begin.value = candle.begin
-        learningEngine.current.episode.candle.end.value = candle.end
-        learningEngine.current.episode.candle.open.value = candle.open
-        learningEngine.current.episode.candle.close.value = candle.close
-        learningEngine.current.episode.candle.min.value = candle.min
-        learningEngine.current.episode.candle.max.value = candle.max
+        learningEngine.learningCurrent.learningEpisode.candle.begin.value = candle.begin
+        learningEngine.learningCurrent.learningEpisode.candle.end.value = candle.end
+        learningEngine.learningCurrent.learningEpisode.candle.open.value = candle.open
+        learningEngine.learningCurrent.learningEpisode.candle.close.value = candle.close
+        learningEngine.learningCurrent.learningEpisode.candle.min.value = candle.min
+        learningEngine.learningCurrent.learningEpisode.candle.max.value = candle.max
     }
 
     function setCurrentCycle(cycle) {
-        learningEngine.current.episode.cycle.value = cycle
-        learningEngine.current.episode.cycle.lastBegin.value = learningEngine.current.episode.cycle.begin.value
-        learningEngine.current.episode.cycle.lastEnd.value = learningEngine.current.episode.cycle.end.value
+        learningEngine.learningCurrent.learningEpisode.cycle.value = cycle
+        learningEngine.learningCurrent.learningEpisode.cycle.lastBegin.value = learningEngine.learningCurrent.learningEpisode.cycle.begin.value
+        learningEngine.learningCurrent.learningEpisode.cycle.lastEnd.value = learningEngine.learningCurrent.learningEpisode.cycle.end.value
         switch (cycle) {
             case 'First': {
-                learningEngine.current.episode.cycle.begin.value =
-                    learningEngine.current.episode.candle.begin.value +
+                learningEngine.learningCurrent.learningEpisode.cycle.begin.value =
+                    learningEngine.learningCurrent.learningEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value
-                learningEngine.current.episode.cycle.end.value =
-                    learningEngine.current.episode.candle.begin.value +
+                learningEngine.learningCurrent.learningEpisode.cycle.end.value =
+                    learningEngine.learningCurrent.learningEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value / 2 - 1
                 break
             }
             case 'Second': {
-                learningEngine.current.episode.cycle.begin.value =
-                    learningEngine.current.episode.candle.begin.value +
+                learningEngine.learningCurrent.learningEpisode.cycle.begin.value =
+                    learningEngine.learningCurrent.learningEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value / 2
-                learningEngine.current.episode.cycle.end.value =
-                    learningEngine.current.episode.candle.begin.value +
+                learningEngine.learningCurrent.learningEpisode.cycle.end.value =
+                    learningEngine.learningCurrent.learningEpisode.candle.begin.value +
                     sessionParameters.timeFrame.config.value +
                     sessionParameters.timeFrame.config.value * 4 / 4 - 1
                 break
@@ -96,11 +96,11 @@ exports.newSuperalgosBotModulesLearningEngine = function (processIndex) {
         objects starting with lastBegin in zero to being saved on file. For that reason
         we will do this:
         */
-        if (learningEngine.current.episode.cycle.lastBegin.value === 0) {
-            learningEngine.current.episode.cycle.lastBegin.value = learningEngine.current.episode.cycle.begin.value
+        if (learningEngine.learningCurrent.learningEpisode.cycle.lastBegin.value === 0) {
+            learningEngine.learningCurrent.learningEpisode.cycle.lastBegin.value = learningEngine.learningCurrent.learningEpisode.cycle.begin.value
         }
-        if (learningEngine.current.episode.cycle.lastEnd.value === 0) {
-            learningEngine.current.episode.cycle.lastEnd.value = learningEngine.current.episode.cycle.end.value
+        if (learningEngine.learningCurrent.learningEpisode.cycle.lastEnd.value === 0) {
+            learningEngine.learningCurrent.learningEpisode.cycle.lastEnd.value = learningEngine.learningCurrent.learningEpisode.cycle.end.value
         }
     }
 

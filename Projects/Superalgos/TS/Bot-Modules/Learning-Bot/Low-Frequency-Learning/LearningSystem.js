@@ -75,7 +75,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             This rate will later help plotting the error at the
             charts.
             */
-            let rate = learningEngine.current.episode.candle.close.value
+            let rate = learningEngine.learningCurrent.learningEpisode.candle.close.value
             errorDataArray.push(rate)
             learningSystem.errors.push(errorDataArray)
         }
@@ -86,7 +86,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = learningEngine.current.episode.candle.close.value
+            let rate = learningEngine.learningCurrent.learningEpisode.candle.close.value
             warningDataArray.push(rate)
             learningSystem.warnings.push(warningDataArray)
         }
@@ -97,7 +97,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = learningEngine.current.episode.candle.close.value
+            let rate = learningEngine.learningCurrent.learningEpisode.candle.close.value
             infoDataArray.push(rate)
             learningSystem.infos.push(infoDataArray)
         }

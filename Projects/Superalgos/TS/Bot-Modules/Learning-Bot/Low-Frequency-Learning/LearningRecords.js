@@ -58,13 +58,13 @@ exports.newSuperalgosBotModulesLearningRecords = function (processIndex) {
                 There are a few products configured to be saved only at an specific cycle.
                 */
                 if (product.config.saveAtCycle !== undefined) {
-                    if (learningEngine.current.episode.cycle.value !== product.config.saveAtCycle) {
+                    if (learningEngine.learningCurrent.learningEpisode.cycle.value !== product.config.saveAtCycle) {
                         return
                     }
                 }
 
                 /* Clean the file from information of previous executions */
-                //pruneOutputFile(product, outputDatasetArray, learningEngine.current.episode.candle.end.value)
+                //pruneOutputFile(product, outputDatasetArray, learningEngine.learningCurrent.learningEpisode.candle.end.value)
 
                 /* Clean Open Records */
                 if (product.config.saveAsObjects === true) {
@@ -256,8 +256,8 @@ exports.newSuperalgosBotModulesLearningRecords = function (processIndex) {
                                 of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
                                 time frame. 
                                 */
-                                let currentDay = new Date(learningEngine.current.episode.candle.end.value)
-                                let nextDay = new Date(learningEngine.current.episode.candle.end.value + 1)
+                                let currentDay = new Date(learningEngine.learningCurrent.learningEpisode.candle.end.value)
+                                let nextDay = new Date(learningEngine.learningCurrent.learningEpisode.candle.end.value + 1)
                                 if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
                                     /*
                                     We will save the object only if it is closed, becasuse we are at the last candle of the day.

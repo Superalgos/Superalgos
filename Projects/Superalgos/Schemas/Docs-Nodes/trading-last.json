@@ -1,5 +1,5 @@
 {
-    "type": "Last",
+    "type": "Trading Last",
     "definition": {
         "text": "The last object stores instances of position and strategy objects, in particular the instances that were last open at the time of evaluation, hence the adjective last."
     },

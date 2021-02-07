@@ -89,8 +89,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         lightingPath = '' +
             'Learning Engine->' +
             'Dynamic Indicators->Indicator Function->' +
-            'Current->Last->Previous->' +
-            'Episode->' +
+            'Learning Current->Learning Last->Previous->' +
+            'Learning Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
@@ -127,8 +127,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         lightingPath = '' +
             'Back Learning Session->Live Learning Session->' +
             'Learning Parameters->' +
-            'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Exchange Account Asset->Asset->' +
+            'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
             'Social Bots->Telegram Bot->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)

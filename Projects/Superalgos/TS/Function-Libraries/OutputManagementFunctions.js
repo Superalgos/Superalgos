@@ -19,7 +19,8 @@ exports.newSuperalgosFunctionLibrariesOutputManagementFunctions = function () {
         outputDatasetsMap,
         timeFrameLabel,
         tradingProcessDate,
-        fileStorage
+        fileStorage,
+        headOfTheMarket
     ) {
         if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true) {
             /*
@@ -31,7 +32,7 @@ exports.newSuperalgosFunctionLibrariesOutputManagementFunctions = function () {
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
                 await initializeOutputs()
             } else {
-                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.current.episode.headOfTheMarket.value === true) {
+                if (headOfTheMarket === true) {
                     await loadFiles()
                 } else {
                     await initializeOutputs()

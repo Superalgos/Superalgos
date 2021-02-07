@@ -107,7 +107,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkTriggerOn() {
             if (
-                tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue
+                tradingEngine.tradingCurrent.strategy.index.value === tradingEngine.tradingCurrent.strategy.index.config.initialValue
             ) {
                 /*
                 To pick a new strategy we will check that any of the situations of the trigger on is true. 
@@ -119,7 +119,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 for (let j = 0; j < tradingSystem.tradingStrategies.length; j++) {
                     if ( // If a strategy was already picked during the loop, we exit the loop
-                        tradingEngine.current.strategy.index.value !== tradingEngine.current.strategy.index.config.initialValue
+                        tradingEngine.tradingCurrent.strategy.index.value !== tradingEngine.tradingCurrent.strategy.index.config.initialValue
                     ) { continue }
 
                     let strategy = tradingSystem.tradingStrategies[j]
@@ -145,7 +145,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     tradingStrategyModuleObject.openStrategy(j, situation.name, strategy.name)
 
                                     /* Initialize this */
-                                    tradingEngine.current.episode.distanceToEvent.triggerOn.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value = 1
 
                                     announcementsModuleObject.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnoucements(triggerStage)
@@ -168,9 +168,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
 
         function checkTriggerOff() {
-            if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
+            if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
 
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
                 tradingSystem.evalConditions(strategy, 'Trigger Off Event')
@@ -192,7 +192,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(triggerStage.triggerOff.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
                                 announcementsModuleObject.makeAnnoucements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
@@ -205,9 +205,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkTakePosition() {
             if (
-                tradingEngine.current.strategyTriggerStage.status.value === 'Open'
+                tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open'
             ) {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
                 tradingSystem.evalConditions(strategy, 'Take Position Event')
@@ -263,7 +263,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkIfWeNeedToAbortTheStage() {
             /* Abort Open Stage Check */
-            if (tradingEngine.current.strategyOpenStage.status.value === 'Open' && tradingEngine.current.strategyCloseStage.status.value === 'Open') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' && tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
                 /* 
                 if the Close stage is opened while the open stage is still open that means that
                 we need to stop placing orders, check what happened to the orders already placed,
@@ -275,21 +275,21 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function runWhenStatusIsOpening() {
             /* Opening Status Procedure */
-            if (tradingEngine.current.strategyOpenStage.status.value === 'Opening') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define an Open Stage, because the Open Stage is optional.
                 Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
                 the Open Stage as closed.
                 */
-                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage === undefined) {
+                if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage === undefined) {
                     changeStageStatus('Open Stage', 'Closed', 'Open Stage Undefined')
                     changeStageStatus('Close Stage', 'Opening')
                     return
                 }
 
                 /* This procedure is intended to run only once */
-                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
-                let tradingEngineStage = tradingEngine.current.strategyOpenStage
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
+                let tradingEngineStage = tradingEngine.tradingCurrent.strategyOpenStage
 
                 /* Reset the Exchange Orders data structure to its initial value */
                 TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.exchangeOrders)
@@ -306,13 +306,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         async function runWhenStatusIsOpen() {
             /* Open Status Procedure */
-            if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
                 /*
                 While the Open Stage is Open, we do our regular stuff: place orders and check 
                 what happened to the orders already placed.
                 */
-                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
-                let tradingEngineStage = tradingEngine.current.strategyOpenStage
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
+                let tradingEngineStage = tradingEngine.tradingCurrent.strategyOpenStage
                 let executionNode = tradingSystemStage.openExecution
 
                 /* Evaluate conditions and formulas so they are ready during the execution run */
@@ -329,12 +329,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         async function runWhenStatusIsClosing() {
             /* Closing Status Procedure */
-            if (tradingEngine.current.strategyOpenStage.status.value === 'Closing') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Closing') {
                 /*
                 During the closing stage status, we do not place new orders, just check 
                 if the ones placed were filled, and cancel the ones not filled.
                 */
-                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
                 let executionNode = tradingSystemStage.openExecution
 
                 /* 
@@ -346,7 +346,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
-                    tradingEngine.current.strategyOpenStage
+                    tradingEngine.tradingCurrent.strategyOpenStage
                 )
 
                 /*
@@ -356,11 +356,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 we cancel not yet filled orders. Here it does not matter the targetSize since
                 this status represent a force closure of this stage.
                 */
-                switch (tradingEngine.current.strategyOpenStage.stageDefinedIn.value) {
+                switch (tradingEngine.tradingCurrent.strategyOpenStage.stageDefinedIn.value) {
                     case 'Base Asset': {
                         if (
-                            tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value >=
-                            tradingEngine.current.strategyOpenStage.stageBaseAsset.sizePlaced.value
+                            tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizePlaced.value
                         ) {
                             changeStageStatus('Open Stage', 'Closed')
                         }
@@ -368,8 +368,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     }
                     case 'Quoted Asset': {
                         if (
-                            tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizeFilled.value >=
-                            tradingEngine.current.strategyOpenStage.stageQuotedAsset.sizePlaced.value
+                            tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizePlaced.value
                         ) {
                             changeStageStatus('Open Stage', 'Closed')
                         }
@@ -383,37 +383,37 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             /*
             Validations that all needed nodes are there.
             */
-            if (tradingEngine.current.strategyOpenStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.current.strategyOpenStage) }
-            if (tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyOpenStage.stageBaseAsset) }
-            if (tradingEngine.current.strategyOpenStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.current.strategyOpenStage) }
-            if (tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyOpenStage.stageQuotedAsset) }
+            if (tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.tradingCurrent.strategyOpenStage) }
+            if (tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset) }
+            if (tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.tradingCurrent.strategyOpenStage) }
+            if (tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset) }
             /*
             Here we will transform the position size into targets for each asset of the stage.
             */
-            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.entryTargetSize.value
-            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.entryTargetSize.value
+            tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.targetSize.value = tradingEngine.tradingCurrent.position.positionBaseAsset.entryTargetSize.value
+            tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize.value = tradingEngine.tradingCurrent.position.positionQuotedAsset.entryTargetSize.value
 
-            tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
-            tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
+            tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize.value, 10)
         }
     }
 
     function runManageStage() {
 
-        if (tradingEngine.current.episode.cycle.value !== 'First') { return }
+        if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value !== 'First') { return }
 
         runWhenStatusIsOpening()
         runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
             /* Opening Status Procedure */
-            if (tradingEngine.current.strategyManageStage.status.value === 'Opening') {
+            if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
                 Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
                 the Manage Stage as closed.
                 */
-                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].manageStage === undefined) {
+                if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage === undefined) {
                     changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
                     changeStageStatus('Close Stage', 'Opening')
                     return
@@ -426,8 +426,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function runWhenStatusIsOpen() {
             /* Open Status Procedure */
-            if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+            if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
 
                 /* Evaluate all the stage conditions and formulas to have them ready */
@@ -449,22 +449,22 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             }
 
             function calculateStopLoss() {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let phase
 
                 if (manageStage !== undefined) {
                     if (manageStage.managedStopLoss !== undefined) {
-                        phase = manageStage.managedStopLoss.phases[tradingEngine.current.position.stopLoss.stopLossPhase.value - 1]
+                        phase = manageStage.managedStopLoss.phases[tradingEngine.tradingCurrent.position.stopLoss.stopLossPhase.value - 1]
                     }
                 }
 
                 if (phase !== undefined) {
                     if (phase.formula !== undefined) {
-                        let previousValue = tradingEngine.current.position.stopLoss.value
+                        let previousValue = tradingEngine.tradingCurrent.position.stopLoss.value
                         tradingPositionModuleObject.applyStopLossFormula(tradingSystem.formulas, phase.formula.id)
 
-                        if (tradingEngine.current.position.stopLoss.value !== previousValue) {
+                        if (tradingEngine.tradingCurrent.position.stopLoss.value !== previousValue) {
                             announcementsModuleObject.makeAnnoucements(phase)
                         }
                     }
@@ -472,22 +472,22 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             }
 
             function calculateTakeProfit() {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let phase
 
                 if (manageStage !== undefined) {
                     if (manageStage.managedTakeProfit !== undefined) {
-                        phase = manageStage.managedTakeProfit.phases[tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1]
+                        phase = manageStage.managedTakeProfit.phases[tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value - 1]
                     }
                 }
 
                 if (phase !== undefined) {
                     if (phase.formula !== undefined) {
-                        let previousValue = tradingEngine.current.position.takeProfit.value
+                        let previousValue = tradingEngine.tradingCurrent.position.takeProfit.value
                         tradingPositionModuleObject.applyTakeProfitFormula(tradingSystem.formulas, phase.formula.id)
 
-                        if (tradingEngine.current.position.takeProfit.value !== previousValue) {
+                        if (tradingEngine.tradingCurrent.position.takeProfit.value !== previousValue) {
                             announcementsModuleObject.makeAnnoucements(phase)
                         }
                     }
@@ -501,11 +501,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 the first values of the simulation of the Stop Loss we check if it is above or below
                 the Position Rate, and we assign the values Above or Below to it. 
                 */
-                if (tradingEngine.current.position.stopLoss.stopLossPosition.value === tradingEngine.current.position.stopLoss.stopLossPosition.config.initialValue) {
-                    if (tradingEngine.current.position.stopLoss.value > tradingEngine.current.position.entryTargetRate.value) {
-                        tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Above'
+                if (tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.config.initialValue) {
+                    if (tradingEngine.tradingCurrent.position.stopLoss.value > tradingEngine.tradingCurrent.position.entryTargetRate.value) {
+                        tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value = 'Above'
                     } else {
-                        tradingEngine.current.position.stopLoss.stopLossPosition.value = 'Below'
+                        tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value = 'Below'
                     }
                 }
             }
@@ -517,17 +517,17 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 the first values of the simulation of the Take Profits we check if it is above or below
                 the Position Rates, and we assign the values Above or Below to it. 
                 */
-                if (tradingEngine.current.position.takeProfit.takeProfitPosition.value === tradingEngine.current.position.takeProfit.takeProfitPosition.config.initialValue) {
-                    if (tradingEngine.current.position.takeProfit.value > tradingEngine.current.position.entryTargetRate.value) {
-                        tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Above'
+                if (tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.config.initialValue) {
+                    if (tradingEngine.tradingCurrent.position.takeProfit.value > tradingEngine.tradingCurrent.position.entryTargetRate.value) {
+                        tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value = 'Above'
                     } else {
-                        tradingEngine.current.position.takeProfit.takeProfitPosition.value = 'Below'
+                        tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value = 'Below'
                     }
                 }
             }
 
             function checkStopPhasesEvents() {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let parentNode
                 let phaseIndex
@@ -537,7 +537,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 if (manageStage !== undefined) {
                     if (manageStage.managedStopLoss !== undefined) {
                         parentNode = manageStage
-                        phaseIndex = tradingEngine.current.position.stopLoss.stopLossPhase.value - 1
+                        phaseIndex = tradingEngine.tradingCurrent.position.stopLoss.stopLossPhase.value - 1
                         stopLoss = manageStage.managedStopLoss
                         phase = stopLoss.phases[phaseIndex]
                     }
@@ -567,12 +567,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(parentNode.id)
                                 tradingSystem.highlights.push(manageStage.id)
 
-                                tradingPositionModuleObject.updateStopLoss(tradingEngine.current.position.stopLoss.stopLossPhase.value + 1)
+                                tradingPositionModuleObject.updateStopLoss(tradingEngine.tradingCurrent.position.stopLoss.stopLossPhase.value + 1)
 
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -623,7 +623,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -633,7 +633,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             }
 
             function checkTakeProfitPhaseEvents() {
-                let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let openStage = strategy.openStage
                 let manageStage = strategy.manageStage
                 let parentNode
@@ -644,7 +644,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 if (manageStage !== undefined) {
                     if (manageStage.managedTakeProfit !== undefined) {
                         parentNode = manageStage
-                        phaseIndex = tradingEngine.current.position.takeProfit.takeProfitPhase.value - 1
+                        phaseIndex = tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value - 1
                         takeProfit = manageStage.managedTakeProfit
                         phase = takeProfit.phases[phaseIndex]
                     }
@@ -674,12 +674,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(parentNode.id)
                                 tradingSystem.highlights.push(manageStage.id)
 
-                                tradingPositionModuleObject.updateTakeProfit(tradingEngine.current.position.takeProfit.takeProfitPhase.value + 1)
+                                tradingPositionModuleObject.updateTakeProfit(tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value + 1)
 
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.current.episode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -730,7 +730,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.current.episode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -741,7 +741,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
             function checkStopLossOrTakeProfitWasHit() {
                 {
-                    let strategy = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value]
+                    let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                     /* 
                     Checking what happened since the last execution. We need to know if the Stop Loss
                     or our Take Profit were hit. 
@@ -750,12 +750,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
                     if (
                         (
-                            tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Above' &&
-                            tradingEngine.current.episode.candle.max.value >= tradingEngine.current.position.stopLoss.value
+                            tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.stopLoss.value
                         ) ||
                         (
-                            tradingEngine.current.position.stopLoss.stopLossPosition.value === 'Below' &&
-                            tradingEngine.current.episode.candle.min.value <= tradingEngine.current.position.stopLoss.value
+                            tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Below' &&
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.stopLoss.value
                         )
                     ) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Stop Loss was hit.')
@@ -770,12 +770,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     /* Take Profit condition: Here we verify if the Take Profit was hit or not. */
                     if (
                         (
-                            tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Below' &&
-                            tradingEngine.current.episode.candle.min.value <= tradingEngine.current.position.takeProfit.value
+                            tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Below' &&
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngine.tradingCurrent.position.takeProfit.value
                         ) ||
                         (
-                            tradingEngine.current.position.takeProfit.takeProfitPosition.value === 'Above' &&
-                            tradingEngine.current.episode.candle.max.value >= tradingEngine.current.position.takeProfit.value
+                            tradingEngine.tradingCurrent.position.takeProfit.takeProfitPosition.value === 'Above' &&
+                            tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngine.tradingCurrent.position.takeProfit.value
                         )
                     ) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] checkStopLossOrTakeProfitWasHit -> Take Profit was hit.')
@@ -800,13 +800,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         function runWhenStatusIsOpening() {
 
             /* Opening Status Procedure */
-            if (tradingEngine.current.strategyCloseStage.status.value === 'Opening') {
+            if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define a close stage, because the close stage is optional.
                 Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
                 the close stage as closed.
                 */
-                if (tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage === undefined) {
+                if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage === undefined) {
                     changeStageStatus('Close Stage', 'Closed', 'Close Stage Undefined')
                     return
                 }
@@ -814,11 +814,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 /* 
                 This will happen only once, as soon as the Take Profit or Stop was hit.
                 */
-                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
 
                 /* Exit Position size and rate */
                 tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
-                tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.current.strategyCloseStage)
+                tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage)
 
                 initializeStageTargetSize()
                 changeStageStatus('Close Stage', 'Open')
@@ -832,17 +832,17 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             to be known before we start placing orders at the Close Stage. 
             */
             if (
-                tradingEngine.current.strategyCloseStage.status.value === 'Open' &&
+                tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open' &&
                 (
-                    tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
-                    tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
+                    tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Closed' ||
+                    tradingEngine.tradingCurrent.strategyOpenStage.status.value === tradingEngine.tradingCurrent.strategyOpenStage.status.config.initialValue
                 )
             ) {
                 /*
                 This will happen as long as the Close Stage is Open.
                 */
-                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
-                let tradingEngineStage = tradingEngine.current.strategyCloseStage
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
+                let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
                 let executionNode = tradingSystemStage.closeExecution
 
                 tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
@@ -850,7 +850,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
-                    tradingEngine.current.strategyCloseStage
+                    tradingEngine.tradingCurrent.strategyCloseStage
                 )
 
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
@@ -861,18 +861,18 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             /*
             Validations that all needed nodes are there.
             */
-            if (tradingEngine.current.strategyCloseStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.current.strategyCloseStage) }
-            if (tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyCloseStage.stageBaseAsset) }
-            if (tradingEngine.current.strategyCloseStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.current.strategyCloseStage) }
-            if (tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.current.strategyCloseStage.stageQuotedAsset) }
+            if (tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Base Asset Node Missing', tradingEngine.tradingCurrent.strategyCloseStage) }
+            if (tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset) }
+            if (tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset === undefined) { badDefinitionUnhandledException(undefined, 'Stage Quoted Asset Node Missing', tradingEngine.tradingCurrent.strategyCloseStage) }
+            if (tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.targetSize === undefined) { badDefinitionUnhandledException(undefined, 'Target Size Node Missing', tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset) }
             /*
             Here we will transform the position size into targets for each asset of the stage.
             */
-            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = tradingEngine.current.position.positionBaseAsset.exitTargetSize.value
-            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = tradingEngine.current.position.positionQuotedAsset.exitTargetSize.value
+            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.targetSize.value = tradingEngine.tradingCurrent.position.positionBaseAsset.exitTargetSize.value
+            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.targetSize.value = tradingEngine.tradingCurrent.position.positionQuotedAsset.exitTargetSize.value
 
-            tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
-            tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
+            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.targetSize.value, 10)
+            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.targetSize.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.targetSize.value, 10)
         }
     }
 
@@ -882,25 +882,25 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         or at their initial default value. The last is becasue after Closed objects are 
         initialized to their defualts.  
         */
-        if (tradingEngine.current.position.status.value !== 'Open' && tradingEngine.current.position.status.value !== 'Closing') { return }
+        if (tradingEngine.tradingCurrent.position.status.value !== 'Open' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
         if (
             (
-                tradingEngine.current.strategyTriggerStage.status.value === 'Closed' ||
-                tradingEngine.current.strategyTriggerStage.status.value === tradingEngine.current.strategyTriggerStage.status.config.initialValue
+                tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Closed' ||
+                tradingEngine.tradingCurrent.strategyTriggerStage.status.value === tradingEngine.tradingCurrent.strategyTriggerStage.status.config.initialValue
             )
             &&
             (
-                tradingEngine.current.strategyOpenStage.status.value === 'Closed' ||
-                tradingEngine.current.strategyOpenStage.status.value === tradingEngine.current.strategyOpenStage.status.config.initialValue
+                tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Closed' ||
+                tradingEngine.tradingCurrent.strategyOpenStage.status.value === tradingEngine.tradingCurrent.strategyOpenStage.status.config.initialValue
             )
             &&
             (
-                tradingEngine.current.strategyManageStage.status.value === 'Closed' ||
-                tradingEngine.current.strategyManageStage.status.value === tradingEngine.current.strategyManageStage.status.config.initialValue
+                tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Closed' ||
+                tradingEngine.tradingCurrent.strategyManageStage.status.value === tradingEngine.tradingCurrent.strategyManageStage.status.config.initialValue
             )
             &&
             (
-                tradingEngine.current.strategyCloseStage.status.value === 'Closed'
+                tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Closed'
             )
         ) {
 
@@ -933,8 +933,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 tradingStrategyModuleObject.closeStrategy('Position Closed')
 
                 /* Distance to Events Updates */
-                tradingEngine.current.episode.distanceToEvent.closePosition.value = 1
-                tradingEngine.current.episode.distanceToEvent.triggerOff.value = 1
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value = 1
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
 
             }
         }
@@ -1033,19 +1033,19 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         let stage
         switch (stageName) {
             case 'Trigger Stage': {
-                stage = tradingEngine.current.strategyTriggerStage
+                stage = tradingEngine.tradingCurrent.strategyTriggerStage
                 break
             }
             case 'Open Stage': {
-                stage = tradingEngine.current.strategyOpenStage
+                stage = tradingEngine.tradingCurrent.strategyOpenStage
                 break
             }
             case 'Manage Stage': {
-                stage = tradingEngine.current.strategyManageStage
+                stage = tradingEngine.tradingCurrent.strategyManageStage
                 break
             }
             case 'Close Stage': {
-                stage = tradingEngine.current.strategyCloseStage
+                stage = tradingEngine.tradingCurrent.strategyCloseStage
                 break
             }
         }
@@ -1073,15 +1073,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         */
         function openStage(stage) {
             /* Recording the opening at the Trading Engine Data Structure */
-            stage.begin.value = tradingEngine.current.episode.cycle.lastBegin.value
-            stage.end.value = tradingEngine.current.episode.cycle.lastEnd.value
-            stage.beginRate.value = tradingEngine.current.episode.candle.close.value
+            stage.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value
+            stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+            stage.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
 
         function closeStage(stage) {
             /* Recording the closing at the Trading Engine Data Structure */
-            stage.end.value = tradingEngine.current.episode.cycle.lastEnd.value
-            stage.endRate.value = tradingEngine.current.episode.candle.close.value
+            stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+            stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
     }
 
@@ -1090,43 +1090,43 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         Note that we can not use the cycle here because this is executed via mantain
         which in turn is executed before the first cycle for this candle is set. 
         */
-        if (tradingEngine.current.strategyTriggerStage.status.value === 'Open') {
-            tradingEngine.current.strategyTriggerStage.end.value = tradingEngine.current.strategyTriggerStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.current.strategyTriggerStage.endRate.value = tradingEngine.current.episode.candle.close.value
+        if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
+            tradingEngine.tradingCurrent.strategyTriggerStage.end.value = tradingEngine.tradingCurrent.strategyTriggerStage.end.value + sessionParameters.timeFrame.config.value
+            tradingEngine.tradingCurrent.strategyTriggerStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
-        if (tradingEngine.current.strategyOpenStage.status.value === 'Open') {
-            tradingEngine.current.strategyOpenStage.end.value = tradingEngine.current.strategyOpenStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.current.strategyOpenStage.endRate.value = tradingEngine.current.episode.candle.close.value
+        if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
+            tradingEngine.tradingCurrent.strategyOpenStage.end.value = tradingEngine.tradingCurrent.strategyOpenStage.end.value + sessionParameters.timeFrame.config.value
+            tradingEngine.tradingCurrent.strategyOpenStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
-        if (tradingEngine.current.strategyManageStage.status.value === 'Open') {
-            tradingEngine.current.strategyManageStage.end.value = tradingEngine.current.strategyManageStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.current.strategyManageStage.endRate.value = tradingEngine.current.episode.candle.close.value
+        if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+            tradingEngine.tradingCurrent.strategyManageStage.end.value = tradingEngine.tradingCurrent.strategyManageStage.end.value + sessionParameters.timeFrame.config.value
+            tradingEngine.tradingCurrent.strategyManageStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
-        if (tradingEngine.current.strategyCloseStage.status.value === 'Open') {
-            tradingEngine.current.strategyCloseStage.end.value = tradingEngine.current.strategyCloseStage.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.current.strategyCloseStage.endRate.value = tradingEngine.current.episode.candle.close.value
+        if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
+            tradingEngine.tradingCurrent.strategyCloseStage.end.value = tradingEngine.tradingCurrent.strategyCloseStage.end.value + sessionParameters.timeFrame.config.value
+            tradingEngine.tradingCurrent.strategyCloseStage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
     }
 
     function resetTradingEngineDataStructure() {
-        if (tradingEngine.current.strategyTriggerStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyTriggerStage.status)
+        if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Closed') {
+            resetStage(tradingEngine.tradingCurrent.strategyTriggerStage.status)
         }
-        if (tradingEngine.current.strategyOpenStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyOpenStage.status)
+        if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Closed') {
+            resetStage(tradingEngine.tradingCurrent.strategyOpenStage.status)
         }
-        if (tradingEngine.current.strategyManageStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyManageStage.status)
+        if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Closed') {
+            resetStage(tradingEngine.tradingCurrent.strategyManageStage.status)
         }
-        if (tradingEngine.current.strategyCloseStage.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyCloseStage.status)
+        if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Closed') {
+            resetStage(tradingEngine.tradingCurrent.strategyCloseStage.status)
         }
 
-        if (tradingEngine.current.position.status.value === 'Closed') {
-            resetStage(tradingEngine.current.strategyTriggerStage)
-            resetStage(tradingEngine.current.strategyOpenStage)
-            resetStage(tradingEngine.current.strategyManageStage)
-            resetStage(tradingEngine.current.strategyCloseStage)
+        if (tradingEngine.tradingCurrent.position.status.value === 'Closed') {
+            resetStage(tradingEngine.tradingCurrent.strategyTriggerStage)
+            resetStage(tradingEngine.tradingCurrent.strategyOpenStage)
+            resetStage(tradingEngine.tradingCurrent.strategyManageStage)
+            resetStage(tradingEngine.tradingCurrent.strategyCloseStage)
         }
         function resetStage(stage) {
             TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(stage)

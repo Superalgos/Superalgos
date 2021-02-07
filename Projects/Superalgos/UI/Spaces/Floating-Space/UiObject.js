@@ -1490,12 +1490,13 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
-            drawNodeType()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
                 thisObject.uiObjectMessage.draw()
             }
+
+            drawNodeType()
         }
     }
 

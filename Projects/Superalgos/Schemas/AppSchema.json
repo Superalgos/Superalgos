@@ -113,6 +113,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add Docs Space",
+                "relatedUiObject": "Docs Space",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -3210,33 +3216,21 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeBaseAsset",
+                "name": "learningEpisodeCounters",
                 "type": "node",
-                "childType": "Episode Base Asset",
+                "childType": "Learning Episode Counters",
                 "autoAdd": true
             },
             {
-                "name": "episodeQuotedAsset",
+                "name": "learningEpisodeStatistics",
                 "type": "node",
-                "childType": "Episode Quoted Asset",
+                "childType": "Learning Episode Statistics",
                 "autoAdd": true
             },
             {
-                "name": "tradingEpisodeCounters",
+                "name": "distanceToLearningEvent",
                 "type": "node",
-                "childType": "Trading Episode Counters",
-                "autoAdd": true
-            },
-            {
-                "name": "tradingEpisodeStatistics",
-                "type": "node",
-                "childType": "Trading Episode Statistics",
-                "autoAdd": true
-            },
-            {
-                "name": "distanceToTradingEvent",
-                "type": "node",
-                "childType": "Distance To Trading Event",
+                "childType": "Distance To Learning Event",
                 "autoAdd": true
             },
             {
@@ -3459,6 +3453,65 @@
                 "autoAdd": false
             }
         ]
+    },
+    {
+        "type": "Learning Episode Counters",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Counter",
+                "relatedUiObject": "User Defined Counter",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "learningEpisodeCounters",
+        "childrenNodesProperties": [
+            {
+                "name": "periods",
+                "type": "node",
+                "childType": "Periods",
+                "autoAdd": true
+            },
+            {
+                "name": "hits",
+                "type": "node",
+                "childType": "Hits",
+                "autoAdd": true
+            },
+            {
+                "name": "fails",
+                "type": "node",
+                "childType": "Fails",
+                "autoAdd": true
+            },
+            {
+                "name": "userDefinedCounters",
+                "type": "array",
+                "childType": "User Defined Counter",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Position Counters",
@@ -3816,7 +3869,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "fails"
     },
@@ -3870,7 +3923,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hits"
     },
@@ -3924,7 +3977,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Counters->Position Counters->Strategy Counters->Order Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->Order Counters->"
         },
         "propertyNameAtParent": "periods"
     },
@@ -3978,9 +4031,50 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Counters->Position Counters->Strategy Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->"
         },
         "propertyNameAtParent": "userDefinedCounters"
+    },
+    {
+        "type": "Learning Episode Statistics",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Statistic",
+                "relatedUiObject": "User Defined Statistic",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "learningEpisodeStatistics",
+        "childrenNodesProperties": [
+            {
+                "name": "userDefinedStatistics",
+                "type": "array",
+                "childType": "User Defined Statistic",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Trading Episode Statistics",
@@ -4051,6 +4145,34 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Distance To Learning Event",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "distanceToLearningEvent",
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Stop Loss",
@@ -5300,7 +5422,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->"
         },
         "propertyNameAtParent": "userDefinedStatistics",
         "childrenNodesProperties": [
@@ -15090,6 +15212,54 @@
         "isPersonalData": true
     },
     {
+        "type": "Docs Space",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "spaceStyle",
+                "label": "Add Space Style",
+                "relatedUiObject": "Space Style",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "spaceSettings",
+                "label": "Add Space Settings",
+                "relatedUiObject": "Space Settings",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "spaceStyle",
+                "type": "node",
+                "childType": "Space Style",
+                "autoAdd": true
+            },
+            {
+                "name": "spaceSettings",
+                "type": "node",
+                "childType": "Space Settings",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
         "type": "Design Space",
         "menuItems": [
             {
@@ -15141,7 +15311,7 @@
         "level": 4,
         "propertyNameAtParent": "spaceStyle",
         "attachingRules": {
-            "compatibleTypes": "->Charting Space->Design Space->"
+            "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
         },
         "editors": {
             "config": true
@@ -15174,7 +15344,7 @@
         "level": 4,
         "propertyNameAtParent": "spaceSettings",
         "attachingRules": {
-            "compatibleTypes": "->Charting Space->Design Space->"
+            "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
         },
         "editors": {
             "config": true

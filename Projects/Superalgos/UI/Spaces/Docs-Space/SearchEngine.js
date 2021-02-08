@@ -17,9 +17,17 @@ function newSuperalgosDocsSearchEngine() {
     }
 
     function setUpSearchEngine(callbackFunction) {
-        //callbackFunction()
-        //return
 
+        let docsSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Docs Space')
+        if (docsSpaceNode === undefined) { return }
+        if (docsSpaceNode.spaceSettings === undefined) { return }
+        let indexContent = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(docsSpaceNode.spaceSettings.payload, 'indexContent')
+
+        if (indexContent === false) {
+            callbackFunction()
+            return    
+        }
+        
         let totalAsyncCallsMade = 0
         let totalAsyncCallsFinished = 0
 

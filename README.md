@@ -88,20 +88,20 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 
 In order to migrate your own workspace to Beta 9, you will need to open your My Workspaces folder with an IDE like VS Code and do some refactorings. Some node types have changed in order to accomodate naming space to Learning Bots. This is what you need to change:
 
--> means replaced by
-
-Current -> Trading Current
-Last -> Trading Last
-Episode -> Trading Episode
-Episode Counters -> Trading Episode Counters
-Episode Statistics -> Trading Episode Statistics
-Distance To Event -> Distance To Trading Event
-
-Also, look for properties name making the needed refactoring to them too, always respecting capitaliztion. For example:
-
-episode -> tradingEpisode
-episodeStatistics -> tradingEpisodeStatistics
-
+| From | To |
+| :---: | :---: |
+| Current | Trading Current |
+| current | tradingCurrent |
+| Last | Trading Last |
+| last | tradingLast |
+| Episode | Trading Episode |
+| episode | tradingEpisode |
+| Episode Counters | Trading Episode Counters |
+| episodeCounters | tradingEpisodeCounters |
+| Episode Statistics | Trading Episode Statistics |
+| episodeStatistics | tradingEpisodeStatistics |
+| Distance To Event | Distance To Trading Event |
+| distanceToEvent | distanceToTradingEvent |
 
 # Usage
 

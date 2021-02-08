@@ -1,6 +1,6 @@
 # Superalgos Beta 8 - Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS.
+All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -18,6 +18,27 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
 
+**Raspberry Pi Users:** From the SSH Terminal, send the following commands to install Node. ::NOTE:: It is best to use the most current and updated version of the FULL PiOS image.
+```
+sudo apt-get install python-software-properties
+```
+then
+```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+```
+followed by 
+```
+sudo apt-get install -y nodejs
+```
+It is recommended to install the Node Package Manager
+```
+sudo apt install npm
+```
+you may also type the following to verify the Node.js installation and version.
+```
+node -v
+```
+
 ## Git
 
 Download and install Git.
@@ -33,6 +54,12 @@ Git is an open-source distributed version control system required to download an
 **IMPORTANT:** The latest version of Git is required to handle the authentication with GitHub.com.
 
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
+
+**Raspberry Pi Users:**
+send the SSH Terminal command to install git
+```
+sudo apt-get install git
+```
 
 ## Google Chrome or Safari
 
@@ -91,6 +118,11 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 ```
 node run
 ```
+If you are running a headless Raspberry Pi (one without a screen) it is recommended to use the following instead.
+```
+node run minMemo noBrowser
+```
+
 
 ![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 

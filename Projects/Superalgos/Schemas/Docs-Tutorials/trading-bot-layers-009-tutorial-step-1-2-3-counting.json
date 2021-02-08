@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "project": "Superalgos",
-            "name": "episode-counters"
+            "name": "trading-episode-counters"
         },
         "text": "Let's test the first Layer in the Trading Engine Layer Manager: Episode Counters."
     },

@@ -145,7 +145,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     tradingStrategyModuleObject.openStrategy(j, situation.name, strategy.name)
 
                                     /* Initialize this */
-                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
                                     announcementsModuleObject.makeAnnoucements(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnoucements(triggerStage)
@@ -192,7 +192,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(triggerStage.triggerOff.id)
                                 tradingSystem.highlights.push(triggerStage.id)
 
-                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
                                 announcementsModuleObject.makeAnnoucements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
@@ -572,7 +572,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -623,7 +623,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -679,7 +679,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnoucements(nextPhaseEvent)
 
                                 /* Reset this counter */
-                                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value = 1
+                                tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value = 1
                                 return // only one event can pass at the time
                             }
                         }
@@ -730,7 +730,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                     announcementsModuleObject.makeAnnoucements(moveToPhaseEvent)
 
                                     /* Reset this counter */
-                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value = 1
+                                    tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value = 1
                                     return // only one event can pass at the time
                                 }
                             }
@@ -932,9 +932,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 /* Close the Strategy */
                 tradingStrategyModuleObject.closeStrategy('Position Closed')
 
-                /* Distance to Events Updates */
-                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value = 1
-                tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value = 1
+                /* Distance-To-Trading-Events Updates */
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closePosition.value = 1
+                tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
 
             }
         }

@@ -36,7 +36,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
         updateCounters()
         updateStatistics()
         updateEnds()
-        updateDistanceToEventsCounters()
+        updateDistanceToTradingEventsCounters()
     }
 
     function reset() {
@@ -103,15 +103,15 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
 
     function updateCounters() {
         if (tradingEngine.tradingCurrent.tradingEpisode.status.value === 'Open') {
-            tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.periods.value++
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value++
         }
     }
 
     function updateStatistics() {
 
         /* Daus Calculation */
-        tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.days.value =
-            tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.periods.value *
+        tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value =
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
@@ -151,14 +151,14 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.ROI.value, 10)
 
             /* Updating Hit Ratio */
-            if (tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value > 0) {
+            if (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value > 0) {
                 tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value =
                     tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hits.value /
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value
+                    tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value
 
                 tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value =
                     tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hits.value /
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value
+                    tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value
 
                 tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value, 10)
                 tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value, 10)
@@ -176,7 +176,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
                         tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value
                     ) / tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value
                     ,
-                    (365 / tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.days.value)
+                    (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)
                 ) - 1
 
             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.annualizedRateOfReturn.value =
@@ -186,7 +186,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
                         tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value
                     ) / tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value
                     ,
-                    (365 / tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.days.value)
+                    (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)
                 ) - 1
 
             tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
@@ -207,18 +207,18 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
 
         function calculateEpisodeStatistics() {
             /* Updating Profit Loss */
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.profitLoss.value =
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value =
                 tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * tradingEngine.tradingCurrent.tradingEpisode.candle.close.value +
                 tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value
 
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.profitLoss.value, 10)
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value, 10)
 
             /* 
             Updating ROI 
             
             https://www.investopedia.com/articles/basics/10/guide-to-calculating-roi.asp
             */
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.ROI.value =
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value =
                 (
                     tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * tradingEngine.tradingCurrent.tradingEpisode.endRate.value +
                     tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value
@@ -227,14 +227,14 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
                     tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value
                 ) * 100
 
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.ROI.value, 10)
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value, 10)
 
             /* 
             Updating Annualized Rate Of Return
             
             https://www.investopedia.com/terms/a/annualized-rate.asp
             */
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.annualizedRateOfReturn.value =
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value =
                 Math.pow(
                     (
                         tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +
@@ -247,74 +247,74 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
                         tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value
                     )
                     ,
-                    (365 / tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.days.value)
+                    (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)
                 ) - 1
 
-            tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.annualizedRateOfReturn.value, 10)
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value, 10)
 
             /* Updating Hit or Fail */
-            if (tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.profitLoss.value > 0) {
-                tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.hitFail.value = 'Hit'
+            if (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value > 0) {
+                tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value = 'Hit'
             } else {
-                tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.hitFail.value = 'Fail'
+                tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value = 'Fail'
             }
         }
     }
 
-    function updateDistanceToEventsCounters() {
+    function updateDistanceToTradingEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closePosition.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closePosition.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.cancelOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.cancelOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.cancelOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.cancelOrder.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value++
         }
     }
 }

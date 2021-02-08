@@ -1,7 +1,7 @@
 {
-    "type": "Episode Statistics",
+    "type": "Trading Episode Counters",
     "definition": {
-        "text": "Episode statistics keeps track of several metrics in the context of the episode."
+        "text": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode."
     },
     "paragraphs": [
         {

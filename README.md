@@ -120,6 +120,10 @@ node run
 ```
 If you are running a headless Raspberry Pi (one without a screen) it is recommended to use the following instead.
 ```
+cd Superalgos
+```
+then
+```
 node run minMemo noBrowser
 ```
 

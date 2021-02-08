@@ -41,7 +41,7 @@ exports.newSuperalgosBotModulesLearningOutput = function (processIndex) {
                 timeFrameLabel,
                 learningProcessDate,
                 fileStorage,
-                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.tradingCurrent.learningEpisode.headOfTheMarket.value
+                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine.learningCurrent.learningEpisode.headOfTheMarket.value
             )
 
             await learningSimulationModuleObject.runSimulation(

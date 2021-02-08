@@ -4068,6 +4068,18 @@
         "propertyNameAtParent": "learningEpisodeStatistics",
         "childrenNodesProperties": [
             {
+                "name": "hitFail",
+                "type": "node",
+                "childType": "Hit Fail",
+                "autoAdd": true
+            },
+            {
+                "name": "days",
+                "type": "node",
+                "childType": "Days",
+                "autoAdd": true
+            },
+            {
                 "name": "userDefinedStatistics",
                 "type": "array",
                 "childType": "User Defined Statistic",
@@ -5592,7 +5604,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Order Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->Order Statistics->"
         },
         "propertyNameAtParent": "days"
     },
@@ -5970,7 +5982,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hitFail"
     },

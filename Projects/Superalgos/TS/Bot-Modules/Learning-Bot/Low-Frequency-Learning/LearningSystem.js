@@ -26,8 +26,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let learningStagesModuleObject = TS.projects.superalgos.botModules.learningStages.newSuperalgosBotModulesLearningStages(processIndex)
-
     return thisObject
 
     function initialize() {
@@ -37,8 +35,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
 
         learningSystem.conditions = new Map()
         learningSystem.formulas = new Map()
-
-        learningStagesModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Learning System Definition */
         learningSystem.checkConditions = function (situation, passed) {
@@ -118,8 +114,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     }
 
     function finalize() {
-        learningStagesModuleObject.finalize()
-        learningStagesModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -143,11 +137,10 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     }
 
     function mantain() {
-        learningStagesModuleObject.mantain()
+
     }
 
     function reset() {
-        learningStagesModuleObject.reset()
 
         learningSystem.highlights = []
         learningSystem.errors = []
@@ -168,8 +161,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         chart = pChart
         exchange = pExchange
         market = pMarket
-
-        learningStagesModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function buildDynamicIndicators() {
@@ -191,23 +182,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         try {
             /* Dynamic Indicators */
             buildDynamicIndicators()
-
-            /* Run the Trigger Stage */
-            learningStagesModuleObject.runTriggerStage()
-
-            /* Run the Open Stage */
-            await learningStagesModuleObject.runOpenStage()
-
-            /* Run the Manage Stage */
-            learningStagesModuleObject.runManageStage()
-
-            /* Run the Close Stage */
-            await learningStagesModuleObject.runCloseStage()
-
-            /* Validation if we need to exit the position */
-            learningStagesModuleObject.exitPositionValidation()
-
-            learningStagesModuleObject.cycleBasedStatistics()
 
         } catch (err) {
             /* 

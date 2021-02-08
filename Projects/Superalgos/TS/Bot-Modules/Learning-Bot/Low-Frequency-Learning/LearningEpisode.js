@@ -55,14 +55,6 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         learningEngine.learningCurrent.learningEpisode.begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
         learningEngine.learningCurrent.learningEpisode.end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
 
-        /* Getting the begin Balance from the session configuration */
-        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
-
-        /* The current balance is also the begin balance, that is how this starts. */
-        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.balance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.balance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
-
         /* Recording the opening at the Learning Engine Data Structure */
         learningEngine.learningCurrent.learningEpisode.status.value = 'Open'
         learningEngine.learningCurrent.learningEpisode.serialNumber.value = 1
@@ -78,8 +70,6 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         learningEngine.learningCurrent.learningEpisode.status.value = 'Closed'
         learningEngine.learningCurrent.learningEpisode.end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
         learningEngine.learningCurrent.learningEpisode.endRate.value = learningEngine.learningCurrent.learningEpisode.candle.close.value
-        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.endBalance.value = learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.balance.value
-        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.endBalance.value = learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.balance.value
     }
 
     function resetEpisode() {
@@ -90,8 +80,6 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         if (learningEngine.learningCurrent.learningEpisode.status.value === 'Open') {
             learningEngine.learningCurrent.learningEpisode.end.value = learningEngine.learningCurrent.learningEpisode.end.value + sessionParameters.timeFrame.config.value
             learningEngine.learningCurrent.learningEpisode.endRate.value = learningEngine.learningCurrent.learningEpisode.candle.close.value
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.endBalance.value = learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.balance.value
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.endBalance.value = learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.balance.value
         }
     }
 
@@ -109,7 +97,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
 
     function updateStatistics() {
 
-        /* Daus Calculation */
+        /* Days Calculation */
         learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value =
             learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
@@ -122,75 +110,6 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         calculateEpisodeStatistics()
 
         function calculateAssetsStatistics() {
-            /* Updating Profit Loss */
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value =
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.balance.value -
-                sessionParameters.sessionBaseAsset.config.initialBalance
-
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value =
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.balance.value -
-                sessionParameters.sessionQuotedAsset.config.initialBalance
-
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value, 10)
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value, 10)
-
-            /* 
-            Updating ROI 
-            
-            https://www.investopedia.com/articles/basics/10/guide-to-calculating-roi.asp
-            */
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.ROI.value =
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value /
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value * 100
-
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.ROI.value =
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value /
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value * 100
-
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.ROI.value, 10)
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.ROI.value, 10)
-
-            /* Updating Hit Ratio */
-            if (learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value > 0) {
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value =
-                    learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hits.value /
-                    learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value
-
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value =
-                    learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hits.value /
-                    learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value
-
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value, 10)
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value, 10)
-            }
-
-            /* 
-            Updating Annualized Rate Of Return 
-            
-            https://www.investopedia.com/terms/a/annualized-rate.asp
-            */
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.annualizedRateOfReturn.value =
-                Math.pow(
-                    (
-                        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value
-                    ) / learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value
-                    ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
-                ) - 1
-
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.annualizedRateOfReturn.value =
-                Math.pow(
-                    (
-                        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
-                    ) / learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
-                    ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
-                ) - 1
-
-            learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
-            learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.annualizedRateOfReturn.value, 10)
 
             /* Updating Hit or Fail */
             if (learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value > 0) {
@@ -206,52 +125,6 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         }
 
         function calculateEpisodeStatistics() {
-            /* Updating Profit Loss */
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value =
-                learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value * learningEngine.learningCurrent.learningEpisode.candle.close.value +
-                learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
-
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value, 10)
-
-            /* 
-            Updating ROI 
-            
-            https://www.investopedia.com/articles/basics/10/guide-to-calculating-roi.asp
-            */
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value =
-                (
-                    learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value * learningEngine.learningCurrent.learningEpisode.endRate.value +
-                    learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
-                ) / (
-                    learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value * learningEngine.learningCurrent.learningEpisode.beginRate.value +
-                    learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
-                ) * 100
-
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value, 10)
-
-            /* 
-            Updating Annualized Rate Of Return
-            
-            https://www.investopedia.com/terms/a/annualized-rate.asp
-            */
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value =
-                Math.pow(
-                    (
-                        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value * learningEngine.learningCurrent.learningEpisode.beginRate.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
-                    ) /
-                    (
-                        learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value * learningEngine.learningCurrent.learningEpisode.beginRate.value +
-                        learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
-                    )
-                    ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
-                ) - 1
-
-            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value, 10)
-
             /* Updating Hit or Fail */
             if (learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value > 0) {
                 learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.hitFail.value = 'Hit'
@@ -263,58 +136,12 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
 
     function updatedistanceToLearningEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        /*
         if (
             learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOn.value > 0
         ) {
             learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOn.value++
         }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOff.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOff.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.takePosition.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.takePosition.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closePosition.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closePosition.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.nextPhase.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.nextPhase.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.moveToPhase.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.moveToPhase.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.createOrder.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.createOrder.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.cancelOrder.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.cancelOrder.value++
-        }
-
-        if (
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closeOrder.value > 0
-        ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closeOrder.value++
-        }
+        */
     }
 }

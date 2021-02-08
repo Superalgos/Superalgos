@@ -107,17 +107,19 @@
                         map.set(key, true)
                     }
                 }
-            } else {
-                /*
-                If we did not receive any filters, like in the case of Indicators and Sensors,
-                we need to add the default exchange and market to these maps in order
-                for the following sections to work.
-                */
-                thisObject.filters.market.list.set(thisObject.defaultMarket, true)
-
-                thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
-                thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defaultMarket, true)
             }
+            /*
+            In case we do not receive any filters, like in the case of Indicators and Sensors,
+            or simply because the Learning System is still empty, 
+            we need to add the default exchange and market to these maps in order
+            for the following sections to work, and later we at least have candles at the
+            Learning Simulation.
+            */
+            thisObject.filters.market.list.set(thisObject.defaultMarket, true)
+
+            thisObject.filters.exchange.list.set(thisObject.defaultExchange, true)
+            thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defaultMarket, true)
+
             /*
              For each dependency declared at the curatedDependencyNodeArray, we will initialize a 
              DataSet as part of this initialization process.
@@ -204,7 +206,7 @@
                             */
                             if (dataDependency.referenceParent.parentNode.config.codeName !== 'Candles') {
                                 continue
-                            }                            
+                            }
                         }
                         addDataSet(exchange, market)
                     } else {

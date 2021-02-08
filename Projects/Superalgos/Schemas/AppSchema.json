@@ -3228,9 +3228,9 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeStatistics",
+                "name": "tradingEpisodeStatistics",
                 "type": "node",
-                "childType": "Episode Statistics",
+                "childType": "Trading Episode Statistics",
                 "autoAdd": true
             },
             {
@@ -3359,9 +3359,9 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeStatistics",
+                "name": "tradingEpisodeStatistics",
                 "type": "node",
-                "childType": "Episode Statistics",
+                "childType": "Trading Episode Statistics",
                 "autoAdd": true
             },
             {
@@ -3983,7 +3983,7 @@
         "propertyNameAtParent": "userDefinedCounters"
     },
     {
-        "type": "Episode Statistics",
+        "type": "Trading Episode Statistics",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -4012,7 +4012,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "episodeStatistics",
+        "propertyNameAtParent": "tradingEpisodeStatistics",
         "childrenNodesProperties": [
             {
                 "name": "profitLoss",
@@ -5300,7 +5300,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->"
         },
         "propertyNameAtParent": "userDefinedStatistics",
         "childrenNodesProperties": [
@@ -5362,7 +5362,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "profitLoss"
     },
@@ -5470,7 +5470,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Order Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Order Statistics->"
         },
         "propertyNameAtParent": "days"
     },
@@ -5740,7 +5740,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "ROI"
     },
@@ -5794,7 +5794,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "annualizedRateOfReturn"
     },
@@ -5848,7 +5848,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hitFail"
     },

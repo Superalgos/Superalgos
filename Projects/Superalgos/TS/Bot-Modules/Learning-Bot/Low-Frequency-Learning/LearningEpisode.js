@@ -110,7 +110,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
     function updateStatistics() {
 
         /* Daus Calculation */
-        learningEngine.learningCurrent.learningEpisode.episodeStatistics.days.value =
+        learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value =
             learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
@@ -176,7 +176,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
                         learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value
                     ) / learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value
                     ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.episodeStatistics.days.value)
+                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
                 ) - 1
 
             learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.annualizedRateOfReturn.value =
@@ -186,7 +186,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
                         learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
                     ) / learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
                     ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.episodeStatistics.days.value)
+                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
                 ) - 1
 
             learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.annualizedRateOfReturn.value, 10)
@@ -207,18 +207,18 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
 
         function calculateEpisodeStatistics() {
             /* Updating Profit Loss */
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.profitLoss.value =
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value =
                 learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value * learningEngine.learningCurrent.learningEpisode.candle.close.value +
                 learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
 
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeStatistics.profitLoss.value, 10)
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value, 10)
 
             /* 
             Updating ROI 
             
             https://www.investopedia.com/articles/basics/10/guide-to-calculating-roi.asp
             */
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.ROI.value =
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value =
                 (
                     learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.profitLoss.value * learningEngine.learningCurrent.learningEpisode.endRate.value +
                     learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.profitLoss.value
@@ -227,14 +227,14 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
                     learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
                 ) * 100
 
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeStatistics.ROI.value, 10)
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.ROI.value, 10)
 
             /* 
             Updating Annualized Rate Of Return
             
             https://www.investopedia.com/terms/a/annualized-rate.asp
             */
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.annualizedRateOfReturn.value =
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value =
                 Math.pow(
                     (
                         learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.beginBalance.value * learningEngine.learningCurrent.learningEpisode.beginRate.value +
@@ -247,16 +247,16 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
                         learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.beginBalance.value
                     )
                     ,
-                    (365 / learningEngine.learningCurrent.learningEpisode.episodeStatistics.days.value)
+                    (365 / learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.days.value)
                 ) - 1
 
-            learningEngine.learningCurrent.learningEpisode.episodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeStatistics.annualizedRateOfReturn.value, 10)
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.annualizedRateOfReturn.value, 10)
 
             /* Updating Hit or Fail */
-            if (learningEngine.learningCurrent.learningEpisode.episodeStatistics.profitLoss.value > 0) {
-                learningEngine.learningCurrent.learningEpisode.episodeStatistics.hitFail.value = 'Hit'
+            if (learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.profitLoss.value > 0) {
+                learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.hitFail.value = 'Hit'
             } else {
-                learningEngine.learningCurrent.learningEpisode.episodeStatistics.hitFail.value = 'Fail'
+                learningEngine.learningCurrent.learningEpisode.learningEpisodeStatistics.hitFail.value = 'Fail'
             }
         }
     }

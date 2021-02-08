@@ -1,5 +1,5 @@
 {
-    "type": "Episode Statistics",
+    "type": "Trading Episode Statistics",
     "definition": {
         "text": "Episode statistics keeps track of several metrics in the context of the episode."
     },

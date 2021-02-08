@@ -71,7 +71,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.tradingEpisode.endRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.tradingEpisode.endRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
             "updated": 1611332824026
         },
         {

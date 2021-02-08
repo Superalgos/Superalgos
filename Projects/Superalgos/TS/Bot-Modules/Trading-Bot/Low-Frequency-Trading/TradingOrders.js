@@ -354,7 +354,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.orders.value++
+        tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value++
 
         /* Initialize this */
         tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value = 1
@@ -364,7 +364,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngineOrder.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngineOrder.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value
         tradingEngineOrder.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
-        tradingEngineOrder.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.orders.value
+        tradingEngineOrder.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value
         tradingEngineOrder.orderName.value = tradingSystemOrder.name
         tradingEngineOrder.algorithmName.value = executionAlgorithm.name
         tradingEngineOrder.situationName.value = situationName

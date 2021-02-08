@@ -3222,9 +3222,9 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeCounters",
+                "name": "tradingEpisodeCounters",
                 "type": "node",
-                "childType": "Episode Counters",
+                "childType": "Trading Episode Counters",
                 "autoAdd": true
             },
             {
@@ -3251,7 +3251,8 @@
                 "childType": "Cycle",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Trading Episode",
@@ -3352,9 +3353,9 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeCounters",
+                "name": "tradingEpisodeCounters",
                 "type": "node",
-                "childType": "Episode Counters",
+                "childType": "Trading Episode Counters",
                 "autoAdd": true
             },
             {
@@ -3384,7 +3385,7 @@
         ]
     },
     {
-        "type": "Episode Counters",
+        "type": "Trading Episode Counters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3413,7 +3414,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "episodeCounters",
+        "propertyNameAtParent": "tradingEpisodeCounters",
         "childrenNodesProperties": [
             {
                 "name": "periods",
@@ -3653,7 +3654,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "positions"
     },
@@ -3707,7 +3708,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "strategies"
     },
@@ -3761,7 +3762,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "orders"
     },
@@ -3815,7 +3816,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "fails"
     },
@@ -3869,7 +3870,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hits"
     },
@@ -3923,7 +3924,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->Order Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Position Counters->Strategy Counters->Order Counters->"
         },
         "propertyNameAtParent": "periods"
     },
@@ -3977,7 +3978,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Position Counters->Strategy Counters->"
         },
         "propertyNameAtParent": "userDefinedCounters"
     },
@@ -5953,7 +5954,8 @@
                 "childType": "Learning Episode",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Balance",

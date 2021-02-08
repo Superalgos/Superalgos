@@ -91,7 +91,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Dynamic Indicators->Indicator Function->' +
             'Trading Current->Trading Last->Previous->' +
             'Trading Episode->' +
-            'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
+            'Episode Base Asset->Episode Quoted Asset->Trading Episode Counters->Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +

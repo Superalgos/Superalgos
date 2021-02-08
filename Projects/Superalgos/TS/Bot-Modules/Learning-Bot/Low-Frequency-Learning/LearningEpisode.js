@@ -103,7 +103,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
 
     function updateCounters() {
         if (learningEngine.learningCurrent.learningEpisode.status.value === 'Open') {
-            learningEngine.learningCurrent.learningEpisode.episodeCounters.periods.value++
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.periods.value++
         }
     }
 
@@ -111,7 +111,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
 
         /* Daus Calculation */
         learningEngine.learningCurrent.learningEpisode.episodeStatistics.days.value =
-            learningEngine.learningCurrent.learningEpisode.episodeCounters.periods.value *
+            learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
@@ -151,14 +151,14 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
             learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.ROI.value, 10)
 
             /* Updating Hit Ratio */
-            if (learningEngine.learningCurrent.learningEpisode.episodeCounters.positions.value > 0) {
+            if (learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value > 0) {
                 learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value =
                     learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hits.value /
-                    learningEngine.learningCurrent.learningEpisode.episodeCounters.positions.value
+                    learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value
 
                 learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value =
                     learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hits.value /
-                    learningEngine.learningCurrent.learningEpisode.episodeCounters.positions.value
+                    learningEngine.learningCurrent.learningEpisode.learningEpisodeCounters.positions.value
 
                 learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeBaseAsset.hitRatio.value, 10)
                 learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(learningEngine.learningCurrent.learningEpisode.episodeQuotedAsset.hitRatio.value, 10)

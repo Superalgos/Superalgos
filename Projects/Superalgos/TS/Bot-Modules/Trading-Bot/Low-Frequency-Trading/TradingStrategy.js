@@ -43,7 +43,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
 
         /* Recording the opening at the Trading Engine Data Structure */
         tradingEngine.tradingCurrent.strategy.status.value = 'Open'
-        tradingEngine.tradingCurrent.strategy.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.strategies.value
+        tradingEngine.tradingCurrent.strategy.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.strategies.value
         tradingEngine.tradingCurrent.strategy.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
         tradingEngine.tradingCurrent.strategy.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
 
@@ -52,7 +52,7 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
         tradingEngine.tradingCurrent.strategy.strategyName.value = strategyName
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.strategies.value++
+        tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.strategies.value++
     }
 
     function closeStrategy(exitType) {

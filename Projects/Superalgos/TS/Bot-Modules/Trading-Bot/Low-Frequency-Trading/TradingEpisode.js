@@ -103,7 +103,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
 
     function updateCounters() {
         if (tradingEngine.tradingCurrent.tradingEpisode.status.value === 'Open') {
-            tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.periods.value++
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value++
         }
     }
 
@@ -111,7 +111,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
 
         /* Daus Calculation */
         tradingEngine.tradingCurrent.tradingEpisode.episodeStatistics.days.value =
-            tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.periods.value *
+            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
     }
@@ -151,14 +151,14 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.ROI.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.ROI.value, 10)
 
             /* Updating Hit Ratio */
-            if (tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value > 0) {
+            if (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value > 0) {
                 tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value =
                     tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hits.value /
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value
+                    tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value
 
                 tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value =
                     tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hits.value /
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeCounters.positions.value
+                    tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value
 
                 tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.hitRatio.value, 10)
                 tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.hitRatio.value, 10)

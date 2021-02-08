@@ -36,7 +36,7 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
         updateCounters()
         updateStatistics()
         updateEnds()
-        updateDistanceToEventsCounters()
+        updateDistanceToTradingEventsCounters()
     }
 
     function reset() {
@@ -261,60 +261,60 @@ exports.newSuperalgosBotModulesTradingEpisode = function (processIndex) {
         }
     }
 
-    function updateDistanceToEventsCounters() {
+    function updateDistanceToTradingEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOn.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.triggerOff.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closePosition.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closePosition.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closePosition.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.nextPhase.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.nextPhase.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.moveToPhase.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.moveToPhase.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.cancelOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.cancelOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.cancelOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.cancelOrder.value++
         }
 
         if (
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value > 0
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value > 0
         ) {
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value++
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value++
         }
     }
 }

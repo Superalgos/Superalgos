@@ -96,7 +96,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +
             'Begin->End->Last Begin->Last End->Open->Close->Min->Max->Index->' +
-            'Distance To Event->' +
+            'Distance To Trading Event->' +
             'Head Of The Market->Process Date->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
             'Strategy->' +

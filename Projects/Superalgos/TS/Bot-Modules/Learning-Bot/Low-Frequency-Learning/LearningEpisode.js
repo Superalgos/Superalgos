@@ -36,7 +36,7 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         updateCounters()
         updateStatistics()
         updateEnds()
-        updateDistanceToEventsCounters()
+        updatedistanceToLearningEventsCounters()
     }
 
     function reset() {
@@ -261,60 +261,60 @@ exports.newSuperalgosBotModulesLearningEpisode = function (processIndex) {
         }
     }
 
-    function updateDistanceToEventsCounters() {
+    function updatedistanceToLearningEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.triggerOn.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOn.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.triggerOn.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOn.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.triggerOff.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOff.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.triggerOff.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOff.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.takePosition.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.takePosition.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.takePosition.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.takePosition.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.closePosition.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closePosition.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.closePosition.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closePosition.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.nextPhase.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.nextPhase.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.nextPhase.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.nextPhase.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.moveToPhase.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.moveToPhase.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.moveToPhase.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.moveToPhase.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.createOrder.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.createOrder.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.createOrder.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.createOrder.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.cancelOrder.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.cancelOrder.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.cancelOrder.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.cancelOrder.value++
         }
 
         if (
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.closeOrder.value > 0
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closeOrder.value > 0
         ) {
-            learningEngine.learningCurrent.learningEpisode.distanceToEvent.closeOrder.value++
+            learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.closeOrder.value++
         }
     }
 }

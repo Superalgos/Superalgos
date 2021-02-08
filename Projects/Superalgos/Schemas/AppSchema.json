@@ -3234,9 +3234,9 @@
                 "autoAdd": true
             },
             {
-                "name": "distanceToEvent",
+                "name": "distanceToTradingEvent",
                 "type": "node",
-                "childType": "Distance To Event",
+                "childType": "Distance To Trading Event",
                 "autoAdd": true
             },
             {
@@ -3365,9 +3365,9 @@
                 "autoAdd": true
             },
             {
-                "name": "distanceToEvent",
+                "name": "distanceToTradingEvent",
                 "type": "node",
-                "childType": "Distance To Event",
+                "childType": "Distance To Trading Event",
                 "autoAdd": true
             },
             {
@@ -6120,7 +6120,7 @@
         "propertyNameAtParent": "endBalance"
     },
     {
-        "type": "Distance To Event",
+        "type": "Distance To Trading Event",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -6143,7 +6143,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "distanceToEvent",
+        "propertyNameAtParent": "distanceToTradingEvent",
         "childrenNodesProperties": [
             {
                 "name": "triggerOn",
@@ -6251,7 +6251,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "triggerOn"
     },
@@ -6305,7 +6305,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "triggerOff"
     },
@@ -6359,7 +6359,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "takePosition"
     },
@@ -6413,7 +6413,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "closePosition"
     },
@@ -6467,7 +6467,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "nextPhase"
     },
@@ -6521,7 +6521,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "moveToPhase"
     },
@@ -6575,7 +6575,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "createOrder"
     },
@@ -6629,7 +6629,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "cancelOrder"
     },
@@ -6683,7 +6683,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "closeOrder"
     },

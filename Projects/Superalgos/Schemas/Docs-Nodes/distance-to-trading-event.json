@@ -1,7 +1,7 @@
 {
-    "type": "Distance To Event",
+    "type": "Distance To Trading Event",
     "definition": {
-        "text": "Distance to event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode."
+        "text": "Distance to trading event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode."
     },
     "paragraphs": [
         {

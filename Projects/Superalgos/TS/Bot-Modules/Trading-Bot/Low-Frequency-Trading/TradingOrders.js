@@ -357,7 +357,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value++
 
         /* Initialize this */
-        tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.createOrder.value = 1
+        tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value = 1
 
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
@@ -674,7 +674,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.exitType.value = 'Filled'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -701,7 +701,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.status.value = 'Closed'
             tradingEngineOrder.exitType.value = 'Closed at the Exchange'
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -737,7 +737,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
             }
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -808,7 +808,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.exitType.value = 'Filled'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
             updateEndsWithCycle(tradingEngineOrder)
 
@@ -1040,7 +1040,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngineOrder.exitType.value = exitType
 
         /* Initialize this */
-        tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+        tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
         updateEndsWithCycle(tradingEngineOrder)
 
@@ -1122,7 +1122,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.status.value = 'Closed'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.closeOrder.value = 1
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 

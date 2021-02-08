@@ -84,6 +84,25 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 
 **4.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app.
 
+## Migrating from Superalgos Beta 8
+
+In order to migrate your own workspace to Beta 9, you will need to open your My Workspaces folder with an IDE like VS Code and do some refactorings. Some node types have changed in order to accomodate naming space to Learning Bots. This is what you need to change:
+
+-> means replaced by
+
+Current -> Trading Current
+Last -> Trading Last
+Episode -> Trading Episode
+Episode Counters -> Trading Episode Counters
+Episode Statistics -> Trading Episode Statistics
+Distance To Event -> Distance To Trading Event
+
+Also, look for properties name making the needed refactoring to them too, always respecting capitaliztion. For example:
+
+episode -> tradingEpisode
+episodeStatistics -> tradingEpisodeStatistics
+
+
 # Usage
 
 **1.** To run the Superalgos client, go to the Superalgos directory/folder and run this command: 

@@ -72,7 +72,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value++
 
         /* Inicializing this counter */
-        tradingEngine.tradingCurrent.tradingEpisode.distanceToEvent.takePosition.value = 1
+        tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value = 1
 
         /* Remember the balance we had before taking the position to later calculate profit or loss */
         tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value

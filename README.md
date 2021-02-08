@@ -20,10 +20,6 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **Raspberry Pi Users:** From the SSH Terminal, send the following commands to install Node. ::NOTE:: It is best to use the most current and updated version of the FULL PiOS image.
 ```
-sudo apt-get install python-software-properties
-```
-then
-```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 ```
 followed by 
@@ -56,7 +52,7 @@ Git is an open-source distributed version control system required to download an
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
 **Raspberry Pi Users:**
-send the SSH Terminal command to install git
+send the SSH Terminal command to install git. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
 ```
 sudo apt-get install git
 ```

@@ -86,9 +86,9 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 
 ## Migrating from Superalgos Beta 8
 
-In order to migrate your own workspace to Beta 9, you will need to open your My Workspaces folder with an IDE like VS Code and do some refactorings. Some node types have changed in order to accomodate naming space to Learning Bots. This is what you need to change:
+In order to migrate your own workspaces to Beta 9, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
 
-| From | To |
+| Find | Replace With |
 | :---: | :---: |
 | Current | Trading Current |
 | current | tradingCurrent |

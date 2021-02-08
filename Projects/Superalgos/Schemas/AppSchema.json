@@ -3030,7 +3030,14 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "childrenNodesProperties": [],
+        "childrenNodesProperties": [
+            {
+                "name": "learningCurrent",
+                "type": "node",
+                "childType": "Learning Current",
+                "autoAdd": true
+            }
+        ],
         "icon": "bitcoin"
     },
     {
@@ -3112,6 +3119,136 @@
                 "name": "formula",
                 "type": "node",
                 "childType": "Formula",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Learning Episode",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Current->"
+        },
+        "propertyNameAtParent": "learningEpisode",
+        "childrenNodesProperties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
+            {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "beginRate",
+                "type": "node",
+                "childType": "Begin Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "endRate",
+                "type": "node",
+                "childType": "End Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
+                "name": "headOfTheMarket",
+                "type": "node",
+                "childType": "Head Of The Market",
+                "autoAdd": true
+            },
+            {
+                "name": "processDate",
+                "type": "node",
+                "childType": "Process Date",
+                "autoAdd": true
+            },
+            {
+                "name": "episodeBaseAsset",
+                "type": "node",
+                "childType": "Episode Base Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "episodeQuotedAsset",
+                "type": "node",
+                "childType": "Episode Quoted Asset",
+                "autoAdd": true
+            },
+            {
+                "name": "episodeCounters",
+                "type": "node",
+                "childType": "Episode Counters",
+                "autoAdd": true
+            },
+            {
+                "name": "episodeStatistics",
+                "type": "node",
+                "childType": "Episode Statistics",
+                "autoAdd": true
+            },
+            {
+                "name": "distanceToEvent",
+                "type": "node",
+                "childType": "Distance To Event",
+                "autoAdd": true
+            },
+            {
+                "name": "candle",
+                "type": "node",
+                "childType": "Candle",
+                "autoAdd": true
+            },
+            {
+                "name": "cycle",
+                "type": "node",
+                "childType": "Cycle",
                 "autoAdd": true
             }
         ]
@@ -5785,6 +5922,40 @@
         ]
     },
     {
+        "type": "Learning Current",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "learningCurrent",
+        "childrenNodesProperties": [
+            {
+                "name": "learningEpisode",
+                "type": "node",
+                "childType": "Learning Episode",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
         "type": "Balance",
         "menuItems": [
             {
@@ -7064,7 +7235,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "status"
     },
@@ -7280,7 +7451,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "serialNumber"
     },
@@ -7334,7 +7505,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "identifier"
     },
@@ -7496,7 +7667,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
         },
         "propertyNameAtParent": "begin"
     },
@@ -7550,7 +7721,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
         },
         "propertyNameAtParent": "end"
     },
@@ -7876,7 +8047,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "beginRate"
     },
@@ -7930,7 +8101,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "endRate"
     },
@@ -8762,7 +8933,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "exitType"
     },
@@ -8816,7 +8987,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "processDate"
     },
@@ -8870,7 +9041,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "headOfTheMarket"
     },
@@ -8948,7 +9119,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "candle",
         "childrenNodesProperties": [
@@ -9039,7 +9210,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "cycle",
         "childrenNodesProperties": [

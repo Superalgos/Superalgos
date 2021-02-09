@@ -882,6 +882,40 @@
         "addLeftIcons": true
     },
     {
+        "type": "Training Data",
+        "level": 4,
+        "propertyNameAtParent": "trainingData",
+        "editors": {
+            "code": true
+        },
+        "initialValues": {
+            "code": "// Type a list of indicators to be used as training data..."
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Learning System->"
+        },
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.codeEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "addLeftIcons": true,
+        "icon": "bitcoin"
+    },
+    {
         "type": "Javascript Code",
         "level": 4,
         "propertyNameAtParent": "javascriptCode",
@@ -12641,6 +12675,12 @@
         "type": "Learning System",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "label": "Add Training Data",
+                "relatedUiObject": "Training Data",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -12653,7 +12693,13 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "childrenNodesProperties": [],
+        "childrenNodesProperties": [
+            {
+                "name": "trainingData",
+                "type": "array",
+                "childType": "Training Data"
+            }
+        ],
         "icon": "bitcoin"
     },
     {

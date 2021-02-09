@@ -58,8 +58,7 @@ exports.newSuperalgosAlgorithmModulesTimeSeriesForcastingTensorFlowJS = function
     }
 
     function mantain() {
-        updateCounters()
-        updateEnds()
+ 
     }
 
     function reset() {

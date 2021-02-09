@@ -26,7 +26,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let learningAlgorithmName = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.learningAlgorithmModuleObject.config.codeName
+    let learningAlgorithmName = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.learningAlgorithm.config.codeName
     let learningAlgorithmModuleObject
     /* 
     We will scan the project schema until we find the module that will run the algorithm
@@ -47,7 +47,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             }
         }
     }
-    let learningAlgorithmModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex)
 
     return thisObject
 

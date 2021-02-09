@@ -10441,7 +10441,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"\"\n}"
+            "config": "{ \n\"codeName\": \"Time Series Forcasting Tensor Flow JS\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

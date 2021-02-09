@@ -845,6 +845,15 @@
                     "fileName": "LearningSystem.js",
                     "folderName": "Learning-Bot/Low-Frequency-Learning"
                 }
+            ],
+            "algorithmModules": [
+                {
+                    "name": "Time Series Forcasting Tensor Flow JS",
+                    "propertyName": "timeSeriesForcastingTensorFlowJS",
+                    "functionName": "newSuperalgosAlgorithmModulesTimeSeriesForcastingTensorFlowJS",
+                    "fileName": "LearningAlgorithm.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning/Time-Series-Forcasting/Tensor-Flow-JS"
+                }
             ]
         },
         "CL": {}

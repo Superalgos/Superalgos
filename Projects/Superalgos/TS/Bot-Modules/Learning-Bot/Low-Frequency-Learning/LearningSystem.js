@@ -26,6 +26,28 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
+    let learningAlgorithmName = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.learningAlgorithm.config.codeName
+    let learningAlgorithmModuleObject
+    /* 
+    We will scan the project schema until we find the module that will run the algorithm
+    defined by the user at the UI / Session Parameters.
+    */
+    for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
+        let project = TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA[i]
+        if (project.name !== TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
+        for (let j = 0; j < project.TS.algorithmModules.length; j++) {
+            algorithmModuleDefinition = project.TS.algorithmModules[j]
+            if (algorithmModuleDefinition.name === learningAlgorithmName) {
+
+                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
+                let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
+                let botModule = project.algorithmModules[algorithmModuleDefinition.propertyName]
+                let moduleFunction = botModule[algorithmModuleDefinition.functionName]
+                learningAlgorithmModuleObject = moduleFunction(processIndex)
+            }
+        }
+    }
+
     return thisObject
 
     function initialize() {
@@ -98,6 +120,19 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             learningSystem.infos.push(infoDataArray)
         }
 
+        /*
+        Initialize the Learning Algorithm
+        */
+        learningAlgorithmModuleObject.initialize(onInitializeReady)
+
+        function onInitializeReady(err) {
+            if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+
+            } else {
+
+            }
+        }
+
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {
             /* 
             The function is to allow in Conditions and Formulas to easily 
@@ -114,6 +149,9 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     }
 
     function finalize() {
+
+        learningAlgorithmModuleObject.finalize()
+        learningAlgorithmModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -137,10 +175,11 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     }
 
     function mantain() {
-
+        learningAlgorithmModuleObject.mantain()
     }
 
     function reset() {
+        learningAlgorithmModuleObject.reset()
 
         learningSystem.highlights = []
         learningSystem.errors = []
@@ -161,6 +200,8 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         chart = pChart
         exchange = pExchange
         market = pMarket
+
+        learningAlgorithmModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function buildDynamicIndicators() {
@@ -182,6 +223,19 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         try {
             /* Dynamic Indicators */
             buildDynamicIndicators()
+
+            /*
+            Initialize the Learning Algorithm
+            */
+            learningAlgorithmModuleObject.run(onRun)
+
+            function onRun(err) {
+                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+
+                } else {
+
+                }
+            }
 
         } catch (err) {
             /* 

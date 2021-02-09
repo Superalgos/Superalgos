@@ -1,0 +1,81 @@
+{
+    "topic": "TS LF Learning Bot Errors",
+    "pageNumber": "3",
+    "type": "TS LF Learning Bot Error - Formula Value Not A Number",
+    "definition": {
+        "text": "Formulas must always evaluate to a number. When they don't, this error happens.",
+        "updated": 1611926524667
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While running at the TS, the LF Learning Bot encountered an error trying to evaluate one of the formulas defined in the Learning System. Formulas are expected to return a numeric value.",
+            "updated": 1611926775403
+        },
+        {
+            "style": "Error",
+            "text": "Formula Value Not A Number",
+            "updated": 1611580236800
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Success",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611569373599
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name",
+            "updated": 1611571361685
+        },
+        {
+            "style": "Text",
+            "text": "The following is the node's name of the Node most related to this error:",
+            "updated": 1611571455498
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the code stored at the node that produced the error at the LF Learning Bot:",
+            "updated": 1611569545869
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode",
+            "updated": 1611569590234
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Value",
+            "updated": 1611579496738
+        },
+        {
+            "style": "Text",
+            "text": "The following is the value of the node at the moment that this error happened at the LF Learning Bot:",
+            "updated": 1611579550831
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeValue",
+            "updated": 1611579573236
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

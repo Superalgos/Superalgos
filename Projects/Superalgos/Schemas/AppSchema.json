@@ -94,8 +94,7 @@
         "addLeftIcons": true,
         "isPinned": false,
         "level": 2,
-        "propertyNameAtParent": "projectDefinition",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "projectDefinition"
     },
     {
         "type": "Spaces",
@@ -200,8 +199,7 @@
         "addLeftIcons": true,
         "isPinned": false,
         "level": 2,
-        "propertyNameAtParent": "mines",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "mines"
     },
     {
         "type": "Learning",
@@ -232,8 +230,7 @@
         "addLeftIcons": true,
         "isPinned": false,
         "level": 2,
-        "propertyNameAtParent": "mines",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "mines"
     },
     {
         "type": "Other Hierarchies",
@@ -912,8 +909,7 @@
                 "iconPathOff": "delete-entity"
             }
         ],
-        "addLeftIcons": true,
-        "icon": "bitcoin"
+        "addLeftIcons": true
     },
     {
         "type": "Javascript Code",
@@ -3077,8 +3073,7 @@
                 "childType": "Learning Current",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Dynamic Indicators",
@@ -3279,8 +3274,7 @@
                 "childType": "Cycle",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Trading Episode",
@@ -3544,8 +3538,7 @@
                 "childType": "User Defined Counter",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Position Counters",
@@ -4119,8 +4112,7 @@
                 "childType": "User Defined Statistic",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Trading Episode Statistics",
@@ -4217,8 +4209,7 @@
             "compatibleTypes": "->Learning Episode->"
         },
         "propertyNameAtParent": "distanceToLearningEvent",
-        "childrenNodesProperties": [],
-        "icon": "bitcoin"
+        "childrenNodesProperties": []
     },
     {
         "type": "Stop Loss",
@@ -6122,8 +6113,7 @@
                 "childType": "Learning Episode",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Balance",
@@ -10088,8 +10078,7 @@
         "referencingRules": {
             "compatibleTypes": "->Learning System->"
         },
-        "propertyNameAtParent": "learningSystemReference",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "learningSystemReference"
     },
     {
         "type": "Learning Engine Reference",
@@ -10115,8 +10104,7 @@
         "referencingRules": {
             "compatibleTypes": "->Learning Engine->"
         },
-        "propertyNameAtParent": "learningEngineReference",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "learningEngineReference"
     },
     {
         "type": "Session Base Asset",
@@ -10999,8 +10987,7 @@
                 "childType": "Social Bots"
             }
         ],
-        "propertyNameAtParent": "session",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "session"
     },
     {
         "type": "Live Learning Session",
@@ -11101,8 +11088,7 @@
                 "childType": "Social Bots"
             }
         ],
-        "propertyNameAtParent": "session",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "session"
     },
     {
         "type": "Sensor Bot Instance",
@@ -12699,8 +12685,7 @@
                 "type": "array",
                 "childType": "Training Data"
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Trading Strategy",
@@ -15314,8 +15299,7 @@
                 "childType": "Space Settings",
                 "autoAdd": true
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Design Space",
@@ -18745,8 +18729,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Learning Systems",
@@ -18783,8 +18766,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Learning Engines",
@@ -18821,8 +18803,7 @@
                 "childType": "Plugin File",
                 "autoAdd": false
             }
-        ],
-        "icon": "bitcoin"
+        ]
     },
     {
         "type": "Plugin Tutorials",

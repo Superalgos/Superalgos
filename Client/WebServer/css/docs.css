@@ -93,11 +93,6 @@ vertical-align: middle;
 padding: 0 20px;
 }
 
-.docs-language-title-image{
-    width: 40;
-    padding-right: 5px;
-}
-
 .docs-image-container {
 padding: 5px 0px 5px 5px;
 border: solid 0px;
@@ -525,8 +520,19 @@ color: #ffd1a9;
 
 .docs-footer-language {
 width: 30px;
-padding: 20 10px;
+margin-top: 10px;
+padding: 10 10px;
 }
+
+.docs-footer-language-selected {
+    width: 30px;
+    margin-top: 10px;
+    padding: 10 10px;
+    background-color: rgba(230, 234, 234, 0.2);
+/* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+border: 1px solid rgba(200, 200, 200, .5);
+border-radius: 3px;
+    }
 
 
 /* DELETE candidate

@@ -60,7 +60,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Multi-language Docs</h4>'
-        HTML = HTML + 'We produce the original documentation in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
+        HTML = HTML + 'We produce the original Docs in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
         HTML = HTML + '</div>'
 
         let languageCode = UI.projects.superalgos.spaces.docsSpace.language
@@ -68,21 +68,39 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'The current preferred language is:' + 
-        '<img src="Images/Languages/'+ languageCode + '.png" title="' + languageLabel + '" class="docs-language-title-image">' + ' <br/>Switch to: <br/>'
+        HTML = HTML + 'Click to change your preferred language:<br/>'
 
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" title="Spanish" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" title="Russian" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" title="Italian" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language'
+        if (languageCode === 'EN') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" title="Spanish" class="docs-footer-language'
+        if (languageCode === 'ES') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" title="Russian" class="docs-footer-language'
+        if (languageCode === 'RU') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" title="Italian" class="docs-footer-language'
+        if (languageCode === 'IT') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
 
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>To Contribute Translations</h4>'
         HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
-        HTML = HTML + '<strong>2. </strong>Edit any English content (title, paragraph, etc.) with your translation.<br/>'
-        HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-footer-code">docs.save</code> in the search/command box.<br/>'
+        HTML = HTML + '<strong>2. </strong>Edit and translate English content.<br/>'
+        HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-footer-code">docs.save</code>.<br/>'
         HTML = HTML + '<strong>4. </strong>Type <code class="docs-footer-code">app.contribute</code> to update your fork and submit a PR.<br/>'
         HTML = HTML + '</ol>'
         HTML = HTML + '</div>'

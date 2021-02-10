@@ -97,7 +97,7 @@ git clone https://github.com/John/Superalgos
 
 Ok, you have installed Superalgos. To run the App, jump to the section Usage below.
 
-## Instalation Notes
+## Installation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 

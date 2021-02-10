@@ -147,7 +147,7 @@ function newSuperalgosDocsDocumentPage() {
 
             /* Title */
             let titleLabel = thisObject.docsSchemaDocument.type
-            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + '<img src="Images/Languages/EN.png" alt="English" class="docs-language-title-image">' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > '  + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
             if (thisObject.docsSchemaDocument.deleted === true) {
                 let key = 'auto-generated-flag-paragraph'

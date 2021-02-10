@@ -63,15 +63,19 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + 'We produce the original documentation in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
         HTML = HTML + '</div>'
 
+        let languageCode = UI.projects.superalgos.spaces.docsSpace.language
+        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
+
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'The current preferred language is <strong>' + UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language) + '</strong>. Switch to: <br/>'
+        HTML = HTML + 'The current preferred language is:' + 
+        '<img src="Images/Languages/'+ languageCode + '.png" title="' + languageLabel + '" class="docs-language-title-image">' + ' <br/>Switch to: <br/>'
 
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" alt="English" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" alt="Spanish" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" alt="Russian" class="docs-footer-language"></a>'
-        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" alt="Italian" class="docs-footer-language"></a>'
-        
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" title="Spanish" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" title="Russian" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" title="Italian" class="docs-footer-language"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -117,7 +121,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contributions Branch</h4>'
-        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.contributionsBranch)  + '</code> branch. Switch to:'
+        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.contributionsBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'

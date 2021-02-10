@@ -64,7 +64,6 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         let languageCode = UI.projects.superalgos.spaces.docsSpace.language
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'

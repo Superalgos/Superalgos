@@ -109,6 +109,8 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 
 ## Migrating from Superalgos Beta 8
 
+### Refactorings 
+
 In order to migrate your own workspaces to Beta 9, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
 
 | Find | Replace With |
@@ -125,6 +127,10 @@ In order to migrate your own workspaces to Beta 9, you will need to open My Work
 | episodeStatistics | tradingEpisodeStatistics |
 | Distance To Event | Distance To Trading Event |
 | distanceToEvent | distanceToTradingEvent |
+
+### Renaming of Exchange Folders
+
+In Beta 9 the exchange id is used at the code and folder name instead of the exchange name. So to migrate to Beta 9 users at key sensitive OS must rename their Data Storage Exchange folders for the Id of the exchange that in the case of Binance is the same name with lower B: binance. If you are using a different exchange, look at it's node config and use the value at the property codeName as a folder name at your Data Storage folder.
 
 # Usage
 

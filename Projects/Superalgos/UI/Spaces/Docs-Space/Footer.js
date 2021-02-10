@@ -21,14 +21,10 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
 
-        // Language Section
+        // Buttons Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
-        HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
 
@@ -47,6 +43,18 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
 
+        // Language Section
+
+        HTML = HTML + '<div class="docs-node-html-footer-table">'
+        HTML = HTML + '<div class="docs-footer-row">'
+
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
+        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
 
@@ -57,13 +65,13 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'The current preferred language is <strong>' + UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language) + '</strong>. Switch to:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')">English</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')">Spanish</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')">Russian</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')">Italian</a></li>'
-        HTML = HTML + '</ul>'
+        HTML = HTML + 'The current preferred language is <strong>' + UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language) + '</strong>. Switch to: <br/>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" alt="English" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" alt="Spanish" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" alt="Russian" class="docs-footer-language"></a>'
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" alt="Italian" class="docs-footer-language"></a>'
+        
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

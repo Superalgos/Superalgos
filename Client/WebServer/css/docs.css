@@ -518,6 +518,11 @@ text-decoration: none;
 color: #ffd1a9;
 }
 
+.docs-footer-language {
+width: 30px;
+padding: 20 10px;
+}
+
 
 /* DELETE candidate
 .docs-footer-body {

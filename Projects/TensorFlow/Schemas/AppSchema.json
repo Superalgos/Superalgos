@@ -4,8 +4,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add TensorFlow",
-                "relatedUiObject": "TensorFlow",
+                "label": "Add Machine Learning",
+                "relatedUiObject": "Machine Learning",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -35,7 +35,7 @@
         "icon": "tensorflow"
     },
     {
-        "type": "TensorFlow",
+        "type": "Machine Learning",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -70,6 +70,38 @@
         "type": "TensorFlow Library",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "backend",
+                "label": "Add WebGL Backend",
+                "relatedUiObject": "WebGL Backend",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "backend",
+                "label": "Add NodeJS Backend",
+                "relatedUiObject": "NodeJS Backend",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "backend",
+                "label": "Add WASM Backend",
+                "relatedUiObject": "WASM Backend",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "backend",
+                "label": "Add CPU Backend",
+                "relatedUiObject": "CPU Backend",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -85,6 +117,144 @@
             "compatibleTypes": "->Learning System->"
         },
         "propertyNameAtParent": "machineLearningLibrary",
+        "childrenNodesProperties": [
+            {
+                "name": "backend",
+                "type": "node",
+                "childType": "WebGL Backend"
+            },
+            {
+                "name": "backend",
+                "type": "node",
+                "childType": "NodeJS Backend"
+            },
+            {
+                "name": "backend",
+                "type": "node",
+                "childType": "WASM Backend"
+            },
+            {
+                "name": "backend",
+                "type": "node",
+                "childType": "CPU Backend"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "WebGL Backend",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"webgl\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "backend",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "NodeJS Backend",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"node\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "backend",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "WASM Backend",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"wasm\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "backend",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "CPU Backend",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"cpu\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "backend",
+        "childrenNodesProperties": [
+        ],
         "icon": "tensorflow"
     }
 ]

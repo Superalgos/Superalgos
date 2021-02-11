@@ -1,0 +1,90 @@
+[
+    {
+        "type": "TensorFlow Project",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add TensorFlow",
+                "relatedUiObject": "TensorFlow",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "isProjectHead": true,
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": true,
+        "positionLocked": true,
+        "childrenNodesProperties": [
+            {
+                "name": "projectDefinition",
+                "type": "node",
+                "childType": "Project Definition",
+                "project": "Superalgos",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "TensorFlow",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Library",
+                "relatedUiObject": "TensorFlow Library",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "machineLearningLibrary",
+                "type": "node",
+                "childType": "TensorFlow Library",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "TensorFlow Library",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning System->"
+        },
+        "propertyNameAtParent": "machineLearningLibrary",
+        "icon": "tensorflow"
+    }
+]

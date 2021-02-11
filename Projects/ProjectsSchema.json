@@ -914,5 +914,15 @@
         },
         "TS": {},
         "CL": {}
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "UI": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [],
+            "spaces": []
+        }
     }
 ]

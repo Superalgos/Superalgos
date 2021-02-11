@@ -12684,6 +12684,11 @@
                 "name": "trainingData",
                 "type": "array",
                 "childType": "Training Data"
+            },
+            {
+                "name": "machineLearningLibrary",
+                "type": "node",
+                "childType": "TensorFlow Library"
             }
         ]
     },

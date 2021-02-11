@@ -72,6 +72,33 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "executionEnvironment",
+                "label": "Add Execution Environment",
+                "relatedUiObject": "Execution Environment",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning System->"
+        },
+        "propertyNameAtParent": "machineLearningLibrary",
+        "childrenNodesProperties": [
+            {
+                "name": "executionEnvironment",
+                "type": "node",
+                "childType": "Execution Environment"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Execution Environment",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "backend",
                 "label": "Add WebGL Backend",
                 "relatedUiObject": "WebGL Backend",
@@ -102,6 +129,14 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "environmentFlags",
+                "label": "Add Environment Flags",
+                "relatedUiObject": "Environment Flags",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -114,9 +149,9 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Learning System->"
+            "compatibleTypes": "->TensorFlow Library->"
         },
-        "propertyNameAtParent": "machineLearningLibrary",
+        "propertyNameAtParent": "executionEnvironment",
         "childrenNodesProperties": [
             {
                 "name": "backend",
@@ -137,6 +172,61 @@
                 "name": "backend",
                 "type": "node",
                 "childType": "CPU Backend"
+            },
+            {
+                "name": "environmentFlags",
+                "type": "node",
+                "childType": "Environment Flags",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Environment Flags",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "mode",
+                "label": "Add Debug Mode",
+                "relatedUiObject": "Debug Mode",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "mode",
+                "label": "Add Production Mode",
+                "relatedUiObject": "Production Mode",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Execution Environment->"
+        },
+        "propertyNameAtParent": "environmentFlags",
+        "childrenNodesProperties": [
+            {
+                "name": "mode",
+                "type": "node",
+                "childType": "Debug Mode"
+            },
+            {
+                "name": "mode",
+                "type": "node",
+                "childType": "Production Mode"
             }
         ],
         "icon": "tensorflow"
@@ -163,7 +253,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->TensorFlow Library->"
+            "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
         "childrenNodesProperties": [
@@ -192,7 +282,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->TensorFlow Library->"
+            "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
         "childrenNodesProperties": [
@@ -221,7 +311,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->TensorFlow Library->"
+            "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
         "childrenNodesProperties": [
@@ -250,9 +340,55 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->TensorFlow Library->"
+            "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Debug Mode",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Environment Flags->"
+        },
+        "propertyNameAtParent": "mode",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Production Mode",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Environment Flags->"
+        },
+        "propertyNameAtParent": "mode",
         "childrenNodesProperties": [
         ],
         "icon": "tensorflow"

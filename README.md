@@ -92,7 +92,7 @@ git clone + URL of your Superalgos fork.
 For example, if your Github username is John, the command will look like this:
 
 ```
-git clone https://github.com/John/Superalgos
+git clone https://github.com/Superalgos/Superalgos
 ```
 
 Ok, you have installed Superalgos. To run the App, jump to the section Usage below.

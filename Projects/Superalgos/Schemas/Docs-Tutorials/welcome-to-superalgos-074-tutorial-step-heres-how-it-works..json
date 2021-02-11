@@ -7,12 +7,12 @@
             "project": "Superalgos",
             "name": "layer-resistance"
         },
-        "text": "Got it? The Trading Bot places the Limit Buy Order at the fifth support level! What's the logic behind this?"
+        "text": "Got it? The Trading Bot places the Limit Buy Order at the fourth support level! What's the logic behind this?"
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It's sort of arbitrary, but the strategy defines a falling knife as the price action capable of breaching at least four support levels and getting to the fifth during a single minute. Statistically, such events&mdash;in this time frame&mdash;produce more bounces than continuations. They may be caused by large market orders that temporarily increase the bid/ask spread in the order book."
+            "text": "It's sort of arbitrary, but the strategy defines a falling knife as the price action capable of breaching at least three support levels and getting to the fourth during a single minute. Statistically, such events—in this time frame—produce more bounces than continuations. They may be caused by large market orders that temporarily increase the bid/ask spread in the order book."
         },
         {
             "style": "Callout",

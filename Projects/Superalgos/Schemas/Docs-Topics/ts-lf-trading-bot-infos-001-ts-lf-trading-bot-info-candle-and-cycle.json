@@ -11,6 +11,18 @@
             "style": "Note",
             "text": "Candle And Cycle",
             "updated": 1611919730247
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the information preserved at the moment this Info Message was generated:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
         }
     ]
 }

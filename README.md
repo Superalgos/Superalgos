@@ -1,8 +1,8 @@
-# Getting Started Guide
+# Superalgos Beta 8 - Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS.
+All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
-![Superalgos video capture (16)](https://user-images.githubusercontent.com/9479367/77251218-76d25980-6c4d-11ea-8e47-be7db2e8abdb.gif)
+![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
 # Pre-Requisites
 
@@ -17,6 +17,23 @@ Node JS is an open-source server environment required to run Superalgos.
 **b.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
 
 **c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
+
+**Raspberry Pi Users:** From the SSH Terminal, send the following commands to install Node. ::NOTE:: It is best to use the most current and updated version of the FULL PiOS image.
+```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+```
+followed by 
+```
+sudo apt-get install -y nodejs
+```
+It is recommended to install the Node Package Manager
+```
+sudo apt install npm
+```
+you may also type the following to verify the Node.js installation and version.
+```
+node -v
+```
 
 ## Git
 
@@ -34,6 +51,12 @@ Git is an open-source distributed version control system required to download an
 
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
+**Raspberry Pi Users:**
+send the SSH Terminal command to install git. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
+```
+sudo apt-get install git
+```
+
 ## Google Chrome or Safari
 
 Use Chrome, or Safari on Mac. These are the only tested browsers.
@@ -48,7 +71,9 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 # Superalgos Client Installation
 
-**1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it. A Fork is required for your contributions to the project (more on this later).
+**1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it. 
+
+**NOTE:** A Fork is required for your contributions to the project. Superalgos will soon be moving into a new phase of development by incentivizing contributions. Incentives will be retroactive. The earlier in the life of the project you start contributing, the juicier your incentives will be, as the impact of contributions in a Community-driven project is clearly a function of time. This is an open invitation for you to become a vested member of the community!
 
 **2.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
@@ -70,7 +95,9 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-## Instalation Notes
+Ok, you have installed Superalgos. To run the App, jump to the section Usage below.
+
+## Installation Notes
 
 **1.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
@@ -78,17 +105,26 @@ git clone https://github.com/John/Superalgos
 
 **3.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
 
-**4.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app. 
+**4.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app.
 
 # Usage
-
-![Run the system](https://docs.superalgos.org/images/how-to/run-the-system-01.gif)
 
 **1.** To run the Superalgos client, go to the Superalgos directory/folder and run this command: 
 
 ```
 node run
 ```
+If you are running a headless Raspberry Pi (one without a screen) it is recommended to use the following instead.
+```
+cd Superalgos
+```
+then
+```
+node run minMemo noBrowser
+```
+
+
+![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 
 **2.** The command launches your default browser to load the UI. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the UI.
 
@@ -102,13 +138,13 @@ node run
 
 # Uninstall
 
-Superalgos writes nothing out of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder. 
+Superalgos writes nothing outside of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder. 
 
 # Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
 
-![Welcome Tutorial](https://docs.superalgos.org/images/how-to/tutorial-welcome-00.png)
+![welcome-tutorial-00](https://user-images.githubusercontent.com/13994516/107038771-4a6bf100-67bd-11eb-92e0-353525a972a9.gif)
 
  **NOTE:** The tutorial uses Binance or Binance US as the exchange of choice. If you don’t have an account with Binance or Binance US, you will still be able to follow 100% of the tutorial. When you get to the live trading section, keep going even if you don't intend to run the session. You may learn how to work with other exchanges later on.
 
@@ -242,7 +278,7 @@ Subscribe to the [Superalgos YouTube Channel](https://www.youtube.com/channel/UC
 
 ## In-App Tutorials
 
-There are many interactive tutorials you can use to learn from.
+There are many interactive tutorials you may do and learn from.
 
 # Other Resources
 
@@ -252,9 +288,13 @@ For an overview of what Superalgos can do for you, check the [Superalgos Website
 
 ## Telegram
 
+For official news, join the [Superalgos Announcements Channel](https://t.me/superalgos).
+
 Meet other users in the [Superalgos Telegram Community Group](https://t.me/superalgoscommunity).
 
-Meet the developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
+
+Meet designers in the [Superalgos Telegram UX/UI Group](https://t.me/superalgosuxui).
 
 Spanish speaking users hang out in the [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
 
@@ -272,7 +312,7 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 # Contributing
 
-Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://docs.superalgos.org/contributing-to-superalgos.html).
+Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://superalgos.org/community-contribute.shtml).
 
 ## Top Contributors 
 

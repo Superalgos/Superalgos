@@ -64,43 +64,42 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
         tradingSystem.addError = function (errorDataArray) {
             /*
-            This function adds to the array of error info a rate based on the amount of items
-            already at the errors array. This rate will later help plotting the error at the
+            This function adds to the array of error info a rate.
+            This rate will later help plotting the error at the
             charts.
             */
-            let baseRate = tradingEngine.current.episode.candle.close.value
-            let rate = baseRate - baseRate * ((tradingSystem.errors.length + 1) + 0) / 100
+            let rate = tradingEngine.current.episode.candle.close.value
             errorDataArray.push(rate)
             tradingSystem.errors.push(errorDataArray)
         }
 
         tradingSystem.addWarning = function (warningDataArray) {
             /*
-            This function adds to the array of warning info a rate based on the amount of items
-            already at the warning array. This rate will later help plotting the warning at the
+            This function adds to the array of warning info a rate. 
+            This rate will later help plotting the warning at the
             charts.
             */
-            let baseRate = tradingEngine.current.episode.candle.close.value
-            let rate = baseRate + baseRate * ((tradingSystem.warnings.length + 1) + 0) / 100
+            let rate = tradingEngine.current.episode.candle.close.value
             warningDataArray.push(rate)
             tradingSystem.warnings.push(warningDataArray)
         }
 
         tradingSystem.addInfo = function (infoDataArray) {
             /*
-            This function adds to the array of warning info a rate based on the amount of items
-            already at the warning array. This rate will later help plotting the warning at the
+            This function adds to the array of warning info a rate. 
+            This rate will later help plotting the warning at the
             charts.
             */
-            let baseRate = tradingEngine.current.episode.candle.close.value
-            let rate = baseRate + baseRate * ((tradingSystem.infos.length + 1) + 0.5) / 100
+            let rate = tradingEngine.current.episode.candle.close.value
             infoDataArray.push(rate)
             tradingSystem.infos.push(infoDataArray)
         }
 
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {
             /* 
-            The function is to allow in Conditions and Formulas to easily know when an element with timestamp (like the ones of single files) are inside the time range
+            The function is to allow in Conditions and Formulas to easily 
+            know when an element with timestamp (like the ones of 
+            single files) are inside the time range
             of an element with a time range, like a candle.
             */
             if (elementWithTimestamp.timestamp >= elementWithBeginEnd.begin && elementWithTimestamp.timestamp <= elementWithBeginEnd.end) {

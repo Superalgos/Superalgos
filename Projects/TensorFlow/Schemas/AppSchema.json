@@ -76,6 +76,30 @@
                 "label": "Add Execution Environment",
                 "relatedUiObject": "Execution Environment",
                 "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "typeOfLearning",
+                "label": "Add Supervised Learning",
+                "relatedUiObject": "Supervised Learning",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "typeOfLearning",
+                "label": "Add Unsupervised Learning",
+                "relatedUiObject": "Unsupervised Learning",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "typeOfLearning",
+                "label": "Add Reinforcement Learning",
+                "relatedUiObject": "Reinforcement Learning",
+                "actionFunction": "payload.executeAction"
             }
         ],
         "addLeftIcons": true,
@@ -89,7 +113,91 @@
                 "name": "executionEnvironment",
                 "type": "node",
                 "childType": "Execution Environment"
+            },
+            {
+                "name": "typeOfLearning",
+                "type": "node",
+                "childType": "Supervised Learning"
+            },
+            {
+                "name": "typeOfLearning",
+                "type": "node",
+                "childType": "Unsupervised Learning"
+            },
+            {
+                "name": "typeOfLearning",
+                "type": "node",
+                "childType": "Reinforcement Learning"
             }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Supervised Learning",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "typeOfLearning",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Unsupervised Learning",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "typeOfLearning",
+        "childrenNodesProperties": [
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Reinforcement Learning",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->TensorFlow Library->"
+        },
+        "propertyNameAtParent": "typeOfLearning",
+        "childrenNodesProperties": [
         ],
         "icon": "tensorflow"
     },

@@ -1458,6 +1458,14 @@
         "type": "Input Layer",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "inputShape",
+                "label": "Add Input Shape",
+                "relatedUiObject": "Input Shape",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1479,6 +1487,47 @@
             "compatibleTypes": "->Secuential Model->"
         },
         "propertyNameAtParent": "inputLayer",
+        "childrenNodesProperties": [
+            {
+                "name": "inputShape",
+                "type": "node",
+                "childType": "Input Shape"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Input Shape",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": 1\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Input Layer->"
+        },
+        "propertyNameAtParent": "inputShape",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

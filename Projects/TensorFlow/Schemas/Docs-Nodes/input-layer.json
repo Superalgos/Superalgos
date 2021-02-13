@@ -1,0 +1,13 @@
+{
+    "type": "Input Layer",
+    "definition": {
+        "text": "The first layer (the one that receives the input data) in an Artificial Neural Network.",
+        "updated": 1613209053300
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

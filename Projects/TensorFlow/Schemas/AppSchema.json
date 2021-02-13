@@ -365,7 +365,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n  \"codeName\": \"webgl\"\n}"
+            "config": "{ \n  \"codeName\": \"\"\n}"
         },
         "addLeftIcons": true,
         "level": 3,
@@ -455,13 +455,34 @@
             "compatibleTypes": "->Model->"
         },
         "propertyNameAtParent": "api",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
         "type": "Secuential Model",
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "api",
+                "label": "Add Input Layer",
+                "relatedUiObject": "Input Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Secuential Layer",
+                "relatedUiObject": "Secuential Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "api",
+                "label": "Add Output Layer",
+                "relatedUiObject": "Output Layer",
+                "actionFunction": "payload.executeAction"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -479,7 +500,522 @@
         },
         "propertyNameAtParent": "layersModel",
         "childrenNodesProperties": [
+            {
+                "name": "inputLayer",
+                "type": "node",
+                "childType": "Input Layer"
+            },
+            {
+                "name": "layers",
+                "type": "array",
+                "childType": "Secuential Layer"
+            },
+            {
+                "name": "outputLayer",
+                "type": "node",
+                "childType": "Output Layer"
+            }
         ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Secuential Layer",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layerType",
+                "label": "Add Advanced Activation Layers",
+                "relatedUiObject": "Advanced Activation Layers",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layerType",
+                "label": "Add Basic Layers",
+                "relatedUiObject": "Basic Layers",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layerType",
+                "label": "Add Convolutional Layers",
+                "relatedUiObject": "Convolutional Layers",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Model->"
+        },
+        "propertyNameAtParent": "layers",
+        "childrenNodesProperties": [
+            {
+                "name": "layerType",
+                "type": "node",
+                "childType": "Advanced Activation Layers"
+            },
+            {
+                "name": "layerType",
+                "type": "node",
+                "childType": "Basic Layers"
+            },
+            {
+                "name": "layerType",
+                "type": "node",
+                "childType": "Convolutional Layers"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Advanced Activation Layers",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Layer->"
+        },
+        "propertyNameAtParent": "layerType",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Basic Layers",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Activation Layer",
+                "relatedUiObject": "Activation Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Dense Layer",
+                "relatedUiObject": "Dense Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Dropout Layer",
+                "relatedUiObject": "Dropout Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Embedding Layer",
+                "relatedUiObject": "Embedding Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Flatten Layer",
+                "relatedUiObject": "Flatten Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Permute Layer",
+                "relatedUiObject": "Permute Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Repeat Vector Layer",
+                "relatedUiObject": "Repeat Vector Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Reshape Layer",
+                "relatedUiObject": "Reshape Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Spatial Dropout 1D Layer",
+                "relatedUiObject": "Spatial Dropout 1D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 0,
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Layer->"
+        },
+        "propertyNameAtParent": "layerType",
+        "childrenNodesProperties": [
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Activation Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Dense Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Dropout Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Embedding Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Flatten Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Permute Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Repeat Vector Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Reshape Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Spatial Dropout 1D Layer"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Activation Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Dense Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Dropout Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Embedding Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Flatten Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Permute Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Repeat Vector Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Reshape Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Spatial Dropout 1D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Basic Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Convolutional Layers",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Layer->"
+        },
+        "propertyNameAtParent": "layerType",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Input Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referencingRules": {
+            "compatibleTypes": "->Secuential Layer->"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Model->"
+        },
+        "propertyNameAtParent": "inputLayer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Output Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "referencingRules": {
+            "compatibleTypes": "->Secuential Layer->"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Secuential Model->"
+        },
+        "propertyNameAtParent": "outputLayer",
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -501,8 +1037,7 @@
             "compatibleTypes": "->Layers API->"
         },
         "propertyNameAtParent": "layersModel",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -675,8 +1210,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -711,8 +1245,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -747,8 +1280,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -783,8 +1315,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -806,8 +1337,7 @@
             "compatibleTypes": "->Environment Flags->"
         },
         "propertyNameAtParent": "mode",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -829,8 +1359,7 @@
             "compatibleTypes": "->Environment Flags->"
         },
         "propertyNameAtParent": "mode",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     }
 ]

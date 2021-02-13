@@ -1,0 +1,18 @@
+{
+    "type": "Dimensionality Units",
+    "definition": {
+        "text": "Positive integer, dimensionality of the output space.",
+        "updated": 1613243190046
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613243500472
+        },
+        {
+            "style": "Javascript",
+            "text": "number"
+        }
+    ]
+}

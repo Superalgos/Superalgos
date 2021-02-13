@@ -1,0 +1,34 @@
+{
+    "type": "Cropping 2D Layer",
+    "definition": {
+        "text": "Cropping layer for 2D input (e.g., image). This layer can crop an input at the top, bottom, left and right side of an image tensor.",
+        "updated": 1613218755900
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Input shape: 4D tensor with shape:",
+            "updated": 1613218787273
+        },
+        {
+            "style": "Text",
+            "text": "If dataFormat is \"channelsLast\": [batch, rows, cols, channels]"
+        },
+        {
+            "style": "Text",
+            "text": "If data_format is \"channels_first\": [batch, channels, rows, cols]."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: 4D with shape:"
+        },
+        {
+            "style": "Text",
+            "text": "If dataFormat is \"channelsLast\": [batch, croppedRows, croppedCols, channels]"
+        },
+        {
+            "style": "Text",
+            "text": "If dataFormat is \"channelsFirst\": [batch, channels, croppedRows, croppedCols]."
+        }
+    ]
+}

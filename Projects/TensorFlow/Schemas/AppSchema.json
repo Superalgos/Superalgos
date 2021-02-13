@@ -584,6 +584,54 @@
         "type": "Advanced Activation Layers",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Elu Layer",
+                "relatedUiObject": "Elu Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Leaky Relu Layer",
+                "relatedUiObject": "Leaky Relu Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Prelu Layer",
+                "relatedUiObject": "Prelu Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Relu Layer",
+                "relatedUiObject": "Relu Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Softmax Layer",
+                "relatedUiObject": "Softmax Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Thresholded Relu Layer",
+                "relatedUiObject": "Thresholded Relu Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -599,6 +647,169 @@
             "compatibleTypes": "->Secuential Layer->"
         },
         "propertyNameAtParent": "layerType",
+        "childrenNodesProperties": [
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Elu Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Leaky Relu Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Prelu Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Relu Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Softmax Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Thresholded Relu Layer"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Elu Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Leaky Relu Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Prelu Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Relu Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Softmax Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Thresholded Relu Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Advanced Activation Layers->"
+        },
+        "propertyNameAtParent": "layer",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
@@ -944,6 +1155,70 @@
         "type": "Convolutional Layers",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Conv 1D Layer",
+                "relatedUiObject": "Conv 1D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Conv 2D Layer",
+                "relatedUiObject": "Conv 2D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Conv 2D Transpose Layer",
+                "relatedUiObject": "Conv 2D Transpose Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Conv 3D Layer",
+                "relatedUiObject": "Conv 3D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Cropping 2D Layer",
+                "relatedUiObject": "Cropping 2D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Depthwise Conv 2D Layer",
+                "relatedUiObject": "Depthwise Conv 2D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Separable Conv 2D Layer",
+                "relatedUiObject": "Separable Conv 2D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "layer",
+                "label": "Add Up Sampling 2D Layer",
+                "relatedUiObject": "Up Sampling 2D Layer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -959,6 +1234,223 @@
             "compatibleTypes": "->Secuential Layer->"
         },
         "propertyNameAtParent": "layerType",
+        "childrenNodesProperties": [
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Conv 1D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Conv 2D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Conv 2D Transpose Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Conv 3D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Cropping 2D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Depthwise Conv 2D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Separable Conv 2D Layer"
+            },
+            {
+                "name": "layer",
+                "type": "node",
+                "childType": "Up Sampling 2D Layer"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Conv 1D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Conv 2D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Conv 2D Transpose Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Conv 3D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Cropping 2D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Depthwise Conv 2D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Separable Conv 2D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Up Sampling 2D Layer",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Convolutional Layers->"
+        },
+        "propertyNameAtParent": "layer",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

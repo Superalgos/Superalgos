@@ -1,0 +1,26 @@
+{
+    "type": "Thresholded Relu Layer",
+    "definition": {
+        "text": "Thresholded Rectified Linear Unit.",
+        "updated": 1613217166999
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "It Follows ",
+            "updated": 1613217193348
+        },
+        {
+            "style": "Javascript",
+            "text": "f(x) = x for x > theta, f(x) = 0 otherwise."
+        },
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

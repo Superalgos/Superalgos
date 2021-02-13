@@ -1,8 +1,8 @@
 {
-    "type": "Basic Layer",
+    "type": "Convolutional Layers",
     "definition": {
-        "text": "Basic Layers are the most common layers you can use.",
-        "updated": 1613210641501
+        "text": "Use this type of layer to create a convolution kernel.",
+        "updated": 1613210887837
     },
     "paragraphs": [
         {

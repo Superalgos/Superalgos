@@ -1,8 +1,8 @@
 {
-    "type": "Advanced Activation Layer",
+    "type": "Repeat Vector Layer",
     "definition": {
-        "text": "Use this type of layer when you want to apply an advanced activation function.",
-        "updated": 1613210798694
+        "text": "Repeats the input n times in a new dimension.",
+        "updated": 1613214045190
     },
     "paragraphs": [
         {

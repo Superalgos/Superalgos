@@ -2189,8 +2189,16 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "batchImputShape",
-                "label": "Add Input Shape",
+                "label": "Add Batch Input Shape",
                 "relatedUiObject": "Batch Input Shape",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "inputFeatures",
+                "label": "Add Input Features",
+                "relatedUiObject": "Input Features",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2225,6 +2233,11 @@
                 "name": "batchInputShape",
                 "type": "node",
                 "childType": "Batch Input Shape"
+            },
+            {
+                "name": "inputFeatures",
+                "type": "node",
+                "childType": "Input Features"
             }
         ],
         "icon": "tensorflow"
@@ -2261,6 +2274,112 @@
             "compatibleTypes": "->Input Layer->"
         },
         "propertyNameAtParent": "inputShape",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Input Features",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Feature",
+                "relatedUiObject": "Feature",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Input Layer->"
+        },
+        "propertyNameAtParent": "inputFeatures",
+        "childrenNodesProperties": [
+            {
+                "name": "features",
+                "type": "array",
+                "childType": "Feature"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Feature",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "inpfeatureFormulautFeatures",
+                "label": "Add Feature Formula",
+                "relatedUiObject": "Feature Formula",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Input Features->"
+        },
+        "propertyNameAtParent": "features",
+        "childrenNodesProperties": [
+            {
+                "name": "featureFormula",
+                "type": "node",
+                "childType": "Feature Formula",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Feature Formula",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.formulaEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": ""
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Feature->"
+        },
+        "propertyNameAtParent": "featureFormula",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

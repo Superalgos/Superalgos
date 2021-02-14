@@ -62,27 +62,10 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
 
         let lightingPath = '' +
             'Learning System->' +
-            'Dynamic Indicators->Indicator Function->Formula->' +
-            'Learning Strategy->' +
-            'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-            'Announcement->Announcement Formula->' +
-            'Open Stage->' +
-            'Manage Stage->' +
-            'Managed Stop Loss->Managed Take Profit->' +
-            'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
-            'Close Stage Event->' +
-            'Situation->Condition->Javascript Code->' +
-            'Close Stage->' +
-            'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
-            'Announcement->Announcement Formula->' +
-            'Open Execution->Close Execution->' +
-            'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-            'Order Rate->Formula->' +
-            'Create Order Event->Cancel Order Event->' +
-            'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
-            'Situation->Condition->Javascript Code->' +
-            'Market Order->Limit Order->' +
-            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+            'Tensor Flow Library->' + 
+            'Execution Environmnet->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
+            'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' + 
+            'Environment Flags->Debug Mode->Production Mode'
 
         let learningSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

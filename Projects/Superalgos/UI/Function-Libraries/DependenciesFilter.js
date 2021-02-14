@@ -43,7 +43,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
         return filters
 
         function recursiveFilter(node) {
-            if (node.type === 'Javascript Code' || node.type === 'Formula' || node.type === 'Training Data') {
+            if (node.type === 'Javascript Code' || node.type === 'Formula' || node.type === 'Feature Formula') {
                 filter(node.code)
             }
 

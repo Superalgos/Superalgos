@@ -923,6 +923,11 @@
             "functionLibraries": [],
             "utilities": [],
             "spaces": []
+        },
+        "TS": {
+            "globals":[],
+            "functionLibraries": [],
+            "utilities": []
         }
     }
 ]

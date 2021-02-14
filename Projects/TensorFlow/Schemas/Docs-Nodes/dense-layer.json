@@ -1,0 +1,13 @@
+{
+    "type": "Dense Layer",
+    "definition": {
+        "text": "Creates a dense (fully connected) layer.",
+        "updated": 1613213671494
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

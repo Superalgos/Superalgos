@@ -1,0 +1,26 @@
+{
+    "type": "Elu Layer",
+    "definition": {
+        "text": "Exponetial Linear Unit (ELU).",
+        "updated": 1613216664718
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "It Follows",
+            "updated": 1613216728404
+        },
+        {
+            "style": "Javascript",
+            "text": "f(x) = alpha * (exp(x) - 1.) for x < 0, f(x) = x for x >= 0."
+        },
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

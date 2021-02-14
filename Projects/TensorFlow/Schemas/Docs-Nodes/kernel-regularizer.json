@@ -1,0 +1,19 @@
+{
+    "type": "Kernel Regularizer",
+    "definition": {
+        "text": "Regularizer function applied to the kernel weights matrix.",
+        "updated": 1613244470025
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613244479696
+        },
+        {
+            "style": "Javascript",
+            "text": "l1l2\nstring\nRegularizer",
+            "updated": 1613244531951
+        }
+    ]
+}

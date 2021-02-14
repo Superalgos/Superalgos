@@ -1,0 +1,13 @@
+{
+    "type": "CPU Backend",
+    "definition": {
+        "text": "The CPU Backend,'cpu', is the least performant backend, however it is the simplest. Operations are all implemented in vanilla JavaScript, which makes them less parallelizable.",
+        "updated": 1613059028403
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "WASM Backend",
+    "definition": {
+        "text": "TensorFlow.js provides a WebAssembly backend (wasm), which offers CPU acceleration and can be used as an alternative to the vanilla JavaScript CPU (cpu) and WebGL accelerated (webgl) backends.",
+        "updated": 1613058813729
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

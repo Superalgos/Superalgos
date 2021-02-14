@@ -1,0 +1,13 @@
+{
+    "type": "Advanced Activation Layers",
+    "definition": {
+        "text": "Use this type of layer when you want to apply an advanced activation function.",
+        "updated": 1613210798694
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

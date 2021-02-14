@@ -855,6 +855,9 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon()
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"
@@ -882,6 +885,9 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
                         let collectionImage = getIcon()
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"
@@ -971,6 +977,9 @@ function newSuperalgosDocsDocumentPage() {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
                         let collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'configuration')
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"

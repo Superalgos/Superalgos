@@ -63,7 +63,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
         let lightingPath = '' +
             'Learning System->' +
             'TensorFlow Library->' + 
-            'Execution Environmnet->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
+            'Execution Environment->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
             'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' + 
             'Environment Flags->Debug Mode->Production Mode->' +
             'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +

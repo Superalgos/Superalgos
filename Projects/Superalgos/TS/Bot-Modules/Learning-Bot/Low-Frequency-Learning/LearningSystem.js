@@ -26,6 +26,8 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
+    let machineLearningLibraryModuleObject
+
     return thisObject
 
     function initialize() {
@@ -103,7 +105,6 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         */
 
         let machineLearningLibrary = learningSystem.machineLearningLibrary
-        let machineLearningLibraryModuleObject
 
         if (machineLearningLibrary === undefined) {
             // TODO 

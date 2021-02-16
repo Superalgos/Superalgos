@@ -22,6 +22,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let exchange
     let market
 
+    let tensorFlowBackend
+
     return thisObject
 
     function initialize(callbackFunction) {
@@ -29,7 +31,64 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         learningEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
 
+
+        setupBackend()
+        setupEnvironmentFlags()
+
         callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+
+        function setupBackend() {
+            /*
+            Setup the default backend.
+            */
+            tensorFlowBackend = require("@tensorflow/tfjs-node")
+
+            if (
+                learningSystem.machineLearningLibrary.executionEnvironment !== undefined &&
+                learningSystem.machineLearningLibrary.executionEnvironment.backend !== undefined
+            ) {
+                /*
+                Replace the backend for the one defined at the UI.
+                */
+                switch (learningSystem.machineLearningLibrary.executionEnvironment.backend.config.codeName) {
+                    case 'node': {
+                        // This is already the default.
+                        break
+                    }
+                    case 'webgl': {
+                        tensorFlowBackend = require("@tensorflow/tfjs-backend-webgl")
+                        break
+                    }
+                    case 'wasm': {
+                        tensorFlowBackend = require("@tensorflow/tfjs-backend-wasm")
+                        break
+                    }
+                    case 'cpu': {
+                        tensorFlowBackend = require("@tensorflow/tfjs-backend-cpu")
+                        break
+                    }
+                }
+            }
+        }
+
+        function setupEnvironmentFlags() {
+            if (
+                learningSystem.machineLearningLibrary.executionEnvironment !== undefined &&
+                learningSystem.machineLearningLibrary.executionEnvironment.environmentFlags !== undefined &&
+                learningSystem.machineLearningLibrary.executionEnvironment.environmentFlags.mode
+            ) {
+                switch (learningSystem.machineLearningLibrary.executionEnvironment.environmentFlags.mode.type) {
+                    case 'Debug Mode': {
+                        tensorFlowBackend.enableDebugMode()
+                        break
+                    }
+                    case 'Debug Mode': {
+                        tensorFlowBackend.enableProdMode()
+                        break
+                    }
+                }
+            }
+        }
     }
 
     function finalize() {
@@ -53,7 +112,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     }
 
     function mantain() {
- 
+
     }
 
     function reset() {

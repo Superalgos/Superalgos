@@ -524,7 +524,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
+                "propertyToCheckFor": "typeOfLayer",
                 "label": "Add Activation Layers",
                 "relatedUiObject": "Advanced Activation Layers",
                 "actionFunction": "payload.executeAction"
@@ -532,7 +532,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
+                "propertyToCheckFor": "typeOfLayer",
                 "label": "Add Basic Layers",
                 "relatedUiObject": "Basic Layers",
                 "actionFunction": "payload.executeAction"
@@ -540,7 +540,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
+                "propertyToCheckFor": "typeOfLayer",
                 "label": "Add Convolutional Layers",
                 "relatedUiObject": "Convolutional Layers",
                 "actionFunction": "payload.executeAction"
@@ -563,17 +563,17 @@
         "propertyNameAtParent": "layers",
         "childrenNodesProperties": [
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Advanced Activation Layers"
             },
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Basic Layers"
             },
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Convolutional Layers"
             }
@@ -646,7 +646,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",
@@ -903,7 +903,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",
@@ -1953,7 +1953,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",

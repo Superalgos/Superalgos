@@ -23,6 +23,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let market
 
     let tensorFlowBackend
+    let tensorFlowAPI
+    let tensorFlowModel
 
     return thisObject
 
@@ -34,6 +36,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         setupBackend()
         setupEnvironmentFlags()
+        setupModel()
 
         callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
@@ -86,6 +89,146 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                         tensorFlowBackend.enableProdMode()
                         break
                     }
+                }
+            }
+        }
+
+        function setupModel() {
+            if (
+                learningSystem.machineLearningLibrary.typeOfLearning !== undefined &&
+                learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel !== undefined &&
+                learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model !== undefined &&
+                learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api !== undefined
+            ) {
+                switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.type) {
+                    case 'Layers API': {
+                        tensorFlowAPI = require("@tensorflow/tfjs-layers")
+                        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel === undefined) { return }
+
+                        switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel.type) {
+                            case 'Secuential Model': {
+                                setupSecuentialModel(learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel)
+                                break
+                            }
+                            case 'Functional Model': {
+                                break
+                            }
+                        }
+                        break
+                    }
+                    case 'Code API': {
+                        tensorFlowAPI = require("@tensorflow/tfjs-core")
+                        break
+                    }
+                }
+            }
+
+            function setupSecuentialModel(secuentialModel) {
+                /*
+                Some validations
+                */
+                if (secuentialModel.inputLayer === undefined) {
+                    // TODO
+                    return
+                }
+                if (secuentialModel.outputLayer === undefined) {
+                    // TODO
+                    return
+                }
+                if (secuentialModel.layers.length === 0) {
+                    // TODO
+                    return
+                }
+                if (secuentialModel.inputLayer.referenceParent === undefined) {
+                    // TODO
+                    return
+                }
+
+                tensorFlowModel = tensorFlowAPI.sequetial()
+
+                for (let i = 0; i < secuentialModel.layers.length; i++) {
+                    let layerNode = secuentialModel.layers[i]
+                    let layersFunction
+                    let argsObject = {}
+                    let layerObject
+
+                    if (layerNode.layerType === undefined) { continue }
+                    if (layerNode.layerType.layer === undefined) { continue }
+
+                    switch (layerNode.layerType.layer.type) {
+                        case 'Dense Layer': {
+                            layersFunction = tensorFlowAPI.layers.dense
+                            break
+                        }
+                        case ' ': {
+                            break
+                        }
+                        case ' ': {
+                            break
+                        }
+                    }
+
+                    if (layerNode.layerType.layer.dimensionalityUnits !== undefined) {
+                        argsObject.units = layerNode.layerType.layer.dimensionalityUnits.config.value
+                    }
+                    if (layerNode.layerType.layer.activationFunction !== undefined) {
+                        argsObject.activation = layerNode.layerType.layer.activationFunction.config.value
+                    }
+                    if (layerNode.layerType.layer.bias !== undefined) {
+                        argsObject.useBias = true
+                    }
+                    if (layerNode.layerType.layer.kernel !== undefined) {
+                        if (layerNode.layerType.layer.kernel.initializer !== undefined) {
+                            argsObject.kernelInitializer = layerNode.layerType.layer.kernel.initializer.config.value
+                        }
+                        if (layerNode.layerType.layer.kernel.constraint !== undefined) {
+                            argsObject.kernelConstraint = layerNode.layerType.layer.kernel.constraint.config.value
+                        }
+                        if (layerNode.layerType.layer.kernel.regularizer !== undefined) {
+                            argsObject.kernelRegularizer = layerNode.layerType.layer.kernel.regularizer.config.value
+                        }
+                    }
+                    if (layerNode.layerType.layer.bias !== undefined) {
+                        if (layerNode.layerType.layer.bias.initializer !== undefined) {
+                            argsObject.biasInitializer = layerNode.layerType.layer.bias.initializer.config.value
+                        }
+                        if (layerNode.layerType.layer.bias.constraint !== undefined) {
+                            argsObject.biasConstraint = layerNode.layerType.layer.bias.constraint.config.value
+                        }
+                        if (layerNode.layerType.layer.bias.regularizer !== undefined) {
+                            argsObject.biasRegularizer = layerNode.layerType.layer.bias.regularizer.config.value
+                        }
+                    }
+                    if (layerNode.layerType.layer.batchSize !== undefined) {
+                        argsObject.batchSize = layerNode.layerType.layer.batchSize.config.value
+                    }
+                    if (layerNode.layerType.layer.dtype !== undefined) {
+                        argsObject.dtype = layerNode.layerType.layer.dtype.config.value
+                    }
+                    if (layerNode.layerType.layer.trainable !== undefined) {
+                        argsObject.trainable = layerNode.layerType.layer.trainable.config.value
+                    }
+                    if (layerNode.layerType.layer.weights !== undefined) {
+                        if (layerNode.layerType.layer.weights.tensor !== undefined) {
+                            argsObject.weights = layerNode.layerType.layer.weights.tensor.config.value
+                        }
+                    }
+                    argsObject.name = layerNode.layerType.layer.name
+
+                    /*
+                    Check if this is the input layer.
+                    */
+                    if (secuentialModel.inputLayer.referenceParent.id === layerNode.id) {
+                        if (secuentialModel.inputLayer.inputShape !== undefined) {
+                            argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                        }
+                    }
+
+                    secuentialModel.inputLayer
+
+                    layerObject = layersFunction(argsObject)
+
+                    tensorFlowModel.add(layerObject)
                 }
             }
         }

@@ -525,7 +525,7 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "layerType",
-                "label": "Add Advanced Activation Layers",
+                "label": "Add Activation Layers",
                 "relatedUiObject": "Advanced Activation Layers",
                 "actionFunction": "payload.executeAction"
             },

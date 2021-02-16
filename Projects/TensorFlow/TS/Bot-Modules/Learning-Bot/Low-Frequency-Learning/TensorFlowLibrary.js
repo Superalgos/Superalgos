@@ -1,10 +1,5 @@
-exports.newSuperalgosAlgorithmModulesTimeSeriesForcastingTensorFlowJS = function (processIndex) {
-    /*
-    This module implements a learning algorithm based on Time Series Forcasting with Tensor Flow js,
-    as described at the folliwing web page:
+exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
-    https://jinglescode.github.io/time-series-forecasting-tensorflowjs/
-    */
     const MODULE_NAME = 'Time Series Forcasting Tensor Flow JS Learning Algorithm'
     let thisObject = {
         updateChart: updateChart,

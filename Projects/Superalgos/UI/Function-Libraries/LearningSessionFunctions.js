@@ -62,16 +62,28 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
 
         let lightingPath = '' +
             'Learning System->' +
-            'Tensor Flow Library->' + 
+            'TensorFlow Library->' + 
             'Execution Environmnet->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
             'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' + 
-            'Environment Flags->Debug Mode->Production Mode'
+            'Environment Flags->Debug Mode->Production Mode->' +
+            'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
+            'Artificial Neural Network->Model->' +
+            'Layers API->Code API->' +
+            'Secuential Model->Functional Model->' + 
+            'Input Layer->Secuential Layer->Output Layer->'+
+            'Input Shape->Batch Input Shape->Input Features->Feature->Feature Formula->' + 
+            'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
+            'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
+            'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
+            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
+            'Dimensionality Units->Activation Functions->Batch Size->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' + 
+            'Kernel Initializer->Kernel Contraint->Kernel Regularizer->' +
+            'Bias Initializer->Bias Contraint->Bias Regularizer->' 
 
         let learningSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Learning Engine->' +
-            'Dynamic Indicators->Indicator Function->' +
             'Learning Current->Learning Last->Previous->' +
             'Learning Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Learning Episode Counters->Learning Episode Statistics->' +

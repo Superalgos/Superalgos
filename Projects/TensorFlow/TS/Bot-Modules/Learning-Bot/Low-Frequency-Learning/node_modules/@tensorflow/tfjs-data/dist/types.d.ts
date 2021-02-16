@@ -1,0 +1,161 @@
+/**
+ * @license
+ * Copyright 2018 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * =============================================================================
+ */
+import { DataType, TensorContainer } from '@tensorflow/tfjs-core';
+export declare type Container<T> = ContainerObject<T> | ContainerArray<T>;
+export declare type ContainerOrT<T> = Container<T> | T;
+export interface ContainerObject<T> {
+    [x: string]: ContainerOrT<T>;
+}
+export interface ContainerArray<T> extends Array<ContainerOrT<T>> {
+}
+/**
+ * Types supported by FileChunkIterator in both Browser and Node Environment.
+ */
+export declare type FileElement = File | Blob | Uint8Array;
+/**
+ * A dictionary containing column level configurations when reading and decoding
+ * CSV file(s) from csv source.
+ * Has the following fields:
+ * - `required` If value in this column is required. If set to `true`, throw an
+ * error when it finds an empty value.
+ *
+ * - `dtype` Data type of this column. Could be int32, float32, bool, or string.
+ *
+ * - `default` Default value of this column.
+ *
+ * - `isLabel` Whether this column is label instead of features. If isLabel is
+ * `true` for at least one column, the .csv() API will return an array of two
+ * items: the first item is a dict of features key/value pairs, the second item
+ * is a dict of labels key/value pairs. If no column is marked as label returns
+ * a dict of features only.
+ */
+export interface ColumnConfig {
+    required?: boolean;
+    dtype?: DataType;
+    default?: TensorContainer;
+    isLabel?: boolean;
+}
+/**
+ * Interface for configuring dataset when reading and decoding from CSV file(s).
+ */
+export interface CSVConfig {
+    /**
+     * A boolean value that indicates whether the first row of provided CSV file
+     * is a header line with column names, and should not be included in the data.
+     */
+    hasHeader?: boolean;
+    /**
+     * A list of strings that corresponds to the CSV column names, in order. If
+     * provided, it ignores the column names inferred from the header row. If not
+     * provided, infers the column names from the first row of the records. If
+     * `hasHeader` is false and `columnNames` is not provided, this method will
+     * throw an error.
+     */
+    columnNames?: string[];
+    /**
+     * A dictionary whose key is column names, value is an object stating if this
+     * column is required, column's data type, default value, and if this column
+     * is label. If provided, keys must correspond to names provided in
+     * `columnNames` or inferred from the file header lines. If any column is
+     * marked as label, the .csv() API will return an array of two items: the
+     * first item is a dict of features key/value pairs, the second item is a dict
+     * of labels key/value pairs. If no column is marked as label returns a dict
+     * of features only.
+     *
+     * Has the following fields:
+     * - `required` If value in this column is required. If set to `true`, throw
+     * an error when it finds an empty value.
+     *
+     * - `dtype` Data type of this column. Could be int32, float32, bool, or
+     * string.
+     *
+     * - `default` Default value of this column.
+     *
+     * - `isLabel` Whether this column is label instead of features. If isLabel is
+     * `true` for at least one column, the element in returned `CSVDataset` will
+     * be an object of {xs: features, ys: labels}: xs is a dict of features
+     * key/value pairs, ys is a dict of labels key/value pairs. If no column is
+     * marked as label, returns a dict of features only.
+     */
+    columnConfigs?: {
+        [key: string]: ColumnConfig;
+    };
+    /**
+     * If true, only columns provided in `columnConfigs` will be parsed and
+     * provided during iteration.
+     */
+    configuredColumnsOnly?: boolean;
+    /**
+     * The string used to parse each line of the input file.
+     */
+    delimiter?: string;
+    /**
+     * If true, delimiter field should be null. Parsing delimiter is whitespace
+     * and treat continuous multiple whitespace as one delimiter.
+     */
+    delimWhitespace?: boolean;
+}
+/**
+ * Interface configuring data from webcam video stream.
+ */
+export interface WebcamConfig {
+    /**
+     * A string specifying which camera to use on device. If the value is
+     * 'user', it will use front camera. If the value is 'environment', it will
+     * use rear camera.
+     */
+    facingMode?: 'user' | 'environment';
+    /**
+     * A string used to request a specific camera. The deviceId can be obtained by
+     * calling `mediaDevices.enumerateDevices()`.
+     */
+    deviceId?: string;
+    /**
+     * Specifies the width of the output tensor. The actual width of the
+     * HTMLVideoElement (if provided) can be different and the final image will be
+     * resized to match resizeWidth.
+     */
+    resizeWidth?: number;
+    /**
+     * Specifies the height of the output tensor. The actual height of the
+     * HTMLVideoElement (if provided) can be different and the final image will be
+     * resized to match resizeHeight.
+     */
+    resizeHeight?: number;
+    /**
+     * A boolean value that indicates whether to crop the video frame from center.
+     * If true, `resizeWidth` and `resizeHeight` must be specified; then an image
+     * of size `[resizeWidth, resizeHeight]` is taken from the center of the frame
+     * without scaling. If false, the entire image is returned (perhaps scaled to
+     * fit in `[resizeWidth, resizeHeight]`, if those are provided).
+     */
+    centerCrop?: boolean;
+}
+/**
+ * Interface configuring data from microphone audio stream.
+ */
+export interface MicrophoneConfig {
+    sampleRateHz?: 44100 | 48000;
+    fftSize?: number;
+    columnTruncateLength?: number;
+    numFramesPerSpectrogram?: number;
+    audioTrackConstraints?: MediaTrackConstraints;
+    smoothingTimeConstant?: number;
+    includeSpectrogram?: boolean;
+    includeWaveform?: boolean;
+}

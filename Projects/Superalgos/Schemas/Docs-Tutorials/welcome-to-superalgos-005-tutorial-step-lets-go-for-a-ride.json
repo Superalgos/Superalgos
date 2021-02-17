@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "network"
         },
-        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network."
+        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Antes de mostrarte el resto del menú, vamos a echar un vistazo a otra jerarquía: la Network.",
+                "updated": 1613595345116
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks."
+            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde usted controla sus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
+                    "updated": 1613595453982
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and take a look inside!"
+            "text": "Expand the hierarchy and take a look inside!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Amplíe la jerarquía y eche un vistazo al interior.",
+                    "updated": 1613595398384
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. But before we start, I have a quick question for you: are you accessing the Client remotely?",
-            "updated": 1611075903071
+            "updated": 1611075903071,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para iniciar tu primera operación de minería de datos. Pero antes de empezar, tengo una pregunta rápida para ti: ¿estás accediendo al Cliente de forma remota?",
+                    "updated": 1613595481110
+                }
+            ]
         }
     ]
 }

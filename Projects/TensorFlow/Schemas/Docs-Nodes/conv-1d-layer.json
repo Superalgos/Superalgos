@@ -1,0 +1,13 @@
+{
+    "type": "Conv 1D Layer",
+    "definition": {
+        "text": "1D convolution layer (e.g., temporal convolution). This layer creates a convolution kernel that is convolved with the layer input over a single spatial (or temporal) dimension to produce a tensor of outputs.",
+        "updated": 1613218586883
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

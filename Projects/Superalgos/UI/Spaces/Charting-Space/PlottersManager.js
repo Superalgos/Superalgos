@@ -2,7 +2,7 @@ function newPlottersManager() {
     const MODULE_NAME = 'Plotters Manager'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let timeFrame = INITIAL_TIME_PERIOD
     let datetime = NEW_SESSION_INITIAL_DATE
@@ -15,7 +15,7 @@ function newPlottersManager() {
         setDatetime: setDatetime,
         setTimeFrame: setTimeFrame,
         setCoordinateSystem: setCoordinateSystem,
-        physics: physics, 
+        physics: physics,
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
@@ -138,8 +138,8 @@ function newPlottersManager() {
             let exchange = layer.exchange
             let plotterModule = layer.plotterModule
             let session
-            let tradingSystem
-            let tradingEngine
+            let tradingOrLearningSystem
+            let tradingOrLearningEngine
 
             /*
             A layer can be referencing a Data Product in 3 different branches of the Network hiriatchy.
@@ -158,10 +158,16 @@ function newPlottersManager() {
                 }
                 /* From the session we might be able to reach the Trading System or the Trading Engine */
                 if (session.tradingSystemReference !== undefined) {
-                    tradingSystem = session.tradingSystemReference.referenceParent
+                    tradingOrLearningSystem = session.tradingSystemReference.referenceParent
                 }
                 if (session.tradingEngineReference !== undefined) {
-                    tradingEngine = session.tradingEngineReference.referenceParent
+                    tradingOrLearningEngine = session.tradingEngineReference.referenceParent
+                }
+                if (session.learningSystemReference !== undefined) {
+                    tradingOrLearningSystem = session.learningSystemReference.referenceParent
+                }
+                if (session.learningEngineReference !== undefined) {
+                    tradingOrLearningEngine = session.learningEngineReference.referenceParent
                 }
             }
 
@@ -244,10 +250,16 @@ function newPlottersManager() {
                                 connector.nodesHighlights = newNodesHighlights()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesHighlights.initialize(tradingSystem)
+                                        connector.nodesHighlights.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesHighlights.initialize(tradingEngine)
+                                        connector.nodesHighlights.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesHighlights.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesHighlights.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesHighlights.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesHighlights.onRecordChange)
@@ -256,10 +268,16 @@ function newPlottersManager() {
                                 connector.nodesValues = newNodesValues()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesValues.initialize(tradingSystem)
+                                        connector.nodesValues.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesValues.initialize(tradingEngine)
+                                        connector.nodesValues.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesValues.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesValues.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesValues.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesValues.onRecordChange)
@@ -268,10 +286,16 @@ function newPlottersManager() {
                                 connector.nodesErrors = newNodesErrors()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesErrors.initialize(tradingSystem)
+                                        connector.nodesErrors.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesErrors.initialize(tradingEngine)
+                                        connector.nodesErrors.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesErrors.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesErrors.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesErrors.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesErrors.onRecordChange)
@@ -280,10 +304,16 @@ function newPlottersManager() {
                                 connector.nodesWarnings = newNodesWarnings()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesWarnings.initialize(tradingSystem)
+                                        connector.nodesWarnings.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesWarnings.initialize(tradingEngine)
+                                        connector.nodesWarnings.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesWarnings.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesWarnings.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesWarnings.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesWarnings.onRecordChange)
@@ -292,10 +322,16 @@ function newPlottersManager() {
                                 connector.nodesInfos = newNodesInfos()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesInfos.initialize(tradingSystem)
+                                        connector.nodesInfos.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesInfos.initialize(tradingEngine)
+                                        connector.nodesInfos.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesInfos.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesInfos.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesInfos.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesInfos.onRecordChange)
@@ -304,10 +340,16 @@ function newPlottersManager() {
                                 connector.nodesRunning = newNodesRunning()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesRunning.initialize(tradingSystem)
+                                        connector.nodesRunning.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesRunning.initialize(tradingEngine)
+                                        connector.nodesRunning.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesRunning.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesRunning.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesRunning.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesRunning.onRecordChange)
@@ -316,10 +358,16 @@ function newPlottersManager() {
                                 connector.nodesStatus = newNodesStatus()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesStatus.initialize(tradingSystem)
+                                        connector.nodesStatus.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesStatus.initialize(tradingEngine)
+                                        connector.nodesStatus.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesStatus.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesStatus.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesStatus.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesStatus.onRecordChange)
@@ -328,10 +376,16 @@ function newPlottersManager() {
                                 connector.nodesProgress = newNodesProgress()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesProgress.initialize(tradingSystem)
+                                        connector.nodesProgress.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesProgress.initialize(tradingEngine)
+                                        connector.nodesProgress.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesProgress.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesProgress.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesProgress.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesProgress.onRecordChange)
@@ -340,10 +394,16 @@ function newPlottersManager() {
                                 connector.nodesAnnounements = newNodesAnnouncements()
                                 switch (plotterModule.config.connectTo) {
                                     case 'Trading System':
-                                        connector.nodesAnnounements.initialize(tradingSystem)
+                                        connector.nodesAnnounements.initialize(tradingOrLearningSystem)
                                         break
                                     case 'Trading Engine':
-                                        connector.nodesAnnounements.initialize(tradingEngine)
+                                        connector.nodesAnnounements.initialize(tradingOrLearningEngine)
+                                        break
+                                    case 'Learning System':
+                                        connector.nodesAnnounements.initialize(tradingOrLearningSystem)
+                                        break
+                                    case 'Learning Engine':
+                                        connector.nodesAnnounements.initialize(tradingOrLearningEngine)
                                         break
                                 }
                                 connector.nodesAnnounements.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.nodesAnnounements.onRecordChange)
@@ -354,7 +414,7 @@ function newPlottersManager() {
                             */
                             if (plotterModule.recordValues !== undefined) {
                                 connector.recordValues = newRecordValues()
-                                connector.recordValues.initialize(tradingSystem, tradingEngine, productDefinition)
+                                connector.recordValues.initialize(tradingOrLearningSystem, tradingOrLearningEngine, productDefinition)
                                 connector.recordValues.onRecordChangeEventsSubscriptionId = connector.plotter.container.eventHandler.listenToEvent('Current Record Changed', connector.recordValues.onRecordChange)
                             }
                         }
@@ -493,7 +553,7 @@ function newPlottersManager() {
 
     function physics() {
         if (thisObject.connectors === undefined) { return } // We need to wait
-         for (let i = 0; i < thisObject.connectors.length; i++) {
+        for (let i = 0; i < thisObject.connectors.length; i++) {
             let connector = thisObject.connectors[thisObject.connectors.length - i - 1]
             if (connector.plotter.physics !== undefined) {
                 connector.plotter.physics()

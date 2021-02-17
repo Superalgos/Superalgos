@@ -3,9 +3,6 @@
     "pageNumber": 67,
     "type": "Tutorial Step - Trading Systems Second Backtest",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

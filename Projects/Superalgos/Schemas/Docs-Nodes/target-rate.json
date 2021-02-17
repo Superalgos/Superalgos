@@ -49,7 +49,7 @@
         },
         {
             "style": "Text",
-            "text": "For example, tradingEngine.current.position.entryTargetRate.value or tradingEngine.current.position.exitTargetRate.value."
+            "text": "For example, tradingEngine.tradingCurrent.position.entryTargetRate.value or tradingEngine.tradingCurrent.position.exitTargetRate.value."
         },
         {
             "style": "Title",
@@ -72,7 +72,7 @@
         },
         {
             "style": "Text",
-            "text": "The horizontal segment marks the target rate defined at the open stage. If you are using market orders to take the position, then using tradingEngine.current.episode.candle.close.value may offer a good representation of the rate of market orders. If you are using limit orders, then you may decide at which rate you wish to take the position, and the horizontal segment of the triangle will match the chosen rate."
+            "text": "The horizontal segment marks the target rate defined at the open stage. If you are using market orders to take the position, then using tradingEngine.tradingCurrent.tradingEpisode.candle.close.value may offer a good representation of the rate of market orders. If you are using limit orders, then you may decide at which rate you wish to take the position, and the horizontal segment of the triangle will match the chosen rate."
         },
         {
             "style": "Text",
@@ -105,7 +105,7 @@
         },
         {
             "style": "Text",
-            "text": "The difference in rate between the moment in time the target is hit and the time the 1-hour candle closes may be significant. As a result, if the close stage target rate is defined as tradingEngine.current.episode.candle.close.value, the resulting simulation may show significant slippage, and diverge from what the trade would look like if running on the 1-minute time frame, like you would when trading live."
+            "text": "The difference in rate between the moment in time the target is hit and the time the 1-hour candle closes may be significant. As a result, if the close stage target rate is defined as tradingEngine.tradingCurrent.tradingEpisode.candle.close.value, the resulting simulation may show significant slippage, and diverge from what the trade would look like if running on the 1-minute time frame, like you would when trading live."
         },
         {
             "style": "Text",
@@ -113,7 +113,7 @@
         },
         {
             "style": "Javascript",
-            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.current.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.current.episode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.current.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.current.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
+            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.tradingCurrent.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.tradingCurrent.tradingEpisode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.tradingCurrent.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.tradingCurrent.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
             "updated": 1609596984516
         },
         {

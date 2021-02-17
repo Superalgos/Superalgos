@@ -1,0 +1,72 @@
+{
+    "topic": "LF Trading Bot Available Data Structures",
+    "pageNumber": "2",
+    "type": "LF Trading Bot - Market Data Structure",
+    "definition": {
+        "text": "The Market Data Structure is one of the 3 data structures available at Conditions and Formulas with data from Indicator and Sensor bots.",
+        "updated": 1612351166683
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "This Javascript object can be used when you want to specify a market which is different fomr the Default Market. In this way you can access data of the ETH/USDT market from a stragegy running for example at the BTC/USDT market.",
+            "updated": 1612351365558
+        },
+        {
+            "style": "Title",
+            "text": "Structure"
+        },
+        {
+            "style": "List",
+            "text": "The root of the object is called..."
+        },
+        {
+            "style": "Json",
+            "text": "market",
+            "updated": 1612351449944
+        },
+        {
+            "style": "List",
+            "text": "After it you need to spacify the codeName of an Asset representing the Market Base Asset, like the following...",
+            "updated": 1612351559165
+        },
+        {
+            "style": "Json",
+            "text": "BTC, USDT, ETH... etc.",
+            "updated": 1612351687073
+        },
+        {
+            "style": "List",
+            "text": "After that again the codeName of an Asset but this time representing the Market Quoted Asset.."
+        },
+        {
+            "style": "Json",
+            "text": "BTC, USDT, ETH... etc."
+        },
+        {
+            "style": "List",
+            "text": "Finally you continue with the syntax of the LF Trading Bot - Chart Data Structure",
+            "updated": 1612352138708
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1612352364588
+        },
+        {
+            "style": "Text",
+            "text": "market.ETH.BTC.chart.at01min.support.support5Rate",
+            "updated": 1612351751906
+        },
+        {
+            "style": "Text",
+            "text": "market.BTC.USDT.chart.at05min.candle.open",
+            "updated": 1612351782297
+        },
+        {
+            "style": "Text",
+            "text": "market.ETH.USDT.chart.at24hs.bollingerBand.movingAverage",
+            "updated": 1612351804074
+        }
+    ]
+}

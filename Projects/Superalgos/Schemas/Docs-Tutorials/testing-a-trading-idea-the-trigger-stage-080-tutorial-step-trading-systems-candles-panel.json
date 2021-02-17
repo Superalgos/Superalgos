@@ -3,9 +3,6 @@
     "pageNumber": 80,
     "type": "Tutorial Step - Trading Systems Candles Panel",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

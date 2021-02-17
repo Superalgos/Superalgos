@@ -1,6 +1,6 @@
 function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     thisObject = {
-        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd, 
+        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
     }
@@ -8,7 +8,12 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     return thisObject
 
     function syncronizeSessionWithBackEnd(node) {
-        let networkNode = validations(node)
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
+        let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* Nodes that do not belong to a network can not get ready. */
             return
@@ -27,7 +32,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         function onStatus(message) {
             eventsServerClient.stopListening(key, eventSubscriptionIdOnStatus, node.id)
-            if (message.event.status === 'Trading Session Runnning' ) {
+            if (message.event.status === 'Trading Session Runnning') {
                 node.payload.uiObject.menu.internalClick('Run Trading Session')
             }
         }
@@ -37,7 +42,12 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
-        let networkNode = validations(node)
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
+        let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
@@ -79,14 +89,14 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
         lightingPath = '' +
             'Trading Engine->' +
             'Dynamic Indicators->Indicator Function->' +
-            'Current->Last->Previous->' +
-            'Episode->' +
-            'Episode Base Asset->Episode Quoted Asset->Episode Counters->Episode Statistics->' +
+            'Trading Current->Trading Last->Previous->' +
+            'Trading Episode->' +
+            'Episode Base Asset->Episode Quoted Asset->Trading Episode Counters->Trading Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +
             'Begin->End->Last Begin->Last End->Open->Close->Min->Max->Index->' +
-            'Distance To Event->' +
+            'Distance To Trading Event->' +
             'Head Of The Market->Process Date->' +
             'Trigger On->Trigger Off->Take Position->Close Position->Next Phase->Move To Phase->Create Order->Cancel Order->Close Order->' +
             'Strategy->' +
@@ -123,7 +133,17 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createFilter(node.tradingSystemReference.payload.referenceParent)
+        let defaultExchange = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.exchange.payload, 'codeName')
+        let defaultMarket =
+            UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            + '-' + 
+            UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
+
+        let dependencyFilter = UI.projects.superalgos.functionLibraries.dependenciesFilter.createDependencyFilter(
+            defaultExchange,
+            defaultMarket,
+            node.tradingSystemReference.payload.referenceParent
+        )
 
         /* Raise event to run the session */
         let event = {
@@ -147,13 +167,18 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
-        let networkNode = validations(node)
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            /* If something fails at validations we just quit. */
+            return
+        }
+        let networkNode = validationsResult.networkNode
         if (networkNode === undefined) {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
-        
+
         let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
@@ -163,6 +188,9 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
     }
 
     function validations(node) {
+
+        let result = {}
+
         if (node.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a Process Instance parent to be able to run.')
             return
@@ -183,34 +211,34 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        let taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        result.taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
 
-        if (taskManager.payload.parentNode === undefined) {
+        if (result.taskManager.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside Mine Tasks.')
             return
         }
 
-        if (taskManager.payload.parentNode.payload.parentNode === undefined) {
+        if (result.taskManager.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside Market Tasks.')
             return
         }
 
-        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (result.taskManager.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside Exchange Tasks.')
             return
         }
 
-        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (result.taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Testing or Production Trading Tasks.')
             return
         }
 
-        if (taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
+        if (result.taskManager.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs to be inside a Network Node.')
             return
         }
 
-        let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(taskManager, 'Network Node', undefined, true, false, true, false)
+        result.networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')
@@ -231,6 +259,46 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             node.payload.uiObject.setErrorMessage('Trading Engine Reference needs to reference a Trading Engine.')
             return
         }
-        return networkNode
+
+        if (result.taskManager.payload.parentNode.payload.parentNode.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('Session needs to have a Default Market.')
+            return
+        }
+
+        result.market = result.taskManager.payload.parentNode.payload.parentNode.payload.referenceParent
+
+        if (result.market.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Default Market needs to be a child of Exchange Markets.')
+            return
+        }
+
+        if (result.market.payload.parentNode.payload.parentNode === undefined) {
+            node.payload.uiObject.setErrorMessage('Exchange Markets neeed to be a child of Crypto Exchange.')
+            return
+        }
+
+        if (result.market.baseAsset === undefined) {
+            node.payload.uiObject.setErrorMessage('Default Market needs to have a Base Asset.')
+            return
+        }
+
+        if (result.market.quotedAsset === undefined) {
+            node.payload.uiObject.setErrorMessage('Default Market needs to have a Quoted Asset.')
+            return
+        }
+
+        if (result.market.baseAsset.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('Market Base Asset needs to reference an Asset.')
+            return
+        }
+
+        if (result.market.quotedAsset.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('Market Quoted Asset needs to reference an Asset.')
+            return
+        }
+
+        result.exchange = result.market.payload.parentNode.payload.parentNode
+
+        return result
     }
 }

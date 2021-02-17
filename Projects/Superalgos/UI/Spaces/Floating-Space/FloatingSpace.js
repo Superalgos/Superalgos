@@ -254,11 +254,15 @@ function newSuperalgosFloatingSpace() {
         /* Exceptions that are never considered far. */
         if (
             payload.node.type === 'Trading System' ||
+            payload.node.type === 'Learning System' ||
+            payload.node.type === 'Trading Engine' ||
+            payload.node.type === 'Learning Engine' ||
             payload.node.type === 'Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||
-            payload.node.type === 'Super Scripts'
+            payload.node.type === 'Trading Mine' ||
+            payload.node.type === 'Learning Mine'
         ) {
             return false
         }

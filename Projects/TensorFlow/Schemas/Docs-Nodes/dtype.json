@@ -1,0 +1,19 @@
+{
+    "type": "Dtype",
+    "definition": {
+        "text": "The data-type for this layer. Defaults to 'float32'. This argument is only applicable to input layers (the first layer of a model).",
+        "updated": 1613243770062
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613243792602
+        },
+        {
+            "style": "Javascript",
+            "text": "float32\nint32 \nbool\ncomplex64\nstring",
+            "updated": 1613243879019
+        }
+    ]
+}

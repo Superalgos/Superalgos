@@ -1,0 +1,16 @@
+{
+    "type": "Distance To Trading Event",
+    "definition": {
+        "text": "Distance to trading event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The information may be used from within strategies, for example, to leave a cool-down period in-between positions, to separate orders in specific intervals, or to achieve any particular logic that may require counting how much time has passed since the last time a specific event was triggered."
+        }
+    ]
+}

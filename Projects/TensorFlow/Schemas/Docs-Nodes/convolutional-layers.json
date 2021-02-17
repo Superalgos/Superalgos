@@ -1,0 +1,13 @@
+{
+    "type": "Convolutional Layers",
+    "definition": {
+        "text": "Use this type of layer to create a convolution kernel.",
+        "updated": 1613210887837
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

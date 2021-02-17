@@ -675,7 +675,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const octokit = new Octokit({
                                     auth: token,
-                                    userAgent: 'Superalgos Beta 8'
+                                    userAgent: 'Superalgos Beta 9'
                                 })
 
                                 const repo = 'Superalgos'
@@ -1139,22 +1139,24 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 fs.readdir(dirPath, onDirRead)
 
                                 function onDirRead(err, fileList) {
+                                    let updatedFileList = []
+
                                     if (err) {
-                                        console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
-                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
-                                        return
+                                        /*
+                                        If we have a problem reading this folder we will assume that it is
+                                        because this project does not need this folder and that's it.
+                                        */
+                                        //console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
                                     } else {
-                                        let updatedFileList = []
                                         for (let i = 0; i < fileList.length; i++) {
                                             let name = 'Plugin \u2192 ' + fileList[i]
                                             updatedFileList.push([project, name])
                                         }
-                                        allWorkspaces = allWorkspaces.concat(updatedFileList)
-                                        projectsCount++
-                                        if (projectsCount === projects.length) {
-                                            readMyWorkspaces()
-                                        }
-                                        return
+                                    }
+                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
+                                    projectsCount++
+                                    if (projectsCount === projects.length) {
+                                        readMyWorkspaces()
                                     }
                                 }
                             } catch (err) {
@@ -1441,21 +1443,23 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         fs.readdir(dirPath, onDirRead)
 
                         function onDirRead(err, fileList) {
+                            let updatedFileList = []
                             if (err) {
-                                console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
-                                return
+                                /*
+                                If we have a problem reading this folder we will assume that it is
+                                because this project does not need this folder and that's it.
+                                */
+                                // console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
                             } else {
-                                let updatedFileList = []
                                 for (let i = 0; i < fileList.length; i++) {
                                     let name = fileList[i]
                                     updatedFileList.push([project, name])
                                 }
-                                allLibraries = allLibraries.concat(updatedFileList)
-                                projectsCount++
-                                if (projectsCount === projects.length) {
-                                    respondWithContent(JSON.stringify(allLibraries), httpResponse)
-                                }
-                                return
+                            }
+                            allLibraries = allLibraries.concat(updatedFileList)
+                            projectsCount++
+                            if (projectsCount === projects.length) {
+                                respondWithContent(JSON.stringify(allLibraries), httpResponse)
                             }
                         }
                     } catch (err) {
@@ -1722,9 +1726,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function getDirectories(path) {
-        const fs = require('fs')
-        return fs.readdirSync(path).filter(function (file) {
-            return fs.statSync(path + '/' + file).isDirectory();
-        });
+        try {
+            const fs = require('fs')
+            return fs.readdirSync(path).filter(function (file) {
+                return fs.statSync(path + '/' + file).isDirectory();
+            });
+        } catch (err) {
+            return []
+        }
     }
 }

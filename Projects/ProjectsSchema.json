@@ -442,6 +442,24 @@
                     "propertyName": "singleMarketFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesSingleMarketFunctions",
                     "fileName": "SingleMarketFunctions.js"
+                },
+                {
+                    "name": "Data Dependencies Functions",
+                    "propertyName": "dataDependenciesFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesDataDependenciesFunctions",
+                    "fileName": "DataDependenciesFunctions.js"
+                },
+                {
+                    "name": "Process Files Functions",
+                    "propertyName": "processFilesFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
+                    "fileName": "ProcessFilesFunctions.js"
+                },
+                {
+                    "name": "Output Management Functions",
+                    "propertyName": "outputManagementFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesOutputManagementFunctions",
+                    "fileName": "OutputManagementFunctions.js"
                 }
             ],
             "utilities": [
@@ -762,6 +780,79 @@
                     "functionName": "newSuperalgosBotModulesExchangeAPI",
                     "fileName": "ExchangeAPI.js",
                     "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
+                },
+                {
+                    "name": "Single Market Learning Bot",
+                    "propertyName": "singleMarketLearningBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketLearningBot",
+                    "fileName": "SingleMarketLearningBot.js",
+                    "folderName": "Learning-Bot",
+                    "botType": "Learning Bot"
+                },
+                {
+                    "name": "Learning Session",
+                    "propertyName": "learningSession",
+                    "functionName": "newSuperalgosBotModulesLearningSession",
+                    "fileName": "LearningSession.js",
+                    "folderName": "Learning-Bot"
+                },
+                {
+                    "name": "Learning Process",
+                    "propertyName": "learningProcess",
+                    "functionName": "newSuperalgosBotModulesLearningProcess",
+                    "fileName": "LearningProcess.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Engine",
+                    "propertyName": "learningEngine",
+                    "functionName": "newSuperalgosBotModulesLearningEngine",
+                    "fileName": "LearningEngine.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Output",
+                    "propertyName": "learningOutput",
+                    "functionName": "newSuperalgosBotModulesLearningOutput",
+                    "fileName": "LearningOutput.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Simulation",
+                    "propertyName": "learningSimulation",
+                    "functionName": "newSuperalgosBotModulesLearningSimulation",
+                    "fileName": "LearningSimulation.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Episode",
+                    "propertyName": "learningEpisode",
+                    "functionName": "newSuperalgosBotModulesLearningEpisode",
+                    "fileName": "LearningEpisode.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Records",
+                    "propertyName": "learningRecords",
+                    "functionName": "newSuperalgosBotModulesLearningRecords",
+                    "fileName": "LearningRecords.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning System",
+                    "propertyName": "learningSystem",
+                    "functionName": "newSuperalgosBotModulesLearningSystem",
+                    "fileName": "LearningSystem.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                }
+            ],
+            "algorithmModules": [
+                {
+                    "name": "Time Series Forcasting Tensor Flow JS",
+                    "propertyName": "timeSeriesForcastingTensorFlowJS",
+                    "functionName": "newSuperalgosAlgorithmModulesTimeSeriesForcastingTensorFlowJS",
+                    "fileName": "LearningAlgorithm.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning/Time-Series-Forcasting/Tensor-Flow-JS"
                 }
             ]
         },
@@ -823,5 +914,20 @@
         },
         "TS": {},
         "CL": {}
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "UI": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [],
+            "spaces": []
+        },
+        "TS": {
+            "globals":[],
+            "functionLibraries": [],
+            "utilities": []
+        }
     }
 ]

@@ -1,0 +1,18 @@
+{
+    "type": "Softmax Layer",
+    "definition": {
+        "text": "Softmax activation layer. A function that provides probabilities for each possible class in a multi-class classification model. The probabilities add up to exactly 1.0. For example, softmax might determine that the probability of a particular image being a dog at 0.9, a cat at 0.08, and a horse at 0.02.",
+        "updated": 1613217104730
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "updated": 1613217039070
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

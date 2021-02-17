@@ -17,7 +17,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.current.position.entryTargetRate.value * 0.9"
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 0.9"
         },
         {
             "style": "Callout",

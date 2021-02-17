@@ -76,9 +76,9 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
             'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
             'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
-            'Dimensionality Units->Activation Functions->Batch Size->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' + 
-            'Kernel Initializer->Kernel Contraint->Kernel Regularizer->' +
-            'Bias Initializer->Bias Contraint->Bias Regularizer->' 
+            'Dimensionality Units->Activation Function->Batch Size->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' + 
+            'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
+            'Bias Initializer->Bias Constraint->Bias Regularizer->' 
 
         let learningSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

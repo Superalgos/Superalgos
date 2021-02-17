@@ -1197,7 +1197,7 @@ function newUiObject() {
             answer to the command to stop. In those cases, we will stop execute the onStopped funcion anyways so as to 
             return the UI to its default state.
             */
-            setTimeout(returnToDefaultState, 90000)
+            setTimeout(returnToDefaultState, 15000)
             function returnToDefaultState() {
                 if (wasStopped === false) {
                     completeStop(callBackFunction, event)

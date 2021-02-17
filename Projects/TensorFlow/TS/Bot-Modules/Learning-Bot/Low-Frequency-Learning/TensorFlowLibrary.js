@@ -98,16 +98,16 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                 learningSystem.machineLearningLibrary.typeOfLearning !== undefined &&
                 learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel !== undefined &&
                 learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model !== undefined &&
-                learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api !== undefined
+                learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api !== undefined
             ) {
-                switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.type) {
+                switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.type) {
                     case 'Layers API': {
                         tensorFlowAPI = require("@tensorflow/tfjs-layers")
-                        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel === undefined) { return }
+                        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel === undefined) { return }
 
-                        switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel.type) {
+                        switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel.type) {
                             case 'Secuential Model': {
-                                setupSecuentialModel(learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.api.layersModel)
+                                setupSecuentialModel(learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel)
                                 break
                             }
                             case 'Functional Model': {
@@ -144,7 +144,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     return
                 }
 
-                tensorFlowModel = tensorFlowAPI.sequetial()
+                tensorFlowModel = tensorFlowAPI.sequential()
 
                 for (let i = 0; i < secuentialModel.layers.length; i++) {
                     let layerNode = secuentialModel.layers[i]
@@ -152,10 +152,10 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     let argsObject = {}
                     let layerObject
 
-                    if (layerNode.layerType === undefined) { continue }
-                    if (layerNode.layerType.layer === undefined) { continue }
+                    if (layerNode.typeOfLayer === undefined) { continue }
+                    if (layerNode.typeOfLayer.layer === undefined) { continue }
 
-                    switch (layerNode.layerType.layer.type) {
+                    switch (layerNode.typeOfLayer.layer.type) {
                         case 'Dense Layer': {
                             layersFunction = tensorFlowAPI.layers.dense
                             break
@@ -166,54 +166,59 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                         case ' ': {
                             break
                         }
+                        default: {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                '[WARN] Layer of type ' + layerNode.typeOfLayer.layer.type + ' not implemented yet.')
+                            continue
+                        }
                     }
 
-                    if (layerNode.layerType.layer.dimensionalityUnits !== undefined) {
-                        argsObject.units = layerNode.layerType.layer.dimensionalityUnits.config.value
+                    if (layerNode.typeOfLayer.layer.dimensionalityUnits !== undefined) {
+                        argsObject.units = layerNode.typeOfLayer.layer.dimensionalityUnits.config.value
                     }
-                    if (layerNode.layerType.layer.activationFunction !== undefined) {
-                        argsObject.activation = layerNode.layerType.layer.activationFunction.config.value
+                    if (layerNode.typeOfLayer.layer.activationFunction !== undefined) {
+                        argsObject.activation = layerNode.typeOfLayer.layer.activationFunction.config.value
                     }
-                    if (layerNode.layerType.layer.bias !== undefined) {
+                    if (layerNode.typeOfLayer.layer.bias !== undefined) {
                         argsObject.useBias = true
                     }
-                    if (layerNode.layerType.layer.kernel !== undefined) {
-                        if (layerNode.layerType.layer.kernel.initializer !== undefined) {
-                            argsObject.kernelInitializer = layerNode.layerType.layer.kernel.initializer.config.value
+                    if (layerNode.typeOfLayer.layer.kernel !== undefined) {
+                        if (layerNode.typeOfLayer.layer.kernel.kernelInitializer !== undefined) {
+                            argsObject.kernelInitializer = layerNode.typeOfLayer.layer.kernel.kernelInitializer.config.value
                         }
-                        if (layerNode.layerType.layer.kernel.constraint !== undefined) {
-                            argsObject.kernelConstraint = layerNode.layerType.layer.kernel.constraint.config.value
+                        if (layerNode.typeOfLayer.layer.kernel.kernelConstraint !== undefined) {
+                            argsObject.kernelConstraint = layerNode.typeOfLayer.layer.kernel.kernelConstraint.config.value
                         }
-                        if (layerNode.layerType.layer.kernel.regularizer !== undefined) {
-                            argsObject.kernelRegularizer = layerNode.layerType.layer.kernel.regularizer.config.value
-                        }
-                    }
-                    if (layerNode.layerType.layer.bias !== undefined) {
-                        if (layerNode.layerType.layer.bias.initializer !== undefined) {
-                            argsObject.biasInitializer = layerNode.layerType.layer.bias.initializer.config.value
-                        }
-                        if (layerNode.layerType.layer.bias.constraint !== undefined) {
-                            argsObject.biasConstraint = layerNode.layerType.layer.bias.constraint.config.value
-                        }
-                        if (layerNode.layerType.layer.bias.regularizer !== undefined) {
-                            argsObject.biasRegularizer = layerNode.layerType.layer.bias.regularizer.config.value
+                        if (layerNode.typeOfLayer.layer.kernel.kernelRegularizer !== undefined) {
+                            argsObject.kernelRegularizer = layerNode.typeOfLayer.layer.kernel.kernelRegularizer.config.value
                         }
                     }
-                    if (layerNode.layerType.layer.batchSize !== undefined) {
-                        argsObject.batchSize = layerNode.layerType.layer.batchSize.config.value
-                    }
-                    if (layerNode.layerType.layer.dtype !== undefined) {
-                        argsObject.dtype = layerNode.layerType.layer.dtype.config.value
-                    }
-                    if (layerNode.layerType.layer.trainable !== undefined) {
-                        argsObject.trainable = layerNode.layerType.layer.trainable.config.value
-                    }
-                    if (layerNode.layerType.layer.weights !== undefined) {
-                        if (layerNode.layerType.layer.weights.tensor !== undefined) {
-                            argsObject.weights = layerNode.layerType.layer.weights.tensor.config.value
+                    if (layerNode.typeOfLayer.layer.bias !== undefined) {
+                        if (layerNode.typeOfLayer.layer.bias.biasInitializer !== undefined) {
+                            argsObject.biasInitializer = layerNode.typeOfLayer.layer.bias.biasInitializer.config.value
+                        }
+                        if (layerNode.typeOfLayer.layer.bias.biasConstraint !== undefined) {
+                            argsObject.biasConstraint = layerNode.typeOfLayer.layer.bias.biasConstraint.config.value
+                        }
+                        if (layerNode.typeOfLayer.layer.bias.biasRegularizer !== undefined) {
+                            argsObject.biasRegularizer = layerNode.typeOfLayer.layer.bias.biasRegularizer.config.value
                         }
                     }
-                    argsObject.name = layerNode.layerType.layer.name
+                    if (layerNode.typeOfLayer.layer.batchSize !== undefined) {
+                        argsObject.batchSize = layerNode.typeOfLayer.layer.batchSize.config.value
+                    }
+                    if (layerNode.typeOfLayer.layer.dtype !== undefined) {
+                        argsObject.dtype = layerNode.typeOfLayer.layer.dtype.config.value
+                    }
+                    if (layerNode.typeOfLayer.layer.trainable !== undefined) {
+                        argsObject.trainable = layerNode.typeOfLayer.layer.trainable.config.value
+                    }
+                    if (layerNode.typeOfLayer.layer.weights !== undefined) {
+                        if (layerNode.typeOfLayer.layer.weights.tensor !== undefined) {
+                            argsObject.weights = layerNode.typeOfLayer.layer.weights.tensor.config.value
+                        }
+                    }
+                    argsObject.name = layerNode.typeOfLayer.layer.config.codeName
 
                     /*
                     Check if this is the input layer.
@@ -223,8 +228,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                             argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
                         }
                     }
-
-                    secuentialModel.inputLayer
 
                     layerObject = layersFunction(argsObject)
 

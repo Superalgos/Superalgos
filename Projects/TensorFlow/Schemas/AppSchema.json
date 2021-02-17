@@ -979,6 +979,13 @@
         "type": "Dense Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "dimensionalityUnits",
@@ -1052,6 +1059,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {

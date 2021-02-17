@@ -352,6 +352,30 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "optimizer",
+                "label": "Add Optimizer",
+                "relatedUiObject": "Optimizer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "lossFunction",
+                "label": "Add Loss Function",
+                "relatedUiObject": "Loss Function",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "metrics",
+                "label": "Add Metrics",
+                "relatedUiObject": "Metrics",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -383,8 +407,128 @@
                 "name": "api",
                 "type": "node",
                 "childType": "Core API"
+            },
+            {
+                "name": "optimizer",
+                "type": "node",
+                "childType": "Optimizer"
+            },
+            {
+                "name": "lossFunction",
+                "type": "node",
+                "childType": "Loss Function"
+            },
+            {
+                "name": "metrics",
+                "type": "node",
+                "childType": "Metrics"
             }
         ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Optimizer",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": \"sgd\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "optimizer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Loss Function",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": \"categoricalCrossentropy\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "lossFunction",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Metrics",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": [\"accuracy\"]\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "metrics",
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {

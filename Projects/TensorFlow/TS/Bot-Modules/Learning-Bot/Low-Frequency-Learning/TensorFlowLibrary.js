@@ -37,6 +37,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         setupBackend()
         setupEnvironmentFlags()
         setupModel()
+        compileModel()
 
         callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
@@ -234,6 +235,40 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     tensorFlowModel.add(layerObject)
                 }
             }
+        }
+
+        function compileModel() {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value === undefined) {
+                //TODO
+                return
+            }
+            let compileArgs = {
+                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value,
+                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value,
+                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]
+            }
+
+            tensorFlowModel.compile(compileArgs)
         }
     }
 

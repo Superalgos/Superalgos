@@ -1,0 +1,138 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": "2",
+    "type": "How to Contribute Icons",
+    "definition": {
+        "text": "Superalgos' visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
+        "updated": 1613590520324
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Attribution",
+            "updated": 1613378838786
+        },
+        {
+            "style": "Text",
+            "text": "The original set of icons is a web design pack made by Freepik and is available at:",
+            "updated": 1613378893975
+        },
+        {
+            "style": "Link",
+            "text": "flaticon.com->https://www.flaticon.com/packs/web-design-10?k=1596385749125",
+            "updated": 1613590565452
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the series is inspired in the design style developed for the original set."
+        },
+        {
+            "style": "Text",
+            "text": "The authorship of each icon not in the original series may be tracked in the repository's history.",
+            "updated": 1613591688551
+        },
+        {
+            "style": "Title",
+            "text": "Coordination",
+            "updated": 1613591702695
+        },
+        {
+            "style": "Text",
+            "text": "Join the following group to coordinate works:",
+            "updated": 1613591754190
+        },
+        {
+            "style": "Link",
+            "text": "UX/UI Design Group->https://t.me/superalgosuxui",
+            "updated": 1613591786900
+        },
+        {
+            "style": "Text",
+            "text": "Please, introduce yourself and get up to speed with the group currently doing the work. The main coordination task is keeping track of who will block what part of the pending work so that we don’t duplicate efforts.",
+            "updated": 1613591821097
+        },
+        {
+            "style": "Title",
+            "text": "Design Brief",
+            "updated": 1613591872004
+        },
+        {
+            "style": "Subtitle",
+            "text": "Color Palette"
+        },
+        {
+            "style": "Text",
+            "text": "We use a restricted palette, with a playful selection of colors that work well both over a black background—on the Design Space — and a white background — on the Docs and the Charting Space.",
+            "updated": 1613591919434
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/color-palette.png",
+            "updated": 1613593161363
+        },
+        {
+            "style": "Subtitle",
+            "text": "Look & Feel",
+            "updated": 1613592080753
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos is a large and rather complex system aimed at all sorts of user profiles. The ultimate goal of the project is to massify the use of the system, thus, Superalgos should be accessible to a wide user base: from professional traders to crypto-holders, and everything in between."
+        },
+        {
+            "style": "Text",
+            "text": "The choice of a playful look and feel responds to the underlying strategy to achieve massification: to gamify the user experience, in the sense that building profitable trading strategies may be turned into a strategy game in and of itself."
+        },
+        {
+            "style": "Text",
+            "text": "We choose to depart from realistic or corporate styles and lean towards cartoonish, joyful, and spirited ideas instead."
+        },
+        {
+            "style": "Subtitle",
+            "text": "What we Like"
+        },
+        {
+            "style": "Text",
+            "text": "The following are examples of icons we like among the existing batch.",
+            "updated": 1613592138585
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/charting-space.png",
+            "updated": 1613593154029
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/data-mine.png",
+            "updated": 1613593146958
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/crypto-exchange.png",
+            "updated": 1613593140143
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/record-property.png",
+            "updated": 1613593120600
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/trigger-on.png",
+            "updated": 1613593129947
+        },
+        {
+            "style": "Title",
+            "text": "Work In Progress!!",
+            "updated": 1613593207724
+        }
+    ]
+}

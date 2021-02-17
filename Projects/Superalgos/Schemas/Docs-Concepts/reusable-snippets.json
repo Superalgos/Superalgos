@@ -141,8 +141,27 @@
             "updated": 1611676109591
         },
         {
+            "style": "Title",
+            "text": "Contributions Reminder",
+            "updated": 1613588536814
+        },
+        {
             "style": "Block",
-            "text": "Dummy"
+            "text": "Contributions Reminder"
+        },
+        {
+            "style": "Note",
+            "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version.",
+            "updated": 1613588289291
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1613588341297
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Text",

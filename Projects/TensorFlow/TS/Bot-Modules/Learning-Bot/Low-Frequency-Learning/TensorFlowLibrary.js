@@ -33,7 +33,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         learningEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
 
-
         setupBackend()
         setupEnvironmentFlags()
         setupModel()

@@ -2732,8 +2732,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Feature",
-                "relatedUiObject": "Feature",
+                "label": "Add Data Feature",
+                "relatedUiObject": "Data Feature",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2754,20 +2754,20 @@
         "propertyNameAtParent": "inputFeatures",
         "childrenNodesProperties": [
             {
-                "name": "features",
+                "name": "dataFeatures",
                 "type": "array",
-                "childType": "Feature"
+                "childType": "Data Feature"
             }
         ],
         "icon": "tensorflow"
     },
     {
-        "type": "Feature",
+        "type": "Data Feature",
         "menuItems": [
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "inpfeatureFormulautFeatures",
+                "propertyToCheckFor": "featureFormula",
                 "label": "Add Feature Formula",
                 "relatedUiObject": "Feature Formula",
                 "actionFunction": "payload.executeAction"
@@ -2787,7 +2787,7 @@
         "attachingRules": {
             "compatibleTypes": "->Input Features->"
         },
-        "propertyNameAtParent": "features",
+        "propertyNameAtParent": "dataFeatures",
         "childrenNodesProperties": [
             {
                 "name": "featureFormula",
@@ -2827,7 +2827,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Feature->"
+            "compatibleTypes": "->Data Feature->"
         },
         "propertyNameAtParent": "featureFormula",
         "childrenNodesProperties": [],
@@ -2836,6 +2836,14 @@
     {
         "type": "Output Layer",
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "outputLabels",
+                "label": "Add Output Labels",
+                "relatedUiObject": "Output Labels",
+                "actionFunction": "payload.executeAction"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -2858,6 +2866,118 @@
             "compatibleTypes": "->Secuential Model->"
         },
         "propertyNameAtParent": "outputLayer",
+        "childrenNodesProperties": [
+            {
+                "name": "outputLabels",
+                "type": "node",
+                "childType": "Output Labels"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Output Labels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Label",
+                "relatedUiObject": "Data Label",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Output Layer->"
+        },
+        "propertyNameAtParent": "outputLabels",
+        "childrenNodesProperties": [
+            {
+                "name": "dataLabels",
+                "type": "array",
+                "childType": "Data Label"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Data Label",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "dataLabelFormula",
+                "label": "Add Data Label Formula",
+                "relatedUiObject": "Data Label Formula",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Output Labels->"
+        },
+        "propertyNameAtParent": "dataLabels",
+        "childrenNodesProperties": [
+            {
+                "name": "dataLabelFormula",
+                "type": "node",
+                "childType": "Data Label Formula",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Data Label Formula",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.formulaEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": ""
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Data Label->"
+        },
+        "propertyNameAtParent": "dataLabelFormula",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

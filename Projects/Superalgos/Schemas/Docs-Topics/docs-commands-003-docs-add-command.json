@@ -9,13 +9,8 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Syntax",
-            "updated": 1609150474236
-        },
-        {
-            "style": "Subtitle",
-            "text": "Option 1: ",
-            "updated": 1609149432117
+            "text": "Single-Page Syntax",
+            "updated": 1613765343294
         },
         {
             "style": "Json",
@@ -23,9 +18,18 @@
             "updated": 1610975287652
         },
         {
+            "style": "Json",
+            "text": "docs.add Concept to Project: Docs Page Name",
+            "updated": 1613765480011
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Book to Project: Docs Page Name",
+            "updated": 1613765601657
+        },
+        {
             "style": "Subtitle",
-            "text": "Example: ",
-            "updated": 1609149442319
+            "text": "Examples:"
         },
         {
             "style": "Json",
@@ -33,29 +37,19 @@
             "updated": 1610975052587
         },
         {
-            "style": "Subtitle",
-            "text": "Option 2: ",
-            "updated": 1609149450546
-        },
-        {
-            "style": "Json",
-            "text": "docs.add Concept to Project: Docs Page Name",
-            "updated": 1609149807897
-        },
-        {
-            "style": "Subtitle",
-            "text": "Example: ",
-            "updated": 1609149457691
-        },
-        {
             "style": "Json",
             "text": "docs.add Concept to Superalgos: Two-way Reference",
             "updated": 1610975077695
         },
         {
-            "style": "Subtitle",
-            "text": "Option 3: ",
-            "updated": 1609149464103
+            "style": "Json",
+            "text": "docs.add Book to Superalgos: User Manual",
+            "updated": 1613765497851
+        },
+        {
+            "style": "Title",
+            "text": "Page-Collection Syntax",
+            "updated": 1613765650403
         },
         {
             "style": "Json",
@@ -63,9 +57,17 @@
             "updated": 1609149846658
         },
         {
+            "style": "Json",
+            "text": "docs.add Tutorial to Project: Docs Tutorial Name->Docs Page Name->Docs Page Number",
+            "updated": 1613765711526
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Review to Project: Docs Review Name->Docs Page Name"
+        },
+        {
             "style": "Subtitle",
-            "text": "Example: ",
-            "updated": 1609149471266
+            "text": "Example:"
         },
         {
             "style": "Json",
@@ -73,37 +75,9 @@
             "updated": 1609149878993
         },
         {
-            "style": "Subtitle",
-            "text": "Option 4:",
-            "updated": 1610706520317
-        },
-        {
-            "style": "Json",
-            "text": "docs.add Topic to Project: Docs Tutorial Name->Docs Page Name->Docs Page Number",
-            "updated": 1610706514194
-        },
-        {
-            "style": "Subtitle",
-            "text": "Example:"
-        },
-        {
             "style": "Json",
             "text": "docs.add Tutorial to Superalgos: How to Build Indicators->Intro->1",
             "updated": 1610975123605
-        },
-        {
-            "style": "Subtitle",
-            "text": "Option 5:",
-            "updated": 1610706652124
-        },
-        {
-            "style": "Json",
-            "text": "docs.add Review to Project: Docs Review Name->Docs Page Name",
-            "updated": 1610975148914
-        },
-        {
-            "style": "Subtitle",
-            "text": "Example:"
         },
         {
             "style": "Json",
@@ -116,28 +90,28 @@
         },
         {
             "style": "List",
-            "text": "Project: ",
-            "updated": 1613764318942
+            "text": "Project: It's the project where the page is defined.",
+            "updated": 1613764802872
         },
         {
             "style": "List",
-            "text": "Docs Page Category",
-            "updated": 1613764246264
+            "text": "Docs Page Category: One of the available categories.",
+            "updated": 1613764813920
         },
         {
             "style": "List",
-            "text": "Docs Topic / Tutorial / Review Name: The name of the topic /tutorial /review to which the new page will belong.",
-            "updated": 1610975248463
+            "text": "Docs topic / tutorial / review name: The name of the topic / tutorial / review tthe new page will belong to.",
+            "updated": 1613764860640
         },
         {
             "style": "List",
-            "text": "Docs Page Name: For Nodes it is the type of node; for Concepts, the concept name; for Topics, the topic's page name, for Tutorials, the tutorial step name; for Reviews, the review page name.",
-            "updated": 1610975361761
+            "text": "Docs Page Name: The name of the page.",
+            "updated": 1613764889322
         },
         {
             "style": "List",
-            "text": "Docs Page Numer: Optional. A page number to be assigned to the new page. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assign one.",
-            "updated": 1610975499631
+            "text": "Docs Page Numer: Optional. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assigns one.",
+            "updated": 1613764928993
         }
     ]
 }

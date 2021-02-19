@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "A block must have an opening paragraph with the Docs Block Style. The block may include any number of paragraphs. In practice, a block extends until the next block starts, or until the page ends.",
-            "updated": 1611001401401
+            "text": "A block must have an opening paragraph with the Docs Block Style. The block may include any number of paragraphs. In practice, a block extends to the point where the next block starts, or until the page ends.",
+            "updated": 1613757178023
         }
     ]
 }

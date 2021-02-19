@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Docs is a collection of pages organized in categories, each one saved as a JSON file in the following path:",
-            "updated": 1613753810848
+            "text": "The Docs is a collection of pages, each one saved as a JSON file in the following path:",
+            "updated": 1613755076008
         },
         {
             "style": "Json",

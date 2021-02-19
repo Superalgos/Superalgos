@@ -3,12 +3,14 @@
     "pageNumber": 9,
     "type": "Docs Concept Page",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "Concepts are notions or ideas that are not represented as nodes in a hierarchy. Pages in the concept category cover notions or ideas that may be explained in a single page. That is, concepts are notions that may be covered exhaustively on a single page.",
+        "updated": 1613756750385
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "The page of a concept is self-contained.",
+            "updated": 1613756891822
         }
     ]
 }

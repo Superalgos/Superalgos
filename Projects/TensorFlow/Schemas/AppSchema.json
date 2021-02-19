@@ -352,6 +352,30 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "optimizer",
+                "label": "Add Optimizer",
+                "relatedUiObject": "Optimizer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "lossFunction",
+                "label": "Add Loss Function",
+                "relatedUiObject": "Loss Function",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "metrics",
+                "label": "Add Metrics",
+                "relatedUiObject": "Metrics",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -383,8 +407,128 @@
                 "name": "api",
                 "type": "node",
                 "childType": "Core API"
+            },
+            {
+                "name": "optimizer",
+                "type": "node",
+                "childType": "Optimizer"
+            },
+            {
+                "name": "lossFunction",
+                "type": "node",
+                "childType": "Loss Function"
+            },
+            {
+                "name": "metrics",
+                "type": "node",
+                "childType": "Metrics"
             }
         ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Optimizer",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": \"sgd\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "optimizer",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Loss Function",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": \"categoricalCrossentropy\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "lossFunction",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Metrics",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": [\"accuracy\"]\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "metrics",
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -524,15 +668,15 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
-                "label": "Add Advanced Activation Layers",
+                "propertyToCheckFor": "typeOfLayer",
+                "label": "Add Activation Layers",
                 "relatedUiObject": "Advanced Activation Layers",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
+                "propertyToCheckFor": "typeOfLayer",
                 "label": "Add Basic Layers",
                 "relatedUiObject": "Basic Layers",
                 "actionFunction": "payload.executeAction"
@@ -540,7 +684,7 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "layerType",
+                "propertyToCheckFor": "typeOfLayer",
                 "label": "Add Convolutional Layers",
                 "relatedUiObject": "Convolutional Layers",
                 "actionFunction": "payload.executeAction"
@@ -563,17 +707,17 @@
         "propertyNameAtParent": "layers",
         "childrenNodesProperties": [
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Advanced Activation Layers"
             },
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Basic Layers"
             },
             {
-                "name": "layerType",
+                "name": "typeOfLayer",
                 "type": "node",
                 "childType": "Convolutional Layers"
             }
@@ -646,7 +790,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",
@@ -685,6 +829,13 @@
         "type": "Elu Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -694,6 +845,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -707,6 +864,13 @@
         "type": "Leaky Relu Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -716,6 +880,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -729,6 +899,13 @@
         "type": "Prelu Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -738,6 +915,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -751,6 +934,13 @@
         "type": "Relu Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -760,6 +950,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -773,6 +969,13 @@
         "type": "Softmax Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -782,6 +985,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -795,6 +1004,13 @@
         "type": "Thresholded Relu Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -804,6 +1020,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -903,7 +1125,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",
@@ -957,6 +1179,13 @@
         "type": "Activation Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -966,6 +1195,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -978,6 +1213,13 @@
     {
         "type": "Dense Layer",
         "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -1052,6 +1294,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1721,6 +1969,13 @@
         "type": "Dropout Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1730,6 +1985,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1743,6 +2004,13 @@
         "type": "Embedding Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1752,6 +2020,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1765,6 +2039,13 @@
         "type": "Flatten Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1774,6 +2055,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1787,6 +2074,13 @@
         "type": "Permute Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1796,6 +2090,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1809,6 +2109,13 @@
         "type": "Repeat Vector Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1818,6 +2125,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1831,6 +2144,13 @@
         "type": "Reshape Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1840,6 +2160,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1853,6 +2179,13 @@
         "type": "Spatial Dropout 1D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -1862,6 +2195,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -1874,6 +2213,13 @@
     {
         "type": "Convolutional Layers",
         "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -1953,7 +2299,7 @@
         "attachingRules": {
             "compatibleTypes": "->Secuential Layer->"
         },
-        "propertyNameAtParent": "layerType",
+        "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
             {
                 "name": "layer",
@@ -2002,6 +2348,13 @@
         "type": "Conv 1D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2011,6 +2364,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2024,6 +2383,13 @@
         "type": "Conv 2D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2033,6 +2399,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2046,6 +2418,13 @@
         "type": "Conv 2D Transpose Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2055,6 +2434,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2068,6 +2453,13 @@
         "type": "Conv 3D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2077,6 +2469,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2090,6 +2488,13 @@
         "type": "Cropping 2D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2099,6 +2504,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2112,6 +2523,13 @@
         "type": "Depthwise Conv 2D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2121,6 +2539,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2134,6 +2558,13 @@
         "type": "Separable Conv 2D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2143,6 +2574,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2156,6 +2593,13 @@
         "type": "Up Sampling 2D Layer",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2165,6 +2609,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -2282,8 +2732,8 @@
         "menuItems": [
             {
                 "action": "Add UI Object",
-                "label": "Add Feature",
-                "relatedUiObject": "Feature",
+                "label": "Add Data Feature",
+                "relatedUiObject": "Data Feature",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2304,20 +2754,20 @@
         "propertyNameAtParent": "inputFeatures",
         "childrenNodesProperties": [
             {
-                "name": "features",
+                "name": "dataFeatures",
                 "type": "array",
-                "childType": "Feature"
+                "childType": "Data Feature"
             }
         ],
         "icon": "tensorflow"
     },
     {
-        "type": "Feature",
+        "type": "Data Feature",
         "menuItems": [
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "inpfeatureFormulautFeatures",
+                "propertyToCheckFor": "featureFormula",
                 "label": "Add Feature Formula",
                 "relatedUiObject": "Feature Formula",
                 "actionFunction": "payload.executeAction"
@@ -2337,7 +2787,7 @@
         "attachingRules": {
             "compatibleTypes": "->Input Features->"
         },
-        "propertyNameAtParent": "features",
+        "propertyNameAtParent": "dataFeatures",
         "childrenNodesProperties": [
             {
                 "name": "featureFormula",
@@ -2377,7 +2827,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Feature->"
+            "compatibleTypes": "->Data Feature->"
         },
         "propertyNameAtParent": "featureFormula",
         "childrenNodesProperties": [],
@@ -2386,6 +2836,14 @@
     {
         "type": "Output Layer",
         "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "outputLabels",
+                "label": "Add Output Labels",
+                "relatedUiObject": "Output Labels",
+                "actionFunction": "payload.executeAction"
+            },
             {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
@@ -2408,6 +2866,118 @@
             "compatibleTypes": "->Secuential Model->"
         },
         "propertyNameAtParent": "outputLayer",
+        "childrenNodesProperties": [
+            {
+                "name": "outputLabels",
+                "type": "node",
+                "childType": "Output Labels"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Output Labels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Data Label",
+                "relatedUiObject": "Data Label",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Output Layer->"
+        },
+        "propertyNameAtParent": "outputLabels",
+        "childrenNodesProperties": [
+            {
+                "name": "dataLabels",
+                "type": "array",
+                "childType": "Data Label"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Data Label",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "labelFormula",
+                "label": "Add Label Formula",
+                "relatedUiObject": "Label Formula",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Output Labels->"
+        },
+        "propertyNameAtParent": "dataLabels",
+        "childrenNodesProperties": [
+            {
+                "name": "labelFormula",
+                "type": "node",
+                "childType": "Label Formula",
+                "autoAdd": true
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Label Formula",
+        "menuItems": [
+            {
+                "action": "Edit",
+                "actionFunction": "uiObject.formulaEditor.activate",
+                "label": "Edit",
+                "iconPathOn": "javascript-code",
+                "iconPathOff": "javascript-code"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "formula": true
+        },
+        "initialValues": {
+            "code": ""
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Data Label->"
+        },
+        "propertyNameAtParent": "labelFormula",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

@@ -30,7 +30,6 @@ exports.newMultiProject = function () {
             projectInstance.taskModules = {}
             projectInstance.processModules = {}
             projectInstance.botModules = {}
-            projectInstance.algorithmModules = {}
 
             /* Set up Utilities of this Project */
             if (projectDefinition.TS.utilities !== undefined) {
@@ -98,17 +97,6 @@ exports.newMultiProject = function () {
 
                     let requiredObject = require(path)
                     projectInstance.botModules[botModuleDefinition.propertyName] = requiredObject
-                }
-            }
-
-            /* Set up Algorithm Modules for this Project */
-            if (projectDefinition.TS.algorithmModules !== undefined) {
-                for (let j = 0; j < projectDefinition.TS.algorithmModules.length; j++) {
-                    let algorithmModuleDefinition = projectDefinition.TS.algorithmModules[j]
-                    let path = global.env.PATH_TO_PROJECTS_REQUIRED + '/' + projectDefinition.name + '/' + 'TS' + '/' + 'Bot-Modules' + '/' + algorithmModuleDefinition.folderName + '/' + algorithmModuleDefinition.fileName
-
-                    let requiredObject = require(path)
-                    projectInstance.algorithmModules[algorithmModuleDefinition.propertyName] = requiredObject
                 }
             }
         }

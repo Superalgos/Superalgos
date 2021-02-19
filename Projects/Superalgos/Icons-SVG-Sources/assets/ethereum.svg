@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="206 -206 512 512" style="enable-background:new 206 -206 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#0295AA;}
+	.st3{fill:#365558;}
+	.st4{fill:#CDD4D5;}
+	.st5{fill:#E6EAEA;}
+	.st6{fill:#9BAAAB;}
+</style>
+<g id="Layer_3" class="st0">
+	<rect x="1030" y="-1030.4" class="st1" width="512" height="512.8"/>
+</g>
+<path class="st2" d="M462-206v512c141.4,0,256-114.6,256-256S603.4-206,462-206z"/>
+<path class="st3" d="M206,50c0,141.4,114.6,256,256,256v-512C320.6-206,206-91.4,206,50z"/>
+<polygon class="st4" points="461.8,136.1 461.8,19.6 352,81.3 "/>
+<polygon class="st5" points="352,81.3 461.8,19.6 461.8,-138.9 "/>
+<polygon class="st4" points="461.8,-139 461.8,19.6 572,81.3 "/>
+<polygon class="st6" points="572,81.3 461.8,19.6 461.8,136.1 "/>
+<polygon id="Fill-509" class="st5" points="352,95.6 461.8,150.6 461.8,239 "/>
+<polygon id="Fill-510" class="st4" points="572,95.6 461.8,239 461.8,150.6 "/>
+</svg>

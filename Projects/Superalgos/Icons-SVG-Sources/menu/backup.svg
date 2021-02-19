@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="206 -206 512 512" style="enable-background:new 206 -206 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#0295AA;}
+	.st1{fill:#4ACFD9;}
+	.st2{fill:#FF8C29;}
+	.st3{fill:#FD6A33;}
+	.st4{fill:#E6EAEA;}
+	.st5{fill:#CDD4D5;}
+</style>
+<rect x="222.4" y="22" class="st0" width="233.5" height="93"/>
+<rect x="456.4" y="22" class="st1" width="233.2" height="93"/>
+<rect x="456.1" y="22" class="st1" width="0.3" height="93"/>
+<rect x="222.4" y="-86" class="st0" width="233.5" height="93"/>
+<rect x="456.4" y="-86" class="st1" width="233.2" height="93"/>
+<rect x="456.1" y="-86" class="st1" width="0.3" height="93"/>
+<rect x="222.4" y="-195" class="st0" width="233.5" height="93"/>
+<rect x="456.4" y="-195" class="st1" width="233.2" height="93"/>
+<rect x="456.1" y="-195" class="st1" width="0.3" height="93"/>
+<path class="st2" d="M617.9,168.8c-1.1-3.2-4.2-5.3-7.6-5.3h-73.2V-3.9c0-4.4-3.6-8-8-8h-72.7v315.7c1.8,0,3.6-0.6,5.1-1.8
+	l153.9-124.3C618,175.6,619.1,172,617.9,168.8z"/>
+<path class="st2" d="M383.7-11.9c-4.4,0-8,3.6-8,8v167.3h-73.8c-3.4,0-6.4,2.1-7.6,5.4c-1,3.2,0,6.8,2.6,8.9L451.4,302
+	c1.4,1.2,3.2,1.8,5,1.8V-11.9H383.7z"/>
+<path class="st3" d="M617.9,168.8c-1.1-3.2-4.2-5.3-7.6-5.3h-73.2V-3.9c0-4.4-3.6-8-8-8h-72.7v315.5c1.7,0.1,3.5-0.5,5-1.7
+	l154-124.2C618,175.6,619.1,172,617.9,168.8z"/>
+<path class="st3" d="M455.9-11.9v315.5c0.2,0,0.3,0,0.5,0V-11.9H455.9z"/>
+<path class="st4" d="M529.1-41.8h-72.7v16h72.7c4.4,0,8-3.6,8-8C537.1-38.2,533.5-41.8,529.1-41.8z"/>
+<path class="st5" d="M383.7-41.8c-4.4,0-8,3.6-8,8c0,4.4,3.6,8,8,8h72.7v-16H383.7z"/>
+<path class="st4" d="M529.1-71.7h-72.7v16h72.7c4.4,0,8-3.6,8-8C537.1-68.1,533.5-71.7,529.1-71.7z"/>
+<path class="st5" d="M383.7-71.7c-4.4,0-8,3.6-8,8c0,4.4,3.6,8,8,8h72.7v-16H383.7z"/>
+</svg>

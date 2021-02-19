@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": 19,
+    "pageNumber": 15,
     "type": "Docs Search Engine Index",
     "definition": {
         "text": "The Docs Search Engine builds an in-memory index that contains all the phrases of all Docs Pages, plus the name, type, config, and code of all nodes of the current Workspace.",

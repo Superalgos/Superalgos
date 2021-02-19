@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": 11,
+    "pageNumber": 8,
     "type": "Docs Paragraph",
     "definition": {
         "text": "A paragraph is the smallest unit of information managed by the Docs. In a way, a Docs Page is made of paragraphs.",

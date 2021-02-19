@@ -1,10 +1,9 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "7",
-    "type": "Docs Node Page",
+    "pageNumber": 11,
+    "type": "Docs Paragraph",
     "definition": {
-        "text": "Each node in a Project should have a corresponding Node Page defining the node and explaining how it is used.",
-        "updated": 1611000867717
+        "text": "Write here a summary for this topic page."
     },
     "paragraphs": [
         {

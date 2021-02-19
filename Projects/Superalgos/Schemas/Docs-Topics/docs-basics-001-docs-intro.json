@@ -1,16 +1,31 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Docs Intro",
     "definition": {
-        "text": "The Docs is a Space within the Superalgos Project. It allows users to search for information relative to nodes, concepts, topics, tutorials and reviews related to different projects.",
-        "updated": 1610999626947
+        "text": "The Docs is a Space within the Superalgos Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books related to different projects.",
+        "updated": 1613751739473
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Docs pages are organized in categories, as explained in the page Docs Page Category.",
-            "updated": 1613750690826
+            "text": "The Docs is a collection of pages organized in categories, each one saved as a JSON file in the following path:",
+            "updated": 1613752033968
+        },
+        {
+            "style": "Json",
+            "text": "Projects/[Project]/Schemas/",
+            "updated": 1613751994798
+        },
+        {
+            "style": "Text",
+            "text": "A directory structure follows, with each folder featuring a Docs Page Category:",
+            "updated": 1613751615450
+        },
+        {
+            "style": "Json",
+            "text": "> Docs-Books\n> Docs-Concepts\n> Docs-Nodes\n> Docs-Reviews\n> Docs-Topics\n> Docs-Tutorials",
+            "updated": 1613751705622
         }
     ]
 }

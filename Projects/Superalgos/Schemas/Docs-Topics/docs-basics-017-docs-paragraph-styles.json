@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "17",
+    "pageNumber": 17,
     "type": "Docs Paragraph Styles",
     "definition": {
         "text": "Each paragraph in a Docs Page is assigned a style. The default and most commonly used style is the Docs Text Style.",

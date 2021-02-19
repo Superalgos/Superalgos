@@ -1,10 +1,9 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "6",
-    "type": "Docs Page Number",
+    "pageNumber": 10,
+    "type": "Docs Topic Page",
     "definition": {
-        "text": "Each topic or tutorial page has a sequential page number. The page number is used to build the corresponding table of content.",
-        "updated": 1611000559709
+        "text": "Write here a summary for this topic page."
     },
     "paragraphs": [
         {

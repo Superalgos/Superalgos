@@ -1,9 +1,10 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "8",
-    "type": "Docs Concept Page",
+    "pageNumber": 2,
+    "type": "Docs Page",
     "definition": {
-        "text": "Write here a summary for this topic page."
+        "text": "The Docs is a collection of pages classified in five different categories: Docs Nodes, Docs Concepts, Docs Topics, Docs Tutorials, and Docs Reviews.",
+        "updated": 1611000990872
     },
     "paragraphs": [
         {

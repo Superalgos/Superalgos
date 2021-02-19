@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "12",
+    "pageNumber": 12,
     "type": "Docs Page Block",
     "definition": {
         "text": "A Page Block is a set of paragraphs in a Docs Page. The block starts on the paragraph assigned the Docs Block Style.",

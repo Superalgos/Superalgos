@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "16",
+    "pageNumber": 16,
     "type": "Docs Books",
     "definition": {
         "text": "A book is a page that lists chapters. A chapters points to a Docs Topics, and is rendered as the table of contents of the topic in question.",

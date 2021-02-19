@@ -1,6 +1,6 @@
 {
     "topic": "Docs Basics",
-    "pageNumber": "2",
+    "pageNumber": 3,
     "type": "Docs Page Category",
     "definition": {
         "text": "The Docs feature five different categories of pages. Node, Concept, Topic, Tutorial, and Review. Each of them is a collection of pages.",
@@ -14,8 +14,12 @@
         },
         {
             "style": "Text",
-            "text": "For each Node defined within the Project, there is a Docs Node Page explaining what the Node is used for.",
-            "updated": 1610999767253
+            "text": "Each Node defined in the Project features a Docs Node Page explaining what the Node is and how it is used. This is the page that opens through the help button in the node's menu.",
+            "updated": 1613750893280
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Title",
@@ -24,8 +28,8 @@
         },
         {
             "style": "Text",
-            "text": "Concepts are notions that are not represented as nodes in the system. They are not ellaborate or deep enough to require a topic.",
-            "updated": 1610999879515
+            "text": "Concepts are notions that are not represented as nodes. Concepts are not elaborate or deep enough to require a topic.",
+            "updated": 1613751085170
         },
         {
             "style": "Title",

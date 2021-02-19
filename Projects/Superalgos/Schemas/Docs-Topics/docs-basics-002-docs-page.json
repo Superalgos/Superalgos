@@ -1,0 +1,29 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 2,
+    "type": "Docs Page",
+    "definition": {
+        "text": "A Docs Page is ultimately a JSON file stored on disk.",
+        "updated": 1613753659983
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Docs is a collection of pages, each one saved as a JSON file in the following path:",
+            "updated": 1613755076008
+        },
+        {
+            "style": "Json",
+            "text": " Projects/[Project]/Schemas/"
+        },
+        {
+            "style": "Text",
+            "text": "A directory structure follows, with each folder featuring a Docs Page Category:"
+        },
+        {
+            "style": "Json",
+            "text": " > Docs-Books\n> Docs-Concepts\n> Docs-Nodes\n> Docs-Reviews\n> Docs-Topics\n> Docs-Tutorials",
+            "updated": 1613757794574
+        }
+    ]
+}

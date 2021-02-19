@@ -280,7 +280,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         }
 
         /* Here we check if there is a formula to be evaluated */
-        if ((node.type === 'Formula' || node.type === 'Announcement Formula') && evaluating === 'Formulas') {
+        if ((node.type === 'Feature Formula' || node.type === 'Label Formula') && evaluating === 'Formulas') {
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
@@ -405,7 +405,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             return
         } else {
             if (value !== undefined) {
-                if (node.type === 'Formula' && isNaN(value)) {
+                if ((node.type === 'Feature Formula' || node.type === 'Label Formula') && isNaN(value)) {
 
                     docs = {
                         project: 'Superalgos',

@@ -72,7 +72,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Layers API->Code API->' +
             'Secuential Model->Functional Model->' + 
             'Input Layer->Secuential Layer->Output Layer->'+
-            'Input Shape->Batch Input Shape->Input Features->Feature->Feature Formula->' + 
+            'Input Shape->Batch Input Shape->Input Features->Data Feature->Feature Formula->' + 
+            'Output Labels->Data Label->Label Formula->' + 
             'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
             'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
             'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +

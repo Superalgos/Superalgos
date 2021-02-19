@@ -2915,9 +2915,9 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "dataLabelFormula",
-                "label": "Add Data Label Formula",
-                "relatedUiObject": "Data Label Formula",
+                "propertyToCheckFor": "labelFormula",
+                "label": "Add Label Formula",
+                "relatedUiObject": "Label Formula",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2938,16 +2938,16 @@
         "propertyNameAtParent": "dataLabels",
         "childrenNodesProperties": [
             {
-                "name": "dataLabelFormula",
+                "name": "labelFormula",
                 "type": "node",
-                "childType": "Data Label Formula",
+                "childType": "Label Formula",
                 "autoAdd": true
             }
         ],
         "icon": "tensorflow"
     },
     {
-        "type": "Data Label Formula",
+        "type": "Label Formula",
         "menuItems": [
             {
                 "action": "Edit",
@@ -2977,7 +2977,7 @@
         "attachingRules": {
             "compatibleTypes": "->Data Label->"
         },
-        "propertyNameAtParent": "dataLabelFormula",
+        "propertyNameAtParent": "labelFormula",
         "childrenNodesProperties": [],
         "icon": "tensorflow"
     },

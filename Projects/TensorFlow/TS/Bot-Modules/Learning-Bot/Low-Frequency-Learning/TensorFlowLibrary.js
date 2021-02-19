@@ -25,6 +25,9 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let tensorFlowBackend
     let tensorFlowAPI
     let tensorFlowModel
+    let tensorFlowData
+    let features = []
+    let labels = []
 
     return thisObject
 
@@ -279,6 +282,14 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         chart = undefined
         exchange = undefined
         market = undefined
+
+        tensorFlowBackend = undefined
+        tensorFlowAPI = undefined
+        tensorFlowModel = undefined
+        tensorFlowData = undefined
+
+        features = []
+        labels = []
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -299,14 +310,60 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     }
 
     function run(callbackFunction) {
-        /*
-        Do your magic here...
-        */
+
+        let layersModel = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel
 
         /*
-        if all is good, return this...
+        Building the Features Tensor
         */
-        callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+        if (layersModel.inputLayer === undefined) {
+            // TODO
+        }
+        if (layersModel.inputLayer.inputFeatures === undefined) {
+            // TODO
+        }
+        learningSystem.evalFormulas(layersModel.inputLayer.inputFeatures, layersModel.inputLayer.inputFeatures.type)
+
+        for (let i = 0; i < layersModel.inputLayer.inputFeatures.dataFeatures.length; i++) {
+            let dataFeature = layersModel.inputLayer.inputFeatures.dataFeatures[i]
+            if (dataFeature.featureFormula === undefined) { continue }
+            let featureValue = learningSystem.formulas.get(dataFeature.featureFormula.id)
+            features.push(featureValue)
+        }
+
+        /*
+        Building the Labels Tensor
+        */
+        if (layersModel.outputLayer === undefined) {
+            // TODO
+        }
+        if (layersModel.outputLayer.outputLabels === undefined) {
+            // TODO
+        }
+        learningSystem.evalFormulas(layersModel.outputLayer.outputLabels, layersModel.outputLayer.outputLabels.type)
+
+        for (let i = 0; i < layersModel.outputLayer.outputLabels.dataLabels.length; i++) {
+            let dataLabel = layersModel.outputLayer.outputLabels.dataLabels[i]
+            if (dataLabel.labelFormula === undefined) { continue }
+            let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
+            labels.push(labelValue)
+        }
+
+        tensorFlowData = require("@tensorflow/tfjs-data")
+
+        let dataset = tensorFlowData.array([features, labels])
+
+        tensorFlowModel.fitDataset(dataset, { epochs: 5 }).then(info => {
+            console.log('Accuracy', info.history.acc);
+
+            /*
+            if all is good, return this...
+            */
+            callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+
+        });
+
+
 
         /*
         if something is bad, return this...

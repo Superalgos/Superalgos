@@ -36,9 +36,14 @@
             "updated": 1613811876102
         },
         {
+            "style": "Note",
+            "text": "If you haven't yet, make sure you do the Contribute to Superalgos tutorial before you go any further. The tutorial teaches you the very basics of editing the docs and helps you with your setup to submit contributions.",
+            "updated": 1613827217938
+        },
+        {
             "style": "Text",
             "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
-            "updated": 1613819282818
+            "updated": 1613827243519
         },
         {
             "style": "Text",

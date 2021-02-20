@@ -201,6 +201,15 @@
             "text": "Close the app and restart."
         },
         {
+            "style": "Title",
+            "text": "Contribute to Superalgos Tutorial"
+        },
+        {
+            "style": "Text",
+            "text": "Before you go any further, do the Contribute to Superalgos tutorial in the Getting Started plugin workspace so that you learn the basics on how to deal with contributions from within the app. The tutorial will help you get your setup right so that contributions are seamless.",
+            "updated": 1613828879531
+        },
+        {
             "style": "Block",
             "text": "Dummy",
             "updated": 1613588341297

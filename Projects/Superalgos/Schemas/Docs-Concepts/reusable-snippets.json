@@ -150,9 +150,35 @@
             "text": "Contributions Reminder"
         },
         {
+            "style": "Title",
+            "text": "Switch to the Develop Branch",
+            "updated": 1613809817136
+        },
+        {
             "style": "Note",
-            "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version.",
-            "updated": 1613588289291
+            "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version."
+        },
+        {
+            "style": "Text",
+            "text": "To switch to the develop branch:",
+            "updated": 1613810052223
+        },
+        {
+            "style": "List",
+            "text": "Go to the footer of this page."
+        },
+        {
+            "style": "List",
+            "text": "Select Develop under the Contributions Branch title. "
+        },
+        {
+            "style": "List",
+            "text": "Then select Develop under the Choose the Current Branch title. "
+        },
+        {
+            "style": "List",
+            "text": "Follow the instructions to close and restart the app.",
+            "updated": 1613810110150
         },
         {
             "style": "Block",

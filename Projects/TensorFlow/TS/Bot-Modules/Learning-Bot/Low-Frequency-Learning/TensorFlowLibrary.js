@@ -26,8 +26,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let tensorFlowAPI
     let tensorFlowModel
     let tensorFlowData
-    let features = []
-    let labels = []
 
     return thisObject
 
@@ -178,12 +176,16 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
                     if (layerNode.typeOfLayer.layer.dimensionalityUnits !== undefined) {
                         argsObject.units = layerNode.typeOfLayer.layer.dimensionalityUnits.config.value
+                    } else {
+                        argsObject.units = 1
                     }
                     if (layerNode.typeOfLayer.layer.activationFunction !== undefined) {
                         argsObject.activation = layerNode.typeOfLayer.layer.activationFunction.config.value
                     }
                     if (layerNode.typeOfLayer.layer.bias !== undefined) {
                         argsObject.useBias = true
+                    } else {
+                        argsObject.useBias = false
                     }
                     if (layerNode.typeOfLayer.layer.kernel !== undefined) {
                         if (layerNode.typeOfLayer.layer.kernel.kernelInitializer !== undefined) {
@@ -271,6 +273,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
             }
 
             tensorFlowModel.compile(compileArgs)
+
+            tensorFlowModel.summary()
         }
     }
 
@@ -287,9 +291,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowAPI = undefined
         tensorFlowModel = undefined
         tensorFlowData = undefined
-
-        features = []
-        labels = []
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -309,10 +310,12 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     function reset() {
     }
 
-    function run(callbackFunction) {
+    async function run(callbackFunction) {
 
         let layersModel = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel
-
+        let features = []
+        let labels = []
+        
         /*
         Building the Features Tensor
         */
@@ -351,18 +354,22 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         tensorFlowData = require("@tensorflow/tfjs-data")
 
-        let dataset = tensorFlowData.array([features, labels])
+        function* featuresGenerator() {
+            yield features
+        }
 
-        tensorFlowModel.fitDataset(dataset, { epochs: 5 }).then(info => {
-            console.log('Accuracy', info.history.acc);
+        function* labelsGenerator() {
+            yield labels
+        }
 
-            /*
-            if all is good, return this...
-            */
-            callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
-
-        });
-
+        const xs = tensorFlowData.generator(featuresGenerator)
+        const ys = tensorFlowData.generator(labelsGenerator)
+        const ds = tensorFlowData.zip({xs, ys}).shuffle(1).batch(1)
+    
+        await tensorFlowModel.fitDataset(ds, {
+            verbose: 1,
+            epochs: 1 
+        })
 
 
         /*

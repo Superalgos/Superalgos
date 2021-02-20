@@ -268,8 +268,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
             }
             let compileArgs = {
                 optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value,
-                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value,
-                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]
+                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value /*,
+                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]*/
             }
 
             tensorFlowModel.compile(compileArgs)
@@ -315,7 +315,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         let layersModel = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel
         let features = []
         let labels = []
-        
+
         /*
         Building the Features Tensor
         */
@@ -355,10 +355,12 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowData = require("@tensorflow/tfjs-data")
 
         function* featuresGenerator() {
+            console.log('Features: ' + features)
             yield features
         }
 
         function* labelsGenerator() {
+            console.log('Labels: ' + labels)
             yield labels
         }
 
@@ -368,10 +370,10 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     
         await tensorFlowModel.fitDataset(ds, {
             verbose: 1,
-            epochs: 1 
+            epochs: 10
         })
 
-
+        tensorFlowModel.summary()
         /*
         if something is bad, return this...
         */

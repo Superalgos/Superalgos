@@ -229,8 +229,20 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     Check if this is the input layer.
                     */
                     if (secuentialModel.inputLayer.referenceParent.id === layerNode.id) {
+                        /*
+                        If there is a explicitly defined Input Shape, then we will take it, 
+                        otherwise, we will count the amount of features declared.
+                        */
                         if (secuentialModel.inputLayer.inputShape !== undefined) {
-                            argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                            if (argsObject.inputShape = secuentialModel.inputLayer.inputShape !== undefined) {
+                                if (argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value !== undefined) {
+                                    argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                                }
+                            }
+                        }
+                        if (argsObject.inputShape === undefined) {
+                            argsObject.inputShape = []
+                            argsObject.inputShape.push(secuentialModel.inputLayer.inputFeatures.dataFeatures.length)
                         }
                     }
 
@@ -397,10 +409,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         })
 
         tensorFlowModel.summary()
-        /*
-        if something is bad, return this...
-        */
-        //callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
 
     }
 

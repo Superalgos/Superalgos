@@ -151,17 +151,21 @@
         },
         {
             "style": "Title",
-            "text": "Switch to the Develop Branch",
-            "updated": 1613809817136
+            "text": "Switch to the Develop Branch and Update Before You Start",
+            "updated": 1613811592905
         },
         {
             "style": "Note",
             "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version."
         },
         {
+            "style": "Subtitle",
+            "text": "Switch to Develop",
+            "updated": 1613811609773
+        },
+        {
             "style": "Text",
-            "text": "To switch to the develop branch:",
-            "updated": 1613810052223
+            "text": "To switch to the develop branch:"
         },
         {
             "style": "List",
@@ -179,6 +183,22 @@
             "style": "List",
             "text": "Follow the instructions to close and restart the app.",
             "updated": 1613810110150
+        },
+        {
+            "style": "Subtitle",
+            "text": "Update to the Latest Version"
+        },
+        {
+            "style": "List",
+            "text": "Run the App Update Command"
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        },
+        {
+            "style": "List",
+            "text": "Close the app and restart."
         },
         {
             "style": "Block",

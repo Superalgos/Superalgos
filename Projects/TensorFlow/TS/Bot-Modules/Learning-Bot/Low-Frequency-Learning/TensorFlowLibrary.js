@@ -242,34 +242,38 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         }
 
         function compileModel() {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value === undefined) {
                 //TODO
                 return
             }
             let compileArgs = {
-                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value,
-                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value /*,
-                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]*/
+                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value,
+                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value /*,
+                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value]*/
             }
 
             tensorFlowModel.compile(compileArgs)
@@ -366,11 +370,30 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         const xs = tensorFlowData.generator(featuresGenerator)
         const ys = tensorFlowData.generator(labelsGenerator)
-        const ds = tensorFlowData.zip({xs, ys}).shuffle(1).batch(1)
-    
+        const ds = tensorFlowData.zip({ xs, ys }).shuffle(1).batch(1)
+
+        let verbose = 0
+        let ecpochs = 1
+
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value !== undefined) {
+                    verbose = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value
+                }
+            }
+        }
+
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value !== undefined) {
+                    ecpochs = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value
+                }
+            }
+        }
+
         await tensorFlowModel.fitDataset(ds, {
-            verbose: 1,
-            epochs: 10
+            verbose: verbose,
+            epochs: ecpochs
         })
 
         tensorFlowModel.summary()

@@ -26,8 +26,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let tensorFlowAPI
     let tensorFlowModel
     let tensorFlowData
-    let features = []
-    let labels = []
 
     return thisObject
 
@@ -178,12 +176,16 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
                     if (layerNode.typeOfLayer.layer.dimensionalityUnits !== undefined) {
                         argsObject.units = layerNode.typeOfLayer.layer.dimensionalityUnits.config.value
+                    } else {
+                        argsObject.units = 1
                     }
                     if (layerNode.typeOfLayer.layer.activationFunction !== undefined) {
                         argsObject.activation = layerNode.typeOfLayer.layer.activationFunction.config.value
                     }
                     if (layerNode.typeOfLayer.layer.bias !== undefined) {
                         argsObject.useBias = true
+                    } else {
+                        argsObject.useBias = false
                     }
                     if (layerNode.typeOfLayer.layer.kernel !== undefined) {
                         if (layerNode.typeOfLayer.layer.kernel.kernelInitializer !== undefined) {
@@ -227,8 +229,20 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     Check if this is the input layer.
                     */
                     if (secuentialModel.inputLayer.referenceParent.id === layerNode.id) {
+                        /*
+                        If there is a explicitly defined Input Shape, then we will take it, 
+                        otherwise, we will count the amount of features declared.
+                        */
                         if (secuentialModel.inputLayer.inputShape !== undefined) {
-                            argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                            if (argsObject.inputShape = secuentialModel.inputLayer.inputShape !== undefined) {
+                                if (argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value !== undefined) {
+                                    argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                                }
+                            }
+                        }
+                        if (argsObject.inputShape === undefined) {
+                            argsObject.inputShape = []
+                            argsObject.inputShape.push(secuentialModel.inputLayer.inputFeatures.dataFeatures.length)
                         }
                     }
 
@@ -240,37 +254,43 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         }
 
         function compileModel() {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value === undefined) {
                 //TODO
                 return
             }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value === undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics === undefined) {
+                //TODO
+                return
+            }
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value === undefined) {
                 //TODO
                 return
             }
             let compileArgs = {
-                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value,
-                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value,
-                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]
+                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value,
+                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value /*,
+                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value]*/
             }
 
             tensorFlowModel.compile(compileArgs)
+
+            tensorFlowModel.summary()
         }
     }
 
@@ -287,9 +307,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowAPI = undefined
         tensorFlowModel = undefined
         tensorFlowData = undefined
-
-        features = []
-        labels = []
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -309,9 +326,11 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     function reset() {
     }
 
-    function run(callbackFunction) {
+    async function run(callbackFunction) {
 
         let layersModel = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel
+        let features = []
+        let labels = []
 
         /*
         Building the Features Tensor
@@ -351,24 +370,45 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         tensorFlowData = require("@tensorflow/tfjs-data")
 
-        let dataset = tensorFlowData.array([features, labels])
+        function* featuresGenerator() {
+            console.log('Features: ' + features)
+            yield features
+        }
 
-        tensorFlowModel.fitDataset(dataset, { epochs: 5 }).then(info => {
-            console.log('Accuracy', info.history.acc);
+        function* labelsGenerator() {
+            console.log('Labels: ' + labels)
+            yield labels
+        }
 
-            /*
-            if all is good, return this...
-            */
-            callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+        const xs = tensorFlowData.generator(featuresGenerator)
+        const ys = tensorFlowData.generator(labelsGenerator)
+        const ds = tensorFlowData.zip({ xs, ys }).shuffle(1).batch(1)
 
-        });
+        let verbose = 0
+        let ecpochs = 1
 
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value !== undefined) {
+                    verbose = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value
+                }
+            }
+        }
 
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value !== undefined) {
+                    ecpochs = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value
+                }
+            }
+        }
 
-        /*
-        if something is bad, return this...
-        */
-        //callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+        await tensorFlowModel.fitDataset(ds, {
+            verbose: verbose,
+            epochs: ecpochs
+        })
+
+        tensorFlowModel.summary()
 
     }
 

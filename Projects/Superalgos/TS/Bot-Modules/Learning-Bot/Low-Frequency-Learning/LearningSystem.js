@@ -236,15 +236,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             /*
             Initialize the Learning Algorithm
             */
-            machineLearningLibraryModuleObject.run(onRun)
-
-            function onRun(err) {
-                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-
-                } else {
-
-                }
-            }
+            await machineLearningLibraryModuleObject.run()
 
         } catch (err) {
             /* 

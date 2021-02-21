@@ -68,7 +68,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Environment Flags->Debug Mode->Production Mode->' +
             'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
             'Artificial Neural Network->Model->' +
-            'Optimizer->Loss Function->Metrics->' +
+            'Compile->Optimizer->Loss Function->Metrics->' +
+            'Fit Dataset->Verbose->Epochs->Callbacks->' +
             'Layers API->Code API->' +
             'Secuential Model->Functional Model->' + 
             'Input Layer->Secuential Layer->Output Layer->'+

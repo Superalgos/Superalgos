@@ -455,7 +455,7 @@
         "attachingRules": {
             "compatibleTypes": "->Model->"
         },
-        "propertyNameAtParent": "model",
+        "propertyNameAtParent": "compile",
         "childrenNodesProperties": [
             {
                 "name": "optimizer",
@@ -517,7 +517,7 @@
         "attachingRules": {
             "compatibleTypes": "->Model->"
         },
-        "propertyNameAtParent": "model",
+        "propertyNameAtParent": "fitDataset",
         "childrenNodesProperties": [
             {
                 "name": "verbose",

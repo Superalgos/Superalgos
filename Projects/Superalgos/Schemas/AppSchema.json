@@ -18398,7 +18398,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "propertyNameAtParent": "plugins",
         "childrenNodesProperties": [
             {
                 "name": "pluginProjects",
@@ -18919,13 +18918,12 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "propertyNameAtParent": "tutorials",
         "childrenNodesProperties": [
             {
                 "name": "tutorialSteps",
@@ -18991,7 +18989,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "referencingRules": {
             "compatibleTypes": "->*Any Node*->",
@@ -19056,7 +19054,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n  \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "referencingRules": {
             "compatibleTypes": "->*Any Node*->",

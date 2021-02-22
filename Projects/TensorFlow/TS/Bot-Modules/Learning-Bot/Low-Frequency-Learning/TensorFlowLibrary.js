@@ -2,6 +2,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
     const MODULE_NAME = 'Time Series Forcasting Tensor Flow JS Learning Algorithm'
     let thisObject = {
+        loadModel: loadModel,
         saveModel: saveModel,
         updateChart: updateChart,
         mantain: mantain,
@@ -255,46 +256,46 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                 }
             }
         }
+    }
 
-        function compileModel() {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value === undefined) {
-                //TODO
-                return
-            }
-            let compileArgs = {
-                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value,
-                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value /*,
-                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value]*/
-            }
-
-            tensorFlowModel.compile(compileArgs)
-
-            tensorFlowModel.summary()
+    function compileModel() {
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile === undefined) {
+            //TODO
+            return
         }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value === undefined) {
+            //TODO
+            return
+        }
+        let compileArgs = {
+            optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value,
+            loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value /*,
+            metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value]*/
+        }
+
+        tensorFlowModel.compile(compileArgs)
+
+        tensorFlowModel.summary()
     }
 
     function finalize() {
@@ -312,16 +313,24 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowData = undefined
     }
 
-    async function saveModel() {
+    async function loadModel() {
+        tensorFlowModel = await tensorFlowAPI.loadLayersModel('file://' + getModelPath() + '/model.json')
+        compileModel()
+    }
 
+    async function saveModel() {
+        await tensorFlowModel.save('file://' + getModelPath())
+    }
+
+    function getModelPath() {
         let fileName = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.config.codeName
         let filePath =
             global.env.PATH_TO_DATA_STORAGE + '/' +
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
             '/Output/' +
-            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME // + '/' + 'Model' 
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME
 
-        await tensorFlowModel.save('file://' + filePath + '/' + fileName)
+        return filePath + '/' + fileName
     }
 
     function updateChart(pChart, pExchange, pMarket) {

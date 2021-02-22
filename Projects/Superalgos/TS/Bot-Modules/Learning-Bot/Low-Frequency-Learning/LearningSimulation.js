@@ -40,6 +40,44 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
             let learningSystemModuleObject = TS.projects.superalgos.botModules.learningSystem.newSuperalgosBotModulesLearningSystem(processIndex)
             learningSystemModuleObject.initialize()
 
+            /*
+            Here we will figure out if we need to load the model from disk, or we will just
+            start a new one. 
+            */
+            if (learningEngine.learningCurrent.learningEpisode.headOfTheMarket.value === true) {
+                /*
+                At the head of the market we always load the model from disk.
+                */
+                await learningSystemModuleObject.loadModel()
+
+            } else {
+                if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true) {
+                    /*
+                    For Daily Files, we are going to load the model from disk at the first execution
+                    (first day) only if the user used the Session Resume option. We will load it from 
+                    disk at every subsequent day, so as to continue with the training from the previous 
+                    days.
+                    */
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
+                        if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === true) {
+                            await learningSystemModuleObject.loadModel()
+                        }                        
+                    } else {
+                        await learningSystemModuleObject.loadModel()
+                    }
+                } else {
+                    /*
+                    Form Market Files, we are only going to load the model from this and continue the
+                    training it already has when the user resumes the training session. If the user
+                    runs the training session, we will not load from disk, but create a new empty model
+                    instead.
+                    */
+                    if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === true) {
+                        await learningSystemModuleObject.loadModel()
+                    }
+                }
+            }
+
             let learningEpisodeModuleObject = TS.projects.superalgos.botModules.learningEpisode.newSuperalgosBotModulesLearningEpisode(processIndex)
             learningEpisodeModuleObject.initialize()
 

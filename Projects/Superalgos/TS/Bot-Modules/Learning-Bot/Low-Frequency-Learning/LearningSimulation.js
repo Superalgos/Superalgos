@@ -268,6 +268,8 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                 }
             }
 
+            await learningSystemModuleObject.saveModel()
+
             learningSystemModuleObject.finalize()
             learningRecordsModuleObject.finalize()
             learningEpisodeModuleObject.finalize()

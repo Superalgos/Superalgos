@@ -2,6 +2,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
     const MODULE_NAME = 'Time Series Forcasting Tensor Flow JS Learning Algorithm'
     let thisObject = {
+        saveModel: saveModel,
         updateChart: updateChart,
         mantain: mantain,
         reset: reset,
@@ -112,6 +113,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                                 break
                             }
                             case 'Functional Model': {
+                                /* To be implemented some day...*/
                                 break
                             }
                         }
@@ -119,6 +121,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     }
                     case 'Code API': {
                         tensorFlowAPI = require("@tensorflow/tfjs-core")
+                        /* To be implemented some day...*/
                         break
                     }
                 }
@@ -309,6 +312,18 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowData = undefined
     }
 
+    async function saveModel() {
+
+        let fileName = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.config.codeName
+        let filePath =
+            global.env.PATH_TO_DATA_STORAGE + '/' +
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+            '/Output/' +
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME // + '/' + 'Model' 
+
+        await tensorFlowModel.save('file://' + filePath + '/' + fileName)
+    }
+
     function updateChart(pChart, pExchange, pMarket) {
         /* 
           We need these 3 data structures  to be a local objects 
@@ -371,12 +386,12 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowData = require("@tensorflow/tfjs-data")
 
         function* featuresGenerator() {
-            console.log('Features: ' + features)
+            //console.log('Features: ' + features)
             yield features
         }
 
         function* labelsGenerator() {
-            console.log('Labels: ' + labels)
+            //console.log('Labels: ' + labels)
             yield labels
         }
 
@@ -408,7 +423,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
             epochs: ecpochs
         })
 
-        tensorFlowModel.summary()
+        //tensorFlowModel.summary()
 
     }
 

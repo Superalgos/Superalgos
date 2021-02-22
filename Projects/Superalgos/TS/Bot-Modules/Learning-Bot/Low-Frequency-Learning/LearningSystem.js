@@ -5,6 +5,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     */
     const MODULE_NAME = 'Learning System'
     let thisObject = {
+        saveModel: saveModel, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -181,6 +182,10 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         learningSystem = undefined
         learningEngine = undefined
         sessionParameters = undefined
+    }
+    
+    async function  saveModel() {
+        await machineLearningLibraryModuleObject.saveModel()
     }
 
     function mantain() {

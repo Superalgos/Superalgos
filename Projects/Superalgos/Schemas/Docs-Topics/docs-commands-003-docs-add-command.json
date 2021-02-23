@@ -14,8 +14,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add [Node|Concept|Book] from Project: Docs Page Name",
-            "updated": 1613766020535
+            "text": "docs.add [Node|Concept|Book] to Project: Docs Page Name",
+            "updated": 1614076270512
         },
         {
             "style": "Subtitle",
@@ -24,18 +24,18 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Node from Superalgos: Task",
-            "updated": 1609152405379
+            "text": "docs.add Node to Superalgos: Task",
+            "updated": 1614076278432
         },
         {
             "style": "Json",
-            "text": "docs.add Concept from Superalgos: References",
-            "updated": 1613766054009
+            "text": "docs.add Concept to Superalgos: References",
+            "updated": 1614076283283
         },
         {
             "style": "Json",
-            "text": "docs.add Book from Superalgos: User Manual",
-            "updated": 1613766091949
+            "text": "docs.add Book to Superalgos: User Manual",
+            "updated": 1614076289103
         },
         {
             "style": "Title",
@@ -44,8 +44,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add [Topic|Tutorial|Review] from Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
-            "updated": 1613766367064
+            "text": "docs.add [Topic|Tutorial|Review] to Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
+            "updated": 1614076299626
         },
         {
             "style": "Subtitle",
@@ -54,18 +54,18 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Topic from Superalgos: Docs Styles->Docs Text Style->1",
-            "updated": 1609152521245
+            "text": "docs.add Topic to Superalgos: Docs Styles->Docs Text Style->1",
+            "updated": 1614076312667
         },
         {
             "style": "Json",
-            "text": "docs.add Tutorial from Superalgos: How to Build Indicatiors->Intro->1",
-            "updated": 1610707006603
+            "text": "docs.add Tutorial to Superalgos: How to Build Indicatiors->Intro->1",
+            "updated": 1614076317413
         },
         {
             "style": "Json",
-            "text": "docs.add Review from Project: Superalgos Project Review->Awasome!->2",
-            "updated": 1610707101903
+            "text": "docs.add Review to Project: Superalgos Project Review->Awasome!->2",
+            "updated": 1614076323955
         },
         {
             "style": "Title",

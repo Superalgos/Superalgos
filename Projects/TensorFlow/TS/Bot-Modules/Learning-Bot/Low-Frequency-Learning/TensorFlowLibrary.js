@@ -375,65 +375,109 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         }
 
         /*
-        Building the Labels Tensor
+        At this point we need to decide if we are going to learn or going to predict. 
+        This is regulated by the backLearningPredictingRatio property at the config
+        of the Learning Algorithm of the Learning Session.
         */
-        if (layersModel.outputLayer === undefined) {
-            // TODO
-        }
-        if (layersModel.outputLayer.outputLabels === undefined) {
-            // TODO
-        }
-        learningSystem.evalFormulas(layersModel.outputLayer.outputLabels, layersModel.outputLayer.outputLabels.type)
+        let backLearningPredictingRatio = 0.8 // this is the default value.
 
-        for (let i = 0; i < layersModel.outputLayer.outputLabels.dataLabels.length; i++) {
-            let dataLabel = layersModel.outputLayer.outputLabels.dataLabels[i]
-            if (dataLabel.labelFormula === undefined) { continue }
-            let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
-            labels.push(labelValue)
-        }
-
-        tensorFlowData = require("@tensorflow/tfjs-data")
-
-        function* featuresGenerator() {
-            //console.log('Features: ' + features)
-            yield features
-        }
-
-        function* labelsGenerator() {
-            //console.log('Labels: ' + labels)
-            yield labels
-        }
-
-        const xs = tensorFlowData.generator(featuresGenerator)
-        const ys = tensorFlowData.generator(labelsGenerator)
-        const ds = tensorFlowData.zip({ xs, ys }).shuffle(1).batch(1)
-
-        let verbose = 0
-        let ecpochs = 1
-
-        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose !== undefined) {
-                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value !== undefined) {
-                    verbose = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value
-                }
+        if (sessionParameters.learningAlgorithm !== undefined) {
+            if (sessionParameters.learningAlgorithm.config.backLearningPredictingRatio !== undefined) {
+                backLearningPredictingRatio = sessionParameters.learningAlgorithm.config.backLearningPredictingRatio
             }
         }
 
-        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs !== undefined) {
-                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value !== undefined) {
-                    ecpochs = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value
-                }
-            }
+        let initialCandle = Math.trunc(sessionParameters.timeRange.config.initialDatetime / sessionParameters.timeFrame.config.value)
+        let finalCandle = Math.trunc(sessionParameters.timeRange.config.finalDatetime / sessionParameters.timeFrame.config.value)
+        let currentCandle = Math.trunc(learningEngine.learningCurrent.learningEpisode.candle.begin.value / sessionParameters.timeFrame.config.value)
+        let thresholdCandle = (finalCandle - initialCandle) * backLearningPredictingRatio + initialCandle
+
+        if (currentCandle < thresholdCandle) {
+            await learn()
+        } else {
+            predict()
         }
 
-        await tensorFlowModel.fitDataset(ds, {
-            verbose: verbose,
-            epochs: ecpochs
-        })
+        async function learn() {
+            /*
+            Building the Labels Tensor
+            */
+            if (layersModel.outputLayer === undefined) {
+                // TODO
+            }
+            if (layersModel.outputLayer.outputLabels === undefined) {
+                // TODO
+            }
+            learningSystem.evalFormulas(layersModel.outputLayer.outputLabels, layersModel.outputLayer.outputLabels.type)
 
-        //tensorFlowModel.summary()
+            for (let i = 0; i < layersModel.outputLayer.outputLabels.dataLabels.length; i++) {
+                let dataLabel = layersModel.outputLayer.outputLabels.dataLabels[i]
+                if (dataLabel.labelFormula === undefined) { continue }
+                let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
+                labels.push(labelValue)
+            }
 
+            tensorFlowData = require("@tensorflow/tfjs-data")
+
+            function* featuresGenerator() {
+                //console.log('Features: ' + features)
+                yield features
+            }
+
+            function* labelsGenerator() {
+                //console.log('Labels: ' + labels)
+                yield labels
+            }
+
+            const xs = tensorFlowData.generator(featuresGenerator)
+            const ys = tensorFlowData.generator(labelsGenerator)
+            const ds = tensorFlowData.zip({ xs, ys }).shuffle(1).batch(1)
+
+            let verbose = 0
+            let ecpochs = 1
+
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose !== undefined) {
+                    if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value !== undefined) {
+                        verbose = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value
+                    }
+                }
+            }
+
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs !== undefined) {
+                    if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value !== undefined) {
+                        ecpochs = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value
+                    }
+                }
+            }
+
+            await tensorFlowModel.fitDataset(ds, {
+                verbose: verbose,
+                epochs: ecpochs
+            })
+
+        }
+
+        async function predict() {
+            let featuresTensor = tensorFlowBackend.tensor([features])
+            let predictions = tensorFlowModel.predict(featuresTensor,{ verbose: 1 })
+
+            /* 
+            For each label, we will have a predictions, and we will store it at the
+            learning engine data structure.
+            */
+            let predictionsArray =  predictions.dataSync()
+            predictions.dispose()
+            featuresTensor.dispose()
+
+            for (let i = 0; i < predictionsArray.length; i++) {
+                let prediction = predictionsArray[i]
+                learningEngine.predictions.predictions[i].value = prediction
+                learningEngine.predictions.predictions[i].begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
+                learningEngine.predictions.predictions[i].end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
+            }
+        }
     }
 
     function badDefinitionUnhandledException(err, message, node) {

@@ -7,18 +7,19 @@
             "project": "Superalgos",
             "name": "mouse-wheel-down"
         },
-        "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function!"
+        "text": "Es gibt noch ein weiteres Tool, welches dir möglicherweise helfen kann, um Raum und Zeit zu manipulieren! Die native Browser-Zoomfunktion!",
+        "updated": 1614174034030
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Sometimes you may wish to visualize larger sections of the Design Space than your screen allows.",
-            "updated": 1611314074367
+            "text": "Manchmal möchtest du möglicherweise größere Bereiche des Design Space visualisieren, als dein Bildschirm zulässt.",
+            "updated": 1614173858383
         },
         {
             "style": "Callout",
-            "text": "Hit Ctrl and scroll the mouse wheel on Windows or <kbd>⌘</kbd> and <kbd>-</kbd> or <kbd>+</kbd> in Mac.",
-            "updated": 1611314352825
+            "text": "Drücke Strg und bewege das Mausrad unter Windows oder ⌘ und - oder + unter Mac.",
+            "updated": 1614173904474
         },
         {
             "style": "Text",
@@ -26,8 +27,8 @@
         },
         {
             "style": "Success",
-            "text": "Chrome indicates the level of zoom on the top-right corner. When zooming in or out, the design space gets centered on the screen. Use the design space map to go back where you were.",
-            "updated": 1611314381796
+            "text": "Chrome zeigt die Zoomstufe in der oberen rechten Ecke an. Beim Vergrößern oder Verkleinern wird der Design Space auf dem Bildschirm zentriert. Verwende die Design Space Map, um dorthin zurückzukehren, wo du warst.",
+            "updated": 1614173983875
         }
     ]
 }

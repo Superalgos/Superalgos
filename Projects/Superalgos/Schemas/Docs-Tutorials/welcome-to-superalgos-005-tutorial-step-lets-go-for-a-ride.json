@@ -7,21 +7,24 @@
             "project": "Superalgos",
             "name": "network"
         },
-        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network."
+        "text": "Bevor ich dir den Rest des Menüs zeige, werfen wir einen Blick auf eine andere Hierarchie: das Network.",
+        "updated": 1614097283956
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks."
+            "text": "Die Network hierarchie ist der Kontrollraum des Systems. Hier steuers du die Data Tasks, die Testing Trading Tasks und die Production Trading Tasks.",
+            "updated": 1614097441197
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and take a look inside!"
+            "text": "Erweitere die Hierarchie und wirf einen Blick hinein!",
+            "updated": 1614097603223
         },
         {
             "style": "Text",
-            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. But before we start, I have a quick question for you: are you accessing the Client remotely?",
-            "updated": 1611075903071
+            "text": "Siehst du die Knoten, die ich zuvor erwähnt habe? Cool! Wir sind hier, um deinen ersten Data Mining-Vorgang zu starten. Bevor wir beginnen, habe ich eine kurze Frage an dich: Greifst du remote auf den Client zu?",
+            "updated": 1614098400204
         }
     ]
 }

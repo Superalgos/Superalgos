@@ -7,27 +7,29 @@
             "project": "Superalgos",
             "name": "binance"
         },
-        "text": "Before we start data mining, I have a little question for you: are you trading at binance.com or binance.us?"
+        "text": "Bevor wir mit dem Data Mining beginnen, habe ich eine kleine Frage an dich: Tradest du bei binance.com oder binance.us ?",
+        "updated": 1614158535932
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you trade at binance.com or don't trade with Binance at all, then you may skip this step and the next!"
+            "text": "Wenn du bei binance.com handelst oder überhaupt nicht mit Binance handelst, kannst du diesen und den nächsten Schritt überspringen!",
+            "updated": 1614158597454
         },
         {
             "style": "Callout",
-            "text": "If you trade at binance.us you need to configure the Binance node to the right! The video on the next step shows you how!",
-            "updated": 1611076107190
+            "text": "Wenn du bei binance.us handelst, musst du das Binance Node rechts konfigurieren! Das Video im nächsten Schritt zeigt dir wie!",
+            "updated": 1614159911257
         },
         {
             "style": "List",
-            "text": "1. Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
-            "updated": 1610612932151
+            "text": "1. Öffne die Konfiguration und ändere den Codenamen in binanceus. Bewege den Mauszeiger aus der Konfigurationsblase und er wird automatisch geschlossen und gespeichert.",
+            "updated": 1614159109238
         },
         {
             "style": "List",
-            "text": "2. Edit the label of the node to read Binanceus.",
-            "updated": 1610537864275
+            "text": "2. Bearbeite die Beschriftung des Nodes, in Binanceus.",
+            "updated": 1614159299543
         }
     ]
 }

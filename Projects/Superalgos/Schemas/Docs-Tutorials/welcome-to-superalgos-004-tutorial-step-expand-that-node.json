@@ -7,20 +7,23 @@
             "project": "Superalgos",
             "name": "expand-structure-of-nodes"
         },
-        "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node."
+        "text": "Jedes Node verfügt über ein Menü. Die Schaltfläche unten links erweitert und reduziert die Struktur des Nodes unterhalb des aktuellen Nodes.",
+        "updated": 1614154490041
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go ahead and click the expand button!"
+            "text": "Klicke auf die Schaltfläche zum Erweitern!",
+            "updated": 1614154647350
         },
         {
-            "style": "Text",
-            "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy!"
+            "style": "Callout",
+            "text": "Das Tutorial-Node hat mehrere Unterpunkte, diese haben weitere Unterpunkte. Deshalb ist es eine Hierachie!"
         },
         {
             "style": "Note",
-            "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations."
+            "text": "Strukturierte, visuelle Darstellungen von Informationen, bilden den Kern, zur Verwaltung von komplexen, flexiblen und skalierbaren Handelsabläufe durch Superalgos.",
+            "updated": 1614097158799
         }
     ]
 }

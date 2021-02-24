@@ -7,20 +7,29 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!"
+        "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, das dir den Einstieg erleichtern und alle Grundlagen beibringen soll!",
+        "updated": 1614095457639
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you."
+            "text": "Ich werde dir den Einstieg erleichtern, die Werkzeuge zeigen, mit denen du dich bequem bewegen kannst, und dir helfen, all die coolen Dinge zu entdecken, die Superalgos für dich tun kann.",
+            "updated": 1614095373232
         },
         {
             "style": "Callout",
-            "text": "I'm the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. I will answer most of your questions!"
+            "text": "Ich bin das ultimative Superalgos-Einstiegs-Tool! Es ist ein Fehler, auf andere Weise mit Superalgos zu beginnen, da keine andere Weg dich schneller auf den neuesten Stand bringt.",
+            "updated": 1614095419340
+        },
+        {
+            "style": "Callout",
+            "text": "Ich werde die meisten deiner Fragen beantworten!",
+            "updated": 1614095436263
         },
         {
             "style": "Success",
-            "text": "Please, always click Next to continue!"
+            "text": "Um fort zu fahren, bitte auf Next klicken!",
+            "updated": 1614093835071
         }
     ]
 }

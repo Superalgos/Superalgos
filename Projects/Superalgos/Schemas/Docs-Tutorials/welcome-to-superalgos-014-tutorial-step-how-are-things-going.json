@@ -7,21 +7,24 @@
             "project": "Superalgos",
             "name": "sensor-bot-instance"
         },
-        "text": "I just dragged you deep into the confines of the Data Mining operation. See the progress of the Sensor Bot Instance to your right!"
+        "text": "Ich habe dich tief in die Grenzen des Data Mining-Vorgangs hineingezogen. Sieh dir den Fortschritt der Sensor Bot Instanz auf der rechten Seite!",
+        "updated": 1614161110887
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The sensor bot is currently extracting data from the exchange. As soon as she completes the extraction for the defined datetime range something really cool will happen... automatically!"
+            "text": "Der Sensor Bot extrahiert derzeit Daten aus dem exchange. Sobald die Extraktion für den definierten Datumsbereich abgeschlossen ist, passiert etwas wirklich cooles... automatisch!",
+            "updated": 1614161227607
         },
         {
             "style": "Callout",
-            "text": "Can you guess what that may be?"
+            "text": "Kannst du dir vorstellen, was das sein könnte?",
+            "updated": 1614161254153
         },
         {
             "style": "Text",
-            "text": "I won't tell you! You'll find out soon.   .   . be patient! It should take no longer than 3 to 5 minutes to extract the data from Binance, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
-            "updated": 1610613730092
+            "text": "Ich werde es dir nicht sagen! Du wirst es bald herausfinden ... sei geduldig! Das Extrahieren der Daten von Binance sollte nicht länger als 3 bis 5 Minuten dauern, je nach Hardware etwas länger. Kannst du nicht warten? Toll! Klicke auf Weiter für einen kurzen Hinweis!",
+            "updated": 1614161330681
         }
     ]
 }

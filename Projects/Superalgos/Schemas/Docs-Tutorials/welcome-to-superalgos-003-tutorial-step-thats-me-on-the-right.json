@@ -7,17 +7,19 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!"
+        "text": "Tutorials sind im System definiert, sodass du selbst welche erstellen kannst, wenn du willst! Aber wir diskutieren diese gottähnliche Kraft später. Konzentrieren wir uns ersteinmal auf die Grundlagen!",
+        "updated": 1614095995613
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a Tutorial hierarchy with a label reading Welcome to Superalgos!"
+            "text": "Superalgos ist von Natur aus ein visuelles Werkzeug. Das System zeigt Informationen in hierarchischen Strukturen, durch miteinander verbundener Knoten, die als Symbole dargestellt werden. Was du rechts siehst, ist eine dieser Hierarchien - insbesondere eine Tutorial-Hierarchie mit dem Namen \"Welcome to Superalgos!\"",
+            "updated": 1614096247441
         },
         {
             "style": "Callout",
-            "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons!",
-            "updated": 1611075799669
+            "text": "Bewege den Mauszeiger über das Tutorial-Node und sieh, was passiert! Wow! Cool, oder? Das sind viele Schaltflächen!",
+            "updated": 1614154226793
         }
     ]
 }

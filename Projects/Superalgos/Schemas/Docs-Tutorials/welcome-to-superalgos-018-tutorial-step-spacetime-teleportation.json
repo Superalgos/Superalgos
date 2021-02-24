@@ -7,21 +7,24 @@
             "project": "Superalgos",
             "name": "mouse-right-click"
         },
-        "text": "Ok, you're not actually going to be teleporting, nor will you bend spacetime, but it almost feels like it! It's time to learn to use the design space map."
+        "text": "Ok, du wirst nicht wirklich teleportiert, noch wirst du Raum und Zeit verbiegen, aber es fühlt sich fast so an! Es ist Zeit zu lernen, die Design Space Map zu verwenden.",
+        "updated": 1614172736645
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "I said earlier that the design space is huge, and I meant it! Going from one corner to the opposite would take hundreds of clicks and drags. While using the keyboard allows you to develop neck-breaking speeds, it's not as cool as teleporting! This is how it works:"
+            "style": "Callout",
+            "text": "Ich habe vorhin erwähnt, dass der Design Space riesig ist, und ich habe es so gemeint! Von einer Ecke zur anderen zu gehen, würde Hunderte von Klicks und Zügen erfordern. Während du die Tastatur verwendest, kannst du halsbrecherische Geschwindigkeiten erreichen, aber es ist nicht so cool wie das Teleportieren! Und so funktioniert es:",
+            "updated": 1614173134123
         },
         {
             "style": "Callout",
-            "text": "Right-click to open the map and left-click anywhere to go to that specific spot!",
-            "updated": 1611076477382
+            "text": "Klicke mit der rechten Maustaste, um die Karte zu öffnen, und klicke dann mit der linken Maustaste, um zu diesem bestimmten Punkt zu gelangen!",
+            "updated": 1614173025206
         },
         {
             "style": "Text",
-            "text": "Look at me on the bottom-left corner of the design space? Now you know where to find me!"
+            "text": "Siehst du mich in der unteren linken Ecke des Desing Space ? Jetzt weisst du, wo du mich finden kannst!",
+            "updated": 1614173094941
         }
     ]
 }

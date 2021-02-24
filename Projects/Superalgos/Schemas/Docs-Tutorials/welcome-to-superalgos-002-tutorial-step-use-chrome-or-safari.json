@@ -7,32 +7,39 @@
             "project": "Superalgos",
             "name": "bullet-warning"
         },
-        "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",
-        "updated": 1610612226890
+        "text": "Beim ausführen des Frontend, bitte Google Chrome (Windows/Linux) oder Safari (Apple) nutzen! Wir testen nicht mit anderen Browsern!",
+        "updated": 1614094195057
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a well-known fact that browsers behave differently, and we do know of features that do not work on other browsers. If you are on Chrome or Safari, click Next and continue. If not, do the following:"
+            "text": "Es ist bekannt, dass sich Browser anders verhalten, und wir kennen Funktionen, die bei anderen Browsern nicht funktionieren. Wenn du dich in Chrome oder Safari befindest, klicke auf Next und fahre fort.",
+            "updated": 1614095673200
+        },
+        {
+            "style": "Text",
+            "text": "Wenn nicht, gehe wie folgt vor:",
+            "updated": 1614095597354
         },
         {
             "style": "List",
-            "text": "copy the current URL;",
-            "updated": 1611086562247
+            "text": "Kopiere die aktuelle URL",
+            "updated": 1614095605778
         },
         {
             "style": "List",
-            "text": "close this browser as is; do not close the tutorial...",
-            "updated": 1611086588055
+            "text": "Schließe den Browser wie er ist. Stoppe nicht das Tutorial....",
+            "updated": 1614154117761
         },
         {
             "style": "List",
-            "text": "open Chrome/Safari and paste the URL; the tutorial should be open on this step when you come back!",
-            "updated": 1611086617811
+            "text": "Öffne Chrome / Safari und füge die URL ein. Das Tutorial sollte beim aktuellen Schritt geöffnet sein, wenn du zurückkehrst!",
+            "updated": 1614095650385
         },
         {
             "style": "Warning",
-            "text": "We offer online support, but we can't help you with any other browser!"
+            "text": "Wir bieten Online-Support an, können jedoch bei keinem anderen Browser helfen!",
+            "updated": 1614095660326
         }
     ]
 }

@@ -7,28 +7,34 @@
             "project": "Superalgos",
             "name": "data-tasks"
         },
-        "text": "The Data Tasks node controls all the data mining tasks defined for this Network Node."
+        "text": "Das Data Tasks Node steuert alle Data Mine Tasks, die in diesem Network Node definiert wurden.",
+        "updated": 1614155256840
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You are about to start the first of the following activities that we'll cover in the next few minutes:"
+            "text": "Beginne mit der ersten der folgenden Aktivitäten, die wir in den nächsten Minuten behandeln werden:",
+            "updated": 1614112768498
         },
         {
             "style": "List",
-            "text": "1. Run a data mining operation to get data for the BTC/USDT Market from Binance."
+            "text": "1. Führe einen Data Mine Task aus, um Daten für den BTC/USDT-Markt von Binance abzurufen.",
+            "updated": 1614155117217
         },
         {
             "style": "List",
-            "text": "2. Run a Backtesting Session with an existing open-source strategy."
+            "text": "2. Führe eine Backtesting Session mit einer vorhandenen Open-Source Strategy durch.",
+            "updated": 1614113142860
         },
         {
             "style": "List",
-            "text": "3. Run a Live Trading Session with minimal funds, to test the critical aspects of the system."
+            "text": "3. Führe eine Live Trading Session mit minimalem Geldbetrag durch, um die kritischen Aspekte des Systems zu testen.",
+            "updated": 1614112932353
         },
         {
             "style": "Callout",
-            "text": "Are you cool with this? Shall we start?"
+            "text": "Bist du cool damit? Sollen wir anfangen?",
+            "updated": 1614112946804
         }
     ]
 }

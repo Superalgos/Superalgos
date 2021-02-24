@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Tutorial Step - About Small Hardware",
     "definition": {
-        "text": "While minimalist hardware like the Raspberry Pi can handle the Superalgos Client to run both data and trading tasks, some may be too small for active work!",
-        "updated": 1610615755927,
+        "text": "Während minimalistische Hardware, wie der Raspberry Pi, mit dem Superalgos-Client sowohl Data und Trading Tasks ausführen kann, sind einige möglicherweise zu schwach für diese Arbeit!",
+        "updated": 1614112118837,
         "icon": {
             "name": "bullet-warning",
             "project": "Superalgos"
@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The core idea behind running the client in small physical or virtual hardware is to maximize cost efficiency in production deployments. In such contexts, the UI is used to a minimum.",
-            "updated": 1610616659750
+            "text": "Die Kernidee hinter dem Ausführen des Clients in kleiner physischer oder virtueller Hardware besteht darin, die Kosteneffizienz während der Nutzung zu maximieren. In solchen Szenarien wird die Benutzeroberfläche auf ein Minimum reduziert.",
+            "updated": 1614112095443
         },
         {
             "style": "Success",
-            "text": "If you notice your small hardware is too slow during this tutorial, you may want to consider installing in regular hardware until you learn Superalgos, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
-            "updated": 1610616740275
+            "text": "Wenn du merkst, dass deine minimalistische Hardware während dem tutorial zu langsam ist, solltest du Superalgos auf einem anderen Gerät installieren, bist du es beherrschst und eigene Strategien entwickelt hast. Anderfalls kann es frustrierend sein!",
+            "updated": 1614112501458
         }
     ]
 }

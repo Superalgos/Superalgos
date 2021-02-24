@@ -7,21 +7,24 @@
             "project": "Superalgos",
             "name": "hand-drag"
         },
-        "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds!"
+        "text": "Ich möchte dir etwas zeigen, während der Data Mining Task fortschreitet. Ich werde dir Laufen beibringen ... in zwei Sekunden!",
+        "updated": 1614168069724
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Just click and drag with your mouse!"
+            "text": "Einfach klicken und mit der Maus ziehen!",
+            "updated": 1614168086453
         },
         {
             "style": "Text",
-            "text": "Easy, right? Great! However, the design space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
-            "updated": 1610613840200
+            "text": "Einfach, richtig? Großartig! Der Designraum ist ein riesiger Ort, und ich möchte nicht, dass du vom herumziehen eine Sehnenenscheidentzündung bekommst.",
+            "updated": 1614168305284
         },
         {
             "style": "Success",
-            "text": "I'll teach you a couple more tricks in the next couple of steps."
+            "text": "Ich werde dir in den nächsten Schritten noch ein paar Tricks beibringen.",
+            "updated": 1614168322156
         }
     ]
 }

@@ -7,22 +7,24 @@
             "project": "Superalgos",
             "name": "run"
         },
-        "text": "Open the Data Tasks node menu and find the Run All Project Data Tasks button on the top-right corner...",
-        "updated": 1611076262685
+        "text": "Öffne das Menü des Data Tasks node und suche die Schaltfläche \" Run All Project Data Tasks \" in der oberen rechten Ecke...",
+        "updated": 1614160279790
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click the Run All Project Data Tasks button!",
-            "updated": 1611076332667
+            "text": "Klicke auf die Schaltfläche \" Run All Project Data Tasks \"",
+            "updated": 1614160345396
         },
         {
             "style": "Text",
-            "text": "Confirm the request by clicking the button a second time. In about 30 seconds, you should see a status notice below the Data Mining node indicating that 1 out of 1 Exchange Data Tasks node is running."
+            "text": "Bestätige die Anfrage, indem du ein zweites Mal auf die Schaltfläche klickst. In ungefähr 30 Sekunden sollte unter dem Data Mine node eine Statusmeldung angezeigt werden, die angibt, dass 1 von 1 Exchange Data Tasks node ausgeführt wird.",
+            "updated": 1614160684399
         },
         {
             "style": "Note",
-            "text": "Your console app should show something similar to the video on the next step."
+            "text": "Ihre Konsolen-App sollte im nächsten Schritt etwas Ähnliches wie das Video anzeigen.",
+            "updated": 1614160549333
         }
     ]
 }

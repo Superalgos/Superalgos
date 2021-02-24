@@ -7,17 +7,19 @@
             "project": "Superalgos",
             "name": "network-node"
         },
-        "text": "Superalgos allows running the Client on a machine and accessing it via Chrome from another machine in the network."
+        "text": "Mit Superalgos kann der Client auf einem Computer ausgeführt werden und über Chrome kann ein anderer Computer im Netzwerk auf diesen zugreifen.",
+        "updated": 1614097721702
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer Network Node represents the machine the Client is running on."
+            "text": "Viele Benutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputer wie dem Raspberry Pi oder auf einem dedizierten PC auszuführen, der für das live trading immer läuft. Der My Computer Network Node repräsentiert den Computer, auf dem der Client ausgeführt wird.",
+            "updated": 1614097927465
         },
         {
             "style": "Warning",
-            "text": "At this stage, Superalgos does not implement any form of security. You should use the system in the context of a restricted Local Area Network only. If you chose to run the Client in the cloud, you must implement your own security.",
-            "updated": 1611076067427
+            "text": "Derzeit implementiert Superalgos keine Sicherheitsmaßnahmen. Du solltest das System nur im sicheren lokalen Netzwerk verwenden. Wenn du den Client in der Cloud ausführen möchtest, musst du eigene Sicherheitsmaßnahmen implementieren.",
+            "updated": 1614100383605
         }
     ]
 }

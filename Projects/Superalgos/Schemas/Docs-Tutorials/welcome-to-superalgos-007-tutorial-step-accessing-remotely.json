@@ -7,25 +7,29 @@
             "project": "Superalgos",
             "name": "network-node"
         },
-        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!"
+        "text": "Wenn du von dem Computer aus auf den Client zugreifst, auf dem Superalgos läuft, kannst du auf Next klicken und diesen Schritt jetzt überspringen!",
+        "updated": 1614100610400
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are accessing the Client from a remote machine, you must adjust the Network Node configuration before continuing."
+            "text": "Wenn Sie von einem Remotecomputer aus auf den Client zugreifen, musst du das Network Node anpassen, bevor du fortfahren kannst.",
+            "updated": 1614100672918
         },
         {
             "style": "List",
-            "text": "Click Configure on the top-right corner of the  Network Node menu.",
-            "updated": 1610612485562
+            "text": "Klicke oben rechts auf Configure im Network Node Menü.",
+            "updated": 1614100738106
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend."
+            "text": "Schreibe in den host parameter die IP-Adresse, des Gerätes, auf dem die Software ausgeführt wird.",
+            "updated": 1614111933101
         },
         {
             "style": "List",
-            "text": "Exit the configuration by removing the mouse pointer from the configuration bubble! If the configuration is correct, the error message in the Network Node should disappear in a minute!"
+            "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase entfernen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Network Node in einer Minute verschwinden!",
+            "updated": 1614102821350
         }
     ]
 }

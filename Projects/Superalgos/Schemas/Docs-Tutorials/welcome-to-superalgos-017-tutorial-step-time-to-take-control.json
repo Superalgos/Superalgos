@@ -7,23 +7,24 @@
             "project": "Superalgos",
             "name": "key-ctrl"
         },
-        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!"
+        "text": "Ja! Du kannst auch deine Tastatur verwenden! Du wirst es lieben, wenn du dich im Designbereich über große Entfernungen bewegst!",
+        "updated": 1614171948590
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Regular folks may use the Ctrl key plus arrow keys:  ←  →  ↑  ↓",
-            "updated": 1610614017276
-        },
-        {
-            "style": "Note",
-            "text": "Notice that keeping the keys pressed makes you fly!",
-            "updated": 1610614056593
+            "text": "Du kannst auch die Strg Taste und die Pfeiltasten verwenden: ← → ↑ ↓",
+            "updated": 1614172573686
         },
         {
             "style": "Success",
-            "text": "Of course Mac fanboys and girls must replace Ctrl with Cmd",
-            "updated": 1610614224444
+            "text": "Beachte, dass du über den Bildschirm fliegst, wenn du die Tasten gedrückt hälst!",
+            "updated": 1614171817641
+        },
+        {
+            "style": "Note",
+            "text": "Natürlich müssen Mac-Fanboys und Girls die Strg Taste durch die Cmd Taste ersetzen",
+            "updated": 1614172291328
         }
     ]
 }

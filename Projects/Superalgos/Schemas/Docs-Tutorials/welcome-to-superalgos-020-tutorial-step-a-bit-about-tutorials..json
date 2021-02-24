@@ -7,17 +7,19 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "Before we get back to business, let me tell you a few things about how we&mdash;tutorials&mdash;work."
+        "text": "Bevor wir wieder zur Sache kommen, möchte ich dir einige Dinge darüber erzählen, wie wir - Tutorials - arbeiten.",
+        "updated": 1614174555704
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This is likely the most important bit: you are the boss! You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom-left corner of the design space. Select Resume on the menu to start where you left, or on the first step skipped. Select Play to start from the beginning!",
-            "updated": 1611076579955
+            "text": "Dies ist wahrscheinlich das Wichtigste: Du bist der Boss! Du kannst ein Lernprogramm jederzeit beenden und Schritte oder ganze Themen überspringen. Wenn du bereit bist, die Lektion wieder aufzunehmen, finden du uns in der unteren linken Ecke des Design Space . Wähle im Menü die Option Fortsetzen, um dort zu beginnen, wo du aufgehört hast, oder zu Beginn übersprungenen hast. Wähle Play, um von vorne zu beginnen!",
+            "updated": 1614174686369
         },
         {
             "style": "Callout",
-            "text": "Let's try that! Click the Stop button below, and once I'm gone, open my menu and select Resume."
+            "text": "Lass es uns versuchen! Klicke unten auf die Schaltfläche Stopp. Wenn ich fort bin, öffne mein Menü und wähle Resume.",
+            "updated": 1614174737525
         }
     ]
 }

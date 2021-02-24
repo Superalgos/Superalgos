@@ -143,9 +143,6 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
-                    if (recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
-                        let a = tradingEngine
-                    }
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
@@ -291,9 +288,6 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                 When we are not dealing with objects, we add every record to the existing file except 
                 for the ones that are filtered out at the Product Definition.
                 */
-                if (product.config.codeName === "Trading-System-Errors") {
-                    let a = 1
-                }
                 if (product.config.propertyNameThatDefinesStatus !== undefined && product.config.propertyValueThatPreventsSavingObject !== undefined) {
                     for (let j = 0; j < product.record.properties.length; j++) {
                         let recordProperty = product.record.properties[j]

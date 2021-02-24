@@ -461,19 +461,23 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         async function predict() {
             let featuresTensor = tensorFlowBackend.tensor([features])
-            let predictions = tensorFlowModel.predict(featuresTensor,{ verbose: 1 })
+            let predictions = tensorFlowModel.predict(featuresTensor, { verbose: 1 })
 
             /* 
-            For each label, we will have a predictions, and we will store it at the
+            We will download the predictions to an array, and we will store each one at the
             learning engine data structure.
             */
-            let predictionsArray =  predictions.dataSync()
+            let predictionsArray = predictions.dataSync()
             predictions.dispose()
             featuresTensor.dispose()
 
             for (let i = 0; i < predictionsArray.length; i++) {
                 let prediction = predictionsArray[i]
-                learningEngine.predictions.predictions[i].value = prediction
+                if (isNaN(prediction)) {
+                    prediction = 0
+                }
+                if (learningEngine.predictions.predictions[i] === undefined) { continue }
+                learningEngine.predictions.predictions[i].predictionValue.value = prediction
                 learningEngine.predictions.predictions[i].begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
                 learningEngine.predictions.predictions[i].end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
             }

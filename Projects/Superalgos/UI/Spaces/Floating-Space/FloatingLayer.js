@@ -146,25 +146,7 @@ function newFloatingLayer() {
     }
 
     function draw() {
-        drawInvisibleObjects()
         drawVisibleObjects()
-    }
-
-    function drawInvisibleObjects() {
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[i]
-            floatingObject.drawBackground()
-        }
-
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[i]
-            floatingObject.drawMiddleground()
-        }
-
-        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
-            let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
-            floatingObject.drawForeground()
-        }
     }
 
     function drawVisibleObjects() {

@@ -20,6 +20,7 @@ function newFloatingLayer() {
     
 
     let thisObject = {
+        isProximityPhysicsNeeded: false,
         addFloatingObject: addFloatingObject,
         removeFloatingObject: removeFloatingObject,
         getFloatingObject: getFloatingObject,
@@ -283,12 +284,21 @@ function newFloatingLayer() {
         */
 
         try {
+            
+            thisObject.isProximityPhysicsNeeded = false // this might be turned on bu the visiblePhysics downstream if needed. 
+
             makeVisible()
             makeInvisible()
             visiblePhysics()
             enginePhysics()
-            proximityPhysics()
 
+            if (thisObject.isProximityPhysicsNeeded === true) {
+                /*
+                This is an expensive calculation, so we are going to do it only when we need to.
+                */
+                proximityPhysics()
+            }
+            
             function visiblePhysics() {
                 for (let i = 0; i < visibleFloatingObjects.length; i++) {
                     let floatingObject = visibleFloatingObjects[i]

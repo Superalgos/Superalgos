@@ -3039,8 +3039,187 @@
                 "type": "node",
                 "childType": "Learning Current",
                 "autoAdd": true
+            },
+            {
+                "name": "predictions",
+                "type": "node",
+                "childType": "Predictions",
+                "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Predictions",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Prediction",
+                "relatedUiObject": "Prediction",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "predictions",
+        "childrenNodesProperties": [
+            {
+                "name": "predictions",
+                "type": "array",
+                "childType": "Prediction",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Prediction",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Predictions->"
+        },
+        "propertyNameAtParent": "predictions",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "predictionValue",
+                "type": "node",
+                "childType": "Prediction Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Prediction Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Prediction->"
+        },
+        "propertyNameAtParent": "predictionValue",
+        "childrenNodesProperties": [
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Dynamic Indicators",
@@ -7794,7 +7973,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->Prediction->"
         },
         "propertyNameAtParent": "begin"
     },
@@ -7848,7 +8027,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->Prediction->"
         },
         "propertyNameAtParent": "end"
     },
@@ -10430,7 +10609,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"Time Series Forcasting Tensor Flow JS\"\n}"
+            "config": "{ \n\"backLearningPredictingRatio\": 0.8\n}"
         },
         "addLeftIcons": true,
         "editors": {

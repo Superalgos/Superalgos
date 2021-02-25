@@ -444,6 +444,8 @@ function newUiObject() {
             if (rightDragging !== true) { return }
             if (thisObject.payload.chainParent !== undefined) { return }
 
+            UI.projects.superalgos.spaces.floatingSpace.floatingLayer.isProximityPhysicsNeeded = true
+
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
@@ -585,6 +587,8 @@ function newUiObject() {
             if (isDragging !== true) { return }
             if (rightDragging !== true) { return }
             if (thisObject.payload.referenceParent !== undefined) { return }
+
+            UI.projects.superalgos.spaces.floatingSpace.floatingLayer.isProximityPhysicsNeeded = true
 
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes

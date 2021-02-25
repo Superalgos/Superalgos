@@ -12,7 +12,7 @@ each one with it own timelineCharts, and each one positioned at an especific poi
 function newTimeMachine() {
     const MODULE_NAME = 'Time Machine'
     const logger = newWebDebugLog()
-    
+
 
     let timeFrame = INITIAL_TIME_PERIOD
 
@@ -20,6 +20,7 @@ function newTimeMachine() {
         container: undefined,
         timeScale: undefined,
         rateScale: undefined,
+        timeFrameScale: undefined,
         payload: undefined,
         edgeEditor: undefined,
         onFocus: undefined,
@@ -171,7 +172,53 @@ function newTimeMachine() {
     }
 
     function onKeyPressed(event) {
-        thisObject.edgeEditor.onKeyPressed(event)
+
+        /*
+        We are going to pass this event downstream to see if it belogns to any of the 
+        chart's scales or time machine's scales. If it does not belong to any
+        we will apply it to the edge editor.
+        */
+        let eventTaken = false
+        let point = {
+            x: event.x,
+            y: event.y
+        }
+        let container
+
+        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
+            container = thisObject.rateScale.getContainer(point)
+            if (container !== undefined) {
+                eventTaken = true
+                thisObject.rateScale.onKeyPressed(event)
+            }
+        }
+
+        if (thisObject.timeScale !== undefined && thisObject.timeScale.isVisible === true) {
+            container = thisObject.timeScale.getContainer(point)
+            if (container !== undefined) {
+                eventTaken = true
+                thisObject.timeScale.onKeyPressed(event)
+            }
+        }
+
+        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
+            container = thisObject.timeFrameScale.getContainer(point)
+            if (container !== undefined) {
+                eventTaken = true
+                thisObject.timeFrameScale.onKeyPressed(event)
+            }
+        }
+
+        for (let i = 0; i < thisObject.timelineCharts.length; i++) {
+            container = thisObject.timelineCharts[i].getContainer(point)
+            if (container !== undefined) {
+                eventTaken = thisObject.timelineCharts[i].onKeyPressed(event)
+            }
+        }
+
+        if (eventTaken === false) {
+            thisObject.edgeEditor.onKeyPressed(event)
+        }
     }
 
     function onMouseOver(event) {
@@ -665,7 +712,7 @@ function newTimeMachine() {
         if (description !== undefined) {
             label = description
         }
-        UI.projects.superalgos.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined,  position.y - 10, opacity, fontSize, undefined, 'Left')
+        UI.projects.superalgos.utilities.drawPrint.printLabel(label, position.x + 20, undefined, undefined, position.y - 10, opacity, fontSize, undefined, 'Left')
 
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {

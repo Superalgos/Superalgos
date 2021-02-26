@@ -1,10 +1,17 @@
 {
-    "topic": "Debugging your indicator",
+    "topic": "Debugging Your Indicator",
     "pageNumber": "3",
-    "type": "Start your processes",
+    "type": "Debugging - Start Your Processes",
     "definition": {
         "text": "Start the Task in Debug mode while running a debug session in your IDE.",
-        "updated": 1614332155989
+        "updated": 1614332155989,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Start the Task in Debug mode while running a debug session in your IDE. ",
+                "updated": 1614338791705
+            }
+        ]
     },
     "paragraphs": [
         {

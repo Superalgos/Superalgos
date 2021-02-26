@@ -1,10 +1,17 @@
 {
-    "topic": "Debugging your indicator",
+    "topic": "Debugging Your Indicator",
     "pageNumber": "1",
-    "type": "Debugging your indicator",
+    "type": "Debugging - First Step",
     "definition": {
         "text": "Using an Integrated development environment (IDE) will help you catch bugs.",
-        "updated": 1614257102916
+        "updated": 1614257102916,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Using an Integrated development environment (IDE) will help you catch bugs. ",
+                "updated": 1614338765880
+            }
+        ]
     },
     "paragraphs": [
         {

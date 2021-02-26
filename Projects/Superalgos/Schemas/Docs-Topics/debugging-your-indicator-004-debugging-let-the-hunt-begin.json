@@ -1,10 +1,17 @@
 {
-    "topic": "Debugging your indicator",
+    "topic": "Debugging Your Indicator",
     "pageNumber": "4",
-    "type": "Let the hunt begin!",
+    "type": "Debugging - Let The Hunt Begin!",
     "definition": {
         "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward.",
-        "updated": 1614333358461
+        "updated": 1614333358461,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward. ",
+                "updated": 1614338803641
+            }
+        ]
     },
     "paragraphs": [
         {

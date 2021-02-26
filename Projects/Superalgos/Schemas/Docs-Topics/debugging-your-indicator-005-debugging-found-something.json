@@ -1,10 +1,17 @@
 {
-    "topic": "Debugging your indicator",
+    "topic": "Debugging Your Indicator",
     "pageNumber": "5",
-    "type": "Found something!",
+    "type": "Debugging - Found something!",
     "definition": {
         "text": "Rinse and repeat",
-        "updated": 1614333501847
+        "updated": 1614333501847,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Rinse and repeat.",
+                "updated": 1614338812128
+            }
+        ]
     },
     "paragraphs": [
         {

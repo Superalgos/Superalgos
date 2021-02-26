@@ -9,17 +9,104 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This page does not go through the process of setting up a computer network. Instead, it assumes the network is already set up. So, do verify the local area network setup and make sure your computer network is functioning properly before starting.",
-            "updated": 1611343358129
+            "text": "There are essentially two approaches from here. ",
+            "updated": 1614354810094
+        },
+        {
+            "style": "List",
+            "text": "Install All in One Node: The first one and probably the easiest one is to first install the markets at one Network Node and later move the branches you want to move to other Network Nodes.",
+            "updated": 1614354841546
+        },
+        {
+            "style": "List",
+            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand."
+        },
+        {
+            "style": "Title",
+            "text": "Install Market"
         },
         {
             "style": "Text",
-            "text": "In a network of nodes, each node has it’s own web server, web sockets server, and task server."
+            "text": "The procedure to setup a Network Node is by executing the Install Market menu option of a certain Market node. This is a complex procedure that will connect all the dots for you from A to Z. You can do by hand what this procedure does, but it will take you a lot of time and you will need to know all the details of how to connect everything together.",
+            "updated": 1614355139550
+        },
+        {
+            "style": "Important",
+            "text": "One of the most important things to undestand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. "
+        },
+        {
+            "style": "Text",
+            "text": "For exmaple: if you have 2 trading systems, it will automatically create backtesting and live trading tasks for both of them.",
+            "updated": 1614355238724
+        },
+        {
+            "style": "Text",
+            "text": "The procedure will also be applied to each Network Node found at the workspace assuming that you will later delete the Tasks or other branches you don't need. But in order to do so, you need to know what is being added as a result of this execution."
+        },
+        {
+            "style": "Subtitle",
+            "text": "At the Network Hierarchy"
+        },
+        {
+            "style": "Text",
+            "text": "Here this procedure will essentially add 2 thigs:"
+        },
+        {
+            "style": "List",
+            "text": "Tasks: This includes Backtesting, Live Trading, Learning or any other supported type of Task."
+        },
+        {
+            "style": "List",
+            "text": "Data Products: You can think of this as references to the physical data. This definitions are what tells the system in general where the data is physically located.",
+            "updated": 1614355507769
+        },
+        {
+            "style": "Subtitle",
+            "text": "At the Charting Space Hierarchy"
+        },
+        {
+            "style": "Text",
+            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this brach, you will find Layer s node, which references the Data Products at the Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
+            "updated": 1614357169345
+        },
+        {
+            "style": "Success",
+            "text": "If you understand all the previous relationships, you can go ahead and install a market in all Network Node s at the same time, and then try to delete all the duplicated definitions. If you don't have all that clear, it is recommended that you install all your markets at one single Network Node and then move the braches you want from one Network Node to the other."
+        },
+        {
+            "style": "Title",
+            "text": "Moving Tasks"
+        },
+        {
+            "style": "Text",
+            "text": "Assuming you will go with the startegy of installing one Network Node first, this is what you need to know on how to move Task s to other Network Nodes.",
+            "updated": 1614357184981
+        },
+        {
+            "style": "Text",
+            "text": "There are different types of Tasks and each one needs to be moved together with their corresponding Data Products definitions in order for the system to being able to track dependencies. The Data Products dedinitions are the one under the Data Storage node of a Network Node. They are subdivided in different branches depending of the Type of Data, Project, Exchange, Market and many other stuff, but in the end you will find Data Product nodes which reference Product Definitions inside Mines. When you move Tasks from one Network Node to other you also need to move the related brach at Data Storage to the same Network Node.",
+            "updated": 1614356433556
+        },
+        {
+            "style": "Text",
+            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implcit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node."
+        },
+        {
+            "style": "Warning",
+            "text": "If you only move a Task and do not move the related Data Products definitions most likely things will stop working right there."
+        },
+        {
+            "style": "Success",
+            "text": "The refinitions at the Charting System hirierchy do not need to be changed at all. They will continue pointing to the Data Products they were pointint to no matter where you moved those Data Products definitions. If you changed them from one Network Node to another, the Pltotter will simply fetch the data from the Network Node where you left thos Data Product s definitions."
         },
         {
             "style": "Note",
-            "text": "The default web server and web sockets ports used by Superalgos are 34248 and 18041 respectively. If you wish to change these defaults, you must modify the.env file on the root folder, and also \\TaskServer\\.env.",
-            "updated": 1611343376974
+            "text": "Whey we say moving what we are saying is detaching a Node brach and re attaching that same brach somewhere else. Note that if you for example make a backup of a branch, restore that somehwhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up with incomming references, which will produce things not to work anymoere.",
+            "updated": 1614357412126
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Title",
@@ -52,15 +139,6 @@
         {
             "style": "Text",
             "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the Client without firing up the UI."
-        },
-        {
-            "style": "Success",
-            "text": "On computers with 8 GB of RAM or less, such as minicomputers or single-board computers like the Raspberry Pi, use node run noBrowser minMemo to run the app. minMemo sets up the system to run with minimal RAM requirements.",
-            "updated": 1611343440835
-        },
-        {
-            "style": "Text",
-            "text": "Leave the machine online, with the Client running."
         },
         {
             "style": "Text",

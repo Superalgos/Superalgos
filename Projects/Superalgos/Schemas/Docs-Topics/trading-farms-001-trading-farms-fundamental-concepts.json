@@ -8,17 +8,54 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Superalgos is designed for coordinated, flexible, and scalable trading operations.",
-            "updated": 1611343220386
+            "style": "Title",
+            "text": "Introduction",
+            "updated": 1614353180566
         },
         {
             "style": "Text",
-            "text": "In its current version, the system may be deployed in multiple machines—as many as desired—and each machine may constitute a node in a network of nodes. In fact, different networks of nodes may live within the same computer network."
+            "text": "Superalgos is designed for coordinated, flexible, and scalable trading operations."
+        },
+        {
+            "style": "Title",
+            "text": "Network",
+            "updated": 1614353250354
+        },
+        {
+            "style": "Text",
+            "text": "A Network, represented by the Network Hierarchy it is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you mighd define one or even more than one Netwrok Hiererchy. For simplicity we will continue the explanation assuming only one Network is defined.",
+            "updated": 1614353405812
+        },
+        {
+            "style": "Text",
+            "text": "In its current version, the system may be deployed in multiple machines—as many as desired—and each machine may constitute a node in a network of nodes. In fact, different networks of nodes may live within the same computer network, because they are just an abstractions, not something physical.",
+            "updated": 1614353448225
+        },
+        {
+            "style": "Title",
+            "text": "Purpose"
+        },
+        {
+            "style": "Text",
+            "text": "The whole purpose of the Network definition is to let the system know where each task must run and where the data is localted. ",
+            "updated": 1614353600414
+        },
+        {
+            "style": "Success",
+            "text": "A Superalgos Client can become a node in a Network definition if you configure a Network Node with the IP and ports of a certain Superalgos Client."
+        },
+        {
+            "style": "Title",
+            "text": "Organization",
+            "updated": 1614353624048
+        },
+        {
+            "style": "Text",
+            "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system don't care or have any preferred way for you to do so. It just need to know where each Task runs, and where the Data is located. That's it."
         },
         {
             "style": "Callout",
-            "text": "Each node on a network may specialize in a single type of process or handle multiple processes of different types."
+            "text": "Each node on a Network may specialize in a single type of process or handle multiple processes of different types."
         },
         {
             "style": "Text",
@@ -37,16 +74,49 @@
             "text": "In other words, the system allows building any arrangement of networks of nodes responding to the organizational logic of your preference."
         },
         {
+            "style": "Title",
+            "text": "Auto Tracking of Dependencies",
+            "updated": 1614353913256
+        },
+        {
             "style": "Text",
-            "text": "What is unique about Superalgos is that the system keeps track of the network arrangements you create and makes sure that all components and data structures in the system can seamlessly track dependencies across the network. This means, for example, that trading sessions running on Node X may access data in Node Y and Node Z without requiring any sort of configuration."
+            "text": "When you define a Task, inside of it you are referencing a Process Definition, which has in turn definition regarding to which other processes it depends on (for example to start after some other process finished) and it also has Data Dependencies, which means that in order to run, it needs to read the data output from other processes."
+        },
+        {
+            "style": "Note",
+            "text": "All these definitions are built-in inside Data Mines, Trading Mines and Learning mines at a conceptual level. This means that a Data Mine does not really know where the data a process depends on actually is, or where a process that it depends on is actually running. That problem is solved at runtime once a Task is executed."
+        },
+        {
+            "style": "Text",
+            "text": "What is unique about Superalgos is that the system keeps track of the network arrangements you create and makes sure that all processes in the system can seamlessly track dependencies across the network. This means, for example, that trading sessions running on Node X may access data in Node Y and Node Z without requiring any sort of configuration.",
+            "updated": 1614354242360
+        },
+        {
+            "style": "Text",
+            "text": "This is achieved by sending to a newly executed Task a snapshot of the Network Map at the instant when the Task is being run. From the Mine definition the Task can know which processes and data it depends on, and by looking into the snapshot of the Network, it can guess which Client is hosting the Data or the Tasks that the process depends on, allowing it to communicate with those Client s and fetch the data from them or wait for the right events signaling that the dependen process has finished."
+        },
+        {
+            "style": "Title",
+            "text": "Peer to Peer",
+            "updated": 1614354292649
+        },
+        {
+            "style": "Text",
+            "text": "There is no preferred node where to manage the rest of the Client s.",
+            "updated": 1614354328656
         },
         {
             "style": "Callout",
-            "text": "On top of that, the operation may be managed entirely from any node on the network. In fact, it may be managed from a computer in the network not running Superalgos, by pointing the browser to any of the nodes in the network to run the UI."
+            "text": "The operation may be managed entirely from any node on the network. In fact, it may be managed from a computer in the network not running Superalgos, by pointing the browser to any of the nodes in the network to run the UI.",
+            "updated": 1614354336816
         },
         {
             "style": "Text",
             "text": "The following explanations assume that you are familiar with the basic workings of Superalgos, and in particular, of the Network hierarchy. If that is not the case, then please read the Network pages before diving into building a trading farm."
+        },
+        {
+            "style": "Title",
+            "text": "Security"
         },
         {
             "style": "Warning",

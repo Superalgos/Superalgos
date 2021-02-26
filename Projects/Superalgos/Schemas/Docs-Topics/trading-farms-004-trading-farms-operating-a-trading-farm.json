@@ -1,15 +1,15 @@
 {
     "topic": "Trading Farms",
     "pageNumber": "4",
-    "type": "Operating a Trading Farm",
+    "type": "Trading Farms - Operating a Trading Farm",
     "definition": {
-        "text": "Operate tasks in remote nodes pretty much as if they were running on the home node.",
-        "updated": 1611344573684
+        "text": "Operate tasks in remote nodes pretty much as if they were running on the home node. ",
+        "updated": 1614352903667
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The operation of a trading farm is done from within the home node. There is no need to use the frontend application with any other node in the network, although you may if you wish."
+            "text": "The operation of a trading farm is done from within the home node. There is no need to use the UI application with any other node in the network, although you may if you wish."
         },
         {
             "style": "Text",
@@ -21,7 +21,7 @@
         },
         {
             "style": "Text",
-            "text": "However, entities that don’t run in tasks—such as time machines and timeline charts in the charting space—function with the state of the network upon starting the frontend app. This means that, for example, if you move a data mining task to a different node, the associated chart will show the data in the former node until you refresh the browser."
+            "text": "However, entities that don’t run in tasks—such as time machines and timeline charts in the charting space—function with the state of the network upon starting the UI app. This means that, for example, if you move a data mining task to a different node, the associated chart will show the data in the former node until you refresh the browser."
         },
         {
             "style": "Text",

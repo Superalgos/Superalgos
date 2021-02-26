@@ -1,10 +1,10 @@
 {
     "topic": "Trading Farms",
     "pageNumber": "1",
-    "type": "Trading Farms Fundamental Concepts",
+    "type": "Trading Farms - Fundamental Concepts",
     "definition": {
-        "text": "How to set up a flexible and scalable crypto-trading farm running Superalgos distributed on multiple machines.",
-        "updated": 1611343209935
+        "text": "How to set up a flexible and scalable crypto-trading farm running Superalgos distributed on multiple machines. ",
+        "updated": 1614352880564
     },
     "paragraphs": [
         {
@@ -42,7 +42,7 @@
         },
         {
             "style": "Callout",
-            "text": "On top of that, the operation may be managed entirely from any node on the network. In fact, it may be managed from a computer in the network not running Superalgos, by pointing the browser to any of the nodes in the network to run the frontend."
+            "text": "On top of that, the operation may be managed entirely from any node on the network. In fact, it may be managed from a computer in the network not running Superalgos, by pointing the browser to any of the nodes in the network to run the UI."
         },
         {
             "style": "Text",

@@ -1,10 +1,10 @@
 {
     "topic": "Trading Farms",
     "pageNumber": "2",
-    "type": "Set Up a Network of Nodes",
+    "type": "Trading Farms - Set Up a Network of Nodes",
     "definition": {
-        "text": "Install Superalgos on each machine, to then create and set up a network node for each machine.",
-        "updated": 1611343340124
+        "text": "Install Superalgos on each machine, to then create and set up a network node for each machine. ",
+        "updated": 1614352888183
     },
     "paragraphs": [
         {
@@ -51,7 +51,7 @@
         },
         {
             "style": "Text",
-            "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the backend without firing up the frontend."
+            "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the Client without firing up the UI."
         },
         {
             "style": "Success",
@@ -60,11 +60,11 @@
         },
         {
             "style": "Text",
-            "text": "Leave the machine online, with the backend running."
+            "text": "Leave the machine online, with the Client running."
         },
         {
             "style": "Text",
-            "text": "2. Run the frontend to access the home node."
+            "text": "2. Run the UI to access the home node."
         },
         {
             "style": "Text",
@@ -111,7 +111,7 @@
         },
         {
             "style": "List",
-            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the Client services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
         },
         {
             "style": "List",

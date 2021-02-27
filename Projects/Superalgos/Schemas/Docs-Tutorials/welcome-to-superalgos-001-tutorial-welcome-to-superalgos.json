@@ -10,9 +10,15 @@
         "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
         "translations": [
             {
+<<<<<<< HEAD
                 "language": "ID",
                 "text": "Aku adalah tutorial yang interaktif, yang berkerja untuk memfasilitasi orientasi pemikiran kamu dan mengajari kamu semua dasar tentang Superalgos!",
                 "updated": 1614416780981
+=======
+                "language": "ES",
+                "text": "Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu llegada y enseñarte lo básico.",
+                "updated": 1613594456875
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
             }
         ]
     },
@@ -22,9 +28,15 @@
             "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you.",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Aku akan membantumu dalam memulai, dan menunjukkan alat yang akan membantumu bergerak dengan nyaman, dan menemukan semua hal keren yang akan dilakukan Superalgos untuk tradingmu.",
                     "updated": 1614416877222
+=======
+                    "language": "ES",
+                    "text": "Te pondré en marcha, te mostraré las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas geniales que Superalgos puede hacer por ti.",
+                    "updated": 1613594557989
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -33,9 +45,15 @@
             "text": "I'm the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. I will answer most of your questions!",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Aku adalah tutorial orientasi Superalgos yang terbaik! Memulai Superalgos dengan cara yang tidak direkomendasikan sangatlah salah, karena tidak ada sumber lain yang dapat mempercepat kamu selain aku. Aku akan menjawab sebagian besar pertanyaan kamu!",
                     "updated": 1614417059937
+=======
+                    "language": "ES",
+                    "text": "Soy la herramienta definitiva para descubrir Superalgos. Empezar de cualquier otra manera es un error, ya que ningún otro medio te hará descubrir la herramienta más rápido. Intentaré aclarar todas tus dudas.",
+                    "updated": 1613594779456
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -44,9 +62,15 @@
             "text": "Please, always click Next to continue!",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Mohon, klik Next untuk melanjutkan",
                     "updated": 1614417191759
+=======
+                    "language": "ES",
+                    "text": "Porfavor, presiona siguiente para continuar",
+                    "updated": 1613594696979
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         }

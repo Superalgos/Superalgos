@@ -2,6 +2,8 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
     const MODULE_NAME = 'Time Series Forcasting Tensor Flow JS Learning Algorithm'
     let thisObject = {
+        loadModel: loadModel,
+        saveModel: saveModel,
         updateChart: updateChart,
         mantain: mantain,
         reset: reset,
@@ -26,8 +28,6 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     let tensorFlowAPI
     let tensorFlowModel
     let tensorFlowData
-    let features = []
-    let labels = []
 
     return thisObject
 
@@ -114,6 +114,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                                 break
                             }
                             case 'Functional Model': {
+                                /* To be implemented some day...*/
                                 break
                             }
                         }
@@ -121,6 +122,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     }
                     case 'Code API': {
                         tensorFlowAPI = require("@tensorflow/tfjs-core")
+                        /* To be implemented some day...*/
                         break
                     }
                 }
@@ -178,12 +180,16 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
                     if (layerNode.typeOfLayer.layer.dimensionalityUnits !== undefined) {
                         argsObject.units = layerNode.typeOfLayer.layer.dimensionalityUnits.config.value
+                    } else {
+                        argsObject.units = 1
                     }
                     if (layerNode.typeOfLayer.layer.activationFunction !== undefined) {
                         argsObject.activation = layerNode.typeOfLayer.layer.activationFunction.config.value
                     }
                     if (layerNode.typeOfLayer.layer.bias !== undefined) {
                         argsObject.useBias = true
+                    } else {
+                        argsObject.useBias = false
                     }
                     if (layerNode.typeOfLayer.layer.kernel !== undefined) {
                         if (layerNode.typeOfLayer.layer.kernel.kernelInitializer !== undefined) {
@@ -227,8 +233,20 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                     Check if this is the input layer.
                     */
                     if (secuentialModel.inputLayer.referenceParent.id === layerNode.id) {
+                        /*
+                        If there is a explicitly defined Input Shape, then we will take it, 
+                        otherwise, we will count the amount of features declared.
+                        */
                         if (secuentialModel.inputLayer.inputShape !== undefined) {
-                            argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                            if (argsObject.inputShape = secuentialModel.inputLayer.inputShape !== undefined) {
+                                if (argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value !== undefined) {
+                                    argsObject.inputShape = secuentialModel.inputLayer.inputShape.config.value
+                                }
+                            }
+                        }
+                        if (argsObject.inputShape === undefined) {
+                            argsObject.inputShape = []
+                            argsObject.inputShape.push(secuentialModel.inputLayer.inputFeatures.dataFeatures.length)
                         }
                     }
 
@@ -238,40 +256,46 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                 }
             }
         }
+    }
 
-        function compileModel() {
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics === undefined) {
-                //TODO
-                return
-            }
-            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value === undefined) {
-                //TODO
-                return
-            }
-            let compileArgs = {
-                optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.optimizer.config.value,
-                loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.lossFunction.config.value,
-                metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.metrics.config.value]
-            }
-
-            tensorFlowModel.compile(compileArgs)
+    function compileModel() {
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile === undefined) {
+            //TODO
+            return
         }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics === undefined) {
+            //TODO
+            return
+        }
+        if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value === undefined) {
+            //TODO
+            return
+        }
+        let compileArgs = {
+            optimizer: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.optimizer.config.value,
+            loss: learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.lossFunction.config.value /*,
+            metrics: [learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.compile.metrics.config.value]*/
+        }
+
+        tensorFlowModel.compile(compileArgs)
+
+        tensorFlowModel.summary()
     }
 
     function finalize() {
@@ -287,9 +311,26 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         tensorFlowAPI = undefined
         tensorFlowModel = undefined
         tensorFlowData = undefined
+    }
 
-        features = []
-        labels = []
+    async function loadModel() {
+        tensorFlowModel = await tensorFlowAPI.loadLayersModel('file://' + getModelPath() + '/model.json')
+        compileModel()
+    }
+
+    async function saveModel() {
+        await tensorFlowModel.save('file://' + getModelPath())
+    }
+
+    function getModelPath() {
+        let fileName = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.config.codeName
+        let filePath =
+            global.env.PATH_TO_DATA_STORAGE + '/' +
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+            '/Output/' +
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME
+
+        return filePath + '/' + fileName
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -309,9 +350,11 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     function reset() {
     }
 
-    function run(callbackFunction) {
+    async function run(callbackFunction) {
 
         let layersModel = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel
+        let features = []
+        let labels = []
 
         /*
         Building the Features Tensor
@@ -332,44 +375,113 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         }
 
         /*
-        Building the Labels Tensor
+        At this point we need to decide if we are going to learn or going to predict. 
+        This is regulated by the backLearningPredictingRatio property at the config
+        of the Learning Algorithm of the Learning Session.
         */
-        if (layersModel.outputLayer === undefined) {
-            // TODO
-        }
-        if (layersModel.outputLayer.outputLabels === undefined) {
-            // TODO
-        }
-        learningSystem.evalFormulas(layersModel.outputLayer.outputLabels, layersModel.outputLayer.outputLabels.type)
+        let backLearningPredictingRatio = 0.8 // this is the default value.
 
-        for (let i = 0; i < layersModel.outputLayer.outputLabels.dataLabels.length; i++) {
-            let dataLabel = layersModel.outputLayer.outputLabels.dataLabels[i]
-            if (dataLabel.labelFormula === undefined) { continue }
-            let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
-            labels.push(labelValue)
+        if (sessionParameters.learningAlgorithm !== undefined) {
+            if (sessionParameters.learningAlgorithm.config.backLearningPredictingRatio !== undefined) {
+                backLearningPredictingRatio = sessionParameters.learningAlgorithm.config.backLearningPredictingRatio
+            }
         }
 
-        tensorFlowData = require("@tensorflow/tfjs-data")
+        let initialCandle = Math.trunc(sessionParameters.timeRange.config.initialDatetime / sessionParameters.timeFrame.config.value)
+        let finalCandle = Math.trunc(sessionParameters.timeRange.config.finalDatetime / sessionParameters.timeFrame.config.value)
+        let currentCandle = Math.trunc(learningEngine.learningCurrent.learningEpisode.candle.begin.value / sessionParameters.timeFrame.config.value)
+        let thresholdCandle = (finalCandle - initialCandle) * backLearningPredictingRatio + initialCandle
 
-        let dataset = tensorFlowData.array([features, labels])
+        if (currentCandle < thresholdCandle) {
+            await learn()
+        } else {
+            predict()
+        }
 
-        tensorFlowModel.fitDataset(dataset, { epochs: 5 }).then(info => {
-            console.log('Accuracy', info.history.acc);
-
+        async function learn() {
             /*
-            if all is good, return this...
+            Building the Labels Tensor
             */
-            callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+            if (layersModel.outputLayer === undefined) {
+                // TODO
+            }
+            if (layersModel.outputLayer.outputLabels === undefined) {
+                // TODO
+            }
+            learningSystem.evalFormulas(layersModel.outputLayer.outputLabels, layersModel.outputLayer.outputLabels.type)
 
-        });
+            for (let i = 0; i < layersModel.outputLayer.outputLabels.dataLabels.length; i++) {
+                let dataLabel = layersModel.outputLayer.outputLabels.dataLabels[i]
+                if (dataLabel.labelFormula === undefined) { continue }
+                let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
+                labels.push(labelValue)
+            }
 
+            tensorFlowData = require("@tensorflow/tfjs-data")
 
+            function* featuresGenerator() {
+                //console.log('Features: ' + features)
+                yield features
+            }
 
-        /*
-        if something is bad, return this...
-        */
-        //callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            function* labelsGenerator() {
+                //console.log('Labels: ' + labels)
+                yield labels
+            }
 
+            const xs = tensorFlowData.generator(featuresGenerator)
+            const ys = tensorFlowData.generator(labelsGenerator)
+            const ds = tensorFlowData.zip({ xs, ys }).shuffle(1).batch(1)
+
+            let verbose = 0
+            let ecpochs = 1
+
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose !== undefined) {
+                    if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value !== undefined) {
+                        verbose = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.verbose.config.value
+                    }
+                }
+            }
+
+            if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset !== undefined) {
+                if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs !== undefined) {
+                    if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value !== undefined) {
+                        ecpochs = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.fitDataset.epochs.config.value
+                    }
+                }
+            }
+
+            await tensorFlowModel.fitDataset(ds, {
+                verbose: verbose,
+                epochs: ecpochs
+            })
+
+        }
+
+        async function predict() {
+            let featuresTensor = tensorFlowBackend.tensor([features])
+            let predictions = tensorFlowModel.predict(featuresTensor, { verbose: 1 })
+
+            /* 
+            We will download the predictions to an array, and we will store each one at the
+            learning engine data structure.
+            */
+            let predictionsArray = predictions.dataSync()
+            predictions.dispose()
+            featuresTensor.dispose()
+
+            for (let i = 0; i < predictionsArray.length; i++) {
+                let prediction = predictionsArray[i]
+                if (isNaN(prediction)) {
+                    prediction = 0
+                }
+                if (learningEngine.predictions.predictions[i] === undefined) { continue }
+                learningEngine.predictions.predictions[i].predictionValue.value = prediction
+                learningEngine.predictions.predictions[i].begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
+                learningEngine.predictions.predictions[i].end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
+            }
+        }
     }
 
     function badDefinitionUnhandledException(err, message, node) {

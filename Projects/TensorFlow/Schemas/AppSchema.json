@@ -354,25 +354,17 @@
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "optimizer",
-                "label": "Add Optimizer",
-                "relatedUiObject": "Optimizer",
+                "propertyToCheckFor": "compile",
+                "label": "Add Compile",
+                "relatedUiObject": "Compile",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "lossFunction",
-                "label": "Add Loss Function",
-                "relatedUiObject": "Loss Function",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "disableIfPropertyIsDefined": true,
-                "propertyToCheckFor": "metrics",
-                "label": "Add Metrics",
-                "relatedUiObject": "Metrics",
+                "propertyToCheckFor": "fitDataset",
+                "label": "Add Fit Dataset",
+                "relatedUiObject": "Fit Dataset",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -409,6 +401,63 @@
                 "childType": "Core API"
             },
             {
+                "name": "compile",
+                "type": "node",
+                "childType": "Compile"
+            },
+            {
+                "name": "fitDataset",
+                "type": "node",
+                "childType": "Fit Dataset"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Compile",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "optimizer",
+                "label": "Add Optimizer",
+                "relatedUiObject": "Optimizer",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "lossFunction",
+                "label": "Add Loss Function",
+                "relatedUiObject": "Loss Function",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "metrics",
+                "label": "Add Metrics",
+                "relatedUiObject": "Metrics",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "compile",
+        "childrenNodesProperties": [
+            {
                 "name": "optimizer",
                 "type": "node",
                 "childType": "Optimizer"
@@ -424,6 +473,173 @@
                 "childType": "Metrics"
             }
         ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Fit Dataset",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "verbose",
+                "label": "Add Verbose",
+                "relatedUiObject": "Verbose",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "epochs",
+                "label": "Add Epochs",
+                "relatedUiObject": "Epochs",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "callbacks",
+                "label": "Add Callbacks",
+                "relatedUiObject": "Callbacks",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Model->"
+        },
+        "propertyNameAtParent": "fitDataset",
+        "childrenNodesProperties": [
+            {
+                "name": "verbose",
+                "type": "node",
+                "childType": "Verbose"
+            },
+            {
+                "name": "epochs",
+                "type": "node",
+                "childType": "Epochs"
+            },
+            {
+                "name": "callbacks",
+                "type": "node",
+                "childType": "Callbacks"
+            }
+        ],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Verbose",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": 1\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Fit Dataset->"
+        },
+        "propertyNameAtParent": "verbose",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Epochs",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": 1\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Fit Dataset->"
+        },
+        "propertyNameAtParent": "epochs",
+        "childrenNodesProperties": [],
+        "icon": "tensorflow"
+    },
+    {
+        "type": "Callbacks",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"value\": \"\"\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Fit Dataset->"
+        },
+        "propertyNameAtParent": "callbacks",
+        "childrenNodesProperties": [],
         "icon": "tensorflow"
     },
     {
@@ -455,7 +671,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Model->"
+            "compatibleTypes": "->Compile->"
         },
         "propertyNameAtParent": "optimizer",
         "childrenNodesProperties": [],
@@ -490,7 +706,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Model->"
+            "compatibleTypes": "->Compile->"
         },
         "propertyNameAtParent": "lossFunction",
         "childrenNodesProperties": [],
@@ -520,12 +736,12 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n  \"value\": [\"accuracy\"]\n}"
+            "config": "{ \n  \"value\": [\"acc\"]\n}"
         },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Model->"
+            "compatibleTypes": "->Compile->"
         },
         "propertyNameAtParent": "metrics",
         "childrenNodesProperties": [],

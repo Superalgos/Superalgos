@@ -5,6 +5,8 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     */
     const MODULE_NAME = 'Learning System'
     let thisObject = {
+        loadModel: loadModel, 
+        saveModel: saveModel, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -182,6 +184,14 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         learningEngine = undefined
         sessionParameters = undefined
     }
+    
+    async function  loadModel() {
+        await machineLearningLibraryModuleObject.loadModel()
+    }
+
+    async function  saveModel() {
+        await machineLearningLibraryModuleObject.saveModel()
+    }
 
     function mantain() {
         machineLearningLibraryModuleObject.mantain()
@@ -236,15 +246,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             /*
             Initialize the Learning Algorithm
             */
-            machineLearningLibraryModuleObject.run(onRun)
-
-            function onRun(err) {
-                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-
-                } else {
-
-                }
-            }
+            await machineLearningLibraryModuleObject.run()
 
         } catch (err) {
             /* 

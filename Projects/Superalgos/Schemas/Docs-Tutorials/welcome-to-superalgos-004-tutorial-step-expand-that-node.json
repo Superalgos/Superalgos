@@ -10,9 +10,15 @@
         "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node.",
         "translations": [
             {
+<<<<<<< HEAD
                 "language": "ID",
                 "text": "Setiap node memiliki menunya sendiri. Tombol dikiri bawah bisa membesar dan mengecilkan struktur dari sekumpulan nodes lainnya yang masih berada di node yang sekarang.",
                 "updated": 1614424892833
+=======
+                "language": "ES",
+                "text": "Cada nodo cuenta con un menú. El botón de la parte inferior izquierda expande y colapsa la estructura de los nodos por debajo del nodo actual.",
+                "updated": 1613595237180
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
             }
         ]
     },
@@ -22,9 +28,15 @@
             "text": "Go ahead and click the expand button!",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Ayo coba dengan men-click tombol expand tersebut!",
                     "updated": 1614424924865
+=======
+                    "language": "ES",
+                    "text": "Adelante, haz clic en el botón de expansión.",
+                    "updated": 1613595248682
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -33,9 +45,15 @@
             "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy!",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Node Tutorial memiliki beberapa turunan, dan setiap turunan mempunyai turunannya lagi. Itulah hirarki!",
                     "updated": 1614425111632
+=======
+                    "language": "ES",
+                    "text": "El nodo Tutorial tiene varios subnodos, y éstos tienen varios subnodos más. ¡Por eso es una jerarquía!",
+                    "updated": 1613595290969
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -44,9 +62,15 @@
             "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations.",
             "translations": [
                 {
+<<<<<<< HEAD
                     "language": "ID",
                     "text": "Representasi visual terstruktur dari informasi merupakan inti dari cara Superalgos mengelola kompleksitas di balik aplikasi trading yang fleksibel dan dapat dikembangkan.",
                     "updated": 1614425276894
+=======
+                    "language": "ES",
+                    "text": "Las representaciones visuales estructuradas de la información son el núcleo de la forma en que Superalgos administra la complejidad de las operaciones de trading flexibles y escalables.",
+                    "updated": 1613595317733
+>>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         }

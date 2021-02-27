@@ -68,7 +68,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Environment Flags->Debug Mode->Production Mode->' +
             'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
             'Artificial Neural Network->Model->' +
-            'Optimizer->Loss Function->Metrics->' +
+            'Compile->Optimizer->Loss Function->Metrics->' +
+            'Fit Dataset->Verbose->Epochs->Callbacks->' +
             'Layers API->Code API->' +
             'Secuential Model->Functional Model->' + 
             'Input Layer->Secuential Layer->Output Layer->'+
@@ -117,7 +118,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
-            'Index->Situation Name->Formula->Periods->'
+            'Index->Situation Name->Formula->Periods->' + 
+            'Predictions->Prediction->Begin->End->Prediction Value->'
 
         let learningEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

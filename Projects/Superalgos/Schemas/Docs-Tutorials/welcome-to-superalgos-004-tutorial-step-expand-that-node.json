@@ -7,20 +7,48 @@
             "project": "Superalgos",
             "name": "expand-structure-of-nodes"
         },
-        "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node."
+        "text": "Each node features a menu. The button on the bottom-left expands and collapses the structure of nodes below the current node.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Setiap node memiliki menunya sendiri. Tombol dikiri bawah bisa membesar dan mengecilkan struktur dari sekumpulan nodes lainnya yang masih berada di node yang sekarang.",
+                "updated": 1614424892833
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go ahead and click the expand button!"
+            "text": "Go ahead and click the expand button!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Ayo coba dengan men-click tombol expand tersebut!",
+                    "updated": 1614424924865
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy!"
+            "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Node Tutorial memiliki beberapa turunan, dan setiap turunan mempunyai turunannya lagi. Itulah hirarki!",
+                    "updated": 1614425111632
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations."
+            "text": "Structured visual representations of information are at the core of how Superalgos administers the complexity behind flexible and scalable trading operations.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Representasi visual terstruktur dari informasi merupakan inti dari cara Superalgos mengelola kompleksitas di balik aplikasi trading yang fleksibel dan dapat dikembangkan.",
+                    "updated": 1614425276894
+                }
+            ]
         }
     ]
 }

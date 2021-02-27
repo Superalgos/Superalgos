@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "network"
         },
-        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network."
+        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Sebelum aku memperlihatkan bagian lain dari menu, ayo kebeberapa hirarki lain seperti Network.",
+                "updated": 1614425404268
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks."
+            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Network merupakan hirarki yang mengatur ruang kendali sistem. Di sinilah kamu bisa mengontrol Data Tasks, Testing Trading Tasks, dan Production Trading Tasks.",
+                    "updated": 1614425530127
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and take a look inside!"
+            "text": "Expand the hierarchy and take a look inside!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Besarkan hirarki ini dan lihat didalamnya!",
+                    "updated": 1614425575929
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. But before we start, I have a quick question for you: are you accessing the Client remotely?",
-            "updated": 1611075903071
+            "updated": 1611075903071,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Lihat nodes yang telah yang sudah kuberitahu sebelumnya? Keren! Kita disini untuk memulai pertama kali mengoperasikan data mining. Tapi, aku punya pertanyaan kepadamu: Apakah kamu mengakses Client secara remote ?",
+                    "updated": 1614426192898
+                }
+            ]
         }
     ]
 }

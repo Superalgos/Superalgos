@@ -7,17 +7,38 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!"
+        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Tutorial ini dibuat oleh system, jadi kamu juga bisa membuat tutorial berbeda jika ingin! Tapi kita bahas hal besar itu nanti saja. Untuk sekarang fokus saja ke hal yang basic!",
+                "updated": 1614417905988
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a Tutorial hierarchy with a label reading Welcome to Superalgos!"
+            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a Tutorial hierarchy with a label reading Welcome to Superalgos!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Superalgos merupakan data yang divisualisasikan. Dengan sistem yang merepresentasikan informasi berstruktur hirarki dari nodes yang tersambung (berbentuk icon). Apa yang kamu lihat disebelah bagian dari hirarki juga, secara detail tutorial yang dimaksud adalah Welcome to Superalgos!",
+                    "updated": 1614418099585
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons!",
-            "updated": 1611075799669
+            "updated": 1611075799669,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Dekatkan pointer mousemu ke node Tutorial dan lihat apa yang terjadi!, Keren bukan? Banyak sekali tombol disana!",
+                    "updated": 1614424765045
+                }
+            ]
         }
     ]
 }

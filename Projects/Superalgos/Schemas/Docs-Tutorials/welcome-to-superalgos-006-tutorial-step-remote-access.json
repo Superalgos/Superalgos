@@ -7,17 +7,38 @@
             "project": "Superalgos",
             "name": "network-node"
         },
-        "text": "Superalgos allows running the Client on a machine and accessing it via Chrome from another machine in the network."
+        "text": "Superalgos allows running the Client on a machine and accessing it via Chrome from another machine in the network.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Superalgos bisa dijalankan secara Clients, melalui mesin dan mengakses dengan Chrome dengan mesin dari jaringan yang berbeda.",
+                "updated": 1614426387929
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer Network Node represents the machine the Client is running on."
+            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer Network Node represents the machine the Client is running on.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Banyak pengguna memilih untuk menjalankan Client di cloud, juga di mesin single-board seperti Raspberry Pi, atau di PC khusus yang dapat mereka tinggalkan setiap saat dengan trading tetap berlangsung. Node My Computer Network merepresentasikan Client yang dijalankan sekarang.",
+                    "updated": 1614426753535
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "At this stage, Superalgos does not implement any form of security. You should use the system in the context of a restricted Local Area Network only. If you chose to run the Client in the cloud, you must implement your own security.",
-            "updated": 1611076067427
+            "updated": 1611076067427,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Saat ini, Superalgos tidak menerapkan keamanan dalam bentuk apa pun. Kamu harus menggunakan sistem dalam konteks Jaringan Restricted Local Area Network saja. Jika kamu memilih untuk menjalankan Client di cloud, Kamu harus mensetup keamanan kamu sendiri.",
+                    "updated": 1614426920839
+                }
+            ]
         }
     ]
 }

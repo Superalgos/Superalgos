@@ -9,7 +9,8 @@
             {
                 "language": "CN",
                 "text": "Start the Task in Debug mode while running a debug session in your IDE. ",
-                "updated": 1614338791705
+                "updated": 1614338791705,
+                "style": "Definition"
             }
         ]
     },
@@ -61,8 +62,8 @@
         },
         {
             "style": "Text",
-            "text": "Start the needed tasks connected to your indicator (i.e. Exchange Raw Data and Candle Volumes) by hovering over the nodes and click \"Run\".",
-            "updated": 1614332767583
+            "text": "Start the needed tasks connected to your indicator (i.e.: Exchange Raw Data and Candle Volumes) by hovering over the nodes and click \"Run\".",
+            "updated": 1614512004319
         },
         {
             "style": "Png",
@@ -78,13 +79,13 @@
         },
         {
             "style": "Note",
-            "text": "Check your Superalgos terminal to see if everything starts up as planned",
-            "updated": 1614333056827
+            "text": "Check your Superalgos terminal to see if everything starts up as planned.",
+            "updated": 1614512021346
         },
         {
             "style": "Note",
-            "text": "Deleting existing data from your indicator in the..Superalgos/Data-Storage/ folder might speed up the data mining process",
-            "updated": 1614333417020
+            "text": "Deleting existing data from your indicator in the..Superalgos/Data-Storage/ folder might speed up the data mining process.",
+            "updated": 1614512028147
         }
     ]
 }

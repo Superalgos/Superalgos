@@ -3,13 +3,14 @@
     "pageNumber": "2",
     "type": "Debugging - Setting up your IDE",
     "definition": {
-        "text": "Toggling Breakpoints is telling the the program where to slow down - Where we'd like to take control",
-        "updated": 1614264846619,
+        "text": "Toggling Breakpoints is telling the program where to slow down - Where we'd like to take control",
+        "updated": 1614511933639,
         "translations": [
             {
                 "language": "CN",
                 "text": "Toggling Breakpoints is telling the the program where to slow down - Where we'd like to take control.",
-                "updated": 1614338778954
+                "updated": 1614338778954,
+                "style": "Definition"
             }
         ]
     },
@@ -66,7 +67,7 @@
             "text": "This point would be the line that says:"
         },
         {
-            "style": "Text",
+            "style": "Javascript",
             "text": "\"eval(dataBuildingProcedure.loop.procedureJavascriptCode.code)\""
         },
         {

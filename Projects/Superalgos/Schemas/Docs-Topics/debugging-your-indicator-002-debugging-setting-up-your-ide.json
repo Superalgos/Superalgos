@@ -1,0 +1,83 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "2",
+    "type": "Debugging - Setting up your IDE",
+    "definition": {
+        "text": "Toggling Breakpoints is telling the program where to slow down - Where we'd like to take control",
+        "updated": 1614511933639,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Toggling Breakpoints is telling the the program where to slow down - Where we'd like to take control.",
+                "updated": 1614338778954,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Start up your IDE and Add the \"TaskServer\" folder (../Superalgos/TaskServer) to your workspace.",
+            "updated": 1614331592978
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/1_open-folder.png",
+            "updated": 1614329413344
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/2_taskserver-folder.png",
+            "updated": 1614331239911
+        },
+        {
+            "style": "Text",
+            "text": "Also Add the \"Projects\" (../Superalgos/Projects) folder to your workspace.",
+            "updated": 1614331619021
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/3_add-folder.png",
+            "updated": 1614331194799
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/4_projects-folder.png",
+            "updated": 1614331302498
+        },
+        {
+            "style": "Text",
+            "text": "Locate and open the file \"SingleMarketFunctions.js\" (..Superalgos\\Projects\\Superalgos\\TS\\Function-Libraries\\SingleMarketFunctions.js)."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/5_locate-singlemarket-in-tree.png"
+        },
+        {
+            "style": "Text",
+            "text": "Now we will have to find the line in the code where we'd like the process to stop, and show us what's really happening.",
+            "updated": 1614331648050
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/6_find-line-for-breakpoint.png"
+        },
+        {
+            "style": "Text",
+            "text": "This point would be the line that says:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"eval(dataBuildingProcedure.loop.procedureJavascriptCode.code)\""
+        },
+        {
+            "style": "Text",
+            "text": "Insert a breakpoint (F9) at this line."
+        },
+        {
+            "style": "Note",
+            "text": "Using \"CTRL+F\" allows us to find what we search for in the code.",
+            "updated": 1614265550399
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "5",
+    "type": "Debugging - Found something!",
+    "definition": {
+        "text": "Rinse and repeat.",
+        "updated": 1614512264174,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Rinse and repeat.",
+                "updated": 1614338812128,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When you've spotted what may be the cause of the error, stop all processes in the UI, modify the code for your indicator and re-debug your code.",
+            "updated": 1614265041452
+        },
+        {
+            "style": "Note",
+            "text": "Use \"if/else\" statements or assign values to variables that get questionable values and re-test your indicator, ruling out possible causes - one by one.",
+            "updated": 1614512286715
+        }
+    ]
+}

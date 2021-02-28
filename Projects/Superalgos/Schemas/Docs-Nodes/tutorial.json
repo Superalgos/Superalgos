@@ -116,10 +116,6 @@
             "style": "Json",
             "text": "    \"controlDocs\": {\n        \"panel\": \"Open\",\n        \"closeTutorialEditor\": true,\n        \"page\": {\n            \"project\": \"Superalgos\",\n            \"category\": \"Topic\",\n            \"type\": \"Trading System Hierarchy\"\n        }\n    }",
             "updated": 1613842185832
-        },
-        {
-            "style": "Text",
-            "text": "asdf"
         }
     ]
 }

@@ -10,15 +10,13 @@
         "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
         "translations": [
             {
-<<<<<<< HEAD
                 "language": "ID",
                 "text": "Sebelum aku memperlihatkan bagian lain dari menu, ayo kebeberapa hirarki lain seperti Network.",
                 "updated": 1614425404268
-=======
+            },{
                 "language": "ES",
                 "text": "Antes de mostrarte el resto del menú, vamos a echar un vistazo a otra jerarquía: la Network.",
                 "updated": 1613595345116
->>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
             }
         ]
     },
@@ -28,15 +26,13 @@
             "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
             "translations": [
                 {
-<<<<<<< HEAD
                     "language": "ID",
                     "text": "Network merupakan hirarki yang mengatur ruang kendali sistem. Di sinilah kamu bisa mengontrol Data Tasks, Testing Trading Tasks, dan Production Trading Tasks.",
                     "updated": 1614425530127
-=======
+            },{
                     "language": "ES",
                     "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde usted controla sus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
                     "updated": 1613595453982
->>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -45,15 +41,13 @@
             "text": "Expand the hierarchy and take a look inside!",
             "translations": [
                 {
-<<<<<<< HEAD
                     "language": "ID",
                     "text": "Besarkan hirarki ini dan lihat didalamnya!",
                     "updated": 1614425575929
-=======
+            },{
                     "language": "ES",
                     "text": "Amplíe la jerarquía y eche un vistazo al interior.",
                     "updated": 1613595398384
->>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         },
@@ -63,15 +57,13 @@
             "updated": 1611075903071,
             "translations": [
                 {
-<<<<<<< HEAD
                     "language": "ID",
                     "text": "Lihat nodes yang telah yang sudah kuberitahu sebelumnya? Keren! Kita disini untuk memulai pertama kali mengoperasikan data mining. Tapi, aku punya pertanyaan kepadamu: Apakah kamu mengakses Client secara remote ?",
                     "updated": 1614426192898
-=======
+            },{
                     "language": "ES",
                     "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para iniciar tu primera operación de minería de datos. Pero antes de empezar, tengo una pregunta rápida para ti: ¿estás accediendo al Cliente de forma remota?",
                     "updated": 1613595481110
->>>>>>> 6feb21102a21798288ca4a695c443533363dc39b
                 }
             ]
         }

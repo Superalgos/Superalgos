@@ -95,6 +95,23 @@
             "text": "That migh be the reason why it is not starting the debugging session."
         },
         {
+            "style": "Subtitle",
+            "text": "On Linux?"
+        },
+        {
+            "style": "Text",
+            "text": "Users reported that on Linux, you need to adjust the Launch.json file to have this line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"program\": \"${workspaceFolder}/Task.js\"",
+            "updated": 1614609553571
+        },
+        {
+            "style": "Text",
+            "text": "Feel free to try it out."
+        },
+        {
             "style": "Text",
             "text": ""
         },

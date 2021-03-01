@@ -1,0 +1,20 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "5",
+    "type": "Exchange Raw Data - Start Debugging",
+    "definition": {
+        "text": "The procedure to debug this sensor bot is fairly simple. Just run VS Code with your breakpoint set, go to the UI and start the Sensor Bot Task with the menu option DEBUG.",
+        "updated": 1614592297685
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Almost instantaneously you will see that VS Code stops at the breakpoint you set. From there you can go step by step checking any of the variable values. If you let the code to run, you will notice that a single execution will try to fetch all the missing objects since the last time it ran until present time. ",
+            "updated": 1614592493363
+        },
+        {
+            "style": "Text",
+            "text": "When it finishes, the Sensor Bot will go to sleep for 60 seconds and them it will try to do the same stuff again, and again. "
+        }
+    ]
+}

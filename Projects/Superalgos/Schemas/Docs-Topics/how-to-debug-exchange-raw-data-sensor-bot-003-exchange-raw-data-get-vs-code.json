@@ -1,0 +1,16 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "3",
+    "type": "Exchange Raw Data - Get VS Code",
+    "definition": {
+        "text": "In fact you can use any IDE you like, but if you don't have a favorite yet, we recommend you to use VS Code, which is free and open source.",
+        "updated": 1614591577862
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go ahead an install VS Code.",
+            "updated": 1614591630235
+        }
+    ]
+}

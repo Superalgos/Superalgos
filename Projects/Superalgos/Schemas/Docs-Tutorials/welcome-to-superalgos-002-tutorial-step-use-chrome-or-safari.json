@@ -25,7 +25,8 @@
             {
                 "language": "IT",
                 "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser!",
-                "updated": 1614712122833
+                "updated": 1614712122833,
+                "style": "Definition"
             }
         ]
     },
@@ -49,7 +50,8 @@
                 {
                     "language": "IT",
                     "text": "É noto che i vari browsers presentano delle differenze tra loro, e siamo al corrente che alcuni di questi non supportano certe funzionalità. Se sei su Chrome o Safari, clicca Next per proseguire. Altrimenti:",
-                    "updated": 1614712436380
+                    "updated": 1614712436380,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,7 +75,8 @@
                 {
                     "language": "IT",
                     "text": "copia l'URL;",
-                    "updated": 1614712466087
+                    "updated": 1614712466087,
+                    "style": "List"
                 }
             ]
         },
@@ -96,8 +99,9 @@
                 },
                 {
                     "language": "IT",
-                    "text": "chiudi il browser, ma senza chiudere il tutorial",
-                    "updated": 1614712507204
+                    "text": "chiudi il browser, ma senza chiudere il tutorial;",
+                    "updated": 1614717123837,
+                    "style": "List"
                 }
             ]
         },
@@ -120,8 +124,9 @@
                 },
                 {
                     "language": "IT",
-                    "text": " apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
-                    "updated": 1614712585783
+                    "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
+                    "updated": 1614717129520,
+                    "style": "List"
                 }
             ]
         },
@@ -144,7 +149,8 @@
                 {
                     "language": "IT",
                     "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers!",
-                    "updated": 1614712645613
+                    "updated": 1614712645613,
+                    "style": "Warning"
                 }
             ]
         }

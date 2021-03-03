@@ -18,7 +18,7 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
 
-**Raspberry Pi Users:** From the SSH Terminal, send the following commands to install Node. ::NOTE:: It is best to use the most current and updated version of the FULL PiOS image.
+**NOTE FOR RASPBERRY PI USERS:** From the SSH Terminal, send the following commands to install Node. **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 ```
@@ -51,7 +51,7 @@ Git is an open-source distributed version control system required to download an
 
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
-**Raspberry Pi Users:**
+**NOTE FOR RASPBERRY PI USERS:**
 send the SSH Terminal command to install git. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
 ```
 sudo apt-get install git
@@ -73,7 +73,7 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 **1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it.
 
-**NOTE:** A Fork is required for your contributions to the project. Superalgos will soon be moving into a new phase of development by incentivizing contributions. Incentives will be retroactive. The earlier in the life of the project you start contributing, the juicier your incentives will be, as the impact of contributions in a Community-driven project is clearly a function of time. This is an open invitation for you to become a vested member of the community!
+**NOTE:** A Fork is required for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a <a href="https://superalgos.org/community-business.shtml" target="_blank">Collective Business</a> in which all users may participate. The way to participate is to <a href="https://superalgos.org/community-contribute.shtml" target="_blank">contribute</a> to make Superalgos better. The project's <a href="https://superalgos.org/token-overview.shtml" target="_blank">token</a> is distributed among contributors.
 
 **2.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
@@ -339,7 +339,7 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 # Contributing
 
-Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://superalgos.org/community-contribute.shtml).
+Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
 
 ## Top Contributors
 

@@ -30,7 +30,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
     let rateLimit = 500
     let exchange
     let uiStartDate = new Date(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate)
-    let fisrtTimeThisProcessRun = false
+    let firstTimeThisProcessRun = false
     let limit = 1000 // This is the default value
     let hostname
     let lastCandleOfTheDay
@@ -48,7 +48,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
                 /*
-                The config all ow us to define for the API different parameters for different
+                The config allow us to define for the API different parameters for different
                 methods calls. At this point we are only interested of the parameters for the
                 fetch_ohlcv method, so we ignore the rest.
                 */
@@ -176,7 +176,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         lastId = thisReport.file.lastId
                         lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
                     } else {  // This means this is the first time this process run.
-                        fisrtTimeThisProcessRun = true
+                        firstTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                     }
 
@@ -191,7 +191,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
                             since = uiStartDate.valueOf()
                             initialProcessTimestamp = since
-                            fisrtTimeThisProcessRun = true
+                            firstTimeThisProcessRun = true
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
                             if (lastFile !== undefined) {
@@ -310,20 +310,20 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getOHLCVs -> OHLCVs Fetched = " + OHLCVs.length)
                         if (OHLCVs.length > 0) {
-                            let beginDate = new Date(OHLCVs[0].timestamp)
-                            let endDate = new Date(OHLCVs[OHLCVs.length - 1].timestamp)
+                            let beginDate = new Date(OHLCVs[0][0])
+                            let endDate = new Date(OHLCVs[OHLCVs.length - 1][0])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0].timestamp)
+                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0][0])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1].timestamp)
+                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1][0])
 
-                            if (fisrtTimeThisProcessRun === true) {
+                            if (firstTimeThisProcessRun === true) {
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
                                 beginingOfMarket = new Date(Math.trunc(OHLCV[0] / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)  // 'timestamp'
                                 fromDate = new Date(beginingOfMarket.valueOf())
-                                fisrtTimeThisProcessRun = false
+                                firstTimeThisProcessRun = false
                             }
                         }
 
@@ -331,7 +331,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             previousSince = since
                             since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
-                                since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
+                                since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched come with exactly the same timestamp.
                             }
 
 

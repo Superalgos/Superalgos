@@ -4,6 +4,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
     const MODULE_NAME = "Historic OHLCVs";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";
     const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
+    const OHLCVS_FOLDER_NAME = "OHLCVs/One-Min";
 
     thisObject = {
         initialize: initialize,
@@ -30,7 +31,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
     let rateLimit = 500
     let exchange
     let uiStartDate = new Date(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config.startDate)
-    let fisrtTimeThisProcessRun = false
+    let firstTimeThisProcessRun = false
     let limit = 1000 // This is the default value
     let hostname
     let lastCandleOfTheDay
@@ -48,8 +49,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             /* Applying the parameters defined by the user at the Exchange Node Config */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API !== undefined) {
                 /*
-                The config all ow us to define for the API different parameters for different
-                methods calls. At this point we are only interested of the parameters for the
+                The config allows us to define for the API different parameters for different
+                methods calls. At this point we are only interested in the parameters for the
                 fetch_ohlcv method, so we ignore the rest.
                 */
                 for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.API.length; i++) {
@@ -155,7 +156,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             function getContextVariables() {
 
                 try {
-                    let reportKey;
+                    let reportKey
+                    let mustLoadRawData = false
 
                     reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -170,13 +172,13 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process run.
+                    if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process has run.
                         beginingOfMarket = new Date(thisReport.file.beginingOfMarket.year + "-" + thisReport.file.beginingOfMarket.month + "-" + thisReport.file.beginingOfMarket.days + " " + thisReport.file.beginingOfMarket.hours + ":" + thisReport.file.beginingOfMarket.minutes + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                         lastFile = new Date(thisReport.file.lastFile.year + "-" + thisReport.file.lastFile.month + "-" + thisReport.file.lastFile.days + " " + thisReport.file.lastFile.hours + ":" + thisReport.file.lastFile.minutes + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                         lastId = thisReport.file.lastId
                         lastCandleOfTheDay = thisReport.file.lastCandleOfTheDay
-                    } else {  // This means this is the first time this process run.
-                        fisrtTimeThisProcessRun = true
+                    } else {  // This means this is the first time this process has run.
+                        firstTimeThisProcessRun = true
                         beginingOfMarket = new Date(uiStartDate.valueOf())
                     }
 
@@ -187,23 +189,87 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         } else {
                             thisReport.file.uiStartDate = new Date(thisReport.file.uiStartDate)
                         }
-
                         if (uiStartDate.valueOf() !== thisReport.file.uiStartDate.valueOf()) {
                             since = uiStartDate.valueOf()
                             initialProcessTimestamp = since
-                            fisrtTimeThisProcessRun = true
+                            firstTimeThisProcessRun = true
                             beginingOfMarket = new Date(uiStartDate.valueOf())
                         } else {
                             if (lastFile !== undefined) {
                                 since = lastFile.valueOf()
                                 initialProcessTimestamp = lastFile.valueOf()
+                                if (thisReport.file.mustLoadRawData !== undefined) {
+                                    mustLoadRawData = thisReport.file.mustLoadRawData
+                                }
                             } else {
                                 since = uiStartDate.valueOf()
                                 initialProcessTimestamp = uiStartDate.valueOf()
                             }
                         }
-                    }
+                        if (mustLoadRawData) {  // there is raw data to load
+                            getRawDataArray()   // so fetch it from the file wehere it was saved on the last run of this process
+                        }
+                        function getRawDataArray() {
+                            mustLoadRawData = false
+                            let lastFileTimestamp = lastFile.valueOf()
+                            let currentTimestamp = new Date().valueOf()
+                            let fileName = "Data.json"
+                            let datetime = new Date(lastFile.valueOf())
+                            let dateForPath = datetime.getUTCFullYear() + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCMonth() + 1, 2) + '/' +
+                                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(datetime.getUTCDate(), 2)
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + OHLCVS_FOLDER_NAME + '/' + dateForPath;
+                            let fullFileName = filePath + '/' + fileName
+                            fileStorage.getTextFile(fullFileName, onFileReceived)
 
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[INFO] start -> getRawDataArray -> from file = " + fullFileName)
+
+                            function onFileReceived(err, text) {
+                                try {
+                                    if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                        try {
+                                            rawDataArray = JSON.parse(text);
+                                            let dataLength = rawDataArray.length
+                                            if (dataLength > 1) {
+                                                let lastData = rawDataArray[dataLength - 1]
+                                                let lastTimeStamp = lastData[0]
+                                                rawDataArray.pop()  // ditch the last ohlcv since it may be incomplete
+                                                dataLength = rawDataArray.length
+                                                since = lastTimeStamp  // we will now start again from the last ohlvc we had (instead of the beginning of the day)
+                                            } else {
+                                                rawDataArrayFile = []  // we got less than two ohlcvs so we might as well start again from the beginning of the day
+                                            }
+                                        } catch (err) {
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                            return
+                                        }
+                                    } else {
+                                        if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> File not found -> err = " + err.stack)
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> getRawDataArray -> onFileReceived -> Falling back to default start with empty rawDataArray.");
+                                            return
+                                        } else {
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[ERROR] start -> getRawDataArray -> onFileReceived -> Error Received -> err = " + err.stack)
+                                            callBackFunction(err);
+                                            return
+                                        }
+                                    }
+                                } catch (err) {
+                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> getRawDataArray -> onFileReceived -> err = " + err.stack);
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                                }
+                            }
+                        }
+                    }    
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -310,20 +376,20 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getOHLCVs -> OHLCVs Fetched = " + OHLCVs.length)
                         if (OHLCVs.length > 0) {
-                            let beginDate = new Date(OHLCVs[0].timestamp)
-                            let endDate = new Date(OHLCVs[OHLCVs.length - 1].timestamp)
+                            let beginDate = new Date(OHLCVs[0][0])
+                            let endDate = new Date(OHLCVs[OHLCVs.length - 1][0])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0].timestamp)
+                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched From " + beginDate + " -> timestamp = " + OHLCVs[0][0])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1].timestamp)
+                                "[INFO] start -> getOHLCVs -> OHLCVs Fetched to " + endDate + " -> timestamp = " + OHLCVs[OHLCVs.length - 1][0])
 
-                            if (fisrtTimeThisProcessRun === true) {
+                            if (firstTimeThisProcessRun === true) {
                                 let OHLCV = OHLCVs[0]
 
                                 initialProcessTimestamp = OHLCV[0]  // 'timestamp'
                                 beginingOfMarket = new Date(Math.trunc(OHLCV[0] / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)  // 'timestamp'
                                 fromDate = new Date(beginingOfMarket.valueOf())
-                                fisrtTimeThisProcessRun = false
+                                firstTimeThisProcessRun = false
                             }
                         }
 
@@ -331,7 +397,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             previousSince = since
                             since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
-                                since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched comes with exactly the same timestamp.
+                                since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched come with exactly the same timestamp.
                             }
 
 
@@ -389,13 +455,13 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
             async function saveOHLCVs() {
                 /* 
                 What we are going to do in this function is to save all the candles 
-                received from the exchage. We need to partition the batch of candles
+                received from the exchange. We need to partition the batch of candles
                 into 1 day files. At the same time we need to take care of the situation
                 that some exchanges send inconsitent data. We have detected some cases
                 where candles do not begin at second 0 of the minute but are a little
-                bit shifted. We will try to detectthis and fix it as we go. 
+                bit shifted. We will try to detect this and fix it as we go. 
 
-                We have the data received from the exchage at the arrary rawDataArray
+                We have the data received from the exchange at the arrary rawDataArray
                 */
                 try {
 
@@ -448,10 +514,10 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         let filesCreated = 0
 
                         /* 
-                        We will loop aroud all the possible 1 minute candles that be found
+                        We will loop around all the possible 1 minute candles that have been found
                         on a single day. For each minute of the day, we will try to find
                         the matching OHLCV. This would be an easy task if the exchanges 
-                        would allways return consistent data, but that is not the case.
+                        would always return consistent data, but that is not the case.
                         Sometimes, some candles are missing. We have seen also candles that
                         do not start at an UTC minute, they are shifted in time some seconds. 
                         In order to address all these inconsistencies the process gets a little 
@@ -463,7 +529,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             We initialize our candle and volume objecs positioning them
                             at the current minute of the day of the current day. We also
                             initialize them with the last candle and volume property values.
-                            The reason we do this last thing is because we don't knwo if 
+                            The reason we do this last thing is because we don't know if 
                             we are going to find or not a matching OHLCV. If we do find one
                             these property values will be overwritten, and if not, they will 
                             hold at least the last know value.
@@ -512,13 +578,13 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 */
                                 logAndHeartBeat()
 
-                                /* We exit the loop and we aint comming back*/
+                                /* We exit the loop and we ain't coming back*/
                                 return
                             }
 
                             /* 
                              We initialize here the OHLCV object. These initial 
-                             values should be overrided unless there are no 
+                             values should be overridden unless there are no 
                              OHLVCs fetched from the exchange. We need the 
                              timestamp in order to calculate OHLCVMinute.
                             */
@@ -672,7 +738,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             }
 
                             function logAndHeartBeat() {
-                                /* We need thi processing date for logging purposes only */
+                                /* We need the processing date for logging purposes only */
                                 let processingDate = new Date(candle.begin)
                                 processingDate =
                                     processingDate.getUTCFullYear() + '-' +
@@ -703,6 +769,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         function saveFile(day) {
                             candlesFileContent = candlesFileContent + ']'
                             volumesFileContent = volumesFileContent + ']'
+                            ohlcvsFileContent = getRawDataToSave(day)
 
                             let fileName = 'Data.json'
 
@@ -712,16 +779,59 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             filesToCreate++
                             fileStorage.createTextFile(getFilePath(day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS, VOLUMES_FOLDER_NAME) + '/' + fileName, volumesFileContent + '\n', onFileCreated);
 
+                            if (ohlcvsFileContent !== undefined) {
+                                filesToCreate++
+                                fileStorage.createTextFile(getFilePath(day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS, OHLCVS_FOLDER_NAME) + '/' + fileName, ohlcvsFileContent + '\n', onFileCreated);
+                                mustLoadRawData = true
+                            }
+
                             candlesFileContent = '['
                             volumesFileContent = '['
                             needSeparator = false
+                        }
+
+                        function getRawDataToSave(day) {
+                            /*
+                            What we are doing here is determining whether the currently accumulated raw OHCLV's should be saved or not,
+                            so that the next time the bot process runs, it must continue from where the raw OHLCV's ended.
+                            If the current end of the array contains elements beyond the day being processed, it means that the full
+                            day has been successfully downloaded, so it is not necessary to save this data.
+                            */
+                            let rawDataFileData
+                            let dataLength = rawDataArray.length
+                            let thisDay = new Date(day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                            if (dataLength > 0) {
+                                // first get the start of the day after this day we are checking
+                                let timestamp = (day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
+                                                TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                                if (rawDataArray[dataLength - 1][0] < timestamp) {
+                                    // there is no data for the next day, so now trim this day's data to remove anything before it
+                                    timestamp -= TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                                    let dataIndex = 0
+                                    while (dataIndex < dataLength - 1) {
+                                        if (rawDataArray[dataIndex][0] < timestamp) {  // this data is from a previous day
+                                            dataIndex++
+                                        } else {
+                                            break  // found the beginning of this day's data
+                                        }
+                                    }
+                                    if (dataIndex > 0) {
+                                        rawDataArray = rawDataArray.slice(dataIndex, dataLength)  // remove data from previous days
+                                        dataLength = rawDataArray.length
+                                    }
+                                    if (dataLength > 0) {
+                                        rawDataFileData = JSON.stringify(rawDataArray)  // finally we have what we need to save
+                                    }
+                                }
+                            }
+                            return rawDataFileData
                         }
 
                         function onFileCreated(err) {
                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[ERROR] start -> OHLCVsReadyToBeSaved -> onFileBCreated -> err = " + JSON.stringify(err));
-                                error = err // This allows the loop to be breaked.
+                                error = err // This allows the loop to be broken.
                                 return;
                             }
                             filesCreated++
@@ -826,7 +936,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             minutes: beginingOfMarket.getUTCMinutes()
                         },
                         uiStartDate: uiStartDate.toUTCString(),
-                        lastCandleOfTheDay: lastCandleOfTheDay
+                        lastCandleOfTheDay: lastCandleOfTheDay,
+                        mustLoadRawData: mustLoadRawData
                     };
 
                     if (fetchType === "by Id") {

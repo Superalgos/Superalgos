@@ -1,0 +1,77 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": "2",
+    "type": "Automating Actions - Adding a Menu Item",
+    "definition": {
+        "text": "You need to add a new Menu Item at the node definition at the App Schema.",
+        "updated": 1614788860135
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Check out the page of the App Schema concept. After that, locate the App Schema file of the Projects folder. There is one App Schema file for Project, pick the right one and edit it with VS Code.",
+            "updated": 1614788974626
+        },
+        {
+            "style": "Warning",
+            "text": "Be carefull not to damage anything in there while editing. You will get into trouble if you do so. It can not only produce the UI not to load, but it can also damage the workspace you are working at.",
+            "updated": 1614789073656
+        },
+        {
+            "style": "Text",
+            "text": "Locate inside the file, the definition of the Node Type you want to add the new Action to. Once localted add a menu item object to the menuItems array, like in the following example:",
+            "updated": 1614789152442
+        },
+        {
+            "style": "Json",
+            "text": "{\n                \"action\": \"Add UI Object\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Image\",\n                \"relatedUiObject\": \"Image\"\n            }",
+            "updated": 1614789262250
+        },
+        {
+            "style": "Text",
+            "text": "The example above is most likely what you need to add. For completeness, this is the list of properties this object can have:",
+            "updated": 1614789977840
+        },
+        {
+            "style": "List",
+            "text": "action: define a name for your action. Capitalize each first letter please."
+        },
+        {
+            "style": "List",
+            "text": "actionFunction: use the standard \"payload.executeAction\" unless you are familiar with the system and would like to do some custom stuff."
+        },
+        {
+            "style": "List",
+            "text": "label: this is what is going to be read by the user at the Node's menu."
+        },
+        {
+            "style": "List",
+            "text": "relatedUiObject: optional. You can define here a Node Type. The system will use for the Menu Item icon, the image associated to the Node Type you define here."
+        },
+        {
+            "style": "List",
+            "text": "askConfirmation: true if you want the user to confirm with an extra click."
+        },
+        {
+            "style": "List",
+            "text": "confirmationLabel: the text the user will read when asked to confirm."
+        },
+        {
+            "style": "List",
+            "text": "iconPathOn: the name of the image to render when this Menu Item is ON (in cases that works as a toggle)"
+        },
+        {
+            "style": "List",
+            "text": "iconPathOff: the name of the image to render when this Menu Item is OFF (in cases that works as a toggle)"
+        },
+        {
+            "style": "List",
+            "text": "disableIfPropertyIsDefined: true when you want the Menu Item to be disabled if a certain property of the Node object is defined at runtime. This is used in conbination with the property propertyToCheckFor in the special situation that the Menu Item is used to create a child for this Node that is not part of a array of children and there can only be one child of that type.",
+            "updated": 1614789912636
+        },
+        {
+            "style": "List",
+            "text": "propertyToCheckFor: read the previous property."
+        }
+    ]
+}

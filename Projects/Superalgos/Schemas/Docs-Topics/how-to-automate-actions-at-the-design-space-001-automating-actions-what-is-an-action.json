@@ -1,0 +1,36 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": "1",
+    "type": "Automating Actions - What is an Action?",
+    "definition": {
+        "text": "An Action is what is executed when users picks something from the menu of a Node.",
+        "updated": 1614788525702
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These actions are implemented as functions inside a Function Library. So the basic workflow to implement a new action is the following:",
+            "updated": 1614788734425
+        },
+        {
+            "style": "List",
+            "text": "Add Menu Item: First you need to add a Menu Item for the node type that will allow the user to execute your action.",
+            "updated": 1614790023220
+        },
+        {
+            "style": "List",
+            "text": "Locate Function Library: Then you will need to locate the Function Library that is better suited to host the function that is going to be executed once the action is triggered.",
+            "updated": 1614790037292
+        },
+        {
+            "style": "List",
+            "text": "Add your Code: Then you will write the code for that function.",
+            "updated": 1614790047291
+        },
+        {
+            "style": "List",
+            "text": "Connect Menu Item to your Code: Finally you will connect the Menu Item to that function.",
+            "updated": 1614790060302
+        }
+    ]
+}

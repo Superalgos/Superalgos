@@ -444,8 +444,13 @@
         },
         {
             "style": "Text",
-            "text": "In the case of the Superalgos project, SVG source files are organized in subfolders, as follows:",
-            "updated": 1613730944769
+            "text": "In the case of the Superalgos project, SVG source files are organized in subfolders, under the following directory:",
+            "updated": 1614854522604
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\Superalgos\\Icons-SVG-Sources\\",
+            "updated": 1614854467481
         },
         {
             "style": "Table",

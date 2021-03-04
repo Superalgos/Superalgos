@@ -9,7 +9,13 @@
             {
                 "language": "ID",
                 "text": "Perintah docs.save telah selesai dan setiap perubahan telah tersimpan di Client Superalgos.",
-                "updated": 1613861161653
+                "updated": 1613861161653,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "L'istruzione docs.save é stata eseguita con successo e tutte le modifiche sono state salvate sul Client.",
+                "updated": 1614711069063
             }
         ]
     },
@@ -22,7 +28,13 @@
                 {
                     "language": "ID",
                     "text": "Setiap perubahan dari halaman node, concept, topic, tutorial, review, dan book sudah tersimpan kedalam perangkat.",
-                    "updated": 1613861219116
+                    "updated": 1613861219116,
+                    "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Tutte le ultime modifiche a nodi, concetti, argomenti, tutorial, recensioni e pagine sono state salvate su disco.",
+                    "updated": 1614713472019
                 }
             ]
         }

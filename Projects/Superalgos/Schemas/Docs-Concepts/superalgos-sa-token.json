@@ -1,0 +1,49 @@
+{
+    "type": "Superalgos SA Token",
+    "definition": {
+        "text": "It is an Ethereum ERC20 token that will be used as the medium of exchange by Superalgos users while paying for products or services they buy and sell to each other.",
+        "updated": 1614853448838
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1614853617940
+        },
+        {
+            "style": "Text",
+            "text": "The SA Token has the following properties:"
+        },
+        {
+            "style": "List",
+            "text": "Name: Superalgos"
+        },
+        {
+            "style": "List",
+            "text": "Ticker: SA"
+        },
+        {
+            "style": "List",
+            "text": "Max Total Supply: 1,500,000,000"
+        },
+        {
+            "style": "List",
+            "text": "Contract Address: 0x4b1cab076C791b0e24a8560B7Ab4BF6b4C0652F0"
+        },
+        {
+            "style": "Title",
+            "text": "Distribution",
+            "updated": 1614853604174
+        },
+        {
+            "style": "Text",
+            "text": "After issuing the token in March 2021, the funds were deposited at the project's Treasury Account, from where it is distributed to each year's Budget Account, each Release Account and finally to contributors accounts.",
+            "updated": 1614853686491
+        },
+        {
+            "style": "List",
+            "text": "Treasury Account: 0x176E32e3f1b6D218CBf920e7852Bd13207A62711",
+            "updated": 1614853653856
+        }
+    ]
+}

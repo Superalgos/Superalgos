@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "mouse-pointer"
         },
-        "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries..."
+        "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Lo so, zoommare su un punto a caso difficilmente farà sì che il grafico si adatti al tuo schermo, vero? No problem...",
+                "updated": 1614893061080
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I'll show you how to get into a chart so that everything fits nicely. First, use the Ctrl + Shift + Key-A keys to adjust the aspect ratio to fit your screen. Then, zoom out fully with your mouse. From this position...",
-            "updated": 1610134957920
+            "updated": 1610134957920,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti mostro come entrare in un grafico lasciando tutto in ordine. Usa Ctrl + Shift + Key-A per adattarlo all'aspect ratio del tuo schermo. Poi, zoomma all'indietro con il mouse. Da qui...",
+                    "updated": 1614893079786
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Double-click on the time machine on top! Twice!"
+            "text": "Double-click on the time machine on top! Twice!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai doppio click sulla Time Machine in cima! Due volte!",
+                    "updated": 1614893194631
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first double-click centers the chart, and takes you to a certain level of zoom; some margin is left to fit the name of the chart and the tab on the top-left corner. The second double-click takes you all the way in, to the zoom level on which layer managers emerge."
+            "text": "The first double-click centers the chart, and takes you to a certain level of zoom; some margin is left to fit the name of the chart and the tab on the top-left corner. The second double-click takes you all the way in, to the zoom level on which layer managers emerge.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il primo doppio click centra il grafico e lo zoomma, lasciando un po' di margine per mostrare il nome e la tab in alto a sinistra. Il secondo doppio-click ti trasporta al suo interno, al livello di zoom dove emergono i layer managers.",
+                    "updated": 1614893166373
+                }
+            ]
         }
     ]
 }

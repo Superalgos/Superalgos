@@ -105,7 +105,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         }
                         if (API.useFetchTradesForFetchOHLCVs !== undefined) {
                             useFetchTradesForFetchOHLCVs = API.useFetchTradesForFetchOHLCVs
-                            if (API.maxExchangeTrades !== undefined) {
+                            if (API.maxTradesPerFetch !== undefined) {
                                 maxTradesPerFetch = API.maxTradesPerFetch
                             }
                         }

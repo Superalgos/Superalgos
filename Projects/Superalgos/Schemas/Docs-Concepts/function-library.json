@@ -1,0 +1,31 @@
+{
+    "type": "Function Library",
+    "definition": {
+        "text": "It is a collection of functions related to a single topic. The topic is usuarlly expressed at the Function Libray's name.",
+        "updated": 1614787845534
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each integrated project might have Function Libraries at the 3 different levels possible: Client, TS, and UI. In the case of Superalgos, at the UI it features, for instance, these Function Libraries:",
+            "updated": 1614788012945
+        },
+        {
+            "style": "List",
+            "text": "Charting Space Functions"
+        },
+        {
+            "style": "List",
+            "text": "Crypto Ecosystem Functions"
+        },
+        {
+            "style": "List",
+            "text": "Plugins Functions",
+            "updated": 1614788024303
+        },
+        {
+            "style": "Note",
+            "text": "Function Libraries are stateless by definition. "
+        }
+    ]
+}

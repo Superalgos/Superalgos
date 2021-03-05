@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "mouse-wheel-up"
         },
-        "text": "It's time to dive into a Time Machine and see what happens! Are you ready for a full-on immersive experience?"
+        "text": "It's time to dive into a Time Machine and see what happens! Are you ready for a full-on immersive experience?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "È il momento di tuffarci in una Time Machine e vedere che succede! Sei pronto per questa esperienza?",
+                "updated": 1614892693632
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The charting space is like the Google Maps of market charts. As you already know, you left-click and drag to move around the landscape... but, how do you zoom in to see the details?"
+            "text": "The charting space is like the Google Maps of market charts. As you already know, you left-click and drag to move around the landscape... but, how do you zoom in to see the details?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Charting Space è un po'come il Google Maps dei grafici di mercato. Come sai già, si clicca e si trascina per spostarsi al suo interno...ma come si zoomma per vedere i dettagli?",
+                    "updated": 1614892771662
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "With the wheel of the mouse! Try it!"
+            "text": "With the wheel of the mouse! Try it!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Con la rotella del mouse! Provaci!",
+                    "updated": 1614892781701
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Exactly! Just like in Google Maps! Point the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
-            "updated": 1610622413974
+            "updated": 1610622413974,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esatto! Proprio come su Google Maps! Posiziona il mouse su un'area di interesse e gira la rotella in avanti per aumentare lo zoom, e all'indietro per diminuirlo!",
+                    "updated": 1614892836540
+                }
+            ]
         }
     ]
 }

@@ -21,20 +21,9 @@
             "text": "For example, in the open stage, you probably defined the target size as a function of the capital allocated to the trading system. In the close stage, you will likely want to define the target size as a function of the size filled, that is, the amount of the orders placed that was filled during the open stage."
         },
         {
-            "style": "Subtitle",
-            "text": "The Stage Does Not Close"
-        },
-        {
-            "style": "Text",
-            "text": "One common issue users have while dealing with stages is that they do not get closed after their orders get filled. This usually happens because there are several adjustments on rate that happens during trading, specially if trading live. The reason a Stage does not get closed automatically is because the total filled for the whole stage is not close enough to the Stage Target Size defined by users. In order to avoid this situation there is a configurable factor that can be applied to the stage filled at runtime in order to force it to reach the Stage Target Size. The default value for this factor is:"
-        },
-        {
-            "style": "Json",
-            "text": " const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001"
-        },
-        {
-            "style": "Text",
-            "text": "This value is overwritted by whatever users config at the Stage node under the roundingErrorCorrectionFactor property."
+            "style": "Include",
+            "text": "Superalgos->Topic->Why My Stage is not Closing?->The Stage Does Not Close",
+            "updated": 1615054694042
         }
     ]
 }

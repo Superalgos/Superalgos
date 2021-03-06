@@ -3,7 +3,7 @@ services:
   superalgos:
     build: 
       context: ..
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./Docker/Dockerfile
     image: superalgos
     command: ["minMemo"]
     ports:

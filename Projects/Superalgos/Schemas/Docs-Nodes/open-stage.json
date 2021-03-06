@@ -35,6 +35,25 @@
         {
             "style": "List",
             "text": "the take profit or stop loss targets are hit."
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Stage Does Not Close"
+        },
+        {
+            "style": "Text",
+            "text": "One common issue users have while dealing with stages is that they do not get closed after their orders get filled. This usually happens because there are several adjustments on rate that happens during trading, specially if trading live. The reason a Stage does not get closed automatically is because the total filled for the whole stage is not close enough to the Stage Target Size defined by users. In order to avoid this situation there is a configurable factor that can be applied to the stage filled at runtime in order to force it to reach the Stage Target Size. The default value for this factor is:",
+            "updated": 1615031649791
+        },
+        {
+            "style": "Json",
+            "text": "const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001",
+            "updated": 1615031657820
+        },
+        {
+            "style": "Text",
+            "text": "This value is overwritted by whatever users config at the Stage node under the roundingErrorCorrectionFactor property.",
+            "updated": 1615031668876
         }
     ]
 }

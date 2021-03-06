@@ -955,7 +955,13 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         reach the target size, so we introduce a rounding factor so that when it is close 
         enough we will consider the target to have been reached. 
         */
-        const ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
+        let ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
+        /*
+        Overwrite the default with the config at the Stage node, if exists.
+        */
+        if (tradingSystemStage.config.roundingErrorCorrectionFactor !== undefined) {
+            ROUNDING_ERROR_CORRECTION_FACTOR = tradingSystemStage.config.roundingErrorCorrectionFactor
+        }
 
         switch (tradingEngineStage.stageDefinedIn.value) {
             case 'Base Asset': {

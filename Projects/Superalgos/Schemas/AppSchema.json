@@ -13105,7 +13105,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01 \n}"
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
         },
         "editors": {
             "config": true
@@ -14380,7 +14380,7 @@
             }
         ],
         "initialValues": {
-            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01 \n}"
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
         },
         "editors": {
             "config": true

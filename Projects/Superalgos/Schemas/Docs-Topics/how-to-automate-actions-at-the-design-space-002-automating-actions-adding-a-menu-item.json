@@ -1,26 +1,39 @@
 {
     "topic": "How to Automate Actions at The Design Space",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Automating Actions - Adding a Menu Item",
     "definition": {
-        "text": "You need to add a new Menu Item at the node definition at the App Schema.",
-        "updated": 1614788860135
+        "text": "You need to add a new Menu Item at the node definition at the App Schema. ",
+        "updated": 1614941725823
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Locate App Schema",
+            "updated": 1614927344633
+        },
+        {
             "style": "Text",
-            "text": "Check out the page of the App Schema concept. After that, locate the App Schema file of the Projects folder. There is one App Schema file for Project, pick the right one and edit it with VS Code.",
-            "updated": 1614788974626
+            "text": "Check out the page of the App Schema concept. After that, locate the App Schema file you will need to edit at the Projects folder. There is one App Schema file for Project, pick the right one and edit it with VS Code."
         },
         {
             "style": "Warning",
-            "text": "Be carefull not to damage anything in there while editing. You will get into trouble if you do so. It can not only produce the UI not to load, but it can also damage the workspace you are working at.",
-            "updated": 1614789073656
+            "text": "Be carefull not to damage anything in the App Schema file while editing it. You will get into trouble if you do so. It can not only produce the UI not to load, but it can also damage the workspace you are working at.",
+            "updated": 1614940590024
+        },
+        {
+            "style": "Success",
+            "text": "If you are not sure which project a certain node belongs to, there is a trick to find it out: close the Docs tab, and make focus on the node you want to add an Action to. While on focus, use Ctrl + Shift + Alt + F12 to log in the browser console the Node object. Inspect it to see the project property. Most likely it will be a Superalgos project's node.",
+            "updated": 1614940654950
+        },
+        {
+            "style": "Title",
+            "text": "Add Menu Item",
+            "updated": 1614927443573
         },
         {
             "style": "Text",
-            "text": "Locate inside the file, the definition of the Node Type you want to add the new Action to. Once localted add a menu item object to the menuItems array, like in the following example:",
-            "updated": 1614789152442
+            "text": "Locate inside the file, the definition of the Node Type you want to add the new Action to. Once localted add a menu item object to the menuItems array, like in the following example:"
         },
         {
             "style": "Json",
@@ -29,12 +42,13 @@
         },
         {
             "style": "Text",
-            "text": "The example above is most likely what you need to add. For completeness, this is the list of properties this object can have:",
-            "updated": 1614789977840
+            "text": "The example above is most likely what you need to add, except that you will need to type the right values for each of those 4 properties. For completeness, this is the list of properties this object can have:",
+            "updated": 1614940732785
         },
         {
             "style": "List",
-            "text": "action: define a name for your action. Capitalize each first letter please."
+            "text": "action: define a name for your action. Capitalize each first letter please. This won't be seen by users.",
+            "updated": 1614927479016
         },
         {
             "style": "List",
@@ -42,19 +56,23 @@
         },
         {
             "style": "List",
-            "text": "label: this is what is going to be read by the user at the Node's menu."
+            "text": "label: this is what is going to be read by users at the Node's menu.",
+            "updated": 1614927503634
         },
         {
             "style": "List",
-            "text": "relatedUiObject: optional. You can define here a Node Type. The system will use for the Menu Item icon, the image associated to the Node Type you define here."
+            "text": "relatedUiObject: optional. You can define here a Node Type. The system will use for the Menu Item icon the image associated to the Node Type you define here.",
+            "updated": 1614927562326
         },
         {
             "style": "List",
-            "text": "askConfirmation: true if you want the user to confirm with an extra click."
+            "text": "askConfirmation: true if you want users to confirm with an extra click.",
+            "updated": 1614927580831
         },
         {
             "style": "List",
-            "text": "confirmationLabel: the text the user will read when asked to confirm."
+            "text": "confirmationLabel: the text users will read when asked to confirm.",
+            "updated": 1614927596195
         },
         {
             "style": "List",

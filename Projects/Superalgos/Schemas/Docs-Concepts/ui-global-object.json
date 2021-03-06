@@ -1,9 +1,8 @@
 {
-    "topic": "How to Automate Actions at The Design Space",
-    "pageNumber": "4",
-    "type": "Automating Actions - Locating the Right Function Library",
+    "type": "UI Global Object",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "It is a global object available at the browser, containing at runtime a structure of objects ranging from Utilities, Function Libraries, Spaces and others, ready to be accessed and their functions consumed from anywhere within the UI.",
+        "updated": 1614941411500
     },
     "paragraphs": [
         {

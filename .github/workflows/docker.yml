@@ -10,12 +10,16 @@ jobs:
     name: Publish Image
     runs-on: ubuntu-latest
     steps:
+    - id: repository
+        uses: ASzc/change-string-case-action@v1
+        with:
+          string: "${{ github.repository }}/${{ github.event.repository.name }}" 
     - uses: actions/checkout@v2
     - name: Preparation
       id: prep
       run: |
         REGISTRY="docker.pkg.github.com"
-        IMAGE="${REGISTRY}/${{ github.repository }}/${{ github.event.repository.name }}"
+        IMAGE="${REGISTRY}/${{ steps.string.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }}"
         if [[ $GITHUB_REF == ref/head/master ]]; then
           TAGS="${TAGS},${IMAGE}:latest"

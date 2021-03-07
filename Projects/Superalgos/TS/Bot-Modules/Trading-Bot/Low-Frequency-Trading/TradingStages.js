@@ -410,7 +410,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
-                Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+                Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
                 the Manage Stage as closed.
                 */
                 if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage === undefined) {
@@ -979,7 +979,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             case 'Base Asset': {
                 if (
                     tradingEngineStage.stageBaseAsset.sizeFilled.value
-                    * 
+                    *
                     ROUNDING_ERROR_CORRECTION_FACTOR
                     +
                     ABSOLUTE_DUST_IN_BASE_ASSET
@@ -995,7 +995,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             case 'Quoted Asset': {
                 if (
                     tradingEngineStage.stageQuotedAsset.sizeFilled.value
-                    * 
+                    *
                     ROUNDING_ERROR_CORRECTION_FACTOR
                     +
                     ABSOLUTE_DUST_IN_QUOTED_ASSET

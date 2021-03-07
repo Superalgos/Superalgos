@@ -18,6 +18,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           registry: docker.pkg.github.com
-          repository: ${{ secrets.GITHUB_REPOSITORY }}/superalgos
+          repository: $GITHUB_REPOSITORY/superalgos
           tag_with_ref: true
 

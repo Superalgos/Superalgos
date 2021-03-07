@@ -13076,6 +13076,13 @@
         "type": "Open Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Open Stage",
@@ -13097,6 +13104,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 1,
         "attachingRules": {
@@ -14338,6 +14351,13 @@
         "type": "Close Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Close Stage",
@@ -14359,6 +14379,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 2,
         "attachingRules": {

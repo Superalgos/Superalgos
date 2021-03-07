@@ -19,6 +19,11 @@
         {
             "style": "Text",
             "text": "For example, in the open stage, you probably defined the target size as a function of the capital allocated to the trading system. In the close stage, you will likely want to define the target size as a function of the size filled, that is, the amount of the orders placed that was filled during the open stage."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Why My Stage is not Closing?->The Stage Does Not Close",
+            "updated": 1615054694042
         }
     ]
 }

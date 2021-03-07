@@ -297,7 +297,7 @@ Online support through our [Superalgos User's Support Group](https://t.me/supera
 
 ## In-App Integrated Documentation
 
-Superalgos features interactive documentation.
+Superalgos features interactive documentation built-in the system.
 
 ## Video Tutorials
 
@@ -321,9 +321,7 @@ Meet other users in the [Superalgos Telegram Community Group](https://t.me/super
 
 Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-Meet designers in the [Superalgos Telegram UX/UI Group](https://t.me/superalgosuxui).
-
-Spanish speaking users hang out in the [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
+Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
 
 ## Blog
 

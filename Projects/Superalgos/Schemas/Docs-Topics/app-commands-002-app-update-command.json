@@ -1,0 +1,29 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "2",
+    "type": "App Update Command",
+    "definition": {
+        "text": "Use this command to update your local installation of Superalgos to the latest version available. ",
+        "updated": 1610449365984
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610449451990
+        },
+        {
+            "style": "Json",
+            "text": "docs.update",
+            "updated": 1610710006400
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        }
+    ]
+}

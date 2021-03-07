@@ -1,0 +1,41 @@
+{
+    "type": "Viewport",
+    "definition": {
+        "text": "The viewport is a window through which you may look into the charting space."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The viewport offers an opening into the visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:"
+        },
+        {
+            "style": "List",
+            "text": "Live and historic market data;"
+        },
+        {
+            "style": "List",
+            "text": "Data crunched in the form of indicators;"
+        },
+        {
+            "style": "List",
+            "text": "The specific effects of the rules you will program into your strategies, and how strategies behave during testing and live trading sessions."
+        },
+        {
+            "style": "Note",
+            "text": "The information that is out of focus, that is, out of the viewport, is not read nor rendered graphically, thus, does not consume resources."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610135327217
+        },
+        {
+            "style": "Title",
+            "text": "Viewport Configuration"
+        }
+    ]
+}

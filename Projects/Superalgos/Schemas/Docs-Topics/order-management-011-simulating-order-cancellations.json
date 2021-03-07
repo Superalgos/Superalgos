@@ -1,0 +1,28 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "11",
+    "type": "Simulating Order Cancellations",
+    "definition": {
+        "text": "The simulation of the cancellation of an order is quite straightforward, as the trading bot has all the information required to proceed.",
+        "updated": 1610223512005
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Simulating the cancelation of an order is almost trivial. Of course, the process applies to backtesting and paper trading sessions only.",
+            "updated": 1610223521328
+        },
+        {
+            "style": "Text",
+            "text": "The order is closed seamlessly as the bot has full control over the order’s details."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.status.value = 'Closed'"
+        },
+        {
+            "style": "Text",
+            "text": "Once the order is closed, the bot runs the calculations to adjusts the stage size (see Accounting)."
+        }
+    ]
+}

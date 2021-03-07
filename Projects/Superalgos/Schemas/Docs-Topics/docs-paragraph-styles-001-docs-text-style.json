@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 1,
+    "type": "Docs Text Style",
+    "definition": {
+        "text": "The text style is the one used for content without any particular style applied."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When you edit a paragraph set in text style, anything you type will be rendered as part of the paragraph. What you can not do is to embed html within the text, because it will be discarded. By creating new paragraphs while editing, you effectively create separate paragraphs out of edit mode. Later you can change each paragraph's individual style for any of the styles available."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "This is a paragraph in text style."
+        }
+    ]
+}

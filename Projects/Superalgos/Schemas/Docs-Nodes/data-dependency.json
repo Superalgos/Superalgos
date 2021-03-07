@@ -1,0 +1,16 @@
+{
+    "type": "Data Dependency",
+    "definition": {
+        "text": "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations."
+        }
+    ]
+}

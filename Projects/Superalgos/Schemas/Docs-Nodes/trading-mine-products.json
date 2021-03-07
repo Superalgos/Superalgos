@@ -1,0 +1,24 @@
+{
+    "type": "Trading Mine Products",
+    "definition": {
+        "text": "Trading mine products are references established with trading mines to facilitate establishing data product references with multiple products in the given mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "At this point, Superalgos ships with a single trading mine, featuring a single low frequency trading bot. However, developers may create their own trading bots or fork the existing one."
+        },
+        {
+            "style": "Text",
+            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products."
+        },
+        {
+            "style": "Text",
+            "text": "The use of the trading mine products node is optional, as data products may also exist outside of trading mine products nodes."
+        }
+    ]
+}

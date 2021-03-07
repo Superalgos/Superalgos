@@ -1,0 +1,76 @@
+{
+    "type": "Target Size In Base Asset",
+    "definition": {
+        "text": "Target size in base asset is used to define the size of the position, denominating it in the base asset."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The system supports defining the size of the position in either asset involved in the market: the base asset, or the quoted asset, as per the exchange listing of the market."
+        },
+        {
+            "style": "Text",
+            "text": "The target size may be defined in one of the two assets only, to avoid inconsistencies."
+        },
+        {
+            "style": "Text",
+            "text": "The target size is the maximum size the position may achieve. That is, the definition of the target size is used as a cap for the total size of orders that may be placed during the open stage."
+        },
+        {
+            "style": "Text",
+            "text": "If you prefer to define the size of the position denominated in the base asset, then use this node and delete the target size in quoted asset node."
+        },
+        {
+            "style": "Important",
+            "text": "Only one target size definition may exist at a time."
+        },
+        {
+            "style": "Text",
+            "text": "Even though the definition of the target size is denominated in one of the two assets in the market, the system keeps track of accounts for both assets. That is, performance metrics such as profit loss, ROI, hit ratio, or the annualized rate of return are calculated both based on the base asset and the quoted asset. In fact, metrics are also calculated in a consolidated manner, taking into account both assets at the same time."
+        },
+        {
+            "style": "Text",
+            "text": "All of this information is made available for multiple contexts, for instance, for each position or the whole episode, through the data structure of the trading engine."
+        },
+        {
+            "style": "Text",
+            "text": "When tracking the results of your trading operation, make sure you refer to the set of accounts that make sense for your trading system. This will all become clearer once you read about the trading engine and the layer managers available on the charts."
+        },
+        {
+            "style": "Text",
+            "text": "<H4>Examples</H4>"
+        },
+        {
+            "style": "Text",
+            "text": "If you are trading the whole balance assigned to the trading system on each position, then your target size will look like this:"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value"
+        },
+        {
+            "style": "Text",
+            "text": "... or..."
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value"
+        },
+        {
+            "style": "Text",
+            "text": "If you are not trading the entire balance on each position, then you may define the target size as a percentage of the balances, or in any other way you may see fit. For such cases, the following formula may be  of use for the close stage target size:"
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value"
+        },
+        {
+            "style": "Text",
+            "text": "Of course, you may need to adjust the above to use stageBaseAsset or stageQuotedAsset, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled)."
+        }
+    ]
+}

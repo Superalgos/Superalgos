@@ -1,0 +1,24 @@
+{
+    "type": "Cycle",
+    "definition": {
+        "text": "The trading bot performs its duties in regards to exchange orders and accounts in two consecutive cycles for each candle."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the first cycle, it checks the status of orders at the exchange, synchronizes the accounts, and verifies if conditions to place new orders are met."
+        },
+        {
+            "style": "Text",
+            "text": "In the second cycle, it creates the orders at the exchange, provided conditions where met on the previous cycle."
+        },
+        {
+            "style": "Text",
+            "text": "The two possible values for the cycle node are First and Second."
+        }
+    ]
+}

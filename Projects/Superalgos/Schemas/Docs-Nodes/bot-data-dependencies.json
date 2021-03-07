@@ -1,0 +1,28 @@
+{
+    "type": "Bot Data Dependencies",
+    "definition": {
+        "text": "A bot data dependencies node is an organizational device used to arrange data dependencies corresponding to a specific bot."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The device exists as an offspring of a data mine data dependencies node, and does not require a reference to a bot in the given data mine."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Bot Data Dependencies"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

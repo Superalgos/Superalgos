@@ -1,0 +1,102 @@
+{
+    "type": "Profit Loss",
+    "definition": {
+        "text": "Profit loss is the difference between the balance at the end and the balance at the beginning of a certain period, given by the context."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the base asset or the quoted asset, the calculation is done by subtracting the balances in the corresponding assets, using the variable appropriate to the larger context (i.e.: episode, position, etc.)."
+        },
+        {
+            "style": "Text",
+            "text": "In general terms:"
+        },
+        {
+            "style": "Javascript",
+            "text": "base asset profit loss = base asset end balance - base asset begin balance"
+        },
+        {
+            "style": "Javascript",
+            "text": "quoted asset profit loss = quoted asset end balance - quoted asset begin balance"
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the Episode Base Asset and Episode Quoted Asset:",
+            "updated": 1609880629828
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    sessionParameters.sessionBaseAsset.config.initialBalance\n    \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    sessionParameters.sessionQuotedAsset.config.initialBalance",
+            "updated": 1609880593226
+        },
+        {
+            "style": "Text",
+            "text": "   "
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the Position Base Asset and Position Quoted Asset:",
+            "updated": 1609880656759
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance\n    \ntradingEngine.current.position.positionQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance",
+            "updated": 1609880668611
+        },
+        {
+            "style": "Text",
+            "text": "   "
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics or the position statistics, the calculation is done consolidating the profits of both assets."
+        },
+        {
+            "style": "Note",
+            "text": "When the context does not refer to either of the assets in particular, then both assets are taken into account in the calculation."
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.tradingCurrent.tradingEpisode.candle.close.value +\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value",
+            "updated": 1609880717964
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the position statistics:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.positionStatistics.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n    tradingEngine.tradingCurrent.position.endRate.value +\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value",
+            "updated": 1609880790493
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609880799536
+        },
+        {
+            "style": "Title",
+            "text": "Profit Loss Configuration",
+            "updated": 1609880814504
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609880843742
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609880851919
+        }
+    ]
+}

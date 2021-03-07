@@ -1,0 +1,36 @@
+{
+    "type": "Balance",
+    "definition": {
+        "text": "Balance is the running balance, that is, the amount of the asset that exists at any point in time."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The balance of an asset changes every time an order involving the asset is filled. When the trading bot consults the exchange to find out the status of each order placed, the exchange answers with the size filled and actual rate for the order. That is the information used to calculate balances."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Balance Configuration",
+            "updated": 1609880398764
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

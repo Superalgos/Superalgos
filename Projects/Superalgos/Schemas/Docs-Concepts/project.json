@@ -1,0 +1,23 @@
+{
+    "type": "Project",
+    "definition": {
+        "text": "The Superalgos infrastructure integrates different projects. The main goal of these integrations is to automate cross-project operations, extracting valuable information from blockchains or the particular domain of each project to be used on Trading Systems.",
+        "updated": 1613841611271
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first project is Superalgos itselft, witch provides a lowest level infraestructure that any other integrated project can freely reuse. On the pipeline we have these projects waiting to be integrated soon:",
+            "updated": 1609144390540
+        },
+        {
+            "style": "Table",
+            "text": "| # | Project |\n| 1 | Superalgos |\n| 2 | Ethereum |",
+            "updated": 1609144471691
+        },
+        {
+            "style": "Text",
+            "text": "Once integrated, each project will provide even more infraestructure which can later be used by other projects to be integrated after that. For example, once Ethereum is fully integrated, it will enable DeFi projects to be integrated on top of it."
+        }
+    ]
+}

@@ -1,0 +1,148 @@
+{
+    "topic": "Masters Data Mine",
+    "pageNumber": 5,
+    "type": "Resistances and Supports - Masters Indicator",
+    "definition": {
+        "text": "The indicator keeps track of resistances and supports levels for the entire dataset.",
+        "updated": 1610398924843
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Resistances and Supports On the Charts",
+            "updated": 1610398899212
+        },
+        {
+            "style": "Text",
+            "text": "This indicator is an interpretation of the concept of resistance and support levels. The indicator identifies levels (a price range) on which price is rejected, and keeps a counter of how many times rejections occur until the level is breached."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/support-resistance-00.png",
+            "updated": 1610399303951
+        },
+        {
+            "style": "Text",
+            "text": "Each level is determined by the reference rate, which is the rate of the first rejection. However, the level is not a specific rate, but a rate range expressed as a percentage of the reference rate. The percentage used to determine a level varies depending on the time frame. The smaller the time frame, the smaller the percentage."
+        },
+        {
+            "style": "Text",
+            "text": "Also, each level is calculated in different variations using different percentages to determine the rate range that makes up the level. Each of these variations in the rate range of a level is called a zone."
+        },
+        {
+            "style": "Text",
+            "text": "For simplicity’s sake, only the first zone of each level is rendered on-screen. That is, what you see on-screen is the representation of a single variation of a level. However, strategies have access to several different versions increasing in zone sizes."
+        },
+        {
+            "style": "Text",
+            "text": "The way in which a level is visualized on screen depends on the number of rejections that have occured at the particular level since is was first established:"
+        },
+        {
+            "style": "Table",
+            "text": "| Number of Rejections | Graphics | Comments |\n| 1 |<span style=\"display: block; border-bottom: 1px dotted grey;\">&nbsp;</span>| A faint, grey dotted line marking the reference rate of the support / resistance level. |\n| 2 |RGB(150, 150, 150, 0.2)| A grey block, marking the range of rates that make up the level. |\n| 3 |RGB(2, 149, 170, 0.2)| A turquoise block. |\n| 4 |RGB(244, 228, 9, 0.2)| A yellow block. |\n| 5 |RGB(188, 214, 67, 0.2)| A green block. |\n| 6 |RGB(240, 162, 2, 0.2)| An orange block. |\n| 7 or more |RGB(91,80, 122, 0.4)| A purple block. |",
+            "updated": 1610399927341
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/support-resistance-01.gif",
+            "updated": 1610400513872
+        },
+        {
+            "style": "Callout",
+            "text": "Each relative high rejected at the level increments the counter, and changes the color of the level.",
+            "updated": 1610400569083
+        },
+        {
+            "style": "Text",
+            "text": "Once the price breaks through the level, the level dissappears."
+        },
+        {
+            "style": "Text",
+            "text": "When a level is identified and the rejection counter is greater than zero, the level remains “in memory”. However, this doesn’t mean that the level is graphically represented on-screen at all times. On the contrary, not all levels are represented on-screen at all times."
+        },
+        {
+            "style": "Text",
+            "text": "The criteria to render level on-screen is influenced by the price at the current candle. For each candle, only five levels of resistance and five levels of support are rendered, above and below the price, respectively. This is to clear up the screen and limit the density of information in display when information is not relevant. As price moves up and down, some levels are hidden, some new levels may form, and pre-existing levels may emerge."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/support-resistance-02.gif",
+            "updated": 1610400658308
+        },
+        {
+            "style": "Callout",
+            "text": "Notice the discontinuity in the level marked in blue caused by the drop of the price and the emergence of new levels below. However, despite the level stops being rendered on screen, it remains hidden and re-emerges when the price comes back up."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Panels"
+        },
+        {
+            "style": "List",
+            "text": "Resistance / Support Bounces: The panel shows the number of bounces off each of the six zones of the first three levels.",
+            "updated": 1610400824306
+        },
+        {
+            "style": "List",
+            "text": "Resistance / Support Levels: The panel indicates the rate on which the closest five resistance or support levels are located, and the number of periods the levels have been in existence, counting from the period of the first rejection.",
+            "updated": 1610401022578
+        },
+        {
+            "style": "List",
+            "text": "Resistance / Support Zone Sizes: The panel shows the sizes of the different zones tracked for each level. However, remember that only the first zone is rendered on screen.",
+            "updated": 1610401038648
+        },
+        {
+            "style": "Title",
+            "text": "Resistances and Supports Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator features two data products: resitance and support."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable |\n| Resistance | resistance |\n| Support | support |",
+            "updated": 1610401484913
+        },
+        {
+            "style": "Table",
+            "text": "| Resistance Properties | Possible Values of (i) | Comments |\n| resitance(i)Rate | 1 to 5 | The reference rate of the level. |\n| resistance(i)Period | 1 to 5 | The number of periods the level has been in existence. |\n| resistance(i)Bounce1 | 1 to 5 | The number of bounces for zone 1, the one rendered on-screen. |\n| resistance(i)Bounce2 | 1 to 3 | The number of bounces for zone 2, only available for the first three levels. Zone 2 is two times bigger than zone 1. |\n| resistance(i)Bounce3 | 1 to 3 | The number of bounces for zone 3, only available for the first three levels. Zone 3 is three times bigger than zone 1. |\n| resistance(i)Bounce5 | 1 to 3 | The number of bounces for zone 5, only available for the first three levels. Zone 5 is five times bigger than zone 1. |\n| resistance(i)Bounce10 | 1 to 3 | The number of bounces for zone 10, only available for the first three levels. Zone 10 is ten times bigger than zone 1. |\n| resistance(i)BounceAll | 1 to 3 | The number of bounces for zone All, only available for the first three levels. Zone All is one hundred times bigger than zone 1. |",
+            "updated": 1610401512754
+        },
+        {
+            "style": "Table",
+            "text": "| Support Properties | Possible Values of (i) | Comments |\n| support(i)Rate | 1 to 5 | The reference rate of the level. |\n| support(i)Period | 1 to 5 | The number of periods the level has been in existence. |\n| support(i)Bounce1 | 1 to 5 | The number of bounces for zone 1, the one rendered on-screen. |\n| support(i)Bounce2 | 1 to 3 | The number of bounces for zone 2, only available for the first three levels. Zone 2 is two times bigger than zone 1. |\n| support(i)Bounce3 | 1 to 3 | The number of bounces for zone 3, only available for the first three levels. Zone 3 is three times bigger than zone 1. |\n| support(i)Bounce5 | 1 to 3 | The number of bounces for zone 5, only available for the first three levels. Zone 5 is five times bigger than zone 1. |\n| support(i)Bounce10 | 1 to 3 | The number of bounces for zone 10, only available for the first three levels. Zone 10 is ten times bigger than zone 1. |\n| support(i)BounceAll | 1 to 3 | The number of bounces for zone All, only available for the first three levels. Zone All is one hundred times bigger than zone 1. |",
+            "updated": 1610401530218
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1610400943872
+        },
+        {
+            "style": "Text",
+            "text": "Let’s say you wish to check if you have a strong support level below the current price on the 1H chart."
+        },
+        {
+            "style": "List",
+            "text": "chart.at01hs.support.support1Bounce1 tells you the number of times price has bounced off the first support level; a high number of bounces may mean the level has strong support."
+        },
+        {
+            "style": "List",
+            "text": "chart.at01hs.support.support1Period tells you how long the support level has been “alive”; long-lasting support levels may mean the level is strong, as it hasn’t been breached in a long time."
+        },
+        {
+            "style": "List",
+            "text": "chart.at01hs.candle.close - chart.at01hs.support.support1Rate tells you how far down the first level of support is."
+        },
+        {
+            "style": "Text",
+            "text": "Checking the first level only may not be enough. Bear in mind that the first level may show weak support, but there may be stronger support at lower levels."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

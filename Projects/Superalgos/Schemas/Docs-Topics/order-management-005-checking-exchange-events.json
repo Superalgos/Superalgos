@@ -1,0 +1,163 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "5",
+    "type": "Checking Exchange Events",
+    "definition": {
+        "text": "The trading bot monitors exchange orders to check their status analyzing multiple possible scenarios.",
+        "updated": 1610220643629
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For forward testing and live trading sessions, the state of orders at the exchange is checked on every execution of the trading bot.",
+            "updated": 1610220673347
+        },
+        {
+            "style": "Text",
+            "text": "It’s important to note that, when an order is placed, no relevant information is obtained from the exchange other than a confirmation that the order was received. The trading bot must ask the exchange for the status of the order some time after placing it."
+        },
+        {
+            "style": "Note",
+            "text": "The trading bot places the order during the second execution cycle and asks the exchange about the order in the next run of the bot, during the first execution cycle. This means that the order is checked one unit of the trading session’s time frame after the order is placed. For example, if the session is running on the 01-min time frame, the order is checked roughly one minute after it is placed.",
+            "updated": 1610220684415
+        },
+        {
+            "style": "Text",
+            "text": "When the trading bot fetches an order from the exchange, it gets the order information in a text message. What does the trading bot obtain from the exchange?"
+        },
+        {
+            "style": "Text",
+            "text": "This is an important question, as the answer conditions what the trading bot may or may not do with each order, and how it may keep a reliable internal accounting system."
+        },
+        {
+            "style": "Title",
+            "text": "Orders According to the Exchange",
+            "updated": 1610220706175
+        },
+        {
+            "style": "Text",
+            "text": "What follows are several examples including a market sell order, a market buy order, a limit sell order, and a limit buy order, all of them in the BTC/USDT market in Binance."
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the body section is provided by the CCXT library, and is the same for all exchanges; the info section is provided by the exchange itself, and may vary across exchanges.",
+            "updated": 1610220717780
+        },
+        {
+            "style": "Subtitle",
+            "text": "Market sell order for 0.1 BTC",
+            "updated": 1610220735916
+        },
+        {
+            "style": "Json",
+            "text": "Body: \naverage:12930.92\nclientOrderId:\"eLAkNrEoMw3erEp8AeaiTT\"\ncost:1293.24717104\ndatetime:\"2020-10-24T08:47:43.104Z\"\nfee:undefined\nfilled:0.100012\nid:\"3420506109\"\nlastTradeTimestamp:undefined\nprice:12930.92\nremaining:0\nside:\"sell\"\nstatus:\"closed\"\nsymbol:\"BTC/USDT\"\ntimestamp:1603529263104\ntrades:undefined\ntype:\"market\"\n\nInfo: \norderId:3420506109\norderListId:-1\norigQty:\"0.10001200\"\norigQuoteOrderQty:\"1293.25000000\"\nprice:\"0.00000000\"\nside:\"SELL\"\nstatus:\"FILLED\"\nstopPrice:\"0.00000000\"\nsymbol:\"BTCUSDT\"\ntime:1603529263104\ntimeInForce:\"GTC\"\ntype:\"MARKET\"\nupdateTime:1603529263104",
+            "updated": 1610220759201
+        },
+        {
+            "style": "Subtitle",
+            "text": "Limit sell order for 0.1 BTC",
+            "updated": 1610220791496
+        },
+        {
+            "style": "Json",
+            "text": "Body: \namount:0.1\naverage:12976.74\nclientOrderId:\"iZbiUF9W1WiKmtMfhA8hIr\"\ncost:1297.674\ndatetime:\"2020-10-24T10:43:47.944Z\"\nfee:undefined\nfilled:0.1\nid:\"3420762036\"\nlastTradeTimestamp:undefined\nprice:12969.83\nremaining:0\nside:\"sell\"\nstatus:\"closed\"\nsymbol:\"BTC/USDT\"\ntimestamp:1603536227944\ntrades:undefined\ntype:\"limit\"\n\nInfo: \nexecutedQty:\"0.10000000\"\nicebergQty:\"0.00000000\"\nisWorking:true\norderId:3420762036\norderListId:-1\norigQty:\"0.10000000\"\norigQuoteOrderQty:\"0.00000000\"\nprice:\"12969.83000000\"\nside:\"SELL\"\nstatus:\"FILLED\"\nstopPrice:\"0.00000000\"\nsymbol:\"BTCUSDT\"\ntime:1603536227944\ntimeInForce:\"GTC\"\ntype:\"LIMIT\"\nupdateTime:1603536227944",
+            "updated": 1610220811097
+        },
+        {
+            "style": "Title",
+            "text": "Status checks",
+            "updated": 1610220854490
+        },
+        {
+            "style": "Text",
+            "text": "Once the status of the order is received as in one of the above examples, the trading bot performs multiple checks, each leading to particular actions. The following are the particular cases analyzed and the actions taken."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Filled and closed"
+        },
+        {
+            "style": "Text",
+            "text": "If the order is filled and closed, the corresponding data structures in the trading engine are updated to indicate so."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.status.value = 'Closed'\ntradingEngineOrder.exitType.value = 'Filled'",
+            "updated": 1610220873457
+        },
+        {
+            "style": "Text",
+            "text": "But, most importantly, the details in the order are processed to synchronize the information in the trading engine—at this point consisting mostly of information derived from the definitions in the trading system—with the information obtained from the exchange."
+        },
+        {
+            "style": "Text",
+            "text": "The data structures to be updated are mostly those related to the actual rate at which the order was filled, the actual size that was filled, the actual fees that were charged, and how those variables affect balances and the overall accounts in various contexts (order, stage, position, episode, etc.)."
+        },
+        {
+            "style": "Note",
+            "text": "Notice that definitions in the trading system are—in a way—just a plan. Your definitions tell the trading bot what to do, but there is no certainty on the outcome. That is the reason why the first set of accounts recorded with information derived from the trading system needs to be synchronized in every execution cycle with what actually happened at the exchange until the order is closed.",
+            "updated": 1610220886259
+        },
+        {
+            "style": "Text",
+            "text": "The calculations involved in the synchronization process are covered in Syncing With the Exchange.",
+            "updated": 1610221145905
+        },
+        {
+            "style": "Subtitle",
+            "text": "Partially filled and closed"
+        },
+        {
+            "style": "Text",
+            "text": "If the order is partially filled and closed, the corresponding data structures in the trading engine are updated to indicate so."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.status.value = 'Closed'\ntradingEngineOrder.exitType.value = 'Closed at the Exchange'",
+            "updated": 1610220905601
+        },
+        {
+            "style": "Text",
+            "text": "For a limit order to be closed while partially filled, it must be closed manually by the user directly at the exchange, or forcefully closed by the exchange itself, for whatever reason. The system handles such occurrences so that they do not disrupt the trading session or the accounts at Superalgos."
+        },
+        {
+            "style": "Text",
+            "text": "The first thing to do with such an order is to update the size placed on the stage so that the stage accounts for the amount that was filled only, instead of the original size of the order (see Accounting)."
+        },
+        {
+            "style": "Text",
+            "text": "And then, the same synchronization process described earlier must be applied as well (see Syncing With the Exchange).",
+            "updated": 1610221158590
+        },
+        {
+            "style": "Subtitle",
+            "text": "Cancelled"
+        },
+        {
+            "style": "Text",
+            "text": "These are limit orders canceled by the trading bot upon the triggering of the cancel order event. In such cases, the exit type is set as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'"
+        },
+        {
+            "style": "Text",
+            "text": "Canceled orders go through the same processes of synchronization (see Syncing With the Exchange) and the recalculation of the size of the stage (see Accounting).",
+            "updated": 1610221173299
+        },
+        {
+            "style": "Subtitle",
+            "text": "All other instances"
+        },
+        {
+            "style": "Text",
+            "text": "The cases described above refer to orders with particular characteristics. Orders that do not match any of the above criteria trigger the synchronization process described earlier (see Syncing With the Exchange).",
+            "updated": 1610221181661
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

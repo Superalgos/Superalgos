@@ -1,0 +1,49 @@
+{
+    "type": "Slippage",
+    "definition": {
+        "text": "The slippage is an assumption on the difference between the simulated rate and the actual fill rate of a market order, most relevant in the context of backtesting and paper-trading sessions. The parameter is a tool to make simulations more realistic."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of forward testing and live trading sessions, slippage does not affect the actual transactions. However, the parameter is taken into account when creating the live trading simulation until the actual order fill values are obtained from the exchange."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Slippage Configuration",
+            "updated": 1609676424004
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676430132
+        },
+        {
+            "style": "List",
+            "text": "positionRate is the slippage value applied to the rate of all market orders throughout the position, expressed as a percentage (for example, 0.1 means 0.1%).",
+            "updated": 1609676495674
+        },
+        {
+            "style": "List",
+            "text": "stopLoss is the slippage value applied to the stop loss target defined by the formulas of each stop loss phase in the manage stage of the trading system, expressed as a percentage (for example, 0.2 means 0.2%). The slippage value is applied to the value resulting from the corresponding stop loss formula, and the actual stop loss target is the resulting number. For example, if the stop loss formula results in 1000 and the stopLoss slippage value is 0.2, then the resulting stop loss target is  1000 ± 1000  0.2 / 100. Read below for an explanation on when the slippage is added or subtracted.",
+            "updated": 1609676508652
+        },
+        {
+            "style": "List",
+            "text": "takeProfit works similarly as the stopLoss setting, but affecting the take profit target instead of the stop loss target."
+        },
+        {
+            "style": "Note",
+            "text": "If the slippage parameter is left empty or detached both from your session and your trading system, slippage is not computed during simulations.",
+            "updated": 1609676526540
+        }
+    ]
+}

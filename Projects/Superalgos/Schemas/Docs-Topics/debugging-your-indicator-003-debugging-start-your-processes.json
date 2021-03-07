@@ -1,0 +1,91 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "3",
+    "type": "Debugging - Start Your Processes",
+    "definition": {
+        "text": "Start the Task in Debug mode while running a debug session in your IDE.",
+        "updated": 1614332155989,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Start the Task in Debug mode while running a debug session in your IDE. ",
+                "updated": 1614338791705,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Start your Superalgos UI by going to the terminal and enter \"node run\".",
+            "updated": 1614332264940
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/8_node-run.png"
+        },
+        {
+            "style": "Text",
+            "text": "Start a Debug Session in your IDE by clicking \"Run -> Start Debugging\" (F5)",
+            "updated": 1614332454563
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/9_start-debugging.png"
+        },
+        {
+            "style": "Text",
+            "text": "Go to your Network node and find the Data Task for your indicator.",
+            "updated": 1614332492978
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/10_network.png"
+        },
+        {
+            "style": "Text",
+            "text": "Expand the Data Tasks and hover over the Task node for your indicator and click \"Debug\" (the Task will start up, but in Debug mode).",
+            "updated": 1614332581381
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/11_expand-data-tasks.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/12_debug-your-indicator-task.png",
+            "updated": 1614332699707
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/13_check-your-indicator-starts.png"
+        },
+        {
+            "style": "Text",
+            "text": "Start the needed tasks connected to your indicator (i.e.: Exchange Raw Data and Candle Volumes) by hovering over the nodes and click \"Run\".",
+            "updated": 1614512004319
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/15_run-ohlcvs.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/16_run-dependencies.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/14_check-debug-terminal.png"
+        },
+        {
+            "style": "Note",
+            "text": "Check your Superalgos terminal to see if everything starts up as planned.",
+            "updated": 1614512021346
+        },
+        {
+            "style": "Note",
+            "text": "Deleting existing data from your indicator in the..Superalgos/Data-Storage/ folder might speed up the data mining process.",
+            "updated": 1614512028147
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "1",
+    "type": "TS Trading Session Error - Parameters Node Missing",
+    "definition": {
+        "text": "The Backtesting Session, Live Trading Session, Paper Trading Session and Forward Testing Session nodes are expected to have a child of type Trading Parameters, and in this case it could not be found.",
+        "updated": 1611322334493
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "To fix this, add a Trading Parameters child and try again.",
+            "updated": 1611322031139
+        }
+    ]
+}

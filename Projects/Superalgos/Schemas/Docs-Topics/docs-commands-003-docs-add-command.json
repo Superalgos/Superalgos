@@ -1,0 +1,100 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "3",
+    "type": "Docs Add Command",
+    "definition": {
+        "text": "Use this command to add a new page to the Docs.",
+        "updated": 1609151813687
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Single-Page Syntax",
+            "updated": 1613765905233
+        },
+        {
+            "style": "Json",
+            "text": "docs.add [Node|Concept|Book] to Project: Docs Page Name",
+            "updated": 1614076270512
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1613766032848
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Node to Superalgos: Task",
+            "updated": 1614076278432
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Concept to Superalgos: References",
+            "updated": 1614076283283
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Book to Superalgos: User Manual",
+            "updated": 1614076289103
+        },
+        {
+            "style": "Title",
+            "text": "Page-Collection Syntax",
+            "updated": 1613766298709
+        },
+        {
+            "style": "Json",
+            "text": "docs.add [Topic|Tutorial|Review] to Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
+            "updated": 1614076299626
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1613766391018
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Superalgos: Docs Styles->Docs Text Style->1",
+            "updated": 1614076312667
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Tutorial to Superalgos: How to Build Indicatiors->Intro->1",
+            "updated": 1614076317413
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Review to Project: Superalgos Project Review->Awasome!->2",
+            "updated": 1614076323955
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Project: It's the project where the page is defined.",
+            "updated": 1613764802872
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Category: One of the available categories.",
+            "updated": 1613764813920
+        },
+        {
+            "style": "List",
+            "text": "Docs topic / tutorial / review name: The name of the topic / tutorial / review the new page will belong to.",
+            "updated": 1613767524694
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Name: The name of the page.",
+            "updated": 1613764889322
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Numer: Optional. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assigns one.",
+            "updated": 1613764928993
+        }
+    ]
+}

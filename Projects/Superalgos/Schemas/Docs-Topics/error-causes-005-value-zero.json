@@ -1,0 +1,15 @@
+{
+    "topic": "Error Causes",
+    "pageNumber": "5",
+    "type": "Value Zero",
+    "definition": {
+        "text": "At runtime some nodes might aquire a value, and when it is expected not to be zero this type of error will pop up. To avoid this type of error, Make sure that the Node where the error poped up never get a zero value.",
+        "updated": 1611652416098
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use doscs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

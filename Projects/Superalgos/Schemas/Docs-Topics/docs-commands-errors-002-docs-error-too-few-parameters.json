@@ -1,0 +1,48 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 2,
+    "type": "Docs Error - Too Few Parameters",
+    "definition": {
+        "text": "The system expects more parameters. This may happen when you effectively missed a parameter or when a syntax error breaks the command.",
+        "updated": 1610976595172
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Too Few Paramenters"
+        },
+        {
+            "style": "Error",
+            "text": "Syntax error: Too few parameters.",
+            "updated": 1609160135644
+        },
+        {
+            "style": "Success",
+            "text": "  Check the command syntax for a detailed list of parameters required.",
+            "updated": 1609160562426
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162906747
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command",
+            "updated": 1609177214092
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command",
+            "updated": 1609180038275
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
+        }
+    ]
+}

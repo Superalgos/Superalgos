@@ -1,0 +1,16 @@
+{
+    "type": "Close Execution",
+    "definition": {
+        "text": "The close execution node groups all execution algorithms involved in the process of closing a position."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The close execution section of the close stage works similarly to the open execution in the open stage. Please refer to the explanations of the open stage for the details."
+        }
+    ]
+}

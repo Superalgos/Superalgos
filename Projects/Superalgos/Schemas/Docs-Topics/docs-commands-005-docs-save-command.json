@@ -1,0 +1,24 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "5",
+    "type": "Docs Save Command",
+    "definition": {
+        "text": "Use this command to save the changes you've made while adding, deleting or editing paragraphs at the Docs; or adding or deleting pages.",
+        "updated": 1610976014577
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Pages you create or modify remain solely in memory in the context of the browser session until you run this command. Only once you run this command are changes saved to disk. If you refresh the page or close the browser before running the Docs Save Command, changes are lost. Changes are applied to the Docs Search Engine Index only after you run the Docs Reindex Command.",
+            "updated": 1613765203137
+        },
+        {
+            "style": "Title",
+            "text": "Syntax"
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.save"
+        }
+    ]
+}

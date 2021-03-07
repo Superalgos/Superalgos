@@ -1,0 +1,54 @@
+{
+    "type": "Status Dependency",
+    "definition": {
+        "text": "Status dependencies are references to a status report that define which process the process establishing the reference depends on."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The reference is established to acquire the information relative to what the target process is doing. For example, by reading a status report a process may learn when was the last time the referenced process ran, and what was the last file processed."
+        },
+        {
+            "style": "Text",
+            "text": "The status report referenced may belong to the same process— which is called a self-reference. In such a case, the process is learning what it did the last time it ran. Also, the status report referenced may belong to another process—another bot. In that case, the dependency may be of the Market Starting Point or Market Ending Point types. ",
+            "updated": 1609787389239
+        },
+        {
+            "style": "List",
+            "text": "Self Reference is mandatory, as a process needs to read its own status report every time it wakes up."
+        },
+        {
+            "style": "List",
+            "text": "The market starting point is a status dependency existing on Multi-Period-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).",
+            "updated": 1609787724948
+        },
+        {
+            "style": "List",
+            "text": "The market ending point is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market.",
+            "updated": 1609787745299
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Status Dependency Configuration",
+            "updated": 1609787775907
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609787781306
+        },
+        {
+            "style": "List",
+            "text": "mainUtility determines the type of status dependency, with possible values being Self Reference, MMarket Starting Point, or MMarket Ending Point.",
+            "updated": 1609787859239
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 7,
+    "type": "Docs Tutorial Name",
+    "definition": {
+        "text": "Refers to the name of the tutorial. Pages with the same Docs Tutorial Name belong to the same tutorial.",
+        "updated": 1613755729645
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is no page describing a tutorial. It is the Turotial hierarchy that determines how tutorials are arranged. However, in the context of the Docs, the Docs Tutorial Name is used to group a set of related pages under a certain tutorial.",
+            "updated": 1613755796749
+        }
+    ]
+}

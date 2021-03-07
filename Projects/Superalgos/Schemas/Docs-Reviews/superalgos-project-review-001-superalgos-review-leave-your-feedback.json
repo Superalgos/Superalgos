@@ -1,0 +1,51 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": "1",
+    "type": "Superalgos Review - Leave Your Feedback!",
+    "definition": {
+        "text": "This is the place where you may leave your feedback and impressions about the project, for others to find and read.",
+        "updated": 1610961496602
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "After you create your own review page as part of this collection, you will be able to edit it over time, and add more info as your experience evolves with the system. So, don't worry is right now you can just write your first impressions. You will allways be able to come back and extend your page.",
+            "updated": 1610701884353
+        },
+        {
+            "style": "Title",
+            "text": "How to add your own Review",
+            "updated": 1610702480960
+        },
+        {
+            "style": "Text",
+            "text": "In order to add your own review page of the Superalgos Project, copy and paste the following code at the search bar:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - YOUR REVIEW TITLE",
+            "updated": 1610702550459
+        },
+        {
+            "style": "List",
+            "text": "YOUR REVIEW TITLE: Replace this placeholder text for a short title for your Review Page."
+        },
+        {
+            "style": "Important",
+            "text": "You need to sign your Review Page. At the en of the text, type your Github.com username. This needs to be present in order for the Review to be added to the next release of Superalgos.",
+            "updated": 1610702866522
+        },
+        {
+            "style": "Text",
+            "text": "Your review will be merged into the main repository once you send it as a contribution. For that you need to execute:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.save"
+        },
+        {
+            "style": "Json",
+            "text": "app.contribute"
+        }
+    ]
+}

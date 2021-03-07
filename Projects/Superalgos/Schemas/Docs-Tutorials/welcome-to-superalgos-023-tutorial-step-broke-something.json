@@ -1,0 +1,54 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Broke Something?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "workspace"
+        },
+        "text": "If you ever break something&mdash;like deleting a node or changing a configuration&mdash;and don't know how to deal with the outcome...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se ti capiterà mai di rompere qualcosa (per esempio cancellare un nodo o cambiare una configurazione) e non sai come sistemare...",
+                "updated": 1614791180230
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "... there is an easy way to start over with a brand new workspace!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "...c'è un modo semplice di ricominciare con un nuovo workspace!",
+                    "updated": 1614791206441
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "All you need to do is pull the tab on the left-hand side of the screen and click on the Getting-Started plugin workspace.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutto ciò che devi fare è tirare la tab sul lato sinistro dello schermo e cliccare sul plugin workspace Getting-Started.",
+                    "updated": 1614791245119
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "A brand new Getting Started workspace will load and I will show up again, fresh from the start!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Un workspace Getting-Started nuovo e pulito verrà caricato e lanciato dall'inizio!",
+                    "updated": 1614791287049
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "type": "Trigger Off Event",
+    "definition": {
+        "text": "The trigger-off event defines the situation in which the corresponding strategy shall be triggered-off. A strategy that is triggered-off releases the capital in reserve and makes it available to other strategies in the trading system."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In conceptual terms, the trigger-off event is the mechanism you use to define the situation in which the corresponding strategy should stop considering the trading opportunity signaled by the trigger-on event. That is, you use the trigger off event to describe the scenario for the invalidation of the trading idea behind the strategy."
+        },
+        {
+            "style": "Text",
+            "text": "Once a strategy is triggered-on, only two possible scenarios may follow. Either the take position event is triggered, thus, taking a position, or the trigger-off event is triggered first."
+        },
+        {
+            "style": "Text",
+            "text": "In the first scenario, the strategy remains on until the position is closed. As the position is closed, the strategy is triggered-off. In the second scenario, the strategy is triggered-off immediately."
+        }
+    ]
+}

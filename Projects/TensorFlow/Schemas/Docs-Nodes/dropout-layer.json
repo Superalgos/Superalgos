@@ -1,0 +1,13 @@
+{
+    "type": "Dropout Layer",
+    "definition": {
+        "text": "Applies dropout to the input. Dropout consists in randomly setting a fraction rate of input units to 0 at each update during training time, which helps prevent overfitting.",
+        "updated": 1613213791502
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

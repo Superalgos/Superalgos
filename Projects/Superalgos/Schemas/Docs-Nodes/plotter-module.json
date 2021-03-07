@@ -1,0 +1,72 @@
+{
+    "type": "Plotter Module",
+    "definition": {
+        "text": "A plotter module is a device within a plotter that contains the definitions to create the visualization for a product definition."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern."
+        },
+        {
+            "style": "Important",
+            "text": "For a bot to use a plotter, the corresponding Product Definition must establish a reference with the plotter module built to interpret the dataset.",
+            "updated": 1609790272500
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609790308422
+        },
+        {
+            "style": "Title",
+            "text": "Plotter Module Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609790324389
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name used in the code to refer to the module."
+        },
+        {
+            "style": "List",
+            "text": "isLegacy is true for plotters modules developed entirely in JavaScript, and is false or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy."
+        },
+        {
+            "style": "List",
+            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
+            "updated": 1609852182210
+        },
+        {
+            "style": "Javascript",
+            "text": "layer-moving-averages\nlayer-bands\nlayer-candles\nlayer-histogram\nlayer-oscilator\nlayer-resistance\nlayer-support\nlayer-trends\nlayer-volume",
+            "updated": 1609852285167
+        },
+        {
+            "style": "Text",
+            "text": "Custom images may be added too. To do that:"
+        },
+        {
+            "style": "Text",
+            "text": "1. Name the image in the following format: image-name.png;",
+            "updated": 1609852305205
+        },
+        {
+            "style": "Text",
+            "text": "2. Place images in the WebServer\\Images\\Icons folder;",
+            "updated": 1609852315978
+        },
+        {
+            "style": "Text",
+            "text": "3. In the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")",
+            "updated": 1609852322876
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Client",
+    "definition": {
+        "text": "The Client, together with the TS and the UI is one of the three core components of the Superalgos Software.",
+        "updated": 1610911936882
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "The Client is what users run.",
+            "updated": 1610912048355
+        }
+    ]
+}

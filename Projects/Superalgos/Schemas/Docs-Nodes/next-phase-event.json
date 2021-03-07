@@ -1,0 +1,33 @@
+{
+    "type": "Next Phase Event",
+    "definition": {
+        "text": "The next phase event determines when there should be a switch of phases to the next phase in a predefined sequence."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The management of a position is &mdash;by default&mdash;done in sequential phases, each phase with its formula. To move from one phase to the next, a situation you define must be validated."
+        },
+        {
+            "style": "Text",
+            "text": "When that happens, the next phase event is triggered, the current phase is abandoned, and the next phase is activated. From that instant on, the system evaluates the formula corresponding to the next phase."
+        },
+        {
+            "style": "Text",
+            "text": "The sequence of phases may be as long as the number of phases you choose to add and define. There may be unlimited numbers of phases."
+        },
+        {
+            "style": "Note",
+            "text": "Events are triggered by situations, which are defined by conditions. Both are explained in the situations, conditions, and formulas page."
+        },
+        {
+            "style": "Success",
+            "text": "To set up a next phase event, add the node and define the situation that should trigger the event.",
+            "updated": 1609610098815
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 7,
+    "type": "Docs Error - Style",
+    "definition": {
+        "text": "This style is used by the system itself to show you when you entered incorrect parameters for some styles. You can use this style as well to show readers errors in the context of what you are explaining to them."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Anything you type while editing, will be displayed inside the error box."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Error",
+            "text": "This is an example of a paragraph in error style."
+        }
+    ]
+}

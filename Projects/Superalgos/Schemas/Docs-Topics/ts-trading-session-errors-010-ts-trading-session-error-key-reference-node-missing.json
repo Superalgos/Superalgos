@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "10",
+    "type": "TS Trading Session Error - Key Reference Node Missing",
+    "definition": {
+        "text": "For a Live Trading Session or a Forward Testing Session you need to provide an Exchange API Key to access your Exchange account. In order to do that you need to add a Key Reference Node which references an Exchange Account Key Node with your keys.",
+        "updated": 1611392529450
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "At the Task Node where this error poped up, add a Key Reference Node and reference from it an Exchange Account Key with it. Then you can try to run the Trading Session again.",
+            "updated": 1611392617497
+        }
+    ]
+}

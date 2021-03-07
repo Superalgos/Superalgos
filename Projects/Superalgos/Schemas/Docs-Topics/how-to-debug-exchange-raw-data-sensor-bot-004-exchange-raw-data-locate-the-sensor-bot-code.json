@@ -1,0 +1,56 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "4",
+    "type": "Exchange Raw Data - Locate The Sensor Bot Code",
+    "definition": {
+        "text": "Open with VS Code the Task Server Folder and inmediatelly after that, add the Projects Folder to the VS Code workspace.",
+        "updated": 1614591834868
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Locate within VS Code the file ",
+            "updated": 1614592018514
+        },
+        {
+            "style": "Json",
+            "text": "HistoricOHLCVs.js"
+        },
+        {
+            "style": "Text",
+            "text": "which can be found at this path:"
+        },
+        {
+            "style": "Json",
+            "text": "Projects\\Superalgos\\TS\\Bot-Modules\\Sensor-Bot\\Exchange-Raw-Data"
+        },
+        {
+            "style": "Success",
+            "text": "This is the single code that is executed to extract candles and volumen in 1 minute time frame from any exchange via the CCXT library. Now you can set a breakpoint anywhere in the code to start debugging from there."
+        },
+        {
+            "style": "Title",
+            "text": "Setup Crypto Exchange Node"
+        },
+        {
+            "style": "Text",
+            "text": "At this point it is a good idea to rename your workspace with something like Exchange XXX Test, so that you can come back later. You do this by changing the name of the Workspace Node."
+        },
+        {
+            "style": "Text",
+            "text": "Now you can rename the currently Binance Crypto Exchange Node with the name of your Favorite Exchange, without forgetting to edit it's config with the correct Exchange ID at the codeName property. "
+        },
+        {
+            "style": "Text",
+            "text": "The Exchange Id is the Id assigned to this exchange at the CCXT Library. Check their docs for that."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

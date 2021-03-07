@@ -1,0 +1,47 @@
+{
+    "topic": "Low-Frequency Trading Bot",
+    "pageNumber": "2",
+    "type": "Why Low-Frequency",
+    "definition": {
+        "text": "The first Trading Bot implementation is optimized for low-frequency trading.",
+        "updated": 1610218584729
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Low-Frequency trading bot makes decisions upon the closing of the current candle.",
+            "updated": 1610218597361
+        },
+        {
+            "style": "Important",
+            "text": "No matter what property of what indicator you may use, always remember that the trading bot works with the last closed candle by default. What Superalgos refers to as the current candle is effectively the latest closed candle. The trading bot never works with the candle that hasn’t yet closed, as its parameters are not defined. For example, candle.max refers to the maximum price of the last closed candle, and bollingerBand.movingAverage refers to the moving average of the last closed candle.",
+            "updated": 1610218610371
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos manages time frames as low as one minute. That is, one minute, is the highest frequency handled by the trading bot."
+        },
+        {
+            "style": "Text",
+            "text": "When a trading session is run on the 01-min time frame, this is what you should expect to happen in terms of the time it takes to do all the required processing for the trading bot to make a decision and place an order at the exchange:"
+        },
+        {
+            "style": "Table",
+            "text": "| Process | Estimated Time [s] | Comments |\n| Sensor bot | 0 - 65 | The sensor bot runs (by default) every 60 seconds. Upon each execution, anything between 0 to 60 seconds may have passed since the last one-minute candle closed. On top of this the sensor execution time may range from 1 to 5 seconds, depending on several factors (i.e.: your hardware, internet bandwidth, distance to the exchange, exchange response time, and so on...) |\n| Candles - Volumes indicator | 1 - 5 | This indicator is required most of the time, as it is the one processing the one-minute candles extracted from the exchange to turn it into candles for the rest of the time frames available. In this case, the processing time depends entirely on your hardware. | \n| Other indicators | 1 - 5 | Indicators that depend exclusively on the data products produced by Candles - Volumes may process their products as soon as Candles - Volumes finishes. Indicators with nested dependencies need to wait for their dependencies to finish, thus they are not processed in parallel but in series. |\n| Trading bot | 1 - 5 | Depending on the complexity of your trading system, the number of dependencies that must be loaded, your hardware, and the same connectivity considerations discussed for the sensor bot, the trading bot may take several seconds to do the processing and place the order at the exchange. |",
+            "updated": 1610219071449
+        },
+        {
+            "style": "Callout",
+            "text": "In conclusion, depending on how many indicators the trading system uses, and what the dependencies may be, you should expect anything between 15 to 75 seconds or more of lag from the instant the candle closed at the exchange until the order is placed, with the default settings.",
+            "updated": 1610219109819
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

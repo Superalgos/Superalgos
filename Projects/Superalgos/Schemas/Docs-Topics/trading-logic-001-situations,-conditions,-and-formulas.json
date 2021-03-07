@@ -1,0 +1,61 @@
+{
+    "topic": "Trading Logic",
+    "pageNumber": "1",
+    "type": "Situations, Conditions, and Formulas",
+    "definition": {
+        "text": "The trading framework implemented in Trading Systems and Trading Strategies carries some low-level trading logic in and of itself. However, the bulk of the logic specific to each strategy derives from the way you describe market situations, and how you define the actions the Trading Bot must take.",
+        "updated": 1610211518547
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Situation",
+            "updated": 1610211543537
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Situation->Definition",
+            "updated": 1610211550330
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Situation->Content",
+            "updated": 1610211554482
+        },
+        {
+            "style": "Title",
+            "text": "Condition",
+            "updated": 1610211561606
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Condition->Definition",
+            "updated": 1610211581358
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Condition->Content",
+            "updated": 1610211584280
+        },
+        {
+            "style": "Title",
+            "text": "Formula",
+            "updated": 1610211589034
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Formula->Definition",
+            "updated": 1610211600331
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Formula->Content",
+            "updated": 1610211603147
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Formula->Examples",
+            "updated": 1610211711972
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+{
+    "topic": "Integrations",
+    "pageNumber": "2",
+    "type": "Webhook Notifications",
+    "definition": {
+        "text": "Receive webhook notifications from other systems and use them as signals in your strategies.",
+        "updated": 1611486052936
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1611486037477
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos allows you to receive webhook notifications from TradingView or any other system supporting webhooks. You may use this feature to turn notifications into signals upon which you may act from within your strategies."
+        },
+        {
+            "style": "Text",
+            "text": "The system’s Web Server receives notifications and serves them to a sensor bot running as a data mining task. The sensor creates a data product with several properties which are made available to be used from within strategies."
+        },
+        {
+            "style": "Text",
+            "text": "The rest of this page describes the set up process and how to use webhook notifications from within Superalgos."
+        },
+        {
+            "style": "Title",
+            "text": "Set-up the Webhooks Sensor Bot Tasks"
+        },
+        {
+            "style": "Text",
+            "text": "The Masters data mine features the definition of the Webhooks sensor bot used to monitor incoming notifications. You need to run an instance of this bot in the data mining section of the exchange and market of your choice."
+        },
+        {
+            "style": "Text",
+            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market."
+        },
+        {
+            "style": "Text",
+            "text": "Once the Webhooks sensor task is set up and running, you are all set at the application level. It’s that simple."
+        },
+        {
+            "style": "Title",
+            "text": "Run a Quick Local Test"
+        },
+        {
+            "style": "Text",
+            "text": "Before setting up the actual signal at the corresponding provider, you may run a quick local test that will help you familiarize with how Superalgos handles webhooks."
+        },
+        {
+            "style": "Text",
+            "text": "In the crypto ecosystem node menu, select Add Signals Providers. A structure of nodes is added with a signals provider node that allows you to run a little test. Select Configure Signals Provider on the menu."
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\"\n}",
+            "updated": 1611486196742
+        },
+        {
+            "style": "List",
+            "text": "webhookURL: This is the URL you need to use for testing purposes. Make sure you refer to the correct exchange and market."
+        },
+        {
+            "style": "List",
+            "text": "testMessage: Enter any message, for testing purposes."
+        },
+        {
+            "style": "Text",
+            "text": "Once the test message is configured, select Send Test Message on the menu."
+        },
+        {
+            "style": "Title",
+            "text": "Webhooks Sensor Bot Output"
+        },
+        {
+            "style": "Text",
+            "text": "The Webhooks sensor bot outputs a single file, Data.json, in the following location: ",
+            "updated": 1611486267182
+        },
+        {
+            "style": "Json",
+            "text": "\\Data-Storage\\Exchange\\Market\\Masters\\Webhooks\\Output\\External-Signals\\Single-File\\",
+            "updated": 1611486278677
+        },
+        {
+            "style": "Text",
+            "text": "You may open the file and see if the content corresponds to what is expected."
+        },
+        {
+            "style": "Note",
+            "text": "Make sure the Webhooks sensor bot task is running. The process is configured to run every 30 seconds by default. If that time has passed, you should find the messages you may have sent.",
+            "updated": 1611486302392
+        },
+        {
+            "style": "Text",
+            "text": "This is what the file may look like, assuming you sent four different test messages:"
+        },
+        {
+            "style": "Json",
+            "text": "[[1587998459260,\"Trading-View\",\"Sell\"],[1587998475409,\"Trading-View\",\"Buy\"],[1587998530190,\"Trading-View\",\"A custom signal I just configured\"],[1588000300940,\"Trading-View\",\"This is my new message\"]]"
+        },
+        {
+            "style": "Text",
+            "text": "As per the record definition of the Webhooks sensor bot in the Masters data mine, each record in the file features three fields:"
+        },
+        {
+            "style": "List",
+            "text": "timestamp: the Unix datetime of the message."
+        },
+        {
+            "style": "List",
+            "text": "source: the name of the signal provider."
+        },
+        {
+            "style": "List",
+            "text": "message: the message set up at the provider’s system."
+        },
+        {
+            "style": "Title",
+            "text": "Using Webhooks Signals from within Strategies"
+        },
+        {
+            "style": "Text",
+            "text": "You may use each of the three available properties with the following syntax:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.timestamp"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.source"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.message"
+        },
+        {
+            "style": "Text",
+            "text": "For example, a simple condition evaluating to true when a the last message received is a buy signal from TradingView would look like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.source === \"Trading-View\" && chart.atAnyTimeFrame.externalSignal.message === \"Buy\""
+        },
+        {
+            "style": "Text",
+            "text": "You may also use the previous property to check the previous message, as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.previous.message === \"Buy\""
+        },
+        {
+            "style": "Text",
+            "text": "It may be wise to verify the date of the message, or to check if the message corresponds to a certain time frame. To do that, you may use the isItInside function as follows:"
+        },
+        {
+            "style": "Javascript",
+            "text": "isItInside(chart.atAnyTimeFrame.externalSignal, chart.at01hs.candle)"
+        },
+        {
+            "style": "Text",
+            "text": "In the above example, the first parameter chart.atAnyTimeFrame.externalSignal is the signal object you wish to check, and the second parameter chart.at01hs.candle is any other object that is delimited in time. In this case, the condition validates true if the last message falls within the last 1-hour candle."
+        },
+        {
+            "style": "Title",
+            "text": "Set-up Alerts/Messages at the Provider"
+        },
+        {
+            "style": "Text",
+            "text": "You will use the following syntax to craft the URL you need to configure for the webhooks at the provider:"
+        },
+        {
+            "style": "Javascript",
+            "text": "http://YourIPAddress:Port/Webhook/New-Message/Provider-Name/Exchange/Market"
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Json",
+            "text": "http://182.45.73.1:34247/Webhook/New-Message/Trading-View/Binance/BTC-USDT"
+        },
+        {
+            "style": "Text",
+            "text": "Set-up Your Network to Accept Incoming Connections"
+        },
+        {
+            "style": "Text",
+            "text": "Needless to say, you need to configure your network / router / firewall to allow incoming webhook messages on the corresponding port."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

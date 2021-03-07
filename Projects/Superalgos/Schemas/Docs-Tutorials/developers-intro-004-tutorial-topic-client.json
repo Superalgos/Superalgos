@@ -1,0 +1,38 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 4,
+    "type": "Tutorial Topic - Client",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "Is a collection of servers running on a single Node.js process."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The servers are:"
+        },
+        {
+            "style": "List",
+            "text": "Web Server: Serves all the JS files that form the User Interface to the browser."
+        },
+        {
+            "style": "List",
+            "text": "Web Sockets Server: Enables the UI to reach the Client via WS."
+        },
+        {
+            "style": "List",
+            "text": "Events Server: Enables the UI to communicate with the Task Manager Server and all of the Task Servers process instances via events over WS."
+        },
+        {
+            "style": "List",
+            "text": "Task Manager Server: Manges Task Servers processes based on users commands."
+        },
+        {
+            "style": "Note",
+            "text": "All of these servers are custom built&mdash;in-house&mdash;for Superalgos. We prefer to build on top of rock-solid, widely-used, low-level libraries only, like WS, for instance."
+        }
+    ]
+}

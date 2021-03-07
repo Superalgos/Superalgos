@@ -1,0 +1,22 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 72,
+    "type": "Tutorial Step - The Power of Data Mining",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Why do levels jump up and down? There's something I haven't told you yet, 'cos I'm afraid it may blow your mind!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The bot keeps track of all support levels alive since the start of the dataset, but only shows you the five levels closest to the current price."
+        },
+        {
+            "style": "Text",
+            "text": "Keeping track of information for the whole span of the dataset—which may count years—is the extraordinary value of data mining, and the kind of things you wouldn't be able to calculate with a function, on the fly. The Plotter associated with the Indicator Bot dynamically shows the five levels of support closest to the price because those are the relevant levels for the context."
+        }
+    ]
+}

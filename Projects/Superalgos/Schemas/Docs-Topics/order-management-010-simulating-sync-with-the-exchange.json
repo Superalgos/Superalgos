@@ -1,0 +1,463 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "10",
+    "type": "Simulating Sync With the Exchange",
+    "definition": {
+        "text": "The simulated synchronization with the exchange resembles the real synchronization in that it follows the same logic. The difference lies in that the data involved in calculations originates in user definitions instead of real-life orders.",
+        "updated": 1610222523595
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The simulation of the synchronization with the exchange looks to reproduce the logic of live trading for backtesting and paper trading sessions so that simulations follow similar mechanisms, and thus, maximize their capacity to predict what live trading with any given trading system may look like.",
+            "updated": 1610222800319
+        },
+        {
+            "style": "Text",
+            "text": "The obvious difference is that there is no exchange involved in the process, that is, no real-life data about the variables affecting orders such as the actual fill rates, or if orders are filled at all. Instead, all information is taken from user definitions (both from the trading system and session parameters) and market information."
+        },
+        {
+            "style": "Text",
+            "text": "There are two main levels of definitions that affect how orders are simulated."
+        },
+        {
+            "style": "Text",
+            "text": "The one level that takes precedence in all cases is the definitions made through the simulated exchange events section under each order defined in the trading system. These definitions affect each order, providing granular control over how each order should be simulated."
+        },
+        {
+            "style": "Text",
+            "text": "The second level of definitions affecting how simulations work is that of parameters at the level of the trading session. These parameters are used for all orders that do not have a specific definition in the form of simulated exchange events."
+        },
+        {
+            "style": "Text",
+            "text": "Like with the real synchronization process, once all calculations are done, the trading bot does the bookkeeping (see Accounting)."
+        },
+        {
+            "style": "Block",
+            "text": "Actual Size Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Actual Size Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "Minimal variations in the size of orders that may occur during live trading sessions are irrelevant to the production of proper simulations, thus, there is no need to simulate such things. Instead, the trading bot takes the defined sizes as valid and uses those as the actual size of the order."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.actualSize.value = \ntradingEngineOrder.orderBaseAsset.size.value\ntradingEngineOrder.orderQuotedAsset.actualSize.value = \ntradingEngineOrder.orderQuotedAsset.size.value",
+            "updated": 1610222816044
+        },
+        {
+            "style": "Block",
+            "text": "Actual Rate Simulation",
+            "updated": 1610222855123
+        },
+        {
+            "style": "Title",
+            "text": "Actual Rate Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "The initial value for the rate of orders is the close of the last candle for market orders, that is, the last known market rate, and the value defined for the rate node in case of limit orders."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value"
+        },
+        {
+            "style": "Text",
+            "text": "However, in real live trading situations, there are many factors out of the users’ control that may affect the actual rate of an order, especially for market orders. Properly simulating such issues is conducive to more realistic projections on the potential performance of strategies, thus, simulations should take such issues into account."
+        },
+        {
+            "style": "Text",
+            "text": "There are three steps involved in the simulation of the actual rate, and shall be analyzed separately:"
+        },
+        {
+            "style": "List",
+            "text": "Slippage simulation when there are definitions at the level of the trading system, that is, at the level of the simulated exchange events node (see Based On Trading System below)."
+        },
+        {
+            "style": "List",
+            "text": "Slippage simulation when there are no definitions at the level of the trading system; session parameters are used instead (see Based On Session Parameters below)."
+        },
+        {
+            "style": "List",
+            "text": "The last case has to do with verifying if the simulated actual rate defined in either of the two earlier steps makes sense in the context of the market (see Consider Best Match With Order Book below)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Based On Trading System"
+        },
+        {
+            "style": "Text",
+            "text": "If an actual rate is properly defined under simulated exchange events for the order in question, the value resulting from the formula is used as the actual rate."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value ===\ntradingEngineOrder.orderStatistics.actualRate.config.initialValue",
+            "updated": 1610222897750
+        },
+        {
+            "style": "Note",
+            "text": "Although limit orders tend to have little or no slippage, notice that the above is valid both for market orders and limit orders.",
+            "updated": 1610222907606
+        },
+        {
+            "style": "Subtitle",
+            "text": "Based On Session Parameters"
+        },
+        {
+            "style": "Text",
+            "text": "If a limit order does not have an actual rate defined under simulated exchange events, then the actual rate of a limit order is the defined initial rate, as the slippage session parameter does not apply to limit orders. That is, the value is left untouched."
+        },
+        {
+            "style": "Text",
+            "text": "However, if a market order does not have an actual rate defined under simulated exchange events, then the marketOrderRate parameter within the slippage session parameter is used to apply a slippage factor."
+        },
+        {
+            "style": "Javascript",
+            "text": "slippageAmount = tradingEngineOrder.rate.value *\nsessionParameters.slippage.config.marketOrderRate / 100",
+            "updated": 1610222939129
+        },
+        {
+            "style": "Important",
+            "text": "Slippage is applied so that it always goes against the interest of the trading system. For example, for a market sell order, the slippage amount is subtracted from the initial rate, therefore simulating that the rate is worse than ideal.",
+            "updated": 1610222950786
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngineOrder.rate.value -\nslippageAmount",
+            "updated": 1610222960155
+        },
+        {
+            "style": "Text",
+            "text": "The opposite is true for market buy orders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngineOrder.rate.value +\nslippageAmount",
+            "updated": 1610222973506
+        },
+        {
+            "style": "Subtitle",
+            "text": "Consider Best Match With Order Book"
+        },
+        {
+            "style": "Text",
+            "text": "Let’s set up the context for a little piece of analysis required to understand this simulation criterion."
+        },
+        {
+            "style": "Text",
+            "text": "The exchange’s order book is populated with bids (buy orders) and asks (sell orders). In terms of rates, we could argue that buy orders sit below sell orders. When the rate of buy and sell orders converge, orders get filled."
+        },
+        {
+            "style": "Text",
+            "text": "Market buy orders are filled with the lowest rate possible sell orders in the book. Market sell orders are filled with the highest rate possible buy orders in the book."
+        },
+        {
+            "style": "Text",
+            "text": "Limit buy and sell orders have a defined rate. However, by definition, a limit order is an instruction to the exchange to fill the order at the specified price or better. The “or better” part of the instruction is the key to this analysis."
+        },
+        {
+            "style": "Text",
+            "text": "During the period of time represented in a candle, the range of rates between the maximum and minimum rates in the candle tells us that virtually all orders within those rates that were open upon the begin datetime of the candle must have been filled."
+        },
+        {
+            "style": "Callout",
+            "text": "Now, what happens if a buy order is placed at a rate higher than the maximum rate of the candle?"
+        },
+        {
+            "style": "Text",
+            "text": "In such a scenario, it is safe to make the following assumptions:"
+        },
+        {
+            "style": "List",
+            "text": "The order is filled, because there are plenty of sell orders at a cheaper rate."
+        },
+        {
+            "style": "List",
+            "text": "The order is filled at a lower rate than the one defined, for the same reasons (there are cheaper asks in the order book)."
+        },
+        {
+            "style": "Text",
+            "text": "The above is the consideration that drives this simulation criterion to estimate the actual rate of an order. However, what is not possible to pinpoint is the exact rate at which the order would be filled."
+        },
+        {
+            "style": "Callout",
+            "text": "With all this in mind, when a buy order’s actual rate—as calculated by the Based On Trading System or the Based On Session Parameters approaches—is higher than the maximum rate of the candle, the Consider Best Match With Order Book simulation corrects the actual rate and assigns it the maximum value of the candle."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.max.value",
+            "updated": 1610223027648
+        },
+        {
+            "style": "Text",
+            "text": "As a corollary, the following criteria govern this particular simulation:"
+        },
+        {
+            "style": "List",
+            "text": "On one hand, the simulation must mirror live trading as closely as possible. This is the reason for factoring in this analysis."
+        },
+        {
+            "style": "List",
+            "text": "On the other hand, when something is uncertain, the simulation must assume the worst possible scenario, so that simulations remain on the “realistic-pessimistic” type of performance outcome, as opposed to “wishful-thinking” scenarios that may be dangerous. This is the reason for using candle.max instead of any other more optimistic assumptions that—while feasible—are not necessarily more likely to happen."
+        },
+        {
+            "style": "Text",
+            "text": "The reversed scenario is considered as well: when a sell order is placed at a lower rate than the minimum rate of the candle against which the order is being simulated, the actual rate is corrected with the candle.min value."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.min.value",
+            "updated": 1610223044937
+        },
+        {
+            "style": "Block",
+            "text": "Recalculate Actual Size"
+        },
+        {
+            "style": "Title",
+            "text": "Recalculate Actual Size"
+        },
+        {
+            "style": "Text",
+            "text": "Since the actual rate may have been modified by the Actual Rate Simulation, it is necessary to recalculate the actual size in the quoted asset. The actual size in base asset remains the same, as it is not affected by the change in rate. Remember that the properties of the quoted asset always derive from the properties of the base asset."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderQuotedAsset.actualSize.value =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.actualRate.value",
+            "updated": 1610223069460
+        },
+        {
+            "style": "Block",
+            "text": "Recalculate Size Placed"
+        },
+        {
+            "style": "Title",
+            "text": "Recalculate Size Placed"
+        },
+        {
+            "style": "Text",
+            "text": "Since the actual rate may have changed, it is also necessary to calculate the stage’s size placed. Remember that the size placed node at the level of the stage keeps track of the total size of orders that have been placed so that the target size defined for the stage may be enforced as a cap."
+        },
+        {
+            "style": "Text",
+            "text": "As done during a typical exchange synchronization, the initial size of the order is subtracted from the size placed, and then the actual size is added. This is done in two steps, for clarity:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value -\npreviousQuotedAssetActualSize\n\ntradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value +\ntradingEngineOrder.orderQuotedAsset.actualSize.value",
+            "updated": 1610223111181
+        },
+        {
+            "style": "Block",
+            "text": "Percentage Filled Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Percentage Filled Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "The simulation of the filling of market orders is straightforward: they always fill. For limit orders, the trading bot runs a basic check:"
+        },
+        {
+            "style": "List",
+            "text": "For limit buy orders to fill, the minimum rate of the candle must be equal or lower than the actual rate of the order. This means that the rate of the order falls within the range of rates filled during the duration of the candle."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <=\ntradingEngineOrder.actualRate.value",
+            "updated": 1610223130690
+        },
+        {
+            "style": "List",
+            "text": "For limit sell orders to fill, the reverse logic applies: the maximum rate of the candle must be equal or greater than the actual rate of the order."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >=\ntradingEngineOrder.actualRate.value",
+            "updated": 1610223149566
+        },
+        {
+            "style": "Note",
+            "text": "If limit orders do not pass the above check, they remain unfilled.",
+            "updated": 1610223159959
+        },
+        {
+            "style": "Text",
+            "text": "When an order is filled, by default it is filled fully, that is, the percentage filled is 100%:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.percentageFilled.value = 100"
+        },
+        {
+            "style": "Text",
+            "text": "However, the above may change if you have defined a specific fill probability for the specific order on the simulated partial fill node. If there is a valid definition to simulate the probability of the order to be filled on each execution, then this is what the trading bot does with it:"
+        },
+        {
+            "style": "Javascript",
+            "text": "percentageFilled =\ntradingSystemOrder.simulatedExchangeEvents.simulatedPartialFill.config.fillProbability * 100",
+            "updated": 1610223186906
+        },
+        {
+            "style": "Text",
+            "text": "That is, the fillProbability parameter is multiplied by 100, and the result is the percentage filled. If the percentage filled is lower than 100, then the order may continue filling in subsequent executions, provided it passes the above checks."
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, in every execution, the following update is done on the percentage filled node of the order statistics:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderStatistics.percentageFilled.value =\ntradingEngineOrder.orderStatistics.percentageFilled.value +\npercentageFilled",
+            "updated": 1610223206637
+        },
+        {
+            "style": "Note",
+            "text": "Of course, there is also a check to make sure that the percentage filled is never greater than 100.",
+            "updated": 1610223219878
+        },
+        {
+            "style": "Block",
+            "text": "Fees Paid Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Fees Paid Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "Like with the definitions regarding the actual rate of the order, the definition of the simulated fees paid node under simulated exchange events takes precedence in regards to the definitions in the fee structure parameter of the trading session."
+        },
+        {
+            "style": "Text",
+            "text": "In general terms, fees paid are calculated as follows:"
+        },
+        {
+            "style": "List",
+            "text": "The percentage of fees is applied to the actual size to obtain the total amount of fees to be paid when the order is 100% filled."
+        },
+        {
+            "style": "List",
+            "text": "Then, the percentage filled is applied to obtain the fees paid for the portion of the order that actually filled."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading system definitions"
+        },
+        {
+            "style": "Text",
+            "text": "For buy orders, fees are calculated in the base asset, as that is the asset being acquired:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\ntradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223256887
+        },
+        {
+            "style": "Text",
+            "text": "For sell orders, fees are calculated in the quoted asset:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\ntradingSystemOrder.simulatedExchangeEvents.simulatedFeesPaid.config.percentage / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223271791
+        },
+        {
+            "style": "Subtitle",
+            "text": "Session parameters definitions"
+        },
+        {
+            "style": "Text",
+            "text": "When producing the simulation based on the fees structure parameter of the trading session, the maker setting is applied to limit orders and the taker setting is applied to market orders."
+        },
+        {
+            "style": "Text",
+            "text": "For market buy orders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\nsessionParameters.feeStructure.config.taker / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223296764
+        },
+        {
+            "style": "Text",
+            "text": "For market sell orders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\nsessionParameters.feeStructure.config.taker / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223315630
+        },
+        {
+            "style": "Text",
+            "text": "For limit buy orders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\nsessionParameters.feeStructure.config.maker / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223336052
+        },
+        {
+            "style": "Text",
+            "text": "For limit sell orders:"
+        },
+        {
+            "style": "Javascript",
+            "text": "feesPaid =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\nsessionParameters.feeStructure.config.maker / 100 *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223351171
+        },
+        {
+            "style": "Block",
+            "text": "Size Filled Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Size Filled Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "Calculating the size filled is straightforward considering we have already established the percentage of the size that has been filled. Bear in mind the property needs to be calculated for both assets."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.sizeFilled.value =\ntradingEngineOrder.orderBaseAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value =\ntradingEngineOrder.orderQuotedAsset.actualSize.value *\ntradingEngineOrder.orderStatistics.percentageFilled.value / 100",
+            "updated": 1610223373798
+        },
+        {
+            "style": "Block",
+            "text": "Amount Received Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Amount Received Simulation"
+        },
+        {
+            "style": "Text",
+            "text": "This is a simple calculation to explicitly determine how much of the asset was acquired in the transaction. It is calculated by subtracting the fees from the actual size."
+        },
+        {
+            "style": "Text",
+            "text": "Buy orders acquire the base asset, thus, the amount is denominated in the base asset:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.amountReceived.value =\ntradingEngineOrder.orderBaseAsset.sizeFilled.value -\ntradingEngineOrder.orderBaseAsset.feesPaid.value",
+            "updated": 1610223399677
+        },
+        {
+            "style": "Text",
+            "text": "Sell orders acquire the quoted asset, thus, the amount is denominated in the quoted asset:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderQuotedAsset.amountReceived.value =\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value -\ntradingEngineOrder.orderQuotedAsset.feesPaid.value",
+            "updated": 1610223419660
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Plugin Tutorials",
+    "definition": {
+        "text": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Important",
+            "text": "Tutorials included in the workspace as plugins do not keep track of users' progress, thus, may not return to the last step using the <i>Resume</i> button on the menu."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Plugin Tutorials"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        }
+    ]
+}

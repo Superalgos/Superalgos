@@ -1,0 +1,36 @@
+{
+    "type": "Serial Number",
+    "definition": {
+        "text": "Serial number is a sequential number assigned to the object represented by the parent node at the moment it is opened."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Serial numbers start at 1 and increment by 1 with each intance of the object that is opened."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Serial Number Configuration",
+            "updated": 1609873971454
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

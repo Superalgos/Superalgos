@@ -1,0 +1,77 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "8",
+    "type": "Statistics",
+    "definition": {
+        "text": "Track popular statistics consolidating both the base asset and the quoted asset. On this page: Episode Statistics, Position Statistics, and Order Statistics.",
+        "updated": 1611260196449
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Statistics are accounts and performance metrics calculated by consolidating the base asset and the quoted asset, that is, taking both assets into account.",
+            "updated": 1611260210428
+        },
+        {
+            "style": "Text",
+            "text": "The mechanics of how both assets are consolidated and how the consolidation affects the calculations are explained in the definitions of each of the concepts."
+        },
+        {
+            "style": "Title",
+            "text": "Trading Episode Statistics",
+            "updated": 1611260256691
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Episode Statistics->Definition",
+            "updated": 1611260259469
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Episode Statistics->2",
+            "updated": 1611260262273
+        },
+        {
+            "style": "Title",
+            "text": "Position Statistics",
+            "updated": 1611260273697
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position Statistics->Definition",
+            "updated": 1611260277415
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Position Statistics->2",
+            "updated": 1611260280519
+        },
+        {
+            "style": "Title",
+            "text": "Order Statistics",
+            "updated": 1611260292859
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Statistics->Definition",
+            "updated": 1611260295959
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Order Statistics->2",
+            "updated": 1611260299229
+        }
+    ]
+}

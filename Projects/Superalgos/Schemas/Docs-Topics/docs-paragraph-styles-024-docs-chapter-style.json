@@ -1,0 +1,63 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 24,
+    "type": "Docs Chapter Style",
+    "definition": {
+        "text": "This style is used in Docs Books to define a new chapeter for that book. The style renders in the book's page the index of the Docs Topics referenced.",
+        "updated": 1609771567815
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1610015500246
+        },
+        {
+            "style": "Javascript",
+            "text": "Chapter Number->Project->Docs Page Category->Docs Category Name->Intruction Text",
+            "updated": 1610015888193
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Chapter Number: Any string that represents the chapter number to be displayed.",
+            "updated": 1610015596538
+        },
+        {
+            "style": "List",
+            "text": "Project : Is the project where the Docs Page belongs to."
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Category : Topic or Tutorial.",
+            "updated": 1610015631058
+        },
+        {
+            "style": "List",
+            "text": "Docs Category Name: For topics, the topic's name, for tutorials, is the tutorial's name.",
+            "updated": 1610015910027
+        },
+        {
+            "style": "List",
+            "text": "Introduction Text: It is an introduction text to be displayed between the Chapter Title and the Chapter Index. This parameter is optional.",
+            "updated": 1610015785424
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Javascript",
+            "text": "I->Superalgos->Topic->Docs Basics",
+            "updated": 1610015852514
+        },
+        {
+            "style": "Javascript",
+            "text": "IV->Superalgos->Tutorial->Getting Started->This is the first tutorial you should do.",
+            "updated": 1610015836892
+        }
+    ]
+}

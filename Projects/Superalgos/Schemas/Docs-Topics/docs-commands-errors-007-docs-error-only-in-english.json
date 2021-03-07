@@ -1,0 +1,39 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 7,
+    "type": "Docs Error - Only In English",
+    "definition": {
+        "text": "You may only use this command in the English version of the Docs.",
+        "updated": 1610977499324
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Only In English",
+            "updated": 1609176190365
+        },
+        {
+            "style": "Error",
+            "text": "This command is available only while browsing the Docs in English language.",
+            "updated": 1610977476368
+        },
+        {
+            "style": "Success",
+            "text": "Set English as your preferred language on the footer of this page and try again.",
+            "updated": 1610977454296
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command",
+            "updated": 1609177338804
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        }
+    ]
+}

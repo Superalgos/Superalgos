@@ -1,0 +1,20 @@
+{
+    "type": "Close Stage Event",
+    "definition": {
+        "text": "The close stage event defines the set of rules that need to be met for the corresponding stage to be closed."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Both the open and close stages are closed once the target size is filled."
+        },
+        {
+            "style": "Text",
+            "text": "However, Superalgos allows an extra level of control so that the user may choose to close either stage given specific market situations. Such is the intent of the close stage event."
+        }
+    ]
+}

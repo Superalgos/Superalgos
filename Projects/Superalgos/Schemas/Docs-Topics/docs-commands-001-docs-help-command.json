@@ -1,0 +1,81 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "1",
+    "type": "Docs Help Command",
+    "definition": {
+        "text": "The Docs provide a command line interface that you may use to contribute to the Docs. The Docs Help Command provides a list of all available commands.",
+        "updated": 1610974835590
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609150394630
+        },
+        {
+            "style": "Json",
+            "text": "docs.help",
+            "updated": 1609141063054
+        },
+        {
+            "style": "Title",
+            "text": "Available Commands",
+            "updated": 1609150389229
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Save Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Reindex Command"
+        },
+        {
+            "style": "Title",
+            "text": "Help on Commands",
+            "updated": 1609150376981
+        },
+        {
+            "style": "Text",
+            "text": "Another way to use this command is to provide the name of a command for which you would like to see help info.",
+            "updated": 1610974898665
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1609150399428
+        },
+        {
+            "style": "Json",
+            "text": "docs.help docs.add",
+            "updated": 1609141312948
+        },
+        {
+            "style": "Json",
+            "text": "docs.help docs.delete",
+            "updated": 1609141326112
+        },
+        {
+            "style": "Json",
+            "text": "docs.help doc.save",
+            "updated": 1609150597166
+        },
+        {
+            "style": "Note",
+            "text": "Entries in the command prompt not identified as a command are treated as a search query.",
+            "updated": 1610974943826
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "2",
+    "type": "App Message - Creating Pull Request",
+    "definition": {
+        "text": "Hold on while changes are uploaded to GitHub.com and a Pull Request is created. You will get a new message when the operation is complete.",
+        "updated": 1611002766659,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Tunggu sebentar perubahan yang dilakukan sedang diupload ke GitHub.com dan Pull Request sedang dibuat. Anda akan mendapatkan pesan baru setelah penguploadtan selesai.",
+                "updated": 1613891008401
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "What's next?",
+            "updated": 1609940971059,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Lalu Selanjutnya ?",
+                    "updated": 1613891025030
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow up with the issue at Github.com.",
+            "updated": 1611128895749,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tidak perlu melakukan tindakan lebih lanjut. Seseorang akan meninjau Pull Request anda dan menggabungkannya ke perangkat lunak versi terbaru setelah semuanya selesai. Jika perubahan anda ditolak karena alasan apa pun, anda harus follow up masalah tersebut ke Github.com.",
+                    "updated": 1613891172587
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically appended to the open Pull Request.",
+            "updated": 1611002870980,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Jika Anda mengirimkan lebih dari satu kontribusi saat Pull Request sedang direview, Hal tersebut akan secara otomatis ditambahkan ke Pull Request terbuka.",
+                    "updated": 1613891268456
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You should receive an email from Github.com when changes are merged, or if the reviewer makes comments or reject the changes. You may manage your email suscription settings at GitHub.com.",
+            "updated": 1611002949297,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda akan menerima email dari Github.com ketika perubahan dimerger, atau jika para peninjau memberikan komentar bahkan penolakan dalam perubahan. Anda dapat mengelola pengaturan berlangganan email anda di GitHub.com.",
+                    "updated": 1613891399207
+                }
+            ]
+        }
+    ]
+}

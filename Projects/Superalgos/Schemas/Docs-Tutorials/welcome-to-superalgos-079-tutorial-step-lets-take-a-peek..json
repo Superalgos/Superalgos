@@ -1,0 +1,36 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 79,
+    "type": "Tutorial Step - Let's Take a Peek...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "limit-sell-order"
+        },
+        "text": "Before we leave the trading system, let's take a quick look into one of these orders and see what may be of interest."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Expand Profit 0.6 and check the formula of the Order Rate node."
+        },
+        {
+            "style": "Text",
+            "text": "Let's focus on this misterious bit of the formula:",
+            "updated": 1610642070428
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value"
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;",
+            "updated": 1610642114068
+        },
+        {
+            "style": "Text",
+            "text": "The formula is fetching the value of the Exit Target Rate, defined elsewhere. Let's not focus and what this target rate may be. Instead, let's take a look at the mechanism by which a Trading System may have access to information processed by the Trading Bot."
+        }
+    ]
+}

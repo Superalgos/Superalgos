@@ -1,0 +1,86 @@
+{
+    "topic": "TS Process Errors",
+    "pageNumber": "1",
+    "type": "TS Process Error - Unexpected Error",
+    "definition": {
+        "text": "There was an unexpected error and the process was shut down.",
+        "updated": 1611413113338
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While running at the TS, the process encountered and unexpected error that forced the TS to shut the process down. The Task may still be running other unaffected processes, but if all the processes stop running or this was the only process under the Task, then the Task may have stopped too.",
+            "updated": 1611413246602
+        },
+        {
+            "style": "Error",
+            "text": "Unexpected Error"
+        },
+        {
+            "style": "Title",
+            "text": "Error Info",
+            "updated": 1611258020914
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Success",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611258030660
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the TS:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the TS:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the TS:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the TS:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

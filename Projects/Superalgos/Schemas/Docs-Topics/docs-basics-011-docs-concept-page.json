@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 11,
+    "type": "Docs Concept Page",
+    "definition": {
+        "text": "Concepts are notions or ideas that are not represented as nodes in a hierarchy. Pages in the concept category cover notions or ideas that may be explained in a single page. That is, concepts are notions that may be covered exhaustively on a single page.",
+        "updated": 1613756750385
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The page of a concept is self-contained.",
+            "updated": 1613756891822
+        }
+    ]
+}

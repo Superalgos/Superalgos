@@ -1,0 +1,20 @@
+{
+    "type": "Time Machine",
+    "definition": {
+        "text": "A time machine synchronizes multiple timeline charts over the same timeline. Timeline charts within a time machine may have different rate scales or time frame scales, but their time scale will always match."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Think of a time machine as an aide that helps you keep any number of pieces of information synchronized on the same time scale. Every data structure that you set up within the same time machine, will always be synchronized in time. Put in other words, the open and closing datetime of each dataset will always be aligned on the vertical axis."
+        },
+        {
+            "style": "Text",
+            "text": "On the other hand, when you arrange charts on different time machines, they are completely independent of one another."
+        }
+    ]
+}

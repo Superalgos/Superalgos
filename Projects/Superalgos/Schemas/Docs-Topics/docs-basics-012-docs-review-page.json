@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 12,
+    "type": "Docs Review Page",
+    "definition": {
+        "text": "Reviews are user-generated content describing their experience with certain components of Superalgos or other projects.",
+        "updated": 1613756750385
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The page of a review is self-contained.",
+            "updated": 1613756891822
+        }
+    ]
+}

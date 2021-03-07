@@ -1,0 +1,239 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "5",
+    "type": "Conceptual Context - Episode, Strategy, Position, Strategy Stages",
+    "definition": {
+        "text": "Track the properties within each of the major concepts handled by the trading bot, such as episodes, strategies, positions, strategy stages, and exchange orders.",
+        "updated": 1611256914210
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Episodes, strategies, positions, strategy stages, exchange orders, and other concepts may be seen as different contexts too, although not of the temporal kind.",
+            "updated": 1611256927199
+        },
+        {
+            "style": "Text",
+            "text": "For instance, you may want to know what the ROI is in the context of the episode—that is, the ROI after several positions have passed—or the ROI of the current position only."
+        },
+        {
+            "style": "Callout",
+            "text": "In other words, many properties such as performance metrics—like ROI, or profit loss—or market data—like the begin and end datetimes or any of these concepts—exist in more than one conceptual context."
+        },
+        {
+            "style": "Text",
+            "text": "The following pages describe each of these major conceptual contexts, which, in turn, may exist in more than one temporal context."
+        },
+        {
+            "style": "Note",
+            "text": "From the perspective of systems design, each of these concepts is handled as an object that may be open or closed, thus has a lifespan. The same object may be open more than once, but only after the previous instance has been closed.",
+            "updated": 1611256963378
+        },
+        {
+            "style": "Title",
+            "text": "Trading Episode",
+            "updated": 1611257045974
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Episode->Definition",
+            "updated": 1611257060021
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Episode->Content",
+            "updated": 1611257063548
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Episode->2",
+            "updated": 1611257076886
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Strategy",
+            "updated": 1611257279919
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy->Definition",
+            "updated": 1611257297317
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy->Content",
+            "updated": 1611257300492
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy->2",
+            "updated": 1611257312551
+        },
+        {
+            "style": "Title",
+            "text": "Position",
+            "updated": 1611257347308
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position->Definition",
+            "updated": 1611257358664
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position->Content",
+            "updated": 1611257362447
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Position->2",
+            "updated": 1611257376163
+        },
+        {
+            "style": "Title",
+            "text": "Strategy Stages",
+            "updated": 1611257433526
+        },
+        {
+            "style": "Text",
+            "text": "The Superalgos Protocol implements a trading framework by which strategies within a trading system are described in stages. The trading bot uses these definitions during runtime.",
+            "updated": 1611257532139
+        },
+        {
+            "style": "Text",
+            "text": "The concept of strategy stages in the context of the trading engine is an extension of the original concept, useful to keep track of the activity of the trading bot and organize the information processed during runtime."
+        },
+        {
+            "style": "Text",
+            "text": "Use these sections of the trading engine if you wish to track exactly what is going on, at a granular level, step by step, from the instant a strategy is triggered until it is closed, with the information segregated by strategy stage."
+        },
+        {
+            "style": "Callout",
+            "text": "The exercise may be particularly useful to grasp the intricacies of the workings of the trading bot or to research particular behaviors."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategy Trigger Stage",
+            "updated": 1611257553903
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Trigger Stage->Definition",
+            "updated": 1611257563170
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Trigger Stage->Content",
+            "updated": 1611257566539
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy Trigger Stage->2",
+            "updated": 1611257598667
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategy Open Stage",
+            "updated": 1611257613573
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Open Stage->Definition",
+            "updated": 1611257617299
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Open Stage->Content",
+            "updated": 1611257621534
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy Open Stage->3",
+            "updated": 1611257686884
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategy Manage Stage",
+            "updated": 1611257655850
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Manage Stage->Definition",
+            "updated": 1611257660113
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Manage Stage->Content",
+            "updated": 1611257664015
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy Manage Stage->2",
+            "updated": 1611257866068
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategy Close Stage",
+            "updated": 1611257705432
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Close Stage->Definition",
+            "updated": 1611257709416
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Close Stage->Content",
+            "updated": 1611257713254
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy Close Stage->3",
+            "updated": 1611257720858
+        }
+    ]
+}

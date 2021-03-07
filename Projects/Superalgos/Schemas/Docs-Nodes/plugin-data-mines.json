@@ -1,0 +1,12 @@
+{
+    "type": "Plugin Data Mines",
+    "definition": {
+        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        }
+    ]
+}

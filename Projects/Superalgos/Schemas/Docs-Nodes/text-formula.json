@@ -1,0 +1,16 @@
+{
+    "type": "Text Formula",
+    "definition": {
+        "text": "The text formula determines the content that shall be rendered over the charts."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The text formula may use any of the variables available to the plotter, and may produce either a numeric or a text string result."
+        }
+    ]
+}

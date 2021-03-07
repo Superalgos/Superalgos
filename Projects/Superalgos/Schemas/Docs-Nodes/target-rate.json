@@ -1,0 +1,146 @@
+{
+    "type": "Target Rate",
+    "definition": {
+        "text": "The target rate is a reference rate that may affect simulations and that, in combination with the placement of managed stop loss and managed take profit targets, is used to determine whether the targets have been hit."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Title",
+            "text": "Internal Use",
+            "updated": 1609595630529
+        },
+        {
+            "style": "Text",
+            "text": "The system needs to determine when the managed stop loss and managed take profit targets have been hit. To do this, the system observes how the user places the targets in relation to the target rate."
+        },
+        {
+            "style": "Subtitle",
+            "text": "For example",
+            "updated": 1609595707526
+        },
+        {
+            "style": "Text",
+            "text": "If the phase 1 managed stop loss target is placed below the target rate and the phase 1 managed take profit target above it, the system assumes that:"
+        },
+        {
+            "style": "List",
+            "text": "the stop loss target is hit when the current rate is equal to or smaller than the managed stop loss value;"
+        },
+        {
+            "style": "List",
+            "text": "the stop loss target is hit when the current rate is equal to or greater than the managed take profit value;"
+        },
+        {
+            "style": "Text",
+            "text": "This is how the system uses the target rate internally."
+        },
+        {
+            "style": "Title",
+            "text": "Fetching the Value from Formulas",
+            "updated": 1609595638456
+        },
+        {
+            "style": "Text",
+            "text": "Additionally, defining a target rate at the level of the stage may be of use so that you may retrieve the value from formulas while setting the rate of limit orders, using the path of the corresponding node at the trading engine."
+        },
+        {
+            "style": "Text",
+            "text": "For example, tradingEngine.tradingCurrent.position.entryTargetRate.value or tradingEngine.tradingCurrent.position.exitTargetRate.value."
+        },
+        {
+            "style": "Title",
+            "text": "Affecting How Simulations are Plotted",
+            "updated": 1609595746127
+        },
+        {
+            "style": "Text",
+            "text": "The target rates defined at the open and close stages affect how the Position Base Asset and Position Quoted Asset layers in the Simulation Objects layer manager draw the triangle representing the development of the trade.",
+            "updated": 1609595773405
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/Charts/target-rate-in-position.png",
+            "updated": 1609597291786
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "The horizontal segment marks the target rate defined at the open stage. If you are using market orders to take the position, then using tradingEngine.tradingCurrent.tradingEpisode.candle.close.value may offer a good representation of the rate of market orders. If you are using limit orders, then you may decide at which rate you wish to take the position, and the horizontal segment of the triangle will match the chosen rate."
+        },
+        {
+            "style": "Text",
+            "text": "The third vertex of the triangle points to a [datetime, rate] coordinate. The datetime is given by the candle on which the manage stage closes, that is, the candle at which the stop loss or take profit targets are hit. The rate portion of the coordinate is given by the target rate defined in the close stage."
+        },
+        {
+            "style": "Text",
+            "text": "You may choose to apply a similar reasoning as with the open stage target rate for limit orders, but there is some nouance to consider if you are using market orders."
+        },
+        {
+            "style": "Callout",
+            "text": "The issue arises when you run a testing session at a time frame higher than the time frame you use for live trading.",
+            "updated": 1609596096827
+        },
+        {
+            "style": "Text",
+            "text": "Why is that an issue?"
+        },
+        {
+            "style": "Text",
+            "text": "Let's say your trading system makes decisions based on the close of the 1-hour candle. And let's say you are using stop loss and take profit targets. In such cases&mdash;when live trading&mdash;you may want to run your strategy in the 1-minute time frame, to detect the tagging of the take profit and stop targets as soon as possible, and act accordingly."
+        },
+        {
+            "style": "Text",
+            "text": "However, when backtesting, it is much faster to run sessions on the 1-hour time frame. This is particularly important when you wish to test significant time ranges."
+        },
+        {
+            "style": "Text",
+            "text": "When backtesting a strategy on the 1-hour time frame, the trading bot evaluates if stop loss and take profit targets have been hit at the close of the 1-hour candle, and may only act upon the evaluation on the next candle. This means that if you are using market orders to exit the position, the market order would be placed (in the simulation!) on the candle after one of the targets was hit."
+        },
+        {
+            "style": "Text",
+            "text": "The difference in rate between the moment in time the target is hit and the time the 1-hour candle closes may be significant. As a result, if the close stage target rate is defined as tradingEngine.tradingCurrent.tradingEpisode.candle.close.value, the resulting simulation may show significant slippage, and diverge from what the trade would look like if running on the 1-minute time frame, like you would when trading live."
+        },
+        {
+            "style": "Text",
+            "text": "To solve the above issue, you may use a more ellaborate formula for the target rate in the close stage:"
+        },
+        {
+            "style": "Javascript",
+            "text": "targetRate()\n\nfunction targetRate() {\n    switch (tradingEngine.tradingCurrent.position.exitType.value) {\n        case 'No Exit': {\n            return tradingEngine.tradingCurrent.tradingEpisode.candle.close.value\n            break\n        }\n        case 'Take Profit': {\n            return tradingEngine.tradingCurrent.position.takeProfit.finalValue.value\n            break\n        }\n        case 'Stop Loss': {\n            return tradingEngine.tradingCurrent.position.stopLoss.finalValue.value\n            break\n        }\n    }\n}",
+            "updated": 1609596984516
+        },
+        {
+            "style": "Text",
+            "text": "This formula discriminates among three possible outcomes:"
+        },
+        {
+            "style": "List",
+            "text": "When no target has been hit, the value of the target rate is the close of the current candle.",
+            "updated": 1609603780132
+        },
+        {
+            "style": "List",
+            "text": "When the take profit is hit, the value of the target rate is the last value of the take profit."
+        },
+        {
+            "style": "List",
+            "text": "When the stop loss is hit, the value of the target rate is the last value of the stop loss."
+        },
+        {
+            "style": "Success",
+            "text": "You may use a similar formula on the simulated actual rate node of the simulated exchange events associated with the market order you are using to exit the position. Such use of the simulated actual rate node would impact the accounts kept for the episode and result in more realistic results for your backtesting session.",
+            "updated": 1609603803351
+        },
+        {
+            "style": "Note",
+            "text": "As you see, flexibility is a key design feature in Superalgos."
+        }
+    ]
+}

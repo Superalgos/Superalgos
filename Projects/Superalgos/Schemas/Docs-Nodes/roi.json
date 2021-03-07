@@ -1,0 +1,98 @@
+{
+    "type": "ROI",
+    "definition": {
+        "text": "ROI is a ratio that compares the profit loss with the cost of the investment, expressed as a percentage."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1611332841853
+        },
+        {
+            "style": "Text",
+            "text": "In general financial terms, ROI is equal to the Net Return on Investment divided by the Cost of Investment, expressed as a percentage."
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, the Net Return on Investment is the profit loss, as defined elsewhere. The Cost of Investment is solely the begin balance, as the fees are subtracted from the balance to calculate the profit loss, so we don’t need to account for them in the divisor side of the ratio."
+        },
+        {
+            "style": "Text",
+            "text": "That is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "ROI = profit loss / begin balance * 100"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * 100 \n    \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value /\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value * 100",
+            "updated": 1611332768337
+        },
+        {
+            "style": "Text",
+            "text": "    "
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the position base asset and position quoted asset, the size filled is used instead of the balance, so that ROI may be properly calculated for complex execution algorithms.",
+            "updated": 1611332787435
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value =\n    tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value * 100 /\n    tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value\n    \ntradingEngine.current.position.positionQuotedAsset.ROI.value =\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value * 100 /\n    tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value",
+            "updated": 1611332799800
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition.",
+            "updated": 1611332810457
+        },
+        {
+            "style": "Text",
+            "text": " Note: When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value =\n    (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value * \n        tradingEngine.tradingCurrent.tradingEpisode.endRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n    ) / (\n        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n        tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n    ) * 100",
+            "updated": 1611332824026
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609880899578
+        },
+        {
+            "style": "Title",
+            "text": "ROI Configuration",
+            "updated": 1609880909911
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609880921940
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609880928583
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "type": "Annualized Rate Of Return",
+    "definition": {
+        "text": "Annualized rate of return is the equivalent ROI scaled to one year."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, it is the equivalent annual return received over a given period."
+        },
+        {
+            "style": "Text",
+            "text": "The formula:"
+        },
+        {
+            "style": "Javascript",
+            "text": "annualized rate of return = \n(((investment + profits) / investments) ^ (365 / days)) - 1",
+            "updated": 1609925146643
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context."
+        },
+        {
+            "style": "Text",
+            "text": "The formulas:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value = \n((( tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value +\ntradingEngine.current.tradingEpisode.episodeBaseAsset.profitLoss.value ) / \ntradingEngine.current.tradingEpisode.episodeBaseAsset.beginBalance.value) ^\n(365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)) - 1\n\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.annualizedRateOfReturn.value = \n((( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.profitLoss.value ) / \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.beginBalance.value) ^\n(365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)) - 1",
+            "updated": 1609925166406
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value +\n             tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value ) / \n             tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value\n             , \n             (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)\n        ) - 1\n\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\n             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value ) / \n             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n             , \n             (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)\n        ) - 1",
+            "updated": 1609925205928
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition."
+        },
+        {
+            "style": "Note",
+            "text": "When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset."
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value =\nMath.pow(\n            (\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n            ) / \n            (\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value \n            ) \n        , \n            (\n                365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value\n            ) \n        ) - 1",
+            "updated": 1609925262959
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Annualized Rate Of Return Configuration",
+            "updated": 1609925322383
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

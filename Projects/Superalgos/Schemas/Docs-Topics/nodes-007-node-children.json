@@ -1,0 +1,20 @@
+{
+    "topic": "Nodes",
+    "pageNumber": "7",
+    "type": "Node Children",
+    "definition": {
+        "text": "Nodes might have children. When they do, they usually offer the User a way to create it's children via the Node Menu. A Node Children might end up attached to the Parent Node, but that is not always the case.",
+        "updated": 1609237042862
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Children Nodes Properties",
+            "updated": 1609242892197
+        },
+        {
+            "style": "Text",
+            "text": "Each type of node might have children. If they do, a reference to the children will be present at runtime at one or more properties of the node object. There is no generic childrenNodes property (like in HTML) with an array of children nodes. Instead what we can find is that each Node Type defines which properties will hold those children references."
+        }
+    ]
+}

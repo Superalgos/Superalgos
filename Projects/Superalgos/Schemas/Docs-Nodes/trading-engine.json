@@ -1,0 +1,24 @@
+{
+    "type": "Trading Engine",
+    "definition": {
+        "text": "The trading engine hierarchy is the data structure used by the trading bot to keep runtime information highly accessible and exposed to others."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "You will use this hierarchy for two main purposes:"
+        },
+        {
+            "style": "List",
+            "text": "To let your trading systems access the information processed by the trading bot. This allows strategies to keep track of and react to current and past events&mdash;including those involving the exchange, such as orders placed or filled&mdash;as the bot is running."
+        },
+        {
+            "style": "List",
+            "text": "To keep track of the actions of the trading bot via the design space visual environment and panels over the charts. By analyzing runtime information, you may gain a detailed understanding of what happens, when, and why, throughout a trading session."
+        }
+    ]
+}

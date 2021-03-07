@@ -1,0 +1,38 @@
+{
+    "type": "Super Scripts",
+    "definition": {
+        "text": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The super scripts hierarchy may be used by developers who wish to create their own scripts for automating the deployment or manitenance of all sorts of structures of nodes across any of the hierarchies in the design space."
+        },
+        {
+            "style": "Text",
+            "text": "Regular users will find little to do with this hierarchy, even though they may use it indirectly, for instance, when installing or uninstalling markets."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Super Scripts Configuration",
+            "updated": 1609873496526
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873505709
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the hierarchy as is used in the system's code."
+        }
+    ]
+}

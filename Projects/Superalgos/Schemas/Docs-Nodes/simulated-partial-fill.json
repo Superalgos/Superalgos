@@ -1,0 +1,42 @@
+{
+    "type": "Simulated Partial Fill",
+    "definition": {
+        "text": "The simulated partial fill parameter allows simulating the partial fill of orders."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Upon each execution, the simulation verifies if the current candle intersects the rate set for the order. If it does, it uses the value in this parameter as a factor to determine and keep track of what percentage of the order is filled."
+        },
+        {
+            "style": "Text",
+            "text": "The same process repeats for each subsequent candle, until the order is filled."
+        },
+        {
+            "style": "Text",
+            "text": "When the parameter is not present or undefined, the simulation assumes the order is filled as soon as the rate is hit."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Simulated Partial Fill Configuration",
+            "updated": 1609607669992
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609607682304
+        },
+        {
+            "style": "List",
+            "text": "fillProbability indicates the probability of an order getting filled upon each tag of the price. Values may range from 0 to 1. The value 0 indicates that there are 0% chances of the order getting filled. With such a setting, the order will never get filled in the simulation.  The value 1 indicates that there is a 100% probability of the order getting filled. With such a setting, the order is filled upon the first tag of the price. A value of 0.5 indicates a 50% probability, thus, it takes two tags of the price for the order to fill completely with such a setting."
+        }
+    ]
+}

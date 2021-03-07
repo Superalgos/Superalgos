@@ -1,0 +1,34 @@
+{
+    "type": "Sensor Bot",
+    "definition": {
+        "text": "A sensor bot is an algorithm that extracts raw data from external sources (i.e.: exchanges, Twitter, etc.) and stores it in a dataset that other bots may consume."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The sensor bot node holds all definitions required for a sensor bot to function. Definitions are split between the definition of processes and products. A sensor's processes is an algorithm that obtains data from a third pary and produces an output for other bots to consume. Part of that output is the data products the bot creates."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot Configuration",
+            "updated": 1609790137912
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609790143486
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the bot as used within the code of the system."
+        }
+    ]
+}

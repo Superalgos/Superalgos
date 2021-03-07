@@ -1,0 +1,70 @@
+{
+    "topic": "Trading Logic",
+    "pageNumber": "4",
+    "type": "Accessing Trading System Definitions and Session Parameters",
+    "definition": {
+        "text": "The Trading System may access it's own definitions as well as Session Parameters from any Formula or Condition.",
+        "updated": 1610217064031
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Trading System definitions and Trading Session Parameters are accessible from within conditions and formulas, pretty much like conditions and formulas may access the values of indicators, or the Trading Engine hierarchy.",
+            "updated": 1610217113377
+        },
+        {
+            "style": "Note",
+            "text": "This is a technical feature mostly oriented to developers. Practical use cases are few for less technically oriented individuals.",
+            "updated": 1610217120684
+        },
+        {
+            "style": "Title",
+            "text": "Syntax"
+        },
+        {
+            "style": "Text",
+            "text": "To access a trading system definition, follow the path given by the trading system structure. For example, to access a condition in the take position event, use:",
+            "updated": 1610217151294
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingSystem.tradingStrategies[i].triggerStage.takePositionEvent.situations[n].conditions[m].code"
+        },
+        {
+            "style": "Text",
+            "text": "To access a trading session parameter, use the syntax starting with sessionParameters followed by the name of the parameter, and the name of the specific parameter in the configuration. For example, to access the taker parameter in the fee structure, use:",
+            "updated": 1610217182677
+        },
+        {
+            "style": "Javascript",
+            "text": "sessionParameters.feeStructure.config.taker",
+            "updated": 1610217195909
+        },
+        {
+            "style": "Title",
+            "text": "Example"
+        },
+        {
+            "style": "Text",
+            "text": "Such a feature may be useful, for instance, to include such definitions or parameters on Telegram accouncement messages, as in:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"The condition with the following code: \" + \ntradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage.takePositionEvent.situations[0].conditions[0].code +\n\" triggered the take position event.\"",
+            "updated": 1610217276846
+        },
+        {
+            "style": "Text",
+            "text": "Notice that...",
+            "updated": 1610217314692
+        },
+        {
+            "style": "Javascript",
+            "text": "[tradingEngine.tradingCurrent.strategy.index.value]"
+        },
+        {
+            "style": "Text",
+            "text": "... corresponds to the syntax deriving from the trading engine hierarchy."
+        }
+    ]
+}

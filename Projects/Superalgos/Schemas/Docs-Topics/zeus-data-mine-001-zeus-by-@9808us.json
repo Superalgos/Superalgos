@@ -1,0 +1,25 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 1,
+    "type": "Zeus By @9808us",
+    "definition": {
+        "text": "The set of indicators built in the Zeus data mine include Directional Movement Index (DMI), Donchian Channels, Ichimoku Cloud, Wave Trend, Super Trend.",
+        "updated": 1611685533605
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Zeus data mine is brought to you by...",
+            "updated": 1611685563052
+        },
+        {
+            "style": "Link",
+            "text": "@9808us->github.com/9808us",
+            "updated": 1611685589347
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the contributor’s repository."
+        }
+    ]
+}

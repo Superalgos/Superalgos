@@ -1,0 +1,30 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 1,
+    "type": "Docs Intro",
+    "definition": {
+        "text": "The Docs is a Space within the Superalgos Project. It allows users to search for information relative to nodes, concepts, topics, tutorials, reviews, and books.",
+        "updated": 1613753494568,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Docs ini merupakan tempat dari Superalgos Project. Didalamnya terdapat hal yang dapat membantu anda dalam mencari dan menginformasikan terkait nodes, concepts, topics, tutorials, reviews, dan books.",
+                "updated": 1613859125666
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each project integrated in Superalgos may have it's own collection of pages making up the project's documentation.",
+            "updated": 1613755052653,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Setiap proyek yang terintegrasi dalam Superalgos memiliki halamannya sendiri yang dapat menyusun dokumentasi terkait proyek yang anda inginkan.",
+                    "updated": 1613858310857
+                }
+            ]
+        }
+    ]
+}

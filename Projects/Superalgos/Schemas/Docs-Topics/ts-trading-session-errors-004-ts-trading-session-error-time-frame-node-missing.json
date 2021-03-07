@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "4",
+    "type": "TS Trading Session Error - Time Frame Node Missing",
+    "definition": {
+        "text": "A Time Frame Node is expected and needed in order to run a Trading Session.",
+        "updated": 1611331109699
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Add a Time Frame Node at the Trading Parameters Node where this error poped up, check it's config and try running the Trading Session again.",
+            "updated": 1611331091819
+        }
+    ]
+}

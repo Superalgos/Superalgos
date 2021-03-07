@@ -1,0 +1,50 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "13",
+    "type": "TS LF Trading Bot Warning - Order Size Shrinked",
+    "definition": {
+        "text": "The Order Size was shrinked to enforce the cap set in the Target Size of the stage. Otherwise, the original definition of the order Size would have set the Size Placed higher than the Target Size.",
+        "updated": 1611916645008
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611916656840
+        },
+        {
+            "style": "Warning",
+            "text": "Order Size Shrinked"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Opening Orders->Not Passing Target Size Validation",
+            "updated": 1611916996473
+        },
+        {
+            "style": "Title",
+            "text": "Learn More"
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:"
+        },
+        {
+            "style": "List",
+            "text": "Opening Orders",
+            "updated": 1611917092315
+        }
+    ]
+}

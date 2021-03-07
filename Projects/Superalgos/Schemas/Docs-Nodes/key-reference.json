@@ -1,0 +1,32 @@
+{
+    "type": "Key Reference",
+    "definition": {
+        "text": "The key reference is a reference to an exchange account key as defined in a specific user account, in a specific exchange, on the Crypto Ecosystem hierarchy."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Usually, exchanges require autentication via your exchange account key for monetary transactions only. However, some exchanges may require autentication in other contexts as well, for instance, to retrieve information above a certain quota, or to retrieve raw trades data instead of OHLCV data."
+        },
+        {
+            "style": "Text",
+            "text": "For those reasons, exchange key references are available both in the context of data mining and trading operations, and are always attached to the corresponding task."
+        },
+        {
+            "style": "Text",
+            "text": "Forward testing and live trading sessions always require setting up key references, as that is the kind of scenario in which the user must validate with the exchange."
+        },
+        {
+            "style": "Text",
+            "text": "In all cases, the key reference node must reference a valid exchange account key from an account with the exchange, as defined in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Important",
+            "text": "Most exchanges do not allow the same exchange account key to be used with multiple processes querying the exchange API. This means that if you are trading with multiple trading systems or multiple sessions on the same exchange, each session requires different exchange account keys."
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "type": "Exit Target Rate",
+    "definition": {
+        "text": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Refresh this concepts by reading about the initial target definitions at the trading system."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Exit Target Rate Configuration",
+            "updated": 1609926444715
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

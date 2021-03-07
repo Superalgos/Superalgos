@@ -1,0 +1,38 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 1,
+    "type": "Tutorial - Intro for Developers",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I will cover the following topics:"
+        },
+        {
+            "style": "List",
+            "text": "Architecture: Architectural overview of the system."
+        },
+        {
+            "style": "List",
+            "text": "Client: How the Client is organized."
+        },
+        {
+            "style": "List",
+            "text": "Frontend: How the UI works."
+        },
+        {
+            "style": "Link",
+            "text": "->"
+        },
+        {
+            "style": "Note",
+            "text": "This is a 3-year-old project that has pivoted a few times to reach its current state of development. It was initially intended for trading bots competitions and is now focused on crypto-trading automation in general. The main technical pivot occurred when we decided to depart from a centralized cloud-based app, to a decentralized network of nodes."
+        }
+    ]
+}

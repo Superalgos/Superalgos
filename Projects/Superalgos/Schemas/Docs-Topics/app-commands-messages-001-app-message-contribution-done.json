@@ -1,0 +1,30 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "1",
+    "type": "App Message - Contribution Done",
+    "definition": {
+        "text": "Your contributions were uploaded to your Superalgos Fork and a Pull Request was submitted to the main Superalgos repository.",
+        "updated": 1611002547907,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Kontribusi anda telah terupload ke Superalgos Fork dan Pull Request telah dikirim ke penyimpanan utama Superalgos.",
+                "updated": 1613861035790
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow the issue at Github.com.",
+            "updated": 1611002626154,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda tidak perlu melakukan tindakan apapun. Seseorang akan meninjau Pull Request anda dan menggabungkannya ke perangkat lunak versi terbaru jika semuanya telah selesai. Jika perubahan anda ditolak karena alasan apa pun, anda harus memfollow up ke Github.com.",
+                    "updated": 1613861030185
+                }
+            ]
+        }
+    ]
+}

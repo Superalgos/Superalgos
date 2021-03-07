@@ -1,0 +1,78 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "7",
+    "type": "Canceling Orders",
+    "definition": {
+        "text": "After running a few checks, if the Cancel Order Event is triggered, the order is canceled, the synchronization is run, and accounts are updated.",
+        "updated": 1610221990441
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1611914677651
+        },
+        {
+            "style": "Title",
+            "text": "Check Cancel Order Event"
+        },
+        {
+            "style": "Text",
+            "text": "Before evaluating the cancel order event, a few checks are in order."
+        },
+        {
+            "style": "List",
+            "text": "Orders are not canceled if the stage is closing."
+        },
+        {
+            "style": "Javascript",
+            "text": "(tradingEngineStage.status.value === 'Closing')"
+        },
+        {
+            "style": "List",
+            "text": "Orders may only be canceled if the status is Open."
+        },
+        {
+            "style": "Javascript",
+            "text": "(tradingEngineOrder.status.value === 'Open')"
+        },
+        {
+            "style": "Text",
+            "text": "If both checks pass, then the cancel order event is evaluated. If a situation in the event is true, then the following actions take place:",
+            "updated": 1610222066264
+        },
+        {
+            "style": "List",
+            "text": "If it’s a backtesting or paper trading session, the order cancelation must be simulated (see Simulating Order Cancelation).",
+            "updated": 1610222051378
+        },
+        {
+            "style": "List",
+            "text": "If it’s a forward testing or live trading session, the order must be canceled at the exchange."
+        },
+        {
+            "style": "Title",
+            "text": "Canceling Orders"
+        },
+        {
+            "style": "Text",
+            "text": "When the cancel order event as defined in the trading system is triggered, the trading bot sends the cancel order request to the exchange, and waits for an answer. No further action is taken until the exchange confirms the order has been closed."
+        },
+        {
+            "style": "Text",
+            "text": "Once the confirmation is in, a new request to check the order is sent, so as to determine if the size filled for the order changed between the last time it was checked and the moment of the cancellation."
+        },
+        {
+            "style": "Text",
+            "text": "Once the trading bot gets the order details, it runs the synchronization (see Syncing with the exchange) and the recalculation of the stage size again (see Accounting), to make up and account for any differences that may exist compared to the last known state of the order"
+        },
+        {
+            "style": "Text",
+            "text": "The order is not closed until the order details are received from the exchange."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.status.value = 'Closed'"
+        }
+    ]
+}

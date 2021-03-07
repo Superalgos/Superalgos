@@ -1,0 +1,55 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 14,
+    "type": "Docs Table Style",
+    "definition": {
+        "text": "It is possible to render table in docs pages. To do so you just need to follow some formatting rules."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In edit mode you need to use the | character in order to draw a table. Each cell is separated by a |. Line breaks in edit mode will be considered new rows. The first row will be rendered as the table header."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "| Column 1 | Column 2 | Column 3 |"
+        },
+        {
+            "style": "Text",
+            "text": "Is rendered like this:"
+        },
+        {
+            "style": "Table",
+            "text": "| Column 1 | Column 2 | Column 3 |"
+        },
+        {
+            "style": "Text",
+            "text": "Another example of a table would be:"
+        },
+        {
+            "style": "Table",
+            "text": "| Column 1 | Column 2 | Column 3 |\n| Value 1 | Value 2 | Value 3 |\n| Value 4 | Value 5 | Value 6 |\n| Value 7 | Value 8 | Value 9 |"
+        },
+        {
+            "style": "Note",
+            "text": "Table style supports rendering boxes to showcase RGB colors. To do this, you just need to type something like this: RGB(23, 134, 222)"
+        },
+        {
+            "style": "Text",
+            "text": "RGB Example:"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 |RGB(48, 48, 54)|\n| LIGHT | 234, 226, 222 |RGB(234, 226, 222)|\n| GREY | 150, 150, 150 |RGB(150, 150, 150)|\n| LIGHT_GREY | 247, 247, 247 |RGB(247, 247, 247)|\n| WHITE | 255, 255, 255 |RGB(255, 255, 255)|\n| BLACK | 0, 0, 0 |RGB(0, 0, 0)|\n| GOLDEN_ORANGE | 240, 162, 2 |RGB(240, 162, 2)|\n| RUSTED_RED | 204, 88, 53 |RGB(204, 88, 53)|\n| GREEN | 188, 214, 67 |RGB(188, 214, 67)|\n| RED | 223, 70, 60 |RGB(223, 70, 60)|\n| PATINATED_TURQUOISE | 27, 153, 139 |RGB(27, 153, 139)|\n| TITANIUM_YELLOW | 244, 228, 9 |RGB(244, 228, 9)|\n| MANGANESE_PURPLE | 91,80, 122 |RGB(91,80, 122)|\n| TURQUOISE | 74, 207, 217 |RGB(74, 207, 217)|\n| DARK_TURQUOISE | 2, 149, 170 |RGB(2, 149, 170)|",
+            "updated": 1610399644793
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

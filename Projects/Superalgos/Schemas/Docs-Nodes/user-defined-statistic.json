@@ -1,0 +1,36 @@
+{
+    "type": "User Defined Statistic",
+    "definition": {
+        "text": "A user defined statistic allows users to create custom metrics by defining the corresponding calculation in a formula, in the context of the parent node."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The current contexts in which custom statistics may be defined are episodes, positions, and orders."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609925352528
+        },
+        {
+            "style": "Title",
+            "text": "User Defined Statistic Configuration",
+            "updated": 1609925377015
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609925382331
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609925358740
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Other Hierarchies",
+    "definition": {
+        "text": "Other hierarchies refers to hierarchies other than those defining spaces and mines. At this stage, the node may spawn Trading System, Network, Super Scripts, Trading Engine, and Tutorial hierarchies."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609702185140
+        },
+        {
+            "style": "Success",
+            "text": "Use the menu to spawn new hierarchies.",
+            "updated": 1609702252606
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "3",
+    "type": "App Message - Updating Your Local App",
+    "definition": {
+        "text": "The app is checking your selected current branch of the Superalgos repository for a new version. Hold on!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Tunggu Sebentar!. Aplikasi ini sedang memeriksa cabang repositori Superalgos saat ini untuk versi terbaru.",
+                "updated": 1613891554016
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "You will soon get a notice informing you whether a new version was found or if the version you are running is the latest available!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda akan segera mendapatkan pemberitahuan yang menginformasikan apakah versi baru telah hadir atau sudah menjalankan versi terbaru dari Superalgos!",
+                    "updated": 1613891634145
+                }
+            ]
+        }
+    ]
+}

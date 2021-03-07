@@ -1,0 +1,58 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "2",
+    "type": "Docs In Spanish",
+    "definition": {
+        "text": "The Docs pages of Superalgos and other projects integrated are originally written in English. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
+        "updated": 1613820592771,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Si bien la documentación esta originalmente escrita en Inglés, el sistema permite a cualquier usuario buscar contenido en su idioma nativo, siempre y cuando otros usuarios hayan contribuído traducciones de los artículos existentes escritos en el idioma por defecto que es el idioma Inglés.",
+                "updated": 1609831843644,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead.",
+            "updated": 1613820612132,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es importante notar que por mas que uno seleccione un idioma, el contenido se mostrará en ingles en cada sitio donde todavía no ha sido traducido. El sistema permite a cualquier usuario contribuir traducciones con una granularidad a nivel de párrafos. Esto significa que si una página cualquiera pudiera tener todos, algunos o nigún párrafo traducido. Esto solo depende de cuales hayan sido traducidos previamente por miembros de la comunidad.",
+                    "updated": 1609831884941,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Node types, variable names, the title of pages in the Docs, and a few more elements of Superalgos may not be translated, as they are unique identifiers of the said elements. You will always get those in English."
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to contribute translations, read the How to Contribute Translations page."
+        },
+        {
+            "style": "Success",
+            "text": "Users can switch between languages using the links provided at the footer of every page at the Docs.",
+            "updated": 1609831813025,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para cambiar de un idioma a otro se debe usar los links en el pie de cada página.",
+                    "updated": 1609831898619,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You may only add or delete pages to the Docs when the language is set to English.",
+            "updated": 1613820648230
+        }
+    ]
+}

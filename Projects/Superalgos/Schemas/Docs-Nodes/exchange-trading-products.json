@@ -1,0 +1,20 @@
+{
+    "type": "Exchange Trading Products",
+    "definition": {
+        "text": "The exchange trading products node organizes trading mines data by exchange. That is, each exchange installed in the system has an exchange trading products node grouping all session references corresponding to the said exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The exchange trading products node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+        },
+        {
+            "style": "Text",
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange trading products icon is replaced by the exchange's logo."
+        }
+    ]
+}

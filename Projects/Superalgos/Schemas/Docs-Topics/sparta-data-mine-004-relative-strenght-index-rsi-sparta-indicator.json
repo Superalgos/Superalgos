@@ -1,0 +1,62 @@
+{
+    "topic": "Sparta Data Mine",
+    "pageNumber": 4,
+    "type": "Relative Strenght Index (RSI) - Sparta Indicator",
+    "definition": {
+        "text": "The indicator produces the standard 14 setting of the Relative Strenght Index.",
+        "updated": 1611662214310
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Relative Strength Index On the Charts",
+            "updated": 1611662231228
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The relative strength index (RSI) is a momentum indicator that measures the magnitude of recent price changes to evaluate overbought or oversold conditions in the price of a stock or other asset. The RSI is displayed as an oscillator (a line graph that moves between two extremes) and can have a reading from 0 to 100.”"
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/sparta-bots-layers-00-RSI.gif",
+            "updated": 1611662270956
+        },
+        {
+            "style": "Text",
+            "text": "The chart for this indicator shows the RSI oscillating in a scale ranging from 0 at the bottom to 100 at the top. The bottom section of the chart shows a blue background covering the range from 0 to 20, also marked by a dotted line. When the RSI value falls below the 20 mark, the RSI line turns red, for easier viasualization. Also in the bottom section, there is a second dotted line signaling the 30 mark."
+        },
+        {
+            "style": "Text",
+            "text": "The equivalent (although reversed) effect is featured on the top half of the charts, with dotted lines signaling the 70 and 80 levels, and a blue background above 80."
+        },
+        {
+            "style": "Text",
+            "text": "There is also a dotted line at the 50 mark, signaling the median of the chart."
+        },
+        {
+            "style": "Text",
+            "text": "For the time being, the chart is fixed on the screen and the user may not move it."
+        },
+        {
+            "style": "Title",
+            "text": "Relative Strength Index Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The RSI product currently available uses the standard setting of 14 periods, and features a single property: rsi14.value"
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.rsi14.value >= 70",
+            "updated": 1611662294248
+        },
+        {
+            "style": "Text",
+            "text": "How’s the trend going at the 24-hours chart?"
+        }
+    ]
+}

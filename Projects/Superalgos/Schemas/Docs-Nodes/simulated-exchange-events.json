@@ -1,0 +1,20 @@
+{
+    "type": "Simulated Exchange Events",
+    "definition": {
+        "text": "The simulated exchange event node allows to override the parameters set at the level of the trading session on a per order basis to determine how each order shall be simulated."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The offspring nodes under simulated exchange events allow setting order-specific parameters for the size filled, actual rate, and fees paid, so that each order may be simulated in a specific manner."
+        },
+        {
+            "style": "Text",
+            "text": "If either of the offspring nodes is not present or is undefined, then the parameters configured at the level of the trading session are factored in by default."
+        }
+    ]
+}

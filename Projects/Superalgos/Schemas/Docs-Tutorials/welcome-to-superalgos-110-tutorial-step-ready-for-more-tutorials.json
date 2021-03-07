@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 110,
+    "type": "Tutorial Step - Ready for More Tutorials?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Not to brag, but I can't stress enough how important it is that you make all tutorials available before venturing on your own!",
+        "updated": 1610984910896
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The system is vast and covers complex matters. Going solo on your first days with Superalgos is only recommended for people who enjoy banging their heads against the wall!",
+            "updated": 1610956232418
+        },
+        {
+            "style": "Success",
+            "text": "The First Steps Tutorials book to your right provides all the details on the best way to invest your time learning Superalgos. That said, we all have our ways, so feel free to approach the task as best suits you! The rest of the Documentation is your second-best friend!",
+            "updated": 1610956478069
+        }
+    ]
+}

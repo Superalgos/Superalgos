@@ -1,0 +1,13 @@
+{
+    "type": "Debug Mode",
+    "definition": {
+        "text": "Debug Mode will log to the console every operation that is executed, as well as runtime performance information like memory footprint and total kernel execution time. Note that this will greatly slow down your application, do not use this in production.",
+        "updated": 1613062911672
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

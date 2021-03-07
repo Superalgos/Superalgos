@@ -1,0 +1,38 @@
+{
+    "type": "Simulated Fees Paid",
+    "definition": {
+        "text": "The simulated fees paid node allows setting a specific fee for the simulation of each order, overriding the fee structure parameter of the trading session."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The fee structure parameter of the trading session allows setting a blanket fee structure (maker and taker) for all orders in the trading system. The simulated fees paid node allows control on a per-order basis, so each order may be simulated with a specific fee."
+        },
+        {
+            "style": "Note",
+            "text": "If the node is not present or the parameter is undefined, the fee structure parameter set up for the trading session is used."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Simulated Fees Paid Configuration",
+            "updated": 1609607768058
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609607777687
+        },
+        {
+            "style": "List",
+            "text": "percentage is the percentage to be applied to calculate the fees for the specific order."
+        }
+    ]
+}

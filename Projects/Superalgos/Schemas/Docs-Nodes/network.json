@@ -1,0 +1,42 @@
+{
+    "type": "Network",
+    "definition": {
+        "text": "The network hierarchy provides the control functions for running data-mining and trading operations. Because operations may be run either on a single machine or distributed over a network of machines, it also contains definitions regarding the physical location in which nodes live or function."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The network hierarchy defines where in the network you run each of the bots you choose to run, and where the data they output is stored."
+        },
+        {
+            "style": "Text",
+            "text": "You will use the network hierarchy for the following purposes:"
+        },
+        {
+            "style": "List",
+            "text": "To control your data mining operation — that is, tasks running sensor and indicator bots. Data mining tasks process data that may be consumed by others; for example, so that your trading systems may count with quality information.",
+            "updated": 1611058647352
+        },
+        {
+            "style": "List",
+            "text": "To control your testing environment — that is, trading sessions including backtesting and paper trading sessions.",
+            "updated": 1611073262412
+        },
+        {
+            "style": "List",
+            "text": "To control your production environment&mdash;that is, forward testing, and live trading sessions."
+        },
+        {
+            "style": "List",
+            "text": "To manage the storage of the data produced by the bots you run as outputs. This includes administering the physical locations on which the data products produced by bots reside."
+        },
+        {
+            "style": "Warning",
+            "text": "At this stage, the system does not implement any form of security measures, therefore, Superalgos is to be run in the context of a restricted Local Area Network only, unless you implement your own network security."
+        }
+    ]
+}

@@ -1,0 +1,211 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "12",
+    "type": "Accounting",
+    "definition": {
+        "text": "The accounting process involves keeping balances synchronized with the happenings at the exchange (or the simulated events) and keeping track of the size placed and size filled of the stage.",
+        "updated": 1610223863701
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Once the synchronization is done, either with a real exchange or in a simulation, and with all relevant details about the order gathered and in place, it is time to do some bookkeeping.",
+            "updated": 1610223883776
+        },
+        {
+            "style": "Text",
+            "text": "Both the real and simulated synchronization processes save the previous values for the size filled and fees paid in both assets before performing the calculations to update those values."
+        },
+        {
+            "style": "Text",
+            "text": "These previous values are then used to undo the previous accounts to redo them with the latest synchronized data."
+        },
+        {
+            "style": "Title",
+            "text": "Update Stage Assets"
+        },
+        {
+            "style": "Text",
+            "text": "Stage base aset, undoing the previous accounting:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageBaseAsset.sizeFilled.value =\ntradingEngineStage.stageBaseAsset.sizeFilled.value -\npreviousBaseAssetSizeFilled\n\ntradingEngineStage.stageBaseAsset.feesPaid.value =\ntradingEngineStage.stageBaseAsset.feesPaid.value -\npreviousBaseAssetFeesPaid",
+            "updated": 1610223906627
+        },
+        {
+            "style": "Text",
+            "text": "Stage base asset, accounting for the current filling and fees:",
+            "updated": 1610223935259
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageBaseAsset.sizeFilled.value =\ntradingEngineStage.stageBaseAsset.sizeFilled.value +\ntradingEngineOrder.orderBaseAsset.sizeFilled.value\n\ntradingEngineStage.stageBaseAsset.feesPaid.value =\ntradingEngineStage.stageBaseAsset.feesPaid.value +\ntradingEngineOrder.orderBaseAsset.feesPaid.value",
+            "updated": 1610223957139
+        },
+        {
+            "style": "Text",
+            "text": "Stage quoted asset, undoing the previous accounting:",
+            "updated": 1610223973902
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageQuotedAsset.sizeFilled.value =\ntradingEngineStage.stageQuotedAsset.sizeFilled.value -\npreviousQuotedAssetSizeFilled\n\ntradingEngineStage.stageQuotedAsset.feesPaid.value =\ntradingEngineStage.stageQuotedAsset.feesPaid.value -\npreviousQuotedAssetFeesPaid",
+            "updated": 1610223983436
+        },
+        {
+            "style": "Text",
+            "text": "Stage quote asset, accounting for the current filling and fees:",
+            "updated": 1610223987080
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageQuotedAsset.sizeFilled.value =\ntradingEngineStage.stageQuotedAsset.sizeFilled.value +\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value\n\ntradingEngineStage.stageQuotedAsset.feesPaid.value =\ntradingEngineStage.stageQuotedAsset.feesPaid.value +\ntradingEngineOrder.orderQuotedAsset.feesPaid.value",
+            "updated": 1610223999042
+        },
+        {
+            "style": "Title",
+            "text": "Update Balances",
+            "updated": 1610224010466
+        },
+        {
+            "style": "Text",
+            "text": "The updating of balances must take one crucial aspect into account: for sell orders, fees are paid in the quoted asset, while for buy orders, fees are paid in the base asset."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Sell orders"
+        },
+        {
+            "style": "Text",
+            "text": "Balance base asset, undoing the previous accounting:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value +\npreviousBaseAssetSizeFilled",
+            "updated": 1610224035951
+        },
+        {
+            "style": "Text",
+            "text": "Balance base asset, accounting for the current filling and fees:",
+            "updated": 1610224064051
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value -\ntradingEngineOrder.orderBaseAsset.sizeFilled.value",
+            "updated": 1610224081072
+        },
+        {
+            "style": "Text",
+            "text": "Balance quoted asset, undoing the previous accounting:",
+            "updated": 1610224090601
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value -\npreviousQuotedAssetSizeFilled +\npreviousQuotedAssetFeesPaid",
+            "updated": 1610224107848
+        },
+        {
+            "style": "Text",
+            "text": "Balance quoted asset, account for the current filling and fees:",
+            "updated": 1610224138020
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value +\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value -\ntradingEngineOrder.orderQuotedAsset.feesPaid.value",
+            "updated": 1610224148958
+        },
+        {
+            "style": "Subtitle",
+            "text": "Buy orders",
+            "updated": 1610224169177
+        },
+        {
+            "style": "Text",
+            "text": "Balance base asset, undoing the previous accounting:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value -\npreviousBaseAssetSizeFilled +\npreviousBaseAssetFeesPaid",
+            "updated": 1610224182969
+        },
+        {
+            "style": "Text",
+            "text": "Balance base asset, accounting for the current filling and fees:",
+            "updated": 1610224192900
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value +\ntradingEngineOrder.orderBaseAsset.sizeFilled.value -\ntradingEngineOrder.orderBaseAsset.feesPaid.value",
+            "updated": 1610224202075
+        },
+        {
+            "style": "Text",
+            "text": "Balance quoted asset, undoing the previous accounting:",
+            "updated": 1610224209182
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value +\npreviousQuotedAssetSizeFilled",
+            "updated": 1610224219415
+        },
+        {
+            "style": "Text",
+            "text": "Balance quoted asset, accounting for the current filling and fees:",
+            "updated": 1610224228103
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value",
+            "updated": 1610224237924
+        },
+        {
+            "style": "Title",
+            "text": "Recalculate Stage Size",
+            "updated": 1610224257004
+        },
+        {
+            "style": "Text",
+            "text": "The stage keeps track of the accumulated size of orders placed for two reasons:"
+        },
+        {
+            "style": "List",
+            "text": "The trading bot must enforce the cap embodied in the definition of the target size. That is, the bot must not place orders for an amount higher than the size defined."
+        },
+        {
+            "style": "List",
+            "text": "The bot must close the stage once the target size has been filled."
+        },
+        {
+            "style": "Text",
+            "text": "That is why keeping track of the size placed at the level of the stage is important."
+        },
+        {
+            "style": "Text",
+            "text": "The process is similar to what other accounting operations we’ve covered so far: first, the obsolete account is undone; then the new account is made."
+        },
+        {
+            "style": "Text",
+            "text": "Undoing the old accounts for base and quoted asset:"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageBaseAsset.sizePlaced.value =\ntradingEngineStage.stageBaseAsset.sizePlaced.value -\ntradingEngineOrder.orderBaseAsset.actualSize.value\n\ntradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value -\ntradingEngineOrder.orderQuotedAsset.actualSize.value",
+            "updated": 1610224328128
+        },
+        {
+            "style": "Text",
+            "text": "Redoing the new accounts for base and quoted asset:",
+            "updated": 1610224337735
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineStage.stageBaseAsset.sizePlaced.value =\ntradingEngineStage.stageBaseAsset.sizePlaced.value +\ntradingEngineOrder.orderBaseAsset.sizeFilled.value\n\ntradingEngineStage.stageQuotedAsset.sizePlaced.value =\ntradingEngineStage.stageQuotedAsset.sizePlaced.value +\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value",
+            "updated": 1610224348969
+        }
+    ]
+}

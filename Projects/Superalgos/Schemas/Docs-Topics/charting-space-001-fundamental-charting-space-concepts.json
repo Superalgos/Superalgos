@@ -1,0 +1,35 @@
+{
+    "topic": "Charting Space",
+    "pageNumber": "1",
+    "type": "Fundamental Charting Space Concepts",
+    "definition": {
+        "text": "The charting space provides great control over how information generated on other hierarchies is visualized.",
+        "updated": 1610134431825
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Conceptually, Superalgos places the focus on the visual experience. Not just because it’s nice to see data in a graphical representation, but because our analysis capabilities are extended when we incorporate senses in the mix. Human’s capacity to think abstractly may be more or less developed across individuals, but one thing is clear: our thought process benefits from being able to see.",
+            "updated": 1610134441689
+        },
+        {
+            "style": "Text",
+            "text": "The Charting Space is conceived to provide an unprecedented level of flexibility and control over the way information is displayed graphically. Everything that you see in the form of charts when you pull the slider down is configured in the charting space hierarchy while using the information available in other hierarchies.",
+            "updated": 1610134480039
+        },
+        {
+            "style": "Text",
+            "text": "In other words, you use the charting space hierarchy to create Time Machines and Timeline Charts, and to configure their scales and so on, but the information feeding those charts come from bots running on the Network hierarchy. Those bots obtain exchange and market information from the Crypto Ecosystem hierarchy via references, and their source code is defined in Data Mines.",
+            "updated": 1610134533861
+        },
+        {
+            "style": "Text",
+            "text": "The above means that, in order to have information to visualize, you will first need to run sensor and indicator bots. We call that data mining, and it’s done from the data mining section of the network hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "The workspaces shipping with the system feature several configurations of exchanges, markets, and charts that you may start using right away. To configure your own charts, you will need to learn the basics of the Charting Space, and that is exactly the information covered on these pages.",
+            "updated": 1610134602649
+        }
+    ]
+}

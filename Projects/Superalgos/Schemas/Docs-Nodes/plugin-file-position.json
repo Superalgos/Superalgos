@@ -1,0 +1,20 @@
+{
+    "type": "Plugin File Position",
+    "definition": {
+        "text": "The position of the plugin file position node determines the position in the workspace on which the plugin hierarchy is placed."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "To define where the hierarchy defined in a plugin file is positioned in the workspace, move the plugin file position node to the desired position in the workspace, and pin the node. Then, collapse the plugin file node so that the plugin file position node is no longer visible."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        }
+    ]
+}

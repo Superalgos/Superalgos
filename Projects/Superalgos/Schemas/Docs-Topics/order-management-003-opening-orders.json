@@ -1,0 +1,247 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "3",
+    "type": "Opening Orders",
+    "definition": {
+        "text": "Several calculations and validations are required before creating and placing an order.",
+        "updated": 1610219973766
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Opening Orders",
+            "updated": 1611915623601
+        },
+        {
+            "style": "Text",
+            "text": "Before creating an order, a few calculations to determine what the order should look like are required, in particular about the rate of the order (see Calculate Order Rate) and the size of the order (see Calculate Order Size)."
+        },
+        {
+            "style": "Text",
+            "text": "Once the calculations are done, some validations are in order."
+        },
+        {
+            "style": "Text",
+            "text": "The size of an order may not be negative."
+        },
+        {
+            "style": "Javascript",
+            "text": "(tradingEngineOrder.orderBaseAsset.size.value <= 0)\n(tradingEngineOrder.orderQuotedAsset.size.value <= 0)",
+            "updated": 1610220014592
+        },
+        {
+            "style": "Callout",
+            "text": "If previous checks pass and it is a forward testing or live trading session, the order is placed at the exchange. If it is a backtesting or paper trading session, the order exists in the data structure of the trading engine only."
+        },
+        {
+            "style": "Text",
+            "text": "If the order is placed successfully, then all related data structures in the trading engine are updated accordingly, including size placed for the stage in both assets, episode counters, and the particular order’s details."
+        },
+        {
+            "style": "Block",
+            "text": "Calculate Order Rate"
+        },
+        {
+            "style": "Title",
+            "text": "Calculate Order Rate"
+        },
+        {
+            "style": "Text",
+            "text": "The first thing to consider to determine the rate of the order is whether it is a limit or a market order."
+        },
+        {
+            "style": "Text",
+            "text": "Limit orders must have a proper definition of the order rate. That is, the order rate node must have a formula that results in a number, and that is greater than zero. If all validations pass, the order rate is stored in tradingEngineOrder.rate.value."
+        },
+        {
+            "style": "Text",
+            "text": "For market orders, there is no definition of the rate, as the rate is whatever rate the order fills at the exchange. The initial value is therefore the last known market rate, that is, the rate of the last closed candle: ",
+            "updated": 1610220046300
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.rate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value",
+            "updated": 1610220056132
+        },
+        {
+            "style": "Block",
+            "text": "Calculate Order Size"
+        },
+        {
+            "style": "Title",
+            "text": "Calculate Order Size"
+        },
+        {
+            "style": "Text",
+            "text": "The calculation of the size of the order is a bit more elaborate, as several things must be taken into account, with the added intricacy that the user may define the target size for the stage in the base asset or the quoted asset."
+        },
+        {
+            "style": "Text",
+            "text": "The three main steps to define the size are the following:"
+        },
+        {
+            "style": "List",
+            "text": "To start with, the definitions regarding the size of the order must be valid (see Required Configuration Validation)."
+        },
+        {
+            "style": "List",
+            "text": "Then, the size of the order added to the rest of the orders that may have been placed before must not be greater than the target size for the stage (see Not Passing Target Size Validation)."
+        },
+        {
+            "style": "List",
+            "text": "Finally, the size of the order must not leave any of the assets in the trading engine’s built-in accounting system with a negative balance (see Not Negative Balance Validation)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Required Configuration Validation"
+        },
+        {
+            "style": "Text",
+            "text": "Beyond the target size for the stage, the user produces two more definitions that affect what the order size should be for the particular order: at the level of the execution algorithm’s configuration (percentageOfStageTargetSize parameter) and the level of the order’s configuration (percentageOfAlgorithmSize parameter). Both of these definitions must be valid and numeric."
+        },
+        {
+            "style": "Text",
+            "text": "Once the corresponding checks pass, the size of the algorithm is determined as per the definitions:"
+        },
+        {
+            "style": "Javascript",
+            "text": "algorithmSizeInBaseAsset =\ntradingEngineStage.stageBaseAsset.targetSize.value *\nexecutionAlgorithm.config.percentageOfStageTargetSize / 100",
+            "updated": 1610220102815
+        },
+        {
+            "style": "Text",
+            "text": "… and…"
+        },
+        {
+            "style": "Javascript",
+            "text": "algorithmSizeInQuotedAsset = \ntradingEngineStage.stageQuotedAsset.targetSize.value *\nexecutionAlgorithm.config.percentageOfStageTargetSize / 100",
+            "updated": 1610220138568
+        },
+        {
+            "style": "Note",
+            "text": "Notice that it is assumed that the target size for the stage is defined both in base asset and the quoted asset. This is because, although the user defines the target size in one asset only, the system converts the definition to the other asset (at an earlier moment), to keep track of accounts on both assets at all times, which is a design requirement.",
+            "updated": 1610220163303
+        },
+        {
+            "style": "Block",
+            "text": "Not Passing Target Size Validation"
+        },
+        {
+            "style": "Title",
+            "text": "Not Passing Target Size Validation"
+        },
+        {
+            "style": "Text",
+            "text": "This validation requires handling two possible scenarios separately. Did the user define the target size for the stage in base asset or the quoted asset?"
+        },
+        {
+            "style": "Note",
+            "text": "The system discriminates both scenarios to remain faithful to the intent of the definitions. This is a design feature throughout the system, and it is at the core of allowing maximum flexibility, so that users may use trading systems in various ways to achieve different goals.",
+            "updated": 1610220186307
+        },
+        {
+            "style": "Subtitle",
+            "text": "Stage size defined in base asset"
+        },
+        {
+            "style": "Text",
+            "text": "If the stage size was defined in base asset, then the size of the order derives from the definitions that where validated in the previous step (see Required Configuration Validation):"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.size.value =\nalgorithmSizeInBaseAsset *\ntradingSystemOrder.config.percentageOfAlgorithmSize / 100",
+            "updated": 1610220217663
+        },
+        {
+            "style": "Text",
+            "text": "With the above value, the validation is run to determine if the combined sizes of all orders placed up to this point would be larger than the size defined for the stage. Remember that the size defined for the stage is enforced as a cap. If the defined order size does exceed the stage size limit, then the size is lowered to fit the limit. The re-sizing goes out with a warning, to let the user know why the resizing took place."
+        },
+        {
+            "style": "Text",
+            "text": "Once the order size in base asset is final, then the size in quoted asset may be determined multiplying the size in base asset by the order rate determined earlier:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngineOrder.orderBaseAsset.size.value *\ntradingEngineOrder.rate.value",
+            "updated": 1610220243415
+        },
+        {
+            "style": "Subtitle",
+            "text": "Stage size defined in quoted asset"
+        },
+        {
+            "style": "Text",
+            "text": "Similarly, in this case the size of the order in quoted asset derives directly from the definitions:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\nalgorithmSizeInQuotedAsset *\ntradingSystemOrder.config.percentageOfAlgorithmSize / 100",
+            "updated": 1610220273076
+        },
+        {
+            "style": "Text",
+            "text": "The same validation is run as with the base asset, and the size of the order in base asset is also determined at the end:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.size.value =\ntradingEngineOrder.orderQuotedAsset.size.value /\ntradingEngineOrder.rate.value",
+            "updated": 1610220292334
+        },
+        {
+            "style": "Block",
+            "text": "Not Negative Balance Validation"
+        },
+        {
+            "style": "Title",
+            "text": "Not Negative Balance Validation"
+        },
+        {
+            "style": "Text",
+            "text": "The final validation is there to make sure that no balances become negative if the order is created with the currently defined size."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Buy orders"
+        },
+        {
+            "style": "Text",
+            "text": "For buy orders (both market and limit), the quoted asset balance minus the order size must be equal to or greater than zero."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.size.value => 0",
+            "updated": 1610220335526
+        },
+        {
+            "style": "Text",
+            "text": "If not, the size of the order is redefined to fit the available balance. The resizing goes out with a warning."
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value",
+            "updated": 1610220358264
+        },
+        {
+            "style": "Text",
+            "text": "And, remember, every time a property changes for one asset, the same property for the other asset must be updated as well:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngineOrder.orderBaseAsset.size.value =\ntradingEngineOrder.orderQuotedAsset.size.value /\ntradingEngineOrder.rate.value",
+            "updated": 1610220378073
+        },
+        {
+            "style": "Subtitle",
+            "text": "Sell orders"
+        },
+        {
+            "style": "Text",
+            "text": "For market and limit sell orders, the validation is reversed, checking the balance of the base asset instead of the quoted asset."
+        },
+        {
+            "style": "Note",
+            "text": "Remember that a sell order always exchanges the base asset for the quoted asset and a buy order does the opposite.",
+            "updated": 1610220400837
+        }
+    ]
+}

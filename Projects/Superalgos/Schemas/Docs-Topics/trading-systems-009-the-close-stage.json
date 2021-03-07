@@ -1,0 +1,31 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "9",
+    "type": "The Close Stage",
+    "definition": {
+        "text": "The close stage is a mirror of the open stage, with definitions concerning the closing of the position, including the close execution.",
+        "updated": 1610206979676
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Close Stage->Definition",
+            "updated": 1610207033911
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Close Stage->Content",
+            "updated": 1610207037298
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Close Stage->2",
+            "updated": 1610207264945
+        },
+        {
+            "style": "Success",
+            "text": "If the data structure depicted in the table above looks familiar, it is because it is a mirror of the Open Stage. Refer to those definitions in case you need a refresher.",
+            "updated": 1610207351033
+        }
+    ]
+}

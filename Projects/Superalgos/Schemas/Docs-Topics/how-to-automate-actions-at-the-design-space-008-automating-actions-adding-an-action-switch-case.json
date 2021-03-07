@@ -1,0 +1,58 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 8,
+    "type": "Automating Actions - Adding an Action Switch Case",
+    "definition": {
+        "text": "This steps create the mapping betwheen the actionFunction name you defined at the Menu Item of the node that can trigger your Action, and the function you coded inside a Function Library that will execute the code for the new Action. ",
+        "updated": 1614941772231
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Action Switch File",
+            "updated": 1614937860642
+        },
+        {
+            "style": "Text",
+            "text": "Locate the ActionSwitch.js file inside the Function-Libraries folder. There you will find a gigantic switch instruction with a case for each Action available at the current Project."
+        },
+        {
+            "style": "Text",
+            "text": "Find within the list of cases some of the cases pointint to the same Function Library your new Action is hosted at, so that you can add a new case together with the rest.",
+            "updated": 1614937904095
+        },
+        {
+            "style": "Title",
+            "text": "Add a New Case",
+            "updated": 1614938281975
+        },
+        {
+            "style": "Text",
+            "text": "The case string must match the actionFunction you defined at the Menu Item. Your function call should be something like this:"
+        },
+        {
+            "style": "Javascript",
+            "text": "UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingEngines(action.node, action.rootNodes)\n",
+            "updated": 1614938043930
+        },
+        {
+            "style": "Success",
+            "text": "As you can see will you most likely be sending the node and rootNodes parameters into your Action function. You might want to also send other parameters from data you might find into the action object available to you at that point.",
+            "updated": 1614938157839
+        },
+        {
+            "style": "Text",
+            "text": "The property name needed to get to the reference of your Function Library object at runtime can be found at the definition of that Function Library located at the Project Schema File. The one corresponding to the example above is this one, for instance:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n                    \"name\": \"Plugins Functions\",\n                    \"propertyName\": \"pluginsFunctions\",\n                    \"functionName\": \"newSuperalgosFunctionLibraryPluginsFunctions\"\n                }",
+            "updated": 1614938194636
+        },
+        {
+            "style": "Text",
+            "text": "You can use whatever you find at propertyName to get to the Function Library object at runtime. With this, the mapping is complete.",
+            "updated": 1614938237127
+        }
+    ]
+}

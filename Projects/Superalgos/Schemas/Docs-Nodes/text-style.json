@@ -1,0 +1,60 @@
+{
+    "type": "Text Style",
+    "definition": {
+        "text": "The text style is a definition of color, opacity, and font size that determines the appearance of the text to be rendered over the charts."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Note",
+            "text": "See the configuration for further details."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Text Style"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "        \"paletteColor\": \"UI_COLOR.GREY\","
+        },
+        {
+            "style": "Text",
+            "text": "        \"opacity\": 0.5,"
+        },
+        {
+            "style": "Text",
+            "text": "        \"fontSize\": 10"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "Text",
+            "text": " paletteColor is one of the predefined colors available, as described in the configuration of the Style* node."
+        },
+        {
+            "style": "List",
+            "text": "opacity is probably self-explanatory, and may range from 0 for a fully transparent object to 1 for a solid object."
+        },
+        {
+            "style": "List",
+            "text": "fontSize is self explanatory too; values above zero produce the expected results."
+        }
+    ]
+}

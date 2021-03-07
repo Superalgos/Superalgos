@@ -1,0 +1,38 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Web Server",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Web Server has two main goals: it serves all the JS files that form the Web App and all the data files to be plotted at the charts to the browser that is running the UI."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The complete list Web Server uses is:"
+        },
+        {
+            "style": "List",
+            "text": "JS Files: Enables the Web App to run on a browser."
+        },
+        {
+            "style": "List",
+            "text": "JSON Data Files: Allows the UI to access data to plot."
+        },
+        {
+            "style": "List",
+            "text": "Images: Images used on the UI are served from the Web Server."
+        },
+        {
+            "style": "List",
+            "text": "JSON Workspaces Files: Allow users to create definitions on different Workspaces."
+        },
+        {
+            "style": "List",
+            "text": "JSON Plugin Files: Files that are automatically included on Workspaces for convenience."
+        }
+    ]
+}

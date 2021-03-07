@@ -1,0 +1,51 @@
+{
+    "type": "Condition",
+    "definition": {
+        "text": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken."
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Situation 1"
+        },
+        {
+            "style": "List",
+            "text": "Condition A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+            "updated": 1610211782596
+        },
+        {
+            "style": "Note",
+            "text": "This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average."
+        },
+        {
+            "style": "List",
+            "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+            "updated": 1610211804682
+        },
+        {
+            "style": "Note",
+            "text": "This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
+        },
+        {
+            "style": "Text",
+            "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well.",
+            "updated": 1609595293131
+        },
+        {
+            "style": "Note",
+            "text": "To learn how to write conditions, start with the Syntax Overview."
+        }
+    ]
+}

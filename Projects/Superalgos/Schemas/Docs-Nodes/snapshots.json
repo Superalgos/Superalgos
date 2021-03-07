@@ -1,0 +1,38 @@
+{
+    "type": "Snapshots",
+    "definition": {
+        "text": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Learn more about snapshots and check the configuration file to control if and how snapshots are produced."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Snapshots Configuration",
+            "updated": 1609676701303
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676706067
+        },
+        {
+            "style": "List",
+            "text": "strategy determines whether to take a snapshot at the trigger on event or not; possible values are true or false."
+        },
+        {
+            "style": "List",
+            "text": "position determines whether to take a snapshot at the take position event or not; possible values are true or false."
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 1,
+    "type": "Docs Error - Intro",
+    "definition": {
+        "text": "After running a command, you may get different types of error messages, as decribed in this topic.",
+        "updated": 1610976310255
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The table of contents belos shows the complete list of errors you may get while running Docs commands. In fact, when an error occurs, you are redirected to the error page.",
+            "updated": 1610976413909
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "type": "Session Base Asset",
+    "definition": {
+        "text": "The base asset is the asset whose price is determined by the market. It is usually the first asset in the pair, as listed by the exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Among other things, the parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session. Please see the configuration."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Session Base Asset Configuration",
+            "updated": 1609674870532
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609674879122
+        },
+        {
+            "style": "List",
+            "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
+        },
+        {
+            "style": "List",
+            "text": "minimumBalance is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch."
+        },
+        {
+            "style": "List",
+            "text": "maximumBalance is a similar concept as with the minimumBalance but on the high side of the initialBalance."
+        }
+    ]
+}

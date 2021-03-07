@@ -1,0 +1,74 @@
+{
+    "topic": "Trading Logic",
+    "pageNumber": "3",
+    "type": "Accessing Runtime Data",
+    "definition": {
+        "text": "The Trading Bot makes every piece of information processed available to Trading Systems in the data structure of the Trading Engine hierarchy.",
+        "updated": 1610216690404
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To access the value of any of the nodes in the Trading Engine  from within conditions and formulas, the syntax follows the ramifications of the data structure, exactly as seen in the visual representation of the hierarchy on the Design Space.",
+            "updated": 1610216724389
+        },
+        {
+            "style": "Text",
+            "text": "For example, let’s say you wish to access the value of the Begin node under Strategy Open Stage. The path to that node, as denoted by the structure of the hierachy below, is:",
+            "updated": 1610216746961
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.strategyOpenStage.begin.value"
+        },
+        {
+            "style": "Text",
+            "text": "If you wish to go one step lower and access the value of the Target Size under the Stage Quoted Asset, then the path is:",
+            "updated": 1610216775084
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize.value"
+        },
+        {
+            "style": "Note",
+            "text": "As usual, make sure you follow the JavaScript camel case notation by which the first word is in lower case and the rest in uppercase.",
+            "updated": 1610216790819
+        },
+        {
+            "style": "Title",
+            "text": "Copy Node Path"
+        },
+        {
+            "style": "Text",
+            "text": "For ease of use, you may copy the path of any node that holds a valid value directly from within the node’s menu. Simply use the Copy Node Path button."
+        },
+        {
+            "style": "Title",
+            "text": "Formula Example"
+        },
+        {
+            "style": "Text",
+            "text": "Let’s say you wish to set a take profit 3% above the initial target rate you defined in the open stage of your strategy."
+        },
+        {
+            "style": "Text",
+            "text": "That value is stored in the Entry Target Rate node under the Current Position.",
+            "updated": 1610216903247
+        },
+        {
+            "style": "Text",
+            "text": "So, the formula for the take profit phase is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03",
+            "updated": 1610216926922
+        },
+        {
+            "style": "Success",
+            "text": "All of this will become clear when you study the Trading Engine hierarchy!",
+            "updated": 1610216962576
+        }
+    ]
+}

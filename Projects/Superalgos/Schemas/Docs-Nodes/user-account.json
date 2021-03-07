@@ -1,0 +1,18 @@
+{
+    "type": "User Account",
+    "definition": {
+        "text": "A user account represents a single account with the corresponding exchange, holding the definitions of user assets, including keys and balances."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609777192116
+        },
+        {
+            "style": "Text",
+            "text": "For exchanges that support multiple accounts or subaccounts, use one User Account for each of them.",
+            "updated": 1609777221616
+        }
+    ]
+}

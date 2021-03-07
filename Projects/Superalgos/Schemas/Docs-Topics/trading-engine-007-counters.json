@@ -1,0 +1,171 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "7",
+    "type": "Counters",
+    "definition": {
+        "text": "Keep track of how many instances of certain objects have existed in a given context. On this page: Periods, Strategies, Positions, Orders, and Days.",
+        "updated": 1611259332958
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A counter keeps track of how many instances of certain objects have come to exist—or have taken a certain value—during the duration of a certain context.",
+            "updated": 1611259349617
+        },
+        {
+            "style": "Text",
+            "text": "For example, how many positions have been open during an episode, or how many of those positions have been hits."
+        },
+        {
+            "style": "Text",
+            "text": "Counters are kept in multiple contexts simultaneously. In particular, you will find episode counters, strategy counters, position counters, and order counters."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Counter-specific Nodes"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Periods",
+            "updated": 1611259406618
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Periods->Definition",
+            "updated": 1611259409668
+        },
+        {
+            "style": "Subtitle",
+            "text": "Strategies",
+            "updated": 1611259416144
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategies->Definition",
+            "updated": 1611259419177
+        },
+        {
+            "style": "Subtitle",
+            "text": "Positions",
+            "updated": 1611259428759
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Positions->Definition",
+            "updated": 1611259431976
+        },
+        {
+            "style": "Subtitle",
+            "text": "Orders",
+            "updated": 1611259442020
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Orders->Definition",
+            "updated": 1611259444724
+        },
+        {
+            "style": "Subtitle",
+            "text": "Days",
+            "updated": 1611259453496
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Days->Definition",
+            "updated": 1611259459728
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Days->Content",
+            "updated": 1611259823914
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "Other properties typical to counters are defined elsewhere, as they are not specific to counters. Find below the different contexts in which counters are found.",
+            "updated": 1611259860203
+        },
+        {
+            "style": "Title",
+            "text": "Trading Episode Counters",
+            "updated": 1611260075956
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Episode Counters->Definition",
+            "updated": 1611260079244
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Episode Counters->2",
+            "updated": 1611260082549
+        },
+        {
+            "style": "Title",
+            "text": "Strategy Counters"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Strategy Counters->Definition",
+            "updated": 1611259923717
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Strategy Counters->2",
+            "updated": 1611259927606
+        },
+        {
+            "style": "Title",
+            "text": "Position Counters",
+            "updated": 1611259936812
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position Counters->Definition",
+            "updated": 1611259939595
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Position Counters->2",
+            "updated": 1611259944892
+        },
+        {
+            "style": "Title",
+            "text": "Order Counters",
+            "updated": 1611259959379
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Counters->Definition",
+            "updated": 1611259963832
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Order Counters->2",
+            "updated": 1611259967561
+        }
+    ]
+}

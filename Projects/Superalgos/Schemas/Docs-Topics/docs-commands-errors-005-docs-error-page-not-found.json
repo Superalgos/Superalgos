@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 5,
+    "type": "Docs Error - Page Not Found",
+    "definition": {
+        "text": "The page does not exist in the category specified.",
+        "updated": 1610977264289
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Not Found"
+        },
+        {
+            "style": "Error",
+            "text": "The Docs Page Name you specified can not be found in the collection of pages of the Docs Page Category you provided.",
+            "updated": 1610977238380
+        },
+        {
+            "style": "Success",
+            "text": "Double check that the Docs Page Name is spelled correctly and that it belongs to the Docs Page Category provided. ",
+            "updated": 1609161473688
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162829457
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command"
+        }
+    ]
+}

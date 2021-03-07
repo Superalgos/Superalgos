@@ -1,0 +1,12 @@
+{
+    "type": "Order Statistics",
+    "definition": {
+        "text": "Order statistics keeps track of several metrics in the context of the order."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

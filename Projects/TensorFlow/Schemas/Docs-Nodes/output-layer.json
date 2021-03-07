@@ -1,0 +1,13 @@
+{
+    "type": "Output Layer",
+    "definition": {
+        "text": "The \"final\" layer of an Artificial Neural Network. The layer containing the answer(s).",
+        "updated": 1613209100738
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

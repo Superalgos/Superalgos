@@ -1,0 +1,25 @@
+{
+    "topic": "Branches Management Messages",
+    "pageNumber": "2",
+    "type": "Switching Branches - Current Branch Changed",
+    "definition": {
+        "text": "You are now standing at the new Current Branch, but the App is still running the code of the previous branch. To finish this process you need to restart the Superalgos Client and reload the UI.  ",
+        "updated": 1610543555871
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Also remeber that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
+            "updated": 1610543634663
+        },
+        {
+            "style": "Success",
+            "text": "Even though you are standing in a different branch now, that does not mean that this branch is up-to-date with the latest changes made by other contributors. To update it, please run the App Update Command."
+        },
+        {
+            "style": "Note",
+            "text": " This change does not affet other nodes running Superalgos. The only one affected is the one you are connecting to with the UI.",
+            "updated": 1610543958104
+        }
+    ]
+}

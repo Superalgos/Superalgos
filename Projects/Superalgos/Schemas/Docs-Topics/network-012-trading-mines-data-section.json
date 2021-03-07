@@ -1,0 +1,84 @@
+{
+    "topic": "Network",
+    "pageNumber": "12",
+    "type": "Trading Mines Data Section",
+    "definition": {
+        "text": "The Trading Mines Data section of the hierarchy controls where and how the Trading Bot stores the data produced.",
+        "updated": 1610123085597
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mines Data->Definition",
+            "updated": 1610123132919
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mines Data->Content",
+            "updated": 1610123146269
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610123161131
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Mines Data->5",
+            "updated": 1610123782314
+        },
+        {
+            "style": "Title",
+            "text": "Project Trading Products",
+            "updated": 1610123324369
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Project Trading Products->Definition",
+            "updated": 1610123331661
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Trading Products",
+            "updated": 1610123361772
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Trading Products->Definition",
+            "updated": 1610123388612
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Trading Products->Content",
+            "updated": 1610123376323
+        },
+        {
+            "style": "Title",
+            "text": "Market Trading Products",
+            "updated": 1610123413632
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Trading Products->Definition",
+            "updated": 1610123424225
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Trading Products->Content",
+            "updated": 1610123427005
+        },
+        {
+            "style": "Title",
+            "text": "Trading Session Reference",
+            "updated": 1610123843563
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Session Reference->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Session Reference->Content"
+        }
+    ]
+}

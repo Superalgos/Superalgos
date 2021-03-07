@@ -1,0 +1,31 @@
+{
+    "topic": "Trading Farms",
+    "pageNumber": "3",
+    "type": "Trading Farms - Operating a Trading Farm",
+    "definition": {
+        "text": "Operate tasks in remote nodes pretty much as if they were running on the home node. ",
+        "updated": 1614352903667
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The operation of a trading farm is done from within the home node. There is no need to use the UI application with any other node in the network, although you may if you wish."
+        },
+        {
+            "style": "Text",
+            "text": "Running or stopping tasks residing in any of the network nodes is a transparent operation, and works in the same way as if the tasks were in the home node. When a task is started, the process takes a snapshot of the state of the network at that point and traces all dependencies before starting the job at hand."
+        },
+        {
+            "style": "Callout",
+            "text": "This means that changes made in the distribution of tasks in the network at any point are recognized by each task upon starting."
+        },
+        {
+            "style": "Text",
+            "text": "However, entities that don’t run in tasks—such as time machines and timeline charts in the charting space—function with the state of the network upon starting the UI app. This means that, for example, if you move a data mining task to a different node, the associated chart will show the data in the former node until you refresh the browser."
+        },
+        {
+            "style": "Text",
+            "text": "Finally, when uninstalling a market, the system will attempt to uninstall the corresponding tasks on all network nodes. If you wish to uninstall markets on specific nodes only, you may delete data structures individually instead."
+        }
+    ]
+}

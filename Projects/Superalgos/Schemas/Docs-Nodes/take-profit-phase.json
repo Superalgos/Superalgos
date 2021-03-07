@@ -1,0 +1,7 @@
+{
+    "type": "Take Profit Phase",
+    "definition": {
+        "text": "Take profit phase is the numeric value of the phase that is currently open, and thus, defining the value of the take profit."
+    },
+    "paragraphs": []
+}

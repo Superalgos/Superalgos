@@ -1,0 +1,27 @@
+{
+    "type": "Trading Bot Instance",
+    "definition": {
+        "text": "A trading bot instance is a reference to the Trading Bot as defined in the Masters data mine. The instance of the bot runs the defined processes and generates the defined data products.",
+        "updated": 1609668718157
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The trading bot instance holds no definitions as to what the bot does. Instead, its process instance references the process definition in the Masters data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
+            "updated": 1610105308091
+        },
+        {
+            "style": "Note",
+            "text": "You do not start or stop a Trading Bot Instance directly. Instead, you start or stop the corresponding task.",
+            "updated": 1609668832266
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

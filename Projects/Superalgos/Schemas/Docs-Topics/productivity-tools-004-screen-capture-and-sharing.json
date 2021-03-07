@@ -1,0 +1,37 @@
+{
+    "topic": "Productivity Tools",
+    "pageNumber": "4",
+    "type": "Screen Capture and Sharing",
+    "definition": {
+        "text": "Share you screen with friends and colleagues capturing still images or videos directly from within the frontend.",
+        "updated": 1611490773902
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F8 to capture a static PNG image.",
+            "updated": 1611490790992
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+        },
+        {
+            "style": "List",
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+        },
+        {
+            "style": "Text",
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+        },
+        {
+            "style": "Note",
+            "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
+            "updated": 1611490891864
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

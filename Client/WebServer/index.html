@@ -1,0 +1,206 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Superalgos</title>
+    <meta name="description" content="Free and Open Source Crypto Trading Tools">
+    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="credits.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="tutorial.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="docs.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="font-awasome.css" type="text/css" />
+    <link rel="stylesheet" href="prism.css" type="text/css" />
+    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
+    <script type="text/javascript" src="WebServer/require.js"></script>
+    <script type="text/javascript" src="AppPreLoader.js"></script>
+    <script src="externalScripts/CCapture.all.min.js"></script>
+    <script src="externalScripts/prism.js"></script>
+
+    <!-- Documentation Style Sheets -->
+    <!-- -->
+
+    <script type="text/javascript">
+        function loadCanvas() {
+            // Prevent click-jacking
+            try {
+                if (window == window.top || window.chrome && chrome.app && chrome.app.window) {
+                    document.documentElement.style.display = 'block'
+                } else {
+                    top.location = self.location
+                }
+            } catch (e) { console.error('CJ protection', e) }
+
+            try {
+                loadSuperalgos();
+            } catch (err) {
+                console.log("[ERROR] UI can not be started. Please check that WebServer is running.", err);
+            }
+        }
+
+        function onResize() {
+            try {
+                if (canvas === undefined) { return }
+                if (canvas.eventHandler === undefined) { return }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
+                canvas.eventHandler.raiseEvent('Browser Resized')
+            } catch (err) {
+                console.log('Error Resizing. ' + err.stack)
+            }
+        }
+    </script>
+</head>
+
+<body id="body" onload="loadCanvas()"
+    style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+    onresize="onResize()">
+    <div id="contributors" class="credits">
+        <p id="credits-page-status-paragraph" class="credits-yellow">The UI is loading...</p>
+        <p>Superalgos is <span class="credits-red">forever free</span> and <span class="credits-red">open-source</span>, and it's 
+            <span class="credits-red">relentlessly improving</span> thanks to the involvement of contributors:</p>
+        <p>Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis,
+            Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Norman, 
+            Viktoria B., Guillermo V., Carl J, Daniel J., 
+            Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V.,
+            Diego M., CarnivalBen, 
+            Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan
+            T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.</p>
+        <p>Thanks for giving a <span class="credits-red">star</span> to the Superalgos <span class="credits-red">repo at GitHub.com</span>... It helps other devs find the project!</p>
+    </div>
+    <div id="masterApp"></div>
+    <div id="canvasApp"></div>
+    <div id="docs-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px"><div id="docs-content-div"></div></div>
+    <div id="chatApp" style="position:fixed; top:100000px; left:100000px">
+        <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
+    </div>
+    <div id="textAreaDiv"></div>
+    <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
+
+    <!-- Tutorial Template Divs -->
+    <div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
+    <div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
+        <form>
+            <table class="tutorial-buttonsTable">
+                <tr>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-stop-button"
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.stop()"
+                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-skip-button"
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.skip()"
+                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.previous()" value="">Previous</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-next-button"
+                            onclick="UI.projects.superalgos.spaces.tutorialSpace.next()"
+                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div id="menu" class="docs-menu-table">
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.editParagraph()">
+                <img src="Icons/Superalgos/docs-action-edit-paragraph.png" class="menu-img" title="Edit">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toTitle()">
+                <img src="Icons/Superalgos/docs-title-style.png" class="menu-img" title="Title">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSubtitle()">
+                <img src="Icons/Superalgos/docs-subtitle-style.png" class="menu-img" title="Subtitle">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toNote()">
+                <img src="Icons/Superalgos/docs-note-style.png" class="menu-img" title="Note">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toJavascript()">
+                <img src="Icons/Superalgos/docs-js-code-style.png" class="menu-img" title="Javascript">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toYouTubeVideo()">
+                <img src="Icons/Superalgos/docs-youtube-video-style.png" class="menu-img" title="Youtube">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toBlock()">
+                <img src="Icons/Superalgos/docs-block-style.png" class="menu-img" title="Block">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.copyLink()">
+                <img src="Icons/Superalgos/docs-action-copy-to-clipboard.png" class="menu-img" title="Copy">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toText()">
+                <img src="Icons/Superalgos/docs-text-style.png" class="menu-img" title="Text">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toList()">
+                <img src="Icons/Superalgos/docs-list-style.png" class="menu-img" title="List">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSuccess()">
+                <img src="Icons/Superalgos/docs-success-style.png" class="menu-img" title="Success">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toJson()">
+                <img src="Icons/Superalgos/docs-json-code-style.png" class="menu-img" title="Json">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toGif()">
+                <img src="Icons/Superalgos/docs-gif-style.png" class="menu-img" title="Gif">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toInclude()">
+                <img src="Icons/Superalgos/docs-include-style.png" class="menu-img" title="Include">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.toPlaceholder()">
+                <img src="Icons/Superalgos/docs-placeholder-style.png" class="menu-img" title="Placeholder">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSummary()">
+                <img src="Icons/Superalgos/docs-summary-style.png" class="menu-img" title="Summary">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toCallout()">
+                <img src="Icons/Superalgos/docs-callout-style.png" class="menu-img" title="Callout">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toImportant()">
+                <img src="Icons/Superalgos/docs-important-style.png" class="menu-img" title="Important">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toTable()">
+                <img src="Icons/Superalgos/docs-table-style.png" class="menu-img" title="Table">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toPng()">
+                <img src="Icons/Superalgos/docs-png-style.png" class="menu-img" title="Png">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toSection()">
+                <img src="Icons/Superalgos/docs-section-style.png" class="menu-img" title="Section">
+            </div>
+        </div>
+        <div class="menu-row">
+            <div class="menu-item" onClick="window.contextMenu.deleteParagraph()">
+                <img src="Icons/Superalgos/docs-action-delete-paragraph.png" class="menu-img" title="Delete">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toWebPageLink()">
+                <img src="Icons/Superalgos/docs-web-page-link-style.png" class="menu-img" title="Link">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toAnchor()">
+                <img src="Icons/Superalgos/docs-anchor-style.png" class="menu-img" title="Anchor">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toWarning()">
+                <img src="Icons/Superalgos/docs-warning-style.png" class="menu-img" title="Warning">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toHierarchy()">
+                <img src="Icons/Superalgos/docs-hierarchy-style.png" class="menu-img" title="Hierarchy">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toError()">
+                <img src="Icons/Superalgos/docs-error-style.png" class="menu-img" title="Error">
+            </div>
+            <div class="menu-item" onClick="window.contextMenu.toChapter()">
+                <img src="Icons/Superalgos/docs-chapter-style.png" class="menu-img" title="Chapter">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

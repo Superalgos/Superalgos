@@ -1,0 +1,40 @@
+{
+    "topic": "Network",
+    "pageNumber": "8",
+    "type": "Trading Session References",
+    "definition": {
+        "text": "A Trading Session must reference the Trading System whose rules are to be implemented during the session, and the Trading Engine hierarchy that shall keep track of the runtime data produced by the Trading Bot.",
+        "updated": 1610119349368
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Trading System Reference",
+            "updated": 1610119907548
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System Reference->Definition",
+            "updated": 1610119921115
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System Reference->Content",
+            "updated": 1610119924551
+        },
+        {
+            "style": "Title",
+            "text": "Trading Engine Reference"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Engine Reference->Definition",
+            "updated": 1610119935818
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Engine Reference->Content",
+            "updated": 1610119940143
+        }
+    ]
+}

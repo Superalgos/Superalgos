@@ -1,0 +1,13 @@
+{
+    "type": "Environment Flags",
+    "definition": {
+        "text": "TensorFlow.js has a set of environment flags that are automatically evaluated and determine the best configuration in the current platform. These flags are mostly internal, but a few global flags can be controlled with public API.",
+        "updated": 1613062805784
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 4,
+    "type": "Docs Error - Category Not Valid",
+    "definition": {
+        "text": "The category specified does not exist.",
+        "updated": 1610977115090
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Category Not Valid"
+        },
+        {
+            "style": "Error",
+            "text": "The category you have specified is not a valid Docs Page Category.",
+            "updated": 1610977123169
+        },
+        {
+            "style": "Success",
+            "text": "Valid categories are: Node, Concept, Topic, Tutorial and Review. This parameter is case-sensitive.",
+            "updated": 1610977087296
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162854123
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command",
+            "updated": 1609177229589
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command",
+            "updated": 1609180006853
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
+        }
+    ]
+}

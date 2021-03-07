@@ -1,0 +1,20 @@
+{
+    "type": "Market Data Products",
+    "definition": {
+        "text": "A market data products node represents the group of data products generated in a specific market."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The market data products node must reference a market defined in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+        }
+    ]
+}

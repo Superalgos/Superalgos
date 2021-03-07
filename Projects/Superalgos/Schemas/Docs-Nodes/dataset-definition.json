@@ -1,0 +1,55 @@
+{
+    "type": "Dataset Definition",
+    "definition": {
+        "text": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Dataset Definition Configuration",
+            "updated": 1609788319432
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609788325479
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the dataset as used within the code."
+        },
+        {
+            "style": "List",
+            "text": "type refers to the type of dataset; possible values are market files and daily files.",
+            "updated": 1609788409763
+        },
+        {
+            "style": "List",
+            "text": "validTimeFrames refers to the time frames handled by the dataset."
+        },
+        {
+            "style": "List",
+            "text": "filePath sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered."
+        },
+        {
+            "style": "List",
+            "text": "fileName sets the name of the files that constitute the dataset."
+        },
+        {
+            "style": "List",
+            "text": "timeFrames sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter."
+        }
+    ]
+}

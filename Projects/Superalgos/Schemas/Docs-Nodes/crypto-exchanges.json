@@ -1,0 +1,32 @@
+{
+    "type": "Crypto Exchanges",
+    "definition": {
+        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The default workspace features several nodes of this type, each with a purpose:",
+            "updated": 1609771412437
+        },
+        {
+            "style": "List",
+            "text": "Tested: features Crypto Exchange nodes of exchanges that have been thoroughly tested.",
+            "updated": 1609771181080
+        },
+        {
+            "style": "List",
+            "text": "Untested: features a collection of Crypto Exchange nodes of untested exchanges that comply with the set of API requirements of the CCXT library that Superalgos needs to function.",
+            "updated": 1609771650992
+        },
+        {
+            "style": "List",
+            "text": "Testing Queue: you may use this node to deploy Crypto Exchange nodes while testing them.",
+            "updated": 1609771442675
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "type": "Network Node",
+    "definition": {
+        "text": "A network node represents a machine running Superalgos, on which processes run and data is stored."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "By default, processes are set up to run locally in a network node representing your local machine. However, the system is prepared to run distributed on a network of nodes, or what we call a trading farm."
+        },
+        {
+            "style": "Text",
+            "text": "You may create unlimited network nodes and map them with different machines on a network. Each computer in the network runs an instance of the Superalgos backend, and you may control the whole network operation from a single machine, or—in general—from any machine in the network running the Superalgos frontend. To learn more about distributed setups, check the trading farms pages.",
+            "updated": 1609249489127
+        },
+        {
+            "style": "Text",
+            "text": "The easiest and fastest way to set up a network node is using the Install Market function available on markets defined in the Crypto Ecosystem hierarchy, under the exchange markets node. This function adds data mining tasks for all sensor and indicator bots shipping with the system, backtesting and live trading tasks for trading systems shipping with the system, including the data storage definitions for both, and also creates the corresponding dashboards and charts in the Charting Space hierarchy. You may learn more about this function in the how to install a new market page."
+        },
+        {
+            "style": "Text",
+            "text": "If you need finer control over the operation you wish to deploy on the network, then you may use the individual functions available under each section of the hierarchy under the network node."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Network Node Configuration",
+            "updated": 1609594117302
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "List",
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+        },
+        {
+            "style": "List",
+            "text": "webPort is the port used by the Web Server, at this stage 34248.",
+            "updated": 1609247881896
+        },
+        {
+            "style": "List",
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+        }
+    ]
+}

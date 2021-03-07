@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 11,
+    "type": "Docs Error - Changes Not Saved",
+    "definition": {
+        "text": "It was not possible to save your changes.",
+        "updated": 1609180131235
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Changes Not Saved",
+            "updated": 1609180176593
+        },
+        {
+            "style": "Error",
+            "text": "Changes could not be saved. There was one or more problems while saving your changes.",
+            "updated": 1610999017039
+        },
+        {
+            "style": "Success",
+            "text": "Please check the Client Console to see if there are logged errors. You mayalso check the Browser Console.",
+            "updated": 1610999048470
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Save Command"
+        }
+    ]
+}

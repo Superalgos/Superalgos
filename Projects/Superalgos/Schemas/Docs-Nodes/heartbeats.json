@@ -1,0 +1,38 @@
+{
+    "type": "Heartbeats",
+    "definition": {
+        "text": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "This parameter affects how you see the progress of the trading session below the trading bot instance node on the design space."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Heartbeats Configuration",
+            "updated": 1609676752786
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676758182
+        },
+        {
+            "style": "List",
+            "text": "date determines whether the date is shown in the progress notice below the trading process instance node; possible values are true or false."
+        },
+        {
+            "style": "List",
+            "text": "candleIndex determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are true or false."
+        }
+    ]
+}

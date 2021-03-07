@@ -1,0 +1,45 @@
+{
+    "type": "Open Stage",
+    "definition": {
+        "text": "The open stage deals with the definitions that make up the logic to enter a position, including the target rate and size, and order execution."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The open stage comes into play once the take position event is triggered."
+        },
+        {
+            "style": "Text",
+            "text": "Conceptually, the open stage deals with the details concerning how the position shall be opened once the decision to take a position has been made. That is, the open stage does not participate in the process of deciding whether a position should be open or not."
+        },
+        {
+            "style": "Text",
+            "text": "To take a position, several definitions are required. In particular, those concerning targets, such as the rate and size of the position, and the logic of the execution strategy, that is, how many of which orders shall be placed at the exchange&mdash;and when&mdash;to enter the position."
+        },
+        {
+            "style": "Text",
+            "text": "The open stage closes as soon as one of the following events happen:"
+        },
+        {
+            "style": "List",
+            "text": "the target size gets filled,"
+        },
+        {
+            "style": "List",
+            "text": "the close stage event is triggered,"
+        },
+        {
+            "style": "List",
+            "text": "the take profit or stop loss targets are hit."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Why My Stage is not Closing?->The Stage Does Not Close",
+            "updated": 1615054619090
+        }
+    ]
+}

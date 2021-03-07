@@ -1,0 +1,90 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "4",
+    "type": "Docs Delete Command",
+    "definition": {
+        "text": "Use this command to delete a page from the Docs.",
+        "updated": 1609151920518
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Single-Page Syntax",
+            "updated": 1613765905233
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete [Node|Concept|Book] from Project: Docs Page Name",
+            "updated": 1613766020535
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1613766032848
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Node from Superalgos: Task",
+            "updated": 1609152405379
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Concept from Superalgos: References",
+            "updated": 1613766054009
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Book from Superalgos: User Manual",
+            "updated": 1613766091949
+        },
+        {
+            "style": "Title",
+            "text": "Page-Collection Syntax",
+            "updated": 1613766298709
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete [Topic|Tutorial|Review] from Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
+            "updated": 1613766367064
+        },
+        {
+            "style": "Subtitle",
+            "text": "Examples",
+            "updated": 1613766391018
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Topic from Superalgos: Docs Styles->Docs Text Style->1",
+            "updated": 1609152521245
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Tutorial from Superalgos: How to Build Indicatiors->Intro->1",
+            "updated": 1610707006603
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Review from Project: Superalgos Project Review->Awasome!->2",
+            "updated": 1610707101903
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Project: It's the project where the page is defined.",
+            "updated": 1613764968224
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Category: One of the available categories.",
+            "updated": 1613764977861
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Name: The name of the page.",
+            "updated": 1613764988027
+        }
+    ]
+}

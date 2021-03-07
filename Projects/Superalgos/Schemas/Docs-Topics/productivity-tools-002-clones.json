@@ -1,0 +1,95 @@
+{
+    "topic": "Productivity Tools",
+    "pageNumber": "2",
+    "type": "Clones",
+    "definition": {
+        "text": "The clone feature is designed to produce copies of data structures when you need to replicate nodes and expect the copies to behave similarly to the original.",
+        "updated": 1611490308337
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Introduction",
+            "updated": 1611490329180
+        },
+        {
+            "style": "Text",
+            "text": "We will analyze the case of clones under the same lens we analyzed how backups work: we will study how clones treat outgoing, incoming and internal references."
+        },
+        {
+            "style": "Text",
+            "text": "Unlike with backups, clones behave in the same way independently of the existence of the original structure of nodes in the workspace, therefore, we will not make such distinction in the following paragraphs."
+        },
+        {
+            "style": "Title",
+            "text": "Outgoing References"
+        },
+        {
+            "style": "Callout",
+            "text": "Outgoing references are kept intact."
+        },
+        {
+            "style": "Text",
+            "text": "Pretty much like with backups, a clone preserves outgoing references."
+        },
+        {
+            "style": "Text",
+            "text": "The same example as with backups apply: cloning a task running a session produces a copy of the task with the trading bot process instance maintaining the reference to the trading bot Multi-Period process, and the session maintaining the reference with the corresponding trading system."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/clones-01.gif",
+            "updated": 1611490442818
+        },
+        {
+            "style": "Title",
+            "text": "Incoming References"
+        },
+        {
+            "style": "Callout",
+            "text": "Incoming references are discarded."
+        },
+        {
+            "style": "Text",
+            "text": "Let’s go back to the example of a trading system, like we did when exploring backups:"
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/clones-02.gif",
+            "updated": 1611490471957
+        },
+        {
+            "style": "Text",
+            "text": "The capture above shows that restoring a clone of a trading system does not restore incoming references, even when the original structure of nodes is deleted before restoration."
+        },
+        {
+            "style": "Title",
+            "text": "Internal References"
+        },
+        {
+            "style": "Callout",
+            "text": "Internal references are kept intact."
+        },
+        {
+            "style": "Text",
+            "text": "Going back to the shapes node example, the capture below shows how restonring a clone keeps internal references intact:"
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/clones-03.gif",
+            "updated": 1611490496345
+        },
+        {
+            "style": "Title",
+            "text": "Conclusion"
+        },
+        {
+            "style": "Text",
+            "text": "The clone feature is designed to produce copies of data structures when you need to replicate nodes and expect the copies to behave similarly to the original."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

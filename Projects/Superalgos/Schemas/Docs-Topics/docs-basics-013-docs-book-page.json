@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 13,
+    "type": "Docs Book Page",
+    "definition": {
+        "text": "A book is a collection of topics, each representing a chapter in the book.",
+        "updated": 1613756750385
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A books is a page in and of itself. The page features a list of topics each constituting a chapter in the book.",
+            "updated": 1613756891822
+        }
+    ]
+}

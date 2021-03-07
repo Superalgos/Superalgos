@@ -1,0 +1,25 @@
+{
+    "type": "Task",
+    "definition": {
+        "text": "A task is the device used to control bot instances, that is, to start and stop bots, including sensors, indicators and the trading bot."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots."
+        },
+        {
+            "style": "Text",
+            "text": "When a task is started, the process instance of the bot instance attached to the task is started. Also, a visual indication that both the task and the process instance are running appear surrounding the corresponding nodes, in the form of a progress ring.",
+            "updated": 1609613913124
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

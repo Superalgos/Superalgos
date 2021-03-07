@@ -1,0 +1,93 @@
+{
+    "topic": "TS Task Errors",
+    "pageNumber": "1",
+    "type": "TS Task Error - Unexpected Error",
+    "definition": {
+        "text": "Write here a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        },
+        {
+            "style": "Error",
+            "text": "Unexpected Error"
+        },
+        {
+            "style": "Title",
+            "text": "Error Info",
+            "updated": 1611151211050
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Note",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the TS:",
+            "updated": 1610971326601
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage",
+            "updated": 1610971337737
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack",
+            "updated": 1610968600444
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the TS:",
+            "updated": 1610968631281
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack",
+            "updated": 1610968640796
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the TS:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the TS:",
+            "updated": 1611257840235
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "User Defined Counter",
+    "definition": {
+        "text": ""
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609924999992
+        },
+        {
+            "style": "Title",
+            "text": "User Defined Counter Configuration",
+            "updated": 1609925012227
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609925019080
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609925024058
+        }
+    ]
+}

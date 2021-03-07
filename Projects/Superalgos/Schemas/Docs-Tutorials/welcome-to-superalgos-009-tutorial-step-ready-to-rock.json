@@ -1,0 +1,76 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Ready to Rock?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "The Data Tasks node controls all the data mining tasks defined for this Network Node.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il nodo Data Task controlla tutte le task di data mining definite per questo Network Node.",
+                "updated": 1614719093819
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You are about to start the first of the following activities that we'll cover in the next few minutes:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Stai per cominciare la prima delle seguenti attività che copriremo nei prossimi minuti:",
+                    "updated": 1614719131672
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "1. Run a data mining operation to get data for the BTC/USDT Market from Binance.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "1. <i> Eseguire </i> un operazione di data mining per ottenere i dati per il Market BTC/USDT da Binance.",
+                    "updated": 1614719245405
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "2. Run a Backtesting Session with an existing open-source strategy.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "2. <i>Eseguire</i> una Backtesting Session con una strategia open-source già esistente.",
+                    "updated": 1614719466297
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "3. Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "3. <i>Eseguire</i> una Live Trading Session con una minima quantità di fondi, per testare gli aspetti più critici del sistema.",
+                    "updated": 1614719396162
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Are you cool with this? Shall we start?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Che ne dici, sei d'accordo? Possiamo incominciare?",
+                    "updated": 1614719416134
+                }
+            ]
+        }
+    ]
+}

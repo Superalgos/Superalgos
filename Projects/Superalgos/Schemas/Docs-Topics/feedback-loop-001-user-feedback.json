@@ -1,0 +1,58 @@
+{
+    "topic": "Feedback Loop",
+    "pageNumber": "1",
+    "type": "User Feedback",
+    "definition": {
+        "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help!",
+        "updated": 1610660537960
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How Can Superalgos Be Free For Everyone?",
+            "updated": 1610658497040
+        },
+        {
+            "style": "Text",
+            "text": "That is a question we get all the time."
+        },
+        {
+            "style": "Text",
+            "text": "The project started with a group of friends joining forces to automate their crypto trading. They realized early on that—for trading intelligence to emerge—a huge software infrastructure was required. They knew that to compete with top market players on a level field, the system needed to be on par or better than commercial and proprietary software available to firms. Such requirements could not be fulfilled by a small team in a reasonable timeframe.",
+            "updated": 1610661121217
+        },
+        {
+            "style": "Important",
+            "text": "Superalgos is free for everyone because we want your help. We want to attract the best minds in the space, so that—together—we may build the ultimate trading automation platform.",
+            "updated": 1610660913324
+        },
+        {
+            "style": "Title",
+            "text": "Your First Contribution Is Your Feedback!",
+            "updated": 1610660067417
+        },
+        {
+            "style": "Text",
+            "text": "You just spent an hour or two discovering Superalgos. We want to have your first impression. We want to know what you think! And we want your initial feedback to be the first of many contributions to the project.",
+            "updated": 1610660053317
+        },
+        {
+            "style": "Callout",
+            "text": "You don't need to be a star programmer or professional trader to contribute. Superalgos is about fostering global collaboration and every user is expected to give back. Feedback is valuable. Fixing a typo is valuable. Translating a tutorial is valuable. Producing educational, reporting and removing bugs, contributing an indicator or a trading system, integrating a crypto project... everything is of great value!",
+            "updated": 1610662378411
+        },
+        {
+            "style": "Success",
+            "text": "To get started with your first contribution, keep going with the tutorial until the end. You will learn a few tricks that will make contributing a breeze!",
+            "updated": 1610660489943
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

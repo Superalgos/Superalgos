@@ -1,0 +1,28 @@
+{
+    "topic": "TS LF Trading Bot Infos",
+    "pageNumber": "1",
+    "type": "TS LF Trading Bot Info - Candle And Cycle",
+    "definition": {
+        "text": "The LF Trading Bot is running over a set of candles. At Time Frames of 1 hour and above, it runs on a market file containing all the candles of all available history of the market. On a Time Frame of less than 1 hours on a set of candles of a given day. This Info shows the # of the candle in the set, and also the Cycle at which the LF was stanging at the moment of producing the Info Message.",
+        "updated": 1611919712986
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Candle And Cycle",
+            "updated": 1611919730247
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the information preserved at the moment this Info Message was generated:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        }
+    ]
+}

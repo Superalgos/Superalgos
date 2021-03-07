@@ -1,0 +1,145 @@
+{
+    "topic": "Masters Data Mine",
+    "pageNumber": 2,
+    "type": "Bollinger Bands (BB - %B) - Masters Indicator",
+    "definition": {
+        "text": "The indicator produces the Bollinger Bands (BB) and Percentage Bandwith (%B), both in standard settings.",
+        "updated": 1610387450406
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "On the Charts",
+            "updated": 1610384466638
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Bands"
+        },
+        {
+            "style": "Text",
+            "text": "This is the traditional Bollinger Bands indicator. Bollinger Bands have a moving average, in our case calculated with the last 20 periods (the line in the middle of the bands). We are plotting the moving average with one color when it is going up, and with a different color when it’s going down. The upper band is at 2 Standard Deviations from the moving average, pretty much like the lower band, also at 2 Standard Deviations. These are the most widely used Bollinger Bands settings."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-04-bollinger-bands.gif",
+            "updated": 1610385365026
+        },
+        {
+            "style": "Subtitle",
+            "text": "Percentage Bandwidth"
+        },
+        {
+            "style": "Text",
+            "text": "This is a well-known indicator that derives from the Bollinger Bands. In a nutshell, it tells you how close the price is either to the upper band or the lower band at any point in time. When the price is in the middle of the bands (it is calculated with the close value of each candle), then %B is in the middle of its chart, at value 50. When the price touches the upper band, then %B is at 100, and finally when the price is at the lower band, then %B is at 0."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-05-percentage-bandwidth.gif",
+            "updated": 1610385389070
+        },
+        {
+            "style": "Text",
+            "text": "The chart features lines at %B values 30 and 70 since those are the most common values for traders to forecast when a reversal may happen. In our chart, %B is the one represented at #1. We’ve found useful to add a moving average to smooth volatility a bit and to be able to ask—at any time—if it is going up or down. The moving average calculated with the last 5 %B values is plotted as line #2. Finally, we’ve also added a property called Bandwidth, which represents the separation of the upper band from the lower band. It is a measure of volatility and is plotted at #3."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-06-percentage-bandwidth-2.gif",
+            "updated": 1610385427575
+        },
+        {
+            "style": "Anchor",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Bands"
+        },
+        {
+            "style": "Text",
+            "text": "The product bollingerBand features four different properties that you may use."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Bollinger Bands | bollingerBand | movingAverage, standardDeviation, deviation, direction |",
+            "updated": 1610384742825
+        },
+        {
+            "style": "List",
+            "text": "bollingerBand.movingAverage: The value of the current moving average (20 periods)."
+        },
+        {
+            "style": "List",
+            "text": "bollingerBand.standardDeviation: The value of current the standard deviation."
+        },
+        {
+            "style": "List",
+            "text": "bollingerBand.deviation: bollingerBand.standardDeviation * 2"
+        },
+        {
+            "style": "List",
+            "text": "bollingerBand.direction:"
+        },
+        {
+            "style": "Text",
+            "text": "\"Down\": ",
+            "updated": 1610384819019
+        },
+        {
+            "style": "Javascript",
+            "text": "bollingerBand.previous.movingAverage > bollingerBand.movingAverage"
+        },
+        {
+            "style": "Text",
+            "text": "\"Up\":",
+            "updated": 1610384830529
+        },
+        {
+            "style": "Javascript",
+            "text": "bollingerBand.previous.movingAverage < bollingerBand.movingAverage"
+        },
+        {
+            "style": "Text",
+            "text": "\"Side\": ",
+            "updated": 1610384838620
+        },
+        {
+            "style": "Javascript",
+            "text": "bollingerBand.previous.movingAverage = bollingerBand.movingAverage",
+            "updated": 1610384852450
+        },
+        {
+            "style": "Subtitle",
+            "text": "Percentage Bandwidth"
+        },
+        {
+            "style": "Text",
+            "text": "The product percentageBandwidth features four different properties that you may use."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Percentage Bandwidth | percentageBandwidth | value, movingAverage, bandwidth, direction |",
+            "updated": 1610384984134
+        },
+        {
+            "style": "List",
+            "text": "percentageBandwidth.value: A numeric value between 0 and 100; the current value of the percentage bandwidth."
+        },
+        {
+            "style": "List",
+            "text": "percentageBandwidth.movingAverage: A numeric value between 0 and 100; the current value of the percentage bandwidth moving average."
+        },
+        {
+            "style": "List",
+            "text": "percentageBandwidth.bandwidth: A numeric value between 0 and 100; the current bandwidth."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

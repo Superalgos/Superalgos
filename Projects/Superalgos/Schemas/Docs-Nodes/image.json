@@ -1,0 +1,44 @@
+{
+    "type": "Image",
+    "definition": {
+        "text": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The foremost requirement for images is that they are in the png format, 24 bits, with transparency, a low case extension, and are square."
+        },
+        {
+            "style": "Text",
+            "text": "If you envision contributing your indicator so that the community may use it, then please follow the guidelines in the contribute icons page, in particular, the Technical Requirements."
+        },
+        {
+            "style": "Text",
+            "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01"
+        },
+        {
+            "style": "Note",
+            "text": "See the configuration for further details."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Image"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the image, without the .png extension."
+        },
+        {
+            "style": "List",
+            "text": "size is the size at which the image shall be rendered, in pixels."
+        }
+    ]
+}

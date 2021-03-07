@@ -1,0 +1,89 @@
+{
+    "type": "Formula",
+    "definition": {
+        "text": "A formula is a mathematical expression intended to determine a numerical value to be applied dynamically to a certain property."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a Trading System, formulas are used to determine the values for several properties, such as the Target Rate, Target Size, Managed Stop Loss, Managed Take Profit, and so on.",
+            "updated": 1610211948110
+        },
+        {
+            "style": "Text",
+            "text": "Formulas may use indicators and Trading Engine properties. The main difference between writing a Formula and writing a Condition is that while conditions must evaluate to true or false, formulas must evaluate to a number.",
+            "updated": 1610211971367
+        },
+        {
+            "style": "Block",
+            "text": "Examples"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "A simple math example",
+            "updated": 1609346397254
+        },
+        {
+            "style": "Text",
+            "text": "This simple formula may be used to define an initial take profit target 3% above the rate at which the position was taken."
+        },
+        {
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03"
+        },
+        {
+            "style": "Note",
+            "text": "You may use any variable made available by the trading engine, as explained on the accessing runtime data page."
+        },
+        {
+            "style": "Subtitle",
+            "text": "A simple JavaScript example",
+            "updated": 1609346401859
+        },
+        {
+            "style": "Text",
+            "text": "A bit of very basic JavaScript, introducing conditional statements, allows more intelligence. For example, in this case, we ask if the proposed formula results in a number greater than the current stop loss value; if it does, then the proposed formula is used; if not, then the current stop loss value is left as is."
+        },
+        {
+            "style": "Text",
+            "text": "This is—basically—a trailing stop loss 2% below the Bollinger Bands moving average that may go higher if the moving average goes up, but it may never come down—thanks to the use of the IF / ELSE clause.",
+            "updated": 1610563073190
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.current.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.tradingCurrent.position.stopLoss.value}\n",
+            "updated": 1609346601773
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "For developers",
+            "updated": 1609346635457
+        },
+        {
+            "style": "Text",
+            "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value—and then call the function:",
+            "updated": 1610561517656
+        },
+        {
+            "style": "Javascript",
+            "text": "function orderRate() {\nconst ORDER_STEP_NUMBER = 1 // Secuential step number, starting with 1 from the closest to the price.\nconst BUY_SELL_SIGN = -1 // 1 for buy orders, -1 for sell orders.\nconst STEP_SEPARATION = 0.15 // % of separation of stair steps between them.\nconst BASE_FACTOR = 0.2 // % above or below bollinger band without bias.\nconst BIAS_FACTOR = 0.3 // % to move the whole stair of orders up or down depending on the bias.\nconst BAND_RATE = chart.at01min.bollingerBand.lowerBand // Upper Bollinger Band for sell orders, and Lower for buy orders.\nlet inbalance = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value - tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value\nlet BIAS_SIGN\nif (inbalance === 0) {\nBIAS_SIGN = 0\n}\nif (inbalance < 0) {\nBIAS_SIGN = + 1\n}\nif (inbalance > 0) {\nBIAS_SIGN = - 1\n}\nlet rate = BAND_RATE + BUY_SELL_SIGN BAND_RATE (BASE_FACTOR + ORDER_STEP_NUMBER STEP_SEPARATION + BIAS_SIGN BIAS_FACTOR) / 100\nreturn rate\n}\norderRate()",
+            "updated": 1609346807464
+        }
+    ]
+}

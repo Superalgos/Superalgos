@@ -9,6 +9,34 @@
             "text": "Content"
         },
         {
+            "style": "Title",
+            "text": "Optionality",
+            "updated": 1615101510181
+        },
+        {
+            "style": "Note",
+            "text": "This Stage is optional. That means that if you do not want to deal with Stop Loss or Take Profits at your strategy, you can just delete this node and everything will continue working just fine. If you do remove this node, what will happen at runtime is that as soon as the position is triggered, the system will detect that that the Manage Stage is undefined, and it will jump it by opening the Close Stage (if it exists, because it is also optional)"
+        },
+        {
+            "style": "Text",
+            "text": "This is how optionality looks like at the code:",
+            "updated": 1615101627343
+        },
+        {
+            "style": "Javascript",
+            "text": "/* Opening Status Procedure */\nif (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {\n    /*\n    The system allows the user not to define a Manage Stage, because the Manage Stage is optional.\n    Here we are going to see if that is the case and if it is, we will inmidiatelly consider \n    the Manage Stage as closed.\n    */\n    if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage === undefined) {\n        changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')\n        changeStageStatus('Close Stage', 'Opening')\n        return\n    }\n\n    /* Now we switch to the Open status. */\n    changeStageStatus('Manage Stage', 'Open')\n}",
+            "updated": 1615101667889
+        },
+        {
+            "style": "Success",
+            "text": "If both the Manage Stage and the Close Stage are undefined, what will happen is that whenever the Open Stage gets closed, you will exit the position.",
+            "updated": 1615103161873
+        },
+        {
+            "style": "Title",
+            "text": "Manage Stage Concept"
+        },
+        {
             "style": "Text",
             "text": "The first and foremost rule of trading is to preserve capital and its main goal is to increase it."
         },

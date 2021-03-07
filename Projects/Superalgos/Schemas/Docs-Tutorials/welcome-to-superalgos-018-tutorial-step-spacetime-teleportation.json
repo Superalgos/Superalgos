@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "mouse-right-click"
         },
-        "text": "Ok, you're not actually going to be teleporting, nor will you bend spacetime, but it almost feels like it! It's time to learn to use the design space map."
+        "text": "Ok, you're not actually going to be teleporting, nor will you bend spacetime, but it almost feels like it! It's time to learn to use the design space map.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Okay, non ti teletrasporterai davvero nè piegherai lo spazio-tempo, ma la sensazione sarà la stessa! È il momento di utilizzare la mappa del Design Space.",
+                "updated": 1614789351031
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I said earlier that the design space is huge, and I meant it! Going from one corner to the opposite would take hundreds of clicks and drags. While using the keyboard allows you to develop neck-breaking speeds, it's not as cool as teleporting! This is how it works:"
+            "text": "I said earlier that the design space is huge, and I meant it! Going from one corner to the opposite would take hundreds of clicks and drags. While using the keyboard allows you to develop neck-breaking speeds, it's not as cool as teleporting! This is how it works:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Come detto prima, il Design Space è veramente grande: andare da un angolo all'altro richiederebbe centinaia di click. Usare la tastiera ti permette di spostarti a grandi velocità, ma non è forte come teletrasportarsi! Ora ti spiego come si fa:",
+                    "updated": 1614789460112
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Right-click to open the map and left-click anywhere to go to that specific spot!",
-            "updated": 1611076477382
+            "updated": 1611076477382,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai click con il tasto destro del mouse per aprire la mappa e clicca un punto qualsiasi con il tasto sinistro per raggiungerlo!",
+                    "updated": 1614788954113
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Look at me on the bottom-left corner of the design space? Now you know where to find me!"
+            "text": "Look at me on the bottom-left corner of the design space? Now you know where to find me!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mi vedi nell'angolo in basso a sinistra del Design Space? Ora sai dove trovarmi!",
+                    "updated": 1614789481521
+                }
+            ]
         }
     ]
 }

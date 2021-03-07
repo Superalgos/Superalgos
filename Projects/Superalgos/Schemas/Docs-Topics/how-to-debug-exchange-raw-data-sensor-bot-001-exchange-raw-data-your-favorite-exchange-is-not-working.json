@@ -52,6 +52,33 @@
         },
         {
             "style": "Title",
+            "text": "Your Favorite Exchange is not Listed"
+        },
+        {
+            "style": "Text",
+            "text": "There are many reasons why an exchange might not be listed even at the Untested Exchanges node. Hera are some of them:",
+            "updated": 1614949670526
+        },
+        {
+            "style": "Text",
+            "text": "1. When the list was created it did not exist (you can try Add Missing Exchanges menu item of the Crypto Exchanges node)"
+        },
+        {
+            "style": "Text",
+            "text": "2. It is not listed at the CCXT library included with Superalgos (an npm update would be needed at the right folder to update the library). If it appears after the update, please inform the team so as to update it for all.",
+            "updated": 1614949724133
+        },
+        {
+            "style": "Text",
+            "text": "3. The exchange does not support historical data at 1 min (you can check the exchange API docs). Escahnges that do not support this are filtered out while running Add Missing Exchanges command.",
+            "updated": 1614949756265
+        },
+        {
+            "style": "Text",
+            "text": "4. The exchange does not support the function to list it's markets. (Also check the exchange API docs)"
+        },
+        {
+            "style": "Title",
             "text": "Getting Started"
         },
         {

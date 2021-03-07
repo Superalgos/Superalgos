@@ -7,23 +7,51 @@
             "project": "Superalgos",
             "name": "key-ctrl"
         },
-        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!"
+        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Oh sì! Puoi usare anche la tastiera! Fidati, la adorerai per gli spostamenti a lunga distanza nel Design Space!",
+                "updated": 1614789336258
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Regular folks may use the Ctrl key plus arrow keys:  ←  →  ↑  ↓",
-            "updated": 1610614017276
+            "updated": 1610614017276,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi usare il tasto Ctrl più i quattro tasti freccia: ← → ↑ ↓",
+                    "updated": 1614788584746
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice that keeping the keys pressed makes you fly!",
-            "updated": 1610614056593
+            "updated": 1610614056593,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tenere premuti i tasti ti farà volare!",
+                    "updated": 1614788606698
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Of course Mac fanboys and girls must replace Ctrl with Cmd",
-            "updated": 1610614224444
+            "updated": 1610614224444,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ovviamente i fan della Apple devono sostituire Ctrl con Cmd",
+                    "updated": 1614788677478
+                }
+            ]
         }
     ]
 }

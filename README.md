@@ -177,7 +177,16 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 # Docker Deployments
 
-We haven't tested containerized deployments, but many people in the community have. Worth noting is the fact that Superalgos doesn't touch anything outside the Superalgos folder. To uninstall, delete the folder.
+- NEW: Added github action to publish docker image into github package registry
+
+## Docker Image 
+If you want to run superalgo over docker platform, you should follow the next steps: 
+1. [Install docker](https://docs.docker.com/engine/install/) 
+2. `docker login ghcr.io --username your-github-username --password-stdin` 
+3. `docker run -p 18041:18041 -p 34248 superalgos/superalgos` 
+4. Now you can access to the superalgos UI
+
+Note: This has not been tested yet, if you run into problems, please contact us at our [Superalgos User's Support Group](https://t.me/superalgossupport).
 
 # What is Superalgos?
 

@@ -28,9 +28,13 @@
             "updated": 1615101667889
         },
         {
+            "style": "Success",
+            "text": "If both the Manage Stage and the Close Stage are undefined, what will happen is that whenever the Open Stage gets closed, you will exit the position.",
+            "updated": 1615103161873
+        },
+        {
             "style": "Title",
-            "text": "Manage Stage Concept",
-            "updated": 1615101706028
+            "text": "Manage Stage Concept"
         },
         {
             "style": "Text",

@@ -18,7 +18,7 @@ jobs:
     - name: Preparation
       id: prep
       run: |
-        REGISTRY="docker.pkg.github.com"
+        REGISTRY="ghcr.io"
         IMAGE="${REGISTRY}/${{ steps.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }}"
         if [[ $GITHUB_REF == ref/head/master ]]; then
@@ -30,7 +30,7 @@ jobs:
     - name: Login in to registry
       uses: docker/login-action@v1
       with:
-        registry: docker.pkg.github.com
+        registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ github.token }}
     - name: Push to registry

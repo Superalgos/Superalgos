@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - id: repository
-        uses: ASzc/change-string-case-action@v1
-        with:
-          string: "${{ github.repository }}/${{ github.event.repository.name }}" 
+      uses: ASzc/change-string-case-action@v1
+      with:
+        string: "${{ github.repository }}/${{ github.event.repository.name }}" 
     - uses: actions/checkout@v2
     - name: Preparation
       id: prep

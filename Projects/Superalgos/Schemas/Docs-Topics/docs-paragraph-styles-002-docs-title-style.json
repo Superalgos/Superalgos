@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 2,
+    "type": "Docs Title Style",
+    "definition": {
+        "text": "Use this style to render titles on the docs page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As the name suggests, the title style simply makes anything you type while editing visible as a title at the docs page."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Text",
+            "text": "The previous one is a paragraph in title style."
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "topic": "Nodes",
+    "pageNumber": "4",
+    "type": "Node Config",
+    "definition": {
+        "text": "Nodes might have a config -only when needed- that it is used to store information related to that node. When they do, they usually allow users to access it via one of the Node Menu items.  A Node Config is later used by Tasks or Bots during their processing.",
+        "updated": 1609236556444
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set at the node iwhen the Node is first created. ",
+            "updated": 1609244634949
+        }
+    ]
+}

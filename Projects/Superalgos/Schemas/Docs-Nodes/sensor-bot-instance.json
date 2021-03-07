@@ -1,0 +1,53 @@
+{
+    "type": "Sensor Bot Instance",
+    "definition": {
+        "text": "A sensor bot instance is a reference to a Sensor Bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
+        "updated": 1609617856257
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The sensor bot instance holds no definitions as to what the bot does. Instead, its process instance references a process definition in the corresponding data mine. That is how the sensor bot instance obtains the information regarding what it needs to do once it is run."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot Instance Configuration",
+            "updated": 1609613944104
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "startDate is the desired starting date of the data product the sensor bot instance builds, in the YYYY-MM-DD format. The sensor bot instance queries its data source for data starting on the configured startDate.",
+            "updated": 1609614002529
+        },
+        {
+            "style": "Text",
+            "text": "   The actual date in which the dataset starts depends on external factors: A. The market may start at a later date. B. The exchange may limit how far in the past data may be retrieved. In both cases, the sensor bot automatically discovers the date closest to the desired starting date* that is possible to start with, and proceeds accordingly."
+        },
+        {
+            "style": "Text",
+            "text": "In the case the startDate is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the startDate is changed, the sensor bot starts over.",
+            "updated": 1609614011955
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date.",
+            "updated": 1609614020847
+        },
+        {
+            "style": "Note",
+            "text": "You do not start or stop a sensor bot instance directly. Instead, you start or stop the corresponding task."
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Project Trading Tasks",
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610099516571
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability."
+        }
+    ],
+    "definition": {
+        "text": "The Project Trading Tasks node is an organizational device grouping all Trading Tasks corresponding to the same Project.",
+        "updated": 1609667811768
+    }
+}

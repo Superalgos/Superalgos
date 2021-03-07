@@ -1,0 +1,47 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 8,
+    "type": "Docs Error - Missing Colon",
+    "definition": {
+        "text": "Make sure you are using the \":\" in the appropriate position.",
+        "updated": 1610977606831
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Missing Colon",
+            "updated": 1609176525475
+        },
+        {
+            "style": "Error",
+            "text": "Syntax Error. Colon character \":\" is missing. ",
+            "updated": 1609176970772
+        },
+        {
+            "style": "Success",
+            "text": "Check the syntax of the command you are executing and see where to place the colon \":\" character. The character may not be detected if it's not followed by a space.",
+            "updated": 1610977564139
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command",
+            "updated": 1609177427004
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
+        }
+    ]
+}

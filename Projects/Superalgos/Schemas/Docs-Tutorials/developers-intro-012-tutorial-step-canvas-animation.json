@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Canvas Animation",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The animation runs a physics() and a draw() function for each space, allowing each of them to have their own physics engine / rules and render themselves as a top-level layer on the UI."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At each frame, the animation calls the physics() function of each space first and, second, the draw() function. Then, it requests a callback from the browser and starts all over again."
+        },
+        {
+            "style": "Success",
+            "text": "Depending on how many things the user keeps open, both the physics() call or the draw() call may last more or less time. This makes the frames-per-second variable, and a function of the number of things that need to be calculated or rendered on-screen."
+        }
+    ]
+}

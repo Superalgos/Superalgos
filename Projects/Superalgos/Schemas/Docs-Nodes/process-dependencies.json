@@ -1,0 +1,16 @@
+{
+    "type": "Process Dependencies",
+    "definition": {
+        "text": "Process dependencies are references to various data structures on which the process depends to function."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "While processes run autonomously, most processes participate in a value-adding chain by which a process produces a data product that other processes may consume as an input to be processed further. This means that bots&mdash;while autonomous in their particular jobs&mdash;do depend both on other bots and on the data other bots produce."
+        }
+    ]
+}

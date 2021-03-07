@@ -1,0 +1,13 @@
+{
+    "type": "User Keys",
+    "definition": {
+        "text": "The user keys node groups the various exchange account keys the user may have under the corresponding account with the exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may want to have multiple exchange account keys under the same User Account to trade, for instance, with different trading systems, or different kinds of trading sessions.",
+            "updated": 1609777414403
+        }
+    ]
+}

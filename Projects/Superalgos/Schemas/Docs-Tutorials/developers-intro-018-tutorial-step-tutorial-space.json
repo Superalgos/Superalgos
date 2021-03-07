@@ -1,0 +1,26 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Tutorial Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "Enables running tutorials. It is not based on the HTML canvas, but on HTML + CSS."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Tutorial Space is the highest top-tier layer of all the system since its rendered above everything else. It can manipulate other spaces based on the configuration of each tutorial topic and step."
+        },
+        {
+            "style": "Callout",
+            "text": "Not only may tutorials move the user around the UI, but may also take most actions users themselves may take, like, for instance, running tasks of any kind."
+        },
+        {
+            "style": "Note",
+            "text": "The Tutorial Space is a new addition to the system. For that reason, few tutorials exist today, but we expect this to change in the future."
+        }
+    ]
+}

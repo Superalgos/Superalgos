@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Docs Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "This is where the documentation web site is loaded. It's an HTML iFrame inside a DIV, animated in and out of the screen."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "There is an ongoing effort to bring the documentation web site into the app. What you can see today is just the first step in that direction."
+        },
+        {
+            "style": "Note",
+            "text": "The current documentation is implemented as a separate repository, hosted by Github Pages."
+        }
+    ]
+}

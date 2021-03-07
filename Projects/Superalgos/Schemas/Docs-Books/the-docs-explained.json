@@ -1,0 +1,36 @@
+{
+    "type": "The Docs Explained",
+    "definition": {
+        "text": "This book will walk you through everything you need to know about the Docs.",
+        "updated": 1609762580891
+    },
+    "paragraphs": [
+        {
+            "style": "Chapter",
+            "text": "I->Superalgos->Topic->Docs Basics->Read Chapter I to learn the basics concepts. They are the foundation that will let you understand the commands and styles explained later in this book.",
+            "updated": 1609763076399
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Superalgos->Topic->Docs Commands->The Docs include a powerful command line interface that allows you to quickly fire commands from the search box. Dive into Chapter II to learn the details of each available command.",
+            "updated": 1609763122458
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Superalgos->Topic->Docs Commands Errors"
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Superalgos->Topic->Docs Commands Messages",
+            "updated": 1609783744261
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Superalgos->Topic->Docs Paragraph Styles"
+        },
+        {
+            "style": "Chapter",
+            "text": "VI->Superalgos->Topic->Docs Context Menu Actions"
+        }
+    ]
+}

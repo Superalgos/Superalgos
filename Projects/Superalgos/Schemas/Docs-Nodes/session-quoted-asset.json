@@ -1,0 +1,43 @@
+{
+    "type": "Session Quoted Asset",
+    "definition": {
+        "text": "The quoted asset is the asset on which the price of the base asset is denominated in the market. It is usually the second asset in the pair, as listed by the exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The parameter allows defining an initial balance for the corresponding asset, which may be used for trading with the corresponding trading system and trading session.",
+            "updated": 1610120612671
+        },
+        {
+            "style": "Note",
+            "text": "Notice that the initial balance may be defined on either or both assets in the market.",
+            "updated": 1610120649770
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610120575504
+        },
+        {
+            "style": "Title",
+            "text": "Session Quoted Asset Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
+        }
+    ]
+}

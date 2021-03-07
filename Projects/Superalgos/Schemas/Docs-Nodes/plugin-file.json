@@ -1,0 +1,45 @@
+{
+    "type": "Plugin File",
+    "definition": {
+        "text": "A plugin file is the JSON file that constitutes the plugin. In the context of the plugins hierarchy, a plugin is the definition of a hierarchy."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Plugin files distributed with the system are stored in the corresponding folders on the following path:",
+            "updated": 1609869641569
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\[ProjectName]\\Plugins\\",
+            "updated": 1609869650031
+        },
+        {
+            "style": "Text",
+            "text": "To create a plugin and make it available to the system you need to:"
+        },
+        {
+            "style": "List",
+            "text": "Take a backup of the hierarchy.",
+            "updated": 1609869665918
+        },
+        {
+            "style": "List",
+            "text": "Place it in the proper folder of the path.",
+            "updated": 1609869675048
+        },
+        {
+            "style": "Important",
+            "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
+            "updated": 1609869687063
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        }
+    ]
+}

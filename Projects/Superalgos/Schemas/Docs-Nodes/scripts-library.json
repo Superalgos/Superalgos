@@ -1,0 +1,16 @@
+{
+    "type": "Scripts Library",
+    "definition": {
+        "text": "A script library is a collection of related scripts."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The script library node plays an organizational role, grouping masters scripts according to the criteria of the developer."
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "type": "Market Data Tasks",
+    "definition": {
+        "text": "A market data tasks node groups data mining tasks operating in a specific market."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The market data tasks node must reference a market defined in the Crypto Ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

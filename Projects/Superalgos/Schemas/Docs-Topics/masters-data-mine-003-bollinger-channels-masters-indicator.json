@@ -1,0 +1,107 @@
+{
+    "topic": "Masters Data Mine",
+    "pageNumber": 3,
+    "type": "Bollinger Channels - Masters Indicator",
+    "definition": {
+        "text": "The indicator produces the Bollinger Channels and Bollinger Sub-Channels products.",
+        "updated": 1610468458099
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "On the Charts",
+            "updated": 1610385639559
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Channels"
+        },
+        {
+            "style": "Text",
+            "text": "This is a non-standard indicator derived from the Bollinger Bands. These types of channels are calculated using the Bollinger Bands moving average. Essentially an upward channel begins when the moving average changes direction from going down to going up, and the channel finishes when it turns from going up to down. A downward channel starts when the Bollinger Band moving average turns from going up to down, and it finishes when it starts going up again. Upward channels are plotted in green, while downward channels in red. Additional information can be found at the indicator’s panel, like the number of periods contained at the channel."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-07-bollinger-channels.gif",
+            "updated": 1610385920623
+        },
+        {
+            "style": "Anchor",
+            "text": "Bollinger Sub-Channels"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Sub-Channels"
+        },
+        {
+            "style": "Text",
+            "text": "If we consider that one Bollinger Channel can have sub-channels in the same direction (up or down) but different slopes, then we get to the concept of Bollinger Sub-Channels. The most important property of a sub-channel is its slope. The possible values are Side, Gentle, Medium, High and Extreme. With this information, a trading bot could easily ask if it is in a sub-channel with a certain slope and for how many periods. The slope or inclination of the moving average may be an indication of momentum."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/masters-bots-layers-08-bollinger-subchannels.gif",
+            "updated": 1610385965423
+        },
+        {
+            "style": "Anchor",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties",
+            "updated": 1610467642103
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Channels"
+        },
+        {
+            "style": "Text",
+            "text": "The product bollingerChannel features two different properties that you may use."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable\t| Property Variables |\n| Bollinger Channels | bollingerChannel | direction, period |",
+            "updated": 1610385740520
+        },
+        {
+            "style": "List",
+            "text": "bollingerChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\"."
+        },
+        {
+            "style": "List",
+            "text": "bollingerChannel.period: The number of periods the channel spans at the moment the variable is being read. For instance, if a channel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the channel."
+        },
+        {
+            "style": "Anchor",
+            "text": "Bollinger Sub-Channels 2",
+            "updated": 1610468483005
+        },
+        {
+            "style": "Subtitle",
+            "text": "Bollinger Sub-Channels",
+            "updated": 1610468477026
+        },
+        {
+            "style": "Text",
+            "text": "The product bollingerSubChannel features three different properties that you may use."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Bollinger SubChannels | bollingerSubChannel | direction, period, slope |",
+            "updated": 1610385815244
+        },
+        {
+            "style": "List",
+            "text": "bollingerSubChannel.direction: Possible values are \"Down\", \"Up\", and \"Side\"."
+        },
+        {
+            "style": "List",
+            "text": "bollingerSubChannel.period: The number of periods the subchannel spans at the moment the variable is being read. For instance, if a subchannel spans 10 candles and the variable is checked on the fourth candle, then bollingerChannel.period = 4. Put in other words, it is the current span of the subchannel."
+        },
+        {
+            "style": "List",
+            "text": "bollingerSubChannel.slope: Indicates how steep the slope of the subchannel is. Possible values are \"Side\", \"Gentle\", \"Medium\", \"Steep\", \"Extreme\" (in order from lowest to highest)."
+        }
+    ]
+}

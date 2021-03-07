@@ -1,0 +1,40 @@
+{
+    "type": "Actual Rate",
+    "definition": {
+        "text": "Actual rate is the number reported by the exchange as the rate at which an order was filled."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "When the system consults the status of open orders with the exchange, the exchange responds with the size filled and the actual rate for the particular order. In case an order is filled incrementally, the value is updated accordingly."
+        },
+        {
+            "style": "Text",
+            "text": "The system uses the actual rate to update the calculation of balances, which are otherwise calculated with the original rate, by default."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Actual Rate Configuration",
+            "updated": 1611924565404
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

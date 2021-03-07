@@ -1,0 +1,14 @@
+{
+    "type": "Learning Tasks",
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "The infrastructure for Machine Learning algorithms is currently being implemented.",
+            "updated": 1609666442120
+        }
+    ],
+    "definition": {
+        "text": "Learning tasks&mdash;once implemented&mdash;will control Learning Bots running a reinforcement learning algorithm.",
+        "updated": 1609666371163
+    }
+}

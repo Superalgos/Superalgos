@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 9,
+    "type": "Docs Error - Missing To",
+    "definition": {
+        "text": "The word \"to\" is part of the syntax of the command and you did not include it.",
+        "updated": 1609176884329
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Missing To",
+            "updated": 1609176777661
+        },
+        {
+            "style": "Error",
+            "text": "Syntax Error. Colon word \"to\" is missing. ",
+            "updated": 1609177715965
+        },
+        {
+            "style": "Success",
+            "text": "Check the syntax of the command and see where to place the word \"to\".",
+            "updated": 1610998959199
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Project Learning Tasks",
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "The infrastructure for Machine Learning algorithms is currently being implemented.",
+            "updated": 1609666515089
+        }
+    ],
+    "definition": {
+        "text": "The Project Learning Tasks node is an organizational device grouping all Learning Tasks corresponding to the same Project.",
+        "updated": 1609667823768
+    }
+}

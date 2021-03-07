@@ -1,0 +1,16 @@
+{
+    "type": "Candle",
+    "definition": {
+        "text": "The candle structure of nodes stores the properties that make up each candle in the episode, including open and close datetime, and the rates for open, min, max, and close."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

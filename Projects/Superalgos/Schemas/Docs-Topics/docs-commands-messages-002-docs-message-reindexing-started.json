@@ -1,0 +1,24 @@
+{
+    "topic": "Docs Commands Messages",
+    "pageNumber": 2,
+    "type": "Docs Message - Reindexing Started",
+    "definition": {
+        "text": "The docs.reindex command started the rebuilding of the Docs Search Engine Index.",
+        "updated": 1610972866423
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Reindexing is a resource-intensive process. While the process is running, you will not be able to use the interface since all CPU resources are dedicated to recreating the index as fast as possible. ",
+            "updated": 1610973251479
+        },
+        {
+            "style": "Text",
+            "text": "The weight of your workspace impacts the time required to reindex the content since every node in the workspace must be scanned. All code and configurations are indexed. "
+        },
+        {
+            "style": "Text",
+            "text": "Hold on for a few seconds until the process finishes. You will receive a new message when it's over."
+        }
+    ]
+}

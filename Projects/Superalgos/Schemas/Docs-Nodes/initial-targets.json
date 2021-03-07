@@ -1,0 +1,13 @@
+{
+    "type": "Initial Targets",
+    "definition": {
+        "text": "The initial targets node holds the most basic definitions about the position to be taken: the target rate and the target size."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Both definitions are required.",
+            "updated": 1609595544643
+        }
+    ]
+}

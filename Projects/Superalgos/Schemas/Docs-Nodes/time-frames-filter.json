@@ -1,0 +1,68 @@
+{
+    "type": "Time Frames Filter",
+    "definition": {
+        "text": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Limiting the number of time frames calculated by any given indicator to the few that may be required by a particular trading system has a significant positive impact on performance: it reduces the load on the CPU, the memory requirements, and the requirements of storage space, in proportion with the time frames you remove."
+        },
+        {
+            "style": "Text",
+            "text": "When a time frames filter is set up, a Time.Frames.json file is created by the indicator process in the corresponding output folder. This file is read by others&mdash;such as the charting system&mdash;to get the information regarding which time frames are available and which are not, to avoid reporting errors."
+        },
+        {
+            "style": "Important",
+            "text": "Before applying a time frames filter or changing the configuration, that is, changing which time frames are produced and which are not, it is highly recommended to delete the data corresponding to the affected indicator, to avoid inconsistencies in the data that may later cause confusion."
+        },
+        {
+            "style": "Note",
+            "text": "When no time frames filter is defined, the bot processes all time frames by default."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Time Frames Filter"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "\"dailyTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],"
+        },
+        {
+            "style": "Text",
+            "text": "\"marketTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\"]"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "Text",
+            "text": " dailyTimeFrames features the time frames corresponding to the daily files* type of data structure; in practical terms, the time frames below one hour."
+        },
+        {
+            "style": "Text",
+            "text": " marketTimeFrames features the time frames corresponding to the market files* type of data structure; in practical terms, the time frames of one hour and above."
+        },
+        {
+            "style": "Text",
+            "text": "{% include tip.html content=\"Remove the time frames you are not interested in, making sure the JSON file is still valid.\" %}"
+        }
+    ]
+}

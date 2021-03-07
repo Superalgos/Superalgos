@@ -1,0 +1,30 @@
+{
+    "topic": "Data Mines",
+    "pageNumber": "2",
+    "type": "Indicator Bots",
+    "definition": {
+        "text": "Indicator bots enable the processing of data by consuming datasets others have produced, performing calculations, and outputting a new value-added data product that others may consume.",
+        "updated": 1611408124910
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Bot->Definition",
+            "updated": 1611408242603
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Indicator Bot->Content",
+            "updated": 1611408247595
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Indicator Bot->2",
+            "updated": 1611408262027
+        }
+    ]
+}

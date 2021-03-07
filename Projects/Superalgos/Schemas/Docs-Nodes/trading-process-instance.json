@@ -1,0 +1,25 @@
+{
+    "type": "Trading Process Instance",
+    "definition": {
+        "text": "A trading process instance is a reference to the process definition of the trading bot, as defined in the Masters data mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The trading process instance must reference the Multi-Period process definition of the Jason trading bot in the Masters data mine."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        },
+        {
+            "style": "Note",
+            "text": "You do not start or stop a Trading Process Instance directly. Instead, you start or stop the corresponding task.",
+            "updated": 1609668850890
+        }
+    ]
+}

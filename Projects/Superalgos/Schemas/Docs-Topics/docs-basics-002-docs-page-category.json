@@ -1,0 +1,59 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": "2",
+    "type": "Docs Page Category",
+    "definition": {
+        "text": "The Docs feature five different categories of pages. Node, Concept, Topic, Tutorial, and Review. Each of them is a collection of pages users may read.",
+        "updated": 1610999695838
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Node Page Category",
+            "updated": 1609150842562
+        },
+        {
+            "style": "Text",
+            "text": "For each Node defined within the Project, there is a Docs Node Page explaining what the Node is used for.",
+            "updated": 1610999767253
+        },
+        {
+            "style": "Title",
+            "text": "Concept Page Category",
+            "updated": 1610999775828
+        },
+        {
+            "style": "Text",
+            "text": "Concepts are notions that are not represented as nodes in the system. They are not ellaborate or deep enough to require a topic.",
+            "updated": 1610999879515
+        },
+        {
+            "style": "Title",
+            "text": "Topic Page Category"
+        },
+        {
+            "style": "Text",
+            "text": "Topics are multi-faceted, deep concepts that require more than one page to be correctly addressed. Topics are sets of closely related concepts.",
+            "updated": 1610999935621
+        },
+        {
+            "style": "Title",
+            "text": "Tutorial Page Category"
+        },
+        {
+            "style": "Text",
+            "text": "Tutorials are made of steps, and each step draws information from a tutorial step page in the Docs. Pages in a tutorial are arranged in a sequence.",
+            "updated": 1611000079464
+        },
+        {
+            "style": "Title",
+            "text": "Reviews Page Category",
+            "updated": 1611000089258
+        },
+        {
+            "style": "Text",
+            "text": "Reviews are user-generated content describing their experience with certain components of Superalgos or other projects.",
+            "updated": 1611000148351
+        }
+    ]
+}

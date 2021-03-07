@@ -1,0 +1,32 @@
+{
+    "type": "Trading System",
+    "definition": {
+        "text": "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan. The hierarchy contains definitions regarding any number of trading strategies, all operating on the same market and sharing the same initial capital allocation."
+        },
+        {
+            "style": "Text",
+            "text": "You use a trading system to define strategies following the Superalgos Protocol, splitting strategies into four stages: trigger, open, manage, and close."
+        },
+        {
+            "style": "Text",
+            "text": "The concept of describing strategies in stages is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same framework, which contributes to developing scalable trading systems that may grow to any number of strategies."
+        },
+        {
+            "style": "Text",
+            "text": "When a trading system features more than one strategy, the first strategy has precedence over the second, the second over the third, and so on. This means that strategies are evaluated in a sequence. When a given strategy is triggered-on, the remaining strategies in the queue are no longer evaluated until the strategy triggers off. In other words, when multiple strategies are deployed within a single trading system, only one strategy may trade at any given moment, and precedence is given by the order around the trading system node."
+        },
+        {
+            "style": "Text",
+            "text": "As a corollary to the above, if you wish strategies to operate in different markets, or you wish strategies to be able to take positions simultaneously, then you must set up those strategies in different trading systems."
+        }
+    ]
+}

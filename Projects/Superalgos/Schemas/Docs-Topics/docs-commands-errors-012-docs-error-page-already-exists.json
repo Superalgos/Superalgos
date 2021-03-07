@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 12,
+    "type": "Docs Error - Page Already Exists",
+    "definition": {
+        "text": "The page you are trying to add already exists.",
+        "updated": 1610999079334
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Page Already Exists",
+            "updated": 1609180759921
+        },
+        {
+            "style": "Error",
+            "text": "Page already exists.",
+            "updated": 1610999086141
+        },
+        {
+            "style": "Success",
+            "text": "Check the Docs Page Name you used on the command. It seems that a page with the same name already exists.",
+            "updated": 1610999134449
+        },
+        {
+            "style": "Title",
+            "text": "Applies to"
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        }
+    ]
+}

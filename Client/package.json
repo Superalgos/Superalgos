@@ -1,0 +1,19 @@
+{
+  "name": "Client",
+  "version": "0.0.6",
+  "description": "BackendServer",
+  "main": "client.js",
+  "author": {
+    "name": "Luis-Fernando-Molina"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.0.12",
+    "ccxt": "^1.23.67",
+    "child_process": "^1.0.2",
+    "open": "^6.4.0",
+    "rimraf": "^3.0.2",
+    "simple-git": "^2.31.0",
+    "web3": "^1.3.0",
+    "ws": "^7.1.2"
+  }
+}

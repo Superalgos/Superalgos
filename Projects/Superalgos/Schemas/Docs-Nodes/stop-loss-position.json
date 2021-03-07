@@ -1,0 +1,20 @@
+{
+    "type": "Stop Loss Position",
+    "definition": {
+        "text": "Stop Loss position indicates if the stop loss target is above or below the position rate."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Possible values are Above and Below."
+        },
+        {
+            "style": "Text",
+            "text": "The implications of setting the stop loss target above or below the position rate are explained on the trading system section of the documentation, in particular while describing the initial target rate definition."
+        }
+    ]
+}

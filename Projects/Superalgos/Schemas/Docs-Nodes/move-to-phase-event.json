@@ -1,0 +1,28 @@
+{
+    "type": "Move To Phase Event",
+    "definition": {
+        "text": "The move to phase event determines when there should be a switch of phases from the current phase to an arbitrary phase determined by a reference."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "While phases are defined in a sequence and you may choose to manage the position by shifting from one phase to the next in the sequence, the move to phase event offers an alternative."
+        },
+        {
+            "style": "Text",
+            "text": "With the move to phase event, you may arbitrarily decide which will be the next phase. To do that, you must establish a reference from the move to phase event, to the phase that should be activated once the event is triggered."
+        },
+        {
+            "style": "Text",
+            "text": "Any number of move-to-phase events may be set up for each and every phase, allowing complete flexibility on how the position is managed. This feature allows setting up versatile position-management algorithms that may switch to different formulas back and forth, or in any configuration imaginable."
+        },
+        {
+            "style": "Note",
+            "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates true the management shifts to the referenced phase."
+        }
+    ]
+}

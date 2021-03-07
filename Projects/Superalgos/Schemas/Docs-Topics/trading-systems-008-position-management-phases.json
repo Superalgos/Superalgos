@@ -1,0 +1,64 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "8",
+    "type": "Position Management Phases",
+    "definition": {
+        "text": "You may manage a position using dynammic stop loss and take profit targets. Targets are dynamic in the sense that they are defined by formulas, which may change depending on defined market situations.",
+        "updated": 1610207512419
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Phase->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Phase->Content",
+            "updated": 1610205689779
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Phase->2",
+            "updated": 1610205876120
+        },
+        {
+            "style": "Callout",
+            "text": "We will discuss formulas later on, together with situations and conditions.",
+            "updated": 1610206194016
+        },
+        {
+            "style": "Title",
+            "text": "Next Phase Event",
+            "updated": 1610206213863
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Next Phase Event->Definition",
+            "updated": 1610206224515
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Next Phase Event->Content",
+            "updated": 1610206227962
+        },
+        {
+            "style": "Title",
+            "text": "Move To Phase Event",
+            "updated": 1610206257700
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Move To Phase Event->Definition",
+            "updated": 1610206283751
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Move To Phase Event->Content",
+            "updated": 1610206292181
+        }
+    ]
+}

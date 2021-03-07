@@ -1,0 +1,33 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Warp-Speed Zooming!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-wheel-down"
+        },
+        "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Sometimes you may wish to visualize larger sections of the Design Space than your screen allows.",
+            "updated": 1611314074367
+        },
+        {
+            "style": "Callout",
+            "text": "Hit Ctrl and scroll the mouse wheel on Windows or <kbd>⌘</kbd> and <kbd>-</kbd> or <kbd>+</kbd> in Mac.",
+            "updated": 1611314352825
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Success",
+            "text": "Chrome indicates the level of zoom on the top-right corner. When zooming in or out, the design space gets centered on the screen. Use the design space map to go back where you were.",
+            "updated": 1611314381796
+        }
+    ]
+}

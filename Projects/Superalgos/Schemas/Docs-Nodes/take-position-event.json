@@ -1,0 +1,24 @@
+{
+    "type": "Take Position Event",
+    "definition": {
+        "text": "The take position event defines the situation that needs to be met to take a position."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The trigger-on event merely selects a strategy to be considered for trading under the current market situation. The actual decision to enter a position may require more specific conditions to be met. For that reason, the take position event is a separate entity from the trigger-on event."
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, the take position event is defined with its own set of situations and conditions."
+        },
+        {
+            "style": "Text",
+            "text": "Once the take position event is triggered, the decision to take a position has been made and there is nothing else to consider in that regard. Therefore, the runtime evaluation of the trading system shifts from the trigger stage to the open stage."
+        }
+    ]
+}

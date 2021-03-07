@@ -1,0 +1,74 @@
+{
+    "topic": "Network",
+    "pageNumber": "2",
+    "type": "Organization of Tasks",
+    "definition": {
+        "text": "The network hierarchy supports a multi-exchange, multi-market, and multi-mine deployment, and tasks are organized by those criteria.",
+        "updated": 1610050221585
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before diving into the workings of each of the operations that you may define and control from within the Network hierarchy, it is worth pointing out a certain commonality among them.",
+            "updated": 1610050241056
+        },
+        {
+            "style": "Text",
+            "text": "Because Superalgos supports deploying data mining and trading operations on multiple exchanges, multiple markets, and using bots originating in multiple data and trading mines, the organization of the different data structures under the network node follows the same pattern in each of them:"
+        },
+        {
+            "style": "Callout",
+            "text": "Type of operation > Project Reference > Crypto Exchange Reference > Market Reference > Mine involved in the operation.",
+            "updated": 1610050392306
+        },
+        {
+            "style": "Text",
+            "text": "For example, this is the data structure under Data Tasks:",
+            "updated": 1610050437663
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Tasks->5",
+            "updated": 1610050346817
+        },
+        {
+            "style": "Text",
+            "text": "Notice how the pattern repeats under the Testing Trading Tasks node:",
+            "updated": 1610050482112
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Testing Trading Tasks->5",
+            "updated": 1610050520094
+        },
+        {
+            "style": "Text",
+            "text": "The Production Trading Tasks data structure is virtually the same:",
+            "updated": 1610050572647
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Production Trading Tasks->5",
+            "updated": 1610050601207
+        },
+        {
+            "style": "Text",
+            "text": "The case of Data Storage is slightly different because there is a split in the structure into Data Mines Data, Trading Mines Data, and Learning Mines Data. However, each of the resulting structures of nodes bare a similarity with the organizational criteria explained above:",
+            "updated": 1610050788902
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Storage->5",
+            "updated": 1610050722323
+        },
+        {
+            "style": "Text",
+            "text": "This kind of organization is required for scalable operations, as it helps in keeping a logical grouping of tasks, and helps avoid mixing up tasks from different exchanges, markets, or mines.",
+            "updated": 1610050968717
+        }
+    ]
+}

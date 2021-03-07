@@ -1,0 +1,71 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "12",
+    "type": "Accounts Specific to the Open and Close Stages",
+    "definition": {
+        "text": "Learn about accounts specific to the context of the open and close stages. On this page: Target Size, Size Placed, Size Filled, and Fees Paid.",
+        "updated": 1611335734722
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Target Size",
+            "updated": 1611335751425
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size->Definition",
+            "updated": 1611335756518
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size->Content",
+            "updated": 1611335759648
+        },
+        {
+            "style": "Title",
+            "text": "Size Placed",
+            "updated": 1611335767899
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size Placed->Definition",
+            "updated": 1611335798845
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size Placed->Content",
+            "updated": 1611335806225
+        },
+        {
+            "style": "Title",
+            "text": "Size Filled",
+            "updated": 1611335816288
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size Filled->Definition",
+            "updated": 1611335820275
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size Filled->Content",
+            "updated": 1611335823030
+        },
+        {
+            "style": "Title",
+            "text": "Fees Paid",
+            "updated": 1611335839409
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fees Paid->Definition",
+            "updated": 1611335846433
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fees Paid->Content",
+            "updated": 1611335849981
+        }
+    ]
+}

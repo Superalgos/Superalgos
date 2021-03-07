@@ -1,0 +1,20 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "1",
+    "type": "Trading System Hierarchy",
+    "definition": {
+        "text": "A Trading System carries the trading logic implemented by the Trading Bot during a trading session.",
+        "updated": 1610138743003
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System->Definition",
+            "updated": 1610138679068
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading System->Content"
+        }
+    ]
+}

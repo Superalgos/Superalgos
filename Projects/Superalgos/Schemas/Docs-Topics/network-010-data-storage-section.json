@@ -1,0 +1,21 @@
+{
+    "topic": "Network",
+    "pageNumber": "10",
+    "type": "Data Storage Section",
+    "definition": {
+        "text": "The data storage structure of nodes within the network hierarchy controls where and how the bots you run store the data they produce.",
+        "updated": 1610122239931
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Storage->Definition",
+            "updated": 1610122265882
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Storage->Content",
+            "updated": 1610122272255
+        }
+    ]
+}

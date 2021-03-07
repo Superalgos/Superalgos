@@ -1,0 +1,28 @@
+{
+    "type": "Strategy",
+    "definition": {
+        "text": "The strategy section of the trading engine keeps track of information relating to the trading strategies that are triggered-on, during the time they remain open."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The strategy node is available both in the current context and the last context, that is, you may retrieve information of the strategy that was last triggered or the one currently open."
+        },
+        {
+            "style": "Text",
+            "text": "A strategy is open from the instant it is triggered-on until the instant it is triggered-off. Therefore, this section of the data structure features information spaning those periods only."
+        },
+        {
+            "style": "Text",
+            "text": "This section provides all the basic details about the strategy, which is particularly useful when the trading system features multiple strategies. It also provides information about the context, that is, what is going on with the market at the time strategies are triggered-on and off."
+        },
+        {
+            "style": "Text",
+            "text": "Most interestingly, the strategy section provides information such as which situation was responsible for triggering the strategy. This may be particularly useful in complex strategies in which the trigger on event may be defined by multiple situations."
+        }
+    ]
+}

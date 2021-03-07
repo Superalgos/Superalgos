@@ -1,0 +1,12 @@
+{
+    "type": "Plugin Trading Systems",
+    "definition": {
+        "text": "The plugin data mines node features the definitions of data mines to be included as plugins in the current workspace."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

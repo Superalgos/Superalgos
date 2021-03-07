@@ -1,0 +1,30 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Side Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "It is the section on the left, accessed by clicking a tab button. As of today, it features a Workspace selector for users to switch between different workspaces."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "On the Side Space users may:"
+        },
+        {
+            "style": "List",
+            "text": "Select an included workspace: The system ships with one or more included workspaces that serve as examples or case studies."
+        },
+        {
+            "style": "List",
+            "text": "Select one's own workspaces: By renaming any included workspace, the user may create a workspace and switch workspaces using the Side Space."
+        },
+        {
+            "style": "Note",
+            "text": "The Side Space is expected to grow in functionality in the future."
+        }
+    ]
+}

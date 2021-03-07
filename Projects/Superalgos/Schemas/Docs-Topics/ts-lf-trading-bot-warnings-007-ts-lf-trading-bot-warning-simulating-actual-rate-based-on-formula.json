@@ -1,0 +1,52 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "7",
+    "type": "TS LF Trading Bot Warning - Simulating - Actual Rate Based On Formula",
+    "definition": {
+        "text": "The trading bot used the Formula defined in the Simulated Actual Rate node to calculate the Actual Rate, overriding the calculation based on Slippage as defined in the Trading Parameters.",
+        "updated": 1611923692781
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611923702802
+        },
+        {
+            "style": "Warning",
+            "text": "Actual Rate Based On Formula"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Simulating Sync With the Exchange->Actual Rate Simulation"
+        },
+        {
+            "style": "Title",
+            "text": "Learn More"
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:"
+        },
+        {
+            "style": "List",
+            "text": "Simulating Sync With the Exchange"
+        },
+        {
+            "style": "List",
+            "text": "Simulated Actual Rate"
+        }
+    ]
+}

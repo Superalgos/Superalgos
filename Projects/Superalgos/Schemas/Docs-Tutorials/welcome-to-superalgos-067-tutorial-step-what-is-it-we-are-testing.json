@@ -1,0 +1,27 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 67,
+    "type": "Tutorial Step - What Is It We Are Testing?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The trading idea is buy the falling knife and sell the rebound. The strategy places a Limit Buy Order a distance below the price. If the order is not filled by the next minute, the order is canceled and a new order is placed, potentially at an adjusted rate. If the price drops suddenly, chances are the order will get filled. If that happens, then the strategy tries to sell at a higher price."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy per se.",
+            "updated": 1610640921014
+        }
+    ]
+}

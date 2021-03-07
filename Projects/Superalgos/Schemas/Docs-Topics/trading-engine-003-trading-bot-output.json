@@ -1,0 +1,28 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "3",
+    "type": "Trading Bot Output",
+    "definition": {
+        "text": "The trading bot stores every piece of information processed in files, making all data accessible to others, both online and offline.",
+        "updated": 1611254037722
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As explained elsewhere, the trading bot makes the information it processes available to users through the hierarchy of the trading engine, which may be visualized both on the design space and over the charts. It also makes it available to trading systems.",
+            "updated": 1611254053601
+        },
+        {
+            "style": "Text",
+            "text": "On top of that, the information is also stored in files, sorted by concept. These makes the runtime information available to other processes and external systems, to be accessed both online, that is, at runtime, of offline."
+        },
+        {
+            "style": "Text",
+            "text": "The trading bot outputs files on the node it runs on, particularly, in the following location:"
+        },
+        {
+            "style": "Json",
+            "text": "Data Storage > [Exchange] > [Market] > Masters-Trading > Low-Frequency > Output > [Session] > Concept > Multi-Period-[Daily/Market] > Time Frame"
+        }
+    ]
+}

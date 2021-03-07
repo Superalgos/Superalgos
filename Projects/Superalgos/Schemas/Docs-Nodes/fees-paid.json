@@ -1,0 +1,44 @@
+{
+    "type": "Fees Paid",
+    "definition": {
+        "text": "Fees paid is the amount paid in fees."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The exchange does not explicitly indicate how much has been paid in fees for a given transaction. Instead, when Superalgos verifies if an order has been filled or not, the exchange reports the size filled and the actual rate only."
+        },
+        {
+            "style": "Success",
+            "text": "Exchange fees are estimated using the fee structure parameter set for the trading session. It is, therefore, important to set the correct values for that parameter."
+        },
+        {
+            "style": "Text",
+            "text": "Exchanges deduct fees from the asset you are receiving. For instance, if you are selling BTC in the BTC-USDT market, then you are receiving USDT, and the exchange will deduct the fees directly from the amount of USDT you are receiving."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Fees Paid Configuration",
+            "updated": 1609926807448
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147
+        }
+    ]
+}

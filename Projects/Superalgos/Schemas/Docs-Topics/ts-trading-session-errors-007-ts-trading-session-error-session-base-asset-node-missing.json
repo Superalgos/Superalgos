@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "7",
+    "type": "TS Trading Session Error - Session Base Asset Node Missing",
+    "definition": {
+        "text": "A Session Base Asset Node is expected and needed in order to run a Trading Session.",
+        "updated": 1611331205570
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Add a Session Base Asset Node at the Trading Parameters Node where this error poped up, check it's config and try running the Trading Session again.",
+            "updated": 1611331221697
+        }
+    ]
+}

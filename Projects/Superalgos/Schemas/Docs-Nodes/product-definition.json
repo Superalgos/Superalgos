@@ -1,0 +1,42 @@
+{
+    "type": "Product Definition",
+    "definition": {
+        "text": "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A bot may feature multiple products, thus, there may be multiple product definitions. Three main aspects need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated."
+        },
+        {
+            "style": "Note",
+            "text": "A product definition usually references a plotter module, which provides a graphic representation of the underlying dataset"
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Product Definition Configuration",
+            "updated": 1609788267834
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609788279998
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the product as it is used within the bot's code."
+        },
+        {
+            "style": "List",
+            "text": "pluralVariableName is the plural form of the variable."
+        }
+    ]
+}

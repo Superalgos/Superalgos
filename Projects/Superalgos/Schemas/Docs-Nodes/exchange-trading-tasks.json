@@ -1,0 +1,24 @@
+{
+    "type": "Exchange Trading Tasks",
+    "definition": {
+        "text": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The exchange trading tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+        },
+        {
+            "style": "Text",
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange trading tasks icon is replaced by the exchange's logo."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

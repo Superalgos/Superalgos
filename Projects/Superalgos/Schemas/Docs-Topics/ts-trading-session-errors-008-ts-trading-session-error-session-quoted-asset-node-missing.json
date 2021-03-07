@@ -1,0 +1,16 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "8",
+    "type": "TS Trading Session Error - Session Quoted Asset Node Missing",
+    "definition": {
+        "text": "A Session Quoted Asset Node is expected and needed in order to run a Trading Session.",
+        "updated": 1611331335567
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Add a Session Quoted Asset Node at the Trading Parameters Node where this error poped up, check it's config and try running the Trading Session again.",
+            "updated": 1611331377674
+        }
+    ]
+}

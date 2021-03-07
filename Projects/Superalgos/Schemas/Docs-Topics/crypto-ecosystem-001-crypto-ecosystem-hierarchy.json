@@ -1,0 +1,93 @@
+{
+    "topic": "Crypto Ecosystem",
+    "pageNumber": "1",
+    "type": "Crypto Ecosystem Hierarchy",
+    "definition": {
+        "text": "The crypto ecosystem hierarchy organizes the infrastructure of exchanges, markets and user accounts.",
+        "updated": 1611502351384
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Ecosystem->Definition",
+            "updated": 1611345733796
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Ecosystem->Content",
+            "updated": 1611345736864
+        },
+        {
+            "style": "Title",
+            "text": "Crypto Exchanges",
+            "updated": 1611345864281
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Exchanges->Definition",
+            "updated": 1611345871538
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Crypto Exchange",
+            "updated": 1611346094494
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Crypto Exchange->Definition",
+            "updated": 1611346105028
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Crypto Exchange->2",
+            "updated": 1611346132838
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Assets",
+            "updated": 1611346189806
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Assets->Definition",
+            "updated": 1611346192805
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Markets",
+            "updated": 1611346210580
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Markets->Definition",
+            "updated": 1611346214054
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Accounts",
+            "updated": 1611346229086
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Accounts->Definition",
+            "updated": 1611346232501
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Exchange Accounts->Content",
+            "updated": 1611346236477
+        }
+    ]
+}

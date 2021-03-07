@@ -1,0 +1,20 @@
+{
+    "type": "Charting Space",
+    "definition": {
+        "text": "The charting space is the hierarchy that governs the configuration of the charts, and the bidimensional space on which charts are drawn."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Think of the charting space as a huge drawing board. You may have lots of information plotted on different parts of the space and use a viewport to look into that space."
+        },
+        {
+            "style": "Text",
+            "text": "There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes."
+        }
+    ]
+}

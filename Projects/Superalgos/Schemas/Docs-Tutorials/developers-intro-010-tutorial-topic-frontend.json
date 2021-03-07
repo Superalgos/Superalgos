@@ -1,0 +1,34 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 10,
+    "type": "Tutorial Topic - Frontend",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Frontend is essentially a Javascript web-app running on the browser."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As of today it contains:"
+        },
+        {
+            "style": "List",
+            "text": "Canvas App: Most of the functionality is here. The name reflects the fact that most of the UI is rendered in an HTML 5 canvas object."
+        },
+        {
+            "style": "List",
+            "text": "Files Component Includes the mechanisms to read data files in a way that is suitable for navigating through large datasets while plotting the information in real-time."
+        },
+        {
+            "style": "Note",
+            "text": "The UI was built entirely in-house. We did not reuse any framework to display the design space or the charts."
+        },
+        {
+            "style": "Important",
+            "text": "The UI is tested in Chrome only."
+        }
+    ]
+}

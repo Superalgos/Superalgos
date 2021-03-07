@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Commands Messages",
+    "pageNumber": 3,
+    "type": "Docs Message - Reindexing Done",
+    "definition": {
+        "text": "The docs.reindex command finished rebuilding the Docs Search Engine Index.",
+        "updated": 1610973361369
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "The index was rebuilt and now includes all the latest changes you made since you open the UI or since the last time you run the docs.reindex command. That means that new content created is now searchable. Changes in the Workspace have been entered in the index too.",
+            "updated": 1610973446156
+        }
+    ]
+}

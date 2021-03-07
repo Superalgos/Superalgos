@@ -1,0 +1,28 @@
+{
+    "type": "Record Formula",
+    "definition": {
+        "text": "In the context of a record definition, formulas are used to assign a value to the property, usually in the form of a variable declared in the calculation or data building procedures.",
+        "updated": 1609788711861
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Formulas may use both the record and the variable objects made available by the calculations procedure and the data building procedure (see procedure loop).",
+            "updated": 1609788725463
+        },
+        {
+            "style": "Text",
+            "text": "A formula may act in slightly different ways depending on the isCaculated attribute in the record property configuration:"
+        },
+        {
+            "style": "List",
+            "text": "When a property is calculated, the formula assigns to the property a value that is calculated in the Calculations Procedure. Even if the property is not stored in the dataset, it is made available as a calculated property to other bots that may have the dataset as input.",
+            "updated": 1609788822393
+        },
+        {
+            "style": "List",
+            "text": "When a property is not calculated or the attribute is not defined in the configuration, the formula is applied in the Data Building Procedure.",
+            "updated": 1609788849508
+        }
+    ]
+}

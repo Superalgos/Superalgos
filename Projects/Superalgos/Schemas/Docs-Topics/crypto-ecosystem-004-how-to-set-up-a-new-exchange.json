@@ -1,0 +1,49 @@
+{
+    "topic": "Crypto Ecosystem",
+    "pageNumber": "4",
+    "type": "How to Set Up a New Exchange",
+    "definition": {
+        "text": "To set up a new exchange, find it in the Untested crypto exchanges node and bring it to a less crowded crypto exchanges node to make room for the new setup. Then add the assets and the markets you wish to work with, and finally, install the markets.",
+        "updated": 1611651356918
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Not all tested exchanges are set up in the default workspace. If you wish to use an exchange that is not set up in the workspace, you may set it up yourself following the instructions below.",
+            "updated": 1611651386757
+        },
+        {
+            "style": "Title",
+            "text": "Start Here",
+            "updated": 1611651407421
+        },
+        {
+            "style": "Text",
+            "text": "1. Expand the Untested crypto exchanges node in the crypto ecosystem hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "2. Locate the desired exchange, detach it from its parent, and attach it to the Testing Queue crypto exchanges node. You may choose to attach your select exchange node to any other crypto exchanges node, or even add a new one. This is merely for organizational purposes and to keep the workspace tidy."
+        },
+        {
+            "style": "Note",
+            "text": "If the exchange you are looking for is not available there, it means it can not be setup in Superalgos at this point, likely for either or both of the following reasons: 1. The exchange does not provide one-minute candles; 2. The exchange does not provide a list of markets. Not all exchanges supported by the CCXT library comply in full with the standards proposed.",
+            "updated": 1611651421882
+        },
+        {
+            "style": "Success",
+            "text": "There are over 60 exchanges complying with the CCXT library API standard, an open-source effort to standardize communications with crypto exchanges, to the level required by Superalgos. If your exchange is not among those 60 plus exchanges, you may want to consider trading somewhere else. This is why: automating trading at your exchange requires building and maintaining a custom connector to speak with their API. It is unlikely that you will find an open-source project—or even a commercial solution—willing to do that, unless your exchange is in the top-10 list of exchanges in the world by volume traded.",
+            "updated": 1611651429157
+        },
+        {
+            "style": "Success",
+            "text": "Alternative approach 1: Convince your exchange to comply with the standard.",
+            "updated": 1611651439395
+        },
+        {
+            "style": "Success",
+            "text": "Alternative approach 2: Develop your own connector. We’ll be happy to guide you and help you along the way!",
+            "updated": 1611651447177
+        }
+    ]
+}

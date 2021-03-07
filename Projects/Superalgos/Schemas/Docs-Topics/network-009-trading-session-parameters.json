@@ -1,0 +1,157 @@
+{
+    "topic": "Network",
+    "pageNumber": "9",
+    "type": "Trading Session Parameters",
+    "definition": {
+        "text": "Parameters control the behavior of trading sessions and improve the quality of simulations.",
+        "updated": 1610120140431
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Parameters->Definition",
+            "updated": 1610120395977
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Parameters->Content",
+            "updated": 1610120405121
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610121029612
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Parameters->2",
+            "updated": 1610121089149
+        },
+        {
+            "style": "Title",
+            "text": "Session Base Asset"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Base Asset->Definition",
+            "updated": 1610120263157
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Base Asset->Content",
+            "updated": 1610120266197
+        },
+        {
+            "style": "Title",
+            "text": "Session Quoted Asset"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Quoted Asset->Definition",
+            "updated": 1610120273454
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Quoted Asset->Content",
+            "updated": 1610120276410
+        },
+        {
+            "style": "Title",
+            "text": "Time Range"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Range->Definition",
+            "updated": 1610120284295
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Range->Content",
+            "updated": 1610120287169
+        },
+        {
+            "style": "Title",
+            "text": "Time Frame"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame->Definition",
+            "updated": 1610120295153
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame->Content",
+            "updated": 1610120298151
+        },
+        {
+            "style": "Title",
+            "text": "Slippage"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Slippage->Definition",
+            "updated": 1610120306196
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Slippage->Content",
+            "updated": 1610120309523
+        },
+        {
+            "style": "Title",
+            "text": "Fee Structure"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fee Structure->Definition",
+            "updated": 1610120321164
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fee Structure->Content",
+            "updated": 1610120324208
+        },
+        {
+            "style": "Title",
+            "text": "Snapshots"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Snapshots->Definition",
+            "updated": 1610120337256
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Snapshots->Content",
+            "updated": 1610120341143
+        },
+        {
+            "style": "Title",
+            "text": "Heartbeats"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Heartbeats->Definition",
+            "updated": 1610120350029
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Heartbeats->Content",
+            "updated": 1610120353801
+        },
+        {
+            "style": "Title",
+            "text": "User Defined Parameters"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->User Defined Parameters->Definition",
+            "updated": 1610120362782
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->User Defined Parameters->Content",
+            "updated": 1610120365727
+        }
+    ]
+}

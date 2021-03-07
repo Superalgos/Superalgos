@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Broke Something?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "workspace"
+        },
+        "text": "If you ever break something&mdash;like deleting a node or changing a configuration&mdash;and don't know how to deal with the outcome..."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "... there is an easy way to start over with a brand new workspace!"
+        },
+        {
+            "style": "Text",
+            "text": "All you need to do is pull the tab on the left-hand side of the screen and click on the Getting-Started plugin workspace."
+        },
+        {
+            "style": "Success",
+            "text": "A brand new Getting Started workspace will load and I will show up again, fresh from the start!"
+        }
+    ]
+}

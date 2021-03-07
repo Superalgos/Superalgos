@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": "12",
+    "type": "Docs Page Block",
+    "definition": {
+        "text": "A Page Block is a set of paragraphs in a Docs Page. The block starts on the paragraph assigned the Docs Block Style.",
+        "updated": 1611001340654
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A block must have an opening paragraph with the Docs Block Style. The block may include any number of paragraphs. In practice, a block extends until the next block starts, or until the page ends.",
+            "updated": 1611001401401
+        }
+    ]
+}

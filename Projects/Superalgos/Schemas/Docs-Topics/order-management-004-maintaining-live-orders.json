@@ -1,0 +1,37 @@
+{
+    "topic": "Order Management",
+    "pageNumber": "4",
+    "type": "Maintaining Live Orders",
+    "definition": {
+        "text": "Orders at the exchange are monitored on every execution to discover the size filled, rates, and other exchange events. Also, the trading bot synchronizes Superalgos with the real transactional information handled by the exchange.",
+        "updated": 1610220454133
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As hinted in the Overview of the Management Issue page, there are two different paths for maintaining orders. The pages in this section describe the maintenance of real orders sent to the exchange, as opposed to simulated orders that live within Superalgos only.",
+            "updated": 1610220513296
+        },
+        {
+            "style": "Text",
+            "text": "The maintenance of orders involves a series of tasks that deal with three main concerns:"
+        },
+        {
+            "style": "List",
+            "text": "Checking the orders at the exchange, mainly to find out whether they have been filled or not, what size of the order was filled, and at what rate. We also need to know if the order has been arbitrarily canceled, either by the user or the exchange itself."
+        },
+        {
+            "style": "List",
+            "text": "Synchronizing the information existing in Superalgos with the actual happenings at the exchange. The original information Superalgos has about orders derive from definitions, but what happens at the exchange is what truly matters."
+        },
+        {
+            "style": "List",
+            "text": "Cancelling orders whenever the trading system’s definitions indicate so."
+        },
+        {
+            "style": "Success",
+            "text": "It is highly recommended to read these pages and compare with the simulated version of order maintenance. The comparison will greatly help you understand the differences between backtesting or paper trading and live trading sessions.",
+            "updated": 1610220471695
+        }
+    ]
+}

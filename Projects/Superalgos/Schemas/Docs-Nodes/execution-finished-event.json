@@ -1,0 +1,16 @@
+{
+    "type": "Execution Finished Event",
+    "definition": {
+        "text": "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The execution finished event is responsible for triggering the execution of every process that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice listens to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event."
+        }
+    ]
+}

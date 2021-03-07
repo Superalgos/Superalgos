@@ -1,0 +1,126 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "6",
+    "type": "Order Definitions",
+    "definition": {
+        "text": "All types of orders have similar definitions. The one difference between market and limit orders is that market orders do no hace an Order Rate definition.",
+        "updated": 1610197366077
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610196847887
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Limit Buy Order->2",
+            "updated": 1610197390955
+        },
+        {
+            "style": "Title",
+            "text": "Order Rate",
+            "updated": 1610197404420
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Rate->Definition",
+            "updated": 1610197408556
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Rate->Content",
+            "updated": 1610197412802
+        },
+        {
+            "style": "Title",
+            "text": "Create Order Event",
+            "updated": 1610197420979
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Create Order Event->Definition",
+            "updated": 1610197428592
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Create Order Event->Content",
+            "updated": 1610197431668
+        },
+        {
+            "style": "Title",
+            "text": "Cancel Order Event",
+            "updated": 1610197449295
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Cancel Order Event->Definition",
+            "updated": 1610197456707
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Cancel Order Event->Content",
+            "updated": 1610197460196
+        },
+        {
+            "style": "Title",
+            "text": "Simulated Exchange Events",
+            "updated": 1610197475143
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Exchange Events->Definition",
+            "updated": 1610197481087
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Exchange Events->Content",
+            "updated": 1610197485556
+        },
+        {
+            "style": "Subtitle",
+            "text": "Simulated Partial Fill",
+            "updated": 1610197512649
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Partial Fill->Definition",
+            "updated": 1610197521350
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Partial Fill->Content",
+            "updated": 1610197525227
+        },
+        {
+            "style": "Subtitle",
+            "text": "Simulated Actual Rate",
+            "updated": 1610197534951
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Actual Rate->Definition",
+            "updated": 1610197538992
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Actual Rate->Content",
+            "updated": 1610197541958
+        },
+        {
+            "style": "Subtitle",
+            "text": "Simulated Fees Paid",
+            "updated": 1610197551998
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Fees Paid->Definition",
+            "updated": 1610197559999
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Simulated Fees Paid->Content",
+            "updated": 1610197563054
+        }
+    ]
+}

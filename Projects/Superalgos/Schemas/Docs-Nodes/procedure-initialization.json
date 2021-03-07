@@ -1,0 +1,21 @@
+{
+    "type": "Procedure Initialization",
+    "definition": {
+        "text": "The procedure initialization is used to initialize variables used by the procedure loop."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "This is an example of a procedure loop code snippet, in particular, the code that initializes the array used in the calculation of the Popular SMAs product of the Simple Moving Average (SMA) indicator."
+        },
+        {
+            "style": "Javascript",
+            "text": "/ Initialization Code. /\nvariable.last200 = []",
+            "updated": 1609789338326
+        }
+    ]
+}

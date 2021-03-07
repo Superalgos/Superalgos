@@ -1,0 +1,16 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "1",
+    "type": "App Message - Contribution Done",
+    "definition": {
+        "text": "Your contributions were uploaded to your Superalgos Fork and a Pull Request was submitted to the main Superalgos repository.",
+        "updated": 1611002547907
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow the issue at Github.com.",
+            "updated": 1611002626154
+        }
+    ]
+}

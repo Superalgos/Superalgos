@@ -1,0 +1,28 @@
+{
+    "type": "Strategy Open Stage",
+    "definition": {
+        "text": "Strategy open stage is the section of the data structure that keeps track of information specific to the scope of the open stage during the period the stage is open."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The open stage is open from the instant the take position event gets triggered, and starts closing from the instant one of the following things happen:"
+        },
+        {
+            "style": "List",
+            "text": "the target size is filled,"
+        },
+        {
+            "style": "List",
+            "text": "the close stage event is triggered,"
+        },
+        {
+            "style": "List",
+            "text": "the take profit or stop loss targets are hit."
+        }
+    ]
+}

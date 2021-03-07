@@ -1,0 +1,26 @@
+{
+    "type": "Market",
+    "definition": {
+        "text": "A market is the definition of a pair of assets (i.e.: BTC-USDT) listed as a market in the corresponding exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Important",
+            "text": "Only markets that are effectively listed on the exchange may be configured and used with the system. Check with the exchange and make sure you understand what tickers they are using, which is the base asset and which the quoted asset on the listed markets."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609772445354
+        },
+        {
+            "style": "Title",
+            "text": "Market Configuration",
+            "updated": 1609772469334
+        }
+    ]
+}

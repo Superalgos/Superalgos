@@ -1,0 +1,69 @@
+{
+    "type": "Time Range",
+    "definition": {
+        "text": "The time range parameter determines the period of time on which the trading session is run."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The parameter offers precise control over the duration, starting and ending points of the session. Several options are available, and there are differences in how backtesting and the rest of the types of trading sessions function in this regard."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Time Range Configuration",
+            "updated": 1610120685734
+        },
+        {
+            "style": "Subtitle",
+            "text": "On Backtesting Sessions",
+            "updated": 1610120720887
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"initialDatetime\": \"2019-09-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-25T00:00:00.000Z\"\n}",
+            "updated": 1610120762359
+        },
+        {
+            "style": "List",
+            "text": "initialDatetime is the datetime the session starts at."
+        },
+        {
+            "style": "List",
+            "text": "finalDatetime is the datetime the session finishes at. If you don't set a finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
+        },
+        {
+            "style": "Subtitle",
+            "text": "On Paper Trading, Forward Testing and Live Trading Sessions",
+            "updated": 1610120775806
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"initialDatetime\": \"2019-09-01T00:00:00.000Z\",\n\"finalDatetime\": \"2019-09-25T00:00:00.000Z\",\n\"allowStartingFromThePast\": false\n}",
+            "updated": 1610120789823
+        },
+        {
+            "style": "Text",
+            "text": "By default, paper trading, forward testing and live trading sessions start at the datetime the session is run, that is, the present time. Such a behavior is in accordance with the most common use case, by which a user starting a new live trading session usually wishes the session to start at that moment."
+        },
+        {
+            "style": "Text",
+            "text": "However, users have requested to be allowed to start live sessions in the past. Such a feature may be useful, for example, to take an opportunity that was just missed for whatever reason, including technical ones."
+        },
+        {
+            "style": "List",
+            "text": "initialDatetime, in combination with the allowStartingFromThePast parameter, is a hack to allow a live session to start from a date in the past. If there is a valid initialDatetime and allowStartingFromThePast is true, then the live session effectively starts from the specified date in the past. If allowStartingFromThePast is false the initialDatetime is ignored and the session starts from the present time."
+        },
+        {
+            "style": "List",
+            "text": "allowStartingFromThePast may be true or false."
+        }
+    ]
+}

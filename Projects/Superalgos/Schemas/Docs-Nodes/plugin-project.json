@@ -1,0 +1,27 @@
+{
+    "type": "Plugin Project",
+    "definition": {
+        "text": "In the context of a multi-project platform, the plugin project node represents the project to which the defined plugins correspond to."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Plugin Project Configuration",
+            "updated": 1609869540204
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609869554268
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the Project, as implemented in the code.",
+            "updated": 1609869592120
+        }
+    ]
+}

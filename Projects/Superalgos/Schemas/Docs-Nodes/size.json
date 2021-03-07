@@ -1,0 +1,46 @@
+{
+    "type": "Size",
+    "definition": {
+        "text": "Size is the size set for the order through a combination of formulas and configurations defined in the trading system, and is the value passed on to the exchange as the size of the order."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The system provides a flexible and robust infrastructure to control execution. The size of a single order results from the combination of multiple settings."
+        },
+        {
+            "style": "List",
+            "text": "The target size in base asset or target size in quoted asset: The formulas under these nodes define the absolute maximum size allowed for the position. The implications of using one or the other are explained under the initial targets node in the open stage."
+        },
+        {
+            "style": "List",
+            "text": "The configuration of the execution algorithm: The parameter percentageOfStageTargetSize determines what fraction of the target size the algorithm will attempt to execute."
+        },
+        {
+            "style": "List",
+            "text": "The configuration of the order: The parameter percentageOfAlgorithmSize determines what fraction of the size handled by the algorithm the order shall be constrained to."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609927497028
+        },
+        {
+            "style": "Title",
+            "text": "Size Configuration",
+            "updated": 1609927506777
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+        }
+    ]
+}

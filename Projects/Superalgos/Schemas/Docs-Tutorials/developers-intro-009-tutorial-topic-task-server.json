@@ -1,0 +1,30 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 9,
+    "type": "Tutorial Topic - Task Server",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI ."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The definition includes:"
+        },
+        {
+            "style": "List",
+            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot."
+        },
+        {
+            "style": "List",
+            "text": "Processes to run: Each bot definition may have one or more bot processes."
+        },
+        {
+            "style": "Note",
+            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run."
+        }
+    ]
+}

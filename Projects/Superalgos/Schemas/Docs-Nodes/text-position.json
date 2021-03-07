@@ -1,0 +1,56 @@
+{
+    "type": "Text Position",
+    "definition": {
+        "text": "The text position node is a reference to a point defined in the chart points, and serves to determine the position in which text shall be rendered."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The text position node works similarly to the image position node in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the text shall be placed."
+        },
+        {
+            "style": "Note",
+            "text": "See the configuration for further details."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Text Position"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "   \"offsetX\": 0,"
+        },
+        {
+            "style": "Text",
+            "text": "   \"offsetY\": 10"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the text in relation to the coordinate point defined by the reference of the node. Negative values displace the text to the left and positive values to the right."
+        },
+        {
+            "style": "List",
+            "text": "offsetY is an offset in the Y axis. Negative values displace the text downwards and positive values displace the image upwards."
+        }
+    ]
+}

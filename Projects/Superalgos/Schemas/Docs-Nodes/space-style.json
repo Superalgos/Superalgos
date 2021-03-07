@@ -1,0 +1,66 @@
+{
+    "type": "Space Style",
+    "definition": {
+        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Space Style Configuration",
+            "updated": 1609861783834
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609862712741
+        },
+        {
+            "style": "List",
+            "text": "backgroundColor refers to the background of the design space (see table below)."
+        },
+        {
+            "style": "List",
+            "text": "node refers to all nodes in the design space."
+        },
+        {
+            "style": "List",
+            "text": "imageSize refers to the size of icons representing nodes.",
+            "updated": 1609862764823
+        },
+        {
+            "style": "List",
+            "text": "type refers to the type of node, as indicated by the string of text below each node."
+        },
+        {
+            "style": "List",
+            "text": "name refers to the name or label of the node, as indicated above the node."
+        },
+        {
+            "style": "List",
+            "text": "menuItem refers to items on the right-hand side of the menu."
+        },
+        {
+            "style": "List",
+            "text": "fontSize refers to the size of the font of the string of text.",
+            "updated": 1609862776218
+        },
+        {
+            "style": "List",
+            "text": "imageSize refers to the size of the icon illustrating the menu item.",
+            "updated": 1609862786614
+        },
+        {
+            "style": "Text",
+            "text": "Available colors:"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable Value | RGB Value | Color Sample |\n| DARK | 48, 48, 54 | RGB(48, 48, 54) |\n| LIGHT | 234, 226, 222 | RGB(234, 226, 222) |\n| GREY | 150, 150, 150 | RGB(150, 150, 150) |\n| LIGHT_GREY | 247, 247, 247 | RGB(247, 247, 247) |\n| WHITE | 255, 255, 255 | RGB(255, 255, 255) |\n| BLACK | 0, 0, 0 | RGB(0, 0, 0) |\n| GOLDEN_ORANGE | 240, 162, 2 | RGB(240, 162, 2) |\n| RUSTED_RED | 204, 88, 53 | RGB(204, 88, 53) |\n| GREEN | 188, 214, 67 | RGB(188, 214, 67) |\n| RED | 223, 70, 60 | RGB(223, 70, 60) |\n| PATINATED_TURQUOISE | 27, 153, 139 | RGB(27, 153, 139) |\n| TITANIUM_YELLOW | 244, 228, 9 | RGB(244, 228, 9) |\n| MANGANESE_PURPLE | 91,80, 122 | RGB(91,80, 122) |\n| TURQUOISE | 74, 207, 217 | RGB(74, 207, 217) |\n| DARK_TURQUOISE | 2, 149, 170 | RGB(2, 149, 170) |",
+            "updated": 1609863757224
+        }
+    ]
+}

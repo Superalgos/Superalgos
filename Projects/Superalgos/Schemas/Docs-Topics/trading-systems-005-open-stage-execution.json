@@ -1,0 +1,118 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "5",
+    "type": "Open Stage Execution",
+    "definition": {
+        "text": "This section of the Open Stage handles the logic and orders used to enter a Position.",
+        "updated": 1610187656657
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Open Execution",
+            "updated": 1610187698287
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Open Execution->Definition",
+            "updated": 1610187702278
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Open Execution->Content",
+            "updated": 1610187706054
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Open Execution->3",
+            "updated": 1610187711323
+        },
+        {
+            "style": "Anchor",
+            "text": "Execution Algorithm",
+            "updated": 1610187940008
+        },
+        {
+            "style": "Title",
+            "text": "Execution Algorithm"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Algorithm->Definition",
+            "updated": 1610187949950
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Execution Algorithm->Content",
+            "updated": 1610187955512
+        },
+        {
+            "style": "Title",
+            "text": "Market Buy Order",
+            "updated": 1610187970840
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Buy Order->Definition",
+            "updated": 1610187974574
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Buy Order->Content",
+            "updated": 1610187977959
+        },
+        {
+            "style": "Title",
+            "text": "Market Sell Order",
+            "updated": 1610187985806
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Sell Order->Definition",
+            "updated": 1610187989119
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Market Sell Order->Content",
+            "updated": 1610187993001
+        },
+        {
+            "style": "Title",
+            "text": "Limit Buy Order",
+            "updated": 1610188013160
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Limit Buy Order->Definition",
+            "updated": 1610188017480
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Limit Buy Order->Content",
+            "updated": 1610188020558
+        },
+        {
+            "style": "Title",
+            "text": "Limit Sell Order",
+            "updated": 1610188029692
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Limit Sell Order->Definition",
+            "updated": 1610188033186
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Limit Sell Order->Content",
+            "updated": 1610188036350
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

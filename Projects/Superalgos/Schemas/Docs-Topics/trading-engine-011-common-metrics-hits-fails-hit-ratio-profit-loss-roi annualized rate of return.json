@@ -1,0 +1,101 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "11",
+    "type": "Common Metrics - Hits, Fails, Hit Ratio, Profit Loss, ROI, Annualized Rate of Return",
+    "definition": {
+        "text": "These metrics are available in different contexts, for instance, at the level of the Episode, the Position or the Position, and both for the base and quoted assets.",
+        "updated": 1611333971023
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Hits",
+            "updated": 1611331909747
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Hits->Definition",
+            "updated": 1611331919409
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Hits->Content",
+            "updated": 1611331922558
+        },
+        {
+            "style": "Title",
+            "text": "Fails",
+            "updated": 1611331934877
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fails->Definition",
+            "updated": 1611331939264
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fails->Content",
+            "updated": 1611331942803
+        },
+        {
+            "style": "Title",
+            "text": "Hit Ratio",
+            "updated": 1611331974360
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Hit Ratio->Definition",
+            "updated": 1611331977537
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Hit Ratio->Content",
+            "updated": 1611331980968
+        },
+        {
+            "style": "Title",
+            "text": "Profit Loss",
+            "updated": 1611332640555
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Profit Loss->Definition",
+            "updated": 1611332643604
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Profit Loss->Content",
+            "updated": 1611332647277
+        },
+        {
+            "style": "Title",
+            "text": "ROI",
+            "updated": 1611332671387
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->ROI->Definition",
+            "updated": 1611332674792
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->ROI->Content",
+            "updated": 1611332677943
+        },
+        {
+            "style": "Title",
+            "text": "Annualized Rate Of Return",
+            "updated": 1611332963859
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Annualized Rate Of Return->Definition",
+            "updated": 1611332970973
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Annualized Rate Of Return->Content",
+            "updated": 1611332975434
+        }
+    ]
+}

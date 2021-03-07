@@ -1,0 +1,105 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 5,
+    "type": "Wave Trend - Zeus Indicator",
+    "definition": {
+        "text": "The Wave Trend indicator identifies market trends through an oscillator.",
+        "updated": 1611674538550
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Wave Trend On the Charts",
+            "updated": 1611674553354
+        },
+        {
+            "style": "Text",
+            "text": "Wave Trend Oscillator is a port of a famous TS/MT indicator and all credits go to Lazy Bear who coded this indicator for tradingview in 2014."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/wavetrend-on-the-chart.png",
+            "updated": 1611674596542
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "When plotted, the Wave Trend indicator appears similar to RSI or MACD but has a fixed range from -100 to 100 and is composed of 2 lines, the Wave Trend line and a Signal line. The histogram is the difference between the two lines. When the Wave Trend is above the overbought band (blue horizontal fixed lines) and crosses down the Signal line, it is usually a good SELL signal. Similarly, if the Wave Trend crosses above the Signal line when below the oversold band (yellow horizontal fixed line), it is a good BUY signal. This oscillator is also used to spot divergences."
+        },
+        {
+            "style": "Text",
+            "text": "Standard values for the indicator are:"
+        },
+        {
+            "style": "List",
+            "text": "Value for Channel Length is 10"
+        },
+        {
+            "style": "List",
+            "text": "Value for Average Length is 21"
+        },
+        {
+            "style": "List",
+            "text": "Value for First Overbought Level is 60"
+        },
+        {
+            "style": "List",
+            "text": "Value for Second Overbought Level is 53"
+        },
+        {
+            "style": "List",
+            "text": "Value for First Oversold Level is -60"
+        },
+        {
+            "style": "List",
+            "text": "Value for Second Oversold Level is -53"
+        },
+        {
+            "style": "Text",
+            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Wavetrend Product Definition"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/wavetrend-setting-parameters.png",
+            "updated": 1611674647114
+        },
+        {
+            "style": "Title",
+            "text": "Wave Trend Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are two properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Wave Trend | waveTrend | waveTrend, waveTrendSignal |",
+            "updated": 1611674698843
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "Basic strategies may be built using the crossings between waveTrend value and waveTrendSignal:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.waveTrend.waveTrend > chart.at02hs.waveTrend.waveTrendSignal && \nchart.at02hs.waveTrend < 0",
+            "updated": 1611674726888
+        },
+        {
+            "style": "Text",
+            "text": "A signal to buy.",
+            "updated": 1611674734279
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

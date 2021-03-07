@@ -1,0 +1,16 @@
+{
+    "type": "Market Base Asset",
+    "definition": {
+        "text": "The market base asset is the asset in the pair used to provide a quote&mdash;a price&mdash;for the quoted asset, as listed at the exchange."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A market base asset must reference an asset defined under the exchange assets node."
+        }
+    ]
+}

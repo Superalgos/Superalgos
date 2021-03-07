@@ -1,0 +1,774 @@
+{
+    "topic": "Buddha Data Mine",
+    "pageNumber": 1,
+    "type": "Candle Patterns - Buddah Indicator",
+    "definition": {
+        "text": "The indicator features a pattern-recognition algorithm classifying candles in multiple groups such as Classic Candles, Marubozu Candles, Spinning Top Candles, Doji Candles, and grouping pattern into on, two, and three-candle sequences.",
+        "updated": 1611659834188
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Candle Patterns On the Charts",
+            "updated": 1611659858573
+        },
+        {
+            "style": "Text",
+            "text": "Before we may identify elaborate candle patterns, basic candles must be defined, grouped, and parameterized. Patterns may be made up of one or more candles. For this reason, the Candle Patterns indicator features a layer for basic candles and a layer for each group of patterns."
+        },
+        {
+            "style": "Success",
+            "text": "In theory, candle patterns may contribute to predicting price action. In and of itself, the occurrence of a certain pattern may not necessarily be regarded as a signal. However, when combined with other Technical Analysis tools, and when the context is properly considered, candle patterns may provide valuable information.",
+            "updated": 1611659875005
+        },
+        {
+            "style": "Title",
+            "text": "Basic Candles"
+        },
+        {
+            "style": "Text",
+            "text": "The starting point to search for candle patterns is to establish standard criteria to name each candle. Because candles are made up of four prices, this gives rise to a large number of possible combinations. For example, there may be candles with one, two, or without shadows, which may be big or small relative to the body of the candle, which itself may be big or small in relation to other candles, and so on."
+        },
+        {
+            "style": "Text",
+            "text": "The Basic Candles layer features two blue lines and an orange one."
+        },
+        {
+            "style": "List",
+            "text": "The blue line in the bottom connects the low price of each candle."
+        },
+        {
+            "style": "List",
+            "text": "The blue line on top results from averaging the length of the last ten candles and adding it to the low value of the current candle."
+        },
+        {
+            "style": "List",
+            "text": "The orange line in the middle is calculated by multiplying the distance between the two blue lines by an arbitrary sizeFactor."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/buddha-bots-layers-00-basic-candles.gif",
+            "updated": 1611659943962
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, the range between the blue lines is said to represent the average length of candles. The orange line in the middle serves to determine if a candle is short or long in relation to other candles. If the high of a candle lies above the orange line, it is said to be a Long candle, otherwise, it is a Short candle."
+        },
+        {
+            "style": "Text",
+            "text": "The corresponding layer panel features the following properties for each candle:"
+        },
+        {
+            "style": "Table",
+            "text": "| Indicator Properties | Description |\n| Name | The name of the basic candle. |\n| Size | The relative size of the candle: Short or Long. |\n| Upper Shadow % | The percentage that the upper shadow covers in the total length of the candle. |\n| Body % | The percentage that the body represents in the total length of the candle. |\n| Lower Shadow % | The percentage that the lower shadow represents in the total length of the candle. |\n| Nbodies\tThe number of previous candles used to calculate the body average. |\n| dojiFactor % | A limit to the size of the body expressed as a percentage of the total length for a candle to be considered a doji. |\n| sizeFactor % | A factor used to calculate the orange line, which determines the relative size of candles, expressed as a percentage of the average length of the last few candles. |\n| Nlengths | The number of previous candles used to calculate the average candle lengths. |\n| Average Size Method | The method used to calculate the average of the total lengths of previous candles. |",
+            "updated": 1611660199319
+        },
+        {
+            "style": "Callout",
+            "text": "Below is the complete list of basic candles, grouped by families relative to certain characteristics they have in common."
+        },
+        {
+            "style": "Note",
+            "text": "Generally—in the literature— colors white and black are used to refer to bullish and bearish candles respectively. In our case, white has been changed to green and black to red.",
+            "updated": 1611660253621
+        },
+        {
+            "style": "Subtitle",
+            "text": "Classic Candles"
+        },
+        {
+            "style": "Text",
+            "text": "These candles have the following characteristics in common:"
+        },
+        {
+            "style": "List",
+            "text": "Both shadows are present."
+        },
+        {
+            "style": "List",
+            "text": "Each shadow is shorter than the body."
+        },
+        {
+            "style": "List",
+            "text": "The opening price differs from the closing price."
+        },
+        {
+            "style": "Text",
+            "text": "According to their particular characteristics, they are named as follows:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-short-candle.png"
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: short green candle, short red candle.",
+            "updated": 1611664494948
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, relative size: short.",
+            "updated": 1611664506719
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-candle.png",
+            "updated": 1611664358650
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: green candle, red candle.",
+            "updated": 1611664477906
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, relative size: long.",
+            "updated": 1611664467362
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-long-candle.png",
+            "updated": 1611664594764
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: long green candle, long  red candle.",
+            "updated": 1611664647210
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, relative size: the body is at least three times higher than the average of the previous bodies.",
+            "updated": 1611664803284
+        },
+        {
+            "style": "Subtitle",
+            "text": "Marubozu Candles"
+        },
+        {
+            "style": "Text",
+            "text": "These candles have the following characteristics in common:"
+        },
+        {
+            "style": "List",
+            "text": "Lack of at least one shadow."
+        },
+        {
+            "style": "List",
+            "text": "If it has one shadow, it must be shorter than the body."
+        },
+        {
+            "style": "List",
+            "text": "The opening price differs from the closing price."
+        },
+        {
+            "style": "List",
+            "text": "Relative Size: Short or Long."
+        },
+        {
+            "style": "Text",
+            "text": "According to their particular characteristics, they are named as follows:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-marubozu.png",
+            "updated": 1611664780276
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: green marubozu, red marubozu.",
+            "updated": 1611665164959
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, no shadows.",
+            "updated": 1611665179855
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-opening-green-marubozu.png",
+            "updated": 1611665321935
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: opening green marubozu.",
+            "updated": 1611665397197
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish, no lower shadow.",
+            "updated": 1611665409673
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-closing-green-marubozu.png",
+            "updated": 1611665589835
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: closing green marubozu.",
+            "updated": 1611665439843
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish, no upper shadow.",
+            "updated": 1611665456168
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-paterns-opening-red-marubozu.png",
+            "updated": 1611665630738
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: opening red marubozu.",
+            "updated": 1611665508285
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bearish, no upper shadow.",
+            "updated": 1611665541639
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-closing-red-marubozu.png",
+            "updated": 1611665650660
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: closing red marubozu.",
+            "updated": 1611665523586
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bearish, no lower shadow.",
+            "updated": 1611665537621
+        },
+        {
+            "style": "Subtitle",
+            "text": "Spinning Top Candles",
+            "updated": 1611665696434
+        },
+        {
+            "style": "Text",
+            "text": "These candles have the following characteristics in common:"
+        },
+        {
+            "style": "List",
+            "text": "Have at least one shadow."
+        },
+        {
+            "style": "List",
+            "text": "At least one shadow is greater than the body."
+        },
+        {
+            "style": "List",
+            "text": "The opening price differs from the closing price."
+        },
+        {
+            "style": "Text",
+            "text": "According to their particular characteristics, they are named as follows:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-spinning-top.png",
+            "updated": 1611666025715
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: green spinning top, red spinning top.",
+            "updated": 1611665761239
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, relative size: short or long. If it's relative size is long, none of the shadows can exceed three times the body.",
+            "updated": 1611665931065
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-high-wave.png",
+            "updated": 1611666029656
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: high wave.",
+            "updated": 1611665879645
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: bullish or bearish, relative size: long. The length of at least one shadow is at least 3 times larger than the body.",
+            "updated": 1611665965134
+        },
+        {
+            "style": "Subtitle",
+            "text": "Doji Candles",
+            "updated": 1611666064552
+        },
+        {
+            "style": "Text",
+            "text": "These candles have the following characteristics in common:"
+        },
+        {
+            "style": "List",
+            "text": "Have no body, or very small body if it is allowed."
+        },
+        {
+            "style": "Text",
+            "text": "According to their particular characteristics, they are named as follows:"
+        },
+        {
+            "style": "Text",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-four-price-doji.png",
+            "updated": 1611666216757
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Four-Price Doji",
+            "updated": 1611666227026
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: No shadows. Relative Size: Short.",
+            "updated": 1611666247154
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-star-doji.png",
+            "updated": 1611666266620
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Star Doji",
+            "updated": 1611666282629
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: The body is located nearly mid-range (between 60% and 40% of total length). Relative Size: Short.",
+            "updated": 1611666296442
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-long-legged-doji.png",
+            "updated": 1611666315337
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Long-Legged Doji",
+            "updated": 1611666341819
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: The body is located nearly mid-range (between 60% and 40% of total length). Relative Size: Long.",
+            "updated": 1611666354652
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-dragonfly-doji.png",
+            "updated": 1611666376364
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Dragonfly Doji",
+            "updated": 1611666387310
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: Upper shadow shorter than 1% of total candle length. Relative Size: Long.",
+            "updated": 1611666402256
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-pattterns-gravestone-doji.png",
+            "updated": 1611666424758
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Gravestone Doji",
+            "updated": 1611666434564
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: Lower shadow shorter than 1% of total candle length. Relative Size: Long.",
+            "updated": 1611666455595
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/candle-patterns-generic-doji.png",
+            "updated": 1611666472429
+        },
+        {
+            "style": "List",
+            "text": "Basic candle name: Generic Doji",
+            "updated": 1611666485762
+        },
+        {
+            "style": "List",
+            "text": "Particular Characteristics: All doji candles that do not match the 5 mentioned above.",
+            "updated": 1611666494060
+        },
+        {
+            "style": "Text",
+            "text": " Note: It is worth noting that this initial set of definitions is what may be found in the general literature. However, the indicator may be expanded to identify other types of candles. We welcome ideas and contributions in that regard.",
+            "updated": 1611666624611
+        },
+        {
+            "style": "Title",
+            "text": "One-Candle Patterns"
+        },
+        {
+            "style": "Text",
+            "text": "One-Candle Patterns consist of a single basic candle in a certain market context. Matching the type of basic candle with the analysis of the context in terms of the current trend as indicated by a 10-period exponential moving average (EMA) may help predict reversals or continuations."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/buddha-bots-layers-01-one-candle-patterns.gif",
+            "updated": 1611666677328
+        },
+        {
+            "style": "Text",
+            "text": "The layer features an EMA 10 drawn with a dark line. It also features green and red arrows below and above the one-candles patterns, indicating the position in which the pattern appears."
+        },
+        {
+            "style": "Text",
+            "text": "If the candle is green and is pointing up, the pattern indicates a “Bullish Reversal” or a “Bullish Continuation” forecast when it’s trending downwards or upwards respectively. If the candle is red and is pointing down, it indicates a “Bearish Reversal” or “Bearish Continuation” forecast when the trend is up or down respectively."
+        },
+        {
+            "style": "Text",
+            "text": "The panel features the following properties:"
+        },
+        {
+            "style": "Table",
+            "text": "| Indicator Properties | Description |\n| Pattern Name | The name of the pattern. |\n| Trend Direction | The market trend on which the pattern has formed, as indicated by the EMA 10. |\n| Forecast | The prediction given by the pattern forming in the current trend. |\n| Trend Line Method | The method used to calculate the moving average that represents the trend line. |\n| Trend Line Period | The number of periods used to calculate the moving average. |\n| Trend Line Value | The current value of the moving average. |",
+            "updated": 1611666767939
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Two-Candles Patterns",
+            "updated": 1611666789921
+        },
+        {
+            "style": "Text",
+            "text": "Two-Candles Patterns are built from two basic candles."
+        },
+        {
+            "style": "Note",
+            "text": "The same concepts regarding the context of the trend discussed for one-candle patterns apply for all patterns with two candles or more.",
+            "updated": 1611666841317
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/buddha-bots-layers-02-two-candles-patterns.gif",
+            "updated": 1611666873616
+        },
+        {
+            "style": "Text",
+            "text": "When analyzing patterns of more than one candle, it is important to understand the following concepts:"
+        },
+        {
+            "style": "List",
+            "text": "The first candle in the pattern is the first candle that is formed chronologically, and so on for the following candles."
+        },
+        {
+            "style": "List",
+            "text": "The first candle in the pattern is the one that defines the trend of the pattern. For this reason, the value and the direction of the trend line of the pattern corresponding to the trend line of the first candle."
+        },
+        {
+            "style": "List",
+            "text": "The arrow is drawn on the last candle that forms the pattern."
+        },
+        {
+            "style": "Note",
+            "text": "The three concepts explained above apply for all patterns with two candles or more",
+            "updated": 1611666907262
+        },
+        {
+            "style": "Title",
+            "text": "Three-Candles Patterns"
+        },
+        {
+            "style": "Text",
+            "text": "Three-Candles Patterns are built from three basic candles."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/indicators/buddha-bots-layers-03-three-candles-patterns.gif",
+            "updated": 1611666939633
+        },
+        {
+            "style": "Title",
+            "text": "Candle Patterns Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Property Variables |\n| Basic Candles | basicCandle | name, size, direction, upperShadow, body, lowerShadow, length, meanBody, meanLength |\n| One-Candle Patterns | oneCandlePattern | name, trend, forecast, trendLine |\n| Two-Candles Patterns | twoCandlePattern | name, trend, forecast, trendLine |\n| Three-Candles Patterns | threeCandlePattern | name, trend, forecast, trendLine |",
+            "updated": 1611667058514
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611667073840
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.basicCandle.name === \"Long Green Candle\"",
+            "updated": 1611667082322
+        },
+        {
+            "style": "Text",
+            "text": "Is Long Green Candle the name of the current basic candle?"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.basicCandle.upperShadow > chart.at24hs.basicCandle.body",
+            "updated": 1611667090410
+        },
+        {
+            "style": "Text",
+            "text": "Is the upper shadow longer than the body?"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Basic Candles"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable | Description | Possible Values |\n| name | The name that has been assigned to the basic candle. | Short Green Candle, Short Red Candle, Green Candle, Red Candle, Long Green Candle, Long Red Candle, Green Marubozu, Opening Green Marubozu, Closing Green Marubozu, Red Marubozu, Opening Red Marubozu, Closing Red Marubozu, Red Spinning Top, Green Spinning Top, High Wave, Four-Price Doji, Star Doji, Long-Legged Doji, Dragonfly Doji, Gravestone Doji, Generic Doji |\n| size | The relative size of the candle | short, long |\n| direction | Indicates if it’s a bullish or a bearish candle | bullish, bearish |\n| upperShadow | The length of the upper shadow |  |\n| body | The length of the body |  |\n| lowerShadow | The length of the lower shadow |  |\n| length | The total length of the candle (candle.max - candle.min) |  |\n| meanBody | The moving average of the length of the bodies of previous candles |   |\n| meanLength | The moving average of the total length of previous candles |  |",
+            "updated": 1611667360206
+        },
+        {
+            "style": "Subtitle",
+            "text": "One-Candle Patterns",
+            "updated": 1611667454262
+        },
+        {
+            "style": "Table",
+            "text": "| Variable | Description | Predefined Values |\n| name | The name assigned to the pattern | Bearish Strong Line, Bearish Belt Hold, Hanging Man, Shooting Star, Bullish Belt Hold, Hammer, Bullish Strong Line |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed |  | ",
+            "updated": 1611667583593
+        },
+        {
+            "style": "Subtitle",
+            "text": "Two-Candles Patterns",
+            "updated": 1611667605300
+        },
+        {
+            "style": "Table",
+            "text": "| Variable | Description | Predefined Values |\n| name | It is the name that has been assigned to the pattern based on the configuration of the candles that make it up | Last Engulfing Bottom, Bearish Engulfing, Bearish Harami, Bearish Harami Cross, Bearish Tasuki Line, Descending Hawk, Tweezers Top, Two-Candle Shooting Star, Last Engulfing Top, Bullish Engulfing, Bullish Harami, Bullish Harami Cross, Bullish Tasuki Line, Tweezers Bottom |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed | |",
+            "updated": 1611667750859
+        },
+        {
+            "style": "Subtitle",
+            "text": "Three-Candles Patterns",
+            "updated": 1611667798063
+        },
+        {
+            "style": "Text",
+            "text": "The following table details the variables that can be used in the conditions of the trading strategies:"
+        },
+        {
+            "style": "Table",
+            "text": "| Variable | Description | Predefined Values |\n| name | It is the name that has been assigned to the pattern based on the configuration of the candles that make it up | Advance Block, Deliberation, Identical Three Crows, Three Inside Down, Three Outside Down, Three Inside Up, Three Outside Up |\n| trend | The market trend during which the pattern has formed | Uptrend, Downtrend |\n| forecast | It is the possible future scenario that represents the formation of this pattern | Bullish Continuation, Bullish Reversal, Bearish Continuation, Bearish Reversal |\n| trendLine | The value of the Moving Average that represents the trend line on which the pattern was formed | | ",
+            "updated": 1611667928056
+        },
+        {
+            "style": "Title",
+            "text": "Calculation Parameters",
+            "updated": 1611668026071
+        },
+        {
+            "style": "Subtitle",
+            "text": "Basic Candles"
+        },
+        {
+            "style": "Text",
+            "text": "The following table details the parameters that may be configured in the code of the indicator products:"
+        },
+        {
+            "style": "Table",
+            "text": "| Parameter | Description | Default Value | Normal Values |\n| Nbodies | The number of previous candle bodies used to calculate “meanBody” | 10 | 5 to 20 |\n| dojiFactor | It is the maximum percentage allowed for the body in relation to the length for the candle to be included in the Doji family | 3 | 0 to 5 |\n| sizeFactor | It is the percentage of the “meanLength” used to determinate the “size” of a candle (orange line on the chart) | 75 | 60 to 80 |\n| Nlengths | The number of previous candle lengths used to calculate “meanLength” | 20 | 10 to 25 |\n| sizeMethod | The method used to calculate “meanLength” | EMA | SMA or EMA |",
+            "updated": 1611668176042
+        },
+        {
+            "style": "Note",
+            "text": "To change the above-mentioned parameters, open the Basic Candles product definition, open the JavaScript Code of the Procedure Loop, and find the parameters in the first part of the code.",
+            "updated": 1611668256856
+        },
+        {
+            "style": "Subtitle",
+            "text": "Candle Patterns",
+            "updated": 1611668285348
+        },
+        {
+            "style": "Text",
+            "text": "The following table details the parameters that may be configured in the code of the indicator products:"
+        },
+        {
+            "style": "Table",
+            "text": "| Parameter | Description | Default Value | Normal Values |\n| N | It is the period of the moving average used to calculate the trend line | 10 | 5 to 20 |\n| trendMethod | The method used to calculate the trend line Moving Average | EMA | SMA or EMA |",
+            "updated": 1611668389582
+        },
+        {
+            "style": "Title",
+            "text": "The Theory Behind Candle Patterns",
+            "updated": 1611668433320
+        },
+        {
+            "style": "Subtitle",
+            "text": "Introduction"
+        },
+        {
+            "style": "Text",
+            "text": "Candle patterns are a versatile tool that traders use to visually estimate the sentiment of market participants. The logic implemented in this indicator was distilled from content in the following works:"
+        },
+        {
+            "style": "List",
+            "text": "“Candlestick Charting Explained” - Author: Greg Morris"
+        },
+        {
+            "style": "List",
+            "text": "“Technical Analysis of The Financial Markets” - Author: John J. Murphy"
+        },
+        {
+            "style": "List",
+            "text": "“Encyclopedia of Candlestick Charts” - Author: Thomas N. Bulkowski"
+        },
+        {
+            "style": "List",
+            "text": "“Encyclopedia of Chart Patterns” - Author: Thomas N. Bulkowski"
+        },
+        {
+            "style": "List",
+            "text": "“Japanese Candlestick Charting Techniques” - Author: Steve Nison"
+        },
+        {
+            "style": "Text",
+            "text": "You may also wish to visit the following sources:"
+        },
+        {
+            "style": "List",
+            "text": "Thomas Bulkowski: ThePatternSite.com"
+        },
+        {
+            "style": "List",
+            "text": "Investopedia: Introduction to Technical Analysis Price Patterns"
+        },
+        {
+            "style": "List",
+            "text": "CandleSticker by American Bulls"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Parts of a Candle"
+        },
+        {
+            "style": "Text",
+            "text": "Let’s start by agreeing on the basic vocabulary to describe candles."
+        },
+        {
+            "style": "Text",
+            "text": "The first price from which the candle begins to form is the open price. The last price from which the candle finishes forming is the close price. The distance between both prices is called body. Market volatility may cause the price to fluctuate beyond both prices during candle formation, creating shadows. The upper shadow is the line that links the maximum price with the body. The lower shadow is the line that links the min price with the body."
+        },
+        {
+            "style": "Text",
+            "text": "Regarding color:"
+        },
+        {
+            "style": "List",
+            "text": "When the closing price is greater than the open price, the body of the candle is green. This indicates that it is a bullish candle."
+        },
+        {
+            "style": "List",
+            "text": "When the closing price is lesser than the open price, the body of the candle is red. This indicates that it is a bearish candle."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Body of Doji Candles"
+        },
+        {
+            "style": "Text",
+            "text": "Japanese candle theory defines a doji candle as one in which the closing price equals the opening price. In other words, a doji candle should have no body. In practice, the following aspects must be taken into account:"
+        },
+        {
+            "style": "List",
+            "text": "Price volatility"
+        },
+        {
+            "style": "List",
+            "text": "The precision with which prices are recorded"
+        },
+        {
+            "style": "Text",
+            "text": "These two factors make it very unlikely that both prices match exactly and—in practice—there is always a body, even if it is very small. For this reason, we define a range of uncertainty in body length to determine whether a candle is a doji or not. By default, we assume that the doji’s body may be equal or lesser than 3% of the total length of the candle. This is the dojiFactor."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Relative Size: Short or Long"
+        },
+        {
+            "style": "Text",
+            "text": "It is very important to understand this concept since during the study and identification of candle patterns we must differentiate the size of each particular candle, that is, which ones are long and which are short. Intuitively, this seems simple, but translating the logic into an algorithm requires defining what tools will be used and how they will be parameterized."
+        },
+        {
+            "style": "Text",
+            "text": "To start, we need to establish some reference to decide what is long and what is short, since a long candle in some market context may be short in another context. When we look at a chart, our sight may deceive us since the context around a candle involves both past and future candles. However, when our algorithm is working on a live session, it may only see candles in the past."
+        },
+        {
+            "style": "Text",
+            "text": "It may be deduced that the average of the size of a certain number of past candles must be used as the frame of reference. This method arises from common sense and therefore it is the one observed to be widely used in the literature. Some authors differ in their criteria averaging only the bodies or averaging the total lengths including also the shadows."
+        },
+        {
+            "style": "Text",
+            "text": "For this reason, we have made both criteria available:"
+        },
+        {
+            "style": "List",
+            "text": "Body average: Bulkowski uses this criterion to detect candles of the type Long Green Candle and Long Red Candle. Since they are a particular case that occurs when the size of the body extends more than three times compared to the previous candle’s body average."
+        },
+        {
+            "style": "List",
+            "text": "Length average: this criterion is used in a general manner, for all basic candles, since it also includes doji candles which have no body (or have very small bodies); with the previous criterion they would always be sized as Short, which is not what we are looking for."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Pattern Validation"
+        },
+        {
+            "style": "Text",
+            "text": "To find candle patterns on the chart, it is necessary to analyze the market context in which the basic candles appear and how they are related to each other. For this reason, the following concepts are necessary:"
+        },
+        {
+            "style": "List",
+            "text": "Trend Line: To determine if prices are in an Uptrend or a Downtrend, a reference trend line is necessary, which is generally a moving average."
+        },
+        {
+            "style": "List",
+            "text": "Minimum Trend Candles: It is the minimum number of candles that must be on the same trend line to validate a pattern. By default, 3 candles will be used."
+        },
+        {
+            "style": "Text",
+            "text": "Forecast:"
+        },
+        {
+            "style": "List",
+            "text": "Bullish Reversal: In a downtrend, a pattern is considered valid when the body of the first candle is below the trend line."
+        },
+        {
+            "style": "List",
+            "text": "Bullish Continuation: In an uptrend, a pattern is considered valid when at least open prices of all pattern candles are above the trend line."
+        },
+        {
+            "style": "List",
+            "text": "Bearish Reversal: In an uptrend, a pattern is considered valid when the body of the first candle is above the trend line."
+        },
+        {
+            "style": "List",
+            "text": "Bearish Continuation: In a downtrend, a pattern is considered valid when at least open prices of all candles are below the downtrend."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

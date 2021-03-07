@@ -1,0 +1,34 @@
+{
+    "type": "Trading Mine",
+    "definition": {
+        "text": "A trading mine is a hierarchy that contains definitions of trading bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Altough Superalgos is starting out with a single trading bot, the system is prepared to feature as many trading bots as developers are willing to create. As such, a trading mine is a catalog of trading bots."
+        },
+        {
+            "style": "Text",
+            "text": "Notice that, in the context of Superalgos, a trading bot has nothing to do with the trading logic. Think of trading logic as the business rules which—in Superalgos—are defined in trading systems. Anyone may build a Trading System, meaning that creating trading systems and the trading strategies within does not require coding.",
+            "updated": 1609861342619
+        },
+        {
+            "style": "Text",
+            "text": "Trading mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Trading Mine Configuration",
+            "updated": 1609861240385
+        }
+    ]
+}

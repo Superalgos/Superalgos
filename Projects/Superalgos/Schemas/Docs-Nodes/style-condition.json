@@ -1,0 +1,62 @@
+{
+    "type": "Style Condition",
+    "definition": {
+        "text": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Style conditions offer a way to introduce additional intelligence on the visual representation of data by using styles that respond to certain conditions."
+        },
+        {
+            "style": "Text",
+            "text": "For example, the Percentage Bandwidth plotter module assigns a different color to the Moving Average line when it's going up or down."
+        },
+        {
+            "style": "Text",
+            "text": "To do that, a style condition features it's own style so that, when the condition validates true, the new style is applied."
+        },
+        {
+            "style": "Text",
+            "text": "Style conditions me be created in a sequence so that the style may continue changing upon the validation of a series of style conditions. The system evaluates all style conditions in a sequential order determined by their position in the rotational symmetry around the parent node. Each condition that is met may modify or add up to the resulting style that is rendered on screen. That is, the final style is the result of the sequential application of the styles defined for each condition that is met, on top of the default style."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Style Condition Configuration",
+            "updated": 1609860654525
+        },
+        {
+            "style": "Text",
+            "text": "Style conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module."
+        },
+        {
+            "style": "Text",
+            "text": "To continue the example of the Percentage Bandwidth plotter, the following is the condition that determines the newly added styles:"
+        },
+        {
+            "style": "Javascript",
+            "text": "record.previous.movingAverage > record.movingAverage"
+        },
+        {
+            "style": "Text",
+            "text": "As hinted earlier, when the condition is met, the default style is modified by a second style that may be created on the menu of the style condition node."
+        },
+        {
+            "style": "Text",
+            "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the atMousePosition property may no longer be defined:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"opacity\": 0.55,\n    \"lineWidth\": 1,\n    \"lineDash\": [0,0],\n    \"paletteColor\": \"UI_COLOR.RED\"\n}",
+            "updated": 1609860800267
+        }
+    ]
+}

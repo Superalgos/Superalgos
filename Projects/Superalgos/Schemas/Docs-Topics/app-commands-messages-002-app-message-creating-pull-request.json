@@ -1,0 +1,31 @@
+{
+    "topic": "App Commands Messages",
+    "pageNumber": "2",
+    "type": "App Message - Creating Pull Request",
+    "definition": {
+        "text": "Hold on while changes are uploaded to GitHub.com and a Pull Request is created. You will get a new message when the operation is complete.",
+        "updated": 1611002766659
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "What's next?",
+            "updated": 1609940971059
+        },
+        {
+            "style": "Text",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow up with the issue at Github.com.",
+            "updated": 1611128895749
+        },
+        {
+            "style": "Text",
+            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically appended to the open Pull Request.",
+            "updated": 1611002870980
+        },
+        {
+            "style": "Note",
+            "text": "You should receive an email from Github.com when changes are merged, or if the reviewer makes comments or reject the changes. You may manage your email suscription settings at GitHub.com.",
+            "updated": 1611002949297
+        }
+    ]
+}

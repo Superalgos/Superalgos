@@ -1,0 +1,32 @@
+{
+    "type": "Indicator Process Instance",
+    "definition": {
+        "text": "An indicator process instance is a reference to the process definition of an indicator bot, as defined in a data mine."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Indicator bot instances usually require two indicator process instances. One of them references the indicator's multi-period-market process definition and the second references the multi-period-daily process definition."
+        },
+        {
+            "style": "Text",
+            "text": "Once the reference is established, the indicator process instance adopts the name of the process definition it references."
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        },
+        {
+            "style": "Title",
+            "text": "Running Indicator Process Instance"
+        },
+        {
+            "style": "Text",
+            "text": "You do not start or stop an indicator process instance directly. Instead, you start or stop the corresponding task."
+        }
+    ]
+}

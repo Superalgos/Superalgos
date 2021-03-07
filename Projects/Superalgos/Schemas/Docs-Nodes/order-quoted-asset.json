@@ -1,0 +1,16 @@
+{
+    "type": "Order Quoted Asset",
+    "definition": {
+        "text": "The order quoted asset node keeps track of the evolution of certain properties of orders, denominated in the quoted asset."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Note",
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+        }
+    ]
+}

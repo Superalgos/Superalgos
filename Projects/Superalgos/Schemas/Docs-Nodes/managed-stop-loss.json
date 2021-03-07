@@ -1,0 +1,28 @@
+{
+    "type": "Managed Stop Loss",
+    "definition": {
+        "text": "The managed stop loss node features the definition of the phases that make up the management of the stop loss target as the position develops."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "A stop loss target is a crucial element of a trading strategy, as it is the device in charge of preserving capital. Used wisely, the management of the stop loss may also play the role of protecting unrealized profits."
+        },
+        {
+            "style": "Text",
+            "text": "The system for managing the stop loss provided by Superalgos is highly flexible. It may start as simple as a constant value at a certain rate, but may switch to a trailing stop as soon as the price moves away from the target rate by a certain percentage, or when a certain market situation arises."
+        },
+        {
+            "style": "Text",
+            "text": "In fact, the formula may change as many times as required, as you may set up unlimited phases, and switch back and forth as required using predefined events to make the switch."
+        },
+        {
+            "style": "Note",
+            "text": "The above example of a constant stop loss followed by a trailing stop is merely an example of a typical setup. The formulas you use to determine the rate of the target on each phase may be anything you choose, thus, you may achieve whatever behavior you imagine and can describe mathematically."
+        }
+    ]
+}

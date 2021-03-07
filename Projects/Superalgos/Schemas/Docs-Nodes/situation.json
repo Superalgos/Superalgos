@@ -1,0 +1,24 @@
+{
+    "type": "Situation",
+    "definition": {
+        "text": "A situation refers to a specific state of the market in which a certain event should take place, as defined by any number of conditions."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, you define situations in which you wish a certain event to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of conditions that need to be met for the event to be triggered."
+        },
+        {
+            "style": "Text",
+            "text": "A situation gets validated when all conditions under it are true."
+        },
+        {
+            "style": "Text",
+            "text": "An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, the event gets triggered. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered."
+        }
+    ]
+}

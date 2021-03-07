@@ -1,0 +1,33 @@
+{
+    "topic": "TS Trading Session Errors",
+    "pageNumber": "5",
+    "type": "TS Trading Session Error - Label Property Missing",
+    "definition": {
+        "text": "A property called label is expeceted at the Time Frame Node config, but it is missing.",
+        "updated": 1611332389501
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Add the label property at the Time Frame Node and try running the Trading Session again.",
+            "updated": 1611332549238
+        },
+        {
+            "style": "Title",
+            "text": "Property Missing",
+            "updated": 1611392835535
+        },
+        {
+            "style": "Json",
+            "text": "label"
+        },
+        {
+            "style": "Title",
+            "text": "Example"
+        },
+        {
+            "style": "Json",
+            "text": "01-min or 01-hs"
+        }
+    ]
+}

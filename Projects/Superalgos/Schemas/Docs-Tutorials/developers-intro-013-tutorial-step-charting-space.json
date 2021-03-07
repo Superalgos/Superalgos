@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Charting Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "This is where the charts are displayed. It allows users to navigate through multi-dimensional datasets."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Charting Space has its own object structure that partially matches the definitions set by the user on the Charting Space hierarchy. This means that, whenever the user adds a chart, removes a scale, or changes a configuration of any of the nodes inside the Charting Space hierarchy, the Charting Space senses these changes and adapts its object model, most of the time in real-time, which in turn changes the way that the charts are displayed."
+        },
+        {
+            "style": "Note",
+            "text": "The Charting Space uses the Files Components as its data provider."
+        }
+    ]
+}

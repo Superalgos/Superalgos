@@ -1,0 +1,14 @@
+{
+    "type": "Bot Layers",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The node is created automatically when installing new markets.",
+            "updated": 1609784576182
+        }
+    ],
+    "definition": {
+        "text": "The Bot Layers node is an organizational device used to group layers originating on a specific bot.",
+        "updated": 1609784614091
+    }
+}

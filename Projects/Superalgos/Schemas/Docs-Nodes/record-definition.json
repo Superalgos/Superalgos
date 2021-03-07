@@ -1,0 +1,28 @@
+{
+    "type": "Record Definition",
+    "definition": {
+        "text": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays."
+        },
+        {
+            "style": "Text",
+            "text": "The choice of plain text for storage of large volumes of information has benefits in terms of not requiring any sophisticated technology to store and serve the data (i.e.: no database is required)."
+        },
+        {
+            "style": "Text",
+            "text": "Best practice indicates that there needs to be a balance between the amount of data that is stored and calculations that may be performed at runtime."
+        },
+        {
+            "style": "Text",
+            "text": "Storing objects with named properties in the JSON format would be inappropriate as labels would repeat over and over, creating a ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the handling of files in the context of JavaScript and Node.JS."
+        }
+    ]
+}

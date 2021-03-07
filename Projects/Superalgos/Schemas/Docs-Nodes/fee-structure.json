@@ -1,0 +1,54 @@
+{
+    "type": "Fee Structure",
+    "definition": {
+        "text": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Exchange fees are a crucial part of trading. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation."
+        },
+        {
+            "style": "Text",
+            "text": "Exchanges don't usually report the amount charged in fees on each transaction, thus, the system calculates fees and subtract them from balances. Learn more about the handling of fees."
+        },
+        {
+            "style": "Important",
+            "text": "The accuracy of the internal account-keeping depends on this parameter. Make sure you obtain the correct fee structure from the exchange corresponding to the tier of your account."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610120917432
+        },
+        {
+            "style": "Title",
+            "text": "Fee Structure Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609676653644
+        },
+        {
+            "style": "List",
+            "text": "maker is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders."
+        },
+        {
+            "style": "List",
+            "text": "taker is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders."
+        },
+        {
+            "style": "Note",
+            "text": "If the fee structure parameter is left empty or detached both from your session and your trading system, fees are not computed during simulations."
+        },
+        {
+            "style": "Important",
+            "text": "Remember that, for the time being, and until the new execution engine is released, all orders placed by the trading bot are market orders, thus, the taker fee applies in all cases."
+        }
+    ]
+}

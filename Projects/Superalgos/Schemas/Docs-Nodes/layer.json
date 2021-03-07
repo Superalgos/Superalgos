@@ -1,0 +1,56 @@
+{
+    "type": "Layer",
+    "definition": {
+        "text": "A layer represents a reference to a data product in the data storage node of the network hierarchy. Conceptually, it means that a certain data product, which exists in a certain location on the network, holds the data to be rendered on the charts."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "To set up a layer, you need to establish a reference with the data product of your choice."
+        },
+        {
+            "style": "Block",
+            "text": "Charts"
+        },
+        {
+            "style": "Title",
+            "text": "Layer at the Charts"
+        },
+        {
+            "style": "Text",
+            "text": "To turn layers on and off, simply click on the layer in the corresponding products panel."
+        },
+        {
+            "style": "Text",
+            "text": "To turn on and off a layer panel, click the panel button on the bottom-left corner of the layer."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609784753729
+        },
+        {
+            "style": "Title",
+            "text": "Layer Configuration",
+            "updated": 1609784767118
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609784779223
+        },
+        {
+            "style": "List",
+            "text": "status may be on or off* and refers to the layer being visible or not on the charts.",
+            "updated": 1609784804308
+        },
+        {
+            "style": "List",
+            "text": "showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible."
+        }
+    ]
+}

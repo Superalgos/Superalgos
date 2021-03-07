@@ -1,0 +1,93 @@
+{
+    "type": "Workspace",
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1610620673078
+        },
+        {
+            "style": "Text",
+            "text": "A workspace stores information about:"
+        },
+        {
+            "style": "List",
+            "text": "Any hierarchy that is not included as a plugin."
+        },
+        {
+            "style": "List",
+            "text": "Nodes that may be floating around, detached from hierarchies."
+        },
+        {
+            "style": "List",
+            "text": "Information regarding the physical position and state of all nodes within the design space, even those detached from the hierarchies."
+        },
+        {
+            "style": "Text",
+            "text": "A workspace is not part of any of the hierarchies; instead, it contains them."
+        },
+        {
+            "style": "Title",
+            "text": "Working With Workspaces"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Saving Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Workspaces are saved as .json files in the My-Workspaces folder."
+        },
+        {
+            "style": "Text",
+            "text": "They are saved automatically every 60 seconds, or at the moment the browser or browser tab is closed. You may also save it manually using the following hot-key combination:  Ctrl or ⌘ + Shift + Key-S.",
+            "updated": 1610620660591
+        },
+        {
+            "style": "Success",
+            "text": " Backing up a workspace downloads the same file to your local Downloads folder. This is a good way to store old versions in case you ever need to go back to a previous state of affairs.",
+            "updated": 1609946808755
+        },
+        {
+            "style": "Important",
+            "text": " Plugin workspaces may not be modified. When you load a plugin workspace, a new file is created in your My-Workspaces folder as soon as the workspace is saved for the first time, resulting in a copy of the plugin workspace. Any modifications you introduce in the workspace are stored in the copy, not the original plugin.",
+            "updated": 1609946816684
+        },
+        {
+            "style": "Subtitle",
+            "text": "Creating Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "To create a new workspace, rename any of the existing workspaces by changing the label of the workspace node, and save it as explained above. After you change the label and once the workspace is saved (by any of the usual means), a new file is stored in the My-Workspaces folder."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Loading Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Users may manage multiple workspaces, but only one workspace may be loaded in the system at any point."
+        },
+        {
+            "style": "Text",
+            "text": "To load a workspace, click the workspaces tab on the left-hand side of the screen and select one of the available files."
+        },
+        {
+            "style": "Text",
+            "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab, or you may drag it and drop it on the design space."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Deleting Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "To delete a workspace, delete the corresponding workspace file from within the file system application of your operating system."
+        }
+    ],
+    "definition": {
+        "text": "A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file.",
+        "updated": 1610620463347
+    }
+}

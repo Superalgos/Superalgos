@@ -1,0 +1,12 @@
+{
+    "type": "Limit Sell Orders",
+    "definition": {
+        "text": "Limit sell orders is the section of the data structure that keeps track of this specific type of order."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "topic": "Docs Commands",
+    "pageNumber": "5",
+    "type": "Docs Save Command",
+    "definition": {
+        "text": "Use this command to save the changes you've made while adding, deleting or editing paragraphs at the Docs; or adding or deleting pages.",
+        "updated": 1610976014577
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609157736088
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.save"
+        }
+    ]
+}

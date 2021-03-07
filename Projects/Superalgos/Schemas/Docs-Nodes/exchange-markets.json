@@ -1,0 +1,13 @@
+{
+    "type": "Exchange Markets",
+    "definition": {
+        "text": "The exchange markets node groups the definitions of markets."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is no limit as of how many markets may be defined.",
+            "updated": 1609772386734
+        }
+    ]
+}

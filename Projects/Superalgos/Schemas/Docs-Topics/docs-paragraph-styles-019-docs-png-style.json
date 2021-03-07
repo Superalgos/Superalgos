@@ -1,0 +1,38 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 19,
+    "type": "Docs Png Style",
+    "definition": {
+        "text": "It is possible to embed PNGs images into a Docs page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To embed a PNG image into a Docs page you need to follow this syntax:"
+        },
+        {
+            "style": "Json",
+            "text": "PNGs/Project-Folder/Docs/Inner-Folder/File-Name.png"
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Javascript",
+            "text": "PNGs/Superalgos/Docs/troubleshooting/RSI-07.png"
+        },
+        {
+            "style": "Text",
+            "text": "Looks like this:"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/troubleshooting/frames-per-second-tool.png"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

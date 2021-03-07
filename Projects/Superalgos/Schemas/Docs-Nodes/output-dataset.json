@@ -1,0 +1,24 @@
+{
+    "type": "Output Dataset",
+    "definition": {
+        "text": "The output dataset is a reference to a dataset definition. By establishing such reference, the process acquires the definitions as of how the dataset is to be constructed."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "There are other effects of establishing a reference from the output dataset to a product dataset definition. Upon execution, every time a process finishes a processing cycle, it triggers an event that may be consumed by other entities. This event indicates that the datasets impacted by the process have been updated."
+        },
+        {
+            "style": "Text",
+            "text": "An example of other entities that may be listening to such events is that of plotters. Plotters read datasets and create graphical representations of this data over the charts. Charts are constantly updating the information in the form of candles and indicators in realtime, synchronized with the data being extracted from the exchange by the sensor bot. That kind of automatism is possible thanks to the events that processes trigger every time an execution cycle is finished, signaling to everyone listening that new data is available on each of the impacted datasets."
+        },
+        {
+            "style": "Note",
+            "text": "An output dataset must reference a dataset definition."
+        }
+    ]
+}

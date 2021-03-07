@@ -1,0 +1,33 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Binance.com or Binance.us?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "binance"
+        },
+        "text": "Before we start data mining, I have a little question for you: are you trading at binance.com or binance.us?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you trade at binance.com or don't trade with Binance at all, then you may skip this step and the next!"
+        },
+        {
+            "style": "Callout",
+            "text": "If you trade at binance.us you need to configure the Binance node to the right! The video on the next step shows you how!",
+            "updated": 1611076107190
+        },
+        {
+            "style": "List",
+            "text": "1. Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
+            "updated": 1610612932151
+        },
+        {
+            "style": "List",
+            "text": "2. Edit the label of the node to read Binanceus.",
+            "updated": 1610537864275
+        }
+    ]
+}

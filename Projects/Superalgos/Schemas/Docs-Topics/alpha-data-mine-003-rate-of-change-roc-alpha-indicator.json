@@ -1,0 +1,63 @@
+{
+    "topic": "Alpha Data Mine",
+    "pageNumber": 3,
+    "type": "Rate of Change (ROC) - Alpha Indicator",
+    "definition": {
+        "text": "The indicator features three products for the following periods: 9, 32, 76.",
+        "updated": 1611653819391
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Rate of Change On the Charts",
+            "updated": 1611653837081
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The rate of change (ROC) is the speed at which a variable changes over a specific period of time.” It’s an unbounded momentum indicator and a good tool to spot long term trends. This indicator should not be used as a signal in and of itself but can help to confirm other signals."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/alpha-bots-layers-00-ROC.png",
+            "updated": 1611653904946
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Mathematically, ROC describes the percentage change of the current close price to the close price from an earlier period."
+        },
+        {
+            "style": "Text",
+            "text": "The Alpha data-mine provides 3 ROC indicators with periods 76, 32, and 9. The Rate of Change is closely tied to price action. When price raises ROC value tends to be above the zero line and when price is falling ROC value tends to be below the zero line."
+        },
+        {
+            "style": "Title",
+            "text": "Rate of Change Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are three products based on various periods available. It is a simple indicator and has only one value: the percentage of change to the previous period."
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ROC | roc9 | value |\n| ROC | roc32 | value |\n| ROC | roc76 | value |",
+            "updated": 1611654013516
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.roc9.value > 0 && chart.at01hs.roc9.value > chart.at01hs.roc9.previous.value",
+            "updated": 1611654033531
+        },
+        {
+            "style": "Text",
+            "text": "Check if Rate of Change is above the zero trend line and moving upwards."
+        }
+    ]
+}

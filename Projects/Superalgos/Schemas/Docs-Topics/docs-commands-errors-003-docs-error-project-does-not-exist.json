@@ -1,0 +1,47 @@
+{
+    "topic": "Docs Commands Errors",
+    "pageNumber": 3,
+    "type": "Docs Error - Project Does Not Exist",
+    "definition": {
+        "text": "You may have misspelled the name of the project.",
+        "updated": 1610976884761
+    },
+    "paragraphs": [
+        {
+            "style": "Anchor",
+            "text": "Anchor Project Does Not Exist"
+        },
+        {
+            "style": "Error",
+            "text": "The Project you have specified does not exist.",
+            "updated": 1610976906083
+        },
+        {
+            "style": "Success",
+            "text": "Verify the Project name you typed. Project names are case-sensitive.",
+            "updated": 1610977145287
+        },
+        {
+            "style": "Title",
+            "text": "Applies to",
+            "updated": 1609162883325
+        },
+        {
+            "style": "List",
+            "text": "Docs Goto Command",
+            "updated": 1609180469767
+        },
+        {
+            "style": "List",
+            "text": "Docs Add Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Delete Command"
+        },
+        {
+            "style": "List",
+            "text": "Docs Repaginate Command"
+        }
+    ]
+}

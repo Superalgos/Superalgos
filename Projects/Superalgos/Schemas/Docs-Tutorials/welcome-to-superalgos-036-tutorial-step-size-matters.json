@@ -1,0 +1,28 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Size Matters?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "How about shaping the time machine to the exact aspect ratio of your screen?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Matching the aspect ratio of your time machines to the aspect ratio of your screen is crucial for charts to fit your screen tightly!"
+        },
+        {
+            "style": "Callout",
+            "text": "Point your mouse at one of the time machines and hit Ctrl + Shift + Key-A. Do the same with the other one!",
+            "updated": 1610134929741
+        },
+        {
+            "style": "Success",
+            "text": "Leave the two time machines matching the aspect ratio of your screen. from now on!",
+            "updated": 1610622263656
+        }
+    ]
+}

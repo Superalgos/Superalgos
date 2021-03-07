@@ -1,0 +1,101 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "13",
+    "type": "Accounts Specific to Orders",
+    "definition": {
+        "text": "Learn about accounts specific to the context of orders. On this page: Rate, Actual Rate, Size, Percentage Filled, Fees Paid, and Lock.",
+        "updated": 1611336548381
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Rate",
+            "updated": 1611336589519
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate->Definition",
+            "updated": 1611336592312
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate->Content",
+            "updated": 1611336595025
+        },
+        {
+            "style": "Title",
+            "text": "Actual Rate",
+            "updated": 1611336604269
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Actual Rate->Definition",
+            "updated": 1611336607169
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Actual Rate->Content",
+            "updated": 1611336610243
+        },
+        {
+            "style": "Title",
+            "text": "Size",
+            "updated": 1611336619074
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size->Definition",
+            "updated": 1611336621768
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Size->Content",
+            "updated": 1611336624678
+        },
+        {
+            "style": "Title",
+            "text": "Percentage Filled",
+            "updated": 1611336634683
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Percentage Filled->Definition",
+            "updated": 1611336637426
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Percentage Filled->Content",
+            "updated": 1611336641053
+        },
+        {
+            "style": "Title",
+            "text": "Fees Paid",
+            "updated": 1611336663062
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fees Paid->Definition",
+            "updated": 1611336665926
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Fees Paid->Content",
+            "updated": 1611336669591
+        },
+        {
+            "style": "Title",
+            "text": "Lock",
+            "updated": 1611336682293
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Lock->Definition",
+            "updated": 1611336685521
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Lock->Content",
+            "updated": 1611336688288
+        }
+    ]
+}

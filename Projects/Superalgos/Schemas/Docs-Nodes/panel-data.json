@@ -1,0 +1,38 @@
+{
+    "type": "Panel Data",
+    "definition": {
+        "text": "A panel data node represents a data field to be plotted on the plotter panel."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The system renders a panel featuring a centered, single-column vertical arrangement of data, with a label and a data field right below it. The label of each data field on the panel is given&mdash;by default&mdash;by the label set for each panel data node."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Panel Data Configuration",
+            "updated": 1609860920089
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609860933462
+        },
+        {
+            "style": "List",
+            "text": "valueDecimals sets the number of decimals to be shown on the corresponding data field."
+        },
+        {
+            "style": "List",
+            "text": "labelPosition and valuePosition represent the vertical distance of the corresponding fields to the top margin of the panel."
+        }
+    ]
+}

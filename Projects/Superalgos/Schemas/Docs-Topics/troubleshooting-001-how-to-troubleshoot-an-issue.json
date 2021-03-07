@@ -1,0 +1,256 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "1",
+    "type": "How to Troubleshoot an Issue",
+    "definition": {
+        "text": "This Troubleshooting Guide teaches you the logical steps that will help you better understand the system and find solutions to most of the issues you may run into.",
+        "updated": 1612874252158
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are several reasons why you may experience issues while using Superalgos. It may be due to a lack of understanding of how the system works, because you may be skipping a step or two in the process you are trying to engage with, or because something may not be working as it should.",
+            "updated": 1611509396717
+        },
+        {
+            "style": "Text",
+            "text": "Whatever the reason may be, this page provides a step-by-step process that will help you understand what is going on so that your issue may be resolved in the most efficient possible way."
+        },
+        {
+            "style": "Text",
+            "text": "In other words, following this step-by-step troubleshooting guide will either lead you to discovering what you may be doing wrong so that you may fix your issue and move on, or to gathering all the relevant information required for the Team to investigate the issue."
+        },
+        {
+            "style": "Important",
+            "text": "Thoroughly following this troubleshooting guide—step by step—is a requirement for reporting an issue or asking for help in the Support Group. We can not afford to investigate issues that you may solve on your own, or without the appropriate information. Doing so would rob the project of valuable resources.",
+            "updated": 1612875019106
+        },
+        {
+            "style": "Success",
+            "text": "Before you even start troubleshooting, you should do all the tutorials available. This is the single best piece of advice you may get, as tutorials will teach you all the basic operations and will clarify most of the questions that derive from a lack of understanding of how the system works. Please, go to the First Steps Tutorials book and do some learning! Please do not ask for help before you do all tutorials!",
+            "updated": 1612874358930
+        },
+        {
+            "style": "Title",
+            "text": "Start Here"
+        },
+        {
+            "style": "Subtitle",
+            "text": "1. Understand what you are doing and how the feature works"
+        },
+        {
+            "style": "List",
+            "text": "If you are following the Welcome tutorial, read carefully and make sure you haven’t skipped any steps. Go back a few steps and try again.",
+            "updated": 1612876297808
+        },
+        {
+            "style": "List",
+            "text": "If you are already using the system, take some time to search the Docs and read the topics related to the matters you are working with. Use the search box to search for the specific matter (backtesting, data mining, etc.)",
+            "updated": 1612875081868
+        },
+        {
+            "style": "List",
+            "text": "If you are having trouble with a specific node on the Design Space, open the menu and click the help button. The Docs will open with a description of what the node is and how it works. Read about the node, its parent node, and its offspring.",
+            "updated": 1612876337693
+        },
+        {
+            "style": "List",
+            "text": "If you are having trouble operating the charts, make sure you revisit the Welcome tutorial and the pages on Time Machines and Timeline Charts, and Scales.",
+            "updated": 1612874724546
+        },
+        {
+            "style": "List",
+            "text": "If you are not sure what you should search for, go to the User Manual book and scan the topics covered there. If you are serious about learning Superalgos, reading the whole User Manual will put you at the top of the food chain.",
+            "updated": 1612874813098
+        },
+        {
+            "style": "Success",
+            "text": "There is no substitute for knowledge. The more you understand, the less time and effort you will waste with issues related to a lack of understanding, and the more focused your questions will be when asking for help. You may be inclined to take a shortcut and ask the community before doing your research. This may save you some time occasionally and may be appropriate in cases in which you need a little guidance or need to clear a quick doubt. However, the problem with lack of understanding is that it is a persistent condition until you deal with the root cause. The way to deal with the root cause is to take the time to do all the First Steps Tutorials and read the User Manual. Otherwise, you will find yourself dealing with the same constraints over and over again. Acquiring knowledge while being mindful of the Team’s time is the first step towards becoming a valuable member of the community.",
+            "updated": 1612876358894
+        },
+        {
+            "style": "Subtitle",
+            "text": "2. Scan the Troubleshooting topic",
+            "updated": 1612875503760
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Chances are someone else has experienced a similar issue as you may be experiencing now. We do our best to compile common issues into specific troubleshooting pages, so make sure you take a look there before moving on. This page is the first on the Troubleshooting topic. Find the rest in the TOC at the bottom of this page.",
+            "updated": 1612876381614
+        },
+        {
+            "style": "Subtitle",
+            "text": "3. Is your processor stuck at 100%?"
+        },
+        {
+            "style": "Text",
+            "text": "Open your operating system’s task manager application and verify the CPU load while you reproduce the issue you are experiencing. If your CPU is running at 100% for more than 30 to 60 seconds, all sorts of problems may arise, as your hardware may not able to cope with what you may be trying to do.",
+            "updated": 1612875430945
+        },
+        {
+            "style": "Text",
+            "text": "If this is the case, try closing other applications that may be demanding CPU time, and follow the guidelines proposed in the Perception Issues - My System Gets Slow page to lower the demands on the processor.",
+            "updated": 1612875476873
+        },
+        {
+            "style": "Text",
+            "text": "If you may not reproduce the issue while your CPU is working at less than 100%, then that may have been the cause of the problem."
+        },
+        {
+            "style": "Subtitle",
+            "text": "4. Does the issue persist when using the latest version of the software?"
+        },
+        {
+            "style": "Text",
+            "text": "Running the latest version of the software is virtually mandatory, as bugs affecting you may have already been solved. Make sure you are running the latest stable software version in the master branch of the Superalgos repository, or the latest software in the develop branch."
+        },
+        {
+            "style": "Note",
+            "text": "Making sure means installing the latest version, right now. You may run the App Update Command.",
+            "updated": 1612875559806
+        },
+        {
+            "style": "Subtitle",
+            "text": "5. Does the issue persist when using one of the plugin workspaces?",
+            "updated": 1612875632190
+        },
+        {
+            "style": "Text",
+            "text": "If the issue may not be reproduced using one of the plugin workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
+            "updated": 1612875627341
+        },
+        {
+            "style": "Text",
+            "text": "If the issue happens in a modified workspace only, take some time going through the modifications you introduced."
+        },
+        {
+            "style": "Text",
+            "text": "Start over and reproduce the modifications on the plugin workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
+            "updated": 1612875667631
+        },
+        {
+            "style": "Note",
+            "text": "This doesn’t necessarily mean that you made a mistake when modifying the official workspace. It simply pinpoints where the problem may be, and it’s a crucial part of the investigation that you should conduct before going any further.",
+            "updated": 1611509652152
+        },
+        {
+            "style": "Subtitle",
+            "text": "6. Simplify the context and isolate the issue"
+        },
+        {
+            "style": "Text",
+            "text": "When you are doing several things at the same time and something goes wrong, it is sometimes hard to identify what is it that may be causing the issue. The next logical step to take is to further isolate the issue. You do this by removing pieces from the context so that you may focus on the core of the matter."
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Text",
+            "text": "If you are having an issue while backtesting a strategy, you do not need your data mining operation to be running. In such a case, stop the data mining operation and everything else you may be doing, and run the backtest only."
+        },
+        {
+            "style": "List",
+            "text": "If you are having an issue running one of the Masters indicators, you do not need all indicators to be running at the same time. Make sure the said indicator dependencies are running, and stop the rest of the indicators."
+        },
+        {
+            "style": "List",
+            "text": "If you are having an issue with a chart and you have three other charts on the screen at the same time, try zooming-in the chart and see if you still experience the issue. Or turn all layers off and leave on only the layer you may be having difficulties with."
+        },
+        {
+            "style": "List",
+            "text": "If you are running multiple live trading sessions and experience an issue with one of them, stop the rest of the sessions and try to reproduce the issue with the first one."
+        },
+        {
+            "style": "Note",
+            "text": "The point to take home is that the narrower the scope of the investigation, the easier it is to find the cause of the problem.",
+            "updated": 1611509672765
+        },
+        {
+            "style": "Subtitle",
+            "text": "7. May this be an issue with data?"
+        },
+        {
+            "style": "Text",
+            "text": "If your machine shut down unexpectedly or you closed the backend servers running in the console application without first stopping your data mining tasks, chances are some of your data may have been corrupted. If you suspect this may have something to do with your issue, then you should read Investigating Issues - Check the Integrity of Your Data.",
+            "updated": 1612875847548
+        },
+        {
+            "style": "Subtitle",
+            "text": "8. May this be an issue with the GUI?",
+            "updated": 1612875863222
+        },
+        {
+            "style": "Text",
+            "text": "If your issue happens within the GUI, then you should either be getting an on-screen error or an error on your browser console application.",
+            "updated": 1612875875780
+        },
+        {
+            "style": "Text",
+            "text": "The error on-screen or logged at the browser console may give you a hint of what may be going on. If you are a technical person, this may help solve your issue on your own."
+        },
+        {
+            "style": "Note",
+            "text": "Make sure you grab the screen showing these errors so that you may report them later.",
+            "updated": 1611509685850
+        },
+        {
+            "style": "Important",
+            "text": "Remember that Chrome and Safari on Mac are the only supported browsers. If you are using any other browsers and have GUI issues, we may not be able to reproduce them. Do not report an issue with the GUI unless you are using Chrome or Safari.",
+            "updated": 1612876423477
+        },
+        {
+            "style": "Subtitle",
+            "text": "9. May this be an issue with the Client application?",
+            "updated": 1612875983271
+        },
+        {
+            "style": "Text",
+            "text": "If there are issues with the Client application, then errors must be logged at the console where you are running the backend. The same errors are logged in the Log-Files folder and the specific sub-folders corresponding to the processes involved in the matter.",
+            "updated": 1612875992279
+        },
+        {
+            "style": "Note",
+            "text": "Make sure you check the logs for the specific processes involved in the mater, and save the corresponding log files with these errors so that you may report them later.",
+            "updated": 1612876447343
+        },
+        {
+            "style": "Success",
+            "text": "If you are a developer, remember that you may easily debug a task to find the root cause of the issue. Read Debugging a Task.",
+            "updated": 1612876057032
+        },
+        {
+            "style": "Subtitle",
+            "text": "10. May this be an issue related to your particular setup?"
+        },
+        {
+            "style": "Text",
+            "text": "Deploying and running Superalgos in complex or very particular setups augments the probability of issues related to the setup itself, which may be very hard or even impossible for the Team to reproduce. The team will investigate issues that happen while running Superalgos in your local machine, or while running in a classic trading farm setup as described in the documentation. We can not investigate issues unrelated to the software itself."
+        },
+        {
+            "style": "Text",
+            "text": "If you have issues with a particular setup, feel free to ask for help from other users in the community, but do not open an issue for the Team to look into."
+        },
+        {
+            "style": "Title",
+            "text": "Has Your Issue Not Been Resolved?"
+        },
+        {
+            "style": "Text",
+            "text": "If following this guide didn’t solve your issue, do not worry… your efforts shall not go in vain!"
+        },
+        {
+            "style": "Text",
+            "text": "Investigating your issue must have taught you a lot about how the system works, and it’s a requisite for reporting an issue so that the Team may investigate it. So, please, go ahead and do just that. Make sure you follow the instructions on How to Report an Issue and provide all the valuable information you have gathered while following this guide.",
+            "updated": 1611509744676
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

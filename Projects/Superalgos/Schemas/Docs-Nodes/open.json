@@ -1,0 +1,16 @@
+{
+    "type": "Open",
+    "definition": {
+        "text": "Open is the rate at the datetime of the begin property, as provided by the exchange. That is, the rate at the open of the candle."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

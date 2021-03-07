@@ -1,0 +1,104 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "4",
+    "type": "Open Stage Initial Targets",
+    "definition": {
+        "text": "The initial targets section features the first few definitions required to open a position: the definition of target rate and the target size.",
+        "updated": 1610185761943
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Open Stage",
+            "updated": 1610185795249
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Open Stage->Definition",
+            "updated": 1610185816513
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Open Stage->Content",
+            "updated": 1610185811108
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Open Stage->2",
+            "updated": 1610185891458
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Callout",
+            "text": "In this page, we will cover the Initial Targets definitions.",
+            "updated": 1610185946482
+        },
+        {
+            "style": "Title",
+            "text": "Initial Targets",
+            "updated": 1610185978859
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Initial Targets->Definition",
+            "updated": 1610185989025
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Initial Targets->2",
+            "updated": 1610186094999
+        },
+        {
+            "style": "Title",
+            "text": "Target Rate",
+            "updated": 1610186138633
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Rate->Definition",
+            "updated": 1610186142640
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Rate->Content",
+            "updated": 1610186146771
+        },
+        {
+            "style": "Title",
+            "text": "Target Size In Base Asset",
+            "updated": 1610186357107
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size In Base Asset->Definition",
+            "updated": 1610186350579
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size In Base Asset->Content",
+            "updated": 1610186365816
+        },
+        {
+            "style": "Title",
+            "text": "Target Size In Quoted Asset",
+            "updated": 1610186383350
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size In Quoted Asset->Definition",
+            "updated": 1610186394276
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Target Size In Quoted Asset->Content",
+            "updated": 1610186405759
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "type": "First Steps Tutorials",
+    "definition": {
+        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
+        "updated": 1610915328705
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How to Use This Book",
+            "updated": 1610955545072
+        },
+        {
+            "style": "Text",
+            "text": "Tutorials provide the ultimate hands-on learning experience. Doing all existing tutorials has proven to be the most effective way to tackle the learning curve."
+        },
+        {
+            "style": "Success",
+            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Run on the menu."
+        },
+        {
+            "style": "Text",
+            "text": "When you need a quick refresher, you may always go back and redo the whole tutorial or a few steps. Because tutorials are made of searchable pages, you may also scan the content without actually doing the tutorial."
+        },
+        {
+            "style": "Text",
+            "text": "The recommended order is given by the list of chapters below, but the truth is doing all tutorials is what matters, regardless of the order."
+        },
+        {
+            "style": "Title",
+            "text": "List of Plugin Workspaces and Tutorials"
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, find a relation of plugin workspaces and the tutorials each of them feature."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->List of Plugin Workspaces and Tutorials->Content",
+            "updated": 1610955413534
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Superalgos->Tutorial->Welcome to Superalgos!->You have most likely already done the Welcome tutorial. However, it is so densely packed with information that most users choose to do it more than once. Find the Welcome tutorial in the Getting Started plugin workspace.",
+            "updated": 1610915848630
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Superalgos->Tutorial->Install a New Market->If you are anxious to start trying things out in your preferred altcoin markets, this tutorial teaches you how to set them up. Find this tutorial in the Getting Started plugin workspace.",
+            "updated": 1610916232999
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Superalgos->Tutorial->Trading Bot Layers->This tutorial expands what you learned on the Welcome tutorial about the layers that the Trading Bot makes available in the charts. It is fundamental information to understand your backtests and simulations in general. Find this tutorial in the Weak-hands Buster V2 plugin workspace.",
+            "updated": 1610916386240
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Superalgos->Tutorial->Intro to Trading Systems->This is the first tutorial in a series about building trading systems and the strategies within. The tutorial lays out the key aspects of the framework so that you may open your mind to what comes next. Find this tutorial in the Trading Systems Design Tutorials workspace.",
+            "updated": 1610953567118
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Superalgos->Tutorial->Defining a Trading Idea->This tutorial is the second in the series about building strategies. It covers the conceptual aspects of formulating a testable trading idea, a requirement for designing a trading strategy. Find this tutorial in the Trading Systems Design Tutorials plugin workspace.",
+            "updated": 1610953544399
+        },
+        {
+            "style": "Chapter",
+            "text": "VI->Superalgos->Tutorial->Testing a Trading Idea - The Trigger Stage->This tutorial is the third in the series about building strategies. It covers the implementation of the trading idea developed in the previous tutorial, at the level of the Trigger Stage. Find this tutorial in the Trading Systems Design Tutorials plugin workspace.",
+            "updated": 1610955670388
+        },
+        {
+            "style": "Chapter",
+            "text": "VII->Superalgos->Tutorial->Testing a Trading Idea - The Other Stages->This tutorial is the fourth in the series and completes the implementation and testing of the trading idea. Find this tutorial in the Trading Systems Design Tutorials plugin workspace.",
+            "updated": 1610955678658
+        },
+        {
+            "style": "Chapter",
+            "text": "VIII->Superalgos->Tutorial->Developers Intro->This tutorial is a technical overview on the architecture of Superalgos, it's main components, and notes on design criteria.",
+            "updated": 1610955692420
+        }
+    ]
+}

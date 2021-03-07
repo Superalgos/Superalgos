@@ -1,0 +1,22 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 6,
+    "type": "Docs Important Style",
+    "definition": {
+        "text": "Use this style to communicate a tip or something important to the reader."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Whatever you type while editing will be rendered inside the importat box."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Important",
+            "text": "This is an example of a paragraph in important style."
+        }
+    ]
+}

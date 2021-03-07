@@ -1,0 +1,56 @@
+{
+    "type": "Image Position",
+    "definition": {
+        "text": "The image position node is a reference to a point defined in the chart points, and serves to determine the position in which the image shall be placed."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The image position node works similarly to the polygon vertex in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the image shall be placed."
+        },
+        {
+            "style": "Note",
+            "text": "See the configuration for further details."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Image Position"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "   \"offsetX\": 0,"
+        },
+        {
+            "style": "Text",
+            "text": "   \"offsetY\": 10"
+        },
+        {
+            "style": "Text",
+            "text": "}"
+        },
+        {
+            "style": "List",
+            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the image in relation to the coordinate point defined by the reference of the node. Negative values displace the image to the left and positive values to the right."
+        },
+        {
+            "style": "List",
+            "text": "offsetY is an offset in the Y axis. Negative values displace the image downwards and positive values displace the image upwards."
+        }
+    ]
+}

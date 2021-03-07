@@ -1,0 +1,38 @@
+{
+    "type": "Trading Bot",
+    "definition": {
+        "text": "A trading bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)—applies the trading logic defined on a Trading System to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session.",
+        "updated": 1609861419818
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, a trading bot is a computer program designed to leverage the Superalgos infrastructure to provide smart trading features to users building, testing, and deploying trading systems. As such, a trading bot does not feature trading logic in and of itself. Instead, it executes the logic defined in trading systems."
+        },
+        {
+            "style": "Text",
+            "text": "Put in other words, when Superalgos users define trading systems and the trading strategies within, they are not building a trading bot. Instead, they are defining a set of instructions that a trading bot will then interpret and execute."
+        },
+        {
+            "style": "Text",
+            "text": "Trading bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to trading bots are trading mines themselves. Trading bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions."
+        },
+        {
+            "style": "Text",
+            "text": "Trading mines make building trading bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Trading Bot Configuration",
+            "updated": 1609861438022
+        }
+    ]
+}

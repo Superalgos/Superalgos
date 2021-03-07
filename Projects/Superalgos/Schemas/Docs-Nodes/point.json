@@ -1,0 +1,21 @@
+{
+    "type": "Point",
+    "definition": {
+        "text": "A point is a definition of an [x,y] coordinate. The value [x] usually represents a datetime. The value [y] may refer to a price or some other concept."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "These coordinate points are used to define polygons. Values for [x,y]coordinates are entered with a point formula."
+        },
+        {
+            "style": "Success",
+            "text": "Give points a significant name so that it is easier to identify them at the time of establishing references with polygon vertices.",
+            "updated": 1609852471920
+        }
+    ]
+}

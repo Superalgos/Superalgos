@@ -1,0 +1,38 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 18,
+    "type": "Docs Gif Style",
+    "definition": {
+        "text": "It is possible to embed gifs at a Docs page. "
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The gif to be embedded need to be present at the project's GIFs/Docs folder. The syntax to do it is the following:"
+        },
+        {
+            "style": "Json",
+            "text": "GIFs/Project-Folder/Docs/Inner-Folder/File-Name.gif"
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": "GIFs/Superalgos/Docs/design-space/workspace-01.gif"
+        },
+        {
+            "style": "Text",
+            "text": "Looks like this:"
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/workspace-01.gif"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

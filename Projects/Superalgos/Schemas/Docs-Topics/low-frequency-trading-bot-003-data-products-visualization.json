@@ -1,0 +1,32 @@
+{
+    "topic": "Low-Frequency Trading Bot",
+    "pageNumber": "3",
+    "type": "Data Products Visualization",
+    "definition": {
+        "text": "The Superalgos trading bot outputs several data products which may be visualized on the frontend application in multiple manners.",
+        "updated": 1611240250659
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Low-Frequency trading bot outputs tens of data products, which are made available for others to use through the data structure provided by the Trading Engine hierarchy, the Trading System involved in the trading session, and the time machines installed to visualize the trading simulations.",
+            "updated": 1611252948830
+        },
+        {
+            "style": "Success",
+            "text": "The Trading Bot Layers interactive tutorial available in the Weak-Hands Buster v.2 plugin workspace covers all the trading bot features that enable the visualization of trading information:"
+        },
+        {
+            "style": "List",
+            "text": "Visualization of simulations over the chart for all types of trading sessions."
+        },
+        {
+            "style": "List",
+            "text": "Visualization of all the trading information managed by the trading bot on the trading engine hierarchy."
+        },
+        {
+            "style": "List",
+            "text": "Visualization of event highlights, values, warnings, errors, and general information concerning the trading system."
+        }
+    ]
+}

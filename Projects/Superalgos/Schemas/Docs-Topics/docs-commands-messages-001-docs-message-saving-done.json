@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Commands Messages",
+    "pageNumber": 1,
+    "type": "Docs Message - Saving Done",
+    "definition": {
+        "text": "The docs.save command was successful and all changes were saved at the Superalgos Client.",
+        "updated": 1611937734586
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "All the latest changes to node, concept, topic, tutorial, review, and book pages have been saved to disk.",
+            "updated": 1610973308339
+        }
+    ]
+}

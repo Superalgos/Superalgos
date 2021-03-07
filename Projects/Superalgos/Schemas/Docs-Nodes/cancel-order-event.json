@@ -1,0 +1,16 @@
+{
+    "type": "Cancel Order Event",
+    "definition": {
+        "text": "The cancel order event makes cancelling limit orders possible."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The cancel order event defines the market situations in which a limit order shall be canceled. When the event is triggered, the order is closed, even when the order may have been partially filled. In such a case, the size filled remains as is, and all accounts are computed accordingly, with the partial fill."
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Delete Entity",
+    "definition": {
+        "text": "Deletes the node and all its offspring. A confirmation in the form of an additional click is required.",
+        "updated": 1610033272508
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "This operation can not be undone.",
+            "updated": 1611398340598
+        }
+    ]
+}

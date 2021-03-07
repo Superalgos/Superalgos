@@ -1,0 +1,39 @@
+{
+    "type": "Limit Sell Order",
+    "definition": {
+        "text": "A limit sell order is an instruction sent to the exchange to sell the base asset, for execution at a specific rate or better."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Success",
+            "text": "Please read the definition of Limit Buy Order for relevant information about how limit orders work. Also, please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the section about Size, Filling, Closing, and Spawning Multiple Orders.",
+            "updated": 1609608882268
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1610188212039
+        },
+        {
+            "style": "Title",
+            "text": "Limit Sell Order Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609608623308
+        },
+        {
+            "style": "List",
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+        },
+        {
+            "style": "List",
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+        }
+    ]
+}

@@ -14919,6 +14919,10 @@
             {
                 "codeName": "hitbtc",
                 "iconName": "hitbtc"
+            },
+            {
+                "codeName": "luno",
+                "iconName": "luno"
             }
         ]
     },
@@ -15074,6 +15078,10 @@
             {
                 "codeName": "USD",
                 "iconName": "us-dollar"
+            },
+            {
+                "codeName": "ZAR",
+                "iconName": "zar"
             }
         ]
     },

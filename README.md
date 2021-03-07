@@ -314,6 +314,15 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 
 Superalgos is a Community Project built by Contributors for Contributors. Learn [how to become a Contributor](https://superalgos.org/community-contribute.shtml).
 
+# Docker Image
+
+If you want to run superalgo over docker platform, you should follow the next steps:
+
+1. [Install docker](https://docs.docker.com/engine/install/)
+2. `docker login ghcr.io --username your-github-username --password-stdin`
+3. `docker run -p 18041:18041 -p 34248 superalgos/superalgos`
+4. Now you can access to the superalgos UI
+
 ## Top Contributors 
 
 Luis Fernando Molina, Julian Molina, Andreja Cobeljic, Matías Benitez, Ira Miller, Eduardo Remis, Jeff Braun, rico4dev, 9808us, Barry Low, Nikola Bjelogrlic, Hirajin Koizuko, Francisco J. Santillán, Norman, Viktoria B., Guillermo V., Daniel J., Javier A., Gustavo J., Romina GS, Pedro P., Thais M., Andrey M., Loui M., Natalia M., Bashar A., Carlos V., Diego M., CarnivalBen, Sebastian E., Bogdan P., Marko V., Igor S., Niksa K., Rodrigo M., Nicanor M., Alejandro P., Mateo H., Lan T., Leon A., Uroš R., Filip M., Vladimir J. and Pavle B.

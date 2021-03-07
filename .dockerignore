@@ -1,0 +1,9 @@
+README.md
+LICENSE
+CONTRIBUITING.md
+CODE_OF_CONDUCT.md
+.gitignore
+.vscode
+.github/ISSUE_TEMPLATE
+./**/.vscode
+Dockerfile

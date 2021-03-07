@@ -3,14 +3,14 @@
     "pageNumber": 1,
     "type": "Why My Stage is not Closing?",
     "definition": {
-        "text": "One of the most common questions asked by users is why the open or close stage are not closing after the order was filled?",
-        "updated": 1615053580910
+        "text": "One of the most common questions asked by users is why the open or close stage are not closing after the order was filled.",
+        "updated": 1615100269026
     },
     "paragraphs": [
         {
             "style": "Note",
-            "text": "The shot answer is becasue the Stage Filled Size did not reach the value of the Stage Target Size. ",
-            "updated": 1615053684185
+            "text": "The shot answer is becasue the Stage Size Filled did not reach the value of the Stage Target Size.",
+            "updated": 1615100332173
         },
         {
             "style": "Text",

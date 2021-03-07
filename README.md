@@ -180,13 +180,13 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 - NEW: Added github action to publish docker image into github package registry
 
 ## Docker Image 
-If you want to run superalgo over docker platform, you should follow the next steps: 
+If you want to run superalgos over docker platform, you should follow the next steps: 
 1. [Install docker](https://docs.docker.com/engine/install/) 
 2. `docker login ghcr.io --username your-github-username --password-stdin` 
 3. `docker run -p 18041:18041 -p 34248 superalgos/superalgos` 
 4. Now you can access to the superalgos UI
 
-Note: This has not been tested yet, if you run into problems, please contact us at our [Superalgos User's Support Group](https://t.me/superalgossupport).
+Note: This has not been extensively tested yet, if you run into troubles, please contact us at our [Superalgos User's Support Group](https://t.me/superalgossupport).
 
 # What is Superalgos?
 

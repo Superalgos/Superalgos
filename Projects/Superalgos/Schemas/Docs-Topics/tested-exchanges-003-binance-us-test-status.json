@@ -1,10 +1,10 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "2",
-    "type": "FTX Test Status",
+    "pageNumber": "3",
+    "type": "Binance-US Test Status",
     "definition": {
-        "text": "FTX is tested for data mining but not for live trading",
-        "updated": 1615204721150
+        "text": "Binance US is tested for data mining and live trading",
+        "updated": 1615210764406
     },
     "paragraphs": [
         {
@@ -19,13 +19,13 @@
         },
         {
             "style": "List",
-            "text": "Market History: Starting on September 2019",
-            "updated": 1615204614502
+            "text": "Market History: Starting on Genuary 2020",
+            "updated": 1615210971704
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Unknown",
-            "updated": 1615204866750
+            "text": "Trading Capability [**]: Yes",
+            "updated": 1615210793722
         },
         {
             "style": "List",
@@ -39,7 +39,7 @@
         {
             "style": "Text",
             "text": "[**] The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1615211002861
+            "updated": 1615210884706
         },
         {
             "style": "Title",
@@ -47,8 +47,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"ftx\"\n}",
-            "updated": 1615204693035
+            "text": "{\n    \"codeName\": \"binanceus\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1615210940971
         },
         {
             "style": "Text",

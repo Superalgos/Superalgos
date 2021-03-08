@@ -25,8 +25,24 @@
         },
         {
             "style": "List",
+            "text": "Binance-US Test Status"
+        },
+        {
+            "style": "List",
+            "text": "Bitfinex Test Status"
+        },
+        {
+            "style": "List",
             "text": "FTX Test Status",
             "updated": 1615203669878
+        },
+        {
+            "style": "List",
+            "text": "Kucoin Test Status"
+        },
+        {
+            "style": "List",
+            "text": "Luno Test Status"
         },
         {
             "style": "Title",

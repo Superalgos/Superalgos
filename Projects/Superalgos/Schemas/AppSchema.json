@@ -1748,7 +1748,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
+            "config": " { \"default\": {  \"opacity\": 0.2,  \"lineWidth\": 1,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\" }, \"atMousePosition\": {  \"opacity\": 0.3,  \"lineWidth\": 2,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.RUSTED_RED\" }}"
         },
         "menuItems": [
             {

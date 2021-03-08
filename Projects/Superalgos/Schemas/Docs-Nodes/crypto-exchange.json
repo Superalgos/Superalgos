@@ -20,8 +20,13 @@
         },
         {
             "style": "List",
-            "text": "Binance Test Status.",
-            "updated": 1615201709144
+            "text": "Binance Test Status",
+            "updated": 1615203667257
+        },
+        {
+            "style": "List",
+            "text": "FTX Test Status",
+            "updated": 1615203669878
         },
         {
             "style": "Title",

@@ -10,8 +10,27 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Exchange Configuration",
-            "updated": 1609771676751
+            "text": "Tested Exchanges",
+            "updated": 1615200855230
+        },
+        {
+            "style": "Text",
+            "text": "In theory, Superalgos supports dozens of exchanges. However, each exchange must go through a testing process, as not all of them conform to the standard proposed by the CCXT library.",
+            "updated": 1615201479524
+        },
+        {
+            "style": "List",
+            "text": "Binance Test Status.",
+            "updated": 1615201709144
+        },
+        {
+            "style": "Title",
+            "text": "Crypto Exchange Configuration"
+        },
+        {
+            "style": "Text",
+            "text": "Each exchange may require a very specific configuration. This is determined during the exchange testing process. Consult the page of each exchange as listed above. If you are interested in testing a new exchange, go to the How to Test New Exchanges page.",
+            "updated": 1615201685376
         },
         {
             "style": "Subtitle",

@@ -3,7 +3,7 @@ function newPlotterPanel() {
     const MODULE_NAME = 'Plotter Panel'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         fitFunction: undefined,
@@ -23,6 +23,7 @@ function newPlotterPanel() {
     let currentRecord
     let upDownButton
     let panelNode
+    let recordSet = new Map()
 
     return thisObject
 
@@ -34,6 +35,7 @@ function newPlotterPanel() {
 
         heightFactor = undefined
         currentRecord = undefined
+        recordSet = undefined
         upDownButton.finalize()
         upDownButton = undefined
         panelNode = undefined
@@ -79,6 +81,20 @@ function newPlotterPanel() {
 
     function onRecordChange(pCurrentRecord) {
         currentRecord = pCurrentRecord
+
+        if (currentRecord === undefined) {
+            recordSet = new Map()
+            return
+        }
+        if (currentRecord.index !== undefined) {
+            /*
+            There is a situation when we expect to receive many records
+            that are part of a set. We will know when when we detect the 
+            property index. In that situation we will build the recordset 
+            by adding each record to a Map by index.
+            */
+            recordSet.set(currentRecord.index, currentRecord)
+        }
     }
 
     function draw() {

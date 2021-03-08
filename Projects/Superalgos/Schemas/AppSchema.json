@@ -742,6 +742,12 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"codeName\": \"\", \n\"isLegacy\": false\n}"
+        },
         "childrenNodesProperties": [
             {
                 "name": "plotterPanelJavascriptCode",
@@ -756,6 +762,13 @@
             }
         ],
         "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,

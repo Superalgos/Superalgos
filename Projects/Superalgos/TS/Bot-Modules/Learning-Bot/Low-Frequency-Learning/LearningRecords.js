@@ -45,6 +45,10 @@ exports.newSuperalgosBotModulesLearningRecords = function (processIndex) {
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
+            if (product.config.codeName === 'Predictions') {
+                let a = 1
+            }
+
             if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true && dataset.config.type === 'Daily Files') {
                 persistRecords()
             }

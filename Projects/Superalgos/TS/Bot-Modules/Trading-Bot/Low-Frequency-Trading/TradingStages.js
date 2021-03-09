@@ -975,39 +975,28 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             ABSOLUTE_DUST_IN_QUOTED_ASSET = tradingSystemStage.config.absoluteDustInQuotedAsset
         }
 
-        switch (tradingEngineStage.stageDefinedIn.value) {
-            case 'Base Asset': {
-                if (
-                    tradingEngineStage.stageBaseAsset.sizeFilled.value
-                    *
-                    ROUNDING_ERROR_CORRECTION_FACTOR
-                    +
-                    ABSOLUTE_DUST_IN_BASE_ASSET
-                    >=
-                    tradingEngineStage.stageBaseAsset.targetSize.value
-                ) {
-                    positionFilled()
-                } else {
-                    checkCloseStageEvent(tradingSystemStage)
-                }
-                break
-            }
-            case 'Quoted Asset': {
-                if (
-                    tradingEngineStage.stageQuotedAsset.sizeFilled.value
-                    *
-                    ROUNDING_ERROR_CORRECTION_FACTOR
-                    +
-                    ABSOLUTE_DUST_IN_QUOTED_ASSET
-                    >=
-                    tradingEngineStage.stageQuotedAsset.targetSize.value
-                ) {
-                    positionFilled()
-                } else {
-                    checkCloseStageEvent(tradingSystemStage)
-                }
-                break
-            }
+        if (
+            tradingEngineStage.stageBaseAsset.sizeFilled.value
+            *
+            ROUNDING_ERROR_CORRECTION_FACTOR
+            +
+            ABSOLUTE_DUST_IN_BASE_ASSET
+            >=
+            tradingEngineStage.stageBaseAsset.targetSize.value
+        ) {
+            positionFilled()
+        } else if (
+            tradingEngineStage.stageQuotedAsset.sizeFilled.value
+            *
+            ROUNDING_ERROR_CORRECTION_FACTOR
+            +
+            ABSOLUTE_DUST_IN_QUOTED_ASSET
+            >=
+            tradingEngineStage.stageQuotedAsset.targetSize.value
+        ) {
+            positionFilled()
+        } else {
+            checkCloseStageEvent(tradingSystemStage)
         }
 
         function positionFilled() {

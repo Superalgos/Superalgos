@@ -4,7 +4,6 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
     const MAX_RETRY = 10
     const FAST_RETRY_TIME_IN_MILISECONDS = 500
     const SLOW_RETRY_TIME_IN_MILISECONDS = 2000
-    const path = require('path')
 
     let thisObject = {
         asyncGetTextFile: asyncGetTextFile,
@@ -244,8 +243,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
                 /* If necesary a folder or folders are created before writing the file to disk. */
-                let directoryPath = fileLocation.substring(0, fileLocation.lastIndexOf('/') + 1);
-                mkDirByPathSync(directoryPath)
+                TS.projects.superalgos.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
 
                 /*
                 Here we write the file with a temporary name so as to avoid dirty read from other processes.
@@ -440,37 +438,6 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                 }
             }
         }
-    }
-
-    /* Function to create folders of missing folders at any path. */
-    function mkDirByPathSync(targetDir, { isRelativeToScript = false } = {}) {
-        const sep = '/';
-        const initDir = path.isAbsolute(targetDir) ? sep : '';
-        const baseDir = isRelativeToScript ? __dirname : '.';
-
-        return targetDir.split(sep).reduce((parentDir, childDir) => {
-            const curDir = path.resolve(baseDir, parentDir, childDir);
-            try {
-                const fs = require('fs')
-                fs.mkdirSync(curDir);
-            } catch (err) {
-                if (err.code === 'EEXIST') { // curDir already exists!
-                    return curDir;
-                }
-
-                // To avoid `EISDIR` error on Mac and `EACCES`-->`ENOENT` and `EPERM` on Windows.
-                if (err.code === 'ENOENT') { // Throw the original parentDir error on curDir `ENOENT` failure.
-                    throw new Error(`EACCES: permission denied, mkdir '${parentDir}'`);
-                }
-
-                const caughtErr = ['EACCES', 'EPERM', 'EISDIR'].indexOf(err.code) > -1;
-                if (!caughtErr || caughtErr && curDir === path.resolve(targetDir)) {
-                    throw err; // Throw if it's just the last created dir.
-                }
-            }
-
-            return curDir;
-        }, initDir);
     }
 
     function getFileViaHTTP(filePath, callback, callBackFunction) {

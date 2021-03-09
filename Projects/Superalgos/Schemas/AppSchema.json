@@ -5958,7 +5958,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "This",
+                "label": "Delete",
                 "iconPathOn": "delete-entity",
                 "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"

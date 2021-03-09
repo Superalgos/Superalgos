@@ -3,12 +3,27 @@
     "pageNumber": "4",
     "type": "Tutorial Step - Pinned Nodes Can't Dance",
     "definition": {
-        "text": "Write a summary for this tutorial page."
+        "text": "When a node is pinned, it becomes fixed to a position regardless of the setting of the rest of the arrangement properties!",
+        "icon": {
+            "name": "pinned-node",
+            "project": "Superalgos"
+        },
+        "updated": 1615315595276
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use doscs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "You may pin a node, a structure of nodes, and even the complete hierarchy. Let's try something else...",
+            "updated": 1615316007384
+        },
+        {
+            "style": "Callout",
+            "text": "Pin the Trading Parameters node and drag it away!"
+        },
+        {
+            "style": "Note",
+            "text": "Notice how all offspring nodes follow the parent node. However, the Session Base Asset node remaines in position! Before we move on, unpin all nodes to keep the workspace in order!",
+            "updated": 1615316085827
         }
     ]
 }

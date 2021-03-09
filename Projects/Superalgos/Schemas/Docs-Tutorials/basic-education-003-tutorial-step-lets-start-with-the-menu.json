@@ -3,8 +3,8 @@
     "pageNumber": "3",
     "type": "Tutorial Step - Let's Start With the Menu",
     "definition": {
-        "text": "The left-hand side of a node's menu is common to most nodes. On the other hand, the right-hand side is specific to the type of node!",
-        "updated": 1615312375273,
+        "text": "The left-hand side of a node's menu is common to most nodes. The right-hand side, however, is specific to the type of node!",
+        "updated": 1615315122923,
         "icon": {
             "name": "unpinned-node",
             "project": "Superalgos"
@@ -22,8 +22,8 @@
         },
         {
             "style": "Callout",
-            "text": "Click the pin button on the top-left corner of the Let's Start With the Menu Tutorial Step node. Now drag the node away and release it!",
-            "updated": 1615313938953
+            "text": "Click the pin button on the top-left corner of the Session Base Asset node. Now drag the node away and release it! Now drag and release any other node without pinning it. See the difference?",
+            "updated": 1615315170878
         }
     ]
 }

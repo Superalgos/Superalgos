@@ -119,6 +119,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' + 
+            'Features->Feature->Begin->End->Feature Value->'+ 
+            'Labels->Label->Begin->End->Label Value->'+ 
             'Predictions->Prediction->Begin->End->Prediction Value->'
 
         let learningEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)

@@ -1,10 +1,10 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "2",
-    "type": "FTX Test Status",
+    "pageNumber": "5",
+    "type": "Kucoin Test Status",
     "definition": {
-        "text": "FTX is tested for data mining but not for live trading",
-        "updated": 1615204721150
+        "text": "Kucoin is not tested for data mining nor for live trading",
+        "updated": 1615211178818
     },
     "paragraphs": [
         {
@@ -19,8 +19,8 @@
         },
         {
             "style": "List",
-            "text": "Market History: Starting on September 2019",
-            "updated": 1615204614502
+            "text": "Market History: 1 day",
+            "updated": 1615211188110
         },
         {
             "style": "List",
@@ -29,17 +29,18 @@
         },
         {
             "style": "List",
-            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
-            "updated": 1615205045729
+            "text": "Comments: While testing with standard configuration it was possible to fetch 1 day of historical Raw Data",
+            "updated": 1615211286656
         },
         {
             "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
+            "text": "[*] The ability to fetch historic data for backtesting purposes has not been verified",
+            "updated": 1615211296452
         },
         {
             "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1615211002861
+            "text": "[**] The ability to run strategies in live-trading mode has not been verified",
+            "updated": 1615211304255
         },
         {
             "style": "Title",
@@ -47,8 +48,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"ftx\"\n}",
-            "updated": 1615204693035
+            "text": "{\n    \"codeName\": \"kucoin\"\n}",
+            "updated": 1615211313657
         },
         {
             "style": "Text",

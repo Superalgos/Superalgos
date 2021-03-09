@@ -22,8 +22,8 @@
         },
         {
             "style": "Note",
-            "text": "Notice how all offspring nodes follow the parent node. However, the Session Base Asset node remaines in position! Before we move on, unpin all nodes to keep the workspace in order!",
-            "updated": 1615316085827
+            "text": "Notice how all offspring nodes follow the parent node. However, the Session Base Asset node remains in position! Before we move on, unpin all nodes to keep the workspace in order!",
+            "updated": 1615316147113
         }
     ]
 }

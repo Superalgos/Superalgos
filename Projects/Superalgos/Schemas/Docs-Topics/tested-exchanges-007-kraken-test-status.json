@@ -1,0 +1,59 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": "7",
+    "type": "Kraken Test Status",
+    "definition": {
+        "text": "Kraken is tested for data mining but not for live trading",
+        "updated": 1615204721150
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability [*]: Yes",
+            "updated": 1615204617519
+        },
+        {
+            "style": "List",
+            "text": "Market History: Unknown",
+            "updated": 1615204614502
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Unknown",
+            "updated": 1615204866750
+        },
+        {
+            "style": "List",
+            "text": "Comments: With standard settings only one day worth of Raw Data is fetched. To retrieve Raw Data in Kraken, pairs in config are reversed. Backtesting and Live Trading behaviour unknown",
+            "updated": 1615278620667
+        },
+        {
+            "style": "Text",
+            "text": "[*] The ability to fetch historic data for backtesting purposes has not been verified",
+            "updated": 1615211359233
+        },
+        {
+            "style": "Text",
+            "text": "[**] The ability to run strategies in live-trading mode has not been verified",
+            "updated": 1615211364516
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"USDT/BTC\"\n}",
+            "updated": 1615278483740
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

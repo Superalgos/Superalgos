@@ -32,8 +32,8 @@
         },
         {
             "style": "Javascript",
-            "text": "\nlet trailingStopLoss = 3 // Set the percentage you wish your Trailing Stop Loss to trail\n\nif ( chart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) ) > tradingEngine.tradingCurrent.position.stopLoss.value ) {\nchart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) )\n}\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
-            "updated": 1615286314820
+            "text": "let trailingStopLoss = 3 // Set the percentage you wish your Trailing Stop Loss to trail\n\nif ( chart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) ) < tradingEngine.tradingCurrent.position.stopLoss.value ) {\nchart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) )\n}\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
+            "updated": 1615297661487
         },
         {
             "style": "Important",

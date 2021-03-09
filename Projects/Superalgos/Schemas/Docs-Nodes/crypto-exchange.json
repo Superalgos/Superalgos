@@ -38,6 +38,10 @@
         },
         {
             "style": "List",
+            "text": "Kraken Tested Status"
+        },
+        {
+            "style": "List",
             "text": "Kucoin Test Status"
         },
         {

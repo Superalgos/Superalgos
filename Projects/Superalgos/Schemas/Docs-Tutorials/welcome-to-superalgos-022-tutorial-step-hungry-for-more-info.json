@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Non mi addentrerò in ogni dettaglio mentre proseguiamo, ma se hai bisogno di più info su un nodo il pulsante di help sul menu ti porta direttamente alla relativa documentazione.",
-                "updated": 1614790878931
+                "updated": 1614790878931,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +25,8 @@
                 {
                     "language": "IT",
                     "text": "La documentazione di un nodo può includere una o più delle seguenti sezioni:",
-                    "updated": 1614790910243
+                    "updated": 1614790910243,
+                    "style": "Text"
                 }
             ]
         },
@@ -35,7 +37,8 @@
                 {
                     "language": "IT",
                     "text": "<b>Definizione</b>: descrive il nodo o la sua funzione",
-                    "updated": 1614790956373
+                    "updated": 1614790956373,
+                    "style": "List"
                 }
             ]
         },
@@ -46,31 +49,34 @@
                 {
                     "language": "IT",
                     "text": "<b>Contenuto:</b> descrive come funziona il nodo",
-                    "updated": 1614791022017
+                    "updated": 1614791022017,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Configuration: some node may have one.",
-            "updated": 1610614516774,
+            "text": "Configuration: some nodes may have one.",
+            "updated": 1615304462606,
             "translations": [
                 {
                     "language": "IT",
                     "text": "<b>Configurazione:</b> alcuni nodi ne hanno una",
-                    "updated": 1614791040416
+                    "updated": 1614791040416,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Technical: the rest of the infor is usually of a technical nature, oriented to developers.",
-            "updated": 1610614574015,
+            "text": "Technical: the rest of the info is usually of a technical nature, oriented to developers.",
+            "updated": 1615304469703,
             "translations": [
                 {
                     "language": "IT",
                     "text": "<b>Info tecniche:</b> il resto delle informazioni sono solitamente di natura tecnica, principalmente per gli sviluppatori.",
-                    "updated": 1614791106174
+                    "updated": 1614791106174,
+                    "style": "List"
                 }
             ]
         },
@@ -81,7 +87,8 @@
                 {
                     "language": "IT",
                     "text": "Clicca il pulsante di help sul nodo Data Tasks!",
-                    "updated": 1614791129195
+                    "updated": 1614791129195,
+                    "style": "Callout"
                 }
             ]
         }

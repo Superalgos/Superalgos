@@ -27,12 +27,9 @@
             "text": "3. Installing the market "
         },
         {
-            "style": "Text",
-            "text": "Let's get on with it!"
-        },
-        {
             "style": "Callout",
-            "text": "When you click the Next button below, you will go to the Exchange Assets node under Binance, in the Crypto Ecosystem hierarchy."
+            "text": "When you click the Next button below, you will go to the Exchange Assets node under Binance, in the Crypto Ecosystem hierarchy. You may learn how to install a market in this exchange so that you may do the same in your exchange of choice later on.",
+            "updated": 1615202737286
         }
     ]
 }

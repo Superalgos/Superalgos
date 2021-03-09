@@ -59,11 +59,6 @@
             "updated": 1615054151393
         },
         {
-            "style": "Note",
-            "text": "The parameter that will actually be used from the two previous ones will depend on how you dedined your Target Size, either in Base Asset or Quoted Asset.",
-            "updated": 1615054261790
-        },
-        {
             "style": "Subtitle",
             "text": "Implementation",
             "updated": 1615054281409
@@ -74,8 +69,8 @@
         },
         {
             "style": "Javascript",
-            "text": "switch (tradingEngineStage.stageDefinedIn.value) {\n            case 'Base Asset': {\n                if (\n                    tradingEngineStage.stageBaseAsset.sizeFilled.value\n                    * \n                    ROUNDING_ERROR_CORRECTION_FACTOR\n                    +\n                    ABSOLUTE_DUST_IN_BASE_ASSET\n                    >=\n                    tradingEngineStage.stageBaseAsset.targetSize.value\n                ) {\n                    positionFilled()\n                } else {\n                    checkCloseStageEvent(tradingSystemStage)\n                }\n                break\n            }\n            case 'Quoted Asset': {\n                if (\n                    tradingEngineStage.stageQuotedAsset.sizeFilled.value\n                    * \n                    ROUNDING_ERROR_CORRECTION_FACTOR\n                    +\n                    ABSOLUTE_DUST_IN_QUOTED_ASSET\n                    >=\n                    tradingEngineStage.stageQuotedAsset.targetSize.value\n                ) {\n                    positionFilled()\n                } else {\n                    checkCloseStageEvent(tradingSystemStage)\n                }\n                break\n            }\n        }",
-            "updated": 1615054391439
+            "text": "        if (\n            tradingEngineStage.stageBaseAsset.sizeFilled.value\n            *\n            ROUNDING_ERROR_CORRECTION_FACTOR\n            +\n            ABSOLUTE_DUST_IN_BASE_ASSET\n            >=\n            tradingEngineStage.stageBaseAsset.targetSize.value\n        ) {\n            positionFilled()\n        } else if (\n            tradingEngineStage.stageQuotedAsset.sizeFilled.value\n            *\n            ROUNDING_ERROR_CORRECTION_FACTOR\n            +\n            ABSOLUTE_DUST_IN_QUOTED_ASSET\n            >=\n            tradingEngineStage.stageQuotedAsset.targetSize.value\n        ) {\n            positionFilled()\n        } else {\n            checkCloseStageEvent(tradingSystemStage)\n        }",
+            "updated": 1615296774086
         }
     ]
 }

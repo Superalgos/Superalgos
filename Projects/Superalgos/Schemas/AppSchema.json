@@ -3242,8 +3242,7 @@
             "compatibleTypes": "->Prediction->"
         },
         "propertyNameAtParent": "predictionValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -3415,8 +3414,7 @@
             "compatibleTypes": "->Feature->"
         },
         "propertyNameAtParent": "featureValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -3588,8 +3586,7 @@
             "compatibleTypes": "->Label->"
         },
         "propertyNameAtParent": "labelValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -15083,7 +15080,8 @@
                 "childType": "Signals Provider",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Signals Provider",
@@ -15127,7 +15125,8 @@
             "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
-        "childrenNodesProperties": []
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Crypto Exchanges",

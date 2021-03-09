@@ -18,15 +18,8 @@
         },
         {
             "style": "Text",
-            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain laws of physics, and constrained by their chain relationships."
-        },
-        {
-            "style": "Text",
-            "text": "This self-organizing paradigm saves users the effort of maintaining the arrangement of nodes in a logical manner, in particular when manipulating or creating new nodes."
-        },
-        {
-            "style": "Text",
-            "text": "However, there will be times in which you will want to override this self-organizing nature. The following menu options are tools that will help you manipulate the arrangement of nodes, overriding the physics that affect their floating nature."
+            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu.",
+            "updated": 1615313209746
         },
         {
             "style": "Subtitle",

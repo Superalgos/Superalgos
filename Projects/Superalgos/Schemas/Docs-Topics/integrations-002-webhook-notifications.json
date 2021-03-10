@@ -322,6 +322,202 @@
         },
         {
             "style": "Title",
+            "text": "Test that the Signal is Taken by your Strategy",
+            "updated": 1615377044554
+        },
+        {
+            "style": "Text",
+            "text": "We will make ourselves sure that from within a strategy we can react to an external Signal. To test this, plese take the following steps. All of the following goes into the current Lighting Strike Backtesting Session / Task.",
+            "updated": 1615379790606
+        },
+        {
+            "style": "Subtitle",
+            "text": "Paper Trading Session",
+            "updated": 1615380274411
+        },
+        {
+            "style": "Text",
+            "text": "Rigth click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up Session Parameters"
+        },
+        {
+            "style": "Text",
+            "text": "Since you have reinstalled the market in order for the task of the Webhooks bot to appear at the Master Trading Mine Tasks, the setup for the Lighting Strike strategy needs to be fixed. (Assuming you are at the Getting Started Workspace). This is what we are going to do:",
+            "updated": 1615379719899
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to your Session Base Asset",
+            "updated": 1615379980416
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialBalance\": 0\n}",
+            "updated": 1615382028446
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Session Quoted Asset",
+            "updated": 1615379973089
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialBalance\": 1\n}",
+            "updated": 1615380003924
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Time Range",
+            "updated": 1615380023496
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"initialDatetime\": \"2020-09-01\",\n    \"finalDatetime\": \"2030-09-02\"\n}",
+            "updated": 1615380126836
+        },
+        {
+            "style": "Text",
+            "text": "The initialDatetime will be ingoned because we are running a Paper Trading Session. The important thing is that the finalDatetime is in the future.",
+            "updated": 1615380159343
+        },
+        {
+            "style": "Text",
+            "text": "Apply this config to the Time Frame",
+            "updated": 1615380180549
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"label\": \"01-min\"\n}",
+            "updated": 1615380196254
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up the Strategy for Webhooks Signals",
+            "updated": 1615380571676
+        },
+        {
+            "style": "Text",
+            "text": "Inside the Lighting Strike trading system locate the Trigger On Event, and paste the following into the Javascript Node of the only condition it has.",
+            "updated": 1615380721252
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.atAnyTimeFrame.externalSignal.message === \"TRIGGER ON\"",
+            "updated": 1615380737459
+        },
+        {
+            "style": "Text",
+            "text": "What we are doing here is setting the strategy to be triggered once an external signal with the message TRIGGER ON is received via the Webhook Sensor Bot."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Run the Data Mining Tasks"
+        },
+        {
+            "style": "Text",
+            "text": "For this test, since we are Paper Trading, we will need a live stream of data from the exchange. We don't need to run all the Task of Mater Data Mining, only the ones needed by the Lighting Strike strategy:"
+        },
+        {
+            "style": "List",
+            "text": "Exchange Raw Data"
+        },
+        {
+            "style": "List",
+            "text": "Candles Volumens"
+        },
+        {
+            "style": "List",
+            "text": "Resistances and Supports"
+        },
+        {
+            "style": "List",
+            "text": "Webhooks "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Run Task and Session"
+        },
+        {
+            "style": "Text",
+            "text": "Run Task and the Session, and monitor the chart that was called Backtesting (now that is our Papertrading session), at the end of the market at the 1 minute time frame. Turn on the Episodes layer and wait for a few minutes until you see the Episode icons appear at the charts.",
+            "updated": 1615380482184
+        },
+        {
+            "style": "Text",
+            "text": "Before running the task and session, delete the data at "
+        },
+        {
+            "style": "Javascript",
+            "text": "Data-Storage\\Project\\Superalgos\\Data-Mine\\Masters\\Webhooks",
+            "updated": 1615381701627
+        },
+        {
+            "style": "Important",
+            "text": "This is not necesary the first time you run this, but if you are repeating this test, you will avoid confusions since the file of signals will be accumulating the test messages you send, and at the strategy we are not checking for the age of the messages, so it is a good idea to delete this data every time you try this procedure.",
+            "updated": 1615381726583
+        },
+        {
+            "style": "Subtitle",
+            "text": "Set-up the Signals Provider",
+            "updated": 1615380812487
+        },
+        {
+            "style": "Text",
+            "text": "At the Crypto Ecosystem, paste the following config to the Signals Provider.",
+            "updated": 1615380855069
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n    \"testMessage\": \"TRIGGER ON\"\n}",
+            "updated": 1615380896874
+        },
+        {
+            "style": "Text",
+            "text": "This means that when you send this test message, you will be delivering the TRIGGER ON signal expected by the strategy."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Ready to Send the Test Message TRIGGER ON",
+            "updated": 1615381087734
+        },
+        {
+            "style": "Text",
+            "text": "Go to the charts again an turn on the Strategies layer. You should not see anything at the charts since no strategy has been triggered.",
+            "updated": 1615381066133
+        },
+        {
+            "style": "Success",
+            "text": "Now you can send the test message."
+        },
+        {
+            "style": "Text",
+            "text": "After you see the confirmation at the UI that the message was sent, check the Client's console to verify the message was received. Then wait until the message is picked up by the Webhooks Sensor Bot. Then wait until the Trading Bot runs again."
+        },
+        {
+            "style": "Text",
+            "text": "Go to the charts and wait until it plots the icons of the strategy, confirming that the strategy was triggered by the test message you sent."
+        },
+        {
+            "style": "Note",
+            "text": "If all this worked, it means that it will work if the message comes from Trading View or other Signal Provider too."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
             "text": "Set-up your Firewall / Rounter to accept Incoming Connections"
         },
         {

@@ -1,0 +1,33 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "10",
+    "type": "Tutorial Step - Play With The Tape!",
+    "definition": {
+        "text": "Try the different distance settings of the Lightning Strike Trading System Reference node! Go ahead! Click the tape button!",
+        "icon": {
+            "name": "trading-system-reference",
+            "project": "Superalgos"
+        },
+        "updated": 1615476811627
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty straightforward, right? Now, what happens when the node you are adjusting has offspring of its own?",
+            "updated": 1615476877641
+        },
+        {
+            "style": "Callout",
+            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node!"
+        },
+        {
+            "style": "Note",
+            "text": "Because you increased the distance separating the Trading Parameters node from the Backtesting Session node, the offspring of the Trading Parameters node also increased proportionally!",
+            "updated": 1615476086180
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

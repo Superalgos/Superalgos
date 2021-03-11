@@ -5958,7 +5958,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "This",
+                "label": "Delete",
                 "iconPathOn": "delete-entity",
                 "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
@@ -15122,7 +15122,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
         "childrenNodesProperties": [],

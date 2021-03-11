@@ -100,6 +100,7 @@ function newSuperalgosFloatingSpace() {
             }
         },
         physics: true,
+        detachUsingMouse: false
     }
 
     return thisObject
@@ -535,6 +536,9 @@ function newSuperalgosFloatingSpace() {
 
         if (configSettings.physics !== undefined) {
             thisObject.settings.physics = configSettings.physics
+        }
+        if (configSettings.detachUsingMouse !== undefined) {
+            thisObject.settings.detachUsingMouse = configSettings.detachUsingMouse
         }
     }
 

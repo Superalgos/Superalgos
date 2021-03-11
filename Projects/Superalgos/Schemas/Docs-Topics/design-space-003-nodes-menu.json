@@ -127,9 +127,24 @@
             "updated": 1610041765847
         },
         {
-            "style": "Subtitle",
+            "style": "Anchor",
             "text": "Arrangement Style",
             "updated": 1610041884085
+        },
+        {
+            "style": "Subtitle",
+            "text": "Arrangement Style",
+            "updated": 1615491355364
+        },
+        {
+            "style": "Text",
+            "text": "The following options affect how a node is arranged around or in relation to its parent.",
+            "updated": 1615491622552
+        },
+        {
+            "style": "Important",
+            "text": "The current implementation of this feature is not optimal, and the behavior of some of these options is hard to predict. If you are a developer, this may be a good opportunity to iterate on the existing code and take this feature to a more usable state.",
+            "updated": 1615491609266
         },
         {
             "style": "Include",

@@ -33,12 +33,21 @@
         },
         {
             "style": "List",
+            "text": "Bittrex Test Status"
+        },
+        {
+            "style": "List",
+            "text": "CoinbasePro Test Status"
+        },
+        {
+            "style": "List",
             "text": "FTX Test Status",
             "updated": 1615203669878
         },
         {
             "style": "List",
-            "text": "Kraken Tested Status"
+            "text": "Kraken Test Status",
+            "updated": 1615453046113
         },
         {
             "style": "List",

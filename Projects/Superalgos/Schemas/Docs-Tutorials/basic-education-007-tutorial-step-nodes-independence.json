@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception!",
-            "updated": 1615322949197
+            "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception:",
+            "updated": 1615459643749
         },
         {
             "style": "Callout",

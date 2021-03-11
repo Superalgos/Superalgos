@@ -23,8 +23,8 @@
         },
         {
             "style": "Success",
-            "text": "Try canceling the Distance to Parent setting on any of the nodes! As you can see, you may set any arbitrary distance to the parent node, but the angle to the parent remains fixed.",
-            "updated": 1615478203338
+            "text": "Try canceling the Distance to Parent setting on the Testing Trading Tasks node! As you can see, you may set any arbitrary distance to the parent node, but the angle to the parent remains fixed.",
+            "updated": 1615478515588
         }
     ]
 }

@@ -3,8 +3,8 @@
     "pageNumber": "6",
     "type": "Luno Test Status",
     "definition": {
-        "text": "Luno is tested for data mining but not for live trading",
-        "updated": 1615204721150
+        "text": "Luno is tested for data mining and for live trading",
+        "updated": 1615550142553
     },
     "paragraphs": [
         {
@@ -24,8 +24,8 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Not yet possible",
-            "updated": 1615456889842
+            "text": "Trading Capability [**]: Yes",
+            "updated": 1615550165906
         },
         {
             "style": "List",
@@ -39,8 +39,8 @@
         },
         {
             "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode is not yet possible.  This is because the Superalgos trading bot compiles request to create orders at the exchange, and the values passed to the exchange can be up to 10 decimal places.  The exchange will not accept such values.  The main reason is that the CCXT library does NOT apply the exchange precision settings when creating the orders.  An issue has been raised with the CCXT people to fix this.",
-            "updated": 1615457075278
+            "text": "[**] The ability to run strategies in live-trading mode is now possible. Ensure that the version of the CCXT library being used by Superalgos is 1.42.77 or better - earlier versions of this library did not correctly apply the precision settings of the exchange in the amounts specified for creating orders.",
+            "updated": 1615550355806
         },
         {
             "style": "Title",

@@ -3,8 +3,8 @@
     "pageNumber": "16",
     "type": "Tutorial Step - Working With Versions",
     "definition": {
-        "text": "Let's say you want to test a strategy with different sets of parameters. Take a backup of the Trading Parameters node!",
-        "updated": 1615546709773,
+        "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node!",
+        "updated": 1615571330616,
         "icon": {
             "name": "backup-entity",
             "project": "Superalgos"
@@ -13,17 +13,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now that you have a backup of all Trading Parameters, you may change any of them knowing that you can always go back to your backup! If you are on Chrome, the backup must be visible in the bottom-left corner of the browser window.",
-            "updated": 1615547107812
+            "text": "Go ahead and take the backup! Now that you have a backup of all Trading Parameters, you may change any of them knowing that you can always go back to your backup! If you are on Chrome, the backup must be visible in the bottom-left corner of the browser window.",
+            "updated": 1615571301913
         },
         {
             "style": "Callout",
-            "text": "Drag the backup file and drop it in the Design Space!"
+            "text": "Now drag the backup file and drop it in the Design Space! That's how you restore a backup!",
+            "updated": 1615571393497
         },
         {
             "style": "Text",
-            "text": "That is how you restore a backup! Easy right? In the next step, I'll show you how to get back to using the original version!",
-            "updated": 1615547181025
+            "text": "Easy right? In the next step, I'll show you how to get back to using the original version!",
+            "updated": 1615571399267
         }
     ]
 }

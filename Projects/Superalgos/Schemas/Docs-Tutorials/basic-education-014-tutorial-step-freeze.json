@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "14",
+    "type": "Tutorial Step - Freeze!",
+    "definition": {
+        "text": "The freeze button makes sense under very specific circumstances: when physics are activated at the level of the Design Space.",
+        "updated": 1615543120064,
+        "icon": {
+            "name": "freeze-structure-of-nodes",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive!",
+            "updated": 1615544003132
+        },
+        {
+            "style": "Note",
+            "text": "We are not going to go into that rabbit hole at this point as the topic in not is the basic education curriculum! So, for the time being, you won't be using this button much!",
+            "updated": 1615544021753
+        }
+    ]
+}

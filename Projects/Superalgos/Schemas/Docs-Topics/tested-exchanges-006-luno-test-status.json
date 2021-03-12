@@ -24,23 +24,23 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Unknown",
-            "updated": 1615204866750
+            "text": "Trading Capability [**]: Not yet possible",
+            "updated": 1615456889842
         },
         {
             "style": "List",
-            "text": "Comments: Raw Data mining is extremely slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API. One day of Raw Data takes about 5 minutes to download. Keep this in mind when setting a start date",
-            "updated": 1615205045729
+            "text": "Comments: Raw Data mining is extremely slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API. One day of Raw Data takes about 5 minutes to download. Keep this in mind when setting a start date.  The reason for this is because they do not support fetching of OHCLV data - this data has to be compiled by fetching individual trades.  The fetching of trades is limited to 100 trades per request, and the rate limit is 1 second.",
+            "updated": 1615456853257
         },
         {
             "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified",
-            "updated": 1615211359233
+            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1615456911815
         },
         {
             "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has not been verified",
-            "updated": 1615211364516
+            "text": "[**] The ability to run strategies in live-trading mode is not yet possible.  This is because the Superalgos trading bot compiles request to create orders at the exchange, and the values passed to the exchange can be up to 10 decimal places.  The exchange will not accept such values.  The main reason is that the CCXT library does NOT apply the exchange precision settings when creating the orders.  An issue has been raised with the CCXT people to fix this.",
+            "updated": 1615457075278
         },
         {
             "style": "Title",

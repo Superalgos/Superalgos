@@ -560,6 +560,7 @@ function newUiObject() {
         function chainDetachingPhysics() {
             if (isDragging !== true) { return }
             if (rightDragging === false) { return }
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
 
             let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
             let ratio = distanceToChainParent / previousDistanceToChainParent
@@ -665,6 +666,7 @@ function newUiObject() {
             if (thisObject.payload === undefined) { return }
             if (thisObject.payload.floatingObject.isFrozen === true) { return }
             if (rightDragging === false) { return }
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
 
             if (thisObject.payload.referenceParent === undefined) { return }
 

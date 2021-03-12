@@ -18,8 +18,13 @@
         },
         {
             "style": "Note",
-            "text": "We are not going to go into that rabbit hole at this point as the topic in not is the basic education curriculum! So, for the time being, you won't be using this button much!",
-            "updated": 1615544021753
+            "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum!",
+            "updated": 1615544598765
+        },
+        {
+            "style": "Text",
+            "text": "The freeze option freezes the node’s chain connections with its parent and offspring and connecting lines turn blue. Freezing releases CPU resources when physics animations are on, as the system stops calculating nodes' positions and status.",
+            "updated": 1615544553909
         }
     ]
 }

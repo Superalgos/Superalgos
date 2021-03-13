@@ -14984,72 +14984,236 @@
             "compatibleTypes": "->Exchange Assets->"
         },
         "propertyNameAtParent": "assets",
-        "alternativeIcons": [
-            {
-                "codeName": "XMR",
-                "iconName": "monero"
-            },
-            {
-                "codeName": "USDT",
-                "iconName": "tether"
-            },
-            {
-                "codeName": "TRX",
-                "iconName": "tron"
-            },
-            {
-                "codeName": "XLM",
-                "iconName": "stellar"
-            },
-            {
-                "codeName": "QTUM",
-                "iconName": "qtum"
-            },
-            {
-                "codeName": "NEO",
-                "iconName": "neo"
-            },
-            {
-                "codeName": "LTC",
-                "iconName": "litecoin"
-            },
-            {
-                "codeName": "ETC",
-                "iconName": "ethereum-classic"
-            },
-            {
-                "codeName": "ETH",
-                "iconName": "ethereum"
-            },
-            {
-                "codeName": "EOS",
-                "iconName": "eos"
-            },
-            {
-                "codeName": "DASH",
-                "iconName": "dash"
-            },
-            {
-                "codeName": "ADA",
-                "iconName": "cardano"
-            },
-            {
-                "codeName": "BCH",
-                "iconName": "bitcoin-cash"
-            },
-            {
-                "codeName": "BTC",
-                "iconName": "bitcoin"
-            },
-            {
-                "codeName": "BNB",
-                "iconName": "binance-coin"
-            },
-            {
-                "codeName": "USD",
-                "iconName": "us-dollar"
-            }
-        ]
+      "alternativeIcons": [
+        {
+          "codeName": "XMR",
+          "iconName": "monero"
+        },
+        {
+          "codeName": "USDT",
+          "iconName": "tether"
+        },
+        {
+          "codeName": "TRX",
+          "iconName": "tron"
+        },
+        {
+          "codeName": "XLM",
+          "iconName": "stellar"
+        },
+        {
+          "codeName": "QTUM",
+          "iconName": "qtum"
+        },
+        {
+          "codeName": "NEO",
+          "iconName": "neo"
+        },
+        {
+          "codeName": "LTC",
+          "iconName": "litecoin"
+        },
+        {
+          "codeName": "ETC",
+          "iconName": "ethereum-classic"
+        },
+        {
+          "codeName": "ETH",
+          "iconName": "ethereum"
+        },
+        {
+          "codeName": "EOS",
+          "iconName": "eos"
+        },
+        {
+          "codeName": "DASH",
+          "iconName": "dash"
+        },
+        {
+          "codeName": "ADA",
+          "iconName": "cardano"
+        },
+        {
+          "codeName": "BCH",
+          "iconName": "bitcoin-cash"
+        },
+        {
+          "codeName": "BTC",
+          "iconName": "bitcoin"
+        },
+        {
+          "codeName": "BNB",
+          "iconName": "binance-coin"
+        },
+        {
+          "codeName": "USD",
+          "iconName": "us-dollar"
+        },
+        {
+          "codeName": "DOT",
+          "iconName": "polkadot"
+        },
+        {
+          "codeName": "XRP",
+          "iconName": "xrp"
+        },
+        {
+          "codeName": "UNI",
+          "iconName": "uniswap"
+        },
+        {
+          "codeName": "LINK",
+          "iconName": "chainlink"
+        },
+        {
+          "codeName": "USDC",
+          "iconName": "usd-coin"
+        },
+        {
+          "codeName": "THETA",
+          "iconName": "theta"
+        },
+        {
+          "codeName": "WBTC",
+          "iconName": "wrapped-bitcoin"
+        },
+        {
+          "codeName": "DOGE",
+          "iconName": "dogecoin"
+        },
+        {
+          "codeName": "XEM",
+          "iconName": "nem"
+        },
+        {
+          "codeName": "AAVE",
+          "iconName": "aave"
+        },
+        {
+          "codeName": "LUNA",
+          "iconName": "terra"
+        },
+        {
+          "codeName": "SOL",
+          "iconName": "solana"
+        },
+        {
+          "codeName": "IOTA",
+          "iconName": "iota"
+        },
+        {
+          "codeName": "ATOM",
+          "iconName": "cosmos"
+        },
+        {
+          "codeName": "VET",
+          "iconName": "vechain"
+        },
+        {
+          "codeName": "AVAX",
+          "iconName": "avalanche"
+        },
+        {
+          "codeName": "FTT",
+          "iconName": "ftx-token"
+        },
+        {
+          "codeName": "XTZ",
+          "iconName": "tezos"
+        },
+        {
+          "codeName": "ALGO",
+          "iconName": "algorand"
+        },
+        {
+          "codeName": "KSM",
+          "iconName": "kusama"
+        },
+        {
+          "codeName": "DAI",
+          "iconName": "dai"
+        },
+        {
+          "codeName": "EGLD",
+          "iconName": "elrond"
+        },
+        {
+          "codeName": "GRT",
+          "iconName": "the-graph"
+        },
+        {
+          "codeName": "SNX",
+          "iconName": "synthetix"
+        },
+        {
+          "codeName": "FIL",
+          "iconName": "filecoin"
+        },
+        {
+          "codeName": "SUSHI",
+          "iconName": "sushiswap"
+        },
+        {
+          "codeName": "DCR",
+          "iconName": "decred"
+        },
+        {
+          "codeName": "COMP",
+          "iconName": "compound"
+        },
+        {
+          "codeName": "MKR",
+          "iconName": "maker"
+        },
+        {
+          "codeName": "HBAR",
+          "iconName": "hedera-hashgraph"
+        },
+        {
+          "codeName": "NEAR",
+          "iconName": "near-protocol"
+        },
+        {
+          "codeName": "CHZ",
+          "iconName": "chiliz"
+        },
+        {
+          "codeName": "ZEC",
+          "iconName": "zcash"
+        },
+        {
+          "codeName": "MATIC",
+          "iconName": "polygon"
+        },
+        {
+          "codeName": "CAKE",
+          "iconName": "pancakeswap"
+        },
+        {
+          "codeName": "RUNE",
+          "iconName": "thorchain"
+        },
+        {
+          "codeName": "RVN",
+          "iconName": "ravencoin"
+        },
+        {
+          "codeName": "UMA",
+          "iconName": "uma"
+        },
+        {
+          "codeName": "BTT",
+          "iconName": "bittorrent"
+        },
+        {
+          "codeName": "NANO",
+          "iconName": "nano"
+        },
+        {
+          "codeName": "1INCH",
+          "iconName": "1inch"
+        }
+      ]
     },
     {
         "type": "Exchange Markets",

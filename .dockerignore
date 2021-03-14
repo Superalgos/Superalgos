@@ -7,3 +7,9 @@ debug.log
 
 .git*
 .vscode
+README.md
+LICENSE
+CONTRIBUITING.md
+CODE_OF_CONDUCT.md
+./**/.vscode
+Dockerfile

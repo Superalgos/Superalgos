@@ -177,7 +177,16 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 # Docker Deployments
 
-We haven't tested containerized deployments, but many people in the community have. Worth noting is the fact that Superalgos doesn't touch anything outside the Superalgos folder. To uninstall, delete the folder.
+- NEW: Added github action to publish docker image into github package registry
+
+## Docker Image 
+If you want to run superalgos over docker platform, you should follow the next steps: 
+1. [Install docker](https://docs.docker.com/engine/install/) 
+2. `docker login ghcr.io --username your-github-username --password-stdin` 
+3. `docker run -p 18041:18041 -p 34248 superalgos/superalgos` 
+4. Now you can access to the superalgos UI
+
+Note: This has not been extensively tested yet, if you run into troubles, please contact us at our [Superalgos User's Support Group](https://t.me/superalgossupport).
 
 # What is Superalgos?
 
@@ -297,7 +306,7 @@ Online support through our [Superalgos User's Support Group](https://t.me/supera
 
 ## In-App Integrated Documentation
 
-Superalgos features interactive documentation.
+Superalgos features interactive documentation built-in the system.
 
 ## Video Tutorials
 
@@ -321,9 +330,7 @@ Meet other users in the [Superalgos Telegram Community Group](https://t.me/super
 
 Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-Meet designers in the [Superalgos Telegram UX/UI Group](https://t.me/superalgosuxui).
-
-Spanish speaking users hang out in the [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
+Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
 
 ## Blog
 
@@ -340,6 +347,7 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 # Contributing
 
 Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
+
 
 ## Top Contributors
 

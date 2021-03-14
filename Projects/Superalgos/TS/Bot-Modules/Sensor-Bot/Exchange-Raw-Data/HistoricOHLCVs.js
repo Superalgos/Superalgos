@@ -237,7 +237,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             }
                         }
                         if (mustLoadRawData) {  // there is raw data to load
-                            getRawDataArray()   // so fetch it from the file wehere it was saved on the last run of this process
+                            getRawDataArray()   // so fetch it from the file where it was saved on the last run of this process
                         }
                         function getRawDataArray() {
                             mustLoadRawData = false
@@ -260,11 +260,8 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                             rawDataArray = JSON.parse(text);
                                             let dataLength = rawDataArray.length
                                             if (dataLength > 1) {
-                                                let lastData = rawDataArray[dataLength - 1]
-                                                let lastTimeStamp = lastData[0]
-                                                rawDataArray.pop()  // ditch the last ohlcv since it may be incomplete
-                                                dataLength = rawDataArray.length
-                                                since = lastTimeStamp  // we will now start again from the last full ohlvc we had (instead of the beginning of the day)
+                                                since = rawDataArray[dataLength - 2][0]  // set the beginning of the fetch back to the start of the second last ohlcv received
+                                                rawDataArray.pop()  // ditch the last ohlcv received since it may be incomplete
                                             } else {
                                                 rawDataArrayFile = []  // we got less than two ohlcvs so we might as well start again from the beginning of the day
                                             }
@@ -506,9 +503,9 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 break  //  end of the market
                             } else {
                                 if (ohlcvcArray.length > limit) {
-                                    break  //  get enough ohlcvs for this process loop
+                                    break  //  got enough ohlcvs for this process loop
                                 } else {
-                                    await new Promise(resolve => setTimeout(resolve, rateLimit))  //  wait for exchanges rateLimit before requesting again
+                                    await new Promise(resolve => setTimeout(resolve, rateLimit))  //  wait for exchange's rateLimit before requesting again
                                 }
                             }
                         }

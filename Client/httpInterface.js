@@ -257,6 +257,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 webhookMessages = []
                             }
 
+                            console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
+                            console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+
                             respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                             webhookMessages = []
 
@@ -299,6 +302,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 webhookMessages.push([timestamp, source, messageReceived])
                                 webhook.set(key, webhookMessages)
 
+                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
+                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
+                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
                             break

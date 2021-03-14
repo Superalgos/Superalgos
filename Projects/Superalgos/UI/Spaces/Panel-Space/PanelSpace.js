@@ -49,7 +49,7 @@ function newSuperalgosPanelSpace() {
                 }
             case 'Plotter Panel':
                 {
-                    let panelConfig = JSON.parse(pParameters.panelNode.config)
+                    let panelConfig = pParameters.panelNode.config
 
                     if (panelConfig.isLegacy !== true) {
                         panel = newPlotterPanel()

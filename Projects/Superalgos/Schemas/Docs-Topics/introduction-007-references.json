@@ -68,8 +68,12 @@
         },
         {
             "style": "Text",
-            "text": "References are graphically represented with faint grey dotted lines, but they are not visible by default. References become visible when you hover the mouse pointer on a node that has a reference, or when activating the display of all references with the following key combination: Ctrl + Shift + Alt + Key-R",
-            "updated": 1615796597581
+            "text": "References are graphically represented with faint grey dotted lines, but they are not visible by default. References become visible when you hover the mouse pointer on a node that has a reference, or when activating the display of all references with the following key combination: ",
+            "updated": 1615827008604
+        },
+        {
+            "style": "Text",
+            "text": "Ctrl + Shift + Alt + Key-R"
         },
         {
             "style": "Note",

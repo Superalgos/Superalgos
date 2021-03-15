@@ -21,6 +21,10 @@
             "updated": 1615795085518
         },
         {
+            "style": "Note",
+            "text": "A node may produce only one outgoing reference, however, it may take several incoming references."
+        },
+        {
             "style": "Title",
             "text": "Scope"
         },

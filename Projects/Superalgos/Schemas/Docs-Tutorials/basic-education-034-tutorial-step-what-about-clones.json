@@ -3,16 +3,37 @@
     "pageNumber": "34",
     "type": "Tutorial Step - What About Clones?",
     "definition": {
-        "text": "Write a summary for this tutorial page.",
+        "text": "Clones differ from backups in that the feature is designed to replicate data structures so that the copies resemble the original.",
         "icon": {
             "name": "clone-entity",
             "project": "Superalgos"
-        }
+        },
+        "updated": 1615839114130
     },
     "paragraphs": [
         {
+            "style": "Callout",
+            "text": "Read this page carefully!",
+            "updated": 1615839024514
+        },
+        {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use doscs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "In summary:",
+            "updated": 1615839074979
+        },
+        {
+            "style": "List",
+            "text": "Clones behave in the same way whether the original is present upon restoration or not.",
+            "updated": 1615839267941
+        },
+        {
+            "style": "List",
+            "text": "Incoming references are always discarded."
+        },
+        {
+            "style": "Success",
+            "text": "Feel free to test the Clones feature! We'll move on to other topics without further due!",
+            "updated": 1615839231992
         }
     ]
 }

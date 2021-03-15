@@ -9,8 +9,7 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Direction",
-            "updated": 1609950210690
+            "text": "Direction"
         },
         {
             "style": "Text",
@@ -18,7 +17,8 @@
         },
         {
             "style": "Text",
-            "text": "For example, a session establishes an outgoing reference with a trading system. This allows the session to access the information within the whole trading system hierarchy, including strategies. At the trading system level, the same reference is viewed as an incoming reference."
+            "text": "For example, a Backtesting Session establishes an outgoing reference with a Trading System. This allows the session to access the information within the whole trading system hierarchy, including strategies. At the trading system level, the same reference is viewed as an incoming reference.",
+            "updated": 1615795085518
         },
         {
             "style": "Title",
@@ -30,11 +30,18 @@
         },
         {
             "style": "Text",
-            "text": "Examples of internal references may be found in the data mine and crypto ecosystem hierarchies. For example, let’s briefly look into one such case within a plotter module:"
+            "text": "Examples of internal references may be found in the Data Mine and Crypto Ecosystem hierarchies. For example, let’s briefly look into one such case within a Plotter Module.",
+            "updated": 1615795128743
         },
         {
             "style": "Text",
-            "text": "The capture below shows the shapes node and several offspring nodes: on one hand, several polygons; on the other hand, the chart points node."
+            "text": "The capture below shows the Shapes node and several offspring nodes: on one hand, several Polygon nodes; on the other hand, the Chart Points node.",
+            "updated": 1615795168459
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/shapes-node-references.gif",
+            "updated": 1615796201734
         },
         {
             "style": "Text",
@@ -42,12 +49,28 @@
         },
         {
             "style": "Text",
-            "text": "This means that the node shapes feature several internal references."
+            "text": "This means that the node Shapes feature several internal references.",
+            "updated": 1615796711778
         },
         {
             "style": "Note",
-            "text": " The backup, clone and share operations make different uses of the properties of references. We will cover the three of them extensively so that you may make the most of these features.",
-            "updated": 1609950276151
+            "text": "The backup, clone and share operations make different uses of the properties of references. We will cover the three of them extensively so that you may make the most of these features.",
+            "updated": 1615796558622
+        },
+        {
+            "style": "Title",
+            "text": "Graphical Representation",
+            "updated": 1615796579270
+        },
+        {
+            "style": "Text",
+            "text": "References are graphically represented with faint grey dotted lines, but they are not visible by default. References become visible when you hover the mouse pointer on a node that has a reference, or when activating the display of all references with the following key combination: Ctrl + Shift + Alt + Key-R",
+            "updated": 1615796597581
+        },
+        {
+            "style": "Note",
+            "text": "For references to be visible, both nodes involved in the reference must be visible.",
+            "updated": 1615796621593
         },
         {
             "style": "Anchor",

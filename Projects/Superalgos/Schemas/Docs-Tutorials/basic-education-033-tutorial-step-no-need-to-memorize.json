@@ -3,8 +3,8 @@
     "pageNumber": "33",
     "type": "Tutorial Step - No Need to Memorize",
     "definition": {
-        "text": "I hope you got to understand the intricacies of backups and how references are affected in each particular case!",
-        "updated": 1615830576012,
+        "text": "I hope you got to grasp the intricacies of backups and how references are affected in each particular restoration case!",
+        "updated": 1615831565379,
         "icon": {
             "name": "docs-warning-style",
             "project": "Superalgos"
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You don't need to memorize the particular cases. Instead, if you understand the underlying mechanism involving references, then you may deduce the behavior on each case!",
-            "updated": 1615830778055
+            "text": "You don't need to memorize the individual cases. Instead, if you understand the underlying mechanism involving references, then you may deduce the behavior on each case!",
+            "updated": 1615838818500
         },
         {
             "style": "Note",

@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "33",
+    "type": "Tutorial Step - No Need to Memorize",
+    "definition": {
+        "text": "I hope you got to understand the intricacies of backups and how references are affected in each particular case!",
+        "updated": 1615830576012,
+        "icon": {
+            "name": "docs-warning-style",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You don't need to memorize the particular cases. Instead, if you understand the underlying mechanism involving references, then you may deduce the behavior on each case!",
+            "updated": 1615830778055
+        },
+        {
+            "style": "Note",
+            "text": "Remember that each node has a specific ID! When a reference is established, both nodes involved have a unique ID. Outgoing references do not depend on the node's ID, but incoming references do! If the backed up node may be restored with the same ID, incoming references will persist; otherwise, they will change or be lost!",
+            "updated": 1615831079650
+        }
+    ]
+}

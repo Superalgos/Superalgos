@@ -1,0 +1,24 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "29",
+    "type": "Tutorial Step - Back to Backups!",
+    "definition": {
+        "text": "Now that you understand references, we can go deeper into Backups, and maybe even discuss the differences with Clones!",
+        "updated": 1615813066430,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "You've got some more reading to do! Please, read this page carefully!",
+            "updated": 1615813138435
+        },
+        {
+            "style": "Text",
+            "text": "asdf"
+        }
+    ]
+}

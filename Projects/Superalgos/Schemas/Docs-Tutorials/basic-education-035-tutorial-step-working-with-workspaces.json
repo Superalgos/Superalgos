@@ -13,13 +13,22 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You may set up as many workspaces as you like, each of them for specific use cases. For example, you may have a workspace to build a Trading Sytem that will need specific indicators from a specific Data Mine. Then you may have another workspace setup with all the available indicators so that you may study how each of them work.",
-            "updated": 1615894748254
+            "text": "You may set up as many workspaces as you like, each of them for specific use cases. For example:",
+            "updated": 1615904641004
+        },
+        {
+            "style": "List",
+            "text": "You may have a workspace to build a Trading Sytem that will need specific indicators from a specific Data Mine."
+        },
+        {
+            "style": "List",
+            "text": "You may have another workspace setup with all the available indicators so that you may study how each of them works.",
+            "updated": 1615904707330
         },
         {
             "style": "Callout",
-            "text": "Let's get you up to speed with the basics... Read this page so that we may do some playing!",
-            "updated": 1615894772233
+            "text": "Read this page to learn the basics about how to deal with workspaces...",
+            "updated": 1615904777283
         }
     ]
 }

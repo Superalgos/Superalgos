@@ -35,6 +35,11 @@
         {
             "style": "List",
             "text": "the take profit or stop loss targets are hit."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Why My Stage is not Closing?->The Stage Does Not Close",
+            "updated": 1615054619090
         }
     ]
 }

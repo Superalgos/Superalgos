@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "mouse-pointer"
         },
-        "text": "Establishing a reference is kid's play! The only 'challenge' here is that the node to be referenced is far away from the originator."
+        "text": "Establishing a reference is kid's play! The only \"challenge\" here is that the node to be referenced is far away from the originator.",
+        "updated": 1615805937875
     },
     "paragraphs": [
         {

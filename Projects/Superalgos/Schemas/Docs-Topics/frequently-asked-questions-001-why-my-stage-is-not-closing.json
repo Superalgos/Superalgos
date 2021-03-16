@@ -1,0 +1,76 @@
+{
+    "topic": "Frequently Asked Questions",
+    "pageNumber": 1,
+    "type": "Why My Stage is not Closing?",
+    "definition": {
+        "text": "One of the most common questions asked by users is why the open or close stage are not closing after the order was filled.",
+        "updated": 1615100269026
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "The shot answer is becasue the Stage Size Filled did not reach the value of the Stage Target Size.",
+            "updated": 1615100332173
+        },
+        {
+            "style": "Text",
+            "text": "There are many reason why this can happen, but they all have to do with syncronization between the system and the exchange, and dust getting accumulated in decimal places.",
+            "updated": 1615053796132
+        },
+        {
+            "style": "Block",
+            "text": "The Stage Does Not Close",
+            "updated": 1615054499809
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Stage Does Not Close"
+        },
+        {
+            "style": "Text",
+            "text": "One common issue users have while dealing with stages is that they do not get closed after their orders get filled. This usually happens because there are several adjustments on rate that happens during trading, specially during live trading. The reason a Stage does not get closed automatically is because the total filled for the whole stage is not close enough to the Stage Target Size defined by users. In order to avoid this situation there are three configurations at the Stage node you can use:",
+            "updated": 1615053929853
+        },
+        {
+            "style": "List",
+            "text": "ROUNDING_ERROR_CORRECTION_FACTOR : is a configurable factor that can be applied to the stage filled at runtime in order to force it to reach the Stage Target Size. The default value for this factor is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "ROUNDING_ERROR_CORRECTION_FACTOR = 1.001",
+            "updated": 1615053956943
+        },
+        {
+            "style": "Text",
+            "text": "This value is overwritten by whatever users config at the Stage node under the roundingErrorCorrectionFactor property."
+        },
+        {
+            "style": "Text",
+            "text": "A value of 1.01 would mean that when the Filled amount is at 1% distance from the Stage Target, the stage will be closed."
+        },
+        {
+            "style": "List",
+            "text": "ABSOLUTE_DUST_IN_BASE_ASSET: is a numeric value that represents the distance that you allow to be between the Size Filled and the Target Side for a stage, measured in Base Asset. It's default value is Zero and you can define it at the config of a Stage node using the absoluteDustInBaseAsset property.",
+            "updated": 1615054114048
+        },
+        {
+            "style": "List",
+            "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: is a numeric value that represents the distance that you allow to be between the Size Filled and the Target Side for a stage, measured in Base Asset. It's default value is Zero and you can define it at the config of a Stage node using the absoluteDustInQuotedAsset property.",
+            "updated": 1615054151393
+        },
+        {
+            "style": "Subtitle",
+            "text": "Implementation",
+            "updated": 1615054281409
+        },
+        {
+            "style": "Text",
+            "text": "Here you can see how these parameters are implemented in the Low Frequency Trading Bot code:"
+        },
+        {
+            "style": "Javascript",
+            "text": "        if (\n            tradingEngineStage.stageBaseAsset.sizeFilled.value\n            *\n            ROUNDING_ERROR_CORRECTION_FACTOR\n            +\n            ABSOLUTE_DUST_IN_BASE_ASSET\n            >=\n            tradingEngineStage.stageBaseAsset.targetSize.value\n        ) {\n            positionFilled()\n        } else if (\n            tradingEngineStage.stageQuotedAsset.sizeFilled.value\n            *\n            ROUNDING_ERROR_CORRECTION_FACTOR\n            +\n            ABSOLUTE_DUST_IN_QUOTED_ASSET\n            >=\n            tradingEngineStage.stageQuotedAsset.targetSize.value\n        ) {\n            positionFilled()\n        } else {\n            checkCloseStageEvent(tradingSystemStage)\n        }",
+            "updated": 1615296774086
+        }
+    ]
+}

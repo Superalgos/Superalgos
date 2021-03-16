@@ -31,8 +31,7 @@
                 "project": "Superalgos",
                 "autoAdd": true
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Machine Learning",
@@ -142,8 +141,7 @@
                 "type": "node",
                 "childType": "Self Learning"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Supervised Learning",
@@ -178,8 +176,7 @@
                 "type": "node",
                 "childType": "Artificial Neural Network"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Unsupervised Learning",
@@ -322,8 +319,7 @@
                 "type": "node",
                 "childType": "Model"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Model",
@@ -410,8 +406,7 @@
                 "type": "node",
                 "childType": "Fit Dataset"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Compile",
@@ -3305,8 +3300,7 @@
                 "childType": "Environment Flags",
                 "autoAdd": true
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Environment Flags",
@@ -3424,8 +3418,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [],
-        "icon": "tensorflow"
+        "childrenNodesProperties": []
     },
     {
         "type": "WASM Backend",

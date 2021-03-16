@@ -1,9 +1,10 @@
 {
-    "topic": "How to Automate Actions at The Design Space",
-    "pageNumber": "6",
-    "type": "Automating Actions - Using Utilities",
+    "tutorial": "Basic Education",
+    "pageNumber": "13",
+    "type": "Tutorial Step - Shall We Improve This?",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not clear or predictable.",
+        "updated": 1615492937986
     },
     "paragraphs": [
         {

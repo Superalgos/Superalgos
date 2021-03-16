@@ -1,0 +1,115 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 6,
+    "type": "Automating Actions - Using Function Libraries",
+    "definition": {
+        "text": "You might also as well other functions located at Function Libraries from within your Action Function. In order to do this, you just need to locate the instance of the Function Library Object and call any of it's functions.",
+        "updated": 1614942828678
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a very good idea to invest some time at the Function-Libraries folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files at the Function-Libraries folder.",
+            "updated": 1614942900881
+        },
+        {
+            "style": "Title",
+            "text": "How to Call an Function Library Function?",
+            "updated": 1614942916741
+        },
+        {
+            "style": "Text",
+            "text": "At runtime, all Funtion Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library funtion you want to execute via the UI Global Object that is available to you. For exmaple:",
+            "updated": 1614942976608
+        },
+        {
+            "style": "Javascript",
+            "text": "UI.projects.superalgos.functionLibraries.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')",
+            "updated": 1614943049167
+        },
+        {
+            "style": "Text",
+            "text": "The way to find out which is the property name of a certain Function Library object is by reading the definitions at the Project Schema File. The Function Library object hosting the createSessionReference function used in the example above, is defined at the Project Schema File in this way:",
+            "updated": 1614943202556
+        },
+        {
+            "style": "Json",
+            "text": "{\n                    \"name\": \"Data Storage Functions\",\n                    \"propertyName\": \"dataStorageFunctions\",\n                    \"functionName\": \"newSuperalgosFunctionLibraryDataStorageFunctions\"\n                }",
+            "updated": 1614943237559
+        },
+        {
+            "style": "Text",
+            "text": "The propertyName is what you need to know in order to get to the runtime reference of the Function Library object and execute it's functions.",
+            "updated": 1614943257490
+        },
+        {
+            "style": "Title",
+            "text": "Popular Functions"
+        },
+        {
+            "style": "Text",
+            "text": "At your own Action Function you might likely need to execute these functions, belonging to popular actions done at Action Functions:",
+            "updated": 1614943932540
+        },
+        {
+            "style": "Subtitle",
+            "text": "Add a New Node"
+        },
+        {
+            "style": "Text",
+            "text": "The following is an example on how to add a new children to an existing Node:"
+        },
+        {
+            "style": "Javascript",
+            "text": "dataStorage = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(networkNode, 'Data Storage')",
+            "updated": 1614943544233
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Delete an Existing Node"
+        },
+        {
+            "style": "Text",
+            "text": "This is an example on how to Delete an existing Node:"
+        },
+        {
+            "style": "Javascript",
+            "text": "UI.projects.superalgos.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
+            "updated": 1614943594904
+        },
+        {
+            "style": "Subtitle",
+            "text": "Establish a Reference Parent"
+        },
+        {
+            "style": "Text",
+            "text": "Example of how to set the Reference Parent of a Node (in this case no Function Library is needed):",
+            "updated": 1614944033214
+        },
+        {
+            "style": "Javascript",
+            "text": "node.payload.referenceParent = baseAsset\n",
+            "updated": 1614943688069
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

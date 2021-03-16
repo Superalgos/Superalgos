@@ -1,0 +1,66 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 5,
+    "type": "Automating Actions - Using Utilities",
+    "definition": {
+        "text": "Lower level functionality is packed in Utilities files by topic. There are already many utilities files with operations that will save you time while trying to implement your own Action. ",
+        "updated": 1614941756401
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a very good idea to invest some time at the Utilities folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files at the Utilities folder.",
+            "updated": 1614930012933
+        },
+        {
+            "style": "Title",
+            "text": "How to Call an Utility Function?",
+            "updated": 1614942924609
+        },
+        {
+            "style": "Text",
+            "text": "At runtime, all utility objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the utility funtion you want to execute via the UI Global Object that is available to you. For exmaple:"
+        },
+        {
+            "style": "Javascript",
+            "text": "let allLayers = UI.projects.superalgos.utilities.branches.nodeBranchToArray(botLayers, 'Layer')",
+            "updated": 1614930217705
+        },
+        {
+            "style": "Text",
+            "text": "The way to find out which is the property name of a certain utility object is by reading the definitions at the Project Schema File. The utility object hosting the nodeBranchToArray function used in the example above, is defined at the Project Schema File in this way:",
+            "updated": 1614943148547
+        },
+        {
+            "style": "Json",
+            "text": "{\n                    \"name\": \"Branches\",\n                    \"propertyName\": \"branches\",\n                    \"functionName\": \"newSuperalgosUtilitiesBranches\"\n                }",
+            "updated": 1614930415663
+        },
+        {
+            "style": "Text",
+            "text": "The propertyName is what you need to know in order to get to the runtime reference of the utility object and execute it's functions.",
+            "updated": 1614930462629
+        },
+        {
+            "style": "Title",
+            "text": "Example: Change a Node's Config",
+            "updated": 1614943976780
+        },
+        {
+            "style": "Text",
+            "text": "This is the way you programatically manipulate the config of a Node:"
+        },
+        {
+            "style": "Javascript",
+            "text": "UI.projects.superalgos.utilities.nodeConfig.savePropertyAtNodeConfig(node.payload,'showPanels', true)"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

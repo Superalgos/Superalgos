@@ -1,0 +1,12 @@
+{
+    "type": "Github API",
+    "definition": {
+        "text": "Write the definition for this Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

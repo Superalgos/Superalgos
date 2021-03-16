@@ -71,22 +71,16 @@ Before you begin, it is recommended that you set up Chrome/Safari as your defaul
 
 # Superalgos Client Installation
 
-**1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a GitHub account. If you don't have one, go ahead and create it.
+**1.** Scroll the page all the way to the top. Find and click the **Fork** button to create your fork/copy of this repository. To fork Superalgos you need a Github account. If you don't have one, go ahead and create it.
 
 **NOTE:** A Fork is required for your contributions to the project. The reason why Superalgos is free and open-source is that the project has set up a <a href="https://superalgos.org/community-business.shtml" target="_blank">Collective Business</a> in which all users may participate. The way to participate is to <a href="https://superalgos.org/community-contribute.shtml" target="_blank">contribute</a> to make Superalgos better. The project's <a href="https://superalgos.org/token-overview.shtml" target="_blank">token</a> is distributed among contributors.
 
 **2.** Once the fork is created, you will land on the page of your fork. Copy the URL from your browser's address bar.
 
-**3.** In your computer/laptop/server, open a command prompt or terminal as an administrator (to avoid issues with permissions) and type:
+**3.** In your computer/laptop/server, open a command prompt or terminal. Make sure you are in a directory where you have write permissions (on most systems the terminal will open in your user’s home directory, so you’re good). Clone the git repository using the command
 
 ```
-git clone
-```
-
-**5.** Don't hit Enter yet! Complete the command by pasting the URL of your fork!
-
-```
-git clone + URL of your Superalgos fork.
+git clone <URL of your Superalgos fork>
 ```
 
 For example, if your Github username is John, the command will look like this:
@@ -95,7 +89,7 @@ For example, if your Github username is John, the command will look like this:
 git clone https://github.com/John/Superalgos
 ```
 
-Ok, you have installed Superalgos. To run the App, jump to the section Usage below.
+This creates the `Superalgos` folder in the current directory, which contains the whole installation. To run the App, jump to the section Usage below.
 
 ## Installation Notes
 
@@ -103,9 +97,7 @@ Ok, you have installed Superalgos. To run the App, jump to the section Usage bel
 
 **2.** The software includes an in-app self-update command / feature. It will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly, particularly if you choose to run the software in the ```develop``` branch (you may switch branches from within the app).
 
-**3.** You are better off running the git clone command as an administrator to avoid permission issues while creating the Superalgos folder and downloading the repository. It may work without admin powers depending on your setup, particularly if you are running the command on a folder where you've got write permissions.
-
-**4.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app.
+**3.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or server for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app.
 
 ## Migrating from Superalgos Beta 8
 
@@ -162,6 +154,47 @@ node run minMemo noBrowser
 **1.** We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 
  **TIP:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
+ 
+# Running Superalgos on a headless linux server as a daemon
+
+If you’re running Superalgos on a headless linux server like a Raspberry Pi, you might want to run it as a daemon so it isn’t attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most linux distributions use it as default init system/service manager.
+
+## Using `systemd`
+
+Create a `superalgos.service` file looking like this (change `<user>` to your user name and `/path/to/Superalgos` to your Superalgos folder, for instance `/home/John/Superalgos`):
+```
+[Unit]
+Description=Superalgos client
+
+[Service]
+Type=simple
+User=<user>
+WorkingDirectory=/path/to/Superalgos
+ExecStart=/usr/bin/node run minMemo noBrowser
+
+[Install]
+WantedBy=multi-user.target
+
+```
+There is no need to run Superalgos as root so we’re running it as a user. The `minMemo` option assumes you’re running on a small machine like a Raspberry Pi, while `noBrowser` makes sense for running daemonized.
+
+Now, as root (or using `sudo`), put the file `superalgos.service` you just created in `/etc/systemd/system/` and issue the command
+```
+systemctl enable superalgos
+```
+This will install the service so that Superalgos is started on boot. To start it manually, do (again as root or with `sudo`)
+```
+systemctl start superalgos
+```
+
+To see the output of Superalgos, use
+```
+journalctl -u superalgos
+```
+or to follow the output,
+```
+journalctl -u superalgos -f
+```
 
 # Uninstall
 
@@ -177,7 +210,16 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 # Docker Deployments
 
-We haven't tested containerized deployments, but many people in the community have. Worth noting is the fact that Superalgos doesn't touch anything outside the Superalgos folder. To uninstall, delete the folder.
+- NEW: Added github action to publish docker image into github package registry
+
+## Docker Image 
+If you want to run superalgos over docker platform, you should follow the next steps: 
+1. [Install docker](https://docs.docker.com/engine/install/) 
+2. `docker login ghcr.io --username your-github-username --password-stdin` 
+3. `docker run -p 18041:18041 -p 34248 superalgos/superalgos` 
+4. Now you can access to the superalgos UI
+
+Note: This has not been extensively tested yet, if you run into troubles, please contact us at our [Superalgos User's Support Group](https://t.me/superalgossupport).
 
 # What is Superalgos?
 
@@ -297,7 +339,7 @@ Online support through our [Superalgos User's Support Group](https://t.me/supera
 
 ## In-App Integrated Documentation
 
-Superalgos features interactive documentation.
+Superalgos features interactive documentation built-in the system.
 
 ## Video Tutorials
 
@@ -321,9 +363,7 @@ Meet other users in the [Superalgos Telegram Community Group](https://t.me/super
 
 Meet developers in the [Superalgos Telegram Developer's Group](https://t.me/superalgosdevelop).
 
-Meet designers in the [Superalgos Telegram UX/UI Group](https://t.me/superalgosuxui).
-
-Spanish speaking users hang out in the [Superalgos en Español Telegram Group](https://t.me/superalgos_es).
+Users meet in other topic-specific Telegram Groups. There's a [complete list of groups](https://superalgos.org/community-join.shtml) on the website.
 
 ## Blog
 
@@ -340,6 +380,7 @@ Or follow [Superalgos on Facebook](https://www.facebook.com/superalgos).
 # Contributing
 
 Superalgos is a Community Project built by users for users. Learn [how you may contribute](https://superalgos.org/community-contribute.shtml).
+
 
 ## Top Contributors
 

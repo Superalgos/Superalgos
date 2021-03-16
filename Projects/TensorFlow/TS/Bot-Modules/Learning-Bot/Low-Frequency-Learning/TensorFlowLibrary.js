@@ -109,7 +109,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                         if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel === undefined) { return }
 
                         switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel.type) {
-                            case 'Secuential Model': {
+                            case 'Sequential Model': {
                                 setupSecuentialModel(learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel)
                                 break
                             }

@@ -1,0 +1,13 @@
+{
+    "type": "Epochs",
+    "definition": {
+        "text": "An epoch, in Machine Learning, is the entire processing by the learning algorithm of the entire train-set. ... It has been used for a long time in the field of Machine Learning. One epoch is the time step that is incremented every time it has went through all the samples in the training set.",
+        "updated": 1615896049640
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

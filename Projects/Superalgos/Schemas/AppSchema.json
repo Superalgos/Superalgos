@@ -3242,8 +3242,7 @@
             "compatibleTypes": "->Prediction->"
         },
         "propertyNameAtParent": "predictionValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -3415,8 +3414,7 @@
             "compatibleTypes": "->Feature->"
         },
         "propertyNameAtParent": "featureValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -3588,8 +3586,7 @@
             "compatibleTypes": "->Label->"
         },
         "propertyNameAtParent": "labelValue",
-        "childrenNodesProperties": [
-        ],
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -5961,7 +5958,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "This",
+                "label": "Delete",
                 "iconPathOn": "delete-entity",
                 "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
@@ -15083,7 +15080,8 @@
                 "childType": "Signals Provider",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Signals Provider",
@@ -15124,10 +15122,11 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
-        "childrenNodesProperties": []
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Crypto Exchanges",
@@ -15937,7 +15936,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false}"
+            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"detachUsingMouse\":false }"
         },
         "menuItems": [
             {

@@ -1,0 +1,13 @@
+{
+    "type": "Loss Function",
+    "definition": {
+        "text": "Machines learn by means of a loss function. It's a method of evaluating how well specific algorithm models the given data. If predictions deviates too much from actual results, loss function would cough up a very large number.",
+        "updated": 1615895725952
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
-    "topic": "User Examples for Stop Loss ",
+    "topic": "User Examples for Stop Loss",
     "pageNumber": 3,
-    "type": " Trailing Stop Loss - Initial Stop Loss, Risk and Targets Combo",
+    "type": "Trailing Stop Loss - Initial Stop Loss, Risk and Targets Combo",
     "definition": {
         "text": "Setting an initial Risk Percentage of your Total Quoted Balance, after reaching the first Profit Target your first Trailing Stop Loss takes place. After reaching second Profit Target, we'll set the Trailing Stop Loss to a fixed percentage.",
         "updated": 1615298179984

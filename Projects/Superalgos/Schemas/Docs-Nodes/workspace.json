@@ -80,7 +80,8 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos ships with several plugin workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demos strategies and so on."
+            "text": "Superalgos ships with several plugin workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, and so on.",
+            "updated": 1615894320467
         },
         {
             "style": "Text",
@@ -88,8 +89,8 @@
         },
         {
             "style": "Important",
-            "text": "Plugin workspaces may not be modified. When you load a plugin workspace, a new file is created in your My-Workspaces folder as soon as the workspace is saved for the first time, resulting in a copy of the plugin workspace. The copy is saved with the same name as the plugin, but in a different folder. Any modifications you introduce in the workspace are stored in the copy, not the original plugin. Bear in mind that if you don't change the name of the workspace, the file in the My-Workspaces folder will be overwritten if you load the plugin Workspace again. This is because the system will automatically write a file with the same name as the plugin.",
-            "updated": 1615892934691
+            "text": "Plugin workspaces may not be modified. When you load a plugin workspace, a new file is created in your My-Workspaces folder as soon as the workspace is saved for the first time, resulting in a copy of the plugin workspace. The copy is saved with the same name as the plugin but in a different folder. Any modifications you introduce in the workspace are stored in the copy, not the original plugin. Bear in mind that if you don't change the name of the workspace, the file in the My-Workspaces folder will be overwritten if you load the plugin Workspace again. This is because the system will automatically write a file with the same name as the plugin.",
+            "updated": 1615894346258
         },
         {
             "style": "Title",

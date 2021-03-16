@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "35",
+    "type": "Tutorial Step - Working with Workspaces",
+    "definition": {
+        "text": "You may think of a workspace as a stage in a theatre. It is the setting on which something will play out!",
+        "icon": {
+            "name": "workspace",
+            "project": "Superalgos"
+        },
+        "updated": 1615893942449
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may set up as many workspaces as you like, each of them for specific use cases. For example, you may have a workspace to build a Trading Sytem that will need specific indicators from a specific Data Mine. Then you may have another workspace setup with all the available indicators so that you may study how each of them work.",
+            "updated": 1615894748254
+        },
+        {
+            "style": "Callout",
+            "text": "Let's get you up to speed with the basics... Read this page so that we may do some playing!",
+            "updated": 1615894772233
+        }
+    ]
+}

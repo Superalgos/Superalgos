@@ -1,0 +1,39 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "22",
+    "type": "Tutorial Step - Dealing with References",
+    "definition": {
+        "text": "References are how a node may obtain information about another otherwise unrelated node. This is a crucial concept so pay attention!",
+        "updated": 1615797468978,
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Read this page carefully! If you are not a developer, you may want to read it twice until it sinks in!",
+            "updated": 1615797106813
+        },
+        {
+            "style": "Text",
+            "text": "In brief, references have...",
+            "updated": 1615797242493
+        },
+        {
+            "style": "List",
+            "text": "a direction: outgoing or incoming,",
+            "updated": 1615797236023
+        },
+        {
+            "style": "List",
+            "text": "and a scope: internal or external."
+        },
+        {
+            "style": "Note",
+            "text": "The later concept —references' scope— is crucial to understand the differences between Backups and Clones.",
+            "updated": 1615797959970
+        }
+    ]
+}

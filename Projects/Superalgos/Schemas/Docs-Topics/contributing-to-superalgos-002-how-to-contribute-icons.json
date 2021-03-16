@@ -483,7 +483,32 @@
         },
         {
             "style": "Text",
-            "text": "Files inherit the name of the node, asset, exchange, or whatever the icon represents, and are named in lower case, each word separated by a hyphen, and with a lower-case extension. For example, the PNG file for the Initial Take Profit node is initial-take-profit.png."
+            "text": "Files inherit the name of the node, asset, exchange, or whatever the icon represents, and are named in lower case, each word separated by a hyphen, and with a lower-case extension. ",
+            "updated": 1615462236475
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1615462266490
+        },
+        {
+            "style": "List",
+            "text": "In the case of nodes, the PNG file for the Managed Take Profit node is managed-take-profit.png",
+            "updated": 1615462396196
+        },
+        {
+            "style": "List",
+            "text": "In the case of assets, the name of the file must is the literal name of the asset. For instance, for Bitcoin, it is bitcoin.png; for Tether it is tether.png; and so on...",
+            "updated": 1615462488610
+        },
+        {
+            "style": "List",
+            "text": "In the case of an exchange, again, the literal name of the exchange is used, as it is listed in the CCXT library. for instance, Binance is binance.png.",
+            "updated": 1615462532995
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

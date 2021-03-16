@@ -71,8 +71,8 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Compile->Optimizer->Loss Function->Metrics->' +
             'Fit Dataset->Verbose->Epochs->Callbacks->' +
             'Layers API->Code API->' +
-            'Secuential Model->Functional Model->' + 
-            'Input Layer->Secuential Layer->Output Layer->'+
+            'Sequential Model->Functional Model->' + 
+            'Input Layer->Sequential layer->Output Layer->'+
             'Input Shape->Batch Input Shape->Input Features->Data Feature->Feature Formula->' + 
             'Output Labels->Data Label->Label Formula->' + 
             'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +

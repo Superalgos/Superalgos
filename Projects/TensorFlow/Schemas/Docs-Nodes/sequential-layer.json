@@ -1,7 +1,7 @@
 {
-    "type": "Secuential Layer",
+    "type": "Sequential layer",
     "definition": {
-        "text": "A set of neurons in an Artificial Neural Network with a Secuential Model, that process a set of input features, or the output of those neurons.",
+        "text": "A set of neurons in an Artificial Neural Network with a Sequential Model, that process a set of input features, or the output of those neurons.",
         "updated": 1613208793464
     },
     "paragraphs": [

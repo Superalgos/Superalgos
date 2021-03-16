@@ -1,5 +1,5 @@
 {
-    "type": "Secuential Model",
+    "type": "Sequential Model",
     "definition": {
         "text": "The most common type of model is the Sequential model, which is a linear stack of layers. ",
         "updated": 1613201804709

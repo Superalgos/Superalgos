@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "41",
+    "type": "Tutorial Step - Placing Plugins",
+    "definition": {
+        "text": "To place a plugin in a workspace you must select the option to add the missing plugins on the node of the matching type!",
+        "icon": {
+            "name": "plugin-trading-systems",
+            "project": "Superalgos"
+        },
+        "updated": 1615925984822
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Let's give it a shot! Select Add Missing Trading Systems in the Plugin Trading Systems node! Confirm with a second click...",
+            "updated": 1615926026799
+        },
+        {
+            "style": "Text",
+            "text": "That's it! The rest of the plugins available in the Trading-Systems folder are added as Plugin File nodes! You may delete the Plugin File nodes of the trading systems you don't need and keep the ones you need!",
+            "updated": 1615925783068
+        },
+        {
+            "style": "Success",
+            "text": "Now you may use the Plugin File Position node to place the plugin in the desired position!",
+            "updated": 1615925560412
+        }
+    ]
+}

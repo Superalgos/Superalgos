@@ -7,17 +7,38 @@
             "project": "Superalgos",
             "name": "charting-space"
         },
-        "text": "So far, you've been confined to the dark side of Superalgos. Get ready to be exposed to the bright side: the Charting Space."
+        "text": "So far, you've been confined to the dark side of Superalgos. Get ready to be exposed to the bright side: the Charting Space.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Finora sei rimasto confinato nel lato oscuro di Superalgos. Preparati a incontrare il lato chiaro: il Charting Space.",
+                "updated": 1614846601940
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The charting space lives on top of the design space, separated by a turquoise slider. As you will come to expect from Superalgos, the charting space is configurable and highly flexible. Everything that happens there is defined on the Charting Space hierarchy.",
-            "updated": 1610538092491
+            "updated": 1610538092491,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Charting Space si trova al di sopra del Design Space, separato da uno slider turchese. Come imparerai ad aspettarti da Superalgos, il Charting Space è configurabile e molto flessibile. Tutto ciò che accade al suo interno è definito nella gerarchia del Charting Space.",
+                    "updated": 1614846709741
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "The charting space is known for blowing people's minds. Please, refrain from continuing with this tutorial if you are currently under the influence of psychoactive substances."
+            "text": "The charting space is known for blowing people's minds. Please, refrain from continuing with this tutorial if you are currently under the influence of psychoactive substances.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Charting Space può sbalordire al punto da far girare la testa. Non proseguire questo tutorial se sei sotto l'effetto di sostanze psicoattive.",
+                    "updated": 1614846855335
+                }
+            ]
         }
     ]
 }

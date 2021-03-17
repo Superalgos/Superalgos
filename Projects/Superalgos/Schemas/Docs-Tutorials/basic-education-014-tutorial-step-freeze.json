@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "14",
+    "type": "Tutorial Step - Freeze!",
+    "definition": {
+        "text": "The freeze button makes sense under very specific circumstances: when physics are activated at the level of the Design Space.",
+        "updated": 1615543120064,
+        "icon": {
+            "name": "freeze-structure-of-nodes",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive!",
+            "updated": 1615544003132
+        },
+        {
+            "style": "Note",
+            "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum!",
+            "updated": 1615544598765
+        },
+        {
+            "style": "Text",
+            "text": "The freeze option freezes the node’s chain connections with its parent and offspring and connecting lines turn blue. Freezing releases CPU resources when physics animations are on, as the system stops calculating nodes' positions and status.",
+            "updated": 1615544553909
+        }
+    ]
+}

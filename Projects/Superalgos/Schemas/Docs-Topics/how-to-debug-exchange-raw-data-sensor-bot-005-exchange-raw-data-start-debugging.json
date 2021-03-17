@@ -1,0 +1,123 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "5",
+    "type": "Exchange Raw Data - Start Debugging",
+    "definition": {
+        "text": "The procedure to debug this sensor bot is fairly simple. Just run VS Code with your breakpoint set, go to the UI and start the Sensor Bot Task with the menu option DEBUG.",
+        "updated": 1614592297685
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Almost instantaneously you will see that VS Code stops at the breakpoint you set. From there you can go step by step checking any of the variable values. If you let the code to run, you will notice that a single execution will try to fetch all the missing objects since the last time it ran until present time. ",
+            "updated": 1614592493363
+        },
+        {
+            "style": "Text",
+            "text": "When it finishes, the Sensor Bot will go to sleep for 60 seconds and them it will try to do the same stuff again, and again.",
+            "updated": 1614596623591
+        },
+        {
+            "style": "Title",
+            "text": "Not Working?"
+        },
+        {
+            "style": "Text",
+            "text": "It might happen that the procedure did not work as expected. Check the VS Code console if you have an output similar to this one:"
+        },
+        {
+            "style": "Javascript",
+            "text": "C:\\Program Files\\nodejs\\node.exe --inspect-brk=43774 Task.js \nDebugger listening on ws://127.0.0.1:43774/7e591f55-d67e-4afe-ba9b-24a6b5763824\nFor help, see: https://nodejs.org/en/docs/inspector\nDebugger attached.",
+            "updated": 1614596632803
+        },
+        {
+            "style": "Text",
+            "text": "If not, you will need to do some troubleshooting. stat with this:",
+            "updated": 1614597449912
+        },
+        {
+            "style": "Text",
+            "text": "1. Run Superalgos client",
+            "updated": 1614596880175
+        },
+        {
+            "style": "Text",
+            "text": "2. Close VS CODE"
+        },
+        {
+            "style": "Text",
+            "text": "3. Locate the Task Server folder",
+            "updated": 1614596886736
+        },
+        {
+            "style": "Text",
+            "text": "4. Right click there and OPEN with VS CODE",
+            "updated": 1614596891216
+        },
+        {
+            "style": "Text",
+            "text": "5. Without adding yet the Projects folder, run VS CODE",
+            "updated": 1614596895555
+        },
+        {
+            "style": "Text",
+            "text": "6. See if the VS CODE console shows something similar to what I sent you",
+            "updated": 1614596901462
+        },
+        {
+            "style": "Subtitle",
+            "text": "Superalgos Client is not Running"
+        },
+        {
+            "style": "Text",
+            "text": "If you see a message like this at the VS Code console, that means that the Superalgos Client is not currently running."
+        },
+        {
+            "style": "Javascript",
+            "text": "[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = undefined\nEventServerClient.js:50\n[ERROR] This could mean that the port 18041 is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the.ENV file inside the Superalgos folder AND at the.Environment.js file inside the TaskServer folder. After that run the app again.\nEventServerClient.js:51\n[ERROR] If you are debugging, it can also mean that the Superalgos Client is not running.",
+            "updated": 1614597267564
+        },
+        {
+            "style": "Subtitle",
+            "text": "Check Launch.json"
+        },
+        {
+            "style": "Text",
+            "text": "If you still can not see the debugger listening on ws port, then you should check that the launch.json file you have at the .vscode folder is similar to this one."
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    // Use IntelliSense to learn about possible attributes.\n    // Hover to view descriptions of existing attributes.\n    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387\n    \"version\": \"0.2.0\",\n    \"configurations\": [\n        {\n            \"type\": \"node\",\n            \"request\": \"launch\",\n            \"name\": \"Launch Program\",\n            \"skipFiles\": [\n                \"<node_internals>/**\"\n            ],\n            \"program\": \"${workspaceFolder}\\\\Task.js\"\n        }\n    ]\n}",
+            "updated": 1614597399232
+        },
+        {
+            "style": "Text",
+            "text": "That migh be the reason why it is not starting the debugging session."
+        },
+        {
+            "style": "Subtitle",
+            "text": "On Linux?"
+        },
+        {
+            "style": "Text",
+            "text": "Users reported that on Linux, you need to adjust the Launch.json file to have this line:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"program\": \"${workspaceFolder}/Task.js\"",
+            "updated": 1614609553571
+        },
+        {
+            "style": "Text",
+            "text": "Feel free to try it out."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

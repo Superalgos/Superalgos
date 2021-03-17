@@ -39,6 +39,23 @@
         {
             "style": "Javascript",
             "text": "docs.repaginate Topic from Superalgos: Docs Commands"
+        },
+        {
+            "style": "Title",
+            "text": "Usage"
+        },
+        {
+            "style": "Text",
+            "text": "After you repaginate a Topic or Tutorial, the best way to proceed it to manually delete from disk all the files associated with that Topic / Tutorial. After you delete them, you execute the repaginate command and then the docs.save command. "
+        },
+        {
+            "style": "Text",
+            "text": "The repagination flags all of the files of that Topic / Tutorial as changed, so you don't need to worry about the deleted files since they will be all recreated.",
+            "updated": 1614942454596
+        },
+        {
+            "style": "Text",
+            "text": "After repagination, reload the UI to get into memory only the repaginated version."
         }
     ]
 }

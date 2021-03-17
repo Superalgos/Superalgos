@@ -3,14 +3,30 @@
     "pageNumber": "5",
     "type": "App Message - Update Done - Already Up-To-Date",
     "definition": {
-        "text": "The update process run successfully but no changes where made since your installation is up-to-date with the current branch. No further action required.",
-        "updated": 1611128829429
+        "text": "The update process run successfully but no changes were made since your installation is up-to-date with the current branch. No further action required.",
+        "updated": 1615458687718,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Proses pembaruan berjalan dengan lancar namun tidak ada perubahan yang terjadi karena versi Superalgos anda sudah diversi paling baru dengan cabang saat ini. Tidak perlu tindakan lebih lanjut.",
+                "updated": 1613892507215,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "You are up-to-date. No need to reboot the Client or refresh the UI page.",
-            "updated": 1610454271911
+            "updated": 1610454271911,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda sudah diversi paling up-to-date. Tidak perlu me-reboot Client atau merefresh halaman UI ini.",
+                    "updated": 1613892633200,
+                    "style": "Success"
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "19",
+    "type": "Tutorial Step - Irrelevant Nodes",
+    "definition": {
+        "text": "Nodes that are not attached to a hierarchy are not computed. They exist in the workspace, but they don't affect the workings of the system at any level.",
+        "updated": 1615575416918,
+        "icon": {
+            "name": "detach-node",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This means that you may keep as many structures of nodes detached from hierarchies, for as long as you wish, keeping them at hand for later use, or for whatever reason.",
+            "updated": 1615580307483
+        },
+        {
+            "style": "Success",
+            "text": "A common scenario is keeping multiple versions of certain definitions while building strategies, so that you may test a set of rules and switch to other rules for the next run. You may even keep multiple versions of entire strategies!",
+            "updated": 1615575707975
+        }
+    ]
+}

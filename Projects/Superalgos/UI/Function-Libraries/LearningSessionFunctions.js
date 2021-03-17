@@ -62,16 +62,31 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
 
         let lightingPath = '' +
             'Learning System->' +
-            'Tensor Flow Library->' + 
-            'Execution Environmnet->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
+            'TensorFlow Library->' + 
+            'Execution Environment->Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' + 
             'WebGL Backend->NodeJS Backend->WASM Backend->CPU Backend->' + 
-            'Environment Flags->Debug Mode->Production Mode'
+            'Environment Flags->Debug Mode->Production Mode->' +
+            'Supervised Learning->Unsupervised Learning->Self Learning->Reinforcement Learning->' +
+            'Artificial Neural Network->Model->' +
+            'Compile->Optimizer->Loss Function->Metrics->' +
+            'Fit Dataset->Verbose->Epochs->Callbacks->' +
+            'Layers API->Code API->' +
+            'Sequential Model->Functional Model->' + 
+            'Input Layer->Sequential layer->Output Layer->'+
+            'Input Shape->Batch Input Shape->Input Features->Data Feature->Feature Formula->' + 
+            'Output Labels->Data Label->Label Formula->' + 
+            'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
+            'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
+            'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
+            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
+            'Dimensionality Units->Activation Function->Batch Size->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' + 
+            'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
+            'Bias Initializer->Bias Constraint->Bias Regularizer->' 
 
         let learningSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Learning Engine->' +
-            'Dynamic Indicators->Indicator Function->' +
             'Learning Current->Learning Last->Previous->' +
             'Learning Episode->' +
             'Episode Base Asset->Episode Quoted Asset->Learning Episode Counters->Learning Episode Statistics->' +
@@ -103,7 +118,10 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
-            'Index->Situation Name->Formula->Periods->'
+            'Index->Situation Name->Formula->Periods->' + 
+            'Features->Feature->Begin->End->Feature Value->'+ 
+            'Labels->Label->Begin->End->Label Value->'+ 
+            'Predictions->Prediction->Begin->End->Prediction Value->'
 
         let learningEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

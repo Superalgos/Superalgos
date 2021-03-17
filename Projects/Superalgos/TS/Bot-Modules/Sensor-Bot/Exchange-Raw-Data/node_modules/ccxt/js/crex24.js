@@ -133,6 +133,7 @@ module.exports = class crex24 extends Exchange {
                 'GHOST': 'GHOSTPRISM',
                 'IQ': 'IQ.Cash',
                 'PUT': 'PutinCoin',
+                'SBTC': 'SBTCT', // SiamBitcoin
                 'UNI': 'Universe',
                 'YOYO': 'YOYOW',
             },
@@ -158,6 +159,7 @@ module.exports = class crex24 extends Exchange {
                     "Parameter 'instrument' contains invalid value.": BadSymbol,
                 },
                 'broad': {
+                    'try again later': ExchangeNotAvailable, // {"errorDescription":"Failed to process the request. Please, try again later."}
                     'API Key': AuthenticationError, // "API Key '9edc48de-d5b0-4248-8e7e-f59ffcd1c7f1' doesn't exist."
                     'Insufficient funds': InsufficientFunds, // "Insufficient funds: new order requires 10 ETH which is more than the available balance."
                     'has been delisted.': BadSymbol, // {"errorDescription":"Instrument '$PAC-BTC' has been delisted."}
@@ -757,14 +759,14 @@ module.exports = class crex24 extends Exchange {
         }
         if (priceIsRequired) {
             if (price === undefined) {
-                throw new InvalidOrder (this.id + ' createOrder method requires a price argument for a ' + type + ' order');
+                throw new InvalidOrder (this.id + ' createOrder() requires a price argument for a ' + type + ' order');
             }
             request['price'] = this.priceToPrecision (symbol, price);
         }
         if (stopPriceIsRequired) {
             const stopPrice = this.safeFloat (params, 'stopPrice');
             if (stopPrice === undefined) {
-                throw new InvalidOrder (this.id + ' createOrder method requires a stopPrice extra param for a ' + type + ' order');
+                throw new InvalidOrder (this.id + ' createOrder() requires a stopPrice extra param for a ' + type + ' order');
             } else {
                 request['stopPrice'] = this.priceToPrecision (symbol, stopPrice);
             }

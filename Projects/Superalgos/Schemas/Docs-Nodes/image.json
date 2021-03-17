@@ -33,26 +33,6 @@
             "text": "Configuring Image"
         },
         {
-            "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
-        },
-        {
-            "style": "Text",
-            "text": "{"
-        },
-        {
-            "style": "Text",
-            "text": "   \"codeName\": \"imagename\","
-        },
-        {
-            "style": "Text",
-            "text": "   \"size\": 15"
-        },
-        {
-            "style": "Text",
-            "text": "}"
-        },
-        {
             "style": "List",
             "text": "codeName is the name of the image, without the .png extension."
         },

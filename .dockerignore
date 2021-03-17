@@ -1,0 +1,15 @@
+Data-Storage
+Log-Files
+My-Workspaces
+debug.log
+
+*.db
+
+.git*
+.vscode
+README.md
+LICENSE
+CONTRIBUITING.md
+CODE_OF_CONDUCT.md
+./**/.vscode
+Dockerfile

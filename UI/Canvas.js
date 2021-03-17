@@ -387,6 +387,10 @@ function newCanvas() {
         thisObject.mouse.action = 'key down'
 
         checkMediaRecording(event)
+
+        event.x = thisObject.mouse.position.x 
+        event.y = thisObject.mouse.position.y 
+
         UI.projects.superalgos.spaces.chartingSpace.onKeyPressed(event)
 
         /* Shourcuts to Menu Items */

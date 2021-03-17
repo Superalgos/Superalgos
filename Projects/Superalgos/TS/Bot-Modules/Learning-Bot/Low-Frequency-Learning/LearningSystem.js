@@ -5,6 +5,8 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     */
     const MODULE_NAME = 'Learning System'
     let thisObject = {
+        loadModel: loadModel, 
+        saveModel: saveModel, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -26,27 +28,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let learningAlgorithmName = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters.learningAlgorithm.config.codeName
-    let learningAlgorithmModuleObject
-    /* 
-    We will scan the project schema until we find the module that will run the algorithm
-    defined by the user at the UI / Session Parameters.
-    */
-    for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
-        let project = TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA[i]
-        if (project.name !== TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName) { continue }
-        for (let j = 0; j < project.TS.algorithmModules.length; j++) {
-            algorithmModuleDefinition = project.TS.algorithmModules[j]
-            if (algorithmModuleDefinition.name === learningAlgorithmName) {
-
-                TS.projects.superalgos.globals.processVariables.TOTAL_PROCESS_INSTANCES_CREATED++
-                let project = TS.projects[TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName.toLowerCase()]
-                let botModule = project.algorithmModules[algorithmModuleDefinition.propertyName]
-                let moduleFunction = botModule[algorithmModuleDefinition.functionName]
-                learningAlgorithmModuleObject = moduleFunction(processIndex)
-            }
-        }
-    }
+    let machineLearningLibraryModuleObject
 
     return thisObject
 
@@ -121,9 +103,38 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         }
 
         /*
-        Initialize the Learning Algorithm
+        Initialize the Machine Learning Library
         */
-        learningAlgorithmModuleObject.initialize(onInitializeReady)
+
+        let machineLearningLibrary = learningSystem.machineLearningLibrary
+
+        if (machineLearningLibrary === undefined) {
+            // TODO 
+        }
+        /* 
+        We will scan the project schema until we find the machine learning library
+        defined by the user at the UI.
+        */
+        for (let i = 0; i < TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA.length; i++) {
+            let projectSchemaProject = TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA[i]
+            if (projectSchemaProject.name !== machineLearningLibrary.project) { continue }
+
+            for (let j = 0; j < projectSchemaProject.TS.botModules.length; j++) {
+                let botModuleDefinition = projectSchemaProject.TS.botModules[j]
+
+                /* 
+                We match the type of the machine learning library with the name at the project schema 
+                */
+                if (botModuleDefinition.name === machineLearningLibrary.type) {
+
+                    let project = TS.projects[machineLearningLibrary.project.toLowerCase()]
+                    let botModule = project.botModules[botModuleDefinition.propertyName]
+                    let moduleFunction = botModule[botModuleDefinition.functionName]
+                    machineLearningLibraryModuleObject = moduleFunction(processIndex)
+                }
+            }
+        }
+        machineLearningLibraryModuleObject.initialize(onInitializeReady)
 
         function onInitializeReady(err) {
             if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -150,8 +161,8 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
 
     function finalize() {
 
-        learningAlgorithmModuleObject.finalize()
-        learningAlgorithmModuleObject = undefined
+        machineLearningLibraryModuleObject.finalize()
+        machineLearningLibraryModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -173,13 +184,21 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         learningEngine = undefined
         sessionParameters = undefined
     }
+    
+    async function  loadModel() {
+        await machineLearningLibraryModuleObject.loadModel()
+    }
+
+    async function  saveModel() {
+        await machineLearningLibraryModuleObject.saveModel()
+    }
 
     function mantain() {
-        learningAlgorithmModuleObject.mantain()
+        machineLearningLibraryModuleObject.mantain()
     }
 
     function reset() {
-        learningAlgorithmModuleObject.reset()
+        machineLearningLibraryModuleObject.reset()
 
         learningSystem.highlights = []
         learningSystem.errors = []
@@ -201,7 +220,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         exchange = pExchange
         market = pMarket
 
-        learningAlgorithmModuleObject.updateChart(pChart, pExchange, pMarket)
+        machineLearningLibraryModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function buildDynamicIndicators() {
@@ -227,15 +246,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             /*
             Initialize the Learning Algorithm
             */
-            learningAlgorithmModuleObject.run(onRun)
-
-            function onRun(err) {
-                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-
-                } else {
-
-                }
-            }
+            await machineLearningLibraryModuleObject.run()
 
         } catch (err) {
             /* 
@@ -271,7 +282,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
         }
 
         /* Here we check if there is a formula to be evaluated */
-        if ((node.type === 'Formula' || node.type === 'Announcement Formula') && evaluating === 'Formulas') {
+        if ((node.type === 'Feature Formula' || node.type === 'Label Formula') && evaluating === 'Formulas') {
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
@@ -396,7 +407,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
             return
         } else {
             if (value !== undefined) {
-                if (node.type === 'Formula' && isNaN(value)) {
+                if ((node.type === 'Feature Formula' || node.type === 'Label Formula') && isNaN(value)) {
 
                     docs = {
                         project: 'Superalgos',

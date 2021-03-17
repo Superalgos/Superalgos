@@ -1,0 +1,51 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 4,
+    "type": "Automating Actions - Adding your Function",
+    "definition": {
+        "text": "Take a look at how other functions are implemented in the Function Library and try to follow that way.",
+        "updated": 1614941850917
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The basic procedure is quite straight forward. First add the function name to the thisObject and the write you function at the most appropiate place at the Function Library. ",
+            "updated": 1614941084806
+        },
+        {
+            "style": "Important",
+            "text": "Please document your function the best you can, even if you see the other functions implemented at the same library poorly documented. See if you can make your function the best documented in the whole library."
+        },
+        {
+            "style": "Title",
+            "text": "Example of thisObject"
+        },
+        {
+            "style": "Javascript",
+            "text": "    thisObject = {\n        addMissingExchanges: addMissingExchanges,\n        addMissingAssets: addMissingAssets,\n        addMissingMarkets: addMissingMarkets,\n        installMarket: installMarket,\n        uninstallMarket: uninstallMarket\n    }",
+            "updated": 1614929327521
+        },
+        {
+            "style": "Title",
+            "text": "Function Parameters"
+        },
+        {
+            "style": "Text",
+            "text": "Your function will receive some parameters, including the Node object that hosted the Menu Item that triggered your Action. The exact list of parameters will be defined by yourself later at the step Automating Actions - Adding an Action Switch Case. Here is a short list of the most common parameters you might later include:",
+            "updated": 1614931548904
+        },
+        {
+            "style": "List",
+            "text": "node: the node object that hosted the Menu Item that triggered your Action"
+        },
+        {
+            "style": "List",
+            "text": "rootNodes: An array of nodes that are floating at the Design Space without parents. This includes all hierarchy heads.",
+            "updated": 1614931639516
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

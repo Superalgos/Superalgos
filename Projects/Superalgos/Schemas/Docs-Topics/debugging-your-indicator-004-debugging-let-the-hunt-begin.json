@@ -1,0 +1,71 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "4",
+    "type": "Debugging - Let The Hunt Begin!",
+    "definition": {
+        "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward.",
+        "updated": 1614333358461,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward. ",
+                "updated": 1614338803641,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Ssssh, be quiet... wait for it...",
+            "updated": 1614512153973
+        },
+        {
+            "style": "Text",
+            "text": "As soon as the data for your indicator is being processed, your IDE will pause the process at the break point we set earlier...",
+            "updated": 1614512188902
+        },
+        {
+            "style": "Javascript",
+            "text": "(eval(dataBuildingProcedure.loop.procedureJavascriptCode.code))"
+        },
+        {
+            "style": "Text",
+            "text": "... allowing you to zoom in to the details what's really going on."
+        },
+        {
+            "style": "Text",
+            "text": "Keep an eye out for when your Breaking point changes from a dot to an arrow.",
+            "updated": 1614334261604
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/7_breaking-point-indication.png"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/17_stopped-at-breaking-point.png"
+        },
+        {
+            "style": "Text",
+            "text": "Use F11 to zoom into the code and F5 to step forward."
+        },
+        {
+            "style": "Text",
+            "text": "Keep stepping forward to follow the flow of data."
+        },
+        {
+            "style": "Text",
+            "text": "Monitor what's going on in the code, and hover over your variables to check what values they get."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/18_zoomed-in-getting-values.png"
+        },
+        {
+            "style": "Note",
+            "text": "Tip: In cases where the values turn to \"NaN\" or stays \"undefined\" without a logical reason - There's a point to raise doubt.",
+            "updated": 1614512232138
+        }
+    ]
+}

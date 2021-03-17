@@ -1,7 +1,8 @@
 {
     "type": "List of Plugin Workspaces and Tutorials",
     "definition": {
-        "text": "Write here the summary / definition of this Concept."
+        "text": "Tutorials exists withing specific workspaces. This is a list of the workspaces shipping with Superalgos and the tutorials each of the feature.",
+        "updated": 1613848190790
     },
     "paragraphs": [
         {

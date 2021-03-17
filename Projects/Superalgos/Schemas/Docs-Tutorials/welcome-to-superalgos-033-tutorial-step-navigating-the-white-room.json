@@ -7,17 +7,38 @@
             "project": "Superalgos",
             "name": "mouse-right-click"
         },
-        "text": "Just like the design space, the charting space features a huge area where you may set up charts... as many as your hardware can cope with!"
+        "text": "Just like the design space, the charting space features a huge area where you may set up charts... as many as your hardware can cope with!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Proprio come il Design Space, il Charting Space ha un'enorme area dove puoi inserire grafici...tanti quanti il tuo hardware ne riesce a gestire!",
+                "updated": 1614847190845
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There are only two charts in this Getting Started Workspace,  to keep things simple for newcomers. Advanced users monitor charts from multiple exchanges and multiple markets.",
-            "updated": 1610619913827
+            "updated": 1610619913827,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ci sono solo due charts in questo Workspace Getting Started, per mantenere le cose semplici per i novellini. Utenti avanzati confrontano diversi grafici di diversi exchanges e diversi market.",
+                    "updated": 1614847284524
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "To move around the charting space, click and drag using your mouse. <br/><br/>The keyboard combination is Shift plus the arrow keys ↑ ← → ↓"
+            "text": "To move around the charting space, click and drag using your mouse. <br/><br/>The keyboard combination is Shift plus the arrow keys ↑ ← → ↓",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per muoverti nel Charting Space, clicca e trascina usando il tuo mouse. La combinazione di tasti è Shift più  i tasti freccia ↑ ← → ↓",
+                    "updated": 1614847340001
+                }
+            ]
         }
     ]
 }

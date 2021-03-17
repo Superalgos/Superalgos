@@ -1,0 +1,247 @@
+{
+    "type": "App Schema",
+    "definition": {
+        "text": "A set of low level definitions placed at a JSON file that defines which types of nodes are made available by a certain Project to be used at the Design Space.",
+        "updated": 1614784939148
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The App Schema file is an array of objects, each objec defines a certain node type.",
+            "updated": 1614785082978
+        },
+        {
+            "style": "Title",
+            "text": "Example"
+        },
+        {
+            "style": "Json",
+            "text": "   {\n        \"type\": \"Plotter Panel\",\n        \"level\": 4,\n        \"propertyNameAtParent\": \"panels\",\n        \"attachingRules\": {\n            \"compatibleTypes\": \"->Plotter Module->\"\n        },\n        \"childrenNodesProperties\": [\n            {\n                \"name\": \"plotterPanelJavascriptCode\",\n                \"type\": \"node\",\n                \"childType\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"name\": \"panelData\",\n                \"type\": \"array\",\n                \"childType\": \"Panel Data\",\n                \"autoAdd\": true\n            }\n        ],\n        \"menuItems\": [\n            {\n                \"action\": \"Add UI Object\",\n                \"disableIfPropertyIsDefined\": true,\n                \"propertyToCheckFor\": \"plotterPanelJavascriptCode\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Javascript Code\",\n                \"relatedUiObject\": \"Plotter Panel Javascript Code\"\n            },\n            {\n                \"action\": \"Add UI Object\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Add Panel Data\",\n                \"relatedUiObject\": \"Panel Data\"\n            },\n            {\n                \"action\": \"Delete UI Object\",\n                \"askConfirmation\": true,\n                \"confirmationLabel\": \"Confirm to Delete\",\n                \"actionFunction\": \"payload.executeAction\",\n                \"label\": \"Delete\",\n                \"iconPathOn\": \"delete-entity\",\n                \"iconPathOff\": \"delete-entity\"\n            }\n        ],\n        \"addLeftIcons\": true\n    }",
+            "updated": 1614785173292
+        },
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1614785297833
+        },
+        {
+            "style": "Text",
+            "text": "Each object can have a pre-defined set of properties, which you can see here:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "type"
+        },
+        {
+            "style": "Text",
+            "text": "The Type of the node is the key by which each node is identified within the context of a certain Project. The naming convention here is that all words must be capitalized.",
+            "updated": 1614785486944
+        },
+        {
+            "style": "Subtitle",
+            "text": "level"
+        },
+        {
+            "style": "Text",
+            "text": "It is an integer from 0 to 5, representing the importance of this type of node. 0 is the most important. The more important the node type, the bigger is rendered at the Design Space. The difference between level is barely noticable.",
+            "updated": 1614785595122
+        },
+        {
+            "style": "Subtitle",
+            "text": "propertyNameAtParent"
+        },
+        {
+            "style": "Text",
+            "text": "Nodes are usually child of other nodes. Each Node might also have children. At runtime children references are stored at some property of the Node object, but that property is not unique or pre-defined. Instead, each Node Type declares at its own definition at the App Schema, which will be the name of the property that will host it's own reference at it's parent node.  "
+        },
+        {
+            "style": "Subtitle",
+            "text": "childrenNodesProperties",
+            "updated": 1614785903518
+        },
+        {
+            "style": "Text",
+            "text": "Nodes also declare an array of property names that will be used to define which type of children the node can have. For example:",
+            "updated": 1614786054299
+        },
+        {
+            "style": "Json",
+            "text": "\"childrenNodesProperties\": [\n            {\n                \"name\": \"dataFormula\",\n                \"type\": \"node\",\n                \"childType\": \"Data Formula\",\n                \"autoAdd\": true\n            },\n            {\n                \"name\": \"textStyle\",\n                \"type\": \"node\",\n                \"childType\": \"Text Style\",\n                \"autoAdd\": true\n            }\n        ]",
+            "updated": 1614786383043
+        },
+        {
+            "style": "Text",
+            "text": "Each array item represent one type of children node this node can have. ",
+            "updated": 1614786149174
+        },
+        {
+            "style": "Text",
+            "text": "Each object can have 4 properties:"
+        },
+        {
+            "style": "List",
+            "text": "name: means name of the property that will hold the reference to the child node at runtime.",
+            "updated": 1614786293774
+        },
+        {
+            "style": "List",
+            "text": "type: possible values are node or array. See details below.",
+            "updated": 1614786239139
+        },
+        {
+            "style": "List",
+            "text": "childType: means the type of the child node."
+        },
+        {
+            "style": "List",
+            "text": "autoAdd: optional, menas if one instance of this children will be automatically created when this Node type is created."
+        },
+        {
+            "style": "Text",
+            "text": "The type property, can either be node or array, meaning:",
+            "updated": 1614786331079
+        },
+        {
+            "style": "List",
+            "text": "node: means that can have only one instance of this type of children."
+        },
+        {
+            "style": "List",
+            "text": "array: means that it can have more than one instance of this type of children."
+        },
+        {
+            "style": "Subtitle",
+            "text": "attachingRules"
+        },
+        {
+            "style": "Text",
+            "text": "This property defines to which nodes the current one being defined can attach to, considering those nodes as possible parents. The values are expresed in a string with a list of Node Types like in the following example:"
+        },
+        {
+            "style": "Json",
+            "text": "\"attachingRules\": {\n            \"compatibleTypes\": \"->Procedure Initialization->Procedure Loop->\"\n        }",
+            "updated": 1614786517182
+        },
+        {
+            "style": "Note",
+            "text": "incompatibleTypes property can also be used to explicitly define which nodes can not be parents.",
+            "updated": 1614786596412
+        },
+        {
+            "style": "Subtitle",
+            "text": "referencingRules"
+        },
+        {
+            "style": "Text",
+            "text": "This property defines to which nodes the current one being defined can reference to, considering those nodes as possible reference parents. The values are expresed in a string with a list of Node Types like in the following example:",
+            "updated": 1614786699311
+        },
+        {
+            "style": "Json",
+            "text": "\"referencingRules\": {\n            \"compatibleTypes\": \"->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->\"\n        }",
+            "updated": 1614786660155
+        },
+        {
+            "style": "Note",
+            "text": "incompatibleTypes property can also be used to explicitly define which nodes can not be parents.",
+            "updated": 1614786714357
+        },
+        {
+            "style": "Subtitle",
+            "text": "menuItems"
+        },
+        {
+            "style": "Text",
+            "text": "This property allow you to define the menu of this Node Type at the Design Space. This menu will be an array of Menu Items objects like in the example below:"
+        },
+        {
+            "style": "Json",
+            "text": "\"menuItems\": [\n            {\n                \"action\": \"Configure\",\n                \"label\": \"Configure\",\n                \"iconPathOn\": \"configuration\",\n                \"iconPathOff\": \"configuration\",\n                \"actionFunction\": \"uiObject.configEditor.activate\"\n            },\n            {\n                \"action\": \"Run Super Action\",\n                \"label\": \"Run\",\n                \"askConfirmation\": true,\n                \"confirmationLabel\": \"Confirm to Run\",\n                \"workDoneLabel\": \"Super Action Executed\",\n                \"iconPathOn\": \"run\",\n                \"iconPathOff\": \"run\",\n                \"actionFunction\": \"payload.executeAction\"\n            },\n            {\n                \"action\": \"Delete UI Object\",\n                \"askConfirmation\": true,\n                \"confirmationLabel\": \"Confirm to Delete\",\n                \"label\": \"Delete\",\n                \"iconPathOn\": \"delete-entity\",\n                \"iconPathOff\": \"delete-entity\",\n                \"actionFunction\": \"payload.executeAction\"\n            }\n        ]",
+            "updated": 1614787632953
+        },
+        {
+            "style": "Text",
+            "text": "Although you are free to add any menu item you like, there are a few that have already become standarized. These standard Menu Items are also placed at a certain position within the menu for consistency.",
+            "updated": 1614787035329
+        },
+        {
+            "style": "List",
+            "text": "configure: always go as the first item"
+        },
+        {
+            "style": "List",
+            "text": "run: after the configure if there is one"
+        },
+        {
+            "style": "List",
+            "text": "delete: it is always the last one"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "initialValues"
+        },
+        {
+            "style": "Text",
+            "text": "This property is needed when the Node Type being defined will have a configuration. In those cases this property will set the initial value for that config. Example:"
+        },
+        {
+            "style": "Json",
+            "text": "\"initialValues\": {\n            \"config\": \"{ \\n\\\"username\\\": \\\"\\\", \\n\\\"token\\\": \\\"\\\"\\n}\"\n        }",
+            "updated": 1614787265306
+        },
+        {
+            "style": "Subtitle",
+            "text": "editors"
+        },
+        {
+            "style": "Text",
+            "text": "This property will tell the system which editor will be available for this type of node. Example:"
+        },
+        {
+            "style": "Json",
+            "text": "\"editors\": {\n            \"config\": true\n        }",
+            "updated": 1614787433867
+        },
+        {
+            "style": "Text",
+            "text": "There are a few existing editors:"
+        },
+        {
+            "style": "List",
+            "text": "config: editor for node configurations."
+        },
+        {
+            "style": "List",
+            "text": "code: editor for javascript code."
+        },
+        {
+            "style": "List",
+            "text": "formula: formulas expressed in javascript."
+        },
+        {
+            "style": "List",
+            "text": "condition: conditions editor.",
+            "updated": 1614787624722
+        },
+        {
+            "style": "Note",
+            "text": "In order for the user to actually be able to open the editor configured here, there must be a Menu Item than has an action = \"Configure\"."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "1",
+    "pageNumber": 2,
     "type": "Binance Test Status",
     "definition": {
         "text": "Binance is fully tested for data mining and trading.",
@@ -14,7 +14,8 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability [*]: Yes."
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003523813
         },
         {
             "style": "List",
@@ -23,21 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Yes.",
-            "updated": 1615143016205
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1616003541160
         },
         {
             "style": "List",
             "text": "Comments: Fully tested. Starting with Binance is recommended as the experience is seamless.",
             "updated": 1615142951363
-        },
-        {
-            "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
-        },
-        {
-            "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has been verified."
         },
         {
             "style": "Title",

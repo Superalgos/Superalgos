@@ -13,18 +13,18 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Let's give it a shot! Select Add Missing Trading Systems in the Plugin Trading Systems node! Confirm with a second click...",
-            "updated": 1615926026799
+            "text": "Let's give it a shot! Select Add Missing Trading Systems in the Plugin Trading Systems node!",
+            "updated": 1615926961650
         },
         {
             "style": "Text",
-            "text": "That's it! The rest of the plugins available in the Trading-Systems folder are added as Plugin File nodes! You may delete the Plugin File nodes of the trading systems you don't need and keep the ones you need!",
-            "updated": 1615925783068
+            "text": "New Plugin File nodes are created for every plugin in the \\Plugins\\Trading-Systems folder! You may delete the Plugin File nodes you don't need and keep the ones you do need! Now you may pin the Plugin File Position node where you wish to place the actual plugin data structure!",
+            "updated": 1615927372538
         },
         {
             "style": "Success",
-            "text": "Now you may use the Plugin File Position node to place the plugin in the desired position!",
-            "updated": 1615925560412
+            "text": "Plugins will be added the next time you load the workspace! If you wish to test it, refresh!",
+            "updated": 1615978260752
         }
     ]
 }

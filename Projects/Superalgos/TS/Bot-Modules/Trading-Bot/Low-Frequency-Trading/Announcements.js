@@ -54,7 +54,6 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
             if (canAnnounce === true) {
                 let text = announcement.config.text
                 if (announcement.announcementFormula !== undefined) {
-                    console.log(announcement.announcementFormula)
                     let formulaValue
                     let errorMessage
 

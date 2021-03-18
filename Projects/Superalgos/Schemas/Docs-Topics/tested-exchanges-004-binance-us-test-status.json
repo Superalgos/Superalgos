@@ -1,10 +1,10 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "3",
+    "pageNumber": 4,
     "type": "Binance-US Test Status",
     "definition": {
-        "text": "Binance US is tested for data mining and live trading",
-        "updated": 1615210764406
+        "text": "Binance US is tested for data mining and live trading.",
+        "updated": 1616003840094
     },
     "paragraphs": [
         {
@@ -14,8 +14,8 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability [*]: Yes",
-            "updated": 1615204617519
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003754475
         },
         {
             "style": "List",
@@ -24,22 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Yes",
-            "updated": 1615210793722
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616003748968
         },
         {
             "style": "List",
             "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
             "updated": 1615205045729
-        },
-        {
-            "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
-        },
-        {
-            "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1615210884706
         },
         {
             "style": "Title",

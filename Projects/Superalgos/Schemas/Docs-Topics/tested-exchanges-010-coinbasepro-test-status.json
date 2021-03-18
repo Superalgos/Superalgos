@@ -1,10 +1,10 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": "9",
+    "pageNumber": 10,
     "type": "CoinbasePro Test Status",
     "definition": {
-        "text": "Coinbase Pro is not fully tested for data mining nor for live trading",
-        "updated": 1615453123690
+        "text": "Coinbase Pro is not fully tested for data mining nor for live trading.",
+        "updated": 1616005773803
     },
     "paragraphs": [
         {
@@ -14,8 +14,8 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability [*]: Yes",
-            "updated": 1615204617519
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has not been fully verified.",
+            "updated": 1616005829277
         },
         {
             "style": "List",
@@ -24,23 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Unknown",
-            "updated": 1615204866750
+            "text": "Trading Capability: Unknown.The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616005834904
         },
         {
             "style": "List",
-            "text": "Comments: Raw Data fetching extremely slow due to API restrictions, see config",
-            "updated": 1615453110186
-        },
-        {
-            "style": "Text",
-            "text": "[*] The ability to fetch historic data for backtesting purposes has not been fully verified",
-            "updated": 1615453130798
-        },
-        {
-            "style": "Text",
-            "text": "[**] The ability to run strategies in live-trading mode has not been verified",
-            "updated": 1615211304255
+            "text": "Comments: Raw Data fetching extremely slow due to API restrictions, see config.",
+            "updated": 1616005813658
         },
         {
             "style": "Title",

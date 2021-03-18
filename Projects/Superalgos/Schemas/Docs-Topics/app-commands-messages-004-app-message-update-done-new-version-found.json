@@ -17,8 +17,8 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You now have the latest version of Superalgos. Just remember to restart the Client and the UI. If you have Tasks running, you should first stop the tasks, and then restart the Client, so that you can run those task again using the updated codebase.",
-            "updated": 1615458633005,
+            "text": "You now have the latest version of Superalgos. Just remember to restart the Client and the UI. If you have Tasks running, you should first stop the tasks, and then restart the Client, so that you can run those tasks again using the updated codebase.",
+            "updated": 1616081292001,
             "translations": [
                 {
                     "language": "ID",
@@ -30,7 +30,7 @@
         },
         {
             "style": "Note",
-            "text": "The update you made, only affects the Client which you are connected to via http using your browser. If you have more Clients running as part of a Network, you will need to update them too, etither manually using Git or by navigating with your browser to their URL and doing running the App Update Command there.",
+            "text": "The update you made only affects the Client which you are connected to via http using your browser. If you have more Clients running as part of a Network, you will need to update them too, either manually using Git, or by navigating with your browser to their URL and running the App Update Command there.",
             "translations": [
                 {
                     "language": "ID",
@@ -39,7 +39,7 @@
                     "style": "Note"
                 }
             ],
-            "updated": 1615458652244
+            "updated": 1616081262353
         }
     ]
 }

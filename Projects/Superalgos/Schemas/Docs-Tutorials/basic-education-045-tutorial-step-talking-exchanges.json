@@ -23,8 +23,8 @@
         },
         {
             "style": "Note",
-            "text": "However, appearing in the list is not enough! Many exchanges don't really comply! As a result, there is an ongoing community effort to test exchanges and document which may be used with Superalgos and how! This is the topic in the Docs covering the effort. Look at this list to find which exchanges have been tested and to which extent.",
-            "updated": 1616001183797
+            "text": "However, appearing in the list is not enough! Many exchanges don't really comply! As a result, there is an ongoing community effort to test exchanges and document which may be used with Superalgos and how! This is the topic in the Docs covering the effort. Look at the TOC to find which exchanges have been tested and to which extent.",
+            "updated": 1616010477500
         }
     ]
 }

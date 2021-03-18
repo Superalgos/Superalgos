@@ -1,0 +1,40 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 7,
+    "type": "Luno Test Status",
+    "definition": {
+        "text": "Luno is tested for data mining and for live trading.",
+        "updated": 1616004109619
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616004152806
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Yes. The ability to run strategies in live-trading mode is now possible. Ensure that the version of the CCXT library being used by Superalgos is 1.42.77 or better - earlier versions of this library did not correctly apply the precision settings of the exchange in the amounts specified for creating orders.",
+            "updated": 1616004171327
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining is extremely slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API. One day of Raw Data takes about 5 minutes to download. Keep this in mind when setting a start date. The reason for this is because they do not support fetching of OHCLV data - this data has to be compiled by fetching individual trades. The fetching of trades is limited to 100 trades per request, and the rate limit is 1 second.",
+            "updated": 1616004526344
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"luno\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"useFetchTradesForFetchOHLCVs\": true,\n            \"maxTradesPerFetch\": 100,\n            \"limit\": 200,\n            \"rateLimit\": 1100\n        }\n    ]\n}",
+            "updated": 1615211372349
+        }
+    ]
+}

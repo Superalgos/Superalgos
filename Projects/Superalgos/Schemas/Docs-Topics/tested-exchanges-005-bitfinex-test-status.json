@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 5,
+    "type": "Bitfinex Test Status",
+    "definition": {
+        "text": "Bitfinex is tested for data mining but not for live trading.",
+        "updated": 1616003876885
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003797511
+        },
+        {
+            "style": "List",
+            "text": "Market History: 1 year.",
+            "updated": 1616004049653
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616003817998
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API.",
+            "updated": 1616004065179
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bitfinex\",\n    \"API\": [\n        {\n            \"rateLimit\": 999\n        }\n    ]\n}",
+            "updated": 1615211032603
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

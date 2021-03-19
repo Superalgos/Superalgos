@@ -1,0 +1,40 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "4",
+    "type": "Tested Exchanges Plugin Workspace",
+    "definition": {
+        "text": "This workspace features the very basic setup for users to start with a clean slate. Use this workspace to start building your own Trading System. Alternatively, you may use this workspace to test new exchanges.",
+        "updated": 1616146238001
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151026914
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market Tutorial.",
+            "updated": 1616151119187
+        },
+        {
+            "style": "Success",
+            "text": "The Crypto Ecosystem hierarchy features five different Crypto Exchanges nodes reflecting the status of the tests of each of the exchanges.",
+            "updated": 1616151086383
+        },
+        {
+            "style": "Important",
+            "text": "This workspace must be kept in a minimalist state to allow users to start from scratch."
+        },
+        {
+            "style": "Title",
+            "text": "Brought to you by",
+            "updated": 1616151450651
+        },
+        {
+            "style": "List",
+            "text": "@us9808",
+            "updated": 1616151454415
+        }
+    ]
+}

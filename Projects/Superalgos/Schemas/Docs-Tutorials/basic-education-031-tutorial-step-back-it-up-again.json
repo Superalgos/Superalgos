@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a backup of the Lightning Strike Trading System! Restore the back without deleting the original. Then repeat the restore operation but deleting the original trading system first!",
-            "updated": 1615827877645
+            "text": "Take a backup of the Lightning Strike trading system! Restore the backup without deleting the original. Then repeat the restore operation but deleting the original trading system first!",
+            "updated": 1616244614576
         },
         {
             "style": "Text",

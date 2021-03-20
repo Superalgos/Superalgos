@@ -3,8 +3,8 @@
     "pageNumber": 4,
     "type": "Binance-US Test Status",
     "definition": {
-        "text": "Binance US is tested for data mining and live trading.",
-        "updated": 1616003840094
+        "text": "Binance US is tested for data mining and live trading",
+        "updated": 1616241967855
     },
     "paragraphs": [
         {
@@ -14,8 +14,8 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
-            "updated": 1616003754475
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified",
+            "updated": 1616241978955
         },
         {
             "style": "List",
@@ -24,8 +24,8 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616003748968
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified",
+            "updated": 1616241962902
         },
         {
             "style": "List",

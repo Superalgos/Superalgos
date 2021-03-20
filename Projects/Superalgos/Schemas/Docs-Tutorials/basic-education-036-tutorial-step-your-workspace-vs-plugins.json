@@ -27,8 +27,8 @@
         },
         {
             "style": "List",
-            "text": "In this second folder, you will find several files. Each of them is a plugin workspace shipping with Superalgos. The one named Getting-Started.json is the plugin you started with.",
-            "updated": 1615906281606
+            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the Plugin Workspaces topic in the Docs to learn what each of them is about!",
+            "updated": 1616259823223
         },
         {
             "style": "Text",

@@ -3,8 +3,8 @@
     "pageNumber": "26",
     "type": "Tutorial Step - Let's Get On With It!",
     "definition": {
-        "text": "The tricky bit is when the destination node is far away from the originator node, maybe even in different hierarchies!",
-        "updated": 1615807480540,
+        "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
+        "updated": 1616098998366,
         "icon": {
             "name": "mouse-right-click",
             "project": "Superalgos"

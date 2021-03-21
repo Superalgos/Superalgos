@@ -195,12 +195,13 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                         from its value property.
                         */
                         value = targetNode.value
-
-                        if (recordProperty.config.decimals !== undefined) {
-                            try {
-                                value = Number(value.toFixed(recordProperty.config.decimals))
-                            } catch (err) {
-                                badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
+                        if (value !== undefined) {
+                            if (recordProperty.config.decimals !== undefined) {
+                                try {
+                                    value = Number(value.toFixed(recordProperty.config.decimals))
+                                } catch (err) {
+                                    badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
+                                }
                             }
                         }
                     } else {

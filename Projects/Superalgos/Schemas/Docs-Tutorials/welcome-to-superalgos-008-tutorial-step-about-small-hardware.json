@@ -13,7 +13,13 @@
             {
                 "language": "IT",
                 "text": "Anche se dispositivi embedded come il Raspberry Pi possono gestire il Client Superalgos per eseguire sia le task relative ai dati che quelle relative al trading, alcuni potrebbero non essere abbastanza potenti.",
-                "updated": 1614718975756
+                "updated": 1614718975756,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks, beberapa hal mungkin terlalu kecil untuk bagian aktif!",
+                "updated": 1616351775099
             }
         ]
     },
@@ -26,7 +32,13 @@
                 {
                     "language": "IT",
                     "text": "Eseguire il Client in hardware fisici o virtuali dalle dimensioni ridotte ha l'obiettivo di massimizzare l'efficienza dei costi in un ambiente di produzione. In questi contesti, l'utilizzo della UI é ridotto al minimo.",
-                    "updated": 1614718792202
+                    "updated": 1614718792202,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Hal ini ditujukan untuk menjalankan klien dalam perangkat keras fisik atau virtual untuk memaksimalkan efisiensi biaya dalam penerapan produksi. Dalam konteks seperti ini, UI akan digunakan seminimal mungkin.",
+                    "updated": 1616351917895
                 }
             ]
         },
@@ -38,7 +50,13 @@
                 {
                     "language": "IT",
                     "text": "Se durante questo tutorial ti accorgi che il tuo sistema embedded é troppo lento, considera l'idea di installarlo su un sistema con un hardware normale finché non impari le basi, costruisci le tue prime strategie e sei pronto a rilasciarle. Altrimenti può essere frustrante.",
-                    "updated": 1614719047421
+                    "updated": 1614719047421,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu merasakan spesifikasi perangkat terlalu lambat selama tutorial, Saya sarankan untuk menginstal di spesifikasi perangkat keras biasa sampai kamu mempelajari Superalgos, membangun strategi pertama, dan siap untuk diterapkan. Jika tidak, ini mungkin akan sangat memfrustasikan.",
+                    "updated": 1616352164990
                 }
             ]
         }

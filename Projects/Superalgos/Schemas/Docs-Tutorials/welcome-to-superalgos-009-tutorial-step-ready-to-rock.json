@@ -12,7 +12,13 @@
             {
                 "language": "IT",
                 "text": "Il nodo Data Task controlla tutte le task di data mining definite per questo Network Node.",
-                "updated": 1614719093819
+                "updated": 1614719093819,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Data Tasks node mengkontrol semua data mining tasks yang telah ditentukan untuk Network Node.",
+                "updated": 1616352238548
             }
         ]
     },
@@ -24,7 +30,13 @@
                 {
                     "language": "IT",
                     "text": "Stai per cominciare la prima delle seguenti attività che copriremo nei prossimi minuti:",
-                    "updated": 1614719131672
+                    "updated": 1614719131672,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu akan memulai aktivitas pertama berikut yang akan kami bahas setelah ini:",
+                    "updated": 1616352314863
                 }
             ]
         },
@@ -35,7 +47,13 @@
                 {
                     "language": "IT",
                     "text": "1. <i> Eseguire </i> un operazione di data mining per ottenere i dati per il Market BTC/USDT da Binance.",
-                    "updated": 1614719245405
+                    "updated": 1614719245405,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "1. Menjalankan operasi data mining untuk mendapatkan data BTC/USDT Market dari Binance.",
+                    "updated": 1616352385845
                 }
             ]
         },
@@ -46,7 +64,13 @@
                 {
                     "language": "IT",
                     "text": "2. <i>Eseguire</i> una Backtesting Session con una strategia open-source già esistente.",
-                    "updated": 1614719466297
+                    "updated": 1614719466297,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "2. Menjalankan Backtesting Session dengan strategi sumber terbuka yang ada.",
+                    "updated": 1616352419031
                 }
             ]
         },
@@ -57,7 +81,13 @@
                 {
                     "language": "IT",
                     "text": "3. <i>Eseguire</i> una Live Trading Session con una minima quantità di fondi, per testare gli aspetti più critici del sistema.",
-                    "updated": 1614719396162
+                    "updated": 1614719396162,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "3. Menjalankan Live Trading Session dengan modal kecil, untuk menguji aspek krusial dari sistem.",
+                    "updated": 1616352469782
                 }
             ]
         },
@@ -68,7 +98,13 @@
                 {
                     "language": "IT",
                     "text": "Che ne dici, sei d'accordo? Possiamo incominciare?",
-                    "updated": 1614719416134
+                    "updated": 1614719416134,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu aman dengan hal ini? Mari kita mulai?",
+                    "updated": 1616352500052
                 }
             ]
         }

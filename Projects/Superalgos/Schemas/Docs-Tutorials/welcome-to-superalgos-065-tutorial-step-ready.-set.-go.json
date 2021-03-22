@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Select Run on the Task menu and then select Run on the Backtesting Session menu."
+            "text": "Select Run on the Task menu!<br/><br/>Now select Run on the Backtesting Session menu!",
+            "updated": 1616428472102
         },
         {
             "style": "Note",

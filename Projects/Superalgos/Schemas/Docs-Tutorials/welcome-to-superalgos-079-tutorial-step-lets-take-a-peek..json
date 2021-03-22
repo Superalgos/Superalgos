@@ -21,7 +21,12 @@
         },
         {
             "style": "Text",
-            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value"
+            "text": "tradingEngine.tradingCurrent.",
+            "updated": 1616429707529
+        },
+        {
+            "style": "Text",
+            "text": "position.exitTargetRate.value"
         },
         {
             "style": "Text",

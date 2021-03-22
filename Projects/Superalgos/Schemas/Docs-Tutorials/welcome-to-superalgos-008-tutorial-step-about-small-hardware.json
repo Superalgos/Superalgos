@@ -19,7 +19,8 @@
             {
                 "language": "ID",
                 "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks, beberapa hal mungkin terlalu kecil untuk bagian aktif!",
-                "updated": 1616351775099
+                "updated": 1616351775099,
+                "style": "Definition"
             }
         ]
     },
@@ -38,14 +39,15 @@
                 {
                     "language": "ID",
                     "text": "Hal ini ditujukan untuk menjalankan klien dalam perangkat keras fisik atau virtual untuk memaksimalkan efisiensi biaya dalam penerapan produksi. Dalam konteks seperti ini, UI akan digunakan seminimal mungkin.",
-                    "updated": 1616351917895
+                    "updated": 1616351917895,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "If you notice your small hardware is too slow during this tutorial, you may want to consider installing in regular hardware until you learn Superalgos, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
-            "updated": 1610616740275,
+            "text": "We highly recommend learning Superalgos while running in a full-size machine. If you notice your small hardware is too slow during this tutorial, consider installing in regular hardware until you learn system, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
+            "updated": 1616411164854,
             "translations": [
                 {
                     "language": "IT",
@@ -56,7 +58,8 @@
                 {
                     "language": "ID",
                     "text": "Jika kamu merasakan spesifikasi perangkat terlalu lambat selama tutorial, Saya sarankan untuk menginstal di spesifikasi perangkat keras biasa sampai kamu mempelajari Superalgos, membangun strategi pertama, dan siap untuk diterapkan. Jika tidak, ini mungkin akan sangat memfrustasikan.",
-                    "updated": 1616352164990
+                    "updated": 1616352164990,
+                    "style": "Success"
                 }
             ]
         }

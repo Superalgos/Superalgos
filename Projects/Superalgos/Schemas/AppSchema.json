@@ -15785,7 +15785,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n}"
+            "config": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n,\n\"uid\": \"Paste your exchange uid (if necessary i.e. at bitstamp)\"\n}"
         },
         "addLeftIcons": true,
         "editors": {

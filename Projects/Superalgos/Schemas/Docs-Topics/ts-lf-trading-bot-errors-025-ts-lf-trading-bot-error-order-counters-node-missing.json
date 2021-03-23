@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "25",
+    "pageNumber": 25,
     "type": "TS LF Trading Bot Error - Order Counters Node Missing",
     "definition": {
         "text": "An Order Counters node was expected but not found at the node where the error originated.",

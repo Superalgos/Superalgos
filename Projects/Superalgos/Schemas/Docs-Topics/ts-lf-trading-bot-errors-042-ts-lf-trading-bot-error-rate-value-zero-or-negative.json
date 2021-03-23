@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "42",
+    "pageNumber": 42,
     "type": "TS LF Trading Bot Error - Rate Value Zero Or Negative",
     "definition": {
         "text": "The Rate of the order can not be zero or a negative number.",

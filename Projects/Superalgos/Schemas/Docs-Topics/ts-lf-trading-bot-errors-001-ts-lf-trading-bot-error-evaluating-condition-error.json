@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "TS LF Trading Bot Error - Evaluating Condition Error",
     "definition": {
         "text": "An error occured while evaluating a user defined Condition in the Trading System.",

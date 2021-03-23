@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This is the node that determines the rate of the limit order. Remember what we discussed earlier about placing the order at the rate of the fifth support level?"
+            "text": "This is the node that determines the rate of the limit order. Remember what we discussed earlier about placing the order at the rate of the fourth support level?",
+            "updated": 1616429339703
         },
         {
             "style": "Callout",

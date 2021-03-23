@@ -32,7 +32,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies&mdash;in particular, a Tutorial hierarchy with a label reading Welcome to Superalgos!",
+            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies—in particular, a Tutorial hierarchy. In this case, \"tutorial\" is the type of node and \"Welcome to Superalgos!\" is the name of the node.",
             "translations": [
                 {
                     "language": "ID",
@@ -52,7 +52,8 @@
                     "updated": 1614713100480,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1616410534255
         },
         {
             "style": "Callout",

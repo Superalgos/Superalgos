@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The trading idea is buy the falling knife and sell the rebound. The strategy places a Limit Buy Order a distance below the price. If the order is not filled by the next minute, the order is canceled and a new order is placed, potentially at an adjusted rate. If the price drops suddenly, chances are the order will get filled. If that happens, then the strategy tries to sell at a higher price."
+            "text": "The trading idea is buy \"the falling knife\" and sell \"the rebound\". The strategy places a Limit Buy Order a distance below the price. If the order is not filled by the next minute, the order is canceled and a new order is placed, potentially at an adjusted rate. If the price drops suddenly, chances are the order will get filled. If that happens, then the strategy tries to sell at a higher price.",
+            "updated": 1616428600039
         },
         {
             "style": "Text",

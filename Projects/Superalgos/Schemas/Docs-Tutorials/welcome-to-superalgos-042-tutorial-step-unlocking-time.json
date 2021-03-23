@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Il motivo per cui non ti puoi muovere è che le scale sono bloccate in modalità automatica, così puoi trovare facilmente i dati dopo la tua prima operazione di mining.",
-                "updated": 1614893522639
+                "updated": 1614893522639,
+                "style": "Definition"
             }
         ]
     },
@@ -24,31 +25,28 @@
                 {
                     "language": "IT",
                     "text": "Settare la Time Scale in modalità automatica fa sì che i dati sull'intera scala temporale vengano mostrati insieme sul grafico.",
-                    "updated": 1614893577134
+                    "updated": 1614893577134,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "To toggle between the various automatic modes and manual mode, hit Shift and make a gentle one-step roll with the wheel of your mouse on top of the time scale box.",
+            "text": "To toggle between the various automatic modes and manual mode, hit Shift and make a gentle one-step roll with the wheel of your mouse on top of the time scale box. Alternatively, you can also place the mouse pointer over the scale box and hit the up and down arrow keys ↑ ↓. ",
             "translations": [
                 {
                     "language": "IT",
                     "text": "Per cambiare tra automatico e manuale, premi Shift e ruota una volta la rotella del mouse sopra a una time scale box.",
-                    "updated": 1614893644877
+                    "updated": 1614893644877,
+                    "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1616495659408
         },
         {
             "style": "Text",
-            "text": "Once you've taken care of that, you should be able to move freely on the X-axis, that is, the time axis of the chart. See the video on the next step for clarity.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Fatto questo, dovresti essere libero di muoverti liberamente sull'asse X, quello del tempo. Guarda il prossimo video per maggiori dettagli.",
-                    "updated": 1614893688199
-                }
-            ]
+            "text": "You should now be able to move freely on the X-axis, that is, the time axis of the chart.",
+            "updated": 1616495689238
         }
     ]
 }

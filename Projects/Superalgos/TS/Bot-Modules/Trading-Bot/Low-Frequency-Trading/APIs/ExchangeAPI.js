@@ -32,13 +32,13 @@
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
                 key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
                 secret = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
-            }
+		}
         }
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,
             'secret': secret,
-            'timeout': 30000,
+	    'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,
             'adjustForTimeDifference': true,

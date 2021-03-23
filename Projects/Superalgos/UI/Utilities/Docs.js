@@ -271,7 +271,7 @@ function newSuperalgosUtilitiesDocs() {
         let HTML = ''
 
         HTML = HTML + '<div params="' + text + '" class="docs-youtube-video-container">'
-        HTML = HTML + '<iframe width="830" height="465" src="https://www.youtube.com/embed/' + text + '?rel=0&amp;autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        HTML = HTML + '<iframe width="830" height="465" src="https://www.youtube.com/embed/' + text + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         HTML = HTML + '</div>'
 
         return HTML

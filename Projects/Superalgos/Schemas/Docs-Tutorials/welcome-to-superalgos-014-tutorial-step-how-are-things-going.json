@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Sei stato appena trascinato dentro i confini dell'operazione di Data Mining. Controlla i progressi della Sensor Bot Instance alla tua destra!",
-                "updated": 1614720420362
+                "updated": 1614720420362,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +25,8 @@
                 {
                     "language": "IT",
                     "text": "Il sensor bot sta estraendo dati dal mercato. Appena avrà finito l'estrazione per l'intervallo di tempo selezionato, qualcosa di veramente forte accadrà...automaticamente!",
-                    "updated": 1614720508108
+                    "updated": 1614720508108,
+                    "style": "Text"
                 }
             ]
         },
@@ -35,19 +37,21 @@
                 {
                     "language": "IT",
                     "text": "Riesci a immaginare cosa possa essere?",
-                    "updated": 1614720522523
+                    "updated": 1614720522523,
+                    "style": "Callout"
                 }
             ]
         },
         {
-            "style": "Text",
-            "text": "I won't tell you! You'll find out soon.   .   . be patient! It should take no longer than 3 to 5 minutes to extract the data from Binance, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
-            "updated": 1610613730092,
+            "style": "Success",
+            "text": "It should take no longer than 3 to 5 minutes to extract the data from Binance, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
+            "updated": 1616414820007,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Non te lo dirò! Lo scoprirai presto...sii paziente! Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non puoi proprio aspettare? Va bene! Clicca su Next per un anticipo!",
-                    "updated": 1614720621816
+                    "updated": 1614720621816,
+                    "style": "Text"
                 }
             ]
         }

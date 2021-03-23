@@ -16,12 +16,13 @@
             "updated": 1610536534720
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value"
         },
         {
             "style": "Callout",
-            "text": "What if I told you that this string holds the path to that piece of information in the data structure of the Trading Engine hierarchy? Can you find the Exit Target Rate node? Expand the node and follow the breadcrumb trail!"
+            "text": "This string holds the path to that piece of information in the data structure of the Trading Engine hierarchy! Can you find the Exit Target Rate node? Expand the hierarchy and follow the breadcrumb trail!",
+            "updated": 1616429836465
         }
     ]
 }

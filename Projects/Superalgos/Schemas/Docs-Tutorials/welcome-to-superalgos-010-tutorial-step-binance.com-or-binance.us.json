@@ -12,7 +12,14 @@
             {
                 "language": "IT",
                 "text": "Prima di cominciare con il data mining, ho una piccola domanda per te: fai trading su binance.com o binance.us ?",
-                "updated": 1614719701294
+                "updated": 1614719701294,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kita menjalankan data mining, Saya punya pertanyaan buatmu: apakah kamu trading di binance.com atau binance.us?",
+                "updated": 1616352567195,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +31,14 @@
                 {
                     "language": "IT",
                     "text": "Se fai trading su binance.com o non usi proprio Binance, puoi saltare questo step e anche il prossimo!",
-                    "updated": 1614719681526
+                    "updated": 1614719681526,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu trading di binance.com atau tidak menggunakan Binance sama sekali, sebaiknya melewati step ini dan Next!",
+                    "updated": 1616352636966,
+                    "style": "Text"
                 }
             ]
         },
@@ -36,31 +50,52 @@
                 {
                     "language": "IT",
                     "text": "Se fai trading su binance.us allora devi configurare il nodo Binance qui a destra! Il video nel prossimo step ti mostrerà come!",
-                    "updated": 1614719789690
+                    "updated": 1614719789690,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "JIka kamu trading di binance.us kamu harus mengkonfigurasi Binance node disamping! Video selanjutnya akan memberitahukan caranya!",
+                    "updated": 1616352712406,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "1. Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
-            "updated": 1610612932151,
+            "text": "Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
+            "updated": 1616414675945,
             "translations": [
                 {
                     "language": "IT",
                     "text": "1. <i>Apri</i> la configurazione e cambia il codeName in binanceus. Sposta il cursore del mouse dalla bolla di configurazione e questa si chiuderà, salvando automaticamente le modifiche.",
-                    "updated": 1614719935190
+                    "updated": 1614719935190,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "1. Open konfigurasi dan ubah codeName to binanceus. Arahkan mouse pointer keluar dari konfigurasi bubble dan akan tertutup serta data tersimpan otomatis.",
+                    "updated": 1616352808312,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "2. Edit the label of the node to read Binanceus.",
-            "updated": 1610537864275,
+            "text": "Edit the label of the node to read Binanceus.",
+            "updated": 1616414681256,
             "translations": [
                 {
                     "language": "IT",
                     "text": "2. Modifica la label del nodo in Binanceus.",
-                    "updated": 1614719998652
+                    "updated": 1614719998652,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "2. Ubah label dari node ke Binanceus.",
+                    "updated": 1616352869688,
+                    "style": "List"
                 }
             ]
         }

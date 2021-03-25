@@ -1,0 +1,30 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - What About Free Riders?",
+    "definition": {
+        "text": "Free riders are a problem, but we choose to assume goodwill! We trust that once you start helping the project, other people will be inspired and follow!",
+        "updated": 1611594822992,
+        "icon": {
+            "name": "bullet-error",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The project will soon implement an incentives scheme to further promote the desired behavior and to foster the culture of collaboration.",
+            "updated": 1610720058284
+        },
+        {
+            "style": "Success",
+            "text": "This means that our first choice to deal with free-riding is the positive route!",
+            "updated": 1610983728515
+        },
+        {
+            "style": "Callout",
+            "text": "Enough preamble! Let's get on with it!",
+            "updated": 1611594786356
+        }
+    ]
+}

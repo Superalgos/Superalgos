@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 32,
+    "type": "Tutorial Step - Hammering Backups Home",
+    "definition": {
+        "text": "Let's go over the same examples that you just read about so that you learn this by heart!",
+        "icon": {
+            "name": "backup-entity",
+            "project": "Superalgos"
+        },
+        "updated": 1615824452275
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a backup of the Lightning Strike Task and restore it without deleting the original task. Then repeat the operation but deleting the original task before restoring the backup.",
+            "updated": 1615826657582
+        },
+        {
+            "style": "Text",
+            "text": "Verify that, in both cases, the outgoing references originating at the Trading System Reference and the Trading Engine Reference nodes are preserved.",
+            "updated": 1615826714283
+        },
+        {
+            "style": "Success",
+            "text": "Remember that outgoing references are always preserved!",
+            "updated": 1615826789684
+        }
+    ]
+}

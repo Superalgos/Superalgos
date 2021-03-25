@@ -1,0 +1,28 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Welcome Binanceus",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà il video in modalità schermo intero.",
+                "updated": 1614720025789,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Langkah ini akan memutar video dalam mode layar penuh.",
+                "updated": 1616352925181,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-binanceus.gif"
+        }
+    ]
+}

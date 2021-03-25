@@ -1,0 +1,65 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Warp-Speed Zooming!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-wheel-down"
+        },
+        "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "C'è ancora uno strumento utile per manipolare lo spazio-tempo: la funzione zoom del tuo browser!",
+                "updated": 1614789109029,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Sometimes you may wish to visualize larger sections of the Design Space than your screen allows.",
+            "updated": 1611314074367,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "A volte potresti voler visualizzare porzioni del Design Space più ampie di quanto permesso dal tuo schermo.",
+                    "updated": 1614789154147,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Hit Ctrl and scroll the mouse wheel on Windows or <kbd>⌘</kbd> and <kbd>-</kbd> or <kbd>+</kbd> in Mac.",
+            "updated": 1611314352825,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca Ctrl e scorri con la rotella del mouse su Windows o usa ⌘ e - oppure + su Mac.",
+                    "updated": 1614789231899,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Success",
+            "text": "Chrome indicates the level of zoom on the top-right corner. When zooming in or out, the design space gets centered on the screen. Use the design space map to go back where you were.",
+            "updated": 1611314381796,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Chrome ti mostra il livello di zoom nell'angolo in alto a destra. Quando zoommi, il Design Space viene centrato sullo schermo. Usa la mappa per tornare dove eri prima.",
+                    "updated": 1614789306337,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

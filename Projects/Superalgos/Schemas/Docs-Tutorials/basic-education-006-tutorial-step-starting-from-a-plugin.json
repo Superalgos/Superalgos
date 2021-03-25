@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Starting From a Plugin",
+    "definition": {
+        "text": "A typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "icon": {
+            "name": "trading-system",
+            "project": "Superalgos"
+        },
+        "updated": 1615995229226
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's say you are just starting with Superalgos, did a few tutorials, and are ready to start playing with a strategy. You want to start with an existing strategy and introduce minor modifications to better understand how things work. The strategy in question is included as a plugin in a specific workspace.",
+            "updated": 1615995721361
+        },
+        {
+            "style": "Success",
+            "text": "In such cases, you must delete the Plugin File node corresponding to the Trading System and restore the original file in the \\Plugins\\Trading-Systems folder as if it was a backup: drag the file and drop it on the Design Space!",
+            "updated": 1615995483240
+        }
+    ]
+}

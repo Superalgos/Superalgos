@@ -14,13 +14,13 @@
         },
         {
             "style": "Text",
-            "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level. ",
-            "updated": 1610136729523
+            "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level.",
+            "updated": 1616512866155
         },
         {
             "style": "Success",
-            "text": "This allows having multiple charts on the same time machine, each with a different rate scale. This is the way to set up indicators the are designed for a scale different than that of the rate of the assets in the market. For example, the RSI and Percentage Bandwidth indicators oscillate between 0 and 100.",
-            "updated": 1610136956037
+            "text": "This allows having multiple charts on the same time machine, each with a different rate scales. This is the way to set up indicators the are designed for a scale different than that of the rate of the assets in the market. For example, the RSI and Percentage Bandwidth indicators oscillate between 0 and 100.",
+            "updated": 1616512886656
         },
         {
             "style": "Title",
@@ -32,7 +32,8 @@
         },
         {
             "style": "Text",
-            "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan across the charts, you are directly affecting the minimum and maximum scale values. That said, the actual scale may change dynamically or not, depending on the scale-automation settings."
+            "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan the charts vertically, you are directly affecting the minimum and maximum scale values. That said, the actual scale may change dynamically or not, depending on the scale-automation settings.",
+            "updated": 1616512946283
         },
         {
             "style": "Title",
@@ -40,18 +41,19 @@
         },
         {
             "style": "Text",
-            "text": "The system features an automatic adjustment of the scale, which is turned on by default in our shared workspaces. The scale may be automatic in its minimum value, in its maximum value, or both."
+            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
+            "updated": 1616513013651
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "When the scale is automatic in the minimum value, the scale is adjusted so that no piece of information in the span of the chart ever remains below the bottom of the chart. As a result, the lowest data point aligns with the bottom of the chart."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "When the scale is automatic in the maximum value, the scale is adjusted so that no piece of information in the span of the chart ever remains above the top of the chart. As a result, the highest data point aligns with the top of the chart."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "The scale may be automated on either, or both minimum and maximum values at the same time. In the later case, no data point in the span of the chart ever remains out of the visible area of the chart, as the lowest data point aligns with the bottom of the chart and the highest aligns with the top."
         },
         {
@@ -81,8 +83,17 @@
         },
         {
             "style": "Text",
-            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time machine or timeline chart rate box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle below and/or above the rate scale icon.",
-            "updated": 1609783256953
+            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time machine or timeline chart rate box, press the Shift key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. ",
+            "updated": 1616513170991
+        },
+        {
+            "style": "Text",
+            "text": "You may also place the mouse pointer on the scale box and use the side arrows ← → to toggle through the different automation settings.",
+            "updated": 1616513210816
+        },
+        {
+            "style": "Success",
+            "text": "Notice a tiny green triangle below and/or above the rate scale icon."
         },
         {
             "style": "List",
@@ -107,11 +118,13 @@
         },
         {
             "style": "Text",
-            "text": "2. To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the corresponding time machine or timeline chart rate box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual."
+            "text": "To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the corresponding time machine or timeline chart rate box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual.",
+            "updated": 1616513228715
         },
         {
             "style": "Text",
-            "text": "{% include image.html file='interface/rate-scale-01.gif' url='yes' max-width='100' caption='When the scale is set to manual, scrolling the mouse wheel on top of the rate scale box changes the scale.' %}"
+            "text": "Alternatively, you may also place the mouse pointer on the scale box and use the vertical arrows ↑ ↓ to affect the scale.",
+            "updated": 1616513309746
         },
         {
             "style": "Text",
@@ -128,11 +141,8 @@
         },
         {
             "style": "Text",
-            "text": "3. To shift or offset a timeline chart on the vertical axis, place the mouse pointer on the rate box, left-click and drag upwards or downwards, as desired. The timeline chart will shift in the specified direction while the remaining charts stay in the same position."
-        },
-        {
-            "style": "Text",
-            "text": "{% include image.html file='interface/rate-scale-02.gif' url='yes' max-width='100' caption='To control the offset between timeline charts, right-click on the rate box and drag upwards or downwards.' %}"
+            "text": "To shift or offset a timeline chart on the vertical axis, place the mouse pointer on the rate box, left-click and drag upwards or downwards, as desired. The timeline chart will shift in the specified direction while the remaining charts stay in the same position.",
+            "updated": 1616513340914
         },
         {
             "style": "Note",

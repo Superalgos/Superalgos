@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Shall We Improve This?",
+    "definition": {
+        "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not clear or predictable.",
+        "updated": 1615492937986,
+        "icon": {
+            "name": "set-node-arrangement-to-concave",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "The current implementation of this feature is not optimal, and the behavior of some of the options is hard to predict. If you are a developer, this may be a great opportunity to iterate on the existing code and take this feature to a more usable state!",
+            "updated": 1615493927202
+        },
+        {
+            "style": "Callout",
+            "text": "Feel free to try this feature, but you will most likely want to go back to the default setting!",
+            "updated": 1615493850572
+        }
+    ]
+}

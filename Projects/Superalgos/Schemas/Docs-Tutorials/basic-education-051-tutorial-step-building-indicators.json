@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 51,
+    "type": "Tutorial Step - Building Indicators",
+    "definition": {
+        "text": "If you are a developer or have at least a basic understanding of JavaScript you will be able to create your own indicators!",
+        "icon": {
+            "name": "indicator-bot",
+            "project": "Superalgos"
+        },
+        "updated": 1616180582873
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is a crucial feature of Superalgos, as trading intelligence can't emerge without the ability to analyze market data! Again, I'm not going to go through how to build indicators at this point, but I do wish to let you know that we've got you covered!",
+            "updated": 1616181744667
+        },
+        {
+            "style": "Callout",
+            "text": "There is a comprehensive series of video tutorials explaining the entire process! Take a quick look at this page in the Docs!",
+            "updated": 1616181770763
+        }
+    ]
+}

@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Warning",
+            "text": "Make sure you consult with the Superalgos Documentation Group before using the Docs Repaginate Command on existing topics or tutorials. The repagination changes all files in the collection. For that reason, the command may be prone to creating conflicts with other users that may be working on those files too.",
+            "updated": 1616705086396
+        },
+        {
             "style": "Title",
-            "text": "Syntax",
-            "updated": 1610393031768
+            "text": "Syntax"
         },
         {
             "style": "Javascript",

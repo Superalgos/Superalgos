@@ -1,0 +1,59 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 25,
+    "type": "Tutorial Step - More Workspaces?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "workspace"
+        },
+        "text": "Yes! Some of them are plugins shipping with the system and some are your own!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi!",
+                "updated": 1614791394697,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As soon as you start using the system, the workspace is saved every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
+            "updated": 1610614718976,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mentre usi il sistema, il workspace viene salvato automaticamente ogni minuto. Viene salvato anche quando chiudi il browser o la tab, e puoi salvarlo manualmente usando Ctrl + Shift + Key-S",
+                    "updated": 1614791481642,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "When a plugin workspace is modified in any way, a copy is stored in your My-Workspaces folder.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando un plugin workspace viene modificato in qualunque modo, una copia viene salvata su disco nella tua cartella My-Workspaces.",
+                    "updated": 1614791526653,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Plugin files may not be modified from within the system!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I file plugin non devono essere modificati in altro modo!",
+                    "updated": 1614791561359,
+                    "style": "Important"
+                }
+            ]
+        }
+    ]
+}

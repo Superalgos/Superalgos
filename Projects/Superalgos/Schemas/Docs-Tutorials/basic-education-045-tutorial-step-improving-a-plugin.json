@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 45,
+    "type": "Tutorial Step - Improving a Plugin",
+    "definition": {
+        "text": "Let's say you are a developer and are testing a new exchange. You wish to modify the Sensor Bot to introduce a new feature or param.",
+        "icon": {
+            "name": "sensor-bot",
+            "project": "Superalgos"
+        },
+        "updated": 1615996858987
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Sensor Bot is part of the Masters Data Mine, which is usually included as a plugin in most plugin workspaces. In such a case, you must proceed like in the previous case: delete the Plugin File node corresponding to the Masters data mine and restore the data mine file from the Plugins\\Data-Mines folder as if it was a backup.",
+            "updated": 1615997651482
+        },
+        {
+            "style": "Success",
+            "text": "Once you finish, take a backup of the modified Masters Data Mine node and use the backup file to replace the Masters plugin file! Make sure you give it the same name! Then, submit a PR to contribute the improvements on the bot!",
+            "updated": 1615998024660
+        }
+    ]
+}

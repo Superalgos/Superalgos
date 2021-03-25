@@ -1,0 +1,23 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 64,
+    "type": "Tutorial Step - Enough Digressing!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "We'll run a Backtesting Session with a bunch of preconfigured parameters so that you may have a quick glimpse at how simulations work."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine, a subject worth its own chapter, so I'll leave it for later!",
+            "updated": 1610639102636
+        },
+        {
+            "style": "Callout",
+            "text": "The trading session is affected by several parameters. Take a quick look at their configurations selecting Configure on the menu!"
+        }
+    ]
+}

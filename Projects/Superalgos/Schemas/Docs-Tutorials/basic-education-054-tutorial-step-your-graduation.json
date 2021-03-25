@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 54,
+    "type": "Tutorial Step - Your Graduation",
+    "definition": {
+        "text": "Congratulations! You've graduated from your Basic Education and are ready to move on to more advanced stuff!",
+        "updated": 1616262672256,
+        "icon": {
+            "name": "trading-strategy",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the next tutorial you are going to learn how to update your app, switch branches to test the version in the develop branch, a few tricks about the Docs, and more!",
+            "updated": 1616262918705
+        },
+        {
+            "style": "Callout",
+            "text": "You'll also be able submit a review about your experience with Superalgos up to this point!",
+            "updated": 1616262935170
+        },
+        {
+            "style": "Success",
+            "text": "As you progress with Superalgos, you may need a refresher on the topics covered in this tutorial or the one before! That is a standard practice, so do come back until you learn all tricks!",
+            "updated": 1616263081822
+        }
+    ]
+}

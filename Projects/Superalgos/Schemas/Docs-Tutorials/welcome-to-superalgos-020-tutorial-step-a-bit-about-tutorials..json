@@ -24,9 +24,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This is likely the most important bit: you are the boss! You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom-left corner of the design space. Select Resume on the menu to start where you left, or on the first step skipped. Select Play to start from the beginning!",
-            "updated": 1611076579955,
+            "style": "Success",
+            "text": "In brief, you're the boss!",
+            "updated": 1616415192952,
             "translations": [
                 {
                     "language": "IT",
@@ -40,6 +40,11 @@
                     "updated": 1616700016172
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom section of the design space. Select Resume on the menu to start where you left, or on the first step you  skipped. Select Play to start from the beginning!",
+            "updated": 1616415232478
         },
         {
             "style": "Callout",

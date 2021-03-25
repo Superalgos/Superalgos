@@ -4,20 +4,27 @@
     "type": "Tutorial Step - Machines Learn Too!",
     "definition": {
         "icon": {
-            "project": "Superalgos",
-            "name": "learning-tasks"
+            "name": "tensorflow-project",
+            "project": "TensorFlow"
         },
-        "text": "Superalgos is constantly evolving, growing, and getting stronger. I heard this through the grapevine, I mean, on the Superalgos Develop group..."
+        "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
+        "updated": 1616691534660
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "With upcoming versions of Superalgos, you will be able to train a new type of Learning Bot running a reinforcement learning algorithm! You will feed the bot with data mined from any source, and the learning process will output a policy file describing how to make decisions.",
-            "updated": 1610711392539
+            "text": "The integration maps the definition of a NodeJS TensorFlow Library featuring a Supervised Learning algorithm and its Artificial Neural Network in the same kind of structure of nodes typical of Superalgos.",
+            "updated": 1616692845459
         },
         {
-            "style": "Callout",
-            "text": "And&mdash;of course&mdash;this intelligence will be available for consumption from within conditions and formulas in trading systems!"
+            "style": "Note",
+            "text": "The integration leverages the rest of the Superalgos infrastructure, so that you may use your datasets to train ML algos and use the resulting models from within trading systems!",
+            "updated": 1616692959991
+        },
+        {
+            "style": "Success",
+            "text": "After doing the first few tutorials, take a look at the Machine Learning Demo Plugin Workspace!",
+            "updated": 1616693444144
         }
     ]
 }

@@ -46,8 +46,8 @@
         },
         {
             "style": "Success",
-            "text": "If you notice your small hardware is too slow during this tutorial, you may want to consider installing in regular hardware until you learn Superalgos, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
-            "updated": 1610616740275,
+            "text": "We highly recommend learning Superalgos while running in a full-size machine. If you notice your small hardware is too slow during this tutorial, consider installing in regular hardware until you learn system, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
+            "updated": 1616411164854,
             "translations": [
                 {
                     "language": "IT",

@@ -24,7 +24,8 @@
             {
                 "language": "IT",
                 "text": "Prima che ti mostri il resto del menu, diamo un'occhiata un'altra gerarchia: il Network.",
-                "updated": 1614717275389
+                "updated": 1614717275389,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "IT",
                     "text": "La gerarchia Network é il centro di controllo del sistema. Qui puoi controllare i Data Tasks, i Testing Trading Tasks e i Production Trading Tasks.",
-                    "updated": 1614717446087
+                    "updated": 1614717446087,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,14 +73,15 @@
                 {
                     "language": "IT",
                     "text": "Espandi la gerarchia e dacci un occhiata!",
-                    "updated": 1614717504312
+                    "updated": 1614717504312,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. But before we start, I have a quick question for you: are you accessing the Client remotely?",
-            "updated": 1611075903071,
+            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. ",
+            "updated": 1616414275577,
             "translations": [
                 {
                     "language": "ID",
@@ -95,9 +98,14 @@
                 {
                     "language": "IT",
                     "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining. Ma prima di partire, ho una domanda al volo per te: stai utilizzando il Client da remoto?",
-                    "updated": 1614717611211
+                    "updated": 1614717611211,
+                    "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Note",
+            "text": "But before we start, I have a quick question for you: are you accessing the Client remotely?"
         }
     ]
 }

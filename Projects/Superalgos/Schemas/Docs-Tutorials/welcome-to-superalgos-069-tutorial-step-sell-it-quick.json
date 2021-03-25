@@ -16,7 +16,12 @@
         },
         {
             "style": "Text",
-            "text": "It's the same minute Superalgos would have gotten notice from the exchange that the order got filled. The Trading Bot connects with the exchange and goes through two distinct cycles. In the first Cycle, it finds out the status of existing orders. In the second, it gives new instructions."
+            "text": "It's the same minute Superalgos would have gotten notice from the exchange that the order got filled. The Trading Bot connects with the exchange and goes through two distinct cycles. ",
+            "updated": 1616428810807
+        },
+        {
+            "style": "Success",
+            "text": "In the first Cycle, it finds out the status of existing orders. In the second, it gives new instructions."
         }
     ]
 }

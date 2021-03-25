@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "16",
+    "pageNumber": 16,
     "type": "TS LF Trading Bot Error - Status Node Missing",
     "definition": {
         "text": "A Status node was expected but not found at the node where the error originated.",

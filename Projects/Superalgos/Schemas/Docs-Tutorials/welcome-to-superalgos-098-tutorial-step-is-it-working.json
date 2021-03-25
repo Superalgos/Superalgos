@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "binance"
         },
-        "text": "The unequivocal way to verify things are working fine is logging on to Binance and checking your order history for BTC/USDT."
+        "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",
+        "updated": 1616435272813
     },
     "paragraphs": [
         {

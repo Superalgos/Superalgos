@@ -12,11 +12,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "That is what the Network Node is about. What you've seen so far is running on your local machine. But..."
+            "text": "That is what the Network Node is about. What you've seen so far is running on a single machine. But...",
+            "updated": 1616427867794
         },
         {
             "style": "Callout",
-            "text": "Superalgos supports distributing tasks across networks of nodes running the Client to be processed in a coordinated fashion, enabling smart and scalable operations. Any machine running the GUI may control the enterprise!"
+            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client! This enables smart and scalable operations. Any machine running the GUI may control the enterprise!",
+            "updated": 1616693637435
         },
         {
             "style": "Text",

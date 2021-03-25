@@ -13,7 +13,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Open the configuration and carefully enter the API name or label and the API secret key."
+            "text": "Acess the configuration and carefully enter the API Pubilic Key and the API secret key.",
+            "updated": 1616435074225
         },
         {
             "style": "Text",
@@ -21,8 +22,8 @@
         },
         {
             "style": "Note",
-            "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when Trading Bot has to deal with an order. It is never sent or stored anywhere else.",
-            "updated": 1610817739939
+            "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when the Trading Bot deals with orders. It is never sent or stored anywhere else.",
+            "updated": 1616435057411
         }
     ]
 }

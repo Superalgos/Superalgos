@@ -58,9 +58,9 @@
             ]
         },
         {
-            "style": "Text",
-            "text": "I won't tell you! You'll find out soon.   .   . be patient! It should take no longer than 3 to 5 minutes to extract the data from Binance, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
-            "updated": 1610613730092,
+            "style": "Success",
+            "text": "It should take no longer than 3 to 5 minutes to extract the data from Binance, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
+            "updated": 1616414820007,
             "translations": [
                 {
                     "language": "IT",

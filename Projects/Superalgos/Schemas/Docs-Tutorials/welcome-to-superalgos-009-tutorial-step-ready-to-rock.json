@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Data Tasks node mengkontrol semua data mining tasks yang telah ditentukan untuk Network Node.",
-                "updated": 1616352238548
+                "updated": 1616352238548,
+                "style": "Definition"
             }
         ]
     },
@@ -36,13 +37,14 @@
                 {
                     "language": "ID",
                     "text": "Kamu akan memulai aktivitas pertama berikut yang akan kami bahas setelah ini:",
-                    "updated": 1616352314863
+                    "updated": 1616352314863,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "1. Run a data mining operation to get data for the BTC/USDT Market from Binance.",
+            "text": "Run a data mining operation to get data for the BTC/USDT Market from Binance.",
             "translations": [
                 {
                     "language": "IT",
@@ -53,13 +55,15 @@
                 {
                     "language": "ID",
                     "text": "1. Menjalankan operasi data mining untuk mendapatkan data BTC/USDT Market dari Binance.",
-                    "updated": 1616352385845
+                    "updated": 1616352385845,
+                    "style": "List"
                 }
-            ]
+            ],
+            "updated": 1616414602356
         },
         {
             "style": "List",
-            "text": "2. Run a Backtesting Session with an existing open-source strategy.",
+            "text": "Run a Backtesting Session with an existing open-source strategy.",
             "translations": [
                 {
                     "language": "IT",
@@ -70,13 +74,15 @@
                 {
                     "language": "ID",
                     "text": "2. Menjalankan Backtesting Session dengan strategi sumber terbuka yang ada.",
-                    "updated": 1616352419031
+                    "updated": 1616352419031,
+                    "style": "List"
                 }
-            ]
+            ],
+            "updated": 1616414607531
         },
         {
             "style": "List",
-            "text": "3. Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
+            "text": "Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
             "translations": [
                 {
                     "language": "IT",
@@ -87,9 +93,11 @@
                 {
                     "language": "ID",
                     "text": "3. Menjalankan Live Trading Session dengan modal kecil, untuk menguji aspek krusial dari sistem.",
-                    "updated": 1616352469782
+                    "updated": 1616352469782,
+                    "style": "List"
                 }
-            ]
+            ],
+            "updated": 1616414612909
         },
         {
             "style": "Callout",
@@ -104,7 +112,8 @@
                 {
                     "language": "ID",
                     "text": "Apakah kamu aman dengan hal ini? Mari kita mulai?",
-                    "updated": 1616352500052
+                    "updated": 1616352500052,
+                    "style": "Callout"
                 }
             ]
         }

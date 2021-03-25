@@ -1,48 +1,25 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "54",
-    "type": "TS LF Trading Bot Error - Invalid Exchange API Key",
+    "pageNumber": 59,
+    "type": "TS LF Trading Bot Error - Create Order Unexpected Error",
     "definition": {
-        "text": "The Exchange API Key you provided to access the Exchange was not recognized by the Exchange as a valid key.",
-        "updated": 1611737158370
+        "text": "An Uncexpected Error occured while trying to cancel an order at the exchange. The LF Trading Bot continued running after reporting this error.",
+        "updated": 1611736350925
     },
     "paragraphs": [
         {
-            "style": "Success",
-            "text": "Most errors associated with the Exchange Account Key originate from the handling of the keys provided by the exchange. Please double-check the typical issues listed below!",
-            "updated": 1611951051869
+            "style": "Text",
+            "text": "The process of creating an order involves sending a request to the exchange via its API. There are many different reasons why the process may fail. Some of those reasons are under your control, and some are not. Some may involve temporary unavailability of the exchange servers, communication and network errors, or other issues.",
+            "updated": 1611953009405
         },
         {
-            "style": "List",
-            "text": "Copy the public key in the codeName property and the secret key in the secret property.",
-            "updated": 1611950941851
-        },
-        {
-            "style": "List",
-            "text": "Make sure you don't bring invisible characters from the exchange's website."
-        },
-        {
-            "style": "List",
-            "text": "Make sure you don't leave foreign characters from the sample text. To be extra sure, you may copy the code of the configuration below into a text editor, paste the keys, and then replace the whole configuration code in the corresponding node."
-        },
-        {
-            "style": "Javascript",
-            "text": "{\n    \"codeName\": \"\",\n    \"secret\": \"\"\n}",
-            "updated": 1611950477590
-        },
-        {
-            "style": "List",
-            "text": "Make sure that the keys are not disabled at the exchange.",
-            "updated": 1611951062366
-        },
-        {
-            "style": "List",
-            "text": "If the keys are IP restricted, double-check the IP address. Try without restrictions until you rule out other potential issues.",
-            "updated": 1611951081066
+            "style": "Text",
+            "text": "Find below the error details. They may help you understand the nature of the problem and maybe solve it should it be within your reach. The LF Trading Bot features logic to handle unexpected errors to continue operating despite their occurrence."
         },
         {
             "style": "Error",
-            "text": "Invalid Exchange API Key"
+            "text": "Cancel Order Unexpected Error",
+            "updated": 1611736368660
         },
         {
             "style": "Title",
@@ -53,9 +30,9 @@
             "text": "In the following section, you will find the information recorded when the error occurred."
         },
         {
-            "style": "Note",
+            "style": "Success",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611737076496
+            "updated": 1611736382407
         },
         {
             "style": "Subtitle",
@@ -128,20 +105,6 @@
         {
             "style": "Placeholder",
             "text": "nodeCode"
-        },
-        {
-            "style": "Subtitle",
-            "text": "Node Config",
-            "updated": 1611738263645
-        },
-        {
-            "style": "Text",
-            "text": "The following is the config stored at the node that produced the error at the LF Trading Bot:",
-            "updated": 1611738289813
-        },
-        {
-            "style": "Placeholder",
-            "text": "nodeConfig"
         },
         {
             "style": "Subtitle",

@@ -56,7 +56,7 @@
         },
         {
             "style": "Callout",
-            "text": "I'm the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. I will answer most of your questions!",
+            "text": "Tutorials are the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. You should do all tutorials before trying to implement your own ideas!",
             "translations": [
                 {
                     "language": "ID",
@@ -76,7 +76,8 @@
                     "updated": 1614711851139,
                     "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1616410377766
         },
         {
             "style": "Success",

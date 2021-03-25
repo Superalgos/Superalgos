@@ -16,15 +16,18 @@
         },
         {
             "style": "List",
-            "text": "Welcome to Superalgos!"
+            "text": "Welcome to Superalgos! Tutorial",
+            "updated": 1616695511726
         },
         {
             "style": "List",
-            "text": "Developers Intro"
+            "text": "Basic Education Tutorial",
+            "updated": 1616695524660
         },
         {
             "style": "List",
-            "text": "Install a New Market"
+            "text": "Contribute to Superalgos!",
+            "updated": 1616695414501
         },
         {
             "style": "Subtitle",
@@ -33,6 +36,15 @@
         {
             "style": "List",
             "text": "Trading Bot Layers"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Hello World Tutorial Plugin Workspace",
+            "updated": 1616695480453
+        },
+        {
+            "style": "List",
+            "text": "Hello World Tutorial"
         },
         {
             "style": "Subtitle",
@@ -53,6 +65,14 @@
         {
             "style": "List",
             "text": "Testing a Trading Idea - The Other Stages"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Tested Exchanges Plugin Workspace"
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market"
         },
         {
             "style": "Text",

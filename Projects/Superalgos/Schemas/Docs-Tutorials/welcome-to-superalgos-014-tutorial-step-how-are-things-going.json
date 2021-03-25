@@ -14,6 +14,11 @@
                 "text": "Sei stato appena trascinato dentro i confini dell'operazione di Data Mining. Controlla i progressi della Sensor Bot Instance alla tua destra!",
                 "updated": 1614720420362,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Aku membawamu kepada kebingungan akan operasi Data Mining. Lihat progress dari Sensor Bot Instance disebelah kanan!",
+                "updated": 1616697727995
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Il sensor bot sta estraendo dati dal mercato. Appena avrà finito l'estrazione per l'intervallo di tempo selezionato, qualcosa di veramente forte accadrà...automaticamente!",
                     "updated": 1614720508108,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "sensor bot sedang mengekstrak data dari exchange. Setelah selesai mengekstrak maka range datetime yang telah ditentukan akan berubah secara otomatis!",
+                    "updated": 1616697880677
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Riesci a immaginare cosa possa essere?",
                     "updated": 1614720522523,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu bisa mengira apa yang akan terjadi?",
+                    "updated": 1616697509340
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Non te lo dirò! Lo scoprirai presto...sii paziente! Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non puoi proprio aspettare? Va bene! Clicca su Next per un anticipo!",
                     "updated": 1614720621816,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku tidak akan memberitahumu! Kamu harus mencarinya... Bersabarlah! Tidak akan lama cukup 3 - 5 menit untuk mengekstrak data Binance, bisa lebih lama, tergantung perangkatmu. Click Next untuk orang yang tidak sabaran!",
+                    "updated": 1616697911652
                 }
             ]
         }

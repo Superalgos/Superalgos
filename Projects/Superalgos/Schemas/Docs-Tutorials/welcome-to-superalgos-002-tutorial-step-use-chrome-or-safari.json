@@ -37,8 +37,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Sudah menjadi hal yang lumrah bahwa setiap browser berbeda, dan kami tentu saja tidak mengetahui fitur yang berfungsi di browser lain. Jika kamu menggunakan Chrome atau Safari, klik Next dan lanjutkan. Jika tidak, lakukan hal berikut:",
-                    "updated": 1614417395532,
+                    "text": "Setiap browser berbeda, dan kami tentu saja tidak mengetahui fitur yang berfungsi di browser lain. Jika kamu menggunakan Chrome atau Safari, klik Next dan lanjutkan. Jika tidak, lakukan hal berikut:",
+                    "updated": 1616696132072,
                     "style": "Text"
                 },
                 {
@@ -136,8 +136,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Kami memberikan bantuan online, tetapi kami tidak bisa membantumu dengan browser berbeda!",
-                    "updated": 1614417653352,
+                    "text": "Kami memberikan bantuan online, namun tidak bisa membantu jika browser berbeda!",
+                    "updated": 1616696117144,
                     "style": "Warning"
                 },
                 {

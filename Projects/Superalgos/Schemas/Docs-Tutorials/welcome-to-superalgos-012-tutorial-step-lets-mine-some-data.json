@@ -13,7 +13,13 @@
             {
                 "language": "IT",
                 "text": "Apri il menu del nodo Data Tasks e cerca il pulsante Run All Project Data Tasks nell'angolo in alto a destra...",
-                "updated": 1614720124109
+                "updated": 1614720124109,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Open the Data Tasks node menu dan cari tombol Run All Project Data Tasks dibagian atas kanan...",
+                "updated": 1616697053489
             }
         ]
     },
@@ -26,7 +32,13 @@
                 {
                     "language": "IT",
                     "text": "Clicca sul pulsante Run All Project Data Tasks!",
-                    "updated": 1614720129427
+                    "updated": 1614720129427,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Click tombol Run All Project Data Tasks!",
+                    "updated": 1616697004627
                 }
             ]
         },
@@ -37,7 +49,13 @@
                 {
                     "language": "IT",
                     "text": "Conferma la richiesta cliccando il pulsante una seconda volta. In circa 30 secondi, dovresti vedere un messaggio di stato sotto il nodo Data Mining che ti indica che é in corso 1 Exchange Data Tasks su 1. ",
-                    "updated": 1614720224584
+                    "updated": 1614720224584,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Konfirmasi request dengan click tombol di second time. Dalam 30 detik, kamu akan melihat notice status dibawah Data Mining node yang menjelaskan 1/1 Exchange Data Tasks node sedang berjalan.",
+                    "updated": 1616696981851
                 }
             ]
         },
@@ -48,7 +66,13 @@
                 {
                     "language": "IT",
                     "text": "La tua console app dovrebbe mostrarti qualcosa di simile al video nello step successivo.",
-                    "updated": 1614720247842
+                    "updated": 1614720247842,
+                    "style": "Note"
+                },
+                {
+                    "language": "ID",
+                    "text": "Console app akan memperlihatkan sesuatu yang mirip dengan video di step selanjutnya.",
+                    "updated": 1616696802459
                 }
             ]
         }

@@ -14,6 +14,11 @@
                 "text": "Prima di tornare al lavoro, lascia che ti spieghi un paio di cose su come funzioniamo noi tutorial.",
                 "updated": 1614790205512,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kembali ke hal ini, Biarkan saya memberitahumu cara kerja dari tutorial ini.",
+                "updated": 1616699795511
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Questo è il concetto più importante: sei tu il boss! Puoi stoppare un tutorial e saltare step o interi capitoli in qualsiasi momento. Una volta che sei pronto a riprendere, ci trovi nell'angolo in basso a sinistra del Design Space. Seleziona Resume nel menu per riprendere da dove ti sei fermato, o dal primo step saltato. Oppure seleziona Play per ricominciare da capo!",
                     "updated": 1614789696848,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini sangat penting: Kamu adalah Bossnya! Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
+                    "updated": 1616700016172
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "text": "Provaci! Premi il pulsante Stop qui sotto, e una volta che sono sparito apri il mio menu e seleziona Resume.",
                     "updated": 1614790103478,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Ayo dicoba! Click tombol Stop, dan ketika saya hilang, buka menu dan pilih Resume.",
+                    "updated": 1616700065579
                 }
             ]
         }

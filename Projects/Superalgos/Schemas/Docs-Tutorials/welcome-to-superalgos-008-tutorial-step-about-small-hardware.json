@@ -18,8 +18,8 @@
             },
             {
                 "language": "ID",
-                "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks, beberapa hal mungkin terlalu kecil untuk bagian aktif!",
-                "updated": 1616351775099,
+                "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks!",
+                "updated": 1616696668510,
                 "style": "Definition"
             }
         ]
@@ -38,8 +38,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Hal ini ditujukan untuk menjalankan klien dalam perangkat keras fisik atau virtual untuk memaksimalkan efisiensi biaya dalam penerapan produksi. Dalam konteks seperti ini, UI akan digunakan seminimal mungkin.",
-                    "updated": 1616351917895,
+                    "text": "Hal ini ditujukan untuk menjalankan Client dalam perangkat keras fisik atau virtual untuk memaksimalkan efisiensi biaya dalam penerapan produksi. Dalam konteks seperti ini, UI akan digunakan seminimal mungkin.",
+                    "updated": 1616696694333,
                     "style": "Text"
                 }
             ]
@@ -57,8 +57,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Jika kamu merasakan spesifikasi perangkat terlalu lambat selama tutorial, Saya sarankan untuk menginstal di spesifikasi perangkat keras biasa sampai kamu mempelajari Superalgos, membangun strategi pertama, dan siap untuk diterapkan. Jika tidak, ini mungkin akan sangat memfrustasikan.",
-                    "updated": 1616352164990,
+                    "text": "Jika spesifikasi perangkat terlalu lambat selama tutorial, Saya sarankan untuk menginstal di spesifikasi perangkat yang biasa seperti PC untuk mempelajari Superalgos, membuat strategi pertama, dan siap untuk diterapkan. Jika tidak, ini mungkin akan sangat memfrustasikan.",
+                    "updated": 1616696610795,
                     "style": "Success"
                 }
             ]

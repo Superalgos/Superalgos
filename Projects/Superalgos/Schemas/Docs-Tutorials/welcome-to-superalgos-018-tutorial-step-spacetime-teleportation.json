@@ -14,6 +14,11 @@
                 "text": "Okay, non ti teletrasporterai davvero nè piegherai lo spazio-tempo, ma la sensazione sarà la stessa! È il momento di utilizzare la mappa del Design Space.",
                 "updated": 1614789351031,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu menyukai teleportasi? Saatnya mengimplementasikan hal tersebut. Dengan cara menggunakan design space map.",
+                "updated": 1616699119657
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Come detto prima, il Design Space è veramente grande: andare da un angolo all'altro richiederebbe centinaia di click. Usare la tastiera ti permette di spostarti a grandi velocità, ma non è forte come teletrasportarsi! Ora ti spiego come si fa:",
                     "updated": 1614789460112,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Design space sangatlah besar, Butuh clicks dan drags yang sangat banyak. Namun dengan keyboard akan mempercepat waktumu, Tetapi itu tidak semenarik teleporting! Baiklah ini dia cara menggunakannya:",
+                    "updated": 1616699222605
                 }
             ],
             "updated": 1616414991030
@@ -41,6 +51,11 @@
                     "text": "Fai click con il tasto destro del mouse per aprire la mappa e clicca un punto qualsiasi con il tasto sinistro per raggiungerlo!",
                     "updated": 1614788954113,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Click-kanan untuk membuka map dan click-kiri dimana saja untuk teleport ke tempat yang dituju!",
+                    "updated": 1616699289600
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Mi vedi nell'angolo in basso a sinistra del Design Space? Ora sai dove trovarmi!",
                     "updated": 1614789481521,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu melihat aku dibawah kiri dari design space? Sekarang kamu menemukanku!",
+                    "updated": 1616699370261
                 }
             ]
         }

@@ -24,7 +24,8 @@
             {
                 "language": "IT",
                 "text": "Sono un tutorial interattivo, il primo di una serie progettata per rendere più facile la tua introduzione a Superalgos e per insegnarti tutti i concetti base!",
-                "updated": 1614711302828
+                "updated": 1614711302828,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "IT",
                     "text": "Ti farò un'introduzione, mostrandoti gli strumenti che ti aiuteranno a prendere confidenza, e ti aiuterò a scoprire tutte le cose grandiose che Superalgos può fare per te.",
-                    "updated": 1614711533001
+                    "updated": 1614711533001,
+                    "style": "Text"
                 }
             ]
         },
@@ -58,8 +60,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Aku adalah tutorial orientasi Superalgos yang terbaik! Memulai Superalgos dengan cara yang tidak direkomendasikan sangatlah salah, karena tidak ada sumber lain yang dapat mempercepat kamu selain aku. Aku akan menjawab sebagian besar pertanyaan kamu!",
-                    "updated": 1614417059937,
+                    "text": "Memulai Superalgos dengan cara sendiri sangat tidak direkomendasikan, karena tidak ada sumber lain yang lebih paham selain aku. Aku akan membantumu dalam memahami Superalgos!",
+                    "updated": 1616696383875,
                     "style": "Callout"
                 },
                 {
@@ -71,7 +73,8 @@
                 {
                     "language": "IT",
                     "text": "Sono lo strumento definitivo per scoprire Superalgos! Avventurarti alla sua scoperta in qualsiasi altro modo é un errore: nessun altro strumento ti aiuterà a farlo più in fretta. Ti assicuro che risponderò alla maggior parte delle tue domande!",
-                    "updated": 1614711851139
+                    "updated": 1614711851139,
+                    "style": "Callout"
                 }
             ]
         },
@@ -94,7 +97,8 @@
                 {
                     "language": "IT",
                     "text": "Premi sempre Next per continuare!",
-                    "updated": 1614711933264
+                    "updated": 1614711933264,
+                    "style": "Success"
                 }
             ]
         }

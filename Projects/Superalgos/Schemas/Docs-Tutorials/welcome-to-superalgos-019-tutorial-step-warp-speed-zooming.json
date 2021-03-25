@@ -12,7 +12,13 @@
             {
                 "language": "IT",
                 "text": "C'è ancora uno strumento utile per manipolare lo spazio-tempo: la funzione zoom del tuo browser!",
-                "updated": 1614789109029
+                "updated": 1614789109029,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Ada satu hal lagi yang berguna untukmu dalam memanipulasi waktu! yaitu fungsi zomm native browser!",
+                "updated": 1616699454737
             }
         ]
     },
@@ -25,7 +31,13 @@
                 {
                     "language": "IT",
                     "text": "A volte potresti voler visualizzare porzioni del Design Space più ampie di quanto permesso dal tuo schermo.",
-                    "updated": 1614789154147
+                    "updated": 1614789154147,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Terkadang kamu ingin visualisasi yang lebih besar dari Design Space yang tertahan dari layarmu.",
+                    "updated": 1616699514300
                 }
             ]
         },
@@ -37,7 +49,13 @@
                 {
                     "language": "IT",
                     "text": "Clicca Ctrl e scorri con la rotella del mouse su Windows o usa ⌘ e - oppure + su Mac.",
-                    "updated": 1614789231899
+                    "updated": 1614789231899,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tekan Ctrl dan scroll mouse wheel di Windows atau ⌘ dan - atau + di Mac.",
+                    "updated": 1616699557574
                 }
             ]
         },
@@ -53,7 +71,13 @@
                 {
                     "language": "IT",
                     "text": "Chrome ti mostra il livello di zoom nell'angolo in alto a destra. Quando zoommi, il Design Space viene centrato sullo schermo. Usa la mappa per tornare dove eri prima.",
-                    "updated": 1614789306337
+                    "updated": 1614789306337,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Chrome mengindikasi ukuran zoom di bagian atas-kanan. Saat zooming kecil/besar,desing space akan ketengah layar. Gunakan design space map untuk kembali ketempat yang seharusnya.",
+                    "updated": 1616699735896
                 }
             ]
         }

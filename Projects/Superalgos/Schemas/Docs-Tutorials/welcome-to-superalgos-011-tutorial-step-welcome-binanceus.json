@@ -13,8 +13,9 @@
             },
             {
                 "language": "ID",
-                "text": "Langkah ini akan memutar video dalam mode layar penuh.",
-                "updated": 1616352925181
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1616697129749,
+                "style": "Definition"
             }
         ]
     },

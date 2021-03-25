@@ -12,7 +12,13 @@
             {
                 "language": "IT",
                 "text": "Voglio mostrarti qualcosa, mentre l'operazione di data mining è in corso. Ti insegnerò a camminare nel giro di un attimo!",
-                "updated": 1614788444726
+                "updated": 1614788444726,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik!",
+                "updated": 1616698440258
             }
         ]
     },
@@ -24,7 +30,13 @@
                 {
                     "language": "IT",
                     "text": "É facile: clicca e trascina usando il mouse!",
-                    "updated": 1614788236203
+                    "updated": 1614788236203,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Cukup click dan drag mouse-mu!",
+                    "updated": 1616698465027
                 }
             ]
         },
@@ -36,7 +48,13 @@
                 {
                     "language": "IT",
                     "text": "Semplice, no? Ad ogni modo, il Design Space è molto esteso e non vorrai farti venire la tendinite cliccando e trascinando in giro in questo modo.",
-                    "updated": 1614789321190
+                    "updated": 1614789321190,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mudah bukan? Bagus! Design space area yang luas, dan aku tidak enak jika melajarkanmu hal yang rumit dengan mendrag seperti ini. ",
+                    "updated": 1616698595115
                 }
             ]
         },
@@ -47,7 +65,13 @@
                 {
                     "language": "IT",
                     "text": "Nei prossimi step ti insegnerò un altro paio di trucchetti.",
-                    "updated": 1614788431318
+                    "updated": 1614788431318,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan melajarkan beberapa trik lanjutan di step berikutnya",
+                    "updated": 1616698622895
                 }
             ]
         }

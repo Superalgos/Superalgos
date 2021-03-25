@@ -1,0 +1,37 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": "26",
+    "type": "Tutorial Step - Let's Get On With It!",
+    "definition": {
+        "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
+        "updated": 1616098998366,
+        "icon": {
+            "name": "mouse-right-click",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These UI tricks may make your life easier:",
+            "updated": 1615807543929
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from node to node."
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Cmd + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "updated": 1615807572088
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+        }
+    ]
+}

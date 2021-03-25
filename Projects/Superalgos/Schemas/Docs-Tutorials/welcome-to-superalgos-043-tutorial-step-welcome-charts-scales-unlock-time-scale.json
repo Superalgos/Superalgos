@@ -1,0 +1,21 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 43,
+    "type": "Tutorial Step - Welcome Charts Scales Unlock Time Scale",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà il video in modalità schermo intero.",
+                "updated": 1614893704588
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-charts-scales-unlock-time-scale.gif"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Careful With Your Data!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "dataset-definition"
+        },
+        "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Può volerci fino a un minuto perchè tutte le tasks si fermino. Il sistema non deve assolutamente essere chiuso prima che ciò accada.",
+                "updated": 1614846504651,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Check the console app to see tasks stopping!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata alla console app per vedere come le tasks ricevono il segnale di stop!",
+                    "updated": 1614846474138,
+                    "style": "Callout"
+                }
+            ],
+            "updated": 1616416021973
+        },
+        {
+            "style": "Text",
+            "text": "The proper way to close Superalgos is:"
+        },
+        {
+            "style": "List",
+            "text": "Stop all tasks and allow a couple of minutes.",
+            "updated": 1616416090932
+        },
+        {
+            "style": "List",
+            "text": "When all tasks stop may you close the console app.",
+            "updated": 1616416111891
+        },
+        {
+            "style": "List",
+            "text": "You may close the browser at any point and leave tasks processing in the background."
+        },
+        {
+            "style": "Warning",
+            "text": "Closing the Client before tasks stop may cause your data to become corrupt!",
+            "updated": 1616416130792
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 105,
+    "type": "Tutorial Step - Back to Work!",
+    "definition": {
+        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill!",
+        "updated": 1610648506240,
+        "icon": {
+            "name": "status-dependency",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
+            "updated": 1616694225866
+        },
+        {
+            "style": "Callout",
+            "text": "Let's try it! Search for the word... network.",
+            "updated": 1610648926126
+        },
+        {
+            "style": "Success",
+            "text": "Not to brag, but the speed of the search engine rivals the likes of Google ;-)",
+            "updated": 1610651624723
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

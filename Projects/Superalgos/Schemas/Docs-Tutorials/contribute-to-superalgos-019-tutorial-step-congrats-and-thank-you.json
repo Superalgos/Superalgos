@@ -1,0 +1,30 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Congrats and Thank You!",
+    "definition": {
+        "text": "This is awesome! You are already helping the project! We are grateful for your first contribution and hope for more to come!",
+        "updated": 1611595200232,
+        "icon": {
+            "name": "docs-success-style",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If everything went well with your authentication, you should see the Contribution Done message!",
+            "updated": 1611595956742
+        },
+        {
+            "style": "Callout",
+            "text": "You are now an official Superalgos contributor!",
+            "updated": 1611595144691
+        },
+        {
+            "style": "Success",
+            "text": "Project maintainers will review your Pull Request and act accordingly. If it is technically possible to merge it without conflicts, it should go live soon! Keep an eye on notifications from GitHub.com!",
+            "updated": 1611604468884
+        }
+    ]
+}

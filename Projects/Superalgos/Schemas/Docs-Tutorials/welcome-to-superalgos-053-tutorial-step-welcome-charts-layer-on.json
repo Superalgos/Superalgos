@@ -1,0 +1,21 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 53,
+    "type": "Tutorial Step - Welcome Charts Layer On",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1615963785929
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-charts-layer-on.gif"
+        }
+    ]
+}

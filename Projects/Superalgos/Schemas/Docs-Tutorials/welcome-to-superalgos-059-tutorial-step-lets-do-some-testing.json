@@ -1,0 +1,28 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 59,
+    "type": "Tutorial Step - Let's Do Some Testing!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "testing-trading-tasks"
+        },
+        "text": "We are back on the Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But before you run your first Backtesting Session, let's go on a quick scouting mission to grasp how the Testing Trading Tasks node is set up.",
+            "updated": 1610638880718
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Testing Trading Tasks node and look at the structure of offspring nodes... Looks familiar?",
+            "updated": 1616427797952
+        },
+        {
+            "style": "Text",
+            "text": "Indeed! It resembles the Data Tasks section: tasks are organized by exchange, market, and trading mine, so that you may test any number of strategies optimized for different markets, on multiple exchanges."
+        }
+    ]
+}

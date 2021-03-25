@@ -18,8 +18,13 @@
         },
         {
             "style": "Success",
-            "text": "The First Steps Tutorials book to your right provides all the details on the best way to invest your time learning Superalgos. That said, we all have our ways, so feel free to approach the task as best suits you! The rest of the Documentation is your second-best friend!",
-            "updated": 1610956478069
+            "text": "The First Steps Tutorials book to your right provides all the details on the best way to invest your time learning Superalgos. ",
+            "updated": 1616706102160
+        },
+        {
+            "style": "Note",
+            "text": "Before you finish, I will leave you with the next best tutorial in the series!",
+            "updated": 1616706133031
         }
     ]
 }

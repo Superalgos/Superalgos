@@ -12,32 +12,24 @@
             {
                 "language": "IT",
                 "text": "Vuoi che ti spieghi come funziona il Rate Scale, o lo immagini già? Ok, ti darò un suggerimento...",
-                "updated": 1614893948589
+                "updated": 1614893948589,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The rate scale works like the time scale! Check the video coming next for clarity!",
+            "text": "The rate scale works like the time scale, but —when using the keyboard— you must reverse the arrow keys! Use the left and right arrows ← → to toggle through the automatic modes and up and down arrows ↑ ↓ to affect the scale! Check the video coming next for clarity!",
             "translations": [
                 {
                     "language": "IT",
                     "text": "Funziona esattamente come il Time Scale! Guarda il video al prossimo step per i dettagli.",
-                    "updated": 1614893978290
+                    "updated": 1614893978290,
+                    "style": "Callout"
                 }
-            ]
-        },
-        {
-            "style": "Note",
-            "text": "There's one more scale to work with. I'll tell you all about it after the video.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "C'è ancora una scala con cui lavorare. Te ne parlerò meglio dopo il video.",
-                    "updated": 1614893999920
-                }
-            ]
+            ],
+            "updated": 1616505192799
         },
         {
             "style": "Success",
@@ -46,7 +38,8 @@
                 {
                     "language": "IT",
                     "text": "Prova anche la modalità semi-automatica per le differenti scale! Ruota la rotella del mouse finchè non vedi un singolo triangolino verde.",
-                    "updated": 1614894098439
+                    "updated": 1614894098439,
+                    "style": "Success"
                 }
             ]
         }

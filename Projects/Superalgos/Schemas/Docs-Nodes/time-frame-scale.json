@@ -31,6 +31,10 @@
             "updated": 1609783625339
         },
         {
+            "style": "Text",
+            "text": "Alternatively, you may place the mouse pointer and use the up and down arrows ↑ ↓ to toggle through the available time frames."
+        },
+        {
             "style": "Block",
             "text": "Configuring",
             "updated": 1609783710191

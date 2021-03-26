@@ -1,0 +1,29 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 8,
+    "type": "Tutorial Step - 180 Degrees",
+    "definition": {
+        "text": "When all offspring nodes are set to 180 degrees angle, each node takes a slot in a fraction of a circumference spanning 180 degrees, normal to the parent.",
+        "updated": 1615319473489,
+        "icon": {
+            "name": "set-angle-to-parent-node-to-180-degrees",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But what happens if one of the offspring nodes has a different Angle to Parent setting? Let's run an experiment!",
+            "updated": 1615459555706
+        },
+        {
+            "style": "Callout",
+            "text": "Click once on the Trading Parameters Angle to Parent setting and exit the menu!"
+        },
+        {
+            "style": "Text",
+            "text": "The node takes a slot in a smaller angle — 90 degrees! Do the same with the Trading System Reference and Trading Engine Reference nodes!",
+            "updated": 1615318799392
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 39,
+    "type": "Tutorial Step - The Current Workspace",
+    "definition": {
+        "text": "The current workspace is the one you are using at any point.",
+        "icon": {
+            "name": "workspace",
+            "project": "Superalgos"
+        },
+        "updated": 1615906908608
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you close and restart the app, or refresh the UI, the system loads the workspace that was last in use.",
+            "updated": 1615907362014
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the menu of the Workspace node, double-click on the Getting Started label and change the name of the workspace to Basic Education.",
+            "updated": 1615907154715
+        },
+        {
+            "style": "Text",
+            "text": "Now hit Ctrl + Shift + Alt + Key-S",
+            "updated": 1615907276880
+        },
+        {
+            "style": "Success",
+            "text": "You just created a new workspace! Go to the My-Workspaces folder to verify the new file is there.",
+            "updated": 1615907412107
+        }
+    ]
+}

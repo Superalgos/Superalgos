@@ -14,6 +14,11 @@
                 "text": "Se ti capiterà mai di rompere qualcosa (per esempio cancellare un nodo o cambiare una configurazione) e non sai come sistemare...",
                 "updated": 1614791180230,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu merusak sesuatu seperti menghapus node atau merubah konfigurasi dan tidak tahu cara untuk menghadapinya...",
+                "updated": 1616770121960
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "...c'è un modo semplice di ricominciare con un nuovo workspace!",
                     "updated": 1614791206441,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "... ada cara mudah untuk memulai kembali dengan workspace baru!",
+                    "updated": 1616770151572
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Tutto ciò che devi fare è tirare la tab sul lato sinistro dello schermo e cliccare sul plugin workspace Getting-Started.",
                     "updated": 1614791245119,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "yang kamu butuhkan yaitu menarik tab yang ada di sisi kiri dari layarmu dan click pada Getting-Started plugin workspace.",
+                    "updated": 1616770232356
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Un workspace Getting-Started nuovo e pulito verrà caricato e lanciato dall'inizio!",
                     "updated": 1614791287049,
                     "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Getting Started wokspace yang baru akan dimuat dan muncul kembali, seperti memulai dari awal!",
+                    "updated": 1616770297595
                 }
             ]
         }

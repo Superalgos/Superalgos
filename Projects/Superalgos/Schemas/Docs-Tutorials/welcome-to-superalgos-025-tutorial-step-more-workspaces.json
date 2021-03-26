@@ -14,6 +14,11 @@
                 "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi!",
                 "updated": 1614791394697,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri!",
+                "updated": 1616770406123
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Mentre usi il sistema, il workspace viene salvato automaticamente ogni minuto. Viene salvato anche quando chiudi il browser o la tab, e puoi salvarlo manualmente usando Ctrl + Shift + Key-S",
                     "updated": 1614791481642,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Segera setelah memulai sistem, workspace akan tersimpan setiap menit. Hal itu juga tersimpan sebelum menutup browser atau tab browser, dan juga bisa simpan manual dengan Ctrl + Shift + Key-S",
+                    "updated": 1616770552231
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Quando un plugin workspace viene modificato in qualunque modo, una copia viene salvata su disco nella tua cartella My-Workspaces.",
                     "updated": 1614791526653,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Saat workspace plugin dimodifikasi dalam cara apapun, salinan akan tersimpan di folder My-Workspaces.",
+                    "updated": 1616770626561
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "I file plugin non devono essere modificati in altro modo!",
                     "updated": 1614791561359,
                     "style": "Important"
+                },
+                {
+                    "language": "ID",
+                    "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem!",
+                    "updated": 1616770726775
                 }
             ]
         }

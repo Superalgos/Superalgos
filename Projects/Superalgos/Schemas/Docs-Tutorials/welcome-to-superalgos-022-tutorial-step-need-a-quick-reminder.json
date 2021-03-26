@@ -14,6 +14,11 @@
                 "text": "Tutte queste informazioni ti avranno sovraccaricato l'ippocampo! Ma non preccuparti, puoi tornare indietro a qualunque step precedente.",
                 "updated": 1614790380193,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Pada point ini, Aku sudah membuatmu banyak mengingat! Tapi jangan khawatir ... kamu dapat kembali ke step sebelumnya!",
+                "updated": 1616768312747
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Se mai ti servirà un ripasso su uno di quesi topic...",
                     "updated": 1614790424338,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu membutuhkan pengingat tentang salah satu topik...",
+                    "updated": 1616768354407
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Cerca un Tutorial Topic e ri-eseguilo! Puoi trovarmi nell'angolo in basso a sinistra del Design Space. Espandimi, naviga nella gerarchia dei topics e degli steps e clicca Play su uno qualsiasi di questi. I topics sono strutturati in senso orario, a partire dal lato destro del nodo Tutorial principale.",
                     "updated": 1614790602319,
                     "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Temukan Tutorial Topic dan replay! Kamu mungkin menemukannya dibawah-kiri dari design space, expand itu, dan Jelajahi melalui hirarki dari topik dan step, dan click Play yang dipilih. Topik diatur searah jarum jam, dimulai dari kanan yang ada pada main Tutorial node.",
+                    "updated": 1616769317775
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Hai bisogno di un ripasso veloce? Trova lo step sotto il topic Tutorial & Help. Poi clicca Stop, e ricomincia cliccando Play su quel Tutorial Step!",
                     "updated": 1614790783510,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Butuh Reminder Cepat? Temukan step pada Tutorials & Help topik dibawah. Lalu click Stop, dan mulai ulang dengan Mengclick Play disamping Tutorial Step!",
+                    "updated": 1616769536924
                 }
             ]
         }

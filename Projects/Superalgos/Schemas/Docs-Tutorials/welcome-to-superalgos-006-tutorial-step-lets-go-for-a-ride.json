@@ -85,8 +85,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Lihat nodes yang telah yang sudah kuberitahu sebelumnya? Keren! Kita disini untuk memulai pertama kali mengoperasikan data mining. Tapi, aku punya pertanyaan kepadamu: Apakah kamu mengakses Client secara remote ?",
-                    "updated": 1614426192898,
+                    "text": "Lihat nodes yang kumention sebelumnya? Keren! Kita akan memulai pertama kali data mining operation.",
+                    "updated": 1616766196462,
                     "style": "Text"
                 },
                 {
@@ -105,7 +105,14 @@
         },
         {
             "style": "Note",
-            "text": "But before we start, I have a quick question for you: are you accessing the Client remotely?"
+            "text": "But before we start, I have a quick question for you: are you accessing the Client remotely?",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Sebelum mulai, aku punya pertanyaan: Apakah kamu mengakses Client secara remote?",
+                    "updated": 1616766215561
+                }
+            ]
         }
     ]
 }

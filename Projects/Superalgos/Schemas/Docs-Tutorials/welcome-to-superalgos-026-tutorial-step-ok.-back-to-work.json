@@ -14,6 +14,11 @@
                 "text": "Ora che sei più a tuo agio nel muoverti, ti suggerirei un piccolo tour di esplorazione della sezione Data Tasks della gerarchia.",
                 "updated": 1614791644655,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kamu bisa nyaman kemana-mana, Aku ingin kamu untuk pergi tour kecil-kecilan untuk mengeksplor bagian Data Tasks dari hirarki.",
+                "updated": 1616770842957
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Puoi notare che:",
                     "updated": 1614791668620,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan hal-hal berikut:",
+                    "updated": 1616770892134
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "La sezione è organizzata innanzitutto per progetto, exchange e market. Questa struttura ti aiuta a lavorare con exchange multipli e markets multipli in modo ordinato.",
                     "updated": 1614791724096,
                     "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagian ini diatur — pertama dan terpenting — menurut project, exchange, dan market. Ini akan membantu kamu bekerja dengan banyak exchange dan banyak market secara teratur.",
+                    "updated": 1616770973515
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "I nodi Exchange Data Tasks e Market Data Tasks controllano tutte le tasks rispettivamente in un exchange e in un market.",
                     "updated": 1614791806588,
                     "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Data Tasks dan Market Data Tasks node dapat mengontrol semua tugas di exchange dan market masing-masing.",
+                    "updated": 1616771015778
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "text": "Dai un'occhiata a quei nodi e ai loro menu!",
                     "updated": 1614791842750,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergilah dan periksa node-node tersebut dan menunya!",
+                    "updated": 1616771060371
                 }
             ]
         }

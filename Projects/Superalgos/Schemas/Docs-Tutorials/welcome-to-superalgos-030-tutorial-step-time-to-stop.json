@@ -14,6 +14,11 @@
                 "text": "Non ci lanceremo subito in una Live Trading Session, quindi non c'è motivo di mantenere attivo il data mining.",
                 "updated": 1614846160007,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kita tidak akan menjalankan Live Trading Session, jadi tidak ada gunanya data mining berjalan saat ini.",
+                "updated": 1616773798618
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Ci sono due motivi principali per eseguire Data Tasks:",
                     "updated": 1614846176409,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada dua kasusutama untuk menjalankan Data Tasks:",
+                    "updated": 1616774098023
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "<b>Per processare dati storici:</b> potresti voler elaborare un intervallo di tempo di un Market per una Backtesting Session, o per generare nuovi indicatori.",
                     "updated": 1614846254449,
                     "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk memproses data historis: Kamu mungkin ingin memproses range datetime dari Market untuk menjalankan Backtesting Session, atau memproses indicators baru.",
+                    "updated": 1616773908847
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "<b>Per eseguire una live session:</b> live session di tipo diverso, come Paper Trading Session, Forward Testing Session e Live Trading Session, hanno tutte bisogno di un market feed live.",
                     "updated": 1614846320422,
                     "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menjalankan live session: Live sessions dari tipe berbeda, seperti Paper Trading Session, Forward Testing Session, dan Live Trading Session, membutuhkan umpan live market.",
+                    "updated": 1616774152845
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "text": "Se tutti i processi sono up to date, seleziona Stop All Tasks nel Task Manager.",
                     "updated": 1614846354737,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika semua proses up to date, pilih Stop All Tasks pada Masters Task Manager. Jika tidak, tunggu lebih lama!",
+                    "updated": 1616774172365
                 }
             ],
             "updated": 1616415772977

@@ -23,9 +23,9 @@
             "updated": 1613822457097
         },
         {
-            "style": "Note",
-            "text": "Before you being, please read the page Docs In English.",
-            "updated": 1613822688747
+            "style": "Include",
+            "text": "Superalgos->Topic->Docs In English->Content",
+            "updated": 1616762047762
         },
         {
             "style": "Text",
@@ -48,9 +48,14 @@
             "updated": 1613824072677
         },
         {
-            "style": "Text",
-            "text": "As explained in the How to Contribute to the Docs page, you must switch to the develop branch and make sure your system is up to date.",
-            "updated": 1613825583367
+            "style": "List",
+            "text": "As explained in the How to Contribute to the Docs page, you must switch your Contributions Branch and your Current Branch to the develop branch. Remember to restart the app after the switch.",
+            "updated": 1616762259778
+        },
+        {
+            "style": "List",
+            "text": "Make sure your system is up to date running the app.update command.",
+            "updated": 1616762308286
         },
         {
             "style": "List",
@@ -70,6 +75,11 @@
             "style": "List",
             "text": "Remember that translations exist at the level of each paragraph. Always make sure that the translation you input matches the correct paragraph. This is important because if a paragraph is updated in the English version, all translations will get a notice that the particular paragraph may be outdated.",
             "updated": 1613824142107
+        },
+        {
+            "style": "List",
+            "text": "Participate in the Superalgos Docs Group. Let people know what part of the Docs or which Tutorial you will be working with. This basic coordination will help avoid conflicts when more than one user works on the same pages at the same time.",
+            "updated": 1616762526615
         },
         {
             "style": "Success",

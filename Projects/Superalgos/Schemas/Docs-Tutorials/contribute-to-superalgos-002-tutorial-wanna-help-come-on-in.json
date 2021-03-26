@@ -3,8 +3,8 @@
     "pageNumber": 2,
     "type": "Tutorial - Wanna Help? Come On In!",
     "definition": {
-        "text": "Welcome to the Community! If you're still around, with the first two tutorials under your belt, you're family already!",
-        "updated": 1616756140158,
+        "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
+        "updated": 1616757706219,
         "icon": {
             "name": "tutorial",
             "project": "Superalgos"
@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In this tutorial, you are going to learn to keep your system up to date, use the built-in command line, switch branches, and a few more tricks that will make your life easier and —at the same time— help you become a valuable member of the community!",
-            "updated": 1616756564380
+            "text": "In this tutorial, you will learn to keep your system up to date, use the built-in command line, switch branches, and a few more tricks that will make your life easier and —at the same time— help you become a valuable member of the community!",
+            "updated": 1616757725384
         },
         {
             "style": "Success",
-            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project and we are all expected to give back, help drive the project forwards, and keep improving the software!",
-            "updated": 1616756575794
+            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project and we are all expected to give back, help drive the project forwards, and keep improving the software! Contributing, by the way, earns you Superalgos (SA) tokens!",
+            "updated": 1616756731723
         }
     ]
 }

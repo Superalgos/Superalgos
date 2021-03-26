@@ -14,6 +14,11 @@
                 "text": "Il cuore di un'operazione di data mining è composto da tasks che eseguono vari bots. Una Task controlla un bot, e un Task Manager controlla varie tasks.",
                 "updated": 1614845644365,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Inti dari data mining operation adalah tasks yang berjalan di bot. Satu task mengontrol satu bot, dan Task Manager akan menkontrol banyak tasks.",
+                "updated": 1616771548832
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Finora hai imparato di sei differenti strumenti che puoi usare per controllare i bot nella tua operazione di data mining. A un livello superiore, il nodo Data Tasks controlla tutti i data mining bots nel Network Node.",
                     "updated": 1614845713171,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu memperlajari tentang enam perangkat berbeda yang dapat mengontrol setiap bot pada data mining operation. Level tertinggi, Data Tasks node mengontrol semua data mining bot di Network Node.",
+                    "updated": 1616771757301
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Parleremo dei network nodes tra un attimo...",
                     "updated": 1614845732408,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari berbicara tentang network node beberapa menit...",
+                    "updated": 1616771716245
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Al livello più basso, una singola Task controlla un singolo bot. I nodi nel mezzo hanno scopo organizzativo e aiutano a mantenere un ordine tra le operazioni, permettendo un controllo granulare sulle differenti fasi.",
                     "updated": 1614845793674,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Dilevel terendal, setiap individu task mengontrol satu bot. Pada node diantara organizational nodes untuk  menjaga operasi tetap teratur, dan memungkinkan kontrol granular di bagian yang berbeda.",
+                    "updated": 1616773259033
                 }
             ]
         }

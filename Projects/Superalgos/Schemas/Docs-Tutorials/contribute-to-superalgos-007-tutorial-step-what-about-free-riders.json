@@ -13,8 +13,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The project will soon implement an incentives scheme to further promote the desired behavior and to foster the culture of collaboration.",
-            "updated": 1610720058284
+            "text": "The project has implemented a powerful incentives scheme to promote the desired behavior and to foster a culture of collaboration: we are distributing the Superalgos (SA) token exclusively among contributors!",
+            "updated": 1616757601802
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos (SA) Token!->superalgos.org/token-overview.shtml"
         },
         {
             "style": "Success",
@@ -23,8 +27,8 @@
         },
         {
             "style": "Callout",
-            "text": "Enough preamble! Let's get on with it!",
-            "updated": 1611594786356
+            "text": "Let's get your first contribution rolling!",
+            "updated": 1616758026205
         }
     ]
 }

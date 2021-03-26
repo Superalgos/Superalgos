@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Tutorial Step - You Are In Command",
     "definition": {
-        "text": "The search box in the Docs has a double life. Sometimes she searches, but other times she commands, and does stuff... whatever you tell her!",
-        "updated": 1611595553272,
+        "text": "Let's talk about my friend, the search box in the Docs. She has a bit of a double life: she searches, but also commands!",
+        "updated": 1616756994691,
         "icon": {
             "name": "strategy-manage-stage",
             "project": "Superalgos"
@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I mean the search box is also a command line interface! The list of available commands has to do with:",
-            "updated": 1611595675031
+            "text": "I mean the search box is also a command line interface! The current list of commands has to do with:",
+            "updated": 1616757022931
         },
         {
             "style": "List",
-            "text": "Producing and editing the Documentation.",
-            "updated": 1610719727338
+            "text": "Producing and editing the Docs.",
+            "updated": 1616757048012
         },
         {
             "style": "List",

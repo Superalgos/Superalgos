@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 2,
+    "type": "Binance Test Status",
+    "definition": {
+        "text": "Binance is fully tested for data mining and trading.",
+        "updated": 1615141847424
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003523813
+        },
+        {
+            "style": "List",
+            "text": "Market History: Starting on September 2017.",
+            "updated": 1615142912901
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1616003541160
+        },
+        {
+            "style": "List",
+            "text": "Comments: Fully tested. Starting with Binance is recommended as the experience is seamless.",
+            "updated": 1615142951363
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"binance\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1615143066280
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

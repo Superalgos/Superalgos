@@ -1,0 +1,27 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 101,
+    "type": "Tutorial Step - Monitoring the Fun Way!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-limit-buy-order"
+        },
+        "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos produces the same kind of simulations you fell in love with for live sessions too, in realtime!",
+            "updated": 1616435345542
+        },
+        {
+            "style": "Callout",
+            "text": "Can you see the first few buy orders on the chart?"
+        },
+        {
+            "style": "Note",
+            "text": "I just brought you to the present time, on the 1-minute chart. You should be able to see the latest candle forming and a few orders already. The Rate Scale is in automatic mode at both ends. Feel free to change the scales to your liking."
+        }
+    ]
+}

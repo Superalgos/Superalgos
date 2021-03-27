@@ -1,0 +1,22 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 52,
+    "type": "Tutorial Step - Welcome Charts Layer Managers Scroll",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1615963487852,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-charts-layer-managers-scroll.gif"
+        }
+    ]
+}

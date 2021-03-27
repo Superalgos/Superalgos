@@ -1,0 +1,38 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 40,
+    "type": "Tutorial Step - Let's Talk Plugins",
+    "definition": {
+        "text": "Plugins are data structures that ship with the system and that you may call into any workspace using the Plugins hierarchy.",
+        "updated": 1615914003358,
+        "icon": {
+            "name": "plugins",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Plugins are data structures meant to be reused. That is why they ship as plugins, so that you may place them on any workspace.",
+            "updated": 1615917170964
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Plugins node!"
+        },
+        {
+            "style": "Text",
+            "text": "As you can tell from the structure of the hierarchy, there are several types of plugins! They ship as JSON files, sorted by type in the plugins folder. Check it out!",
+            "updated": 1615917052972
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\Superalgos\\Plugins",
+            "updated": 1615916283983
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

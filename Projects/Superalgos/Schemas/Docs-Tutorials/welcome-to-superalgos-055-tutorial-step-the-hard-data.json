@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 55,
+    "type": "Tutorial Step - The Hard Data",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "plotter-panel"
+        },
+        "text": "A Plotter Panel features non-graphical representations of data, mostly in the form of numerical values or text.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Un Plotter Panel contiene rappresentazioni dei dati in formato numerico o testuale.",
+                "updated": 1615963973184,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each layer may or may not feature one or more associated panels. It's up to the developer of the corresponding Indicator Bot to define them or not.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni layer può avere uno o più pannelli associati. Sta allo sviluppatore dell'Indicator Bot corrispondente decidere se definirli o meno.",
+                    "updated": 1615964050088,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To access panels, left-click on the plotter panel icon of the layer of choice.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per accedere ai pannelli, clicca su un'icona del Plotter Panel di tua scelta.",
+                    "updated": 1615964087465,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You may move layers managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi spostare i layer manager e i plotter panel cliccando su di essi e trascinandoli in un angolo qualsiasi dello schermo.",
+                    "updated": 1615964142762,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

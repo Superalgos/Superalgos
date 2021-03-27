@@ -1,0 +1,13 @@
+{
+    "type": "Fit Dataset",
+    "definition": {
+        "text": "Trains the model using a dataset object.",
+        "updated": 1615895541124
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

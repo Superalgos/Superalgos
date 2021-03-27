@@ -1,0 +1,50 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": "9.2",
+    "type": "Tutorial Step - Breaking Up The Command",
+    "definition": {
+        "text": "Before you get on with writting your awesome review, let me parse the command so that you understand what you just did!",
+        "icon": {
+            "name": "copy-path",
+            "project": "Superalgos"
+        },
+        "updated": 1616875920510
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "docs.add: the root syntax of the Docs Add Command",
+            "updated": 1616876987593
+        },
+        {
+            "style": "List",
+            "text": "Review: the Docs Page Category of the page",
+            "updated": 1616876171594
+        },
+        {
+            "style": "List",
+            "text": "to: a coloquial connector to improve readability",
+            "updated": 1616876202410
+        },
+        {
+            "style": "List",
+            "text": "Superalgos: the Project to which the page is added",
+            "updated": 1616876249121
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Project Review: the name of the collection of pages the review belongs to",
+            "updated": 1616877226375
+        },
+        {
+            "style": "List",
+            "text": "->: a separator used in commands that require two user-defined parameters (in this case, the name of the collection of pages, and the name of the page)",
+            "updated": 1616876585726
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Review - Your Review Title: this is the Docs Page Name; we repeat Superalgos Review in the page name to lower the odds of duplicate names",
+            "updated": 1616878613905
+        }
+    ]
+}

@@ -18,7 +18,8 @@
         },
         {
             "style": "Javascript",
-            "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - YOUR REVIEW TITLE"
+            "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - Your Review Title",
+            "updated": 1616878234259
         },
         {
             "style": "List",
@@ -32,8 +33,8 @@
         },
         {
             "style": "List",
-            "text": "THIRD: Replace YOUR REVIEW TITLE with a meaningful title. Review titles must be unique!",
-            "updated": 1610822662803
+            "text": "THIRD: Replace \"Your Review Title\" with a meaningful title. Review titles must be unique!",
+            "updated": 1616878262273
         },
         {
             "style": "List",

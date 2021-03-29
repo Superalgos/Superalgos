@@ -37,8 +37,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Ini sangat penting: Kamu adalah Bossnya! Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
-                    "updated": 1616700016172,
+                    "text": "Secara singkat: Kamu adalah Bossnya!",
+                    "updated": 1616766454759,
                     "style": "Success"
                 }
             ]
@@ -46,7 +46,14 @@
         {
             "style": "Text",
             "text": "You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom section of the design space. Select Resume on the menu to start where you left, or on the first step you  skipped. Select Play to start from the beginning!",
-            "updated": 1616415232478
+            "updated": 1616415232478,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": " Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
+                    "updated": 1616766476966
+                }
+            ]
         },
         {
             "style": "Callout",

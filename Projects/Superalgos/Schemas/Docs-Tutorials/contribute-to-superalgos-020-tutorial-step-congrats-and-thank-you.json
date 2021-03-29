@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If everything went well with your authentication, you should see the Contribution Done message!",
-            "updated": 1611595956742
+            "text": "If everything went well with your authentication, you should see the App Message - Contribution Done page!",
+            "updated": 1617023256176
         },
         {
             "style": "Callout",

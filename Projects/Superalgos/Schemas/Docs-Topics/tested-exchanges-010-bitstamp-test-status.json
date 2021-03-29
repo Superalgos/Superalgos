@@ -1,0 +1,56 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": "10",
+    "type": "Bitstamp Test Status",
+    "definition": {
+        "text": "Bitstamp is fully tested for data mining and trading.",
+        "updated": 1615141847424
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability [*]: Yes."
+        },
+        {
+            "style": "List",
+            "text": "Market History: Starting on September 2017.",
+            "updated": 1615142912901
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Yes.",
+            "updated": 1615143016205
+        },
+        {
+            "style": "List",
+            "text": "Comments: Fully tested. ",
+            "updated": 1615142951363
+        },
+        {
+            "style": "Text",
+            "text": "[*] The ability to fetch historic data for backtesting purposes has been verified."
+        },
+        {
+            "style": "Text",
+            "text": "[**] The ability to run strategies in live-trading mode has been verified."
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bitstamp\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1616805179437
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

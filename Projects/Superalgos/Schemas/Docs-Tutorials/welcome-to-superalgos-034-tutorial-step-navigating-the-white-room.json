@@ -14,6 +14,11 @@
                 "text": "Proprio come il Design Space, il Charting Space ha un'enorme area dove puoi inserire grafici...tanti quanti il tuo hardware ne riesce a gestire!",
                 "updated": 1614847190845,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Seperti design space, fitur charting space area yang besar untuk mensetup chart... Sebanyak yang perangkatmu bisa!",
+                "updated": 1616933145394
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Ci sono solo due charts in questo Workspace Getting Started, per mantenere le cose semplici per i novellini. Utenti avanzati confrontano diversi grafici di diversi exchanges e diversi market.",
                     "updated": 1614847284524,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Agar lebih mudah bagi para user baru, hanya ada dua charts di Getting Started Workspace. Pengguna lama dapat memonitor charts dari exchange dan market yang berbeda.",
+                    "updated": 1616934950201
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Per muoverti nel Charting Space, clicca e trascina usando il tuo mouse. La combinazione di tasti è Shift più  i tasti freccia ↑ ← → ↓",
                     "updated": 1614847340001,
                     "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk bergerak sekeliling di charting space, click dan drag dengan mouse. Dengan keyboard dapat menggunakan Shift + ↑ ← → ↓",
+                    "updated": 1616935011038
                 }
             ]
         }

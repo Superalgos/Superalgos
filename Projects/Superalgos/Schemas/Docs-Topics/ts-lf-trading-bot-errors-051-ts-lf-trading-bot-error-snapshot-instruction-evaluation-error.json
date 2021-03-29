@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "51",
+    "pageNumber": 51,
     "type": "TS LF Trading Bot Error - Snapshot Instruction Evaluation Error",
     "definition": {
         "text": "This error occured while evaluating an instruction as part of the process of generating a Snapshot. This did not prevent the Snapshot from being created, but the value for the particular instruction was set to zero.",

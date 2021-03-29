@@ -1,0 +1,78 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Bending time?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "Ok... maybe it's not actually like bending, but, bear with me... You'll love how you can shape time machines to whatever format you wish.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok...forse non è proprio come controllare il tempo, ma facciamo finta... Adorerai come puoi configurare le Time Machine in qualsiasi modo tu desideri.",
+                "updated": 1614847760593,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Oke ... mungkin sebenarnya tidak seperti mempelajari bending, tapi, bersabarlah ... Kamu akan menyukai bagaimana dapat membentuk time machine ke format apa pun yang di inginkan.",
+                "updated": 1616936357243
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Hover your mouse pointer over any of the edges of the turquoise frame defining the time machine and see what happens. See how the edge is highlighted in yellow?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sposta il puntatore su uno qualsiasi dei lati della cornice turchese che definisce la Time Machine, e osserva cosa succede. Vedi come il lato si evidenzia in giallo?",
+                    "updated": 1614847838157,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Arahkan mouse pointermu ke salah satu tepi bingkai biru kehijauan yang menentukan time machine dan lihat apa yang terjadi. Lihat bagaimana tepi disorot dengan warna kuning?",
+                    "updated": 1616936418748
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Cool! Now, left-click the frame and pull!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Forte! Ora cliccalo con il tasto sinistro e tira!",
+                    "updated": 1614847870184,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Keren! Sekarang, click-kiri bingkai dan tarik!",
+                    "updated": 1616936445152
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "This is how you may shape time machines to your liking.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questo modo puoi dare alle tue time machines la forma e aspetto che preferisci.",
+                    "updated": 1614847900032,
+                    "style": "Note"
+                },
+                {
+                    "language": "ID",
+                    "text": "Beginilah cara kamu membentuk time machine sesuai keinginan Anda.",
+                    "updated": 1616936472690
+                }
+            ]
+        }
+    ]
+}

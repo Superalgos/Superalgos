@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 41,
+    "type": "Tutorial Step - How Plugins Work",
+    "definition": {
+        "text": "Find the Plugin Trading Systems node and expand it! Note the Plugin File node named Masters-Lightning-Strike...",
+        "icon": {
+            "name": "expand-structure-of-nodes",
+            "project": "Superalgos"
+        },
+        "updated": 1615919140092
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Lightning Strike is the demo Trading System you've been playing with during the Welcome tutorial. It has been placed as a plugin in this workspace!",
+            "updated": 1615924603782
+        },
+        {
+            "style": "Callout",
+            "text": "Follow the orange dotted line downwards until you find the node it connects to! Use the keyboard trick Ctrl + arrows to go faster!",
+            "updated": 1615919519995
+        },
+        {
+            "style": "Text",
+            "text": "That's it! You found the Lightning Strike Trading System node. If you drag it to the side, you will find the Plugin File Position node below.",
+            "updated": 1615919373745
+        }
+    ]
+}

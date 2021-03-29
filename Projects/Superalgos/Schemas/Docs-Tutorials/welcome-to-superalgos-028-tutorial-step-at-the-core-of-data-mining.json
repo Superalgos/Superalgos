@@ -1,0 +1,80 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 28,
+    "type": "Tutorial Step - At the Core of Data Mining",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "task"
+        },
+        "text": "The core of a data mining operation are tasks running bots. One Task controls one bot, and a Task Manager may control multiple tasks.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il cuore di un'operazione di data mining è composto da tasks che eseguono vari bots. Una Task controlla un bot, e un Task Manager controlla varie tasks.",
+                "updated": 1614845644365,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Inti dari data mining operation adalah tasks yang berjalan di bot. Satu task mengontrol satu bot, dan Task Manager akan menkontrol banyak tasks.",
+                "updated": 1616771548832
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "By now you've learned about six different devices that you may use to control each bot in your data mining operation. At the highest level, the Data Tasks node controls all data mining bots in the Network Node.",
+            "updated": 1610614923203,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Finora hai imparato di sei differenti strumenti che puoi usare per controllare i bot nella tua operazione di data mining. A un livello superiore, il nodo Data Tasks controlla tutti i data mining bots nel Network Node.",
+                    "updated": 1614845713171,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu memperlajari tentang enam perangkat berbeda yang dapat mengontrol setiap bot pada data mining operation. Level tertinggi, Data Tasks node mengontrol semua data mining bot di Network Node.",
+                    "updated": 1616771757301
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "We'll talk about network nodes in a minute...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Parleremo dei network nodes tra un attimo...",
+                    "updated": 1614845732408,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari berbicara tentang network node beberapa menit...",
+                    "updated": 1616771716245
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "At the lowest level, an individual Task controls a single bot. The nodes in between are organizational nodes that help keep the operation in order, and allow granular control over the different sections.",
+            "updated": 1610614976513,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Al livello più basso, una singola Task controlla un singolo bot. I nodi nel mezzo hanno scopo organizzativo e aiutano a mantenere un ordine tra le operazioni, permettendo un controllo granulare sulle differenti fasi.",
+                    "updated": 1614845793674,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Dilevel terendal, setiap individu task mengontrol satu bot. Pada node diantara organizational nodes untuk  menjaga operasi tetap teratur, dan memungkinkan kontrol granular di bagian yang berbeda.",
+                    "updated": 1616773259033
+                }
+            ]
+        }
+    ]
+}

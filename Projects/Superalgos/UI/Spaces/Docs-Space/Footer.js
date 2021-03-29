@@ -67,7 +67,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'Click to change your preferred language:<br/>'
+        HTML = HTML + 'Click on your preferred language:<br/>'
 
         HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language'
         if (languageCode === 'EN') { 
@@ -108,12 +108,8 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>To Contribute Translations</h4>'
-        HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
-        HTML = HTML + '<strong>2. </strong>Edit and translate English content.<br/>'
-        HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-footer-code">docs.save</code>.<br/>'
-        HTML = HTML + '<strong>4. </strong>Type <code class="docs-footer-code">app.contribute</code> to update your fork and submit a PR.<br/>'
-        HTML = HTML + '</ol>'
+        HTML = HTML + '<h4>Contribute Translations</h4>'
+        HTML = HTML + 'Earn tokens by helping translate the Docs and tutorials to your native language! Search the Docs for How to Contribute Translations and join the Superalgos Docs Group to coordinate with other contributors...'
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
@@ -136,7 +132,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development open for testing.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -181,7 +177,9 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgossupport" target="_blank">Technical Support Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" target="_blank">Developers Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosmachinelearning" target="_blank">Machine Learning Group</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgosdocs" target="_blank">Docs Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosuxui" target="_blank">UX/UI Design Group</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgoscollaborations" target="_blank">Collaborations Group</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 

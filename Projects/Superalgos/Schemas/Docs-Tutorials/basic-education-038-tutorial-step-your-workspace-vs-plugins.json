@@ -1,0 +1,38 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 38,
+    "type": "Tutorial Step - Your Workspace vs Plugins",
+    "definition": {
+        "text": "Go to your File Explorer app and look for the following paths relative to the root Superalgos folder...",
+        "icon": {
+            "name": "plugins",
+            "project": "Superalgos"
+        },
+        "updated": 1615906049600
+    },
+    "paragraphs": [
+        {
+            "style": "Json",
+            "text": "\\My-Workspaces\n",
+            "updated": 1615906070844
+        },
+        {
+            "style": "List",
+            "text": "In this folder, you will find a file named Getting Started.json. This is the current workspace; the one you are using at this moment. Everything you have been doing lately has been stored in this file.",
+            "updated": 1615906276410
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\Superalgos\\Plugins\\Workspaces"
+        },
+        {
+            "style": "List",
+            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the Plugin Workspaces topic in the Docs to learn what each of them is about!",
+            "updated": 1616259823223
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

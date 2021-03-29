@@ -1,6 +1,6 @@
 {
     "tutorial": "Contribute to Superalgos!",
-    "pageNumber": 18,
+    "pageNumber": 27,
     "type": "Tutorial Step - Contributable files?",
     "definition": {
         "text": "Most files within the Superalgos folder are subject to be modified and contributed to the project! That includes code, images, documentation, etc.",

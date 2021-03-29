@@ -1,6 +1,6 @@
 {
     "tutorial": "Contribute to Superalgos!",
-    "pageNumber": "7.2",
+    "pageNumber": 8,
     "type": "Tutorial Step - Switching Branches",
     "definition": {
         "text": "The master branch in the Superalgos repo features the latest stable version, while the develop branch features the version in development!",

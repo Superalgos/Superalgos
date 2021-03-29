@@ -1,6 +1,6 @@
 {
     "tutorial": "Contribute to Superalgos!",
-    "pageNumber": "7.5",
+    "pageNumber": 14,
     "type": "Tutorial Step - Update the App!",
     "definition": {
         "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",

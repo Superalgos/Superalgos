@@ -1,6 +1,6 @@
 {
     "topic": "Contributing to Superalgos",
-    "pageNumber": "1",
+    "pageNumber": 2,
     "type": "How to Contribute a Trading System",
     "definition": {
         "text": "To contribute a Trading System, you must provide the trading system file, a clean workspace, and proper documentation.",

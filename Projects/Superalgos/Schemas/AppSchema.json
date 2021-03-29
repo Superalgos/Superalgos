@@ -15452,6 +15452,10 @@
             {
                 "codeName": "ZAR",
                 "iconName": "zar"
+            },
+            {
+                "codeName": "XRP",
+                "iconName": "xrp"
             }
         ]
     },

@@ -23,21 +23,18 @@
         },
         {
             "style": "List",
-            "text": "You will get a page explaining what is being done. Once the process finishes, you will get another page telling you of the outcome.",
-            "updated": 1617019740630
+            "text": "You will get a page explaining what is being done. Then you will get another page telling you of the outcome explaining you must restart the app.",
+            "updated": 1617036253283
         },
         {
             "style": "List",
-            "text": "Stop / close the app (browser and console).",
-            "updated": 1617019826262
+            "text": "Do close the app and restart it (browser & console).",
+            "updated": 1617036149007
         },
         {
             "style": "List",
-            "text": "Restart the app!"
-        },
-        {
-            "style": "List",
-            "text": "Find the Contribute to Superalgos Tutorial in the bottom-right corner of the workspace and select Resume in the menu!"
+            "text": "Find the Contribute to Superalgos Tutorial in the bottom-right corner of the workspace and select Resume on the menu! If Resume doesn't work, find the Welcome Back! step under the Branches Topic and click Play on the menu!",
+            "updated": 1617036301673
         }
     ]
 }

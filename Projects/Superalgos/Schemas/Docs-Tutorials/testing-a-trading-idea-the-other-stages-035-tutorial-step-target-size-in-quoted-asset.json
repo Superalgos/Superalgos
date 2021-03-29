@@ -25,7 +25,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - \ntradingEngine.current.strategyOpenStage.stageQuotedAsset.feesPaid.value",
+            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - \ntradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value",
             "updated": 1610473148011
         }
     ]

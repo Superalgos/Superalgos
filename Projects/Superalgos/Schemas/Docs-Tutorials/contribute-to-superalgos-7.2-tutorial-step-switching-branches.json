@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos is constantly improving. At some point, you may wish to try the software version in the develop branch. Maybe there is a new feature, or a fix for bug that hasn't got to the master branch yet...",
-            "updated": 1616760221737
+            "text": "Superalgos is constantly improving. At some point, you may wish to try the software version in the develop branch. Maybe there is a new feature, or a fix for a bug that hasn't got to the master branch yet...",
+            "updated": 1617007301530
         },
         {
             "style": "Success",

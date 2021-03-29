@@ -18,13 +18,13 @@
         },
         {
             "style": "Note",
-            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and keep improving the software!",
-            "updated": 1616871682807
+            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and help improve the software!",
+            "updated": 1617034994342
         },
         {
-            "style": "Success",
-            "text": "By the way, contributing to the project earns you Superalgos (SA) tokens!",
-            "updated": 1616871695678
+            "style": "Link",
+            "text": "By the way, contributing to the project earns you Superalgos (SA) tokens! Click to learn more!->superalgos.org/token-overview.shtml",
+            "updated": 1617035100951
         }
     ]
 }

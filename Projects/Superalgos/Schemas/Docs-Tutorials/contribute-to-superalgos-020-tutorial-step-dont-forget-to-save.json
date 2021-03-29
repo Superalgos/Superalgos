@@ -1,0 +1,29 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Don't Forget to Save!",
+    "definition": {
+        "text": "Before you get to a novel-length kind of write-up, make sure you save the page every once in a while! No need to risk your prose!",
+        "icon": {
+            "name": "under-construction",
+            "project": "Superalgos"
+        },
+        "updated": 1610736735029
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each paragraph you write is stored at the level of the browser session as soon as you exit Edit mode. However, to save the page on disk and avoid losing work on an eventual browser crash, run this command:",
+            "updated": 1610822788853
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.save"
+        },
+        {
+            "style": "Success",
+            "text": "If for any reason you loose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page!",
+            "updated": 1610983878542
+        }
+    ]
+}

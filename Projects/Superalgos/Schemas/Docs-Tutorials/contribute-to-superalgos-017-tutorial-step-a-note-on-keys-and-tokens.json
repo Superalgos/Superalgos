@@ -18,8 +18,8 @@
         },
         {
             "style": "Warning",
-            "text": "ever share your workspace file AS IS. To share a workspace, use the Share button on the menu. It creates a share-safe copy of the workspace, stripped of sensitive information by removing the APIs hierarchy and the Exchange Accounts section of the Crypto Exchange node.",
-            "updated": 1610824651241
+            "text": "Never share your workspace file AS IS. To share a workspace, use the Share button on the menu. It creates a share-safe copy of the workspace, stripped of sensitive information by removing the APIs hierarchy and the Exchange Accounts section of the Crypto Exchange node.",
+            "updated": 1617005963914
         },
         {
             "style": "Text",

@@ -13,13 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now it's time to change the current branch. When you do that, the app will run a series of Git commands that will download the software from the develop branch of your fork! The current software will be replaced on your disk! For that reason, you will need to close the app after switching, restart, find the tutorial and resume!",
-            "updated": 1616873624278
+            "text": "Now it's time to change the Current Branch! When you do that, the app will run a series of Git commands that will download the software from the develop branch of your fork! The current software will be automatically replaced on your disk! For that reason, you will need to close the app after switching, restart, find the tutorial and resume to keep going!",
+            "updated": 1617017990927
         },
         {
-            "style": "Callout",
-            "text": "Go back to the footer and select Develop as your Current Branch. Follow the instructions to close the app when the process is done. When you restart, find the tutorial in the bottom-right corner of the workspace and select Resume in the menu!",
-            "updated": 1616873590554
+            "style": "Important",
+            "text": "But before you switch branches, let's take a moment to think of the consequences!",
+            "updated": 1617008246622
         }
     ]
 }

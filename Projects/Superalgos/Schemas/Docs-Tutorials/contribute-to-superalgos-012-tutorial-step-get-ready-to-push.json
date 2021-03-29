@@ -18,23 +18,23 @@
         },
         {
             "style": "List",
-            "text": "git.add: adds the changes you've made to contributable files to a git commit.",
-            "updated": 1610743268237
+            "text": "git add: adds the changes you've made to contributable files to a git commit.",
+            "updated": 1616948426317
         },
         {
             "style": "List",
-            "text": "git.commit: commits all the changes.",
-            "updated": 1610743294792
+            "text": "git commit: commits all the changes.",
+            "updated": 1616948431365
         },
         {
             "style": "List",
-            "text": "git.push: pushes the changes to your fork.",
-            "updated": 1610743337006
+            "text": "git push: pushes the changes to your fork.",
+            "updated": 1616948435342
         },
         {
             "style": "List",
-            "text": "github.createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
-            "updated": 1610743396382
+            "text": "github createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
+            "updated": 1616948441848
         }
     ]
 }

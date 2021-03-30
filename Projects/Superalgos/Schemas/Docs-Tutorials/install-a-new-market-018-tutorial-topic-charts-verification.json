@@ -1,0 +1,26 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 18,
+    "type": "Tutorial Topic - Charts Verification",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "charting-space"
+        },
+        "text": "Beyond the data structures set up in the Network hierarchy, the Install Market function also sets up charts matching the trading sessions created."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the next few steps you will verify that the expected data structures were created successfully."
+        },
+        {
+            "style": "Callout",
+            "text": "The charts created allow working with each of the trading sessions independently."
+        },
+        {
+            "style": "Success",
+            "text": "Notice from the organization of the charts that Superalgos allows scaling up your operation to unlimited trading systems and charts."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 21,
+    "type": "Tutorial Step - What Do We Make of This?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "We can't arrive at universal conclusions by analyzing a single case, but we can propose a hypothesis to test!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At this point, a reasonable hypothesis would be:"
+        },
+        {
+            "style": "Callout",
+            "text": "In the context of an uptrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict a reversal in the intermediate trend."
+        },
+        {
+            "style": "Note",
+            "text": "Let's save this hypothesis for later and look into one other case!"
+        }
+    ]
+}

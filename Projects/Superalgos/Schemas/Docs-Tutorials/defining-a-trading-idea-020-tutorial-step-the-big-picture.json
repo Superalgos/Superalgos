@@ -1,0 +1,30 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 20,
+    "type": "Tutorial Step - The Big Picture!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-frame"
+        },
+        "text": "The 4H chart showed a clear shift in the trend after the breakdown, but... what about the long-term? Let's check the daily chart!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Find the April 10th candle and take a minute to think of what it meant&mdash;in the big picture&mdash;what we just analyzed in the lower time frames. This is what I see:"
+        },
+        {
+            "style": "List",
+            "text": "The walk: The ranging period we saw from the 7th until the 10th of April was in fact a little walk on the daily upper band. By the BB rules, this means that price is relatively high in this time frame."
+        },
+        {
+            "style": "List",
+            "text": "Pullback: The breakdown in the lower time frames marked the pullback from the daily upper band."
+        },
+        {
+            "style": "List",
+            "text": "Continuation: The price action in the larger time frame ended up being a normal pullback and continuation, barely crossing the moving average."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Remember Flexibility!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "A corollary to the previous step is that not everything will make sense to you!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos is designed and built with flexibility in mind. Different users, different approaches to trading, different strategies, they all have different needs!"
+        },
+        {
+            "style": "Callout",
+            "text": "The system doesn't know what your intent is. It provides a set of tools that you need to use wisely for them to make sense!"
+        },
+        {
+            "style": "Success",
+            "text": "Learn to pay attention to the information that is relevant to you and discard what is not!"
+        }
+    ]
+}

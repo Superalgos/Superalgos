@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 76,
+    "type": "Tutorial Step - Let's Test Again!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "task"
+        },
+        "text": "After you delete the open, close, and manage stages, you are ready to run a new backtest with the same parameters used earlier."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Let's do it! Run the task and session!"
+        },
+        {
+            "style": "Note",
+            "text": "When you run multiple backtests on the same time frame, the earlier data is replaced. That is, a trading session stores one data set for each time frame. If you want to keep&mdash;and be able to access&mdash;different versions of the tests you should use different trading sessions, and even better, different trading systems so that you may keep the matching definitions as well!"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Bollinger Subchannels",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Read the description of the indicator in the documentation. Then scroll down and get to the Bollinger SubChannels Products & Properties section."
+        },
+        {
+            "style": "Success",
+            "text": "The kind of information you find on this page is available for every indicator shipping with the system."
+        }
+    ]
+}

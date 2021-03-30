@@ -1,0 +1,23 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Ready For The Next One?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Congratulations! You now know as much about trading systems as I do! Coming next, Defining a Trading Idea."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The next tutorial in the series is about framing trading ideas into a formal hypothesis so that the trading idea may be tested. Testing a trading idea is the first step in the process of building a Trading Strategy!"
+        },
+        {
+            "style": "Success",
+            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
+            "updated": 1610466322417
+        }
+    ]
+}

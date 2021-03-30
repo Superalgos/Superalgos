@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Are We Up to Date..?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-process-instance"
+        },
+        "text": "By now, all processes should be at 100%. We need the data to be ready so that we can go and do some work on the charts!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Look around and see if all processes are at 100%. If all of them are, then stop the data mining!"
+        },
+        {
+            "style": "Note",
+            "text": "Wait until all processes reach the 100% mark before continuing!"
+        },
+        {
+            "style": "Success",
+            "text": "In the next step we are going to the charts to check the Bollinger Bands so that we can discuss the trading idea we will test!"
+        }
+    ]
+}

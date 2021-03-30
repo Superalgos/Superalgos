@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 7,
+    "type": "Tutorial Step - The Trading Process",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "The first dimension we should define is what type of strategy the hypothesis is aimed at."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A simple rule-of-thumb is determining if it is a scalping, day-trading, swing trading, or position trading strategy."
+        },
+        {
+            "style": "Callout",
+            "text": "This definition provides a notion of the expected holding period, that is, the average time range expected for each position to be open."
+        },
+        {
+            "style": "Text",
+            "text": "The value of such a definition is that it provides a guideline as to what time frames to analyze to determine the existence of trends."
+        }
+    ]
+}

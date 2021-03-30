@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 85,
+    "type": "Tutorial Step - Let's Wrap It Up!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-stage"
+        },
+        "text": "We've covered the basics and many of the nuances of the Trigger Stage, but the trading idea is not tested yet!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This little speculation game we just played is just that... a game! To complete the test of the trading idea, we'll have to dive deep into the rest of the stages!"
+        },
+        {
+            "style": "Callout",
+            "text": "And that is the subject of the next tutorial!"
+        },
+        {
+            "style": "Success",
+            "text": "If you are ready to keep going, click Next to close this tutorial and select Play on the one to the right!"
+        }
+    ]
+}

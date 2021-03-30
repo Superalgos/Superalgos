@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 33,
+    "type": "Tutorial Step - Initial Targets",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "initial-targets"
+        },
+        "text": "For the target rate, we can use the same principle as earlier: chart.at01hs.candle.close Use it for the formula!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For the target size, we should consider the following:"
+        },
+        {
+            "style": "List",
+            "text": " We wish to use all the USDT we obtained upon entering the position."
+        },
+        {
+            "style": "List",
+            "text": " The exchange charges fees by subtracting from the asset we obtain on any given transaction."
+        },
+        {
+            "style": "Callout",
+            "text": "Consider the above and pay a visit to the Trading Engine. Find the nodes that store the information we need and try to come up with a formula for the target size!"
+        }
+    ]
+}

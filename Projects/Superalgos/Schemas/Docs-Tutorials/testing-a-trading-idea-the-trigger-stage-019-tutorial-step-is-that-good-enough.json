@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Is That Good Enough?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "This seems to work well for the reversals of February 25th and April 1st, right?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Pan the chart to the right and check the period between May 24th and July 16th!"
+        },
+        {
+            "style": "Text",
+            "text": "The market is clearly moving sideways in a narrowing range, and the indicator switches back and forth between Up and Down directions erratically."
+        },
+        {
+            "style": "Success",
+            "text": "This is not the ultimate solution to determine the trend!"
+        }
+    ]
+}

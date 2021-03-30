@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 25,
+    "type": "Tutorial Step - We've got Two Hypotheses!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Hypothesis 1: In the context of an uptrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict a reversal in the intermediate trend."
+        },
+        {
+            "style": "List",
+            "text": "Hypothesis 2: In the context of a downtrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict an acceleration of the downtrend."
+        },
+        {
+            "style": "Callout",
+            "text": "We may think of these two as the core of two different trading ideas! But that is not all, right?"
+        }
+    ]
+}

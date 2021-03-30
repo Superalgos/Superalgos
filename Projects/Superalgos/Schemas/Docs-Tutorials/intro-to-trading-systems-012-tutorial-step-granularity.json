@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Granularity!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Granularity is a device the helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units."
+        },
+        {
+            "style": "Callout",
+            "text": "Splitting complex logic into multiple strategies helps in keeping strategies simple and understandable. It makes strategies easier to debug and to maintain!"
+        },
+        {
+            "style": "Text",
+            "text": "Whenever you can, keep it simple!"
+        }
+    ]
+}

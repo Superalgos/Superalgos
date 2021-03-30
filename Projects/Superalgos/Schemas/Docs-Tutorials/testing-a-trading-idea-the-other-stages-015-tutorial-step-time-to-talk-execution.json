@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Time to Talk Execution!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "open-execution"
+        },
+        "text": "We finished the definition of the rate and size targets. Let's define how we are going to take the position in terms of execution!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "We are in the Open Execution section of the open stage! Go exploring the Execution Algorithm and the Market Sell Order I created!"
+        },
+        {
+            "style": "Note",
+            "text": "I created the execution algo and the market order ahead of time so that I can reference them easily and take you to the right nodes during the tutorial. Both are in a freshly-created state, right as they'd be had you created them right now!"
+        }
+    ]
+}

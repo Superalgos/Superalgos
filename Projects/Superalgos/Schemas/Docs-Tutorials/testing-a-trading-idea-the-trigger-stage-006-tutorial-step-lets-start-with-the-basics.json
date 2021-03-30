@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Let's Start With the Basics!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "You define trading strategies following the Superalgos Protocol!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Please, read this page about trading strategies. It is the base of everything we will be discussing!"
+        },
+        {
+            "style": "Note",
+            "text": "The last paragraph in the page states that the framework is flexible enough to accept definitions that bend the rigid interpretation of what a position is. In this tutorial, we will focus on a typical by-the-book definition of a strategy, that is, the case for which the framework is optimized. We will cover other cases in other tutorials!"
+        }
+    ]
+}

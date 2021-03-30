@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 58,
+    "type": "Tutorial Step - Sep 5th - Sep 14th",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "fails"
+        },
+        "text": "These are the last few trades in the period tested, and all three of them are clear fails."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Time to check the context in the 24H time frame!"
+        },
+        {
+            "style": "Note",
+            "text": "To me, it looks unclear whether the context is suitable for a swing short or not!"
+        },
+        {
+            "style": "Success",
+            "text": "So, what do we make of this first test? Let's compare the results with the hypothesis' predictions."
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 73,
+    "type": "Tutorial Step - Find The Error Challenge",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Have you figured out the error? What? You haven't looked? I just split the screen so that you may find the offending node too!",
+        "updated": 1612698780503
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The Trading System Errors layer is on! Go ahead and investigate what the error is about!",
+            "updated": 1612698824818
+        },
+        {
+            "style": "Success",
+            "text": "Remember... You just need to point to the first error at the chart, read the description of the error, find the red ring marking the offending node on the design space, and interpret the available information! Good luck!",
+            "updated": 1612698958200
+        }
+    ]
+}

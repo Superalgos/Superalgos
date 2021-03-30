@@ -15452,6 +15452,10 @@
             {
                 "codeName": "ZAR",
                 "iconName": "zar"
+            },
+            {
+                "codeName": "XRP",
+                "iconName": "xrp"
             }
         ]
     },
@@ -15785,8 +15789,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n}"
-        },
+"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n}"        },
         "addLeftIcons": true,
         "editors": {
             "config": true

@@ -1,0 +1,158 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Use Chrome or Safari!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",
+        "updated": 1610612226890,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Saat menjalankan frontend ini, gunakan Chrome, atau Safari di Mac!. Kami developer tidak mencoba aplikasi ini di browser lain.",
+                "updated": 1614417282628,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Cuando ejecute el frontend, utilice Chrome o Safari en Mac. No hemos testeado otros navegadores\n",
+                "updated": 1613594870172,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser!",
+                "updated": 1614712122833,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a well-known fact that browsers behave differently, and we do know of features that do not work on other browsers. If you are on Chrome or Safari, click Next and continue. If not, do the following:",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Setiap browser berbeda, dan kami tentu saja tidak mengetahui fitur yang berfungsi di browser lain. Jika kamu menggunakan Chrome atau Safari, klik Next dan lanjutkan. Jika tidak, lakukan hal berikut:",
+                    "updated": 1616696132072,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabemos que los navegadores se comportan de manera diferente, y sabemos de características que no funcionan en otros navegadores. Si está en Chrome o Safari, haga clic en Siguiente y continúe. Si no es así, haga lo siguiente:",
+                    "updated": 1613594916732,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "É noto che i vari browsers presentano delle differenze tra loro, e siamo al corrente che alcuni di questi non supportano certe funzionalità. Se sei su Chrome o Safari, clicca Next per proseguire. Altrimenti:",
+                    "updated": 1614712436380,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "copy the current URL;",
+            "updated": 1611086562247,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Copy url diatas",
+                    "updated": 1614417516319,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Copie la URL actual;",
+                    "updated": 1613594931424,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "copia l'URL;",
+                    "updated": 1614712466087,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "close this browser as is; do not close the tutorial...",
+            "updated": 1611086588055,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tutup browser ini dan jangan tutup tutorialnya",
+                    "updated": 1614417498228,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cierre este navegador tal cual; no cierre el tutorial...",
+                    "updated": 1613594962637,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "chiudi il browser, ma senza chiudere il tutorial;",
+                    "updated": 1614717123837,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "open Chrome/Safari and paste the URL; the tutorial should be open on this step when you come back!",
+            "updated": 1611086617811,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Buka Chrome/Safari dan salin url yang sudah dicopy. Kamu akan secepatnya kembali ke tutorial ini.",
+                    "updated": 1614417589615,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Abra Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas!",
+                    "updated": 1613595008059,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
+                    "updated": 1614717129520,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "We offer online support, but we can't help you with any other browser!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kami memberikan bantuan online, namun tidak bisa membantu jika browser berbeda!",
+                    "updated": 1616696117144,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ofrecemos asistencia en línea, pero no podemos ayudarte otros navegadores.",
+                    "updated": 1613595041161,
+                    "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers!",
+                    "updated": 1614712645613,
+                    "style": "Warning"
+                }
+            ]
+        }
+    ]
+}

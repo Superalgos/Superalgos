@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "40",
+    "pageNumber": 40,
     "type": "TS LF Trading Bot Error - Rate Value Undefined",
     "definition": {
         "text": "You must properly define a Rate for the order by using a valid Formula under the Rate node.",

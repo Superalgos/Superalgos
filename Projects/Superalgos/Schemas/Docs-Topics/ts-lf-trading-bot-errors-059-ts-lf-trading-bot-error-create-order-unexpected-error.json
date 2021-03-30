@@ -1,0 +1,126 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 59,
+    "type": "TS LF Trading Bot Error - Create Order Unexpected Error",
+    "definition": {
+        "text": "An Uncexpected Error occured while trying to cancel an order at the exchange. The LF Trading Bot continued running after reporting this error.",
+        "updated": 1611736350925
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The process of creating an order involves sending a request to the exchange via its API. There are many different reasons why the process may fail. Some of those reasons are under your control, and some are not. Some may involve temporary unavailability of the exchange servers, communication and network errors, or other issues.",
+            "updated": 1611953009405
+        },
+        {
+            "style": "Text",
+            "text": "Find below the error details. They may help you understand the nature of the problem and maybe solve it should it be within your reach. The LF Trading Bot features logic to handle unexpected errors to continue operating despite their occurrence."
+        },
+        {
+            "style": "Error",
+            "text": "Cancel Order Unexpected Error",
+            "updated": 1611736368660
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Success",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611736382407
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the node's name of the Node most related to this error:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the context information preserved when the error occured:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

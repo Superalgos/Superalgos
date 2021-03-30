@@ -1,0 +1,29 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 52,
+    "type": "Tutorial Step - More Indicators?",
+    "definition": {
+        "text": "Indicators are built by the Community! Usually, a developer will build a few indicators he or she needs, and contribute them to the project in a new Data Mine!",
+        "updated": 1616235133472,
+        "icon": {
+            "name": "data-mine",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Community Data Mines Book is where you may find all existing data mines and their indicators! Each chapter in the book corresponds to a Data Mine...",
+            "updated": 1616233302089
+        },
+        {
+            "style": "Callout",
+            "text": "Scan the contents of each chapter to get an idea of what is available at this point!"
+        },
+        {
+            "style": "Success",
+            "text": "To use a Data Mine, you must include it in the workspace or as a plugin, and install the market. All Data Tasks will be created automatically!",
+            "updated": 1616235254167
+        }
+    ]
+}

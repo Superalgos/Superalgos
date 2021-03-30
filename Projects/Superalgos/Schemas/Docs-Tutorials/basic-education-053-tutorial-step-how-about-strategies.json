@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 53,
+    "type": "Tutorial Step - How About Strategies?",
+    "definition": {
+        "text": "The Community may also contribute Trading Systems! At this point, there're only a few, but we hope more will emerge soon!",
+        "icon": {
+            "name": "trading-system",
+            "project": "Superalgos"
+        },
+        "updated": 1616235875824
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Search the Docs for Community Trading Systems!",
+            "updated": 1616235587063
+        },
+        {
+            "style": "Text",
+            "text": "Strategies contributed by the Community are fully documented so that you may use them for learning!",
+            "updated": 1616235658990
+        },
+        {
+            "style": "Warning",
+            "text": "Remember that while Trading Systems shipping with Superalgos may be fully functional, they are made available for educational purposes only! You are fully responsible for how you use them! Trading is a risky business!",
+            "updated": 1616235810717
+        }
+    ]
+}

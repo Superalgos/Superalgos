@@ -1,0 +1,61 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 33,
+    "type": "Tutorial Step - Break On Through!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "full-board"
+        },
+        "text": "I'll get you up to speed with moving around and browsing the charting space in no time... Let's deal with the slider first!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ti insegnerò a muoverti e navigare nel Charting Space in un attimo...occupiamoci prima dello slider!",
+                "updated": 1614846929188,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Aku akan mempercepat gerakmu dalam berkeliling dan menelusuri charting space dengan cepat... Mari coba slider duluan!",
+                "updated": 1616932890422
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click it and drag it down to close the design space and open the charting space. Do the opposite for the reversed effect. To do it with the keyboard, hit Ctrl + Shift + ↓. Try ↑ ← →  too!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca lo slider e trascinalo verso il basso per chiudere il design space e aprire lo charting space. Trascinalo verso l'alto per ottenere il risultato opposto. Per farlo con la tastiera, usa Ctrl + Shift + ↓. Prova anche con ↑ ← → !",
+                    "updated": 1614847060275,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Click disana dan drag kebawah untuk menutup design space dan membuka charting space. Lakukan sebaliknya untuk bertukar posisi. Dari keyboard gunakan Ctrl + Shift + ↓. Coba juga ↑ ← →",
+                    "updated": 1616932984437
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Unless you need both spaces to be partially open, it's always a good idea to fully close either of them to save computing resources in your machine.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "A meno che tu non abbia bisogno di tenere parzialmente aperti entrambi gli spazi, è sempre una buona idea chiudere del tutto uno dei due per non consumare troppe risorse sul tuo computer.",
+                    "updated": 1614847125222,
+                    "style": "Note"
+                },
+                {
+                    "language": "ID",
+                    "text": "Kecuali jika kamu memerlukan kedua ruang untuk dibuka sebagian, sebaiknya tutup salah satunya untuk menghemat sumber daya komputasi di Perangkat-mu.",
+                    "updated": 1616933049943
+                }
+            ]
+        }
+    ]
+}

@@ -195,7 +195,7 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                         from its value property.
                         */
                         value = targetNode.value
-                        if (value !== undefined) {
+                        if (value !== undefined && value !== null) {
                             if (recordProperty.config.decimals !== undefined) {
                                 try {
                                     value = Number(value.toFixed(recordProperty.config.decimals))

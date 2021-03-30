@@ -1,0 +1,110 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": 5,
+    "type": "How to Contribute Translations",
+    "definition": {
+        "text": "The Docs are originally written in English. Making Superalgos more accessible is a key endeavor to grow the Community and the user base. Translating tutorials and software documentation into languages other than English is of huge value!",
+        "updated": 1613822257340
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Read About Contributing to the Docs",
+            "updated": 1613822300139
+        },
+        {
+            "style": "Text",
+            "text": "Translations are a particular case of contributing to the Docs. Please read the How to Contribute to the Docs page first, and come back here for the details about how we deal with translations in particular.",
+            "updated": 1613822394353
+        },
+        {
+            "style": "Title",
+            "text": "About Translations",
+            "updated": 1613822457097
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Docs In English->Content",
+            "updated": 1616762047762
+        },
+        {
+            "style": "Text",
+            "text": "The system stores the content of each Docs Page in a single file, regardless of how many translations may exist for each page.",
+            "updated": 1613822896070
+        },
+        {
+            "style": "Text",
+            "text": "Actually, translations exist at the level of each paragraph. This means that, for each paragraph in a page, there may be as many translations as there are supported languages.",
+            "updated": 1613825539396
+        },
+        {
+            "style": "Success",
+            "text": "The above doesn't affect your work directly, but it is worth noting because it means that many contributors may be working on the same page at any point in time. Hence the need to constantly update and to  submit contributions frequently.",
+            "updated": 1613823174025
+        },
+        {
+            "style": "Title",
+            "text": "Best Practices",
+            "updated": 1613824072677
+        },
+        {
+            "style": "List",
+            "text": "As explained in the How to Contribute to the Docs page, you must switch your Contributions Branch and your Current Branch to the develop branch. Remember to restart the app after the switch.",
+            "updated": 1616762259778
+        },
+        {
+            "style": "List",
+            "text": "Make sure your system is up to date running the app.update command.",
+            "updated": 1616762308286
+        },
+        {
+            "style": "List",
+            "text": "Then, switch to the language you wish to translate to."
+        },
+        {
+            "style": "List",
+            "text": "To translate a paragraph, right-click to edit the content and replace the English text with your translation. That's it!",
+            "updated": 1613825599051
+        },
+        {
+            "style": "List",
+            "text": "You may find it easier to write your translations in a separate text editor, where you may use spelling and grammar-checking software. Once you've double-checked your translation, you may come back to Superalgos to replace each paragraph with the translated version.",
+            "updated": 1613825640442
+        },
+        {
+            "style": "List",
+            "text": "Remember that translations exist at the level of each paragraph. Always make sure that the translation you input matches the correct paragraph. This is important because if a paragraph is updated in the English version, all translations will get a notice that the particular paragraph may be outdated.",
+            "updated": 1613824142107
+        },
+        {
+            "style": "List",
+            "text": "Participate in the Superalgos Docs Group. Let people know what part of the Docs or which Tutorial you will be working with. This basic coordination will help avoid conflicts when more than one user works on the same pages at the same time.",
+            "updated": 1616762526615
+        },
+        {
+            "style": "Success",
+            "text": "You may start with the translation of the Docs in [Language] page that you land on after you switch the language.",
+            "updated": 1613823805871
+        },
+        {
+            "style": "Title",
+            "text": "Translating Tutorials",
+            "updated": 1613823828960
+        },
+        {
+            "style": "Text",
+            "text": "Tutorial pages present certain challenges that we must take into account while translating: the first and foremost is that the space available in the tutorial window is limited. This means that you have to be mindful of the length of the translated text and that you must test each of the tutorial steps to make sure the translation fits the available space.",
+            "updated": 1613825681579
+        },
+        {
+            "style": "Text",
+            "text": "You will notice that if you open the Docs when a tutorial is running, the Docs automatically load the page of the corresponding tutorial step, so that you may edit it. This is quite helpful, as you may translate the page and see how it looks on the tutorial window in real-time.",
+            "updated": 1613825697215
+        },
+        {
+            "style": "Important",
+            "text": "However, this is not always the case. Some tutorial steps are configured to close the Docs or the editor, and when you open the Docs manually, the tutorial step page is not loaded automatically. In such cases, you must search for the name of the page — which should match the title of the tutorial step — so that you may access the page manually.",
+            "updated": 1613825460620
+        }
+    ]
+}

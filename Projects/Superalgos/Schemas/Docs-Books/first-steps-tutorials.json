@@ -16,7 +16,8 @@
         },
         {
             "style": "Success",
-            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Run on the menu."
+            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
+            "updated": 1617036749800
         },
         {
             "style": "Text",
@@ -24,7 +25,8 @@
         },
         {
             "style": "Text",
-            "text": "The recommended order is given by the list of chapters below, but the truth is doing all tutorials is what matters, regardless of the order."
+            "text": "The recommended order is given by the list below, but the truth is doing all tutorials is what matters, regardless of the order.",
+            "updated": 1617036785768
         },
         {
             "style": "Title",

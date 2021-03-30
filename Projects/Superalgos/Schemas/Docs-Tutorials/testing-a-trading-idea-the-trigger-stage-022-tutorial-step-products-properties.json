@@ -1,0 +1,34 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 22,
+    "type": "Tutorial Step - Products & Properties",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "record-property"
+        },
+        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The bollingerSubChannel product features three different properties:"
+        },
+        {
+            "style": "List",
+            "text": "direction: Up, Down"
+        },
+        {
+            "style": "List",
+            "text": "period: 1 to n."
+        },
+        {
+            "style": "List",
+            "text": "slope: Side, Gentle, Medium, Steep, Extreme."
+        },
+        {
+            "style": "Callout",
+            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property!"
+        }
+    ]
+}

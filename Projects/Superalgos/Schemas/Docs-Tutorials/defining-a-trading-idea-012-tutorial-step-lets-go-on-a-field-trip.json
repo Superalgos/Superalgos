@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Let's Go On a Field Trip!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "The rest of this tutorial is about putting into practice what we just discussed!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "We'll take a deep dive into the charts, learn a thing or two about a specific indicator, and try to come up with a proper trading idea that we can test in the next tutorial!"
+        },
+        {
+            "style": "Important",
+            "text": "Buckle up! I foresee a few sharp turns ahead!"
+        }
+    ]
+}

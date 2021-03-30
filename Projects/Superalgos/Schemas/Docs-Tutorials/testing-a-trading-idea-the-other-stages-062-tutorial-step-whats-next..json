@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 62,
+    "type": "Tutorial Step - What's Next....?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "In the next tutorial, we'll keep working on this idea, incorporating a few more fundamental considerations left out until now."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are also going to test the idea in a more favorable environment, that is, a real bear market, so that we may better evaluate it's potential."
+        },
+        {
+            "style": "Success",
+            "text": "At this point, you have covered the very basics of building and testing strategies. While more tutorials will become available eventually, nothing stops you from pushing the envelope and keep learning on your own! The documentation is your friend, and covers the workings of Superalgos at a depth that tutorials can't reach!"
+        }
+    ]
+}

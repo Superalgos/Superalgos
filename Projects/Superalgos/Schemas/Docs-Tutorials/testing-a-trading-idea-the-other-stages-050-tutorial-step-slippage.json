@@ -1,0 +1,29 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 50,
+    "type": "Tutorial Step - Slippage",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "slippage"
+        },
+        "text": "This is the Market Sell Order #1 structure of nodes we referenced from the market sell order in the trading system.",
+        "updated": 1612714983003
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the structure of nodes that keeps track of all the variables associated with that order, remember?"
+        },
+        {
+            "style": "Callout",
+            "text": "Check the warning on the Rate node!",
+            "updated": 1612715013397
+        },
+        {
+            "style": "Note",
+            "text": "The slippage configured as a parameter of the trading session was subtracted from the order rate. This resulted in a lower actual rate. All good! The same message appears on the Slippage parameter of the trading session too... check it out!",
+            "updated": 1612715035149
+        }
+    ]
+}

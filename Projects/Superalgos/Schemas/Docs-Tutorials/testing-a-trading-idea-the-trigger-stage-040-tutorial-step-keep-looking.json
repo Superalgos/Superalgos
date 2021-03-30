@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 40,
+    "type": "Tutorial Step - Keep Looking!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "This visual check helps you mentally connect the dots of what you see on a simulation with the definitions you produce!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a few more minutes to explore the trigger off event of the strategy, as well as the rest of the triggers ocurring over the period tested."
+        },
+        {
+            "style": "Success",
+            "text": "Take a moment to internalize the fact that events are triggered only once all the conditions in a given situation are met, and that conditions are evaluated over closed candles only!"
+        }
+    ]
+}

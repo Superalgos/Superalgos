@@ -1,0 +1,18 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 21,
+    "type": "Tutorial Topic - You Made It!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Congratulations... you have reached the end of this tutorial!"
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "You may revisit this tutorial at any point. If you select the Play option on the menu, you start right from the beginning. If you select the Resume option instead, you start where you last left, or where you last skipped a step."
+        }
+    ]
+}

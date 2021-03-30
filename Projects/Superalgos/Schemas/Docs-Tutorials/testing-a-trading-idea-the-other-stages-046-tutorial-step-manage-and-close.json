@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Manage and Close",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "position"
+        },
+        "text": "Those were the trigger and open stages. Let's look into the manage and close stages!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Manage Stage: Opens together with the open stage, and remains open while the price bounces around below the stop loss and above the take position target. When the 22 hs candle on Mar 2nd tags the stop loss target, the manage stage closes."
+        },
+        {
+            "style": "List",
+            "text": "Close Stage: Opens after the tagging of the stop loss, and closes one hour later (!?) after placing the market buy order!"
+        },
+        {
+            "style": "Note",
+            "text": "The one hour later mystery again... Take a minute to reflect on this behavior."
+        }
+    ]
+}

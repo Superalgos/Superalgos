@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 8,
+    "type": "Tutorial Step - The Appropriate Context",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "The second important dimension to define is the general context that the hypothesis is aimed at."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Few&mdash;if any&mdash;technical analysis-based strategies perform consistently on undefined market situations."
+        },
+        {
+            "style": "Callout",
+            "text": "The minimum required definition is as to whether the hypothesis targets downtrends, uptrends, or sideways markets."
+        },
+        {
+            "style": "Text",
+            "text": "The usual resource is a multi-time frame analysis based on one or more indicators that determine what the existing trend is at different time frames, and any other factors that may be of importance to the specific strategy, for example, volume or volatility."
+        }
+    ]
+}

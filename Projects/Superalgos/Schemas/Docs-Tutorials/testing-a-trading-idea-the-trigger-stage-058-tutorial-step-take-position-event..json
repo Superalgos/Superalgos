@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 58,
+    "type": "Tutorial Step - Take Position Event...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "take-position-event"
+        },
+        "text": "Let's move on and start working on the definition of the Take Position Event!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A quick refresher about the hypothesis we came up with during the previous tutorial: In the context of a downtrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict an acceleration of the downtrend. A breakdown means a candle closing below the lower band, so, let's find out how a close of a candle is described in Superalgos."
+        },
+        {
+            "style": "Callout",
+            "text": "This is the page documenting the Candles Volumes indicator. Scroll down to the Products & Properties > Candles section and read!"
+        }
+    ]
+}

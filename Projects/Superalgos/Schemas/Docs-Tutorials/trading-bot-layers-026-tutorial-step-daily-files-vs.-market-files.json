@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 26,
+    "type": "Tutorial Step - Daily Files vs. Market Files",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "dataset-definition"
+        },
+        "text": "Superalgos processes time frames below one hour in Daily Files, meaning that the data corresponding to one day is stored in one file."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In contrast, data for timeframes of one hour and above are stored in Market Files, meaning that data corresponding to the whole market is stored in one file."
+        },
+        {
+            "style": "Text",
+            "text": "As a result, when working in time frames below one hour, events that span multiple days generate multiple objects: one per day!"
+        },
+        {
+            "style": "Important",
+            "text": "This means that, when working in low time frames, you may run into multiple objects per concept or event, each showing the data corresponding to the close of the day!"
+        }
+    ]
+}

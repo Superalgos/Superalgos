@@ -34,7 +34,8 @@
         },
         {
             "style": "Text",
-            "text": "For your convenience, find a relation of plugin workspaces and the tutorials each of them feature."
+            "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
+            "updated": 1617105574778
         },
         {
             "style": "Include",

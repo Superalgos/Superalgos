@@ -1,0 +1,30 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Update Data Mines",
+    "definition": {
+        "text": "Chances are you already have some data mined!",
+        "icon": {
+            "name": "data-tasks",
+            "project": "Superalgos"
+        },
+        "updated": 1614267263084
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you have done the intro Tutorial then probably you already have mined some data. But I added a new indicator that is not present in the initial configuration. So please Run the data Mines and wait until they are 100% ready.",
+            "updated": 1614267281564
+        },
+        {
+            "style": "Important",
+            "text": "Make sure that under Sparta Data Mine Tasks the newly added indicator Simple Moving Average is 100% updated.",
+            "updated": 1614267364900
+        },
+        {
+            "style": "Success",
+            "text": "Once all indicators are 100% you can stop the data mines and save resources for the backtest",
+            "updated": 1614267400047
+        }
+    ]
+}

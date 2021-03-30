@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 67,
+    "type": "Tutorial Step - Second Backtest!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Make the following changes in these parameters:"
+        },
+        {
+            "style": "List",
+            "text": "Time Range: change the initialDateTime to 2020-02-01, so that we avoid the errors during the first 19 days of January."
+        },
+        {
+            "style": "List",
+            "text": "Time Frame: change the label to 01-hs to adapt to the current definitions."
+        },
+        {
+            "style": "Note",
+            "text": "We are not addressing the rest of the parameters yet, as we haven't defined the Open Stage, the one dealing with execution."
+        }
+    ]
+}

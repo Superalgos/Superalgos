@@ -1,0 +1,56 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Trigger On",
+    "definition": {
+        "text": "Reserve some funds!",
+        "icon": {
+            "name": "trigger-on",
+            "project": "Superalgos"
+        },
+        "updated": 1614244953169
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Trigger On event is about reserving (locking) your funds and making them available to the bot.",
+            "updated": 1614244945700
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "What I need to do is:"
+        },
+        {
+            "style": "List",
+            "text": "Define the TF"
+        },
+        {
+            "style": "List",
+            "text": "Define the SMA50/200 cross"
+        },
+        {
+            "style": "Text",
+            "text": "To define a cross I use 2 conditions:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.popularSMA.sma50 > chart.at04hs.popularSMA.sma200"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.popularSMA.previous.sma50 < chart.at04hs.popularSMA.previous.sma200"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

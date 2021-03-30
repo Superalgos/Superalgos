@@ -1,0 +1,33 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 19,
+    "type": "Tutorial Step - The End",
+    "definition": {
+        "text": "This is the final step in this tutorial but a first big step for you!",
+        "updated": 1614270786500,
+        "icon": {
+            "name": "hits",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now that you have seen how fast and easy is to deploy simple strategies in SA, I leave you with some hints you can explore.",
+            "updated": 1614270919320
+        },
+        {
+            "style": "Text",
+            "text": "Maybe you can add a new indicator and use its properties like an additional filter for the Trigger Stage"
+        },
+        {
+            "style": "Text",
+            "text": "Or you can modify the SL so to have a trailing one istead of being fixed."
+        },
+        {
+            "style": "Note",
+            "text": "Thank you for your time. You can read a more in depth article here: http://bit.ly/9808usHelloWorld",
+            "updated": 1614271289324
+        }
+    ]
+}

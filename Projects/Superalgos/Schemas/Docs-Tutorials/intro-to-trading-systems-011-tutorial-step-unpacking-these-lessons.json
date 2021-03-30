@@ -1,0 +1,22 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Unpacking These Lessons",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "We've covered two examples of trading systems featuring multiple strategies... what can we learn from them?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the case of Weak-hands Buster, each strategy represents a particular case of the same trading idea. In the case of BB Top Bounce, each strategy specializes in specific market conditions."
+        },
+        {
+            "style": "Callout",
+            "text": "In the next few steps, we will unpack the implications of using multiple strategies within the same trading system and&mdash;finally&mdash;answer the burning question: why would we want to use such a setup?"
+        }
+    ]
+}

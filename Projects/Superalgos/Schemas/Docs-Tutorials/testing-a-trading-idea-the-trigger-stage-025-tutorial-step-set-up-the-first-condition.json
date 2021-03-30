@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Set Up the First Condition!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "javascript-code"
+        },
+        "text": "I brought you to the definition of the Trigger On Event so that you may set up the first condition!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Paste the condition on the Javascript Code node!"
+        },
+        {
+            "style": "Text",
+            "text": "Follow the structure of nodes under the Situation and get to the Javascript Code node under the Condition node. Click Edit on the menu, select and delete the placeholder text, and paste the below condition:",
+            "updated": 1610469943553
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Down'"
+        },
+        {
+            "style": "Text",
+            "text": "Label the condition node 24H Down to have a quick reference of what the condition is about."
+        }
+    ]
+}

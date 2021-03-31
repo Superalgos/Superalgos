@@ -28,7 +28,8 @@
         },
         {
             "style": "Callout",
-            "text": "If you haven't yet, please read this page to get up to speed with these concepts!"
+            "text": "If you haven't yet, please read this page to get up to speed with these concepts! If you've read this page before, a refresher wouldn't hurt!",
+            "updated": 1617190236835
         }
     ]
 }

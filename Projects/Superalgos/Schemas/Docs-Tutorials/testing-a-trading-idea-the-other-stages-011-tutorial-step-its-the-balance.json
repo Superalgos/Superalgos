@@ -20,7 +20,8 @@
         },
         {
             "style": "Success",
-            "text": "Current (we need the balance at the moment of evaluation!) > Episode (because it's the balance kept for the whole session) > ... what else?"
+            "text": "Trading Current (we need the balance at the moment of evaluation!) > Trading Episode (because it's the balance kept for the whole session) >... what else?",
+            "updated": 1617196723617
         }
     ]
 }

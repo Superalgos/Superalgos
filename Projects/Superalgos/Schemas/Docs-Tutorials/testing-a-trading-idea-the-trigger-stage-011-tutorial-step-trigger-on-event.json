@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "trigger-on-event"
         },
-        "text": "The Trigger On Event defines the market Situation in which the strategy shall be triggered."
+        "text": "The Trigger On Event defines the market Situation in which the Trading Strategy shall be triggered.",
+        "updated": 1617190348439
     },
     "paragraphs": [
         {
@@ -16,7 +17,8 @@
         },
         {
             "style": "List",
-            "text": "The strategy is selected among other strategies in the trading system and is assigned the capital available for the trading session. This is important because we'll eventually have two strategies in the trading system!"
+            "text": "The strategy is selected among other strategies in the Trading System and is assigned the capital available for the trading session. This is important because we'll eventually have two strategies in the trading system!",
+            "updated": 1617190335600
         },
         {
             "style": "List",

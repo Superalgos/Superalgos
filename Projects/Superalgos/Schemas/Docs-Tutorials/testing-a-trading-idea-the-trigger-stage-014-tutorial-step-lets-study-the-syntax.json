@@ -20,7 +20,8 @@
         },
         {
             "style": "Success",
-            "text": "Don't worry if it seems hard to grasp... We'll practice a lot along with this tutorial series!"
+            "text": "Don't worry if it seems hard to grasp... We'll practice a lot along this tutorial series!",
+            "updated": 1617190556168
         }
     ]
 }

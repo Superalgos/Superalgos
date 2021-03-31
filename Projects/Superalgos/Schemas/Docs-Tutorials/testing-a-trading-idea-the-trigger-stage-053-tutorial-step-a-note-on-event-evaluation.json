@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "nodes-highlights"
         },
-        "text": "Did you notice that once the trigger stage is active, the conditions of the trigger on event are no longer evaluated?"
+        "text": "Did you notice that once the trigger stage is active, the conditions of the Trigger On Event are no longer evaluated?",
+        "updated": 1617191896544
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The opposite goes for the trigger off event conditions: they are not evaluated before the stage is active. See for yourself!"
+            "text": "The opposite goes for the Trigger Off Event conditions: they are not evaluated before the stage is active. See for yourself!",
+            "updated": 1617191916250
         },
         {
             "style": "Callout",

@@ -18,7 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "The error says that the direction property of an object that is 'undefined' cannot be read."
+            "text": "The error says that the direction property of an object that is \"undefined\" cannot be read.",
+            "updated": 1617191756170
         },
         {
             "style": "Text",

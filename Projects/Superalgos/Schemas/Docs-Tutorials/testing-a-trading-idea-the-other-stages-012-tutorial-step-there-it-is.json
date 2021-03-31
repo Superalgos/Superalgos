@@ -16,11 +16,13 @@
         },
         {
             "style": "List",
-            "text": "Current because we need the balance at the moment of evaluation!"
+            "text": "Trading Current because we need the balance at the moment of evaluation!",
+            "updated": 1617196763109
         },
         {
             "style": "List",
-            "text": "Episode because is the running balance kept along the whole trading session!"
+            "text": "Trading Episode because is the running balance kept along the whole trading session!",
+            "updated": 1617196769560
         },
         {
             "style": "List",

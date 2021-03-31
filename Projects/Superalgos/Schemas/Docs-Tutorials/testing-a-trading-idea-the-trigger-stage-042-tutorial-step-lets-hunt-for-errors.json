@@ -20,7 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "Pan the charts to the left until you get to the first days of January. Do you see the error bullets at the bottom?"
+            "text": "Pan the charts to the left until you get to the first days of January. Do you see the error bullets below candles?",
+            "updated": 1617191460214
         },
         {
             "style": "Note",

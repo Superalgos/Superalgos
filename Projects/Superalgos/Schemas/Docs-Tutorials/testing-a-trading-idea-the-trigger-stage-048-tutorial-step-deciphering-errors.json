@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "bullet-error"
         },
-        "text": "Can not read property 'direction' of undefined. What is that all about?"
+        "text": "Can not read property \"direction\" of undefined. What is that all about?",
+        "updated": 1617191618477
     },
     "paragraphs": [
         {

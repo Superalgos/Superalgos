@@ -12,11 +12,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We are in the Current > Strategy Open Stage > Stage Quoted Asset section. This is why:"
+            "text": "We are in the Trading Current > Strategy Open Stage > Stage Quoted Asset section. This is why:",
+            "updated": 1617205430340
         },
         {
             "style": "List",
-            "text": "Current : because it's all about the current position."
+            "text": "Trading Current: it's all about the current position.",
+            "updated": 1617205459033
         },
         {
             "style": "List",

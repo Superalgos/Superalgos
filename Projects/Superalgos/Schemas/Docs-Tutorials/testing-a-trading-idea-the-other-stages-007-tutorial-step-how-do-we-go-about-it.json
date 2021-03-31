@@ -24,7 +24,7 @@
             "text": "chart.at01hs.candle.close"
         },
         {
-            "style": "Success",
+            "style": "Callout",
             "text": "Go ahead and edit the formula with the above syntax!"
         }
     ]

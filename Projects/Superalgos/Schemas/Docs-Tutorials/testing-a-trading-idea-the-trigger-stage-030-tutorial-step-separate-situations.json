@@ -17,7 +17,8 @@
         },
         {
             "style": "Callout",
-            "text": "Set up the first condition in the existing situation, and the second condition in a new situation!"
+            "text": "Set up the first condition in the existing situation, and the second condition in a new situation (add a Situation using the menu of the Trigger Off Event).",
+            "updated": 1617190943631
         },
         {
             "style": "Javascript",

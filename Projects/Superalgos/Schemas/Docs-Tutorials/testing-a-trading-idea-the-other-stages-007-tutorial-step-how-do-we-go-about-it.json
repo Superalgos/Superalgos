@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 7,
+    "type": "Tutorial Step - How Do We Go About It?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "target-rate"
+        },
+        "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "What would be a reasonable rate, then?"
+        },
+        {
+            "style": "Text",
+            "text": "Well... a good choice would be the rate at the close of the candle, right? Our target rate formula would then be:",
+            "updated": 1610472351878
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close"
+        },
+        {
+            "style": "Callout",
+            "text": "Go ahead and edit the formula with the above syntax!"
+        }
+    ]
+}

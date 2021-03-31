@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 51,
+    "type": "Tutorial Step - Switching Gears...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-manager"
+        },
+        "text": "Leaving scales behind, let's take a look at how the system makes data available on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora diamo un'occhiata al modo in cui il sistema rappresenta i dati sui grafici.",
+                "updated": 1615963273716,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Every Timeline Chart has an associated Layer Manager, which is represented as a drop-down menu listing multiple layers.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni Timeline Chart ha un corrispondente Layer Manager, rappresentato come un menù a tendina che mostra i vari layers.",
+                    "updated": 1615963369522,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To open a layers manager, scroll the wheel of the mouse on its header. Use the wheel of the mouse to scroll through its content too!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per aprire un layer manager, scorri la rotella del mouse sulla sua testata. Usa la rotella del mouse anche per scorrere i suoi contenuti!",
+                    "updated": 1615963411220,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "See the video on the next step for clarity...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Guarda il prossimo video per dettagli più chiari...",
+                    "updated": 1615963431549,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

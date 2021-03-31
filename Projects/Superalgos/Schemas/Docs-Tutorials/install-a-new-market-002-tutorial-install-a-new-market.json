@@ -1,0 +1,35 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 2,
+    "type": "Tutorial - Install a New Market",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market"
+        },
+        "text": "This tutorial walks you through the process of setting up a new Market on which to run data mining and trading operations."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Setting up a new Market involves:"
+        },
+        {
+            "style": "List",
+            "text": "1. Adding the assets for the exchange of choice."
+        },
+        {
+            "style": "List",
+            "text": "2. Setting up a market with the said assets."
+        },
+        {
+            "style": "List",
+            "text": "3. Installing the market "
+        },
+        {
+            "style": "Callout",
+            "text": "When you click the Next button below, you will go to the Exchange Assets node under Binance, in the Crypto Ecosystem hierarchy. You may learn how to install a market in this exchange so that you may do the same in your exchange of choice later on.",
+            "updated": 1615202737286
+        }
+    ]
+}

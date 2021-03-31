@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 60,
+    "type": "Tutorial Step - A Close Below the Bands?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-bands"
+        },
+        "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The description of the Bollinger Bands explains that the upper and lower bands are located two standard deviations above and below the moving average (MA) respectively. We know the MA, as is offered in the movingAverage property. The standard deviation is offered in the standardDeviation property."
+        },
+        {
+            "style": "Callout",
+            "text": "The lower band is located two standard deviations below the MA. Then the lower band equals the MA minus the standard deviation times two."
+        }
+    ]
+}

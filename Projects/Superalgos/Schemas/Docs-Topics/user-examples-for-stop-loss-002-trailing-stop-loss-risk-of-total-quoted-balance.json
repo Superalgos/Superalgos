@@ -1,0 +1,46 @@
+{
+    "topic": "User Examples for Stop Loss",
+    "pageNumber": 2,
+    "type": "Trailing Stop Loss - Risk of Total Quoted Balance",
+    "definition": {
+        "text": "This Trailing Stop Loss sets the Stop Loss according to the percentage you are willing to risk out of your Total Quoted Balance",
+        "updated": 1615287509462
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Change the \"riskPercentage\" value to what you see fit",
+            "updated": 1615288038247
+        },
+        {
+            "style": "Title",
+            "text": "Risk of Total Quoted Balance"
+        },
+        {
+            "style": "Text",
+            "text": "The idea is based upon that with each position you take, you only want to risk a certain percentage out of your total balance."
+        },
+        {
+            "style": "Text",
+            "text": "Given that you might take several positions, this code sets the stop loss at the point where the loss would be equal to the Risk Percentage out of your Total Quoted Balance."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example for a Long Position"
+        },
+        {
+            "style": "Javascript",
+            "text": "\nlet riskPercentage = 2\n\nif ( tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 - (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value)) > tradingEngine.tradingCurrent.position.stopLoss.value ) \n\n{\ntradingEngine.tradingCurrent.position.entryTargetRate.value * (1 - (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value))\n}\n\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
+            "updated": 1615287799360
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example for a Short Position"
+        },
+        {
+            "style": "Javascript",
+            "text": "let riskPercentage = 2\n\nif ( tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 + (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value)) < tradingEngine.tradingCurrent.position.stopLoss.value ) \n\n{\ntradingEngine.tradingCurrent.position.entryTargetRate.value * (1 + (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value))\n}\n\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
+            "updated": 1615297434458
+        }
+    ]
+}

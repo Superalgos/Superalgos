@@ -1,0 +1,18 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Set Up the Market 2",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "asset"
+        },
+        "text": "Establish a reference from the Market Base Asset node in the Market you just defined to the corresponding Asset node defined under Exchange Assets."
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "If you are not familiar with establishing references, please read about the topic in the documentation."
+        }
+    ]
+}

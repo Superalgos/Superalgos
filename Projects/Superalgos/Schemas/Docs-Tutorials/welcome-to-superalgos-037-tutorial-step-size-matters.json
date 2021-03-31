@@ -1,0 +1,80 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Size Matters?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "How about shaping the time machine to the exact aspect ratio of your screen?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Che ne dici di adattare perfettamente la Time Machine al formato del tuo schermo?",
+                "updated": 1614848136114,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Bagaimana membuat time machine menjadi sesuai dengan aspect ratio dari layar?",
+                "updated": 1616936505798
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Matching the aspect ratio of your time machines to the aspect ratio of your screen is crucial for charts to fit your screen tightly!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dare alle tue time machines lo stesso aspect ratio del tuo schermo è importante perchè si adattino perfettamente ad esso.",
+                    "updated": 1614848156397,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mencocokkan rasio aspek time machine kamu dengan rasio aspek laya sangat penting agar bagan pas dengan layarmu!",
+                    "updated": 1616936545221
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Point your mouse at one of the time machines and hit Ctrl + Shift + Key-A. Do the same with the other one!",
+            "updated": 1610134929741,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sposta il mouse su una delle time machines e premi Ctrl + Shift + Key-A. Fai lo stesso con l'altra.",
+                    "updated": 1614848104941,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Point mousemu ke satu dari time machines dan tekan Ctrl + Shift + Key-A. Lakukan dengan yang satunya juga!",
+                    "updated": 1616936593204
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Leave the two time machines matching the aspect ratio of your screen. from now on!",
+            "updated": 1610622263656,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "D'ora in poi, lascia le due time machines con lo stesso aspect ratio del tuo schermo!",
+                    "updated": 1614848186502,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Biarkan dua time machine cocok dengan rasio aspek layarmu. dari sekarang!",
+                    "updated": 1616936619368
+                }
+            ]
+        }
+    ]
+}

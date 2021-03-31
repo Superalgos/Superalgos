@@ -23,21 +23,24 @@
     function initialize() {
         tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
 
-        exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name.toLowerCase()
+        exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
 
         let key
         let secret
+        let uid
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
                 key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
                 secret = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                uid = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
             }
         }
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,
             'secret': secret,
+            'uid': uid,
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,

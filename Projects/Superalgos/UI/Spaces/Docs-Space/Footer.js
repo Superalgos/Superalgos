@@ -21,14 +21,10 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div id="docs-footer" class="docs-node-html-footer-container">' // Container Starts
 
-        // Language Section
+        // Buttons Section
 
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
-
-        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
-        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
-        HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell style="white-space: nowrap; overflow-x: auto;" >' // white-space: nowrap; overflow-x: auto; prevents line breaks when combined with display: inline-block;" in the child elements
 
@@ -47,32 +43,73 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '</div>'
         HTML = HTML + '</div>'
 
+        // Language Section
+
+        HTML = HTML + '<div class="docs-node-html-footer-table">'
+        HTML = HTML + '<div class="docs-footer-row">'
+
+        HTML = HTML + '<div class="docs-footer-cell" style="white-space: nowrap; overflow-x: auto; ">'
+        HTML = HTML + '<h3 style="display: inline-block;">Help Superalgos Speak Your Language!</h3>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '</div>'
+        HTML = HTML + '</div>'
+
         HTML = HTML + '<div class="docs-node-html-footer-table">'
         HTML = HTML + '<div class="docs-footer-row">'
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Multi-language Docs</h4>'
-        HTML = HTML + 'We produce the original documentation in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
+        HTML = HTML + 'We produce the original Docs in English and you get the content in your preferred language only when translations are available. When not, you get the default content, in English.'
         HTML = HTML + '</div>'
+
+        let languageCode = UI.projects.superalgos.spaces.docsSpace.language
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose Your Language</h4>'
-        HTML = HTML + 'The current preferred language is <strong>' + UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language) + '</strong>. Switch to:'
-        HTML = HTML + '<ul>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')">English</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')">Spanish</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')">Russian</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')">Italian</a></li>'
-        HTML = HTML + '</ul>'
+        HTML = HTML + 'Click on your preferred language:<br/>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'EN\')"><img src="Images/Languages/EN.png" title="English" class="docs-footer-language'
+        if (languageCode === 'EN') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ES\')"><img src="Images/Languages/ES.png" title="Spanish" class="docs-footer-language'
+        if (languageCode === 'ES') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'RU\')"><img src="Images/Languages/RU.png" title="Russian" class="docs-footer-language'
+        if (languageCode === 'RU') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'IT\')"><img src="Images/Languages/IT.png" title="Italian" class="docs-footer-language'
+        if (languageCode === 'IT') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'CN\')"><img src="Images/Languages/CN.png" title="Simplified Chinese-Mandarin" class="docs-footer-language'
+        if (languageCode === 'CN') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'ID\')"><img src="Images/Languages/ID.png" title="Bahasa" class="docs-footer-language'
+        if (languageCode === 'ID') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>To Contribute Translations</h4>'
-        HTML = HTML + '<strong>1. </strong>Switch to your language.<br/>'
-        HTML = HTML + '<strong>2. </strong>Edit any English content (title, paragraph, etc.) with your translation.<br/>'
-        HTML = HTML + '<strong>3. </strong>Save changes typing <code class="docs-footer-code">docs.save</code> in the search/command box.<br/>'
-        HTML = HTML + '<strong>4. </strong>Type <code class="docs-footer-code">app.contribute</code> to update your fork and submit a PR.<br/>'
-        HTML = HTML + '</ol>'
+        HTML = HTML + '<h4>Contribute Translations</h4>'
+        HTML = HTML + 'Earn tokens by helping translate the Docs and tutorials to your native language! Search the Docs for How to Contribute Translations and join the Superalgos Docs Group to coordinate with other contributors...'
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
@@ -95,7 +132,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development open for testing.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -109,7 +146,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contributions Branch</h4>'
-        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.contributionsBranch)  + '</code> branch. Switch to:'
+        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.superalgos.spaces.docsSpace.contributionsBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
@@ -139,7 +176,10 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" target="_blank">Community Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgossupport" target="_blank">Technical Support Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosdevelop" target="_blank">Developers Group</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgosmachinelearning" target="_blank">Machine Learning Group</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgosdocs" target="_blank">Docs Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosuxui" target="_blank">UX/UI Design Group</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgoscollaborations" target="_blank">Collaborations Group</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 

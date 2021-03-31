@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 2,
+    "type": "Tutorial - Testing a Trading Idea",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "We got to the point where we can finally put the theory in practice, so let's get on with it!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the second tutorial in the series we covered how to properly define a trading idea so that it is testable. We also went on a field trip and came back with a proper formalized hypothesis to test."
+        },
+        {
+            "style": "Callout",
+            "text": "In this tutorial, we will test the hypothesis!"
+        },
+        {
+            "style": "Note",
+            "text": "I highly recommend you do the first and second tutorials in the series before doing this one! The story is carried from one to the next!"
+        }
+    ]
+}

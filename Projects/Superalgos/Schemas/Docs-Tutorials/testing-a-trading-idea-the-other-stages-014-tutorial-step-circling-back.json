@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Circling Back!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "formula"
+        },
+        "text": "Awesome! We have the path of the appropriate Balance node and we now may use it in our formula!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Paste the string you copied in the formula of the Target Size In Base Asset node! That's it!"
+        },
+        {
+            "style": "Note",
+            "text": "Notice that using the balance for the target size is an arbitrary decision! We could have used anything else! A percentage of the balance, a fixed number, a percentage of the initial balance... anything! Or, actually, whatever makes sense for your strategy!"
+        }
+    ]
+}

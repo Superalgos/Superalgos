@@ -1,0 +1,33 @@
+{
+    "topic": "Docs Languages",
+    "pageNumber": "5",
+    "type": "Docs In Simplified Chinese-Mandarin",
+    "definition": {
+        "text": "The Docs pages of Superalgos and other projects integrated are originally written in English. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
+        "updated": 1613820592771
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead.",
+            "updated": 1613820612132
+        },
+        {
+            "style": "Text",
+            "text": "Node types, variable names, the title of pages in the Docs, and a few more elements of Superalgos may not be translated, as they are unique identifiers of the said elements. You will always get those in English."
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to contribute translations, read the How to Contribute Translations page."
+        },
+        {
+            "style": "Success",
+            "text": "To switch languages, click on the flags on the footer of the Docs."
+        },
+        {
+            "style": "Note",
+            "text": "You may only add or delete pages to the Docs when the language is set to English.",
+            "updated": 1613820648230
+        }
+    ]
+}

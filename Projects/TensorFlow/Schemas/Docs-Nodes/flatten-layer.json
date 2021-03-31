@@ -1,0 +1,13 @@
+{
+    "type": "Flatten Layer",
+    "definition": {
+        "text": "Flattens the input. Does not affect the batch size. A Flatten layer flattens each batch in its inputs to 1D (making the output 2D).",
+        "updated": 1613213956160
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

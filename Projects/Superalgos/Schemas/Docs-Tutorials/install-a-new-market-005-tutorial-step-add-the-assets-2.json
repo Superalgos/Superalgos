@@ -1,0 +1,28 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Add the Assets 2",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "asset"
+        },
+        "text": "Edit the configuration of each of the new assets entering the ticker (as listed by the exchange) in the codeName property. ",
+        "updated": 1617210890633
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For example: ",
+            "updated": 1617210897132
+        },
+        {
+            "style": "Json",
+            "text": "\"codeName\": \"ETH\""
+        },
+        {
+            "style": "Note",
+            "text": "If the icon for the configured assets exist in the image library, the default icon is replaced automatically."
+        }
+    ]
+}

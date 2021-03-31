@@ -1,0 +1,29 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Trigger Stage",
+    "definition": {
+        "text": "Trigger Stage is a our Talent Scout",
+        "icon": {
+            "name": "trigger-stage",
+            "project": "Superalgos"
+        },
+        "updated": 1614243745480
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Our strategy is based on SMA cross and it is in this node that we can instruct the bot to search for conditions that have to be met in order to take a trade.",
+            "updated": 1614243969544
+        },
+        {
+            "style": "Important",
+            "text": "This stage is all about checking the market and deciding if some conditions are worth a trade or not!"
+        },
+        {
+            "style": "Text",
+            "text": "Let's have a look at its 3 offsprings and I show you some little tricks to implement the strategy in the fastest possible way!",
+            "updated": 1614244059064
+        }
+    ]
+}

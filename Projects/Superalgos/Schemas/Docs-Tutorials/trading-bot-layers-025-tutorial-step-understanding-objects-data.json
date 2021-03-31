@@ -1,0 +1,22 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Understanding Objects Data",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "The data available in Simulation Objects represent the state of affairs at the moment the object is closed, or at the current time if it hasn't closed yet!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In contrast, the layers in the Trading Engine and Trading System layer managers represent the value of nodes at the candle signaled by the mouse pointer."
+        },
+        {
+            "style": "Important",
+            "text": "This is a fundamental difference that you must understand, as otherwise, you may misinterpret the information presented by Simulation Objects. I will explain the most important implications in the next few steps!"
+        }
+    ]
+}

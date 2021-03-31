@@ -1,0 +1,26 @@
+{
+    "type": "Embedding Layer",
+    "definition": {
+        "text": "Maps positive integers (indices) into dense vectors of fixed size. ",
+        "updated": 1613213823616
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Example",
+            "updated": 1613213848804
+        },
+        {
+            "style": "Javascript",
+            "text": "[[4], [20]] -> [[0.25, 0.1], [0.6, -0.2]]"
+        },
+        {
+            "style": "Text",
+            "text": "Input shape:* 2D tensor with shape: [batchSize, sequenceLength]."
+        },
+        {
+            "style": "Text",
+            "text": "Output shape:* 3D tensor with shape: [batchSize, sequenceLength, outputDim]."
+        }
+    ]
+}

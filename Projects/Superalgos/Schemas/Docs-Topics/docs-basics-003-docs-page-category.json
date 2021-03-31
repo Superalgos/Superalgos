@@ -1,0 +1,168 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 3,
+    "type": "Docs Page Category",
+    "definition": {
+        "text": "The Docs feature six categories of pages: Node, Concept, Topic, Tutorial, Review, and Book. Each category is represented by a tab in the Docs Search Results.",
+        "updated": 1616876130108,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Didalam dokumen ini menampilkan enam kategori halaman yaitu: nodes, concepts, topics, tutorials, reviews, dan books. Setiap kategori diwakilkan oleh sebuah tab dalam Docs Search Results.",
+                "updated": 1613859527741,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Node Page Category",
+            "updated": 1613756771488,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Node ",
+                    "updated": 1613859587112,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Each Node defined in the context of a Project features a Docs Node Page explaining what the Node is and how it is used. This is the page that opens when clicking the help button in the menu of the node.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Setiap Node ditentukan dalam konteks Project yang menampilkan Docs Node Page yang menjelaskan apa itu Node dan bagaimana penggunaannya. Halaman ini akan terbuka saat mengklik tombol bantuan di menu node.",
+                    "updated": 1613859807031,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Concept Page Category",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Concept",
+                    "updated": 1613859855103,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Concepts are notions or ideas that are not represented as nodes in a hierarchy. Pages in the concept category cover notions or ideas that may be explained in a single page. That is, concepts are notions that may be covered exhaustively on a single page.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Konseps adalah pemikiran atau gagasan yang tidak direpresentasikan sebagai node dalam hierarcy. Halaman dalam kategori konsep mencakup pemikiran atau gagasan yang dapat dijelaskan dalam satu halaman. Intinya, konsep adalah gagasan yang dapat dibahas secara lengkap dalam satu halaman.",
+                    "updated": 1613860012881,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Topic Page Category",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Topic",
+                    "updated": 1613860037593,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Topics are multi-faceted, deep concepts that require more than one page to be correctly addressed. Topics are sets of closely related concepts, arranged in a sequence. However, is not a page in and of itself. Instead, it is a collection of pages.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Topik adalah konsep yang lebih dalam dan memiliki banyak segi yang membutuhkan lebih dari satu halaman untuk dijelaskan. Topik adalah sekumpulan konsep yang berkaitan erat, disusun secara berurutan. Namun, bukan halaman itu saja. Melainkan, ini adalah kumpulan dari halaman-halaman.",
+                    "updated": 1613860164710,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Tutorial Page Category",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Tutorial",
+                    "updated": 1613860197070,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A Tutorial hierarchy may arrange different types of nodes including Tutorial Topic and Tutorial Step nodes. Each node in the hierarchy points to a Tutorial Step Page in the Docs from which it draws information. In the context of the Docs, pages in a tutorial are arranged in a sequence, like with topics.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Adapun dalam Tutorial adalah hirarki yang dapat mengatur berbagai jenis node termasuk node Tutorial Topic dan Tutorial Step. Setiap node dalam hierarki mengarah ke Tutorial Step di Docs tempat sumber informasi. Dalam konteks Docs, halaman dalam tutorial diatur secara runtut seperti topik.",
+                    "updated": 1613860411843,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Reviews Page Category",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Reviews",
+                    "updated": 1613860442084,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Reviews are user-generated content describing their experience with certain components of Superalgos or other projects.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Reviews adalah konten buatan pengguna yang menjelaskan pengalaman mereka dengan komponen tertentu dari Superalgos atau proyek lain.",
+                    "updated": 1613860497517,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Books Page Category",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kategori Halaman Books",
+                    "updated": 1613860532720,
+                    "style": "Title"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "A books is a page in and of itself. The page features a list of topics each constituting a chapter in the book.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Books merupakan halaman itu sendiri. Halaman tersebut menampilkan daftar topik yang masing-masing merupakan satu bab dalam buku tersebut.",
+                    "updated": 1613860614179,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

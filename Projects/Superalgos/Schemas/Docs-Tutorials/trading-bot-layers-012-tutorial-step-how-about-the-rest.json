@@ -1,0 +1,31 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 12,
+    "type": "Tutorial Step - How About the Rest?",
+    "definition": {
+        "icon": {
+            "name": "trading-episode",
+            "project": "Superalgos"
+        },
+        "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's change that!"
+        },
+        {
+            "style": "Callout",
+            "text": "Scroll the Trading Engine layer manager until you find the Current Episode layer. Turn it on!"
+        },
+        {
+            "style": "Text",
+            "text": "Now slide your mouse pointer again... et voilà!"
+        },
+        {
+            "style": "Success",
+            "text": "By turning layers on and off, you turn on and off the system's ability to report the values on different sections of the Trading Engine hierarchy!",
+            "updated": 1617182162058
+        }
+    ]
+}

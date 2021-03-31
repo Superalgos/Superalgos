@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Hyper Specialization!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a well-known fact that most strategies perform better on certain market conditions."
+        },
+        {
+            "style": "Callout",
+            "text": "Like with BB Top Bounce, a single trading system may feature multiple strategies, each specializing in specific trends, volatility ranges, or any other market parameter."
+        },
+        {
+            "style": "Success",
+            "text": "Instead of designing a strategy to evaluate a range of market conditions, keep them focused!"
+        }
+    ]
+}

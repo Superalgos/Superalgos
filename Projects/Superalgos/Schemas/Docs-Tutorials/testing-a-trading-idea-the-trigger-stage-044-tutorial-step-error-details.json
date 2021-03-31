@@ -1,0 +1,24 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 44,
+    "type": "Tutorial Step - Error Details",
+    "definition": {
+        "text": "So, what's in those bullets? Point the mouse at one of the error bullets in the top row and see what happens!",
+        "updated": 1612632114380
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each error handled by the trading bot features a page in the Docs with a human-written description of why the error happened, as well as contextual technical information that should help you identify and fix the causes of the error.",
+            "updated": 1612632341644
+        },
+        {
+            "style": "Callout",
+            "text": "Take a good look at this page!"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

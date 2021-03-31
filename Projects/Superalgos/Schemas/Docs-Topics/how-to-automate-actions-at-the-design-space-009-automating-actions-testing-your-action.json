@@ -1,0 +1,25 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 9,
+    "type": "Automating Actions - Testing your Action",
+    "definition": {
+        "text": "To test your new Action you just need to reload the UI, locate the node with the new Menu Item, and click on it...",
+        "updated": 1614941791574
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Debug",
+            "updated": 1614939140622
+        },
+        {
+            "style": "Text",
+            "text": "In order to debug your action, you will need to open the developer tool, and at the Sources tab, locate the Function Library file where you added your action, place a breakpoint at the begining of your function and go and click at the node Menu Item you added."
+        },
+        {
+            "style": "Success",
+            "text": "If you change the code of your function, reload the UI and you can debug it again with the new changes.",
+            "updated": 1614939195464
+        }
+    ]
+}

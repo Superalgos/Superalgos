@@ -1,0 +1,16 @@
+{
+    "type": "Trading Episode Statistics",
+    "definition": {
+        "text": "Episode statistics keeps track of several metrics in the context of the episode."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Add the Assets 3",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "asset"
+        },
+        "text": "Label the assets with the descriptive name of the coin or token, for ease of use. For example: Ether."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Step 3: Label Nodes"
+        },
+        {
+            "style": "Success",
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity."
+        }
+    ]
+}

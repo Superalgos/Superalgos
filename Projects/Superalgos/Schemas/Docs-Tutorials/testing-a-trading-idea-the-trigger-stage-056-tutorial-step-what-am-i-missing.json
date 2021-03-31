@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 56,
+    "type": "Tutorial Step - What Am I Missing?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "That, my friend, is the right question to ask! It's not... What is wrong? But... What am I missing?!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As I said earlier, many pieces of information need to fall in the right place for things to make sense in a complex world, and algorithmic trading is complex!"
+        },
+        {
+            "style": "Callout",
+            "text": "To succeed at building strategies, you must develop the intuition to ask yourself that question whenever things are not going your way!"
+        },
+        {
+            "style": "Success",
+            "text": "But don't be disheartened! I'll show you all the tricks I know so that you master algo-trading!"
+        }
+    ]
+}

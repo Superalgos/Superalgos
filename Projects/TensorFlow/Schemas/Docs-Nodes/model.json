@@ -1,0 +1,22 @@
+{
+    "type": "Model",
+    "definition": {
+        "text": "In machine learning, a model is a function with learnable parameters that maps an input to an output. The optimal parameters are obtained by training the model on data. A well-trained model will provide an accurate mapping from the input to the desired output.",
+        "updated": 1613200965382
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In TensorFlow.js there are two ways to create a machine learning model:",
+            "updated": 1613201440028
+        },
+        {
+            "style": "List",
+            "text": "using the Layers API where you build a model using layers."
+        },
+        {
+            "style": "List",
+            "text": "using the Core API with lower-level ops such as tf.matMul(), tf.add(), etc."
+        }
+    ]
+}

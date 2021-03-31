@@ -1,0 +1,40 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "7",
+    "type": "Exchange Raw Data - Fix The Problem",
+    "definition": {
+        "text": "At this point you will probably know if it is possible or not to extact historical information from your Favorite Exchange or not.",
+        "updated": 1614593270288
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you managed to make it work, the rest of the community will be happy to learn how to do it too.",
+            "updated": 1614593581507
+        },
+        {
+            "style": "Title",
+            "text": "New Config"
+        },
+        {
+            "style": "Text",
+            "text": "If you found that your Favorite Exchange works with some special config, please contac the Team so that is can include that config in the next release and move the exchange to the branch of Tested exchanges."
+        },
+        {
+            "style": "Title",
+            "text": "Changes In Code"
+        },
+        {
+            "style": "Text",
+            "text": "If you managed to make it work by modifying the Sensor Bot's code, please submit a PR with your changes."
+        },
+        {
+            "style": "Title",
+            "text": "Changes in Docs"
+        },
+        {
+            "style": "Text",
+            "text": "If you found that this guide is incomplete or needed more info, please update the docs and send it as a contribution with the app.contribute command. That will help others follow this process with less pain. "
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "Bias Initializer",
+    "definition": {
+        "text": "Initializer for the bias vector.",
+        "updated": 1613244555001
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613244570066
+        },
+        {
+            "style": "Javascript",
+            "text": "constant \nglorotNormal\nglorotUniform\nheNormal\nheUniform\nidentity\nleCunNormal\nleCunUniform\nones\northogonal\nrandomNormal\nrandomUniform\ntruncatedNormal\nvarianceScaling\nzeros\nstring",
+            "updated": 1613244651997
+        }
+    ]
+}

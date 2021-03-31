@@ -1,0 +1,23 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 10,
+    "type": "Tutorial Step - 1, 2, 3, Counting!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-episode-counters"
+        },
+        "text": "Let's test the first Layer in the Trading Engine Layer Manager: Trading Episode Counters.",
+        "updated": 1617181964886
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn the layer on and slide your mouse pointer over the chart, from the far left to the far right-hand side of your screen!"
+        },
+        {
+            "style": "Success",
+            "text": "See what happens with the various counters on the hierarchy below... that is, Periods, Strategies, Positions, and so on! You should see something similar to what I show in the video on the next step..."
+        }
+    ]
+}

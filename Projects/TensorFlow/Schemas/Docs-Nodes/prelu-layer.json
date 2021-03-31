@@ -1,0 +1,27 @@
+{
+    "type": "Prelu Layer",
+    "definition": {
+        "text": "Parameterized version of a leaky rectified linear unit.",
+        "updated": 1613216882813
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "It Follows ",
+            "updated": 1613216907058
+        },
+        {
+            "style": "Javascript",
+            "text": "f(x) = alpha * x for x < 0. f(x) = x for x >= 0. wherein alpha is a trainable weight",
+            "updated": 1613216938490
+        },
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

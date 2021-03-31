@@ -1,0 +1,47 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 3,
+    "type": "Automating Actions - Locating the Right Function Library",
+    "definition": {
+        "text": "Actions are packed inside Function Libraries. Most likely there is a Function Library already created that is related to the Action you want to create. ",
+        "updated": 1614941736977
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The procedure to locate a suitable Function Library is very easy. Open the Projects folder, getting into the Project the Node where the action is going to be triggered at is defined. Inside that project Folder get into the UI folder and then into Function-Libraries folder.",
+            "updated": 1614940833232
+        },
+        {
+            "style": "Note",
+            "text": "Each file in there is a Function Library except for the one called ActionSwitch.js, which is the place where you connect the Action Function name you defined at the App Schema with the function that will host the code for the new Action.",
+            "updated": 1614928708817
+        },
+        {
+            "style": "Text",
+            "text": "Inspect each of these files and see at their header the functions they already implement. After a quick scan over all of them you can decide which one is where your action belongs to. If you believe that your Action should be placed at a new Function Library, then you can try to add a new one and set it up at the Project Schema file, but that is out of the scope of this guide.",
+            "updated": 1614928780531
+        },
+        {
+            "style": "Title",
+            "text": "Good Examples",
+            "updated": 1614929743894
+        },
+        {
+            "style": "Text",
+            "text": "Take a look at these Function Libraries that represent Hierarchies, because most likely your node belongs to a Hierarchy that already has a Function Library associated with it."
+        },
+        {
+            "style": "List",
+            "text": "ChartingSpaceFunctions"
+        },
+        {
+            "style": "List",
+            "text": "CryptoEcosystemFunctions"
+        },
+        {
+            "style": "List",
+            "text": "PluginsFunctions"
+        }
+    ]
+}

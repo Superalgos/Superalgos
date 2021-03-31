@@ -1,0 +1,22 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 2,
+    "type": "Tutorial - Intro to Trading Systems",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "Trading systems are the heart and soul of systematic trading, as they concentrate the biggest chunk of trading intelligence."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The rest of the infrastructure built into Superalgos&mdash;data mining and visualization, the trading bot and trading engine, the visual strategy designer and debugger&mdash;all have significant equity in the intelligence pie, but it's fair to argue that were developed to support the design, testing, and deployment of trading systems!"
+        },
+        {
+            "style": "Callout",
+            "text": "This first tutorial explains how Superalgos views and handles a Trading System. The rest of the tutorials in the series teach you how to build them!"
+        }
+    ]
+}

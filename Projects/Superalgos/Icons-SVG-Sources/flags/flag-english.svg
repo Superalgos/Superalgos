@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#002173;}
+	.st2{clip-path:url(#XMLID_2_);}
+	.st3{fill:#FFFFFF;}
+	.st4{fill:#C61018;}
+</style>
+<g>
+	<defs>
+		<circle id="SVGID_1_" cx="207" cy="397" r="256"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g id="XMLID_2201_" class="st0">
+		<rect id="XMLID_2219_" x="-177" y="141" class="st1" width="768" height="512"/>
+		<g id="XMLID_2202_">
+			<defs>
+				<rect id="XMLID_2203_" x="-177" y="141" width="768" height="512"/>
+			</defs>
+			<clipPath id="XMLID_2_">
+				<use xlink:href="#XMLID_2203_"  style="overflow:visible;"/>
+			</clipPath>
+			<g id="XMLID_2204_" class="st2">
+				<g id="XMLID_2208_">
+					<g id="XMLID_2214_">
+						
+							<rect id="XMLID_2218_" x="-305" y="358.6" transform="matrix(0.8944 0.4472 -0.4472 0.8944 199.397 -50.6608)" class="st3" width="1024" height="76.8"/>
+						<g id="XMLID_2215_">
+							
+								<rect id="XMLID_2217_" x="-283.7" y="281.2" transform="matrix(-0.8944 -0.4472 0.4472 -0.8944 -183.9351 544.5033)" class="st4" width="512" height="25.6"/>
+							
+								<rect id="XMLID_2216_" x="428.9" y="244" transform="matrix(0.4472 -0.8944 0.8944 0.4472 -203.0827 671.4812)" class="st4" width="25.6" height="512"/>
+						</g>
+					</g>
+					<g id="XMLID_2209_">
+						
+							<rect id="XMLID_2213_" x="-305" y="358.6" transform="matrix(0.8944 -0.4472 0.4472 0.8944 -155.69 134.4853)" class="st3" width="1024" height="76.8"/>
+						<g id="XMLID_2210_">
+							
+								<rect id="XMLID_2212_" x="-272.2" y="510.1" transform="matrix(-0.8944 0.4472 -0.4472 -0.8944 203.0805 997.9296)" class="st4" width="512" height="25.6"/>
+							
+								<rect id="XMLID_2211_" x="417.4" y="15.1" transform="matrix(-0.4472 -0.8944 0.8944 -0.4472 380.2142 777.1152)" class="st4" width="25.6" height="512"/>
+						</g>
+					</g>
+				</g>
+				<g id="XMLID_2205_">
+					<polygon id="XMLID_2207_" class="st3" points="655,333 271,333 271,141 143,141 143,333 -241,333 -241,461 143,461 143,653 
+						271,653 271,461 655,461 					"/>
+					<polygon id="XMLID_2206_" class="st4" points="655,358.6 245.4,358.6 245.4,141 168.6,141 168.6,358.6 -241,358.6 -241,435.4 
+						168.6,435.4 168.6,653 245.4,653 245.4,435.4 655,435.4 					"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

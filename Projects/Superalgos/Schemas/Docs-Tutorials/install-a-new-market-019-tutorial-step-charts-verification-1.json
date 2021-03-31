@@ -1,0 +1,26 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Charts Verification 1",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "charting-space"
+        },
+        "text": "Verify that the Charting Space data structures for the corresponding Market were created successfully."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:"
+        },
+        {
+            "style": "List",
+            "text": "A Time Machine node for each trading session created in the Testing Trading Tasks."
+        },
+        {
+            "style": "List",
+            "text": "A Time Machine node for each trading session created in the Production Trading Tasks."
+        }
+    ]
+}

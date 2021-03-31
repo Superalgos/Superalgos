@@ -1,0 +1,28 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 53,
+    "type": "Tutorial Step - Order Management",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-bot-instance"
+        },
+        "text": "Most warnings happen when the trading bot is handling orders, syncing with the exchange, or simulating the synchronization."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Those operations feature great depth and some intricacy, which we'll cover in future tutorials. In this one, we're just scratching the surface!"
+        },
+        {
+            "style": "Callout",
+            "text": "If you wish to get to the bone on this matter, you should read the twelve pages on the Order Management topic of the Documentation.",
+            "updated": 1612715667430
+        },
+        {
+            "style": "Success",
+            "text": "You don't need to read it now, but feel free to dive into it if so you wish! ",
+            "updated": 1612715638597
+        }
+    ]
+}

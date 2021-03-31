@@ -1,0 +1,24 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Set Up the Token!",
+    "definition": {
+        "text": "After you hit the Generate Token button, you'll get your precious token! Don't leave the page as you won't ever see it again!",
+        "icon": {
+            "name": "github-api",
+            "project": "Superalgos"
+        },
+        "updated": 1610815737032
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Copy the token, open the Github API node config, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user, not your email!"
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos stores the token in the workspace file, just like your Exchange Account Key. The token is used to autheticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
+            "updated": 1610817098653
+        }
+    ]
+}

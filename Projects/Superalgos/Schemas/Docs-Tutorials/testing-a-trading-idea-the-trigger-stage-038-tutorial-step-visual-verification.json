@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 38,
+    "type": "Tutorial Step - Visual Verification",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "Let's do a quick visual check on the simulation to understand if the strategy was triggered on and off as expected!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Make sure the Bollinger SubChannels Object layer is on along with the layer's panel!"
+        },
+        {
+            "style": "Text",
+            "text": "Place the mouse pointer on the Feb 25th candle. This is the first candle that closed with the MA going down. You can tell by the red color of the subchannel, and also looking at the direction property in the panel. However, the slope on this candle is Side, and that is the reason why the strategy wasn't triggered on the 25th. Remember, the conditions are that the direction should be Down and the slope should be different than Side."
+        }
+    ]
+}

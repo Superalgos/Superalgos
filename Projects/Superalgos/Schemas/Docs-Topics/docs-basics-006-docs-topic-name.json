@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 6,
+    "type": "Docs Topic Name",
+    "definition": {
+        "text": "Refers to the name of the topic. Pages with the same Docs Topic Name belong to the same topic.",
+        "updated": 1613755594915
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
+            "updated": 1613755651132
+        }
+    ]
+}

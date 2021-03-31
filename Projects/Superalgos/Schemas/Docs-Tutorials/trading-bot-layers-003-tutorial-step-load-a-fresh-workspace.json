@@ -1,0 +1,24 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Load a Fresh Workspace!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "workspace"
+        },
+        "text": "But before we go any further, let's make sure we are starting with a fresh workspace!"
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Workspaces with the prefix Plugin come with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins allways remain unchanged.",
+            "updated": 1617181548594
+        },
+        {
+            "style": "Important",
+            "text": "This tutorial requires starting with a fresh Plugin Weak-hands Buster v2 workspace. So, unless you loaded the plugin workspace right before starting, please select it from the workspace panel on the right and come back to me after the workspace loads — just click Resume on my menu!",
+            "updated": 1617181586756
+        }
+    ]
+}

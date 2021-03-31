@@ -1,0 +1,67 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "2",
+    "type": "Exchange Raw Data - Research Your Exchange",
+    "definition": {
+        "text": "Before trying to debug this Sensor Bot, you need to do some research about your favorite Exchange.",
+        "updated": 1614590821269
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is what I would do and in this order:",
+            "updated": 1614591197910
+        },
+        {
+            "style": "Title",
+            "text": "1. Ask Developers "
+        },
+        {
+            "style": "Text",
+            "text": "Ask at the Develop Telegram Group if anyone already tried to connect to your favorite exchange. Maybe someone already tried and can  save you time."
+        },
+        {
+            "style": "Title",
+            "text": "2. Check the Untested "
+        },
+        {
+            "style": "Text",
+            "text": "There is a Crypto Exchanges node called Untested at the Crypto Ecosystem which has many exchanges waiting for someone to test them. If your exchange is at that list, it is a good sign, since at least is has the features needed, like for example providing historical data in the form of OHLCVs. Believe it or not, some exchanges do not provide even this info.",
+            "updated": 1614591690750
+        },
+        {
+            "style": "Text",
+            "text": "Other reasons for not being there could be:"
+        },
+        {
+            "style": "List",
+            "text": "Not providing 1 minute candles (which is currently a requirement). Some exchanges starts at 5 minutes for instance)"
+        },
+        {
+            "style": "List",
+            "text": "Not providing a list of markets. This is required to let you later Install a Market.",
+            "updated": 1614591314612
+        },
+        {
+            "style": "Title",
+            "text": "3. Check CCXT Docs"
+        },
+        {
+            "style": "Text",
+            "text": "Look for any information there related to your favorite exchange. You will probably need to undestand also the different types of parameters you can send to CCXT in order to adapt its behaviour at the specific command of fetching OHLCVs objects.",
+            "updated": 1614591710131
+        },
+        {
+            "style": "Link",
+            "text": "CCXT at Github->https://github.com/ccxt/ccxt"
+        },
+        {
+            "style": "Title",
+            "text": "4. Check your Exchange Docs"
+        },
+        {
+            "style": "Text",
+            "text": "Look specifically for information related to retrieving historical data, how much data they provide, which are the limits on the amount of time you can request data, and things like this."
+        }
+    ]
+}

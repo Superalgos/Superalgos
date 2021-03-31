@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 43,
+    "type": "Tutorial Step - Errors & Time",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When the Trading Bot runs a trading session, it applies the definitions in the Trading System candle by candle, one at a time. The bot doesn't know what's next... it only knows the current candle—the one being evaluated."
+        },
+        {
+            "style": "Callout",
+            "text": "When an error occurs, it is saved with the timestamp of the corresponding candle. If more than one error happens on the same candle, each error is plotted below the previous one, with bullets decreasing in size. This is how you know exactly what errors happened when."
+        }
+    ]
+}

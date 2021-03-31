@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 3,
+    "type": "FTX Test Status",
+    "definition": {
+        "text": "FTX is tested for data mining but not for live trading.",
+        "updated": 1616003850379
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1616003666832
+        },
+        {
+            "style": "List",
+            "text": "Market History: Starting on September 2019",
+            "updated": 1615204614502
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616003699055
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining can be slow due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1615205045729
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"ftx\"\n}",
+            "updated": 1615204693035
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

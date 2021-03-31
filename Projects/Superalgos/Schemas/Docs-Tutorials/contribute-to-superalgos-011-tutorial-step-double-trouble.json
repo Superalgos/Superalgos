@@ -1,0 +1,30 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Double Trouble?",
+    "definition": {
+        "text": "Many users choose to run the two branches from separate folders! This seems like a sensible solution for active contributors!",
+        "updated": 1617018855666,
+        "icon": {
+            "name": "clone-entity",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may have two clones of your fork running from separate folders, one of them in the develop branch.",
+            "updated": 1617018731051
+        },
+        {
+            "style": "Note",
+            "text": "Two instances of Superalogs running from different folders are completely independent. They run distinct workspaces and output unique data.",
+            "updated": 1617018971209
+        },
+        {
+            "style": "Success",
+            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in develop to contribute and test new features!",
+            "updated": 1617018806324
+        }
+    ]
+}

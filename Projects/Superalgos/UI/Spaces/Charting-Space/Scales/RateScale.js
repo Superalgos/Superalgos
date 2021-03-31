@@ -10,6 +10,7 @@ function newRateScale() {
         maxValue: undefined,
         isVisible: true,
         layersOn: undefined,
+        onKeyPressed: onKeyPressed, 
         onUpstreamScaleChanged: onUpstreamScaleChanged,
         onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
         physics: physics,
@@ -125,6 +126,25 @@ function newRateScale() {
         readObjectState()
     }
 
+    function onKeyPressed(event) {
+        if (event.code === "ArrowUp") {
+            event.delta = 1
+            onMouseWheel(event, false)
+        }
+        if (event.code === "ArrowDown") {
+            event.delta = -1
+            onMouseWheel(event, false)
+        }
+        if (event.code === "ArrowLeft") {
+            event.delta = 1
+            onMouseWheel(event, true)
+        }
+        if (event.code === "ArrowRight") {
+            event.delta = -1
+            onMouseWheel(event, true)
+        }
+    }
+
     function onMouseOverSomeTimeMachineContainer(event) {
         if (event.containerId === undefined) {
             /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
@@ -154,7 +174,7 @@ function newRateScale() {
         scaleDisplayTimer = 0
     }
 
-    function onMouseWheel(event) {
+    function onMouseWheel(event, autoScale) {
         if (IS_MAC) {
             let sensitivity
             if (event.delta < 0) {
@@ -196,7 +216,7 @@ function newRateScale() {
             }
         }
 
-        if (event.shiftKey === true) {
+        if (event.shiftKey === true || autoScale === true ) {
             autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
             return
         }

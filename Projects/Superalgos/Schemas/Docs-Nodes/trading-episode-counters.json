@@ -1,0 +1,16 @@
+{
+    "type": "Trading Episode Counters",
+    "definition": {
+        "text": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text."
+        }
+    ]
+}

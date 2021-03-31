@@ -1,0 +1,23 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 3,
+    "type": "Tutorial Topic - Add the Assets",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "asset"
+        },
+        "text": "If the assets you wish to work with are not listed under Exchange Assets, you must add and configure them first."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "In this section of the tutorial, you will learn to define which assets you wish to work with.",
+            "updated": 1617210801606
+        },
+        {
+            "style": "Success",
+            "text": "Each exchange may list hundreds of assets, however, you will likely be interested in just a few. Some automated operations may feed on your definitions, so keeping them free of junk is always a good idea."
+        }
+    ]
+}

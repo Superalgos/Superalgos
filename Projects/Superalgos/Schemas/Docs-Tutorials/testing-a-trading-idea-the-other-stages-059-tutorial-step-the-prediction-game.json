@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 59,
+    "type": "Tutorial Step - The Prediction Game",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hit-ratio"
+        },
+        "text": "We expect the idea to trade at least twice per month, with a 50% hit ratio. That was our prediction! How did we do?"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Trading frequency: There were less than two months' worth of downtrends in the tested period and a total of 9 trades. In terms of trading frequency, the idea passed the test."
+        },
+        {
+            "style": "List",
+            "text": "Hit ratio: We've got 9 trades in total, with 2 hits and 7 fails, strictly speaking. That's a 22% hit ratio. In strict terms, the idea failed the test."
+        },
+        {
+            "style": "Callout",
+            "text": "Is there room for nuance in our analysis? Should we look past the hard numbers?"
+        }
+    ]
+}

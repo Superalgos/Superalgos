@@ -1,0 +1,514 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": 3,
+    "type": "How to Contribute Icons",
+    "definition": {
+        "text": "Superalgos' visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
+        "updated": 1613590520324
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Contributions Reminder",
+            "updated": 1613731423038
+        },
+        {
+            "style": "Title",
+            "text": "Attribution"
+        },
+        {
+            "style": "Text",
+            "text": "The original set of icons is a web design pack made by Freepik and is available at:",
+            "updated": 1613378893975
+        },
+        {
+            "style": "Link",
+            "text": "flaticon.com->https://www.flaticon.com/packs/web-design-10?k=1596385749125",
+            "updated": 1613590565452
+        },
+        {
+            "style": "Text",
+            "text": "The rest of the series is inspired in the design style developed for the original set."
+        },
+        {
+            "style": "Text",
+            "text": "The authorship of each icon not in the original series may be tracked in the repository's history.",
+            "updated": 1613591688551
+        },
+        {
+            "style": "Title",
+            "text": "Coordination",
+            "updated": 1613591702695
+        },
+        {
+            "style": "Text",
+            "text": "Join the following group to coordinate works:",
+            "updated": 1613591754190
+        },
+        {
+            "style": "Link",
+            "text": "UX/UI Design Group->https://t.me/superalgosuxui",
+            "updated": 1613591786900
+        },
+        {
+            "style": "Text",
+            "text": "Please, introduce yourself and get up to speed with the group currently doing the work. The main coordination task is keeping track of who will block what part of the pending work so that we don’t duplicate efforts.",
+            "updated": 1613591821097
+        },
+        {
+            "style": "Title",
+            "text": "Design Brief",
+            "updated": 1613591872004
+        },
+        {
+            "style": "Subtitle",
+            "text": "Color Palette"
+        },
+        {
+            "style": "Text",
+            "text": "We use a restricted palette, with a playful selection of colors that work well both over a black background—on the Design Space — and a white background — on the Docs and the Charting Space.",
+            "updated": 1613591919434
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/color-palette.png",
+            "updated": 1613593161363
+        },
+        {
+            "style": "Subtitle",
+            "text": "Look & Feel",
+            "updated": 1613592080753
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos is a large and rather complex system aimed at all sorts of user profiles. The ultimate goal of the project is to massify the use of the system, thus, Superalgos should be accessible to a wide user base: from professional traders to crypto-holders, and everything in between."
+        },
+        {
+            "style": "Text",
+            "text": "The choice of a playful look and feel responds to the underlying strategy to achieve massification: to gamify the user experience, in the sense that building profitable trading strategies may be turned into a strategy game in and of itself."
+        },
+        {
+            "style": "Text",
+            "text": "We choose to depart from realistic or corporate styles and lean towards cartoonish, joyful, and spirited ideas instead."
+        },
+        {
+            "style": "Subtitle",
+            "text": "What we Like"
+        },
+        {
+            "style": "Text",
+            "text": "The following are examples of icons we like among the existing batch.",
+            "updated": 1613592138585
+        },
+        {
+            "style": "List",
+            "text": "Charting Space",
+            "updated": 1613728551081
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/charting-space.png",
+            "updated": 1613593154029
+        },
+        {
+            "style": "List",
+            "text": "Data Mine",
+            "updated": 1613728625166
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/data-mine.png"
+        },
+        {
+            "style": "List",
+            "text": "Crypto Exchange",
+            "updated": 1613728653978
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/crypto-exchange.png"
+        },
+        {
+            "style": "List",
+            "text": "Record Property",
+            "updated": 1613728675386
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/record-property.png"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "List",
+            "text": "Trigger On",
+            "updated": 1613728693471
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/trigger-on.png"
+        },
+        {
+            "style": "Title",
+            "text": "Abstract Icons",
+            "updated": 1613727494249
+        },
+        {
+            "style": "Text",
+            "text": "The group above features icons representing ideas that directly or indirectly remind of the underlying concept they represent. However, icons may also be abstract, and have a loose or no obvious connection with the concept being represented:"
+        },
+        {
+            "style": "List",
+            "text": "Phase"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/phase.png",
+            "updated": 1613727655675
+        },
+        {
+            "style": "List",
+            "text": "Situation",
+            "updated": 1613728739163
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/situation.png"
+        },
+        {
+            "style": "List",
+            "text": "Slippage",
+            "updated": 1613728755871
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/slippage.png"
+        },
+        {
+            "style": "List",
+            "text": "Strategy",
+            "updated": 1613728772189
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/strategy.png"
+        },
+        {
+            "style": "List",
+            "text": "Backtesting Session",
+            "updated": 1613728790399
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/backtesting-session.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Figurative Icons",
+            "updated": 1613727775420
+        },
+        {
+            "style": "Text",
+            "text": "Sometimes, the relationship between the drawing and the actual concept being represented may be figurative, such as when the icon illustrates an alternative interpretation of the word:"
+        },
+        {
+            "style": "List",
+            "text": "Open Stage"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/open-stage.png",
+            "updated": 1613727934017
+        },
+        {
+            "style": "List",
+            "text": "Close Stage",
+            "updated": 1613728824775
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/close-stage.png"
+        },
+        {
+            "style": "List",
+            "text": "Formula",
+            "updated": 1613728843682
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/formula.png"
+        },
+        {
+            "style": "List",
+            "text": "Plotter Module",
+            "updated": 1613728865477
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/plotter-module.png"
+        },
+        {
+            "style": "List",
+            "text": "Procedure Initialization",
+            "updated": 1613728936433
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/procedure-initialization.png"
+        },
+        {
+            "style": "Title",
+            "text": "Design Tips",
+            "updated": 1613728186362
+        },
+        {
+            "style": "Text",
+            "text": "Several design tricks make up the character of the collection of icons. The more of these tricks you use in your creations, the better they will integrate with the rest, and resonate with users."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Split Colors"
+        },
+        {
+            "style": "Text",
+            "text": "A stylistic resource that we favour and that helps to create depth and richness in the composition is the split in half of the drawing, giving each half a slight shift in color, using adjacent colors in the palette on each half:"
+        },
+        {
+            "style": "List",
+            "text": "Execution Algorithm",
+            "updated": 1613728963145
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/execution-algorithm.png"
+        },
+        {
+            "style": "List",
+            "text": "Scripts Library",
+            "updated": 1613728981957
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/scripts-library.png"
+        },
+        {
+            "style": "List",
+            "text": "Super Action",
+            "updated": 1613728996629
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/super-action.png"
+        },
+        {
+            "style": "List",
+            "text": "Polygon Condition",
+            "updated": 1613729022385
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/polygon-condition.png"
+        },
+        {
+            "style": "List",
+            "text": "Super Scripts",
+            "updated": 1613729032817
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/super-scripts.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Non-Realistic Proportions",
+            "updated": 1613729175379
+        },
+        {
+            "style": "Text",
+            "text": "It’s one of the characteristics of the cartoonish look and feel:"
+        },
+        {
+            "style": "List",
+            "text": "Workspace"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/workspace.png",
+            "updated": 1613729333605
+        },
+        {
+            "style": "Subtitle",
+            "text": "Rounded Corners"
+        },
+        {
+            "style": "Text",
+            "text": "Again, one other typical characteristic:"
+        },
+        {
+            "style": "List",
+            "text": "Shapes",
+            "updated": 1613729392359
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/shapes.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Highlights"
+        },
+        {
+            "style": "Text",
+            "text": "Occasionally, a simple drawing may be embellished with a playful highlight effect that brings light to the creation. Notice how an otherwise flat drawing comes to life with the simple light-reflection effect on the right hand side."
+        },
+        {
+            "style": "List",
+            "text": "Slippage",
+            "updated": 1613729422145
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/slippage.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Cutouts"
+        },
+        {
+            "style": "Text",
+            "text": "When multiple elements lie on top of each other, the drawing may loose clarity, probably due to the restricted color palette. In such cases, a cutout on the background object that creates a slight separation with the foreground object can look cool and help the visual interpretation. Notice the 20 pts wide cutout around the red arrow."
+        },
+        {
+            "style": "List",
+            "text": "Limit Sell Order",
+            "updated": 1613729611399
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/icons/limit-sell-order.png",
+            "updated": 1613729603776
+        },
+        {
+            "style": "Subtitle",
+            "text": "Level of Detail"
+        },
+        {
+            "style": "Text",
+            "text": "It is important to notice that icons must work well when used in small sizes. Too much detail may create alias and artifacts when the icon is reduced in size.",
+            "updated": 1613729535358
+        },
+        {
+            "style": "Success",
+            "text": "As a rule of thumb, try to avoid lines or shapes smaller than 20 pt in the original composition."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Full Size and Centered",
+            "updated": 1613729698417
+        },
+        {
+            "style": "Text",
+            "text": "Ideally, icons occupy the whole canvas, either in the horizontal or vertical dimension, or both. Save from exceptions, this is a requirement, as any departure from this standard is quite noticeable."
+        },
+        {
+            "style": "Title",
+            "text": "Technical Requirements"
+        },
+        {
+            "style": "Text",
+            "text": "Icons are created and maintained in vectors, in the SVG format, but are used in the system and documentation—the current two main use cases—as raster images in the PNG format, for technical reasons."
+        },
+        {
+            "style": "Important",
+            "text": "You must provide both types of files."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Vector Source Files"
+        },
+        {
+            "style": "Table",
+            "text": "| Criterion | Details |\n| Format | SVG |\n| Width | 512 pt |\n| Height | 512 pt |\n| Extension | svg (lower-case) |",
+            "updated": 1613729829253
+        },
+        {
+            "style": "Success",
+            "text": "Add vector files in the Icons-SVG-Sources folder under the corresponding project.",
+            "updated": 1613731185141
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the Superalgos project, SVG source files are organized in subfolders, under the following directory:",
+            "updated": 1614854522604
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\Superalgos\\Icons-SVG-Sources\\",
+            "updated": 1614854467481
+        },
+        {
+            "style": "Table",
+            "text": "| Folder | Description |\n| assets | Assets listed at exchanges |\n| color-palette | A reference color plette |\n| docs-menu | Options in the floating Docs menu |\n| exchanges | Crypto exchanges |\n| flags | Round flags used to identify languages |\n| layers | Types of layers represented in a Layer Manager |\n| menu | The options in the menu of nodes |\n| mouse | Mouse and keyboard graphics used on video captures |\n| nodes | Icons of nodes |\n| various | Items that do not fit into the rest of the categories |",
+            "updated": 1613730961904
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Raster Images",
+            "updated": 1613731087478
+        },
+        {
+            "style": "Table",
+            "text": "| Criterion | Details |\n| Format | PNG |\n| Application Size | 512 x 512 px |\n| Color Depth | 24 bits (PNG-24) |\n| Transparency | Yes |\n| Interlaced | No |\n| Extension | png (lower-case) |",
+            "updated": 1613731098874
+        },
+        {
+            "style": "Success",
+            "text": "Add all PNG files in the Icons folder.",
+            "updated": 1613731261077
+        },
+        {
+            "style": "Subtitle",
+            "text": "Naming Convention",
+            "updated": 1613731313234
+        },
+        {
+            "style": "Text",
+            "text": "Files inherit the name of the node, asset, exchange, or whatever the icon represents, and are named in lower case, each word separated by a hyphen, and with a lower-case extension. ",
+            "updated": 1615462236475
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1615462266490
+        },
+        {
+            "style": "List",
+            "text": "In the case of nodes, the PNG file for the Managed Take Profit node is managed-take-profit.png",
+            "updated": 1615462396196
+        },
+        {
+            "style": "List",
+            "text": "In the case of assets, the name of the file must is the literal name of the asset. For instance, for Bitcoin, it is bitcoin.png; for Tether it is tether.png; and so on...",
+            "updated": 1615462488610
+        },
+        {
+            "style": "List",
+            "text": "In the case of an exchange, again, the literal name of the exchange is used, as it is listed in the CCXT library. for instance, Binance is binance.png.",
+            "updated": 1615462532995
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

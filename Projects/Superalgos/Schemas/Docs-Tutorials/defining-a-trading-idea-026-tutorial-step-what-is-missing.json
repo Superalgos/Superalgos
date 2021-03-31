@@ -1,0 +1,42 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 26,
+    "type": "Tutorial Step - What Is Missing?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Remember, our trading idea should:"
+        },
+        {
+            "style": "List",
+            "text": "propose a trading process, "
+        },
+        {
+            "style": "List",
+            "text": "select the appropriate context; "
+        },
+        {
+            "style": "List",
+            "text": "define the main entry rules; "
+        },
+        {
+            "style": "List",
+            "text": "predict a specific outcome; "
+        },
+        {
+            "style": "List",
+            "text": "offer a specific testing mechanism! "
+        },
+        {
+            "style": "Callout",
+            "text": "Let's proceed with fulfilling those requirements!"
+        }
+    ]
+}

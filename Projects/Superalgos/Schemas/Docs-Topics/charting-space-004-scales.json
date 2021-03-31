@@ -23,9 +23,13 @@
             "updated": 1610137173127
         },
         {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Scale->Charts",
+            "updated": 1616673746726
+        },
+        {
             "style": "Title",
-            "text": "Rate Scale",
-            "updated": 1610137179866
+            "text": "Rate Scale"
         },
         {
             "style": "Include",
@@ -38,9 +42,13 @@
             "updated": 1610137185478
         },
         {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate Scale->Charts",
+            "updated": 1616673907214
+        },
+        {
             "style": "Title",
-            "text": "Time Frame Scale",
-            "updated": 1610137195480
+            "text": "Time Frame Scale"
         },
         {
             "style": "Include",
@@ -49,8 +57,12 @@
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Time Frame Scale->Content",
-            "updated": 1610137202224
+            "text": "Superalgos->Node->Time Frame Scale->Content"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame Scale->Charts",
+            "updated": 1616673811765
         }
     ]
 }

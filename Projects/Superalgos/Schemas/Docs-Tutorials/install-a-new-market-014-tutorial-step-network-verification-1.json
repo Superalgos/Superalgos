@@ -1,0 +1,30 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Network Verification 1",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "Verify that the Data Tasks tasks for the corresponding Market were created successfully."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:"
+        },
+        {
+            "style": "List",
+            "text": "A Market Data Tasks node for the new market."
+        },
+        {
+            "style": "List",
+            "text": "One Data Mine Tasks node for each Data Mine included in the Workspace."
+        },
+        {
+            "style": "List",
+            "text": "One Task Manager per Data Mine and one Task for each bot defined in each data mine."
+        }
+    ]
+}

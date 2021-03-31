@@ -1,0 +1,13 @@
+{
+    "type": "Repeat Vector Layer",
+    "definition": {
+        "text": "Repeats the input n times in a new dimension.",
+        "updated": 1613214045190
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -58,13 +58,13 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                 There are a few products configured to be saved only at an specific cycle.
                 */
                 if (product.config.saveAtCycle !== undefined) {
-                    if (tradingEngine.current.episode.cycle.value !== product.config.saveAtCycle) {
+                    if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value !== product.config.saveAtCycle) {
                         return
                     }
                 }
 
                 /* Clean the file from information of previous executions */
-                //pruneOutputFile(product, outputDatasetArray, tradingEngine.current.episode.candle.end.value)
+                //pruneOutputFile(product, outputDatasetArray, tradingEngine.tradingCurrent.tradingEpisode.candle.end.value)
 
                 /* Clean Open Records */
                 if (product.config.saveAsObjects === true) {
@@ -143,9 +143,6 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                 the Root Node specifically for this property only.
                 */
                 if (recordProperty.config.nodePath !== undefined) {
-                    if (recordProperty.config.nodePath === "tradingEngine.exchangeOrders.marketBuyOrders.marketOrders[index].orderBaseAsset") {
-                        let a = tradingEngine
-                    }
                     try {
                         propertyRootNode = eval(recordProperty.config.nodePath)
                     } catch (err) {
@@ -198,12 +195,13 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                         from its value property.
                         */
                         value = targetNode.value
-
-                        if (recordProperty.config.decimals !== undefined) {
-                            try {
-                                value = Number(value.toFixed(recordProperty.config.decimals))
-                            } catch (err) {
-                                badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
+                        if (value !== undefined && value !== null) {
+                            if (recordProperty.config.decimals !== undefined) {
+                                try {
+                                    value = Number(value.toFixed(recordProperty.config.decimals))
+                                } catch (err) {
+                                    badDefinitionUnhandledException(err, 'Error applying configured decimals.', product, recordProperty)
+                                }
                             }
                         }
                     } else {
@@ -256,8 +254,8 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                                 of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
                                 time frame. 
                                 */
-                                let currentDay = new Date(tradingEngine.current.episode.candle.end.value)
-                                let nextDay = new Date(tradingEngine.current.episode.candle.end.value + 1)
+                                let currentDay = new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.end.value)
+                                let nextDay = new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.end.value + 1)
                                 if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
                                     /*
                                     We will save the object only if it is closed, becasuse we are at the last candle of the day.
@@ -291,9 +289,6 @@ exports.newSuperalgosBotModulesTradingRecords = function (processIndex) {
                 When we are not dealing with objects, we add every record to the existing file except 
                 for the ones that are filtered out at the Product Definition.
                 */
-                if (product.config.codeName === "Trading-System-Errors") {
-                    let a = 1
-                }
                 if (product.config.propertyNameThatDefinesStatus !== undefined && product.config.propertyValueThatPreventsSavingObject !== undefined) {
                     for (let j = 0; j < product.record.properties.length; j++) {
                         let recordProperty = product.record.properties[j]

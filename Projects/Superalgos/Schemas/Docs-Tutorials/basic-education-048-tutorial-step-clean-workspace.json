@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Clean Workspace",
+    "definition": {
+        "text": "Talking about tested exchanges and plugins, there is one plugin workspace you may use as a clean slate when designing new stuff!",
+        "icon": {
+            "name": "workspace",
+            "project": "Superalgos"
+        },
+        "updated": 1616173072644
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "It's the Tested Exchanges Plugin Workspace!",
+            "updated": 1616173130789
+        },
+        {
+            "style": "Text",
+            "text": "Once you finish your initial education doing all existing tutorials, you will eventually be ready to start building your own Trading System. This is the plugin workspace you may use for that purpose!",
+            "updated": 1616173240467
+        },
+        {
+            "style": "Success",
+            "text": "It features a clean Trading System right out of the box, the Install New Market Tutorial, and the lineup of tested exchanges that you may use.",
+            "updated": 1616173448769
+        }
+    ]
+}

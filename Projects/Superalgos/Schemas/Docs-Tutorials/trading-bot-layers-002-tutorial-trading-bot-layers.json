@@ -1,0 +1,35 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 2,
+    "type": "Tutorial - Trading Bot Layers",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-bot"
+        },
+        "text": "In this tutorial I'll show you how the layers of the Trading Bot work! I mean the ones featured on charts, associated with all types of trading sessions!",
+        "updated": 1617106641313
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's get on with it! The Trading Bot outputs dozens of products, and they're all featured in three separate Layer Managers:",
+            "updated": 1617106677766
+        },
+        {
+            "style": "List",
+            "text": "Trading Engine: features layers that turn on and off the reporting of values of nodes in the Trading Engine hierarchy.",
+            "updated": 1617106697101
+        },
+        {
+            "style": "List",
+            "text": "Trading System: features layers that turn on and off multiple types of reports at the level of the Trading System.",
+            "updated": 1617106701918
+        },
+        {
+            "style": "List",
+            "text": "Simulation Objects: features layers that affect the rendering of visual information over the charts.",
+            "updated": 1617106714758
+        }
+    ]
+}

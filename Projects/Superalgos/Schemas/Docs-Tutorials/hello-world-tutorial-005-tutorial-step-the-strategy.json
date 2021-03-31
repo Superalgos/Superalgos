@@ -1,0 +1,40 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 5,
+    "type": "Tutorial Step - The Strategy",
+    "definition": {
+        "text": "Let's build the mother of all strategies!",
+        "icon": {
+            "name": "strategy",
+            "project": "Superalgos"
+        },
+        "updated": 1614241902261
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To backtest a strategy, first we need to write it or to have it clearly in our mind. So these are the cornerstones on which our test is based:",
+            "updated": 1614242397042
+        },
+        {
+            "style": "List",
+            "text": "Strategy uses SMA50 and SMA200"
+        },
+        {
+            "style": "List",
+            "text": "Strategy is based on 4H TF"
+        },
+        {
+            "style": "List",
+            "text": "Bot will buy the asset when SMA50 cross up SMA200"
+        },
+        {
+            "style": "List",
+            "text": "Stop Loss is set at 20% from entry"
+        },
+        {
+            "style": "List",
+            "text": "Take Profit is set at 100% or on SMA50 cross down SMA200"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Trading System Highlights!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-info"
+        },
+        "text": "Whenever something relevant happens with any given node in the trading system hierarchy, the node is highlighted!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn the Trading System Highlights layer on, slide your mouse over the chart left of the position, and check these conditions and situations! Now place the mouse pointer over the candle where the strategy is triggered... (08 Mar 2020 at 01 hs)..."
+        },
+        {
+            "style": "Note",
+            "text": "Conditions are highlighted when they validate true; situations, when all conditions validate true; stages and phases, when they become active, and so on!"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 14,
+    "type": "Tutorial Step - BB On the Charts!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-bands"
+        },
+        "text": "Let's take a look at the Bollinger Bands! If it's not on already, find the Bollinger Bands layer in the Masters layer manager."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The indicator features a 20-period moving average in the center. It features a line on top located two standard deviations above the moving average. We call this line the upper band. And it also features a line two standard deviations below the moving average. We call this one the lower band. Together, they are the Bollinger Bands."
+        },
+        {
+            "style": "Note",
+            "text": "Notice how the price ranges sideways bouncing off the upper and the lower bands. Sometimes it may go out of the boundaries of the bands, either higher or lower, but most of the time it stays within the range of the bands."
+        }
+    ]
+}

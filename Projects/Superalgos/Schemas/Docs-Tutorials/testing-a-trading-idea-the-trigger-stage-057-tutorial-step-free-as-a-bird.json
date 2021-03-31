@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 57,
+    "type": "Tutorial Step - Free as a Bird",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "twitter"
+        },
+        "text": "Superalgos puts little or no constraints on what you may or may not do... You are free and encouraged to innovate!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos is not a little toy to play and build dumb bots with. It's a powerful and flexible arsenal to conquer trading! But flexibility comes at a cost!"
+        },
+        {
+            "style": "Callout",
+            "text": "Learn to handle the weapon to harness its power!"
+        },
+        {
+            "style": "Note",
+            "text": "Take a minute to reflect on the following: what do you think your odds of success at algorithmic trading would be without such a powerful tool in your hands? It's worth learning it!"
+        }
+    ]
+}

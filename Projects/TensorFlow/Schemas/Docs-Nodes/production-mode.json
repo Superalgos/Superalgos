@@ -1,0 +1,13 @@
+{
+    "type": "Production Mode",
+    "definition": {
+        "text": "Production Mode will remove model validation, NaN checks, and other correctness checks in favor of performance.",
+        "updated": 1613062862838
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

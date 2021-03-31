@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 9,
+    "type": "Docs Paragraph Styles",
+    "definition": {
+        "text": "Each paragraph in a Docs Page is assigned a style. The default and most commonly used style is the Docs Text Style.",
+        "updated": 1611001762378
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Styles are covered in the Docs Paragraph Styles topic.",
+            "updated": 1613760190825
+        }
+    ]
+}

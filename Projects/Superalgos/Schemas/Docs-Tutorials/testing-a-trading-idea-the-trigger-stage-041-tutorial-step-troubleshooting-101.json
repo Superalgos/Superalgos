@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 41,
+    "type": "Tutorial Step - Troubleshooting 101",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are so many things involved in running a trading session that errors may occur for a wide assortment of reasons. The trading bot evaluates the definitions in the trading system and applies them by evaluating the data sets referenced in the definitions."
+        },
+        {
+            "style": "Callout",
+            "text": "Errors in the data or the definitions are common."
+        },
+        {
+            "style": "Text",
+            "text": "It's not likely that a data set is calculated with errors. However, if you haven't calculated the data set by running the corresponding data task, you will get errors!"
+        }
+    ]
+}

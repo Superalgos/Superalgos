@@ -1,0 +1,43 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "2",
+    "type": "Getting Started Plugin Workspace",
+    "definition": {
+        "text": "This workspace is the first point of contact with Superalgos. It's purpose is to get new users familiar with all the basic aspects of Superalgos.",
+        "updated": 1616145473343
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151142805
+        },
+        {
+            "style": "List",
+            "text": "Welcome to Superalgos Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Basic Education Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Contribute to Superalgos Tutorial"
+        },
+        {
+            "style": "Important",
+            "text": "It's important to keep this workspace clean, light and simple, to ensure that the first experience is not cumbersome or limits users with small hardware.",
+            "updated": 1616145428799
+        },
+        {
+            "style": "Title",
+            "text": "Brought to you by",
+            "updated": 1616151282749
+        },
+        {
+            "style": "List",
+            "text": "@julian-molina",
+            "updated": 1616151219045
+        }
+    ]
+}

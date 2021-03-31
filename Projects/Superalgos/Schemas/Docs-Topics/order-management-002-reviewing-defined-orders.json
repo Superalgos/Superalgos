@@ -36,7 +36,7 @@
         },
         {
             "style": "Javascript",
-            "text": "(tradingEngine.current.episode.cycle.value === 'First')"
+            "text": "(tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'First')"
         },
         {
             "style": "List",
@@ -78,7 +78,7 @@
         },
         {
             "style": "Javascript",
-            "text": "(tradingEngine.current.episode.cycle.value === 'Second')"
+            "text": "(tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'Second')"
         },
         {
             "style": "List",
@@ -90,7 +90,7 @@
         },
         {
             "style": "Text",
-            "text": "If previous checks pass and one of the situations in the cancel order event validates true, then the order is canceled (see Canceling orders). If the order is indeed closed, the order is cloned to update the corresponding data structure of the tradingEngine.last node."
+            "text": "If previous checks pass and one of the situations in the cancel order event validates true, then the order is canceled (see Canceling orders). If the order is indeed closed, the order is cloned to update the corresponding data structure of the tradingEngine.tradingLast node."
         },
         {
             "style": "Text",

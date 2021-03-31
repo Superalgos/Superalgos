@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 44,
+    "type": "Tutorial Step - The First Position",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer"
+        },
+        "text": "Remember the Feb 28th case we analyzed in the previous tutorial? This is it! This is the position we got from the rules defined!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take a moment to study what the simulation object layers show!"
+        },
+        {
+            "style": "Callout",
+            "text": "Let's turn on a few more Simulation Object layers: Trigger, Open, Manage, and Close Stages!"
+        },
+        {
+            "style": "Text",
+            "text": "We can now see the four stages in action. Take a minute to read and interpret the graphics. Try to follow the timeline implicit in the drawings of the stages. See when and why each stage opens and closes..."
+        }
+    ]
+}

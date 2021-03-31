@@ -11,10 +11,6 @@
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 1: Verify Data Mining"
-        },
-        {
             "style": "Text",
             "text": "Look for the following data structures:"
         },

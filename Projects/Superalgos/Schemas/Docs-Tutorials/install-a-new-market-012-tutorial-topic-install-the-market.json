@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "market"
         },
-        "text": "Click the Install Market button on the Market node you just finished setting up. Now that the Market is set up, installing it is just a click away."
+        "text": "You finished the setup required to install the market! The rest is fully automated!",
+        "updated": 1617212322242
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Single Step: Install"
+            "style": "Callout",
+            "text": "Click the Install Market button on the Market node you just finished setting up. Now that the Market is set up, installing it is just a click away.",
+            "updated": 1617212281868
         },
         {
             "style": "Note",

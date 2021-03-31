@@ -11,12 +11,9 @@
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 1: Add Market"
-        },
-        {
-            "style": "Text",
-            "text": "A Market node is added featuring two offspring: a Market Base Asset and a Market Quoted Asset."
+            "style": "Success",
+            "text": "A Market node should be added featuring two offspring: a Market Base Asset and a Market Quoted Asset.",
+            "updated": 1617211390857
         },
         {
             "style": "Important",

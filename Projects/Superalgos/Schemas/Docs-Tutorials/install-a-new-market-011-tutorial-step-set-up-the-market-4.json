@@ -7,16 +7,18 @@
             "project": "Superalgos",
             "name": "market"
         },
-        "text": "Label the Market with the ticker names corresponding to the Market Base Asset and the Market Quoted Asset, just like the exchange listing. For example: ETH/USDT."
+        "text": "Label the Market with the ticker names corresponding to the Market Base Asset and the Market Quoted Asset, just like the exchange listing. ",
+        "updated": 1617212204904
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 4: Label the Market"
+            "style": "Note",
+            "text": "For example: ETH/USDT.",
+            "updated": 1617212210997
         },
         {
             "style": "Success",
-            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity."
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity. These labels may be used by other nodes!"
         }
     ]
 }

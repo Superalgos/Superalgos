@@ -11,10 +11,6 @@
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 4: Verify Data Storage"
-        },
-        {
             "style": "Text",
             "text": "Look for the following data structures:"
         },

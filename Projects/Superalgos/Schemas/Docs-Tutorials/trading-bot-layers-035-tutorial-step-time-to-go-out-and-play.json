@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Remember, the Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies!<br/><br/>See you next time!"
+            "text": "The Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies! You will learn more about them and put them to good use in the tutorials that teach you how to build Trading Systems, available in the Trading System Design Tutorials Plugin Workspace.",
+            "updated": 1617185406035
         },
         {
             "style": "Success",

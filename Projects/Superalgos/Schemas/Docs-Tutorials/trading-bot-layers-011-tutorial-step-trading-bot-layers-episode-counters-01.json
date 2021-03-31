@@ -3,9 +3,6 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Trading Bot Layers Episode Counters 01",
     "definition": {
-        "icon": {
-            "project": "Superalgos"
-        },
         "text": "This step will play a video in full screen mode."
     },
     "paragraphs": [

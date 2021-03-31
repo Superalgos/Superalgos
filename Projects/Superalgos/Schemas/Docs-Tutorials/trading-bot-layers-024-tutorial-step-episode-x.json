@@ -4,15 +4,17 @@
     "type": "Tutorial Step - Episode X",
     "definition": {
         "icon": {
-            "project": "Superalgos",
-            "name": "trading-episode"
+            "name": "trading-episode",
+            "project": "Superalgos"
         },
-        "text": "There's one layer left... Episode!. It marks the duration of the episode and features several plotter panels..."
+        "text": "There's one layer left... Episodes! It marks the duration of the episode and features several plotter panels...",
+        "updated": 1617184086263
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the Episode layer on!"
+            "text": "Turn the Episodes layer on!",
+            "updated": 1617184095329
         },
         {
             "style": "Text",

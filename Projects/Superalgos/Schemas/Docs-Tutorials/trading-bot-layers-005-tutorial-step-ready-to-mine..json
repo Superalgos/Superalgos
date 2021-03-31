@@ -16,7 +16,8 @@
         },
         {
             "style": "Warning",
-            "text": "If you have data on this market/exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!"
+            "text": "If you have data on this market / exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!",
+            "updated": 1617181661074
         }
     ]
 }

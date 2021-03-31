@@ -4,10 +4,11 @@
     "type": "Tutorial Step - Et Voilà!",
     "definition": {
         "icon": {
-            "project": "Superalgos",
-            "name": "trading-current"
+            "name": "trading-current",
+            "project": "Superalgos"
         },
-        "text": "So, we turned on the Episode Counters and the Current Episode layers... let's take a look at the hierarchy..."
+        "text": "So, we turned on the Trading Episode Counters and the Current Episode layers... let's take a look at the hierarchy...",
+        "updated": 1617182224488
     },
     "paragraphs": [
         {
@@ -16,7 +17,8 @@
         },
         {
             "style": "Text",
-            "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Episode Counters node of the hierachy... the one we turned on first!<br/><br/>If you follow the hierarchy upstream, you will find the Episode node, and if you keep going further upstream, you'll find the Current node. Exactly! Current Episode!."
+            "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Trading Episode Counters node of the hierachy... the one we turned on first! If you follow the hierarchy upstream, you will find the Trading Episode node, and if you keep going further upstream, you'll find the Trading Current node. Exactly! Current Episode!.",
+            "updated": 1617182335969
         }
     ]
 }

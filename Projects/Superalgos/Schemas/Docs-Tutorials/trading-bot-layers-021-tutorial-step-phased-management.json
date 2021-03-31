@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Find the Stop Loss and the Take Profit layers and turn them on!"
+            "text": "Turn on the Stop Loss and the Take Profit layers in the Simulation Objects layer manager!",
+            "updated": 1617183941500
         },
         {
             "style": "Text",

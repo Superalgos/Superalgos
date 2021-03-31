@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Select Run All Exchange Data Tasks on the data mining node menu!"
+            "text": "Select Run All Project Data Tasks on the Data Tasks node menu!",
+            "updated": 1617181714117
         },
         {
             "style": "Note",

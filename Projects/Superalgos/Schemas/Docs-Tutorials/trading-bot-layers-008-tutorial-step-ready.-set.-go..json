@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "task"
         },
-        "text": "Let's do some backtesting! This should be rather quick, as we are testing six months' worth of historic data on daily files."
+        "text": "Let's do some backtesting! This should be rather quick, as we are testing six months worth of historic data on daily files.",
+        "updated": 1617181836967
     },
     "paragraphs": [
         {

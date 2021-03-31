@@ -11,10 +11,6 @@
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 2: Reference Base A."
-        },
-        {
             "style": "Note",
             "text": "If you are not familiar with establishing references, please read about the topic in the documentation."
         }

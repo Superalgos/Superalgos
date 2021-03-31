@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "In this section of the tutorial, you will learn to define which assets you may want to work with."
+            "text": "In this section of the tutorial, you will learn to define which assets you wish to work with.",
+            "updated": 1617210801606
         },
         {
             "style": "Success",

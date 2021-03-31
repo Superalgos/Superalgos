@@ -7,12 +7,18 @@
             "project": "Superalgos",
             "name": "asset"
         },
-        "text": "Edit the configuration of each of the new assets entering the ticker (as listed by the exchange) in the codeName property. For example: 'codeName': 'ETH'"
+        "text": "Edit the configuration of each of the new assets entering the ticker (as listed by the exchange) in the codeName property. ",
+        "updated": 1617210890633
     },
     "paragraphs": [
         {
-            "style": "List",
-            "text": "Step 2: Configure Assets"
+            "style": "Text",
+            "text": "For example: ",
+            "updated": 1617210897132
+        },
+        {
+            "style": "Json",
+            "text": "\"codeName\": \"ETH\""
         },
         {
             "style": "Note",

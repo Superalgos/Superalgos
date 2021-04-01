@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-703 270 512 512" style="enable-background:new -703 270 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{clip-path:url(#SVGID_2_);}
+	.st2{fill:#E30A17;}
+	.st3{fill:#FFFFFF;}
+</style>
+<polygon class="st0" points="557.7,-304 299,-304 299,208 811,208 811,44.1 557.7,44.1 "/>
+<rect x="557.7" y="-304" class="st0" width="253.3" height="348.1"/>
+<g class="st0">
+	
+		<text transform="matrix(1 0 0 1 335.4224 -173.0488)" style="display:inline;fill:#CDD4D5; font-family:'Saira-Black'; font-size:64.1866px;">E = mc</text>
+	
+		<text transform="matrix(1 0 0 1 528.1074 -194.4227)" style="display:inline;fill:#CDD4D5; font-family:'Saira-Black'; font-size:37.4208px;">2</text>
+</g>
+<g>
+	<defs>
+		<circle id="SVGID_1_" cx="-447" cy="526" r="256"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g id="XMLID_11_" class="st1">
+		<rect id="XMLID_22_" x="-744.6" y="270" class="st2" width="768" height="512"/>
+		<g id="XMLID_12_">
+			<polygon id="XMLID_14_" class="st3" points="-281.9,489.9 -324.3,503.7 -350.6,467.6 -350.6,512.2 -393,526 -350.6,539.8 
+				-350.6,584.4 -324.3,548.3 -281.9,562.1 -308.1,526 			"/>
+			<path id="XMLID_13_" class="st3" d="M-458.5,624.3c-54.3,0-98.3-44-98.3-98.3c0-54.3,44-98.3,98.3-98.3
+				c29.1,0,55.2,12.6,73.2,32.7c-21.8-34.4-60.2-57.3-103.9-57.3c-67.9,0-122.9,55-122.9,122.9s55,122.9,122.9,122.9
+				c43.7,0,82.1-22.9,103.9-57.3C-403.4,611.7-429.5,624.3-458.5,624.3z"/>
+		</g>
+	</g>
+</g>
+</svg>

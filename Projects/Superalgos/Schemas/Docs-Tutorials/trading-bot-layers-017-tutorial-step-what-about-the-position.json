@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 17,
+    "type": "Tutorial Step - What About the Position?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "position"
+        },
+        "text": "As you very clearly pointed, the episode counters showed a strategy, but also a position... what about that?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Scroll down the Simulation Objects layer manager and turn on the Position Base Asset layer!"
+        },
+        {
+            "style": "Text",
+            "text": "Nice! A green triangle means that the position was a hit! It would be red otherwise!"
+        },
+        {
+            "style": "Note",
+            "text": "The horizontal side of the triangle marks the Entry Target Rate. The vertical side marks the datetime the position was closed. The vertex away from the horizontal side is the Exit Target Rate."
+        }
+    ]
+}

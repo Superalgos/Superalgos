@@ -28,6 +28,7 @@ function newSuperalgosDocSpace() {
         exitEditMode: exitEditMode,
         openSpaceAreaAndNavigateTo: openSpaceAreaAndNavigateTo,
         navigateTo: navigateTo,
+        searchPage: searchPage,
         scrollToElement: scrollToElement,
         physics: physics,
         draw: draw,
@@ -222,7 +223,7 @@ function newSuperalgosDocSpace() {
     }
 
     function sharePage() {
-        let clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type 
+        let clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type
         UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
     }
 
@@ -289,6 +290,11 @@ function newSuperalgosDocSpace() {
         getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
 
         thisObject.sidePanelTab.open()
+    }
+
+    function searchPage() {
+        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
+        thisObject.mainSearchPage.render()
     }
 
     function navigateTo(project, category, type, anchor, nodeId, placeholder) {

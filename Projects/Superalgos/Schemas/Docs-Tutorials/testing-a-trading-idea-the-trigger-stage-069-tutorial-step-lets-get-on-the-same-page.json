@@ -1,0 +1,38 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 69,
+    "type": "Tutorial Step - Let's Get On The Same Page",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "I just brought you to the one hour chart! Before discussing what we see here, let's take a minute to organize your chart."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That way I can make sure you see the same things I see!"
+        },
+        {
+            "style": "List",
+            "text": "Masters Data Layer Manager: Turn everything off but the Candles and the Bollinger Bands layers."
+        },
+        {
+            "style": "List",
+            "text": "Simulation Objects Layer Manager: Turn everything off but the Strategies and Trigger Stages layers."
+        },
+        {
+            "style": "List",
+            "text": "Trading System Layer Manager: Turn everything off but the Trading System Errors, Highlights, and Values layers."
+        },
+        {
+            "style": "List",
+            "text": "Trading Engine Layer Manager: Turn everything off."
+        },
+        {
+            "style": "Text",
+            "text": "The next video shows what I see... and what you should!"
+        }
+    ]
+}

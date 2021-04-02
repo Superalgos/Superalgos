@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 3,
+    "type": "Tutorial Step - From the Ground Up",
+    "definition": {
+        "text": "To be fair, my welcoming friend taught you many of the basic operations that you need to know to move around and feel comfortable with the interface...",
+        "updated": 1615311043130,
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "With me, you are going to complete your basic education! Once you finish this tutorial, you will be ready to start learning how to build your own Trading System... That's what all is about after all, right?",
+            "updated": 1615459292734
+        },
+        {
+            "style": "Callout",
+            "text": "We will focus on completing the overview of the interface, dealing with workspaces, backups, plugins, and more!",
+            "updated": 1615311348229
+        },
+        {
+            "style": "Success",
+            "text": "Let's get on with it!",
+            "updated": 1615311356804
+        }
+    ]
+}

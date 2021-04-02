@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 50,
+    "type": "Tutorial Step - About Other Markets",
+    "definition": {
+        "text": "You may work with any of the markets listed at the exchange! Take a look at the setup in the Exchange Markets node!",
+        "icon": {
+            "name": "market",
+            "project": "Superalgos"
+        },
+        "updated": 1616176775093
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Tested Exchanges Plugin Workspace. I just wanted to let you know that it's easy!",
+            "updated": 1616256472815
+        },
+        {
+            "style": "Callout",
+            "text": "Take a look at the menu of the BTC/USDT Market! Notice the Install Market and Uninstall Market buttons! That's how you do it!",
+            "updated": 1616176532878
+        },
+        {
+            "style": "Success",
+            "text": "I'll leave it at that and let you do the Install a New Market Tutorial when the time is right!",
+            "updated": 1616176871622
+        }
+    ]
+}

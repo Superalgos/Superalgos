@@ -1,0 +1,26 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Charts Verification 2",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "Verify that the time machines created show up on the chartsing space... you should find..."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "A Time Machine for each trading session created in the Testing Trading Tasks."
+        },
+        {
+            "style": "List",
+            "text": "A Time Machine for each trading session created in the Production Trading Tasks."
+        },
+        {
+            "style": "Success",
+            "text": "Hover your mouse over a chart to see what Crypto Exchange and Market  it features."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 32,
+    "type": "Tutorial Step - Closing a Position",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage"
+        },
+        "text": "Let's do some quick reading about the Close Stage! Take a look at this page!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The close stage features similar workings as the open stage, provides the same level of flexibility to define execution, and requires the same kind of definitions."
+        },
+        {
+            "style": "Callout",
+            "text": "Take a few minutes to think about how to close this position. Think about what our target rate and target size should be."
+        },
+        {
+            "style": "Note",
+            "text": "Also, think about what type of order we should use!"
+        }
+    ]
+}

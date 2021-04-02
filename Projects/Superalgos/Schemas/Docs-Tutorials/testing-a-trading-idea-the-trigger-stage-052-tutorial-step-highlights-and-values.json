@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 52,
+    "type": "Tutorial Step - Highlights and Values",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "Let's move on to a brighter topic! I'll show you how to verify the validation of conditions with the highlights and values layers."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go to the Trading System layer manager and turn on the Trading System Highlights and the Trading System Values layers..."
+        },
+        {
+            "style": "Callout",
+            "text": "Now slide the mouse pointer over the candle where the strategy is triggered on!"
+        },
+        {
+            "style": "Success",
+            "text": "Use this resource when things are not going as you'd expect! This is how you find out why an event is not triggering when you think it should!"
+        }
+    ]
+}

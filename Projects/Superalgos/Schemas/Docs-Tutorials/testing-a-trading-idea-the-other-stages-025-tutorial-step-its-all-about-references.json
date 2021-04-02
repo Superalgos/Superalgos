@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 25,
+    "type": "Tutorial Step - It's All About References!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-order"
+        },
+        "text": "Do you remember what references are and how to establish them? Watch the video for a quick refresher!",
+        "updated": 1617198810582
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "References are a crucial concept in Superalgos, as they relate information across nodes and hierarchies!"
+        },
+        {
+            "style": "Callout",
+            "text": "You must establish a reference from the Market Sell Order node in the trading system to this Market Sell Order #1 Market Order node in the trading engine hierarchy! Go ahead! Do it!"
+        },
+        {
+            "style": "Success",
+            "text": "I'll give you a couple of tips on the next step if you are not sure how to go about this!"
+        }
+    ]
+}

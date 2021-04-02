@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 55,
+    "type": "Tutorial Step - The Time Frame Mystery",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-frames-filter"
+        },
+        "text": "Let's pull one more trick! Switch the time frame to 12 hs and slide the pointer over the charts!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "OMG! I broke Superalgos! Nothing works anymore!"
+        },
+        {
+            "style": "Callout",
+            "text": "Trading sessions create simulations for the time frame configured in the Time Frame parameter!"
+        },
+        {
+            "style": "Text",
+            "text": "If you set your chart to a different time frame, you won't be able to see the simulation! In fact, you may find another simulation that you ran on that time frame at some other point in time! Indeed, Superalgos stores simulations for each time frame separately, even when they originate from the same trading session!"
+        }
+    ]
+}

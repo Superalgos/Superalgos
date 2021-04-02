@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 54,
+    "type": "Tutorial Step - Back to the Position!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "fails"
+        },
+        "text": "Back to this first trade, we discussed how stages work and mentioned that the price tagged the stop loss target."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "That means that this first position is a fail!"
+        },
+        {
+            "style": "Text",
+            "text": "To be fair, the trade went in our favor up to about 3%, but we didn't take profit and let it slip through our fingers. The entry wasn't awful and it may make sense once we start thinking about position management."
+        },
+        {
+            "style": "Success",
+            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken!"
+        }
+    ]
+}

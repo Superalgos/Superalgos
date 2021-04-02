@@ -1,0 +1,32 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 24,
+    "type": "Tutorial Step - We Have Our Conditions!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "It seems like we have finally come up with a way to define a downtrend... let's set it up as two conditions!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Condition 1: The direction property of the bollingerSubChannel product is Down in the 24H chart. Put in proper syntax:",
+            "updated": 1610392891777
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Down'"
+        },
+        {
+            "style": "List",
+            "text": "Condition 2: The slope property of the bollingerSubChannel product is not Side in the 24H chart. Put in proper syntax:",
+            "updated": 1610392964616
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope != 'Side'"
+        }
+    ]
+}

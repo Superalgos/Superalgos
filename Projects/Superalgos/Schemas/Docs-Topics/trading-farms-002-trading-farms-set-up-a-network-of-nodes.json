@@ -27,8 +27,8 @@
         },
         {
             "style": "Text",
-            "text": "The procedure to setup a Network Node is by executing the Install Market menu option of a certain Market node. This is a complex procedure that will connect all the dots for you from A to Z. You can do by hand what this procedure does, but it will take you a lot of time and you will need to know all the details of how to connect everything together.",
-            "updated": 1614355139550
+            "text": "The procedure to setup a Network Node is by executing the Install Market menu option of a certain Market node. This is a complex procedure that will connect all the dots for you from A to Z. You can do by hand what this procedure does, but it will take you a lot of time, and you will need to know all the details of how to connect everything together.",
+            "updated": 1617263888269
         },
         {
             "style": "Important",
@@ -36,12 +36,13 @@
         },
         {
             "style": "Text",
-            "text": "For exmaple: if you have 2 trading systems, it will automatically create backtesting and live trading tasks for both of them.",
-            "updated": 1614355238724
+            "text": "For example: if you have 2 trading systems, it will automatically create backtesting and live trading tasks for both of them.",
+            "updated": 1617263908126
         },
         {
             "style": "Text",
-            "text": "The procedure will also be applied to each Network Node found at the workspace assuming that you will later delete the Tasks or other branches you don't need. But in order to do so, you need to know what is being added as a result of this execution."
+            "text": "The procedure will also be applied to each Network Node found at the workspace, assuming that you will later delete the Tasks or other branches you don't need. But in order to do so, you need to know what is being added as a result of this execution.",
+            "updated": 1617263931507
         },
         {
             "style": "Subtitle",
@@ -49,7 +50,8 @@
         },
         {
             "style": "Text",
-            "text": "Here this procedure will essentially add 2 thigs:"
+            "text": "Here this procedure will essentially add 2 things:",
+            "updated": 1617263943061
         },
         {
             "style": "List",
@@ -57,8 +59,8 @@
         },
         {
             "style": "List",
-            "text": "Data Products: You can think of this as references to the physical data. This definitions are what tells the system in general where the data is physically located.",
-            "updated": 1614355507769
+            "text": "Data Products: You can think of this as references to the physical data. These definitions are what tells the system in general where the data is physically located.",
+            "updated": 1617263962570
         },
         {
             "style": "Subtitle",
@@ -66,12 +68,13 @@
         },
         {
             "style": "Text",
-            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this brach, you will find Layer s node, which references the Data Products at the Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
-            "updated": 1614357169345
+            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this branch, you will find Layer s node, which references the Data Products at the Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
+            "updated": 1617263990004
         },
         {
             "style": "Success",
-            "text": "If you understand all the previous relationships, you can go ahead and install a market in all Network Node s at the same time, and then try to delete all the duplicated definitions. If you don't have all that clear, it is recommended that you install all your markets at one single Network Node and then move the braches you want from one Network Node to the other."
+            "text": "If you understand all the previous relationships, you can go ahead and install a market in all Network Node s at the same time, and then try to delete all the duplicated definitions. If you don't have all that clear, it is recommended that you install all your markets at one single Network Node and then move the branches you want from one Network Node to the other.",
+            "updated": 1617264010597
         },
         {
             "style": "Title",
@@ -84,8 +87,8 @@
         },
         {
             "style": "Text",
-            "text": "There are different types of Tasks and each one needs to be moved together with their corresponding Data Products definitions in order for the system to being able to track dependencies. The Data Products dedinitions are the one under the Data Storage node of a Network Node. They are subdivided in different branches depending of the Type of Data, Project, Exchange, Market and many other stuff, but in the end you will find Data Product nodes which reference Product Definitions inside Mines. When you move Tasks from one Network Node to other you also need to move the related brach at Data Storage to the same Network Node.",
-            "updated": 1614356433556
+            "text": "There are different types of Tasks and each one needs to be moved together with their corresponding Data Products definitions in order for the system to being able to track dependencies. The Data Products definitions are the ones under the Data Storage node of a Network Node. They are subdivided in different branches depending of the Type of Data, Project, Exchange, Market and many other stuff, but in the end you will find Data Product nodes which reference Product Definitions inside Mines. When you move Tasks from one Network Node to other you also need to move the related branch at Data Storage to the same Network Node.",
+            "updated": 1617264118423
         },
         {
             "style": "Text",
@@ -97,12 +100,13 @@
         },
         {
             "style": "Success",
-            "text": "The refinitions at the Charting System hirierchy do not need to be changed at all. They will continue pointing to the Data Products they were pointint to no matter where you moved those Data Products definitions. If you changed them from one Network Node to another, the Pltotter will simply fetch the data from the Network Node where you left thos Data Product s definitions."
+            "text": "The definitions at the Charting System hierarchy do not need to be changed at all. They will continue pointing to the Data Products they were pointed to no matter where you moved those Data Products definitions. If you changed them from one Network Node to another, the Plotter will simply fetch the data from the Network Node where you left those Data Product s definitions.",
+            "updated": 1617264173906
         },
         {
             "style": "Note",
-            "text": "Whey we say moving what we are saying is detaching a Node brach and re attaching that same brach somewhere else. Note that if you for example make a backup of a branch, restore that somehwhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up with incomming references, which will produce things not to work anymoere.",
-            "updated": 1614357412126
+            "text": "When we say moving, what we are saying is detaching a Node branch and re-attaching that same branch somewhere else. Note that if you, for example, make a backup of a branch, restore that somehwhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up the incoming references, which will cause things to not work anymore.",
+            "updated": 1617264249424
         },
         {
             "style": "Text",
@@ -155,8 +159,8 @@
         },
         {
             "style": "Success",
-            "text": "For organizational purposes and to avoid confusion later on, it is recommended to clean up the home node’s workspace uninstalling the markets that you don’t need.",
-            "updated": 1611343505445
+            "text": "For organizational purposes and to avoid confusion later on, it is recommended to clean up the home node’s workspace, uninstalling the markets that you don’t need.",
+            "updated": 1617264320991
         },
         {
             "style": "Text",
@@ -189,7 +193,8 @@
         },
         {
             "style": "List",
-            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the Client services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the Client services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1.  Use the dotted IP address rather than a host name, since this reduces host name lookups.",
+            "updated": 1617264451129
         },
         {
             "style": "List",

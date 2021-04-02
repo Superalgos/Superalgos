@@ -32,6 +32,10 @@ function newSuperalgosUtilitiesLanguages() {
                 languageLabel = 'Bahasa'
                 break
             }
+            case 'TR': {
+                languageLabel = 'Turkish'
+                break
+            }
         }
         return languageLabel 
     }    

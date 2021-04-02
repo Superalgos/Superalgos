@@ -1,0 +1,29 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 92,
+    "type": "Tutorial Step - Your Keys, Your Coins!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "exchange-account-key"
+        },
+        "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
+        "updated": 1610817577376
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Acess the configuration and carefully enter the API Pubilic Key and the API secret key.",
+            "updated": 1616435074225
+        },
+        {
+            "style": "Text",
+            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys."
+        },
+        {
+            "style": "Note",
+            "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when the Trading Bot deals with orders. It is never sent or stored anywhere else.",
+            "updated": 1616435057411
+        }
+    ]
+}

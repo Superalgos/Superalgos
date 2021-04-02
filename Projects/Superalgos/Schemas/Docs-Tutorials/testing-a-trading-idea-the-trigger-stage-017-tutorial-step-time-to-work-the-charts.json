@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Time to Work the Charts!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-on-event"
+        },
+        "text": "We are going to do some work on the charts, placing the focus on the Trigger On Event!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Bear in mind that the trigger on event on each strategy within a trading system is what determines which of the strategies is going to trade in the current context. In our case, we'll eventually have at least two strategies, and we want each of them to specialize on different trends."
+        },
+        {
+            "style": "Callout",
+            "text": "The first concern is with determining the trend! How to we go about this?"
+        },
+        {
+            "style": "Text",
+            "text": "We'll work on something around the Bollinger Bands, as you may imagine!"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Create Order Event",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "create-order-event"
+        },
+        "text": "This event is self-explanatory and works like the rest of the events you're already familiar with, with situations and conditions."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Although the decision to take a position is made at the Trigger Stage, the Create Order Event offers granular control over each order, so that you may decide the precise moment or market situation in which to place it."
+        },
+        {
+            "style": "Callout",
+            "text": "In our case, we'll place the order immediately after the Take Position Event is triggered, so go ahead and type true on the JavaScript Code node of the one condition created by default with the order. This makes the condition return true as soon as it's evaluated."
+        }
+    ]
+}

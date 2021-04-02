@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Testing New Exchanges",
+    "definition": {
+        "text": "If you are a developer and your preferred exchange hasn't been tested, you may join the effort and help with testing!",
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Superalgos"
+        },
+        "updated": 1616062624384
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This topic in the Docs explains how to debug the Sensor Bot to get it to fetch data from an exchange. If the exchange supports the basic features required by Superalgos, you should end up with a solution!",
+            "updated": 1616062282282
+        },
+        {
+            "style": "Success",
+            "text": "Sharing the solution with the Community is a valuable contribution. Everyone that comes next may enjoy their favorite exchange too!",
+            "updated": 1616062506777
+        },
+        {
+            "style": "Important",
+            "text": "We highly recommend you complete your education on Superalgos doing all tutorials before you dive into setting up other exchanges.",
+            "updated": 1616062367623
+        }
+    ]
+}

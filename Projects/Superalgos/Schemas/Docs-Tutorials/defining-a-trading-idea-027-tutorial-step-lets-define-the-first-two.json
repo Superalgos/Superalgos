@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 27,
+    "type": "Tutorial Step - Let's Define the First Two!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "Let's advance with the definition of the trading process and the context in which these ideas should operate."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Trading process: Since we rely on trends in the 24H charts, this will be a swing strategy, with positions open&mdash;potentially&mdash;for several days."
+        },
+        {
+            "style": "List",
+            "text": "Context: The first hypothesis is for uptrends in the 24H chart. The second, for downtrends and likely for ranging markets as well. We will leave the definition as of how the trends are to be determined for later on, once you become familiar with the tools available in Superalgos."
+        },
+        {
+            "style": "Note",
+            "text": "The goal of the idea is to accumulate bitcoin selling BTC to rebuy at a cheaper price."
+        }
+    ]
+}

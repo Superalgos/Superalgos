@@ -1,0 +1,18 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 33,
+    "type": "Tutorial Step - A Bit About Backtesting!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Backtesting is a science in and of itself! There are entire books written on backtesting alone. It is a deep and complex subject mainly because humans designing and testing strategies are prone to introducing biases that may lead to overfitting, that is, adjusting the rules of the trading system to fit the data set in the quest to get good backtesting results. Superalgos offers tools to flexibly handle the data set to avoid spoiling it, like the time range parameter that allows splitting the data set as required, or setting up and running multiple sessions in parallel. That said, we are not going to cover the topic in this tutorial! The current focus is on creating the definitions of a trading idea, not backtesting per se."
+        }
+    ]
+}

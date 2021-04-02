@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 27,
+    "type": "Tutorial Step - Never Forget Granularity!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "situation"
+        },
+        "text": "Superalgos strives to keep things simple, and so should you, as it is the best way to handle mounting complexity!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Conditions should be as granular as possible because:"
+        },
+        {
+            "style": "List",
+            "text": "It makes it easier to debug the syntax: when you pile up logic in a single condition, it's hard to find bugs you may have introduced."
+        },
+        {
+            "style": "List",
+            "text": "It makes it easier to debug the strategy: if you keep logic segregated in different conditions, you will then be able to see precisely what part of the logic validates true or false."
+        },
+        {
+            "style": "List",
+            "text": "It makes the strategy easier to maintain and upgrade: granular conditions make everything easier to undertand and follow."
+        }
+    ]
+}

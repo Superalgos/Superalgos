@@ -1,0 +1,25 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 44,
+    "type": "Tutorial Step - Non-Persistence of Changes",
+    "definition": {
+        "text": "Remember I said that the plugin file is loaded every time the workspace is loaded? This feature has an immediate consequence...",
+        "icon": {
+            "name": "bullet-error",
+            "project": "Superalgos"
+        },
+        "updated": 1615978752612
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
+            "updated": 1615978808209
+        },
+        {
+            "style": "Success",
+            "text": "I will go through some specific use cases in the next few steps!",
+            "updated": 1615978913703
+        }
+    ]
+}

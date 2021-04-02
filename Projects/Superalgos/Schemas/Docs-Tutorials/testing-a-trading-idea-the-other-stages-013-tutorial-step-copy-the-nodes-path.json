@@ -1,0 +1,33 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Copy The Node's Path!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "copy-path"
+        },
+        "text": "Do you remember how to extract the address of the node so that we may reference it from our formula?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Open the node's menu and click on the Copy Node Path button!"
+        },
+        {
+            "style": "Text",
+            "text": "The following string should end up in your clipboard:",
+            "updated": 1617197048058
+        },
+        {
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value",
+            "updated": 1617197103346
+        },
+        {
+            "style": "Note",
+            "text": "Take a look at the path... see how it makes sense?",
+            "updated": 1617197206806
+        }
+    ]
+}

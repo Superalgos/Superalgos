@@ -1,0 +1,24 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 12,
+    "type": "Tutorial Topic - Install the Market",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market"
+        },
+        "text": "You finished the setup required to install the market! The rest is fully automated!",
+        "updated": 1617212322242
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click the Install Market button on the Market node you just finished setting up. Now that the Market is set up, installing it is just a click away.",
+            "updated": 1617212281868
+        },
+        {
+            "style": "Note",
+            "text": "The Install Market function sets up many data structures in the local Network Node and in the Charting Space. The next few steps in the tutorial will help you get familiar with the installation."
+        }
+    ]
+}

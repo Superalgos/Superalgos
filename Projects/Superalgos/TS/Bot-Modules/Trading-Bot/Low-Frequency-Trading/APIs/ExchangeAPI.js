@@ -27,17 +27,20 @@
 
         let key
         let secret
+        let uid
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
                 key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
                 secret = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                uid = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
             }
         }
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,
             'secret': secret,
+            'uid': uid,
             'timeout': 30000,
             'enableRateLimit': true,
             verbose: false,

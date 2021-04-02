@@ -1,0 +1,23 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 52,
+    "type": "Tutorial Step - Size Placed",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "size-placed"
+        },
+        "text": "This is the Stage Quoted Asset bit of the Strategy Open Stage. If the actual size changes, what happens with the Size Placed?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Point to the third error on Feb 28th and read!",
+            "updated": 1612715534874
+        },
+        {
+            "style": "Note",
+            "text": "In the context of either the open stage or the close stage, size placed is a variable that accumulates the total size placed during the stage, so it must be adjusted to!"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Deciphering Errors",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Can not read property \"direction\" of undefined. What is that all about?",
+        "updated": 1617191618477
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the proper procedure to unpack an error message and understand what it is about:"
+        },
+        {
+            "style": "List",
+            "text": "You know when the error happened: keep that in mind, as the error is solely related to the candle where it happened!",
+            "updated": 1612639274562
+        },
+        {
+            "style": "List",
+            "text": "You know which node caused the error: it is likely the definition in the node that caused the error, either in the code of the associated Javascript Node, the Formula, or the configuration.",
+            "updated": 1612696441482
+        },
+        {
+            "style": "List",
+            "text": "You know the error message: read it carefully and make the connection with the two previous clues!",
+            "updated": 1612639305533
+        }
+    ]
+}

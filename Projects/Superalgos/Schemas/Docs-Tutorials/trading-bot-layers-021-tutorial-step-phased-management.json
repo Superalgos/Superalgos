@@ -1,0 +1,27 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Phased Management",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "phase"
+        },
+        "text": "The Manage Stage enables the management of your stop loss and take profit targets in phases. Let's see how that looks in simulations..."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn on the Stop Loss and the Take Profit layers in the Simulation Objects layer manager!",
+            "updated": 1617183941500
+        },
+        {
+            "style": "Text",
+            "text": "It's probably self-explanatory, right? The Phase icon marks the switching of phases, thus, of the Formula used to determine each target."
+        },
+        {
+            "style": "Success",
+            "text": "This is a fantastic feature when designing strategies, as you can literally see what the formula does, and how phases change!"
+        }
+    ]
+}

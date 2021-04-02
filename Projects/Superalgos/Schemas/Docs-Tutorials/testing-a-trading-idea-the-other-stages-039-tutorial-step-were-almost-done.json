@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 39,
+    "type": "Tutorial Step - We're almost done!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage-event"
+        },
+        "text": "We're virtually ready to run a new backtest, this time, with complete definitions in all stages!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Before we do that, let's delete the Close Stage Event as we are not going to use it either!"
+        },
+        {
+            "style": "Success",
+            "text": "That's it! It wasn't hard at all right? This basic set up is OK for testing simple trading ideas. In the next few tutorials, we're going to go through more elaborate management and execution setups!"
+        }
+    ]
+}

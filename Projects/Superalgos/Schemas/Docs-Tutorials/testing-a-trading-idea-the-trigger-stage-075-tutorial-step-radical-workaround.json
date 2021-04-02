@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 75,
+    "type": "Tutorial Step - Radical Workaround",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "The definitions in the open, close, and manage stages are the subject of the next tutorial in the series!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To complete the overview of the Trigger Stage we want to be able to see how the Take Position Event works on the rest of the time range tested. We are going to go for a radical workaround!"
+        },
+        {
+            "style": "Callout",
+            "text": "Delete the open, close, and manage stages! Use the Delete button on the menu!"
+        },
+        {
+            "style": "Text",
+            "text": "This way, when the take position event validates true and the trading bot attempts to read the definitions of the open stage, it will understand that the rest of the strategy is not defined, and will close the strategy."
+        }
+    ]
+}

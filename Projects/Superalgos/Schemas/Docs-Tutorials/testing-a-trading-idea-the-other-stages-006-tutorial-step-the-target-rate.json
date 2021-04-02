@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 6,
+    "type": "Tutorial Step - The Target Rate",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "target-rate"
+        },
+        "text": "As I said earlier, the Target Rate is a concept that entails some depth, but we'll keep it simple for the time being!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The target rate serves several purposes. At this point, we'll place the focus on one of them:"
+        },
+        {
+            "style": "Callout",
+            "text": "We will use the target rate as a reference rate."
+        },
+        {
+            "style": "Text",
+            "text": "Later on, we will set up a market order to enter the position. However, market orders&mdash;by definition&mdash;do not specify a rate, as they are filled at the current market price. The system will use the reference rate we define to mark the take position rate in simulations, and will use it as a starting point for internal calculations too."
+        }
+    ]
+}

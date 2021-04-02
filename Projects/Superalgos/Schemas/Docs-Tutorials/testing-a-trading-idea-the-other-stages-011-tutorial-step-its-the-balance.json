@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 11,
+    "type": "Tutorial Step - It's The Balance!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "balance"
+        },
+        "text": "What we need is the Balance! What balance? Take a minute and see if you can finish tying up the loose ends of the reasoning!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We defined the initialBalance in the base asset and will define the target size in the base asset..."
+        },
+        {
+            "style": "Callout",
+            "text": "We need the current balance of the base asset! Can you find the node in the Trading Engine that holds precisely that value?"
+        },
+        {
+            "style": "Success",
+            "text": "Trading Current (we need the balance at the moment of evaluation!) > Trading Episode (because it's the balance kept for the whole session) >... what else?",
+            "updated": 1617196723617
+        }
+    ]
+}

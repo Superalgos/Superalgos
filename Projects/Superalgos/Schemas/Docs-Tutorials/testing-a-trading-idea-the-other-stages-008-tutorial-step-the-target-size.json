@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 8,
+    "type": "Tutorial Step - The Target Size",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "target-size-in-base-asset"
+        },
+        "text": "I mentioned earlier that&mdash;like when setting up a manual order at the exchange&mdash;you may define the size in either of the assets!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "What I didn't mention is that you can't have two definitions! To avoid ambiguities, only one is allowed!"
+        },
+        {
+            "style": "Callout",
+            "text": "We will define the size in the base asset, so delete the Target Size In Quoted Asset node!"
+        },
+        {
+            "style": "Text",
+            "text": "We will keep this one simple too. For the time being, we will use the whole balance available to the session."
+        },
+        {
+            "style": "Success",
+            "text": "How do we do that? You'll see!"
+        }
+    ]
+}

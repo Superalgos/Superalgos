@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Initial Balance vs. Balance",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "balance"
+        },
+        "text": "As you can see, the initialBalance is defined in the Session Base Asset. This is just a matter of choice!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We defined it in the base asset because it makes sense for our trading idea, which intends to sell some bitcoin we hold to rebuy it at a cheaper price."
+        },
+        {
+            "style": "Callout",
+            "text": "But we can't use the value of the initialBalance for our target size! Can you see why?"
+        },
+        {
+            "style": "Text",
+            "text": "The target size we define is valid for each position the strategy will take. If it was the initialBalance and we lost some bitcoin in the first position, we would get an error in the second position, as&mdash;by then&mdash;we wouldn't have that much bitcoin any more!"
+        }
+    ]
+}

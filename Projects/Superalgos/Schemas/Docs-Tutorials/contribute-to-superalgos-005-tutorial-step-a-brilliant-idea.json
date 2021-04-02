@@ -1,0 +1,30 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 5,
+    "type": "Tutorial Step - A Brilliant Idea",
+    "definition": {
+        "text": "Superalgos is free for everyone because we want your help! We want the best minds in the space to help us build the ultimate trading automation platform!",
+        "icon": {
+            "name": "nodes-highlights",
+            "project": "Superalgos"
+        },
+        "updated": 1610719931963
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Your first contribution is your feedback!",
+            "updated": 1610715230137
+        },
+        {
+            "style": "Text",
+            "text": "You've likely spent hours discovering Superalgos. We want to have your first impression, fresh from the recent experience! And we want your initial feedback to be the first of many contributions to the project.",
+            "updated": 1611594469593
+        },
+        {
+            "style": "Success",
+            "text": "You don't need to be a star programmer or professional trader to contribute. Every user is expected to give back! I'll tell you how!",
+            "updated": 1610822419407
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Time Frame Matters!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-frame"
+        },
+        "text": "The Time Frame of the trading session determines how often the trading bot does what it does!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Read this page about the time frame carefully!"
+        },
+        {
+            "style": "Note",
+            "text": "In one of the next tutorials, I'll teach you a trick to overcome this one negative aspect of running backtesting sessions on a time frame different than live sessions."
+        }
+    ]
+}

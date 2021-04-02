@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 20,
+    "type": "Tutorial Step - An Extra Dimension!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "Let's try an indicator that brings an additional dimension to the information we are getting from this one!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn off the Bollinger Channels Objects layer! Now turn on the Bollinger SubChannels Objects layer!"
+        },
+        {
+            "style": "Text",
+            "text": "There's still a lot of back and forth with the Up and Down directions... but!"
+        },
+        {
+            "style": "Success",
+            "text": "Slide the mouse pointer over the chart and look at the Slope property in the plotter panel of the indicator! Switch it on in case it's off!"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Ready. Set. Go.....!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "task"
+        },
+        "text": "Let's do some backtesting! This should be rather quick, as we are testing six months worth of historic data on daily files.",
+        "updated": 1617181836967
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session."
+        },
+        {
+            "style": "Callout",
+            "text": "Select Run on the Task menu and then select Run on the Backtesting Session menu."
+        },
+        {
+            "style": "Note",
+            "text": "When the Backtesting Session informs it has finished,  then stop the task and click Next to continue."
+        }
+    ]
+}

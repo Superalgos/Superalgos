@@ -38,13 +38,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
     let positionValues
     let addToPositionValues
 
-    /* 
-    These 3 are the main data structures available to users
-    when writing conditions and formulas.
-    */
     let chart
-    let exchange
-    let market
 
     return thisObject
 
@@ -64,18 +58,10 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
         strategyKeys = undefined
 
         chart = undefined
-        exchange = undefined
-        market = undefined
     }
 
-    function updateChart(pChart, pExchange, pMarket) {
-        /* 
-        We need these 3 data structures  to be a local objects 
-        accessible while evaluating conditions and formulas.
-        */
+    function updateChart(pChart) {
         chart = pChart
-        exchange = pExchange
-        market = pMarket
     }
 
     function strategyEntry() {
@@ -96,7 +82,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
     }
 
     function strategyExit() {
-        getResults(tradingEngine.tradingCurrent.strategy.begin.value, tradingEngine.tradingCurrent.strategy.end.value)
+        getResults(tradingEngine.current.strategy.begin.value, tradingEngine.current.strategy.end.value)
         let valuesArray = closeValues.concat(strategyValues)
         snapshots.strategies.push(valuesArray)
     }
@@ -115,7 +101,7 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
     }
 
     function positionExit() {
-        getResults(tradingEngine.tradingCurrent.position.begin.value, tradingEngine.tradingCurrent.position.end.value)
+        getResults(tradingEngine.current.position.begin.value, tradingEngine.current.position.end.value)
         let valuesArray = closeValues.concat(positionValues)
         snapshots.positions.push(valuesArray)
     }
@@ -294,17 +280,17 @@ exports.newSuperalgosBotModulesSnapshots = function (processIndex) {
 
         let closeHeaders = ['Trade Number', 'Open Datetime', 'Close Datetime', 'Strategy Name', 'Trigger On Situation', 'Take Position Situation', 'Result In Base Asset', 'Result In Quoted Asset', 'ROI in Base Asset', 'ROI in Quoted Asset', 'Exit Type']
         closeValues = [
-            tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value,                                     // Position Number
+            tradingEngine.current.episode.episodeCounters.positions.value,                                     // Position Number
             (new Date(openDatetime)).toISOString(),                                                            // Open Datetime
             (new Date(closeDatetime)).toISOString(),                                                           // Open Datetime
-            tradingEngine.tradingCurrent.strategy.strategyName.value,                                                 // Strategy Name
-            tradingEngine.tradingCurrent.strategy.situationName.value,                                                // Trigger On Situation
-            tradingEngine.tradingCurrent.position.situationName.value,                                                // Take Position Situation
-            tradingEngine.tradingCurrent.position.positionBaseAsset.hitFail.value,                                    // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.hitFail.value,                                  // Result in Base Asset
-            tradingEngine.tradingCurrent.position.positionBaseAsset.ROI.value,                                        // ROI in Base Asseet
-            tradingEngine.tradingCurrent.position.positionQuotedAsset.ROI.value,                                      // ROI in Quoted Asset
-            tradingEngine.tradingCurrent.position.exitType.value                                                      // Exit Type
+            tradingEngine.current.strategy.strategyName.value,                                                 // Strategy Name
+            tradingEngine.current.strategy.situationName.value,                                                // Trigger On Situation
+            tradingEngine.current.position.situationName.value,                                                // Take Position Situation
+            tradingEngine.current.position.positionBaseAsset.hitFail.value,                                    // Result in Base Asset
+            tradingEngine.current.position.positionQuotedAsset.hitFail.value,                                  // Result in Base Asset
+            tradingEngine.current.position.positionBaseAsset.ROI.value,                                        // ROI in Base Asseet
+            tradingEngine.current.position.positionQuotedAsset.ROI.value,                                      // ROI in Quoted Asset
+            tradingEngine.current.position.exitType.value                                                      // Exit Type
         ]
 
         if (createCloseHeaders === true) {

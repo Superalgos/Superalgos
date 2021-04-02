@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 6,
+    "pageNumber": "6",
     "type": "TS LF Trading Bot Error - Minimum Balance Reached",
     "definition": {
         "text": "The Trading Session stopped because the minimum balance configured for the session was reached.",

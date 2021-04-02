@@ -207,7 +207,7 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
             */
             switch (true) {
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
-                    if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.tradingCurrent.tradingEpisode.candle.max.value) {
+                    if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.current.episode.candle.max.value) {
                         
                         const message = 'Simulating - Actual Rate Too Hight'
                         let docs = {
@@ -218,23 +218,23 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                         }
                         contextInfo = {
                             previousActualRate: tradingEngineOrder.orderStatistics.actualRate.value,
-                            recalculatedActualRate: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                            recalculatedActualRate: tradingEngine.current.episode.candle.max.value
                         }
                         TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                         tradingSystem.addWarning(
                             [
-                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.tradingCurrent.tradingEpisode.candle.max.id],
+                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.max.id],
                                 message,
                                 docs
                             ]
                         )
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.max.value
                     }
                     break
                 }
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
-                    if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.tradingCurrent.tradingEpisode.candle.min.value) {
+                    if (tradingEngineOrder.orderStatistics.actualRate.value < tradingEngine.current.episode.candle.min.value) {
 
                         const message = 'Simulating - Actual Rate Too Low'
                         let docs = {
@@ -245,18 +245,18 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
                         }
                         contextInfo = {
                             previousActualRate: tradingEngineOrder.orderStatistics.actualRate.value,
-                            recalculatedActualRate: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                            recalculatedActualRate: tradingEngine.current.episode.candle.max.value
                         }
                         TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                         tradingSystem.addWarning(
                             [
-                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.tradingCurrent.tradingEpisode.candle.min.id],
+                                [tradingEngineOrder.orderStatistics.actualRate.id, tradingEngine.current.episode.candle.min.id],
                                 message,
                                 docs
                             ]
                         )
-                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
+                        tradingEngineOrder.orderStatistics.actualRate.value = tradingEngine.current.episode.candle.min.value
                     }
                     break
                 }
@@ -390,13 +390,13 @@ exports.newSuperalgosBotModulesOrdersSimulations = function (processIndex) {
         let orderWasHit
         switch (tradingSystemOrder.type) {
             case 'Limit Buy Order': {
-                if (tradingEngine.tradingCurrent.tradingEpisode.candle.min.value <= tradingEngineOrder.orderStatistics.actualRate.value) {
+                if (tradingEngine.current.episode.candle.min.value <= tradingEngineOrder.orderStatistics.actualRate.value) {
                     orderWasHit = true
                 }
                 break
             }
             case 'Limit Sell Order': {
-                if (tradingEngine.tradingCurrent.tradingEpisode.candle.max.value >= tradingEngineOrder.orderStatistics.actualRate.value) {
+                if (tradingEngine.current.episode.candle.max.value >= tradingEngineOrder.orderStatistics.actualRate.value) {
                     orderWasHit = true
                 }
                 break

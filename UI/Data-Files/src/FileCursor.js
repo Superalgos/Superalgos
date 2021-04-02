@@ -108,11 +108,11 @@ function newFileCursor() {
       endDateRange = pEndDateRange
       eventsServerClient = pEventsServerClient
 
-      let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
+      let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       let callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponseDataSet, updateFiles)
 
-      key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
+      key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
       callerId = key + '-' + periodName + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, callerId, onResponseDataRange, updateDataRange)
 

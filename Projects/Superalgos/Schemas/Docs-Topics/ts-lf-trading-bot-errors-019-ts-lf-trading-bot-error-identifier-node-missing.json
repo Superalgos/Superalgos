@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 19,
+    "pageNumber": "19",
     "type": "TS LF Trading Bot Error - Identifier Node Missing",
     "definition": {
         "text": "An Identifier node was expected but not found at the node where the error originated.",

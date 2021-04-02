@@ -52,22 +52,22 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
     function mantainReset(mantain, reset) {
 
-        if (tradingEngine.tradingCurrent.strategy.index.value === tradingEngine.tradingCurrent.strategy.index.config.initialValue) { return }
+        if (tradingEngine.current.strategy.index.value === tradingEngine.current.strategy.index.config.initialValue) { return }
 
         let stageNode
         let executionNode
 
-        stageNode = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
+        stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].openStage
 
         if (stageNode !== undefined) { // The Open Stage is optional. It might be undefined.
             executionNode = stageNode.openExecution
-            processExecutionNode(executionNode, tradingEngine.tradingCurrent.strategyOpenStage.status.value)
+            processExecutionNode(executionNode, tradingEngine.current.strategyOpenStage.status.value)
         }
 
-        stageNode = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
+        stageNode = tradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].closeStage
         if (stageNode !== undefined) { // The Close Stage is optional. It might be undefined.
             executionNode = stageNode.closeExecution
-            processExecutionNode(executionNode, tradingEngine.tradingCurrent.strategyCloseStage.status.value)
+            processExecutionNode(executionNode, tradingEngine.current.strategyCloseStage.status.value)
         }
 
         function processExecutionNode(executionNode, stageStatus) {
@@ -121,7 +121,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 case 'Not Open': {
                     {
                         /* During the First cycle we can not create new orders. That is reserved for the Second cycle. */
-                        if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'First') { continue }
+                        if (tradingEngine.current.episode.cycle.value === 'First') { continue }
                         /* When the stage is closing we can not create new orders */
                         if (tradingEngineStage.status.value === 'Closing') { continue }
                         /* 
@@ -156,7 +156,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 }
                 case 'Open': {
                     /* During the Second cycle we can not cancel orders. That is reserved for the First cycle. */
-                    if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'Second') { continue }
+                    if (tradingEngine.current.episode.cycle.value === 'Second') { continue }
 
                     /* Simulate Events that happens at the Exchange, if needed. */
                     simulateCheckExchangeEvents(tradingEngineStage, tradingSystemOrder, tradingEngineOrder)
@@ -199,11 +199,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     if (tradingEngineOrder.status.value === 'Closed') {
                         switch (tradingEngineOrder.type) {
                             case 'Market Order': {
-                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
+                                TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.last.limitOrders)
                                 break
                             }
                         }
@@ -354,17 +354,17 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngineStage.stageQuotedAsset.sizePlaced.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineStage.stageQuotedAsset.sizePlaced.value, 10)
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value++
+        tradingEngine.current.episode.episodeCounters.orders.value++
 
         /* Initialize this */
-        tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.createOrder.value = 1
+        tradingEngine.current.episode.distanceToEvent.createOrder.value = 1
 
         /* Create Order Procedure */
         tradingEngineOrder.status.value = 'Open'
         tradingEngineOrder.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
-        tradingEngineOrder.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.begin.value
-        tradingEngineOrder.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
-        tradingEngineOrder.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value
+        tradingEngineOrder.begin.value = tradingEngine.current.episode.cycle.begin.value
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
+        tradingEngineOrder.serialNumber.value = tradingEngine.current.episode.episodeCounters.orders.value
         tradingEngineOrder.orderName.value = tradingSystemOrder.name
         tradingEngineOrder.algorithmName.value = executionAlgorithm.name
         tradingEngineOrder.situationName.value = situationName
@@ -390,7 +390,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 For Market Orders, the rate is irrelevant, since it is not sent to the Exchange.
                 We store at this field the last know price as a reference.
                 */
-                tradingEngineOrder.rate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+                tradingEngineOrder.rate.value = tradingEngine.current.episode.candle.close.value
             }
         }
 
@@ -529,7 +529,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 switch (true) {
                     case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                         if (
-                            tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
+                            tradingEngine.current.episode.episodeQuotedAsset.balance.value - tradingEngineOrder.orderQuotedAsset.size.value < 0
                         ) {
                             const message = 'Possible Negative Balance'
                             let docs = {
@@ -540,26 +540,26 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             contextInfo = {
                                 orderQuotedAssetSize: tradingEngineOrder.orderQuotedAsset.size.value,
-                                episodeQuotedAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
+                                episodeQuotedAssetBalance: tradingEngine.current.episode.episodeQuotedAsset.balance.value
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
-                                    [tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
+                                    [tradingEngine.current.episode.episodeQuotedAsset.balance.id, tradingEngineOrder.orderQuotedAsset.size.id],
                                     message,
                                     docs
                                 ]
                             )
 
-                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
+                            tradingEngineOrder.orderQuotedAsset.size.value = tradingEngine.current.episode.episodeQuotedAsset.balance.value
                             tradingEngineOrder.orderBaseAsset.size.value = tradingEngineOrder.orderQuotedAsset.size.value / tradingEngineOrder.rate.value
                         }
                         break
                     }
                     case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
                         if (
-                            tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
+                            tradingEngine.current.episode.episodeBaseAsset.balance.value - tradingEngineOrder.orderBaseAsset.size.value < 0
                         ) {
                             const message = 'Possible Negative Balance'
                             let docs = {
@@ -570,19 +570,19 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                             }
                             contextInfo = {
                                 orderBaseAssetSize: tradingEngineOrder.orderBaseAsset.size.value,
-                                episodeBaseAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+                                episodeBaseAssetBalance: tradingEngine.current.episode.episodeBaseAsset.balance.value
                             }
                             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
-                                    [tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
+                                    [tradingEngine.current.episode.episodeBaseAsset.balance.id, tradingEngineOrder.orderBaseAsset.size.id],
                                     message,
                                     docs
                                 ]
                             )
 
-                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
+                            tradingEngineOrder.orderBaseAsset.size.value = tradingEngine.current.episode.episodeBaseAsset.balance.value
                             tradingEngineOrder.orderQuotedAsset.size.value = tradingEngineOrder.orderBaseAsset.size.value * tradingEngineOrder.rate.value
                         }
                         break
@@ -674,7 +674,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.exitType.value = 'Filled'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -701,7 +701,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.status.value = 'Closed'
             tradingEngineOrder.exitType.value = 'Closed at the Exchange'
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -737,7 +737,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 tradingEngineOrder.exitType.value = 'Cancelled at the Exchange'
             }
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -808,7 +808,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.exitType.value = 'Filled'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             updateEndsWithCycle(tradingEngineOrder)
 
@@ -961,24 +961,24 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
                     /* Balance Base Asset: Undo the previous accounting */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value +
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value +
                         previousBaseAssetSizeFilled
 
                     /* Balance Base Asset: Account the current filling and fees */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
                         tradingEngineOrder.orderBaseAsset.sizeFilled.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                         previousQuotedAssetSizeFilled +
                         previousQuotedAssetFeesPaid
 
                     /* Balance Quoted Asset: Account the current filling and fees */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value +
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                         tradingEngineOrder.orderQuotedAsset.sizeFilled.value -
                         tradingEngineOrder.orderQuotedAsset.feesPaid.value
                     break
@@ -989,31 +989,31 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
 
                     /* Balance Base Asset: Undo the previous accounting */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value -
                         previousBaseAssetSizeFilled +
                         previousBaseAssetFeesPaid
 
                     /* Balance Base Asset: Account the current filling and fees */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value +
+                    tradingEngine.current.episode.episodeBaseAsset.balance.value =
+                        tradingEngine.current.episode.episodeBaseAsset.balance.value +
                         tradingEngineOrder.orderBaseAsset.sizeFilled.value -
                         tradingEngineOrder.orderBaseAsset.feesPaid.value
 
                     /* Balance Quoted Asset: Undo the previous accounting */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value +
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value +
                         previousQuotedAssetSizeFilled
 
                     /* Balance Quoted Asset: Account the current filling and fees */
-                    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =
-                        tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -
+                    tradingEngine.current.episode.episodeQuotedAsset.balance.value =
+                        tradingEngine.current.episode.episodeQuotedAsset.balance.value -
                         tradingEngineOrder.orderQuotedAsset.sizeFilled.value
                     break
                 }
             }
-            tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value, 10)
-            tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value, 10)
+            tradingEngine.current.episode.episodeBaseAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeBaseAsset.balance.value, 10)
+            tradingEngine.current.episode.episodeQuotedAsset.balance.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngine.current.episode.episodeQuotedAsset.balance.value, 10)
         }
     }
 
@@ -1040,7 +1040,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         tradingEngineOrder.exitType.value = exitType
 
         /* Initialize this */
-        tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+        tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
         updateEndsWithCycle(tradingEngineOrder)
 
@@ -1122,7 +1122,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             tradingEngineOrder.status.value = 'Closed'
 
             /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+            tradingEngine.current.episode.distanceToEvent.closeOrder.value = 1
 
             await updateEndsWithCycle(tradingEngineOrder)
 
@@ -1238,12 +1238,12 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
     function updateEnds(tradingEngineOrder) {
         if (tradingEngineOrder.status.value === 'Open') {
-            tradingEngineOrder.end.value = tradingEngine.tradingCurrent.tradingEpisode.candle.end.value
+            tradingEngineOrder.end.value = tradingEngine.current.episode.candle.end.value
         }
     }
 
     async function updateEndsWithCycle(tradingEngineOrder) {
-        tradingEngineOrder.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.end.value
+        tradingEngineOrder.end.value = tradingEngine.current.episode.cycle.end.value
     }
 
     function updateCounters(tradingEngineOrder) {

@@ -20,8 +20,7 @@
         },
         {
             "style": "List",
-            "text": "Information regarding the physical position and state of all nodes within the design space, even those detached from hierarchies.",
-            "updated": 1615891174248
+            "text": "Information regarding the physical position and state of all nodes within the design space, even those detached from the hierarchies."
         },
         {
             "style": "Text",
@@ -29,6 +28,41 @@
         },
         {
             "style": "Title",
+            "text": "Working With Workspaces"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Saving Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "Workspaces are saved as .json files in the My-Workspaces folder."
+        },
+        {
+            "style": "Text",
+            "text": "They are saved automatically every 60 seconds, or at the moment the browser or browser tab is closed. You may also save it manually using the following hot-key combination:  Ctrl or ⌘ + Shift + Key-S.",
+            "updated": 1610620660591
+        },
+        {
+            "style": "Success",
+            "text": " Backing up a workspace downloads the same file to your local Downloads folder. This is a good way to store old versions in case you ever need to go back to a previous state of affairs.",
+            "updated": 1609946808755
+        },
+        {
+            "style": "Important",
+            "text": " Plugin workspaces may not be modified. When you load a plugin workspace, a new file is created in your My-Workspaces folder as soon as the workspace is saved for the first time, resulting in a copy of the plugin workspace. Any modifications you introduce in the workspace are stored in the copy, not the original plugin.",
+            "updated": 1609946816684
+        },
+        {
+            "style": "Subtitle",
+            "text": "Creating Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "To create a new workspace, rename any of the existing workspaces by changing the label of the workspace node, and save it as explained above. After you change the label and once the workspace is saved (by any of the usual means), a new file is stored in the My-Workspaces folder."
+        },
+        {
+            "style": "Subtitle",
             "text": "Loading Workspaces"
         },
         {
@@ -37,75 +71,14 @@
         },
         {
             "style": "Text",
-            "text": "To load a workspace, click the Workspaces Tab on the left-hand side of the screen and select one of the available files.",
-            "updated": 1615893116990
-        },
-        {
-            "style": "Success",
-            "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab. You may also drag the file and drop it on the design space.",
-            "updated": 1615892822939
-        },
-        {
-            "style": "Title",
-            "text": ""
-        },
-        {
-            "style": "Title",
-            "text": "Saving Workspaces"
+            "text": "To load a workspace, click the workspaces tab on the left-hand side of the screen and select one of the available files."
         },
         {
             "style": "Text",
-            "text": "Workspaces are saved as JSON files in the My-Workspaces folder.",
-            "updated": 1615891202642
+            "text": "To load a workspace you got from a third party, you may place the file in the My-Workspaces folder so that you may open it from the workspaces tab, or you may drag it and drop it on the design space."
         },
         {
-            "style": "Text",
-            "text": "They are saved automatically every 60 seconds, or at the moment the browser or browser tab is closed. You may also save it manually using the following hot-key combination: ",
-            "updated": 1615886048026
-        },
-        {
-            "style": "Text",
-            "text": "Ctrl or Cmd + Shift + Key-S",
-            "updated": 1615891225650
-        },
-        {
-            "style": "Success",
-            "text": "Backing up a workspace downloads the same file to your local Downloads folder. This is a good way to store sequential versions in case you ever need to go back to a previous state of affairs.",
-            "updated": 1615892985307
-        },
-        {
-            "style": "Title",
-            "text": "Plugin Workspaces",
-            "updated": 1615892918302
-        },
-        {
-            "style": "Text",
-            "text": "Superalgos ships with several Plugin Workspaces. These are pre-configured workspaces built for specific purposes, for example, to host tutorials, demo strategies, and so on.",
-            "updated": 1616259409951
-        },
-        {
-            "style": "Text",
-            "text": "In the Workspaces Tab, plugin workspaces are marked with the words \"Plugin\" so that you may differentiate them from your own workspaces."
-        },
-        {
-            "style": "Important",
-            "text": "Plugin workspaces may not be modified. When you load a plugin workspace, a new file is created in your My-Workspaces folder as soon as the workspace is saved for the first time, resulting in a copy of the plugin workspace. The copy is saved with the same name as the plugin but in a different folder. Any modifications you introduce in the workspace are stored in the copy, not the original plugin. Bear in mind that if you don't change the name of the workspace, the file in the My-Workspaces folder will be overwritten if you load the plugin Workspace again. This is because the system will automatically write a file with the same name as the plugin.",
-            "updated": 1615894346258
-        },
-        {
-            "style": "Title",
-            "text": "Creating Workspaces"
-        },
-        {
-            "style": "Text",
-            "text": "To create a new workspace, rename any of the existing workspaces by changing the label of the workspace node, and save it as explained above. After you change the label and once the workspace is saved (by any of the usual means), a new file is stored in the My-Workspaces folder."
-        },
-        {
-            "style": "Success",
-            "text": "The Tested Exchanges plugin workspace is the best to start with if you wish to create your own Trading System."
-        },
-        {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Deleting Workspaces"
         },
         {

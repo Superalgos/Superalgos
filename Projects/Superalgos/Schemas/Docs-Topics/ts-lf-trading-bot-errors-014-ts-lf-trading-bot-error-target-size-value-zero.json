@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 14,
+    "pageNumber": "14",
     "type": "TS LF Trading Bot Error - Target Size Value Zero",
     "definition": {
         "text": "The Target Size can not be zero, and that is what the Formula evaluates at the moment.",

@@ -94,12 +94,12 @@
         },
         {
             "style": "Title",
-            "text": "Trading Episode Counters",
+            "text": "Episode Counters",
             "updated": 1611260075956
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Trading Episode Counters->Definition",
+            "text": "Superalgos->Node->Episode Counters->Definition",
             "updated": 1611260079244
         },
         {
@@ -108,7 +108,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Trading Episode Counters->2",
+            "text": "Superalgos->Episode Counters->2",
             "updated": 1611260082549
         },
         {

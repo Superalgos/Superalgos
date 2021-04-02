@@ -15,8 +15,7 @@
         },
         {
             "style": "Note",
-            "text": "The basic configuration of the tutorial step node is the same as the Tutorial node. Refer to the latter, please.",
-            "updated": 1613846300336
+            "text": "The basic configuration of the tutorial step node is the same as the tutorial node. Refer to the latter, please."
         },
         {
             "style": "Text",
@@ -37,8 +36,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "Messages",
-            "updated": 1613846598199
+            "text": "<H4>Messages</H4>"
         },
         {
             "style": "Text",
@@ -97,14 +95,8 @@
             "text": "key may be any letter or number."
         },
         {
-            "style": "Subtitle",
-            "text": "Changing Node's Configurations",
-            "updated": 1613846731449
-        },
-        {
             "style": "Text",
-            "text": "The batchConfigChangesReferenceParent parameter allows you to edit the configuration of a referenced node and their offspring.",
-            "updated": 1613846892311
+            "text": "Setting up a reference to any node in the design space and using the following parameters allows you to edit the configuration of the referenced nodes and their offspring."
         },
         {
             "style": "Text",
@@ -112,8 +104,8 @@
         },
         {
             "style": "Javascript",
-            "text": "    \"batchConfigChangesReferenceParent\": [\n        {\n            \"nodePath\": \"referenceParent.timeScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"fromDate\": \"2020-08-31T23:40:00.000Z\",\n                \"toDate\": \"2020-09-01T01:00:00.000Z\"\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.rateScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"minValue\": 11400,\n                \"maxValue\": 11800\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.timeFrameScale\",\n            \"properties\": {\n                \"value\": \"01-min\"\n            }\n        }\n    ]",
-            "updated": 1613846829780
+            "text": "\"batchConfigChangesReferenceParent\": [\n{\n\"nodePath\": \"referenceParent.timeScale\",\n\"properties\": {\n\"autoMinScale\": false,\n\"autoMaxScale\": false,\n\"fromDate\": \"2020-08-31T23:40:00.000Z\",\n\"toDate\": \"2020-09-01T01:00:00.000Z\"\n}\n},\n{\n\"nodePath\": \"referenceParent.rateScale\",\n\"properties\": {\n\"autoMinScale\": false,\n\"autoMaxScale\": false,\n\"minValue\": 11400,\n\"maxValue\": 11800\n}\n},\n{\n\"nodePath\": \"referenceParent.timeFrameScale\",\n\"properties\": {\n\"value\": \"01-min\"\n}\n}\n]",
+            "updated": 1609706585341
         }
     ]
 }

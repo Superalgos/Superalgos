@@ -1,8 +1,8 @@
 {
     "type": "Project",
     "definition": {
-        "text": "The Superalgos infrastructure integrates different projects. The main goal of these integrations is to automate cross-project operations, extracting valuable information from blockchains or the particular domain of each project to be used on Trading Systems.",
-        "updated": 1613841611271
+        "text": "Superalgos is a platform that integrates different projects with the goal of automating operation acrross any of them, and extracting valuable information from their own blockchains in order to use them in trading strategies.",
+        "updated": 1609144195229
     },
     "paragraphs": [
         {

@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 34,
+    "pageNumber": "34",
     "type": "TS LF Trading Bot Error - Fees Paid Node Missing",
     "definition": {
         "text": "A Fees Paid node was expected but not found at the node where the error originated.",

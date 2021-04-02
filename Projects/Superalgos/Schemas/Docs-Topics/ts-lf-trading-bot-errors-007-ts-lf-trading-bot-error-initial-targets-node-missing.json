@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 7,
+    "pageNumber": "7",
     "type": "TS LF Trading Bot Error - Initial Targets Node Missing",
     "definition": {
         "text": "An Initial Targets node was expected but not found at the node where the error originated.",

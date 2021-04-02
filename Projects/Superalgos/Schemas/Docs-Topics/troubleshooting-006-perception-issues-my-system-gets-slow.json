@@ -56,8 +56,7 @@
         },
         {
             "style": "Text",
-            "text": "Make sure you set the Time Scale to manual mode and adjust it so that fewer candles are displayed on the screen. Try switching the time frame box to the higher time frames so that candle density decreases.",
-            "updated": 1615810255059
+            "text": "Make sure you set the time scale to manual mode and adjust it so that fewer candles are displayed on the screen. Try switching the time frame box to the higher time frames so that candle density decreases."
         },
         {
             "style": "Text",

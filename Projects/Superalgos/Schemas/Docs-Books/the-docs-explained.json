@@ -7,13 +7,13 @@
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Superalgos->Topic->Docs Basics->Read Chapter I to learn the basic concepts; the foundation that will help you understand the commands and styles explained later in the book.",
-            "updated": 1613763974146
+            "text": "I->Superalgos->Topic->Docs Basics->Read Chapter I to learn the basics concepts. They are the foundation that will let you understand the commands and styles explained later in this book.",
+            "updated": 1609763076399
         },
         {
             "style": "Chapter",
-            "text": "II->Superalgos->Topic->Docs Commands->The Docs include a powerful command line interface that allows you to quickly fire commands from the search box. Dive into Chapter II to learn the details of each command.",
-            "updated": 1613764005330
+            "text": "II->Superalgos->Topic->Docs Commands->The Docs include a powerful command line interface that allows you to quickly fire commands from the search box. Dive into Chapter II to learn the details of each available command.",
+            "updated": 1609763122458
         },
         {
             "style": "Chapter",

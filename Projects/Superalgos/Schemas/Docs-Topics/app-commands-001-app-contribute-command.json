@@ -8,35 +8,14 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "This command will send all the changes you have made both at Docs pages but also at any file within the Superalgos Repository to your fork at Github.com and from there to the main Superalgos Repository. It will do it specifically from the Current Branch to the Contributions Branch mentioned at the footer of this page. ",
-            "updated": 1615288848213
-        },
-        {
-            "style": "Important",
-            "text": "Contributions in most cases needs to come from the develop branch to the develop branch unless you have previously agreed with team members that you will send a contribution from master to master."
-        },
-        {
-            "style": "Text",
-            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead all contributions are expected to go to the develop branch, where there are many users testing that branch every day, and the contribution will reach the master branch at the next relrease.",
-            "updated": 1615288915134
-        },
-        {
-            "style": "Note",
-            "text": "It is also very unlikely that contributions coming from the master branch will be merged into the develop branch, since that can usually lead to merging conflicts. "
-        },
-        {
-            "style": "Text",
-            "text": "So be sure that your Current Branch is develop and the Contribution Branch is develop before submitting your contribution. "
-        },
-        {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "updated": 1609943337280
         },
         {
             "style": "Javascript",
-            "text": "app.contribute [Message]",
-            "updated": 1615461375106
+            "text": "docs.contribute Message",
+            "updated": 1609943744230
         },
         {
             "style": "Title",
@@ -54,8 +33,8 @@
         },
         {
             "style": "Javascript",
-            "text": "app.contribute Fixed typo.",
-            "updated": 1615461382913
+            "text": "docs.contribute Fixed typo.",
+            "updated": 1610742512175
         },
         {
             "style": "Title",

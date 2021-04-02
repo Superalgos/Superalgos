@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 27,
+    "pageNumber": "27",
     "type": "TS LF Trading Bot Error - Order Statistics Node Missing",
     "definition": {
         "text": "An Order Statistics node was expected but not found at the node where the error originated.",

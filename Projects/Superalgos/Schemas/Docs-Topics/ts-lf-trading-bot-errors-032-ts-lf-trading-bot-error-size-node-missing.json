@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 32,
+    "pageNumber": "32",
     "type": "TS LF Trading Bot Error - Size Node Missing",
     "definition": {
         "text": "A Size node was expected but not found at the node where the error originated.",

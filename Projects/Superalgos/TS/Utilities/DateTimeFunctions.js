@@ -8,20 +8,19 @@ exports.newSuperalgosUtilitiesDateTimeFunctions = function () {
 
     return thisObject
 
-    function removeTime(datetime) {
+    function  removeTime (datetime) {
         let date = new Date(datetime)
         return new Date(date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
     }
 
     function getPercentage(fromDate, currentDate, lastDate) {
-        let fromDays = fromDate.valueOf()
-        let currentDays = currentDate.valueOf()
-        let lastDays = lastDate.valueOf()
+        let fromDays = Math.trunc(fromDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+        let currentDays = Math.trunc(currentDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+        let lastDays = Math.trunc(lastDate.valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
         let percentage = (currentDays - fromDays) * 100 / (lastDays - fromDays)
         if ((lastDays - fromDays) === 0) {
             percentage = 100
         }
-        if (percentage > 100) { percentage = 100 }
         return percentage
     }
 

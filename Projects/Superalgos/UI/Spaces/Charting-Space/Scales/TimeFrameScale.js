@@ -8,7 +8,6 @@ function newTimeFrameScale() {
         payload: undefined,
         isVisible: true,
         layersOn: undefined,
-        onKeyPressed: onKeyPressed,
         adjustTimeFrame: adjustTimeFrame,
         onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
         draw: draw,
@@ -82,17 +81,6 @@ function newTimeFrameScale() {
         onViewportZoomChangedEventSubscriptionId = UI.projects.superalgos.spaces.chartingSpace.viewport.eventHandler.listenToEvent('Zoom Changed', onViewportZoomChanged)
         onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
         onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
-    }
-
-    function onKeyPressed(event) {
-        if (event.code === "ArrowUp") {
-            event.delta = 1
-            onMouseWheel(event)
-        }
-        if (event.code === "ArrowDown") {
-            event.delta = -1
-            onMouseWheel(event)
-        }
     }
 
     function onMouseOverSomeTimeMachineContainer(event) {

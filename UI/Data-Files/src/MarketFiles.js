@@ -177,7 +177,7 @@ function newMarketFiles() {
               }
 
               if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
-                let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
+                let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.name + '-' + market.baseAsset + '/' + market.quotedAsset
                 let callerId = key + '-' + periodName + newUniqueId()
                 eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 

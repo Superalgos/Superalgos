@@ -892,7 +892,6 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -907,8 +906,6 @@ function newSuperalgosTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
-
         navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
@@ -1200,9 +1197,6 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.controlDocs !== undefined) {
             if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
-            } 
-            if (nodeConfig.controlDocs.searchPage === true) {
-                UI.projects.superalgos.spaces.docsSpace.searchPage()
             }
         } else {
             UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)

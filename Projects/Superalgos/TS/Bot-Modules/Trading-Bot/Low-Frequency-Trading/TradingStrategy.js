@@ -38,50 +38,50 @@ exports.newSuperalgosBotModulesTradingStrategy = function (processIndex) {
 
     function openStrategy(index, situationName, strategyName) {
         /* Starting begin and end */
-        tradingEngine.tradingCurrent.strategy.begin.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastBegin.value
-        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
+        tradingEngine.current.strategy.begin.value = tradingEngine.current.episode.cycle.lastBegin.value
+        tradingEngine.current.strategy.end.value = tradingEngine.current.episode.cycle.lastEnd.value
 
         /* Recording the opening at the Trading Engine Data Structure */
-        tradingEngine.tradingCurrent.strategy.status.value = 'Open'
-        tradingEngine.tradingCurrent.strategy.serialNumber.value = tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.strategies.value
-        tradingEngine.tradingCurrent.strategy.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
-        tradingEngine.tradingCurrent.strategy.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
+        tradingEngine.current.strategy.status.value = 'Open'
+        tradingEngine.current.strategy.serialNumber.value = tradingEngine.current.episode.episodeCounters.strategies.value
+        tradingEngine.current.strategy.identifier.value = TS.projects.superalgos.utilities.miscellaneousFunctions.genereteUniqueId()
+        tradingEngine.current.strategy.beginRate.value = tradingEngine.current.episode.candle.min.value
 
-        tradingEngine.tradingCurrent.strategy.index.value = index
-        tradingEngine.tradingCurrent.strategy.situationName.value = situationName
-        tradingEngine.tradingCurrent.strategy.strategyName.value = strategyName
+        tradingEngine.current.strategy.index.value = index
+        tradingEngine.current.strategy.situationName.value = situationName
+        tradingEngine.current.strategy.strategyName.value = strategyName
 
         /* Updating Episode Counters */
-        tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.strategies.value++
+        tradingEngine.current.episode.episodeCounters.strategies.value++
     }
 
     function closeStrategy(exitType) {
-        tradingEngine.tradingCurrent.strategy.status.value = 'Closed'
-        tradingEngine.tradingCurrent.strategy.exitType.value = exitType
-        tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
-        tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.min.value
+        tradingEngine.current.strategy.status.value = 'Closed'
+        tradingEngine.current.strategy.exitType.value = exitType
+        tradingEngine.current.strategy.end.value = tradingEngine.current.episode.cycle.lastEnd.value
+        tradingEngine.current.strategy.endRate.value = tradingEngine.current.episode.candle.min.value
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.strategy, tradingEngine.tradingLast.strategy)
+        TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.current.strategy, tradingEngine.last.strategy)
     }
 
     function updateEnds() {
-        if (tradingEngine.tradingCurrent.strategy.status.value === 'Open') {
-            tradingEngine.tradingCurrent.strategy.end.value = tradingEngine.tradingCurrent.strategy.end.value + sessionParameters.timeFrame.config.value
-            tradingEngine.tradingCurrent.strategy.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+        if (tradingEngine.current.strategy.status.value === 'Open') {
+            tradingEngine.current.strategy.end.value = tradingEngine.current.strategy.end.value + sessionParameters.timeFrame.config.value
+            tradingEngine.current.strategy.endRate.value = tradingEngine.current.episode.candle.close.value
         }
     }
 
     function resetTradingEngineDataStructure() {
-        if (tradingEngine.tradingCurrent.strategy.status.value === 'Closed') {
-            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.strategy)
+        if (tradingEngine.current.strategy.status.value === 'Closed') {
+            TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.current.strategy)
         }
     }
 
     function updateCounters() {
-        if (tradingEngine.tradingCurrent.strategy.status.value === 'Open') {
-            tradingEngine.tradingCurrent.strategy.strategyCounters.periods.value++
+        if (tradingEngine.current.strategy.status.value === 'Open') {
+            tradingEngine.current.strategy.strategyCounters.periods.value++
         }
     }
 }

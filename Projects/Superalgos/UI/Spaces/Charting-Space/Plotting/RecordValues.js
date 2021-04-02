@@ -1,7 +1,7 @@
 function newRecordValues() {
     const MODULE_NAME = 'Record Values'
     const logger = newWebDebugLog()
-
+    
 
     let thisObject = {
         onRecordChange: onRecordChange,
@@ -11,8 +11,6 @@ function newRecordValues() {
 
     let tradingSystem
     let tradingEngine
-    let learningSystem
-    let learningEngine
     let productDefinition
     let propertyTargetNodeMap = new Map()
     return thisObject
@@ -20,25 +18,13 @@ function newRecordValues() {
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
-        learningSystem = undefined
-        learningEngine = undefined
         productDefinition = undefined
         propertyTargetNodeMap = undefined
     }
 
-    function initialize(pTradingOrLearningSystem, pTradingOrLearningEngine, pProductDefinition) {
-        if (pTradingOrLearningSystem.type === 'Trading System') {
-            tradingSystem = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningSystem.id)
-        }
-        if (pTradingOrLearningSystem.type === 'Learning System') {
-            learningSystem = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningSystem.id)
-        }
-        if (pTradingOrLearningEngine.type === 'Trading Engine') {
-            tradingEngine = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningEngine.id)
-        }
-        if (pTradingOrLearningEngine.type === 'Learning Engine') {
-            learningEngine = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningEngine.id)
-        }
+    function initialize(pTradingSystem, pTradingEngine, pProductDefinition) {
+        tradingSystem = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingSystem.id)
+        tradingEngine = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingEngine.id)
         productDefinition = pProductDefinition
 
         /*
@@ -81,7 +67,7 @@ function newRecordValues() {
                     let propertyRoot
                     try {
                         propertyRoot = eval(property.config.nodePath)
-                    } catch (err) {
+                    } catch(err) {
                         console.log('Definition Error at Product ' + productDefinition.name)
                         console.log('productDefinition.config = ' + JSON.stringify(productDefinition.config))
                         console.log('Definition Error at Property ' + property.name)

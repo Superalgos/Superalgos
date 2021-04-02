@@ -78,17 +78,9 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
                         }
-                        if (project.pluginLearningMines !== undefined) {
-                            totalPlugin = totalPlugin + project.pluginLearningMines.pluginFiles.length
-                            pluginAllTheseFiles(project.pluginLearningMines.pluginFiles, 'Learning-Mines')
-                        }
-                        if (project.pluginLearningSystems !== undefined) {
-                            totalPlugin = totalPlugin + project.pluginLearningSystems.pluginFiles.length
-                            pluginAllTheseFiles(project.pluginLearningSystems.pluginFiles, 'Learning-Systems')
-                        }
-                        if (project.pluginLearningEngines !== undefined) {
-                            totalPlugin = totalPlugin + project.pluginLearningEngines.pluginFiles.length
-                            pluginAllTheseFiles(project.pluginLearningEngines.pluginFiles, 'Learning-Engines')
+                        if (project.pluginSuperScripts !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginSuperScripts.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginSuperScripts.pluginFiles, 'Super-Scripts')
                         }
                         if (project.pluginTutorials !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length

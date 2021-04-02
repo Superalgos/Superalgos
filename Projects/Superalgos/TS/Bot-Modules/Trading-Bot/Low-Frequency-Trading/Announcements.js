@@ -37,7 +37,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                     conditionValue = eval(announcement.announcementCondition.code)
                 } catch (err) {
 
-                    const message = 'Announcement Condition Evaluation Error'
+                    const message = 'Annoucement Condition Evaluation Error'
                     let docs = {
                         project: 'Superalgos',
                         category: 'Topic',
@@ -53,29 +53,8 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
             }
             if (canAnnounce === true) {
                 let text = announcement.config.text
-                if (announcement.announcementFormula !== undefined) {
-                    let formulaValue
-                    let errorMessage
-
-                    try {
-                        formulaValue = eval(announcement.announcementFormula.code)
-                    } catch (err) {
-
-                        errorMessage = err.message
-                        const message = 'Announcement Formula Evaluation Error'
-                        let docs = {
-                            project: 'Superalgos',
-                            category: 'Topic',
-                            type: 'TS LF Trading Bot Error - ' + message,
-                            placeholder: {}
-                        }
-
-                        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementFormula.name, announcement.announcementFormula.code, undefined, undefined, undefined)
-
-                        tradingSystem.addError([announcement.announcementFormula.id, err.message, docs])
-                    }
-                    if (errorMessage == undefined) { text = formulaValue }
-
+                if (announcement.formula !== undefined) {
+                    text = tradingSystem.formulas.get(announcement.formula.id)
                 }
 
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {

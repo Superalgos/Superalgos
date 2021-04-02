@@ -518,22 +518,6 @@ text-decoration: none;
 color: #ffd1a9;
 }
 
-.docs-footer-language {
-width: 30px;
-margin-top: 7px;
-padding: 7 7px;
-}
-
-.docs-footer-language-selected {
-    width: 30px;
-    margin-top: 7px;
-    padding: 7 7px;
-    background-color: rgba(230, 234, 234, 0.2);
-/* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
-border: 1px solid rgba(200, 200, 200, .5);
-border-radius: 3px;
-    }
-
 
 /* DELETE candidate
 .docs-footer-body {

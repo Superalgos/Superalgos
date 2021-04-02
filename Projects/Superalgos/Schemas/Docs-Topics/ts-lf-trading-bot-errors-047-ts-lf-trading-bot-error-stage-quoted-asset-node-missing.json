@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 47,
+    "pageNumber": "47",
     "type": "TS LF Trading Bot Error - Stage Quoted Asset Node Missing",
     "definition": {
         "text": "A Stage Quoted Asset node was expected but not found at the node where the error originated.",

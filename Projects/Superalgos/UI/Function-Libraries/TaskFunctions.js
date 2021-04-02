@@ -123,7 +123,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Project Data Tasks->Project Trading Tasks->Project Learning Tasks->Project Definition->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->' +
-            'Back Learning Session->Live Learning Session->' +
+            'Learning Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -158,8 +158,6 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Project Data Products->Project Trading Products->Project Learning Products->' +
             'Exchange Data Products->Exchange Trading Products->Exchange Learning Products->' +
             'Market Data Products->Market Trading Products->Market Learning Products->' +
-            'Market->Market Base Asset->Market Quoted Asset->Asset->' + 
-            'Exchange Markets->Crypto Exchange->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
             'Data Product->Product Definition->' +
@@ -171,7 +169,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Task Manager->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Back Learning Session->Live Learning Session->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Learning Session->' +
             'Market->' +
             'Process Definition->'
 
@@ -719,28 +717,23 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
         }
 
         function addDataTasks() {
-            addTasks()
+            addTaskForTradinSystem()
         }
 
         function addLearningTasks() {
-            for (let i = 0; i < rootNodes.length; i++) {
-                let rootNode = rootNodes[i]
-                if (rootNode.type === 'Learning System') {
-                    addTasks(rootNode)
-                }
-            }
+            addTaskForTradinSystem()
         }
 
         function addTradingTasks() {
             for (let i = 0; i < rootNodes.length; i++) {
                 let rootNode = rootNodes[i]
                 if (rootNode.type === 'Trading System') {
-                    addTasks(rootNode)
+                    addTaskForTradinSystem(rootNode)
                 }
             }
         }
 
-        function addTasks(systemNode) {
+        function addTaskForTradinSystem(tradingSystem) {
             let mine = node.payload.referenceParent
 
             addTasksForBotArray(mine.sensorBots)
@@ -754,157 +747,123 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                 for (let i = 0; i < botsArray.length; i++) {
                     let bot = botsArray[i]
 
+                    let task = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
+
+                    if (tradingSystem !== undefined) {
+                        task.name = tradingSystem.name
+                    } else {
+                        task.name = bot.name
+                    }
+
                     let botInstance
                     switch (bot.type) {
                         case 'Sensor Bot': {
-                            let task = addTask(taskManager)
-
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
                             botInstance.name = bot.name
-
-                            addProcessInstance(task, bot, botInstance)
                             break
                         }
                         case 'Indicator Bot': {
-                            let task = addTask(taskManager)
-
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Indicator Bot Instance')
                             botInstance.name = bot.name
-
-                            addProcessInstance(task, bot, botInstance)
                             break
                         }
                         case 'Trading Bot': {
-                            let task = addTask(taskManager)
-
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Trading Bot Instance')
                             botInstance.name = bot.name
-
-                            addProcessInstance(task, bot, botInstance)
                             break
                         }
                         case 'Learning Bot': {
-                            let task 
-                            /*
-                            For Learning Bots we will add two Tasks, each one with a different
-                            Session Type.
-                            */
-                            task = addTask(taskManager)
-                            task.name = 'Back '  + task.name 
-
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
-                            botInstance.name = 'Back ' + bot.name
-
-                            addProcessInstance(task, bot, botInstance, 'Back Learning Session')
-
-                            task = addTask(taskManager)
-                            task.name = 'Live '  + task.name 
-
-                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
-                            botInstance.name = 'Live ' + bot.name
-
-                            addProcessInstance(task, bot, botInstance, 'Live Learning Session')
+                            botInstance.name = bot.name
                             break
                         }
                     }
 
-                    function addTask(taskManager){
-                        let task = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
+                    for (let j = 0; j < bot.processes.length; j++) {
+                        let process = bot.processes[j]
+                        let processInstance
+                        switch (bot.type) {
+                            case 'Sensor Bot': {
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                processInstance.payload.referenceParent = process
+                                break
+                            }
+                            case 'Indicator Bot': {
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
+                                processInstance.payload.referenceParent = process
+                                break
+                            }
+                            case 'Trading Bot': {
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
+                                processInstance.payload.referenceParent = process
 
-                        if (systemNode !== undefined) {
-                            task.name = systemNode.name
-                        } else {
-                            task.name = bot.name
-                        }
-                        return task
-                    }
+                                if (node.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
+                                if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
 
-                    function addProcessInstance(task, bot, botInstance, sessionType) {
-                        for (let j = 0; j < bot.processes.length; j++) {
-                            let process = bot.processes[j]
-                            let processInstance
-                            switch (bot.type) {
-                                case 'Sensor Bot': {
-                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
-                                    processInstance.payload.referenceParent = process
-                                    break
-                                }
-                                case 'Indicator Bot': {
-                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
-                                    processInstance.payload.referenceParent = process
-                                    break
-                                }
-                                case 'Trading Bot': {
-                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
-                                    processInstance.payload.referenceParent = process
-    
-                                    if (node.payload.parentNode === undefined) { return }
-                                    if (node.payload.parentNode.payload === undefined) { return }
-                                    if (node.payload.parentNode.payload.parentNode === undefined) { return }
-                                    if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
-                                    if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-                                    if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-    
-                                    let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-                                    let session
-    
-                                    switch (environment.type) {
-                                        case 'Testing Trading Tasks': {
-                                            addSession('Backtesting Session')
-                                            break
-                                        }
-                                        case 'Production Trading Tasks': {
-                                            addSession('Live Trading Session')
-                                            break
-                                        }
+                                let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+                                let session
+
+                                switch (environment.type) {
+                                    case 'Testing Trading Tasks': {
+                                        addSession('Backtesting Session')
+                                        break
                                     }
-                                    break
-    
-                                    function addSession(sessionType) {
-                                        session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
-                                        session.name = task.name
-                                        let config = JSON.parse(session.config)
-                                        config.folderName = session.name.split(" ").join("-")
-                                        session.config = JSON.stringify(config)
-    
-                                        for (let m = 0; m < rootNodes.length; m++) {
-                                            let rootNode = rootNodes[m]
-                                            if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
-                                                let tradingEngine = rootNode
-                                                session.tradingEngineReference.payload.referenceParent = tradingEngine
-                                                session.tradingSystemReference.payload.referenceParent = systemNode
-                                            }
-                                        }
+                                    case 'Production Trading Tasks': {
+                                        addSession('Live Trading Session')
+                                        break
                                     }
                                 }
-                                case 'Learning Bot': {
-                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
-                                    processInstance.payload.referenceParent = process
-    
-                                    let session
-                                    addSession(sessionType)
-                                    break
-    
-                                    function addSession(sessionType) {
-                                        session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
-                                        session.name = task.name
-                                        let config = JSON.parse(session.config)
-                                        config.folderName = session.name.split(" ").join("-")
-                                        session.config = JSON.stringify(config)
-    
-                                        for (let m = 0; m < rootNodes.length; m++) {
-                                            let rootNode = rootNodes[m]
-                                            if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {
-                                                let learningEngine = rootNode
-                                                session.learningEngineReference.payload.referenceParent = learningEngine
-                                                session.learningSystemReference.payload.referenceParent = systemNode
-                                            }
+                                break
+
+                                function addSession(sessionType) {
+                                    session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session.name = task.name
+                                    let config = JSON.parse(session.config)
+                                    config.folderName = session.name.split(" ").join("-")
+                                    session.config = JSON.stringify(config)
+
+                                    for (let m = 0; m < rootNodes.length; m++) {
+                                        let rootNode = rootNodes[m]
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
+                                            let tradingEngine = rootNode
+                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
                                         }
                                     }
                                 }
                             }
-                            processInstance.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                            case 'Learning Bot': {
+                                processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
+                                processInstance.payload.referenceParent = process
+
+                                let session
+
+                                addSession('Learning Session')
+                                break
+
+                                function addSession(sessionType) {
+                                    session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
+                                    session.name = task.name
+                                    let config = JSON.parse(session.config)
+                                    config.folderName = session.name.split(" ").join("-")
+                                    session.config = JSON.stringify(config)
+
+                                    for (let m = 0; m < rootNodes.length; m++) {
+                                        let rootNode = rootNodes[m]
+                                        if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
+                                            let tradingEngine = rootNode
+                                            session.tradingEngineReference.payload.referenceParent = tradingEngine
+                                            session.tradingSystemReference.payload.referenceParent = tradingSystem
+                                        }
+                                    }
+                                }
+                            }
                         }
+                        processInstance.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                     }
                 }
             }

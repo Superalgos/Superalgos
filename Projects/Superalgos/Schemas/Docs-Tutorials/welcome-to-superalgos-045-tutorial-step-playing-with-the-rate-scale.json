@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 45,
+    "type": "Tutorial Step - Playing with the Rate Scale!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "rate-scale"
+        },
+        "text": "Do I need to tell you how the Rate Scale works or can you figure it out on your own? Ok... I'll give you a hint..."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The rate scale works like the time scale! Check the video coming next for clarity!"
+        },
+        {
+            "style": "Note",
+            "text": "There's one more scale to work with. I'll tell you all about it after the video."
+        },
+        {
+            "style": "Success",
+            "text": "Play with the semi-automatic scale modes too! You know, when a single tiny triangle remains visible after a few flicks of the mouse wheel."
+        }
+    ]
+}

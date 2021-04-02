@@ -1,0 +1,26 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Are We Up to Date?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-process-instance"
+        },
+        "text": "By now, all processes should be at 100%. When that happens, we refer to the data mining operation as being up to date."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When all processes are up to date, the bots keep running, processing information in realtime as it is produced at the exchange. That is, the data mining operation doesn't stop unless you stop it!"
+        },
+        {
+            "style": "Callout",
+            "text": "Look around and see if all processes are at 100%"
+        },
+        {
+            "style": "Text",
+            "text": "To run a Live Trading Session, you need a constant feed of information from the exchange, being processed in realtime, so that the Trading Bot may apply the rules of your Trading System to make live trading decisions."
+        }
+    ]
+}

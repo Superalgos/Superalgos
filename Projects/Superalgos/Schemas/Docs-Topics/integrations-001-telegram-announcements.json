@@ -4,14 +4,7 @@
     "type": "Telegram Announcements",
     "definition": {
         "text": "Setup a Telegram bot to broadcast the activity of trading sessions to a Telegram group. You may produce plain-text or dynamic-content announcements at every event in your trading systems.",
-        "updated": 1611484869105,
-        "translations": [
-            {
-                "language": "ID",
-                "text": "Penyiapan Telegram bot untuk membroadcast aktivitas dari sesi trading ke grup Telegram. Kamu dapat membuat plain-text atau pengumuman berbentuk dynamic-contenct  di setiap event pada trading sistem milikmu.",
-                "updated": 1616926732019
-            }
-        ]
+        "updated": 1611484869105
     },
     "paragraphs": [
         {
@@ -21,36 +14,15 @@
         },
         {
             "style": "Text",
-            "text": "The announcements feature allows users to set up notifications tied to specific events, and triggered once each particular event becomes active while running any of the available types of trading sessions.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Fitur pengumuman memungkinkan pengguna untuk mengatur pemberitahuan yang terkait dengan event tertentu, dan terpicu setelah setiap event menjadi aktif saat menjalankan salah satu jenis sesi trading yang tersedia.",
-                    "updated": 1616927035635
-                }
-            ]
+            "text": "The announcements feature allows users to set up notifications tied to specific events, and triggered once each particular event becomes active while running any of the available types of trading sessions."
         },
         {
             "style": "Text",
-            "text": "You may use this feature to stay informed about the actions of your strategies while trading live, or to broadcast signals over a Telegram group while paper trading, for instance.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu akan menggunakan fitur ini tetap mendapat informasi tentang tindakan dari strategi saat live trading, atau untuk membroadcast sinyal melalui grup Telegram, misalnya paper trading.",
-                    "updated": 1616927218638
-                }
-            ]
+            "text": "You may use this feature to stay informed about the actions of your strategies while trading live, or to broadcast signals over a Telegram group while paper trading, for instance."
         },
         {
             "style": "Text",
-            "text": "Supported events are:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Events yang didukung:",
-                    "updated": 1616927255808
-                }
-            ]
+            "text": "Supported events are:"
         },
         {
             "style": "List",
@@ -70,48 +42,20 @@
         },
         {
             "style": "Text",
-            "text": "In addition, you can implement announcements at the level of stop and take profit phases, a particular case that shall be discussed too.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Selain itu, kamu dapat mengimplementasikan pengumuman di level fase stop dan take profit, hal-hal lain juga akan kita bahas nantinya.",
-                    "updated": 1616927456192
-                }
-            ]
+            "text": "In addition, you can implement announcements at the level of stop and take profit phases, a particular case that shall be discussed too."
         },
         {
             "style": "Text",
-            "text": "The current implementation is based on broadcasting announcements via Telegram bots. The system uses Telegram’s bots API to interact with a Telegram bot you will create. The bot will be added as a user in the Telegram group of your choice in which it will deliver the announcements as per the configuration you will set up in the system.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Implementasi pada saat ini berdasar pada membroadcast pengumuman dari Telegram bot. Sistem menggunakan Telegram bot API untuk menghubungkan Telegram bot yang kamu buat. Bot akan ditambahkan sebagai user di Telegram grup pilihanmu yang akan mengirimkan pengumuman sesuai konfigurasi yang kamu atur pada sistem.",
-                    "updated": 1616927659463
-                }
-            ]
+            "text": "The current implementation is based on broadcasting announcements via Telegram bots. The system uses Telegram’s bots API to interact with a Telegram bot you will create. The bot will be added as a user in the Telegram group of your choice in which it will deliver the announcements as per the configuration you will set up in the system."
         },
         {
             "style": "Title",
-            "text": "Setting Up a Telegram Bot and a Telegram Group",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Menyiapkan Telegram Bot dan Telegram Grup",
-                    "updated": 1616927728752
-                }
-            ]
+            "text": "Setting Up a Telegram Bot and a Telegram Group"
         },
         {
             "style": "Text",
             "text": "Telegram’s documentation explains the details of how to use Telegram bots:",
-            "updated": 1611485108327,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Dokumentasi Telegram menjelaskan secara detail cara menggunakan Telegram bot:",
-                    "updated": 1616927702979
-                }
-            ]
+            "updated": 1611485108327
         },
         {
             "style": "Link",
@@ -120,153 +64,62 @@
         },
         {
             "style": "Text",
-            "text": "You may choose to read Telegram’s documentation or simple follow the next few steps, which have been extracted for your convenience:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu dapat memilih untuk membaca dokumentasi Telegram atau mengikuti beberapa step berikut, yang telah diekstrak untuk kemudahanmu:",
-                    "updated": 1616927824426
-                }
-            ]
+            "text": "You may choose to read Telegram’s documentation or simple follow the next few steps, which have been extracted for your convenience:"
         },
         {
             "style": "List",
             "text": "1. Go to Telegram and find the user @BotFather: You may use the link or simply search for the user.",
-            "updated": 1611485257909,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "1. Pergi ke Telegram dan cari user @BotFather: Kamu dapat menggunakan tautan atau langsung mencari user.",
-                    "updated": 1616927906032
-                }
-            ]
+            "updated": 1611485257909
         },
         {
             "style": "List",
             "text": "2. Type and send /newbot: BotFather will ask you to pick a name for your bot. Once the name is set, it will respond with the token (a text string) to access the HTTP API.",
-            "updated": 1611485277898,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "2. Ketik dan kirimkan /newbot: BotFather akan memintamu untuk memasukkan nama bot. Setelah ditetapkan, ia akan merespon dengan token (sebuah text string) untuk mengakses HTTP API.",
-                    "updated": 1616928012542
-                }
-            ]
+            "updated": 1611485277898
         },
         {
             "style": "Text",
-            "text": "You will need this token at a later time.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu akan membuuhkan token ini nantinya.",
-                    "updated": 1616928036024
-                }
-            ]
+            "text": "You will need this token at a later time."
         },
         {
             "style": "List",
             "text": "3. Create a Telegram: Your bot will broadcast the announcements here.",
-            "updated": 1611485421498,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "3. Buat Telegram Grup: Bot-mu akan membroadcast pengumuman disini nantinya.",
-                    "updated": 1616928100241
-                }
-            ]
+            "updated": 1611485421498
         },
         {
             "style": "List",
             "text": "4. Add your bot in the group: And add @myidbot as user in the group too.",
-            "updated": 1611485472896,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "4. Tambahkan bot-mu kedalam grup: Dan tambahkan juga @myidbot sebagai user didalamnya.",
-                    "updated": 1616928168243
-                }
-            ]
+            "updated": 1611485472896
         },
         {
             "style": "List",
             "text": "5. Type and send /getgroupid in the group: IDBot will answer with the group’s ID.",
-            "updated": 1611485491256,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "5. Ketik dan kirimkan /getgroupid didalam grup: IDBot akan menjawab dengan sebuah group’s ID.",
-                    "updated": 1616928215518
-                }
-            ]
+            "updated": 1611485491256
         },
         {
             "style": "Text",
-            "text": "You will need this ID at a later time.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu juga akan membutuhkan ID ini nantinya.",
-                    "updated": 1616928242124
-                }
-            ]
+            "text": "You will need this ID at a later time."
         },
         {
             "style": "Title",
-            "text": "Setting Up the Telegram Bot in Superalgos",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Menyiapkan Bot Telegram di Superalgos",
-                    "updated": 1616928254405
-                }
-            ]
+            "text": "Setting Up the Telegram Bot in Superalgos"
         },
         {
             "style": "Text",
-            "text": "You will set up your bot in a backtesting session, so that you may easily test the announcements.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu akan mensetup bot pada backtesting session, sehingga kamu lebih mudah dalam mengetest pengumuman.",
-                    "updated": 1616928314869
-                }
-            ]
+            "text": "You will set up your bot in a backtesting session, so that you may easily test the announcements."
         },
         {
             "style": "List",
             "text": "1. Go to any of your backtesting sessions and add a Social Bot node using the session’s menu: A social bot will be added along with a telegram bot.",
-            "updated": 1611485546279,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "1. Pergi ke backtesting sessions dan tambahkan Social Bot node dari session’s menu: social bot akan ditambahkan bersama telegram bot.",
-                    "updated": 1616928451125
-                }
-            ]
+            "updated": 1611485546279
         },
         {
             "style": "List",
             "text": "2. Select Edit Telegram Bot on the telegram bot menu: Replace the placeholder text with the actual botToken and chatId you got earlier.",
-            "updated": 1611485581216,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "2. Pilih Edit Telegram Bot di telegram bot menu: Ubah placeholder text dengan aktual botToken dan chatId yang kamu dapatkan sebelumnya.",
-                    "updated": 1616928506093
-                }
-            ]
+            "updated": 1611485581216
         },
         {
             "style": "Text",
-            "text": "For example:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Contohnya:",
-                    "updated": 1616928514397
-                }
-            ]
+            "text": "For example:"
         },
         {
             "style": "Json",
@@ -275,47 +128,19 @@
         },
         {
             "style": "Text",
-            "text": "The system now has everything it needs to communicate with your Telegram bot.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Sistem sekarang memiliki semua yang dibutuhkan untuk berkomunikasi dengan Telegram Bots milikmu.",
-                    "updated": 1616928562420
-                }
-            ]
+            "text": "The system now has everything it needs to communicate with your Telegram bot."
         },
         {
             "style": "Title",
-            "text": "Create Your Announcements",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Membuat Pengumumanmu",
-                    "updated": 1616928589846
-                }
-            ]
+            "text": "Create Your Announcements"
         },
         {
             "style": "Text",
-            "text": "You may create as many announcements as you wish, on any of the events listed in the Overview section above by clicking Add Announcement on the corresponding event node menu.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kamu akan membuat pengumuman sebanyak yang kamu mau, sesuai dengan event terdaftar pada Overview section diatas dengan mengclick Add Announcement di koresponden menu event node.",
-                    "updated": 1616928711745
-                }
-            ]
+            "text": "You may create as many announcements as you wish, on any of the events listed in the Overview section above by clicking Add Announcement on the corresponding event node menu."
         },
         {
             "style": "Text",
-            "text": "There are two different ways in which you may customize announcements:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Ada dua cara berbeda untuk mengkostumisasi pengumuman:",
-                    "updated": 1616928734728
-                }
-            ]
+            "text": "There are two different ways in which you may customize announcements:"
         },
         {
             "style": "List",
@@ -328,14 +153,7 @@
         {
             "style": "Success",
             "text": "The Weak-hands buster strategy shipping with Superalgos features a complete set of announcements. Check them out and reuse them in your setup!",
-            "updated": 1611485640517,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Strategi Weak-hands buster berkaitan dengan fitur Superalgos sebagai serangkaian lengkap dari pengumuman. Lihat mereka dan siapkan kembali di setup!",
-                    "updated": 1616928883164
-                }
-            ]
+            "updated": 1611485640517
         },
         {
             "style": "Title",
@@ -343,25 +161,11 @@
         },
         {
             "style": "Text",
-            "text": "To set a plain text announcement, click Edit Announcement on the announcement node menu and set a message on the field text.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Untuk membuat pengumuman plain text, click Edit Announcement pada announcement node menu dan set pesan di tempat text.",
-                    "updated": 1616928982224
-                }
-            ]
+            "text": "To set a plain text announcement, click Edit Announcement on the announcement node menu and set a message on the field text."
         },
         {
             "style": "Text",
-            "text": "For example:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Contohnya:",
-                    "updated": 1616928991922
-                }
-            ]
+            "text": "For example:"
         },
         {
             "style": "Json",
@@ -374,36 +178,15 @@
         },
         {
             "style": "Text",
-            "text": "To broadcast more elaborate messages that may include dynamic values of any of the current indicators or internal variables, set the message in the formula attached to the announcement instead.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Untuk membroadcast pesan yang lebih rumit yang mungkin menyertakan dynamic content dari salah satu indikator atau variabel internal, atur pesan dengan formula dibawah kedalam pengumuman.",
-                    "updated": 1616929292467
-                }
-            ]
+            "text": "To broadcast more elaborate messages that may include dynamic values of any of the current indicators or internal variables, set the message in the formula attached to the announcement instead."
         },
         {
             "style": "Text",
-            "text": "The typical set up for a dynamic message consists of building a string by alternating “text between double quotes” with variables, separating them with plus signs (+).",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Penyiapan sederhana untuk pesan Dynamic terdiri dari pembuatan string dengan mengganti \"text diantara tanda kutip\" dengan variabel, dan memisahkannya dengan tanda tambah (+).",
-                    "updated": 1616929904380
-                }
-            ]
+            "text": "The typical set up for a dynamic message consists of building a string by alternating “text between double quotes” with variables, separating them with plus signs (+)."
         },
         {
             "style": "Text",
-            "text": "For example, a typical announcement formula for the take position event may look like this:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Contohnya, formula pengumuman sederhana untuk ambil posisi pada suatu event.",
-                    "updated": 1616929983820
-                }
-            ]
+            "text": "For example, a typical announcement formula for the take position event may look like this:"
         },
         {
             "style": "Javascript",
@@ -411,14 +194,7 @@
         },
         {
             "style": "Text",
-            "text": ".toFixed(0) rounds the number to zero decimal places. The above formula would result in something like:",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": ".toFixed(0) membulatkan angka ke tempat nol desimal. formula di atas akan menghasilkan sesuatu seperti:",
-                    "updated": 1616930071150
-                }
-            ]
+            "text": ".toFixed(0) rounds the number to zero decimal places. The above formula would result in something like:"
         },
         {
             "style": "Json",
@@ -427,14 +203,7 @@
         {
             "style": "Note",
             "text": "If your formula is valid, the system will ignore the plain text version you may have set up in the announcement configuration. If for any reason the formula results in an error, then the plain text version will be used.",
-            "updated": 1611485748590,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Jika formulamu valid, Sistem akan mengabaikan versi plain text yang telah kamu atur untuk konfigurasi pengumuman. Jika dalam suatu keadaan formua menghasilkan error, maka versi plain text akan digunakan.",
-                    "updated": 1616930177921
-                }
-            ]
+            "updated": 1611485748590
         },
         {
             "style": "Title",
@@ -442,58 +211,23 @@
         },
         {
             "style": "Text",
-            "text": "We mentioned earlier that, beyond setting announcements on events, you may also implement announcements at the level of a stop or take profit phase. These are useful to broadcast the management of dynamic stop and take profit targets.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kami telah jelaskan sebelumnya bahwa, selain menetapkan pengumuman dalam event, Kamu juga dapat menerapkan pengumuman pada level fase stop atau take profit, Hal ini berguna untuk membroadcast manajemen dari dynamic target stop dan target take profit.",
-                    "updated": 1616930312081
-                }
-            ]
+            "text": "We mentioned earlier that, beyond setting announcements on events, you may also implement announcements at the level of a stop or take profit phase. These are useful to broadcast the management of dynamic stop and take profit targets."
         },
         {
             "style": "Text",
-            "text": "When implemented at the level of a phase, the announcement is triggered every time the value of the underlying variable (the stop or take profit target) changes. This is an important difference, as the value may change at every candle (if you are using formulas that use variables).",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Ketika diterapkan pada level suatu fasem pengumuman akan memicu setiap kali nilai variable yang mendasari (target stop atau take profit) berubah. Hal ini adalah perbedaan penting, karena nilainya dapat berubah di setiap candle (jika kamu menggunakan formula yang menggunakan variabel).",
-                    "updated": 1616930435548
-                }
-            ]
+            "text": "When implemented at the level of a phase, the announcement is triggered every time the value of the underlying variable (the stop or take profit target) changes. This is an important difference, as the value may change at every candle (if you are using formulas that use variables)."
         },
         {
             "style": "Text",
-            "text": "This could result in too many announcements in relatively short intervals.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Hal ini dapat mengakibatkan terlalu banyak pengumuman dalam interval yang relatif singkat.",
-                    "updated": 1616930454433
-                }
-            ]
+            "text": "This could result in too many announcements in relatively short intervals."
         },
         {
             "style": "Text",
-            "text": "The valueVariation parameter introduced in the announcement configuration may be used to filter out announcements until a certain threshold is achieved. The value you enter will set the percentage of variation that needs to occur before a new announcement is broadcasted.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "mempengenalkan kedalam konfigurasi pengumuman untuk digunakan dalam memfilter pengumuman hingga ketreshold tertentu. Nilai yang kamu masukkan akan diatur dalam persentase variasi yang dibutuhkan sebelum pengumuman dibroadcast.",
-                    "updated": 1616930623021
-                }
-            ]
+            "text": "The valueVariation parameter introduced in the announcement configuration may be used to filter out announcements until a certain threshold is achieved. The value you enter will set the percentage of variation that needs to occur before a new announcement is broadcasted."
         },
         {
             "style": "Text",
-            "text": "For instance, \"valueVariation\": 0.5 means a new announcement will be broadcasted every time the value of the underlying variable changes by 0.5%.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Contohnya, \"valueVariation\": 0.5 artinya pengumuman baru akan di broadcast setiap kali nilai dari dasar variabel berubah sebanyak 0.5%.",
-                    "updated": 1616930700904
-                }
-            ]
+            "text": "For instance, \"valueVariation\": 0.5 means a new announcement will be broadcasted every time the value of the underlying variable changes by 0.5%."
         },
         {
             "style": "Json",
@@ -502,137 +236,53 @@
         },
         {
             "style": "Title",
-            "text": "Finishing the Setup",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Menyelesaikan Setup",
-                    "updated": 1616930723890
-                }
-            ]
+            "text": "Finishing the Setup"
         },
         {
             "style": "Text",
-            "text": "It is unlikely that you will want to use the announcements feature from within a backtesting session. A more likely scenario is you will want to use it with a paper trading session (to generate signals) or from a live trading session, to monitor the activity of your live trading.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Kemungkinan kecil kamu akan menggunakan fitur pengumuman dari backtesting session. Skenario yang lebih memungkinkan jika kamu ingin menggunakannya dengan paper trading session (Menggenerate sinyal) atau dari live trading session, untuk memonitor aktivitas dari live tradingmu.",
-                    "updated": 1616930923555
-                }
-            ]
+            "text": "It is unlikely that you will want to use the announcements feature from within a backtesting session. A more likely scenario is you will want to use it with a paper trading session (to generate signals) or from a live trading session, to monitor the activity of your live trading."
         },
         {
             "style": "Text",
-            "text": "All you need to do to finish your set up is detach the social bot node from the backtesting session and attach it to the session you wish to use it in. Make sure the corresponding tasks are stopped before detaching and attaching the social bot.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Yang perlu kamu lakukan untuk menyelesaikan penyiapan ini adalah melepaskan social bot node dari backtesting session dan pasangkan kepada session yang kamu inginkan. Pastikan tasks yang berjalan sudah berhenti sebelum melepaskan dan memasangkan social bot.",
-                    "updated": 1616931073057
-                }
-            ]
+            "text": "All you need to do to finish your set up is detach the social bot node from the backtesting session and attach it to the session you wish to use it in. Make sure the corresponding tasks are stopped before detaching and attaching the social bot."
         },
         {
             "style": "Title",
-            "text": "Commercial Setups",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Setup untuk Komersial",
-                    "updated": 1616931096555
-                }
-            ]
+            "text": "Commercial Setups"
         },
         {
             "style": "Text",
-            "text": "If you are settting up a signals business or require a more complex setup to broadcast announcements from multiple sessions, multiple strategies, or even to multiple groups, the following considerations may help you decide how to move forwards.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Jika kamu sedang menyiapkan bisnis sinyal atau memerlukan penyiapan yang lebih kompleks untuk membroadcast pengumuman dari beberapa sessions, beberapa strategi, atau bahkan kebeberapa grup, Hal ini akan membantu mempertimbangkan keputusanmu untuk keberikutnya.",
-                    "updated": 1616931205053
-                }
-            ]
+            "text": "If you are settting up a signals business or require a more complex setup to broadcast announcements from multiple sessions, multiple strategies, or even to multiple groups, the following considerations may help you decide how to move forwards."
         },
         {
             "style": "Important",
             "text": "Telegram does not allow running multiple instances of the same bot. Doing so may produce warnings, cause errors, delays in message delivery, lost messages, and erratic behavior in general.",
-            "updated": 1611485876079,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Telegram tidak mengizinkan menjalankan banyak instance dari bot yang sama. Melakukan hal tersebut dapat menghasilkan peringatan, menyebabkan kesalahan, keterlambatan pengiriman pesan, pesan hilang, dan perilaku tidak menentu secara umum dari malfungsi bot.",
-                    "updated": 1616931335441
-                }
-            ]
+            "updated": 1611485876079
         },
         {
             "style": "Text",
-            "text": "The solution is quite simple. Set up multiple bots. The rule of thumb is you should use one bot for each trading session. Remember you can include as many bots as you wish in your Telegram groups. That is, you may have different bots broadcast from different sessions in the same group.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Solusinya cukup mudah. Siapkan multiple bot. Aturan mainnya adalah kamu harus menggunakan satu untuk setiap sesi trading. Ingat kamu dapat memasukkan bot sebanyak kamu inginkan kedalam grup Telegrammu. Aritnya, kamu mungkin memiliki bot berbeda yang dibroadcast dari session berbeda dalam grup yang sama.",
-                    "updated": 1616931501454
-                }
-            ]
+            "text": "The solution is quite simple. Set up multiple bots. The rule of thumb is you should use one bot for each trading session. Remember you can include as many bots as you wish in your Telegram groups. That is, you may have different bots broadcast from different sessions in the same group."
         },
         {
             "style": "Success",
             "text": "If you wish to broadcast signals from multiple sessions to the same Telegram Group, you may name each bot in a way that each references their specific session, so that group members know exactly what each message is referring to.",
-            "updated": 1611485909076,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Jika kamu ingin membroadcast sinyal dari beberapa session kedalam grup Telegram yang sama, kamu dapat menamai setiap bot dengan referesinya masing-masing terhadap spesifik session. Sehingga anggota grup tahu persis apa yang dirujuk setiap pesan.",
-                    "updated": 1616931602612
-                }
-            ]
+            "updated": 1611485909076
         },
         {
             "style": "Text",
-            "text": "For example, let’s say you are broadcasting signals from different markets… you may name your bots BTC/USDT, ETH/USDT and XMR/BTC.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Misalnya, kamu membroadcast sinyal dari market yang berbeda… Kamu dapat menamai bot dengan BTC / USDT, ETH / USDT, dan XMR / BTC.",
-                    "updated": 1616931653602
-                }
-            ]
+            "text": "For example, let’s say you are broadcasting signals from different markets… you may name your bots BTC/USDT, ETH/USDT and XMR/BTC."
         },
         {
             "style": "Text",
-            "text": "Or maybe you have different strategies, then simply name the bots after each strategy.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Atau mungkin kamu memiliki strategi yang berbeda, maka cukup beri nama bot dengan setiap strategi.",
-                    "updated": 1616931697879
-                }
-            ]
+            "text": "Or maybe you have different strategies, then simply name the bots after each strategy."
         },
         {
             "style": "Text",
-            "text": "This makes it really easy for group members to know what market or strategy the bot broadcasting the signal is referring to.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Ini membuatnya sangat mudah bagi anggota grup untuk mengetahui market atau strategi apa yang dirujuk oleh bot yang membroadcast sinyal.",
-                    "updated": 1616931728131
-                }
-            ]
+            "text": "This makes it really easy for group members to know what market or strategy the bot broadcasting the signal is referring to."
         },
         {
             "style": "Text",
-            "text": "Another example… let’s say you are running a trading operation for friends and family. Each person is working with a different initial capital, different assets or different exchanges. in such case, you may set up multiple Telegram groups and multiple bots, so that each person may get precise information on what the bots are doing.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Contoh lain… misalkan kamu menjalankan trading operation untuk teman dan keluarga. Setiap orang bekerja dengan modal awal yang berbeda, aset yang berbeda, atau exchange yang berbeda. dalam kasus seperti itu, kamu dapat mengatur beberapa grup Telegram dan beberapa bot, sehingga setiap orang dapat memperoleh informasi yang tepat tentang apa yang dilakukan bot tersebut.",
-                    "updated": 1616931801957
-                }
-            ]
+            "text": "Another example… let’s say you are running a trading operation for friends and family. Each person is working with a different initial capital, different assets or different exchanges. in such case, you may set up multiple Telegram groups and multiple bots, so that each person may get precise information on what the bots are doing."
         }
     ]
 }

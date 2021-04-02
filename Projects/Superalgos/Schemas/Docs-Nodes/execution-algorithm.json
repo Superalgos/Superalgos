@@ -30,8 +30,23 @@
         },
         {
             "style": "Title",
-            "text": "Execution Algorithm Configuration",
-            "updated": 1617197817510
+            "text": "Configuring Execution Algorithm"
+        },
+        {
+            "style": "Text",
+            "text": "To configure the execution algorithm node, select Configure on the menu."
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "     \"percentageOfStageTargetSize\": 100"
+        },
+        {
+            "style": "Text",
+            "text": "}"
         },
         {
             "style": "List",

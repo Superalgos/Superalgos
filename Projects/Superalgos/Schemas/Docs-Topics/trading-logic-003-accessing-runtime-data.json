@@ -19,7 +19,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.strategyOpenStage.begin.value"
+            "text": "tradingEngine.current.strategyOpenStage.begin.value"
         },
         {
             "style": "Text",
@@ -28,7 +28,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.targetSize.value"
+            "text": "tradingEngine.current.strategyOpenStage.stageQuotedAsset.targetSize.value"
         },
         {
             "style": "Note",
@@ -62,7 +62,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03",
+            "text": "tradingEngine.current.position.entryTargetRate.value * 1.03",
             "updated": 1610216926922
         },
         {

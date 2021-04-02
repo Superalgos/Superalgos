@@ -3,89 +3,58 @@
     "pageNumber": "4",
     "type": "Docs In Italian",
     "definition": {
-        "text": "The Docs pages of Superalgos and other projects integrated are originally written in English. The system allows users to search and browse pages in other languages as well, as long as users have previously contributed the corresponding translations.",
-        "updated": 1613820592771,
+        "text": "The Docs articles are fully written in English. The system allow users to search / browse articles in other languages as well, as long as other users contribute translations.",
         "translations": [
             {
                 "language": "IT",
-                "text": "I Docs di Superalgos e degli altri progetti integrati sono scritti originariamente in inglese. Il sistema permette agli utenti di cercare e navigare tra le pagine anche in altri linguaggi, purché qualche collaboratore abbia precedentemente inserito le traduzioni corrispondenti.",
-                "updated": 1614709804639,
-                "style": "Definition"
+                "text": "La guida di Superalgos è scritta interamente in inglese ma anche tu puoi aiutare a tradurre nella tua lingua preferita. Il sistema attualmente consente agli utenti di cercare o sfogliare la guida anche in altre lingue purché altri utenti contribuiscano alle traduzioni.",
+                "updated": 1610794887971
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead.",
-            "updated": 1613820612132,
+            "text": "Superalgos and any other integrated project are written in English, since English is considered the default language. Node types, variable names, etc., all is originally in English language. ",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "L'inglese é considerata la lingua predefinita. Quando si seleziona un linguaggio differente, il sistema cerca di mostrare il contenuto nel linguaggio selezionato. Se la traduzione non é disponibile, allora verrà mostrata comunque la versione in lingua inglese.",
-                    "updated": 1614710023015,
-                    "style": "Text"
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "Node types, variable names, the title of pages in the Docs, and a few more elements of Superalgos may not be translated, as they are unique identifiers of the said elements. You will always get those in English.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "I tipi di nodo, i nomi di variabile, il titolo delle pagine dei Docs e alcuni altri elementi di Superalgos non vengono tradotti, in quanto sono identificatori unici di questi elementi all'interno del sistema. Verranno quindi sempre mostrati in inglese.",
-                    "updated": 1614710301759
-                }
-            ]
-        },
-        {
-            "style": "Success",
-            "text": "If you wish to contribute translations, read the How to Contribute Translations page.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Se vuoi contribuire alle traduzioni, leggi la pagina How to Contribute Translations.",
-                    "updated": 1614710364389
+                    "text": "Superalgos e gli altri progetti integrati sono scritti in inglese perchè considerata la lingua predefinita. Tipi di nodi, nomi di variabili, ecc., Tutto è originariamente in lingua inglese.",
+                    "updated": 1610806159263
                 }
             ]
         },
         {
             "style": "Text",
             "text": "The Docs content can be translated by anyone willing to contribute some time doing so. That helps users to read the contents of the Docs in their native language. ",
-            "updated": 1613820592771,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il contenuto dei Docs può essere tradotto da chiunque desideri contribuire. Ciò aiuta gli utenti a leggere il contenuto dei Docs nella loro lingua madre. ",
-                    "updated": 1614710559720,
-                    "style": "Text"
+                    "text": "Il contenuto della guida può essere tradotto da chiunque desideri contribuire! Così facendo aiuterai gli utenti a leggere i contenuti della guida nella loro lingua madre e tu potrai dare il tuo contributo.",
+                    "updated": 1610806232380
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs.",
-            "updated": 1613820592771,
+            "text": " Users can switch between languages using the links provided at the footer of every page at the Docs. ",
+            "updated": 1609085068937,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per cambiare la lingua, é sufficiente cliccare sulle bandiere che si trovano in fondo a ogni pagina dei Docs.",
-                    "updated": 1614710684503,
-                    "style": "Success"
+                    "text": "Gli utenti possono passare da una lingua all'altra utilizzando i collegamenti che si trovano nel footer di ogni pagina in questa guida.",
+                    "updated": 1610806272356
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "You may only add or delete pages to the Docs when the language is set to English.",
-            "updated": 1613820648230,
+            "text": "You can only add or delete pages to the Docs if you are navigating it in English, because English is the default language, and from there pages are later translated. ",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "É possible aggiungere o cancellare pagine dei Docs solamente quando la lingua di visualizzazione é in inglese.",
-                    "updated": 1614710793433,
-                    "style": "Note"
+                    "text": "Puoi aggiungere o eliminare le pagine della guida solo se stai navigando in inglese perché è la lingua predefinita e da lì le pagine possono essere tradotte in seguito.",
+                    "updated": 1610806324698
                 }
             ]
         }

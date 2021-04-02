@@ -812,16 +812,14 @@ function newPlotter() {
                             y: dataPointObject.y
                         }
                         dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                        dataPoint = thisObject.fitFunction(dataPoint)
 
-                        imagePosition.x = dataPoint.x - imageSize / 2 + offsetX
-                        imagePosition.y = dataPoint.y - imageSize / 2 - offsetY
-
-                        imagePosition = thisObject.fitFunction(imagePosition, true)
-
+                        imagePosition.x = dataPoint.x
+                        imagePosition.y = dataPoint.y
                         let imageToDraw = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', imageName)
                         if (imageToDraw !== undefined) {
                             if (imageToDraw.canDrawIcon === true) {
-                                browserCanvasContext.drawImage(imageToDraw, imagePosition.x, imagePosition.y, imageSize, imageSize)
+                                browserCanvasContext.drawImage(imageToDraw, imagePosition.x - imageSize / 2 + offsetX, imagePosition.y - imageSize / 2 - offsetY, imageSize, imageSize)
                             }
                         } else {
                             console.log('Can not plot image named ' + imageName + ' of product ' + productDefinition.name + ' because it does not exist.')
@@ -860,15 +858,14 @@ function newPlotter() {
                             y: dataPointObject.y
                         }
                         dataPoint = UI.projects.superalgos.spaces.chartingSpace.viewport.fitIntoVisibleArea(dataPoint)
+                        dataPoint = thisObject.fitFunction(dataPoint)
 
-                        textPosition.x = dataPoint.x + offsetX
-                        textPosition.y = dataPoint.y - offsetY
-
-                        textPosition = thisObject.fitFunction(textPosition)
+                        textPosition.x = dataPoint.x
+                        textPosition.y = dataPoint.y
 
                         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
                         browserCanvasContext.fillStyle = 'rgba(' + paletteColor + ', ' + opacity + ')'
-                        browserCanvasContext.fillText(value, textPosition.x, textPosition.y)
+                        browserCanvasContext.fillText(value, textPosition.x + offsetX, textPosition.y - offsetY)
                     }
                 }
             }

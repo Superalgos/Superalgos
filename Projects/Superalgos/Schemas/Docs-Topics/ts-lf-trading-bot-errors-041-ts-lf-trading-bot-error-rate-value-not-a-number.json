@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 41,
+    "pageNumber": "41",
     "type": "TS LF Trading Bot Error - Rate Value Not A Number",
     "definition": {
         "text": "The Formula under the Rate node must evaluate to a number.",

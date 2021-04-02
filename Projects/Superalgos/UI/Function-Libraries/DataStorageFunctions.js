@@ -133,11 +133,9 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         let networkNode = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(node, 'Network Node', undefined, true, false, true, false)
         if (networkNode === undefined) { return }
 
-        let backLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Back Learning Session')
-        let liveLearningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Live Learning Session')
+        let learningSessionsArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(networkNode, 'Learning Session')
 
-        addMissingSession(backLearningSessionsArray)
-        addMissingSession(liveLearningSessionsArray)
+        addMissingSession(learningSessionsArray)
 
         function addMissingSession(sessionsArray) {
             for (let i = 0; i < sessionsArray.length; i++) {

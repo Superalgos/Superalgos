@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Confusing?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "I'm sure that was a bit confusing! There are more than three nodes with messages, and messages are hard to relate to one another!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But don't worry! I'll help you figure this out!"
+        },
+        {
+            "style": "Callout",
+            "text": "First of all, remember that warnings are not errors!"
+        },
+        {
+            "style": "Note",
+            "text": "We don't need to worry about warnings! Warnings are created every time the trading bot has to make adjustments to information that would otherwise not be obvious. It's kind of a verbose mode that the bot uses to leave a trace of its actions."
+        }
+    ]
+}

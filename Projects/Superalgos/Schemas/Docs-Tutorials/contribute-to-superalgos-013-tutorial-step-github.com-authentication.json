@@ -1,0 +1,35 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 13,
+    "type": "Tutorial Step - GitHub.com Authentication",
+    "definition": {
+        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
+        "icon": {
+            "name": "github-api",
+            "project": "Superalgos"
+        },
+        "updated": 1610799914806
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You need to authenticate at GitHub.com for the Client to create the Pull Request on your behalf. To do that, you will create a Personal Access Token on GitHub.com:",
+            "updated": 1610827192524
+        },
+        {
+            "style": "Link",
+            "text": "Create a GitHub.com Personal Access Token->github.com/settings/tokens/new",
+            "updated": 1610959147665
+        },
+        {
+            "style": "Callout",
+            "text": "Click the link and follow the instructions below! Check the clip on the next step for clarity...",
+            "updated": 1610812678018
+        },
+        {
+            "style": "Text",
+            "text": "I suggest you name the token after Superalgos so that you may recognize it later on, and make sure you check the repo checkbox to define the scope of the token.",
+            "updated": 1610812554380
+        }
+    ]
+}

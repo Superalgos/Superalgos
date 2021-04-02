@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 1,
+    "pageNumber": "1",
     "type": "TS LF Trading Bot Error - Evaluating Condition Error",
     "definition": {
         "text": "An error occured while evaluating a user defined Condition in the Trading System.",
@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the conditions defined in the Trading System. Conditions are arbitrary Javascript Code that users may write. The code must be valid Javascript for NodeJS.",
+            "text": "While running at the TS, the LF Trading Bot encountered an error trying to evaluate one of the conditions defined in the Trading System. Conditions are arbitrary Javascript Code that users may write. The code must be valid Javascript for Node JS.",
             "updated": 1611925986913
         },
         {

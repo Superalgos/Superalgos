@@ -1,12 +1,5 @@
 exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVER, PROJECT_FILE_SERVER, UI_FILE_SERVER, PLUGIN_SERVER, CCXT_SERVER, WEB3_SERVER) {
 
-    /*
-    IMPORTANT: If you are reviewing the code of the project please note 
-    that this file is the single file in the whole system that accumulated
-    more technical debt by far. I did not have the time yet to pay the 
-    technical debt, and therefore there is a lot to reorganize in here. 
-    I will remove this note once this job is done.
-    */
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -257,9 +250,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 webhookMessages = []
                             }
 
-                            console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                            console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
-
                             respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                             webhookMessages = []
 
@@ -302,9 +292,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 webhookMessages.push([timestamp, source, messageReceived])
                                 webhook.set(key, webhookMessages)
 
-                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
-                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                                console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                 respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
                             break
@@ -681,7 +668,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const octokit = new Octokit({
                                     auth: token,
-                                    userAgent: 'Superalgos Beta 9'
+                                    userAgent: 'Superalgos Beta 8'
                                 })
 
                                 const repo = 'Superalgos'
@@ -1145,24 +1132,22 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 fs.readdir(dirPath, onDirRead)
 
                                 function onDirRead(err, fileList) {
-                                    let updatedFileList = []
-
                                     if (err) {
-                                        /*
-                                        If we have a problem reading this folder we will assume that it is
-                                        because this project does not need this folder and that's it.
-                                        */
-                                        //console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
+                                        console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
+                                        respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        return
                                     } else {
+                                        let updatedFileList = []
                                         for (let i = 0; i < fileList.length; i++) {
                                             let name = 'Plugin \u2192 ' + fileList[i]
                                             updatedFileList.push([project, name])
                                         }
-                                    }
-                                    allWorkspaces = allWorkspaces.concat(updatedFileList)
-                                    projectsCount++
-                                    if (projectsCount === projects.length) {
-                                        readMyWorkspaces()
+                                        allWorkspaces = allWorkspaces.concat(updatedFileList)
+                                        projectsCount++
+                                        if (projectsCount === projects.length) {
+                                            readMyWorkspaces()
+                                        }
+                                        return
                                     }
                                 }
                             } catch (err) {
@@ -1449,23 +1434,21 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         fs.readdir(dirPath, onDirRead)
 
                         function onDirRead(err, fileList) {
-                            let updatedFileList = []
                             if (err) {
-                                /*
-                                If we have a problem reading this folder we will assume that it is
-                                because this project does not need this folder and that's it.
-                                */
-                                // console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
+                                console.log('[WARN] Error reading a directory content. filePath = ' + dirPath)
+                                return
                             } else {
+                                let updatedFileList = []
                                 for (let i = 0; i < fileList.length; i++) {
                                     let name = fileList[i]
                                     updatedFileList.push([project, name])
                                 }
-                            }
-                            allLibraries = allLibraries.concat(updatedFileList)
-                            projectsCount++
-                            if (projectsCount === projects.length) {
-                                respondWithContent(JSON.stringify(allLibraries), httpResponse)
+                                allLibraries = allLibraries.concat(updatedFileList)
+                                projectsCount++
+                                if (projectsCount === projects.length) {
+                                    respondWithContent(JSON.stringify(allLibraries), httpResponse)
+                                }
+                                return
                             }
                         }
                     } catch (err) {
@@ -1732,13 +1715,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
     }
 
     function getDirectories(path) {
-        try {
-            const fs = require('fs')
-            return fs.readdirSync(path).filter(function (file) {
-                return fs.statSync(path + '/' + file).isDirectory();
-            });
-        } catch (err) {
-            return []
-        }
+        const fs = require('fs')
+        return fs.readdirSync(path).filter(function (file) {
+            return fs.statSync(path + '/' + file).isDirectory();
+        });
     }
 }

@@ -3,8 +3,8 @@
     "pageNumber": "1",
     "type": "Detach and Attach Nodes",
     "definition": {
-        "text": "To detach a node, click on the detach button on the node's menu. To attach a node, right-click the node and drag it closer to the node you wish to attach it to. Release the right-click when the target node is highlighted.",
-        "updated": 1615545397469
+        "text": "To detach a node, click on the detach button on the node's menu. To attach a node, right-click it and drag it closer to the node you wish to attach it to. Release the right-click when the target node is highlighted.",
+        "updated": 1609948586650
     },
     "paragraphs": [
         {

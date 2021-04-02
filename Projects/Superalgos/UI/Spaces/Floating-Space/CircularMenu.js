@@ -127,8 +127,8 @@ function newCircularMenu() {
             }
         }
         /* Text and Icon */
-        let amplitude = 60
-        let initialAngle = -30
+        let amplitude = 140
+        let initialAngle = -70
         step = amplitude / 7
         let currentItem = (7 - iconAndTextArray.length) / 2 + 1
         for (let i = 0; i < iconAndTextArray.length; i++) {

@@ -50,7 +50,7 @@
         },
         {
             "style": "Text",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value"
+            "text": "tradingEngine.current.episode.episodeBaseAsset.balance.value"
         },
         {
             "style": "Text",
@@ -58,7 +58,7 @@
         },
         {
             "style": "Text",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value"
+            "text": "tradingEngine.current.episode.episodeQuotedAsset.balance.value"
         },
         {
             "style": "Text",
@@ -66,7 +66,7 @@
         },
         {
             "style": "Text",
-            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.tradingCurrent.strategyOpenStage.stageBaseAsset.feesPaid.value"
+            "text": "tradingEngine.current.strategyOpenStage.stageBaseAsset.sizeFilled.value - tradingEngine.current.strategyOpenStage.stageBaseAsset.feesPaid.value"
         },
         {
             "style": "Text",

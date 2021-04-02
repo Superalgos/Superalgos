@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 17,
+    "pageNumber": "17",
     "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Missing",
     "definition": {
         "text": "You must specify what percentage of the Size handled by the Execution Algorithm is to be handled by the Order.",

@@ -13,10 +13,8 @@ function newSuperalgosFunctionLibraryWebhookFunctions() {
 
         function onResponse(err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                node.payload.uiObject.setInfoMessage('Test Message sent to the Client.')
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
             } else {
-                node.payload.uiObject.resetErrorMessage('Could not send Test Message to the Client.')
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
         }

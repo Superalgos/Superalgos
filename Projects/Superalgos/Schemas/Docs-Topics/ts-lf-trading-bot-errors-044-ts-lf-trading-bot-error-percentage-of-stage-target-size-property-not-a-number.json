@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 44,
+    "pageNumber": "44",
     "type": "TS LF Trading Bot Error - Percentage Of Stage Target Size Property Not A Number",
     "definition": {
         "text": "You must specify what percentage of the Size handled by the Stage is to be handled by the Execution Algorithm.",

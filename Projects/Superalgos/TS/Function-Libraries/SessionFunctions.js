@@ -1,7 +1,5 @@
 exports.newSuperalgosFunctionLibrariesSessionFunctions = function () {
 
-    const MODULE_NAME = "Session Functions"
-     
     let thisObject = {
         sessionHeartBeat: sessionHeartBeat,
         stopSession: stopSession,

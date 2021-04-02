@@ -15,22 +15,12 @@
             "text": "videoId (taken from YouTube)"
         },
         {
-            "style": "Text",
-            "text": "If you wish the video to autoplay, that is, to start playing without user intervention like an animated GIF would, add the following string immediately after the videoId:",
-            "updated": 1616182813822
-        },
-        {
-            "style": "Json",
-            "text": "?rel=0&autoplay=1&mute=1"
-        },
-        {
             "style": "Title",
             "text": "Example:"
         },
         {
             "style": "Json",
-            "text": "fO-CHEEVneI\n",
-            "updated": 1616182571265
+            "text": "fO-CHEEVneI"
         },
         {
             "style": "Text",
@@ -42,8 +32,7 @@
         },
         {
             "style": "Success",
-            "text": "To edit a YouTube video paragraph, right-click slightly above the upper border of the video, not on the video itself.",
-            "updated": 1616182753529
+            "text": " To edit a YouTube video found at a Docs page, you need to right click slightly on top of the upper border or the video, not on the video itself.  "
         }
     ]
 }

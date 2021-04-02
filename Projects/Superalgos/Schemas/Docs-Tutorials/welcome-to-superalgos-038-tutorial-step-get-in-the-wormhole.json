@@ -1,0 +1,27 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 38,
+    "type": "Tutorial Step - Get In the Wormhole!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-wheel-up"
+        },
+        "text": "It's time to dive into a Time Machine and see what happens! Are you ready for a full-on immersive experience?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The charting space is like the Google Maps of market charts. As you already know, you left-click and drag to move around the landscape... but, how do you zoom in to see the details?"
+        },
+        {
+            "style": "Callout",
+            "text": "With the wheel of the mouse! Try it!"
+        },
+        {
+            "style": "Text",
+            "text": "Exactly! Just like in Google Maps! Point the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
+            "updated": 1610622413974
+        }
+    ]
+}

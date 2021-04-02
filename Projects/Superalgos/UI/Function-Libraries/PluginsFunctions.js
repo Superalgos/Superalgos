@@ -5,9 +5,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         pluginMissingTradingMines: pluginMissingTradingMines,
         pluginMissingTradingSystems: pluginMissingTradingSystems,
         pluginMissingTradingEngines: pluginMissingTradingEngines,
-        pluginMissingLearningMines: pluginMissingLearningMines,
-        pluginMissingLearningSystems: pluginMissingLearningSystems,
-        pluginMissingLearningEngines: pluginMissingLearningEngines,
+        pluginMissingSuperScripts: pluginMissingSuperScripts,
         pluginMissingTutorials: pluginMissingTutorials
     }
     return thisObject
@@ -134,7 +132,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingLearningMines(node, rootNodes) {
+    function pluginMissingSuperScripts(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -143,39 +141,7 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
-        }
-    }
-
-    function pluginMissingLearningSystems(node, rootNodes) {
-        let projectName = getProjectName(node)
-        if (projectName === "" || projectName === undefined) {
-            if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
-                return
-            }
-        }
-
-        getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
-
-        function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
-        }
-    }
-
-    function pluginMissingLearningEngines(node, rootNodes) {
-        let projectName = getProjectName(node)
-        if (projectName === "" || projectName === undefined) {
-            if (node.payload.parentNode !== undefined) {
-                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
-                return
-            }
-        }
-
-        getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
+        getPluginFileNames(projectName, 'Super-Scripts', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames)

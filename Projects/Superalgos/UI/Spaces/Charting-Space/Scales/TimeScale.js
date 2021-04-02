@@ -9,7 +9,6 @@ function newTimeScale() {
         isVisible: true,
         fromDate: undefined,
         toDate: undefined,
-        onKeyPressed: onKeyPressed, 
         onMouseOverSomeTimeMachineContainer: onMouseOverSomeTimeMachineContainer,
         physics: physics,
         draw: draw,
@@ -82,25 +81,6 @@ function newTimeScale() {
         readObjectState()
     }
 
-    function onKeyPressed(event) {
-        if (event.code === "ArrowUp") {
-            event.delta = 1
-            onMouseWheel(event, true)
-        }
-        if (event.code === "ArrowDown") {
-            event.delta = -1
-            onMouseWheel(event, true)
-        }
-        if (event.code === "ArrowLeft") {
-            event.delta = 1
-            onMouseWheel(event, false)
-        }
-        if (event.code === "ArrowRight") {
-            event.delta = -1
-            onMouseWheel(event, false)
-        }
-    }
-
     function onMouseOverSomeTimeMachineContainer(event) {
         if (event.containerId === undefined) {
             /* This happens when the mouse over was not at the instance of a certain scale, but anywhere else. */
@@ -125,7 +105,7 @@ function newTimeScale() {
         isMouseOver = false
     }
 
-    function onMouseWheel(event, autoScale) {
+    function onMouseWheel(event) {
         if (IS_MAC) {
             let sensitivity
             if (event.delta < 0) {
@@ -167,7 +147,7 @@ function newTimeScale() {
             }
         }
 
-        if (event.shiftKey === true || autoScale === true ) {
+        if (event.shiftKey === true) {
             autoScaleButton.container.eventHandler.raiseEvent('onMouseWheel', event)
             return
         }

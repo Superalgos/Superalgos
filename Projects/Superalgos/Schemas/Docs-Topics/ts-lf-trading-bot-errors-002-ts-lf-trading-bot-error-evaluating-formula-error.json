@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": 2,
+    "pageNumber": "2",
     "type": "TS LF Trading Bot Error - Evaluating Formula Error",
     "definition": {
         "text": "An error occured while evaluatiing a user-defined Formula at the Trading System.",

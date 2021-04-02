@@ -358,6 +358,9 @@ function newUiObjectTitle() {
                     let phrases = splitTextIntoPhrases(label, 2)
                     let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
                     
+                    if (phrases.length > 3) {
+                        let a = 1
+                    }
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         let point = {

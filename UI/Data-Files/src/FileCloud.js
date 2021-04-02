@@ -115,7 +115,7 @@ function newFileCloud () {
           }
 
           if (pExchange !== undefined) {
-            filePath = filePath.replace('@Exchange', pExchange.config.codeName)
+            filePath = filePath.replace('@Exchange', pExchange.name)
           }
 
           filePath = filePath.replace('@Period', pPeriodName)

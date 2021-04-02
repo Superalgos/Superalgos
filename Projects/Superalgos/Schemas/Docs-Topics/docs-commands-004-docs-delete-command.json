@@ -9,18 +9,22 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Single-Page Syntax",
-            "updated": 1613765905233
-        },
-        {
-            "style": "Json",
-            "text": "docs.delete [Node|Concept|Book] from Project: Docs Page Name",
-            "updated": 1613766020535
+            "text": "Syntax",
+            "updated": 1609152160707
         },
         {
             "style": "Subtitle",
-            "text": "Examples",
-            "updated": 1613766032848
+            "text": "Option 1:",
+            "updated": 1609152344322
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Node from Project: Docs Page Name",
+            "updated": 1609152359725
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
         },
         {
             "style": "Json",
@@ -28,29 +32,35 @@
             "updated": 1609152405379
         },
         {
-            "style": "Json",
-            "text": "docs.delete Concept from Superalgos: References",
-            "updated": 1613766054009
+            "style": "Subtitle",
+            "text": "Option 2:"
         },
         {
             "style": "Json",
-            "text": "docs.delete Book from Superalgos: User Manual",
-            "updated": 1613766091949
-        },
-        {
-            "style": "Title",
-            "text": "Page-Collection Syntax",
-            "updated": 1613766298709
-        },
-        {
-            "style": "Json",
-            "text": "docs.delete [Topic|Tutorial|Review] from Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
-            "updated": 1613766367064
+            "text": "docs.delete Concept from Project: Docs Page Name",
+            "updated": 1609152445366
         },
         {
             "style": "Subtitle",
-            "text": "Examples",
-            "updated": 1613766391018
+            "text": "Example:"
+        },
+        {
+            "style": "Json",
+            "text": " docs.delete Concept from Superalgos",
+            "updated": 1609152464312
+        },
+        {
+            "style": "Subtitle",
+            "text": "Option 3:"
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Topic from Project: Docs Topic Name->Docs Page Name->Docs Page Number",
+            "updated": 1609152484236
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
         },
         {
             "style": "Json",
@@ -58,9 +68,37 @@
             "updated": 1609152521245
         },
         {
+            "style": "Subtitle",
+            "text": "Option 4:",
+            "updated": 1610706965604
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Tutorial from Project: Docs Tutorial Name->Docs Page Name->Docs Page Number",
+            "updated": 1610706951438
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
+        },
+        {
             "style": "Json",
             "text": "docs.delete Tutorial from Superalgos: How to Build Indicatiors->Intro->1",
             "updated": 1610707006603
+        },
+        {
+            "style": "Subtitle",
+            "text": "Option 5:",
+            "updated": 1610707021714
+        },
+        {
+            "style": "Json",
+            "text": "docs.delete Review from Project: Docs Review Name->Docs Page Name->Docs Page Number",
+            "updated": 1610707068615
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example:"
         },
         {
             "style": "Json",
@@ -73,18 +111,17 @@
         },
         {
             "style": "List",
-            "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764968224
+            "text": "Project: It's the project where the Node, Concept, Topic or Review is defined.",
+            "updated": 1610975967746
         },
         {
             "style": "List",
-            "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764977861
+            "text": "Docs Page Category: Node, Concept, Topic, Tutorial, or Review.",
+            "updated": 1610975936004
         },
         {
             "style": "List",
-            "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764988027
+            "text": "Docs Page Name: For Nodes it is the type of node; for Concepts, the concept name; for Topics, the topic's page name, for Tutorials, the tutorial step name; for Reviews, the review page name."
         }
     ]
 }

@@ -444,8 +444,6 @@ function newUiObject() {
             if (rightDragging !== true) { return }
             if (thisObject.payload.chainParent !== undefined) { return }
 
-            UI.projects.superalgos.spaces.floatingSpace.floatingLayer.isProximityPhysicsNeeded = true
-
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
 
@@ -560,7 +558,6 @@ function newUiObject() {
         function chainDetachingPhysics() {
             if (isDragging !== true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
 
             let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
             let ratio = distanceToChainParent / previousDistanceToChainParent
@@ -588,8 +585,6 @@ function newUiObject() {
             if (isDragging !== true) { return }
             if (rightDragging !== true) { return }
             if (thisObject.payload.referenceParent !== undefined) { return }
-
-            UI.projects.superalgos.spaces.floatingSpace.floatingLayer.isProximityPhysicsNeeded = true
 
             let nearbyFloatingObjects = thisObject.payload.floatingObject.nearbyFloatingObjects
             let compatibleTypes
@@ -666,7 +661,6 @@ function newUiObject() {
             if (thisObject.payload === undefined) { return }
             if (thisObject.payload.floatingObject.isFrozen === true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
 
             if (thisObject.payload.referenceParent === undefined) { return }
 
@@ -1203,7 +1197,7 @@ function newUiObject() {
             answer to the command to stop. In those cases, we will stop execute the onStopped funcion anyways so as to 
             return the UI to its default state.
             */
-            setTimeout(returnToDefaultState, 15000)
+            setTimeout(returnToDefaultState, 90000)
             function returnToDefaultState() {
                 if (wasStopped === false) {
                     completeStop(callBackFunction, event)
@@ -1496,13 +1490,12 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
+            drawNodeType()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
                 thisObject.uiObjectMessage.draw()
             }
-
-            drawNodeType()
         }
     }
 

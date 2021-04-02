@@ -2,7 +2,7 @@ function newTimelineChart() {
     const MODULE_NAME = 'Timeline Chart'
 
     let logger = newWebDebugLog()
-
+    
 
     let timeFrame = INITIAL_TIME_PERIOD
     let datetime = NEW_SESSION_INITIAL_DATE
@@ -16,7 +16,6 @@ function newTimelineChart() {
         layerManager: undefined,
         plotterManager: undefined,
         upstreamTimeFrame: undefined,
-        onKeyPressed: onKeyPressed,
         setDatetime: setDatetime,
         setTimeFrame: setTimeFrame,
         physics: physics,
@@ -232,37 +231,6 @@ function newTimelineChart() {
         }
     }
 
-    function onKeyPressed(event) {
-
-        /*
-        We are going to pass this event to the scales and if they take it return true.
-        */
-
-        let point = {
-            x: event.x,
-            y: event.y
-        }
-        let container
-
-        if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
-            container = thisObject.rateScale.getContainer(point)
-            if (container !== undefined) {
-                thisObject.rateScale.onKeyPressed(event)
-                return true
-            }
-        }
-
-        if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
-            container = thisObject.timeFrameScale.getContainer(point)
-            if (container !== undefined) {
-                thisObject.timeFrameScale.onKeyPressed(event)
-                return true
-            }
-        }
-
-        return false
-    }
-
     function onScaleChanged(event) {
         if (thisObject.rateScale !== undefined) {
             thisObject.rateScale.onUpstreamScaleChanged(event)
@@ -324,12 +292,8 @@ function newTimelineChart() {
         if (thisObject.rateScale !== undefined && thisObject.rateScale.isVisible === true) {
             container = thisObject.rateScale.getContainer(point, purpose)
             if (container !== undefined) {
-                if (purpose === undefined) {
+                if (container.isForThisPurpose(purpose)) {
                     return container
-                } else {
-                    if (container.isForThisPurpose(purpose)) {
-                        return container
-                    }
                 }
             }
         }
@@ -337,12 +301,8 @@ function newTimelineChart() {
         if (thisObject.timeFrameScale !== undefined && thisObject.timeFrameScale.isVisible === true) {
             container = thisObject.timeFrameScale.getContainer(point, purpose)
             if (container !== undefined) {
-                if (purpose === undefined) {
+                if (container.isForThisPurpose(purpose)) {
                     return container
-                } else {
-                    if (container.isForThisPurpose(purpose)) {
-                        return container
-                    }
                 }
             }
         }

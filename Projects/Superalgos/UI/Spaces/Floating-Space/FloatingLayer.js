@@ -20,7 +20,6 @@ function newFloatingLayer() {
     
 
     let thisObject = {
-        isProximityPhysicsNeeded: false,
         addFloatingObject: addFloatingObject,
         removeFloatingObject: removeFloatingObject,
         getFloatingObject: getFloatingObject,
@@ -146,7 +145,25 @@ function newFloatingLayer() {
     }
 
     function draw() {
+        drawInvisibleObjects()
         drawVisibleObjects()
+    }
+
+    function drawInvisibleObjects() {
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.drawBackground()
+        }
+
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[i]
+            floatingObject.drawMiddleground()
+        }
+
+        for (let i = 0; i < invisibleFloatingObjects.length; i++) {
+            let floatingObject = invisibleFloatingObjects[invisibleFloatingObjects.length - i - 1]
+            floatingObject.drawForeground()
+        }
     }
 
     function drawVisibleObjects() {
@@ -266,21 +283,12 @@ function newFloatingLayer() {
         */
 
         try {
-            
-            thisObject.isProximityPhysicsNeeded = false // this might be turned on bu the visiblePhysics downstream if needed. 
-
             makeVisible()
             makeInvisible()
             visiblePhysics()
             enginePhysics()
+            proximityPhysics()
 
-            if (thisObject.isProximityPhysicsNeeded === true) {
-                /*
-                This is an expensive calculation, so we are going to do it only when we need to.
-                */
-                proximityPhysics()
-            }
-            
             function visiblePhysics() {
                 for (let i = 0; i < visibleFloatingObjects.length; i++) {
                     let floatingObject = visibleFloatingObjects[i]

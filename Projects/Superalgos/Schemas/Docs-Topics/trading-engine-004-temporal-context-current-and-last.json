@@ -26,17 +26,17 @@
         },
         {
             "style": "Title",
-            "text": "Trading Current",
+            "text": "Current",
             "updated": 1611254496763
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Trading Current->Definition",
+            "text": "Superalgos->Node->Current->Definition",
             "updated": 1611254540559
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Trading Current->Content"
+            "text": "Superalgos->Node->Current->Content"
         },
         {
             "style": "Include",
@@ -45,22 +45,22 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Trading Current->2",
+            "text": "Superalgos->Current->2",
             "updated": 1611254736085
         },
         {
             "style": "Title",
-            "text": "Trading Last",
+            "text": "Last",
             "updated": 1611254547170
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Trading Last->Definition",
+            "text": "Superalgos->Node->Last->Definition",
             "updated": 1611254556715
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Trading Last->Content"
+            "text": "Superalgos->Node->Last->Content"
         },
         {
             "style": "Include",
@@ -69,7 +69,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Trading Last->2",
+            "text": "Superalgos->Last->2",
             "updated": 1611255233693
         }
     ]

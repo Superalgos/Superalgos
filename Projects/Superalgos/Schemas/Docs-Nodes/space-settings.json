@@ -55,10 +55,6 @@
         {
             "style": "List",
             "text": "physics determines wether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes."
-        },
-        {
-            "style": "List",
-            "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
         }
     ]
 }

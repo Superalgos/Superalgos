@@ -4,42 +4,17 @@
     "type": "App Message - Update Done - New Version Found",
     "definition": {
         "text": "The update process finished successfully. A new version of Superalgos was downloaded replacing the current one. In order for the changes to take effect, you must restart the Client and refresh the UI page.",
-        "updated": 1611003042937,
-        "translations": [
-            {
-                "language": "ID",
-                "text": "Proses pembaruan berhasil dilaksanakan. Versi terbaru Superalgos telah selesai diunduh dan mengganti versi yang sekarang. Agar perubahan diterapkan dengan baik, anda harus memulai ulang Client ini dan merefresh halaman UI ini.",
-                "updated": 1613891855110,
-                "style": "Definition"
-            }
-        ]
+        "updated": 1611003042937
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You now have the latest version of Superalgos. Just remember to restart the Client and the UI. If you have Tasks running, you should first stop the tasks, and then restart the Client, so that you can run those tasks again using the updated codebase.",
-            "updated": 1616081292001,
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Sekarang Superalgos berada diversi terbaru. Perlu diingat untuk selalu restart Client dan UI. Jika memiliki Task yang berjalan, maka anda harus menghentikan Task tersebut terlebih dahulu, lalu memulai ulang Client, sehingga anda dapat menjalankan Task tersebut lagi menggunakan codebase yang terupdate. ",
-                    "updated": 1616762115115,
-                    "style": "Success"
-                }
-            ]
+            "text": "You now have the latest version of Superalgos. Just remeber to restart the Client and the UI. If you have Tasks running, you should first stop the tasks, and then restart the Client, so that you can run those task again using the updated codebase.",
+            "updated": 1611160648343
         },
         {
             "style": "Note",
-            "text": "The update you made only affects the Client which you are connected to via http using your browser. If you have more Clients running as part of a Network, you will need to update them too, either manually using Git, or by navigating with your browser to their URL and running the App Update Command there.",
-            "translations": [
-                {
-                    "language": "ID",
-                    "text": "Pembaruan yang Anda buat, hanya berlaku di Client ini yang terkoneksi http dengan browser. Jika kamu memiliki banyak Client yang berjalan di Network, juga harus diperbaharui, baik secara manual menggunakan Git atau dengan menavigasikan browser ke URL tujuan dan menjalankan App Update Command di sana. ",
-                    "updated": 1616762450808,
-                    "style": "Note"
-                }
-            ],
-            "updated": 1616081262353
+            "text": "The update you made, only afffects the Client which you are connected to via http using your browser. If you have more Clients running as part of a Network, you will need to update them too, etither manually using Git or by navigating with your browser to their URL and doing running the App Update Command there."
         }
     ]
 }

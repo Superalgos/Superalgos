@@ -18,8 +18,15 @@
         },
         {
             "style": "Text",
-            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu.",
-            "updated": 1615313209746
+            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain laws of physics, and constrained by their chain relationships."
+        },
+        {
+            "style": "Text",
+            "text": "This self-organizing paradigm saves users the effort of maintaining the arrangement of nodes in a logical manner, in particular when manipulating or creating new nodes."
+        },
+        {
+            "style": "Text",
+            "text": "However, there will be times in which you will want to override this self-organizing nature. The following menu options are tools that will help you manipulate the arrangement of nodes, overriding the physics that affect their floating nature."
         },
         {
             "style": "Subtitle",
@@ -127,24 +134,9 @@
             "updated": 1610041765847
         },
         {
-            "style": "Anchor",
-            "text": "Arrangement Style",
-            "updated": 1610041884085
-        },
-        {
             "style": "Subtitle",
             "text": "Arrangement Style",
-            "updated": 1615491355364
-        },
-        {
-            "style": "Text",
-            "text": "The following options affect how a node is arranged around or in relation to its parent.",
-            "updated": 1615491622552
-        },
-        {
-            "style": "Important",
-            "text": "The current implementation of this feature is not optimal, and the behavior of some of these options is hard to predict. If you are a developer, this may be a good opportunity to iterate on the existing code and take this feature to a more usable state.",
-            "updated": 1615491609266
+            "updated": 1610041884085
         },
         {
             "style": "Include",

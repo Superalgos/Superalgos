@@ -93,7 +93,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
                     let url = 'http://' + global.env.WEB_SERVER_URL +
                         ':' + global.env.HTTP_INTERFACE_PORT +
                         '/Webhook/Fetch-Messages/' +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + 
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 

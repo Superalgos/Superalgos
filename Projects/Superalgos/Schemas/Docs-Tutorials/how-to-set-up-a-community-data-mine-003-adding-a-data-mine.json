@@ -1,0 +1,38 @@
+{
+    "tutorial": "How to Set Up a Community Data Mine",
+    "pageNumber": "3",
+    "type": "Adding a Data Mine",
+    "definition": {
+        "text": "Write a summary for this tutorial page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are two main ways to add a Community Data Mine within your workspace.  "
+        },
+        {
+            "style": "List",
+            "text": "Using the Plugins node.",
+            "updated": 1617071803280
+        },
+        {
+            "style": "List",
+            "text": "Dragging and dropping the source file.",
+            "updated": 1617071808587
+        },
+        {
+            "style": "Text",
+            "text": "First we will talk through using the Plugins node to add the data mine. To begin find your Plugins node. It looks like this:",
+            "updated": 1617071939220
+        },
+        {
+            "style": "Text",
+            "text": "Plugins node png"
+        },
+        {
+            "style": "Callout",
+            "text": "Note:  If you do not have a Plugins node within your workspace don’t panic! Under the Superalgos project node you will find the Other Hierarchies node on it’s node menu click the add Plugins option. Presto you’re in business!",
+            "updated": 1617071906739
+        }
+    ]
+}

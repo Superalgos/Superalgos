@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "5",
+    "type": "Adding Charts - Dashing Dashboards",
+    "definition": {
+        "text": "A Dashboard helps us stay organized.",
+        "icon": {
+            "name": "dashboard",
+            "project": "Superalgos"
+        },
+        "updated": 1617326878352
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Shall we embark into the wonderful world of customization?  Let’s do it! ",
+            "updated": 1617326605684
+        },
+        {
+            "style": "Text",
+            "text": "To get us started, I want you to get a little more comfortable with how the Charting Space is set up. Expand the Charting Space node and take a look at the Dashboards underneath. What do you notice?",
+            "updated": 1617326642397
+        },
+        {
+            "style": "Text",
+            "text": "That’s right! There is one Dashboard set up for Backtesting and one set up for Live Trading. Dashboards are a convenient way to group charts according to type. Eventually Dashboards will be used to bring multiple Time Machines together in useful configurations, but for right now they helps us stay organized.",
+            "updated": 1617326684776
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

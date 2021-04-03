@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Making Sense of Objects",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer"
+        },
+        "text": "The layers in the Simulation Objects layer manager feature visual representations of the data that makes up simulations."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In other words, each of these layers render graphics over the charts that help us visualize&mdash;therefore, better understand&mdash;what happens during a trading session."
+        },
+        {
+            "style": "Note",
+            "text": "Each layer may feature plotter panels which usually display the hard data associated with the concept represented by the particular layer."
+        },
+        {
+            "style": "Success",
+            "text": "Notice how the data in the panel becomes visible only when the pointer of the mouse lies within the candles engulfed by the object."
+        }
+    ]
+}

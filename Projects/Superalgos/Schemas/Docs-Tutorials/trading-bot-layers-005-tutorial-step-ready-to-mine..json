@@ -1,0 +1,23 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Ready to Mine.....?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "We'll do some data mining so that we may then run a quick Backtesting Session and explore the resulting simulation..."
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020, along with the indicators required by the Weak-hands Buster Trading System."
+        },
+        {
+            "style": "Warning",
+            "text": "If you have data on this market / exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!",
+            "updated": 1617181661074
+        }
+    ]
+}

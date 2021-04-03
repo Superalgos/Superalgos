@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Reinforce The Learning!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "learning-bot"
+        },
+        "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "FIRST: The time frame! (i.e.: chart.at24hs)"
+        },
+        {
+            "style": "List",
+            "text": "SECOND: Each segment of the instruction is separated by dots! (i.e.: like.this)"
+        },
+        {
+            "style": "List",
+            "text": "THIRD: Product name and property name are determined by the indicator you are using. No need to memorize them, as you may copy and paste them from the docs when you need them!"
+        },
+        {
+            "style": "List",
+            "text": "FOURTH: Compound words in the product and property name are written in camel case, that is, altogether, with the first word in lowercase and the rest of the words capitalized! (forExampleLikeThis)",
+            "updated": 1610384140775
+        }
+    ]
+}

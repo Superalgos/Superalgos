@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 9,
+    "type": "Tutorial Step - The Whole Balance?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "balance"
+        },
+        "text": "We haven't discussed position size so far, as the intention of the testing of the trading idea is measuring hit ratio only."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For the same reason, we are not going to get into further considerations at this point. We'll save a few thoughts in that regard for when we define the execution algorithm and orders. <br/><br/>I just brought you to the definition of the Trading Parameters of the trading session so that you may check how the initialBalance is defined!"
+        },
+        {
+            "style": "Callout",
+            "text": "Check the Session Base Asset and the Session Quoted Asset configuration!"
+        }
+    ]
+}

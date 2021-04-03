@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 54,
+    "type": "Tutorial Step - The Land of Confusion",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "Indeed, it is logical that the trading bot evaluates only the definitions that make sense evaluating at any point in time!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, this is sometimes a source of confusion! Let's set up a hypothetical scenario!"
+        },
+        {
+            "style": "Callout",
+            "text": "Turn off the Strategies and the Trigger Stages layers in the Simulation Objects layer manager!"
+        },
+        {
+            "style": "Text",
+            "text": "Now slide the pointer over the candles around March 1st! Imagine that you are trying to verify your conditions, but for some reason, they show values and highlights for some candles, but not for others! Something is wrong with Superalgos! Not really, right?"
+        }
+    ]
+}

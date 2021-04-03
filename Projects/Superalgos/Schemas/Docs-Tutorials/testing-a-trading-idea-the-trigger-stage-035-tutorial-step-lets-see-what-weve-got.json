@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 35,
+    "type": "Tutorial Step - Let's See What We've Got!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-stage"
+        },
+        "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Simulation Objects layer manager and turn on the Strategies and Trigger Stages layers."
+        },
+        {
+            "style": "Note",
+            "text": "Do you see the two instances of strategies triggered between February 26th and April 2nd? Now, pan the charts to the right... You should see another two triggered between September 3rd - 23rd! The following step features a video of what you should see on the screen, just to make sure we're on the same page!"
+        }
+    ]
+}

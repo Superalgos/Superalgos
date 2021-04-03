@@ -1,0 +1,24 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Et Voilà!",
+    "definition": {
+        "icon": {
+            "name": "trading-current",
+            "project": "Superalgos"
+        },
+        "text": "So, we turned on the Trading Episode Counters and the Current Episode layers... let's take a look at the hierarchy...",
+        "updated": 1617182224488
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Track your way up the hierarchy to discover what exactly we were looking at all this time..."
+        },
+        {
+            "style": "Text",
+            "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Trading Episode Counters node of the hierachy... the one we turned on first! If you follow the hierarchy upstream, you will find the Trading Episode node, and if you keep going further upstream, you'll find the Trading Current node. Exactly! Current Episode!.",
+            "updated": 1617182335969
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 35,
+    "type": "Tutorial Step - Time To Go Out and Play!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "play"
+        },
+        "text": "That's all folks! We've covered it all! Now it's time to go out and play! Have fun!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take some time to explore these layers, paying special attention to those you feel will be of the most use."
+        },
+        {
+            "style": "Callout",
+            "text": "The Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies! You will learn more about them and put them to good use in the tutorials that teach you how to build Trading Systems, available in the Trading System Design Tutorials Plugin Workspace.",
+            "updated": 1617185406035
+        },
+        {
+            "style": "Success",
+            "text": "Drop by the documentation for more info!"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 74,
+    "type": "Tutorial Step - Target Rate Error",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Did you find the error? You must have tracked it deep into the Open Stage, on the formula of the Target Rate definition!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let me explain what this is about."
+        },
+        {
+            "style": "Callout",
+            "text": "When the Take Position Event validates true, the Trigger Stage is closed, and both the Open Stage and the Manage Stage are opened!"
+        },
+        {
+            "style": "Text",
+            "text": "We are getting an error on the first node of the open stage the trading bot evaluates. That is, if we fix that error, more errors will pop up when the trading bot attempts to evaluate the rest of the nodes that are also undefined."
+        }
+    ]
+}

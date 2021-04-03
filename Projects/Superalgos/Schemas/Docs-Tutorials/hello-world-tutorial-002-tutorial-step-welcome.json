@@ -1,0 +1,42 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 2,
+    "type": "Tutorial Step - Welcome",
+    "definition": {
+        "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        },
+        "updated": 1614275495850
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For this tutorial I assume that",
+            "updated": 1614240501976
+        },
+        {
+            "style": "List",
+            "text": "You have done the Welcome Tutorial in the Getting Started Workspace"
+        },
+        {
+            "style": "List",
+            "text": "You are comfortable moving around the Workspace and the Charts"
+        },
+        {
+            "style": "List",
+            "text": "You have a basic understanding about what is a Trading Bot and a strategy",
+            "updated": 1614275543824
+        },
+        {
+            "style": "Note",
+            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4H TF. A classic!",
+            "updated": 1614242374513
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

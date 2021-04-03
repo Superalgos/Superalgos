@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Et Voilà..!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "That's it! We finally have a proper hypothesis that we can test to decide if the idea is worth pursuing or not!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "We'll take it from there in the next tutorial!"
+        },
+        {
+            "style": "Note",
+            "text": "In the next tutorial in the series, we will dive into how Superalgos guides you through the process of setting up the trading idea to be tested on historical data. We'll learn about the syntax to write conditions and formulas, about how to use indicators from within strategies, and whatever else we may need along the way!"
+        }
+    ]
+}

@@ -23,8 +23,8 @@
         },
         {
             "style": "Text",
-            "text": "A Network, represented by the Network Hierarchy it is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you mighd define one or even more than one Netwrok Hiererchy. For simplicity we will continue the explanation assuming only one Network is defined.",
-            "updated": 1614353405812
+            "text": "A Network, represented by the Network Hierarchy, is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you might define one, or even more than one, Network Hierarchy. For simplicity, we will continue the explanation assuming only one Network is defined.",
+            "updated": 1617263502648
         },
         {
             "style": "Text",
@@ -51,7 +51,8 @@
         },
         {
             "style": "Text",
-            "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system don't care or have any preferred way for you to do so. It just need to know where each Task runs, and where the Data is located. That's it."
+            "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system doesn't care or have any preferred way for you to do so. It justs need to know where each Task runs, and where the Data is located. That's it.",
+            "updated": 1617263562866
         },
         {
             "style": "Callout",
@@ -71,7 +72,8 @@
         },
         {
             "style": "Callout",
-            "text": "In other words, the system allows building any arrangement of networks of nodes responding to the organizational logic of your preference."
+            "text": "In other words, the system allows building any arrangement of networks of nodes corresponding to the organizational logic of your preference.",
+            "updated": 1617263606632
         },
         {
             "style": "Title",
@@ -80,11 +82,13 @@
         },
         {
             "style": "Text",
-            "text": "When you define a Task, inside of it you are referencing a Process Definition, which has in turn definition regarding to which other processes it depends on (for example to start after some other process finished) and it also has Data Dependencies, which means that in order to run, it needs to read the data output from other processes."
+            "text": "When you define a Task, inside of it you are referencing a Process Definition, which has in turn a definition specifying which other processes it depends on (for example to start after some other process finished) and it also has Data Dependencies, which means that in order to run, it needs to read the data output from other processes.",
+            "updated": 1617263665349
         },
         {
             "style": "Note",
-            "text": "All these definitions are built-in inside Data Mines, Trading Mines and Learning mines at a conceptual level. This means that a Data Mine does not really know where the data a process depends on actually is, or where a process that it depends on is actually running. That problem is solved at runtime once a Task is executed."
+            "text": "All these definitions are built-in inside Data Mines, Trading Mines and Learning mines at a conceptual level. This means that a Data Mine does not really know where the data a process depends on actually is, or where a process that it depends on, is actually running. That problem is solved at runtime once a Task is executed.",
+            "updated": 1617263712801
         },
         {
             "style": "Text",
@@ -93,7 +97,8 @@
         },
         {
             "style": "Text",
-            "text": "This is achieved by sending to a newly executed Task a snapshot of the Network Map at the instant when the Task is being run. From the Mine definition the Task can know which processes and data it depends on, and by looking into the snapshot of the Network, it can guess which Client is hosting the Data or the Tasks that the process depends on, allowing it to communicate with those Client s and fetch the data from them or wait for the right events signaling that the dependen process has finished."
+            "text": "This is achieved by sending to a newly executed Task a snapshot of the Network Map at the instant when the Task is being run. From the Mine definition the Task can know which processes and data it depends on, and by looking into the snapshot of the Network, it can guess which Client is hosting the Data or the Tasks that the process depends on, allowing it to communicate with those Clients, and fetch the data from them, or wait for the right events signaling that the dependent process has finished.",
+            "updated": 1617263799269
         },
         {
             "style": "Title",

@@ -1,0 +1,28 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Episode X",
+    "definition": {
+        "icon": {
+            "name": "trading-episode",
+            "project": "Superalgos"
+        },
+        "text": "There's one layer left... Episodes! It marks the duration of the episode and features several plotter panels...",
+        "updated": 1617184086263
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn the Episodes layer on!",
+            "updated": 1617184095329
+        },
+        {
+            "style": "Text",
+            "text": "In this case, the episode is six months long, so all you will see is a line at the bottom of the screen, and the episode icon on both sides, signaling the episode is longer than the period represented on screen."
+        },
+        {
+            "style": "Note",
+            "text": "As usual, the plotter panels feature information that explained on the Trading Engine section of the documentation."
+        }
+    ]
+}

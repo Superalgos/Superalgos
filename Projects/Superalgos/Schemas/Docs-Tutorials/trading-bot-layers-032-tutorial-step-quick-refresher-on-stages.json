@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 32,
+    "type": "Tutorial Step - Quick Refresher on Stages!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-stage"
+        },
+        "text": "Notice that not all nodes are evaluated all the time! Only those in the active stage are!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is a quick refresher on strategy stages! If you haven't read the docs on trading systems and strategies, then find the time and do it!"
+        },
+        {
+            "style": "Callout",
+            "text": "Notice how these conditions are not highlighted for the candles within the position."
+        },
+        {
+            "style": "Text",
+            "text": "This is because you are looking at the Trigger Stage definitions. These definitions are evaluated until a Strategy is triggered. Once triggered, the Open Stage kicks in, and so on!"
+        }
+    ]
+}

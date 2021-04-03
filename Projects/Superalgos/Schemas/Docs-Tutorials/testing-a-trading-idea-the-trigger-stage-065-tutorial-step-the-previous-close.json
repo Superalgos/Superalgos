@@ -1,0 +1,29 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 65,
+    "type": "Tutorial Step - The Previous Close",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "javascript-code"
+        },
+        "text": "Two consecutive closes means that the current and the previous candle close below the lower band!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To describe the close of the previous candle, we need to use the previous property to modify each property of each indicator used on both sides of the statement:",
+            "updated": 1610471485501
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.close < \nchart.at01hs.bollingerBand.previous.movingAverage - \nchart.at01hs.bollingerBand.previous.deviation",
+            "updated": 1610471501818
+        },
+        {
+            "style": "Callout",
+            "text": "Create a new condition under the same situation and use the code above!",
+            "updated": 1610471548093
+        }
+    ]
+}

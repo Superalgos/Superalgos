@@ -8,9 +8,18 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "The tutorial is available in the Getting Started Plugin Workspace.",
-            "updated": 1616697091899
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111443632
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Plugin Workspace.",
+            "updated": 1617111458359
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
         }
     ]
 }

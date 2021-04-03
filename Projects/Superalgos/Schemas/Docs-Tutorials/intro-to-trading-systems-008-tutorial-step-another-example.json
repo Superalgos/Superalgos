@@ -1,0 +1,22 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Another Example?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "Let's take a look at another example! This is BB Top Bounce, a Trading System based on the bounce off the upper Bollinger Band trading idea."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Expand the trading system node... Let's see what it may teach us!"
+        },
+        {
+            "style": "Note",
+            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there your are!"
+        }
+    ]
+}

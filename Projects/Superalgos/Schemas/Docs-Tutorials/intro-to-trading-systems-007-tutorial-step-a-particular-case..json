@@ -1,0 +1,22 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 7,
+    "type": "Tutorial Step - A Particular Case...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "Both strategies are virtually the same in that they share the same base rules for triggering... with minor differences..."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Beyond the seven conditions in common, the Steep strategy has one additional Condition while the Xtreme strategy has three. We won't analyze those differences one by one, although you may if you wish! Let's instead reveal the underlying concept behind the differences:"
+        },
+        {
+            "style": "Callout",
+            "text": "Within the market Situation defined by the first seven conditions, the Steep strategy deals with a certain type of price action&mdash;price falling on a steep curve&mdash;while the Xtreme strategy deals with price falling on an extremely steep curve!"
+        }
+    ]
+}

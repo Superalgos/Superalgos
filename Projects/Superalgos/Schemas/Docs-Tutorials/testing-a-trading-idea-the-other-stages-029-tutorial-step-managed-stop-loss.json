@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Managed Stop Loss",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "stop-loss"
+        },
+        "text": "Let's prepare the syntax to use for the Phase #1 formula of the Managed Stop Loss!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We want to set a stop loss target 3% above the rate at which we entered the position. How do we do that?"
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Engine and try to find the node that holds the information of the rate at which the position is entered."
+        },
+        {
+            "style": "Success",
+            "text": "Remember the logic to navigate the data structure! First, determine the context in which the information exists!"
+        }
+    ]
+}

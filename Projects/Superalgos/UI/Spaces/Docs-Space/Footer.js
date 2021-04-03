@@ -105,6 +105,12 @@ function newSuperalgosDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'TR\')"><img src="Images/Languages/TR.png" title="Turkish" class="docs-footer-language'
+        if (languageCode === 'TR') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

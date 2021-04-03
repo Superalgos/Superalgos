@@ -43,18 +43,18 @@ let maxOldSpaceSize = "--max-old-space-size=" + (optimalRAM.toFixed(0)).toString
 let options
 
 console.log('')
-console.log("Total RAM istalled in this system is ..... " + (totalRAM / 1024).toFixed(2) + " GB")
+console.log("Total RAM istalled in this system is ........................ " + (totalRAM / 1024).toFixed(2) + " GB")
 if (process.argv.includes("minMemo")) {
     options = {
         stdio: 'inherit'
     }
-    console.log("Total RAM available for Superalgos is .... 512 MB")
+    console.log("Total RAM available for Superalgos is ....................... 512 MB")
 } else {
     options = {
         execArgv: [maxOldSpaceSize],
         stdio: 'inherit'
     }
-    console.log("Total RAM available for Superalgos is .... " + (optimalRAM / 1024).toFixed(2) + " GB")
+    console.log("Total RAM available for Superalgos is ....................... " + (optimalRAM / 1024).toFixed(2) + " GB")
     console.log('')
     console.log('If you would like to enable less RAM than that, use the minMemo flag. Note: RAM will be allocated only if needed.')
 }
@@ -66,16 +66,16 @@ let optionsAccepted = 0
 
 if (process.argv.includes("minMemo")) {
     optionsAccepted++
-    console.log('minMemo ............................ Running with Minimun Required Memory.')
+    console.log('minMemo ..................................................... Running with Minimun Required Memory.')
 } 
 
 if (process.argv.includes("noBrowser")) {
     optionsAccepted++
-    console.log('noBrowser .......................... Running without User Interface.')
+    console.log('noBrowser ................................................... Running without User Interface.')
 }
 
 if (optionsAccepted === 0) {
-    console.log('none ............................... Running without any command line options.')
+    console.log('none ........................................................ Running without any command line options.')
 }
 console.log('')
 console.log('')

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 31,
+    "type": "Tutorial Step - Ready For The Next One..?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "The tutorial to the right is the next in the series about designing trading systems. Shall we keep going?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The next tutorial in the series is about implementing the ideas we just came up with on a Trading System so that they may be tested."
+        },
+        {
+            "style": "Success",
+            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!"
+        }
+    ]
+}

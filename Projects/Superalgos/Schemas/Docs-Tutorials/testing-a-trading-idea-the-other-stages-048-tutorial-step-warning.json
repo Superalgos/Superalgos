@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Warning!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "I see three warning signs on Feb 28th at the 9 hs candle. We should take a look and see what the warnings are about!",
+        "updated": 1612712860187
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Like with errors, the number and size of bullets indicate the sequence in which warnings where recorded!",
+            "updated": 1612713206057
+        },
+        {
+            "style": "Callout",
+            "text": "Point to the first warning bullet, the bigger one, on Feb 28th at 10 hs...",
+            "updated": 1612712986948
+        },
+        {
+            "style": "Success",
+            "text": "Warnings are created every time the trading bot makes adjustments to information that would otherwise not be obvious. It's like a verbose mode that the bot uses to leave a trace of its actions.",
+            "updated": 1612713241626
+        }
+    ]
+}

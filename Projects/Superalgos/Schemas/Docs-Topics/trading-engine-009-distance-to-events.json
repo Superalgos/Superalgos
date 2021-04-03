@@ -1,7 +1,7 @@
 {
     "topic": "Trading Engine",
     "pageNumber": "9",
-    "type": "Distance to Events",
+    "type": "Distance-To-Trading-Events",
     "definition": {
         "text": "Track the number of periods that have passed since the last occurrence of each type of event. On this page: Trigger On, Trigger Off, Take Position, Close Position, Next Phase, Move to Phase, Create Order, Cancel Order, Close Order.",
         "updated": 1611327154424
@@ -9,12 +9,12 @@
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Superalgos->Node->Distance To Event->Definition",
+            "text": "Superalgos->Node->Distance To Trading Event->Definition",
             "updated": 1611327304404
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Distance To Event->Content",
+            "text": "Superalgos->Node->Distance To Trading Event->Content",
             "updated": 1611327325113
         },
         {
@@ -23,7 +23,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Distance To Event->2",
+            "text": "Superalgos->Distance To Trading Event->2",
             "updated": 1611327347651
         }
     ]

@@ -50,7 +50,7 @@
         },
         {
             "style": "Javascript",
-            "text": "\"The condition with the following code: \" + \ntradingSystem.tradingStrategies[tradingEngine.current.strategy.index.value].triggerStage.takePositionEvent.situations[0].conditions[0].code +\n\" triggered the take position event.\"",
+            "text": "\"The condition with the following code: \" + \ntradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage.takePositionEvent.situations[0].conditions[0].code +\n\" triggered the take position event.\"",
             "updated": 1610217276846
         },
         {
@@ -60,7 +60,7 @@
         },
         {
             "style": "Javascript",
-            "text": "[tradingEngine.current.strategy.index.value]"
+            "text": "[tradingEngine.tradingCurrent.strategy.index.value]"
         },
         {
             "style": "Text",

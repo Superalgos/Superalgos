@@ -1,0 +1,23 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 5,
+    "type": "Superalgos Review - actually beginner-friendlier than your regular bot site!",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm new to bots and I'm neither a seasoned trader nor a coder. Trying to get some commercial bot to run, I soon gave up because I didn't understand what I was doing. Sure, Superalgos looks intimidating at first, and it will certainly take me a lot of effort to get my head around it, but then again, everything is laid out there to study - while all the over-complicated stuff has been mercifully hidden from me. And with its beautiful design, it sort of feels like you're playing a game ;)",
+            "updated": 1616262546510
+        },
+        {
+            "style": "Text",
+            "text": "This is just a stub. Looking forward to contribute more to this brilliant project!"
+        },
+        {
+            "style": "Text",
+            "text": "-pisukesoramame"
+        }
+    ]
+}

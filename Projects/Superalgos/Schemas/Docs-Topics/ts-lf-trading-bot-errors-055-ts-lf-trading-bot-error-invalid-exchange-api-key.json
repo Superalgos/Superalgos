@@ -1,0 +1,163 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 55,
+    "type": "TS LF Trading Bot Error - Invalid Exchange API Key",
+    "definition": {
+        "text": "The Exchange API Key you provided to access the Exchange was not recognized by the Exchange as a valid key.",
+        "updated": 1611737158370
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Most errors associated with the Exchange Account Key originate from the handling of the keys provided by the exchange. Please double-check the typical issues listed below!",
+            "updated": 1611951051869
+        },
+        {
+            "style": "List",
+            "text": "Copy the public key in the codeName property and the secret key in the secret property.",
+            "updated": 1611950941851
+        },
+        {
+            "style": "List",
+            "text": "Make sure you don't bring invisible characters from the exchange's website."
+        },
+        {
+            "style": "List",
+            "text": "Make sure you don't leave foreign characters from the sample text. To be extra sure, you may copy the code of the configuration below into a text editor, paste the keys, and then replace the whole configuration code in the corresponding node."
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"codeName\": \"\",\n    \"secret\": \"\"\n}",
+            "updated": 1611950477590
+        },
+        {
+            "style": "List",
+            "text": "Make sure that the keys are not disabled at the exchange.",
+            "updated": 1611951062366
+        },
+        {
+            "style": "List",
+            "text": "If the keys are IP restricted, double-check the IP address. Try without restrictions until you rule out other potential issues.",
+            "updated": 1611951081066
+        },
+        {
+            "style": "Error",
+            "text": "Invalid Exchange API Key"
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Note",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611737076496
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the node's name of the Node most related to this error:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the code stored at the node that produced the error at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Config",
+            "updated": 1611738263645
+        },
+        {
+            "style": "Text",
+            "text": "The following is the config stored at the node that produced the error at the LF Trading Bot:",
+            "updated": 1611738289813
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeConfig"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the context information preserved when the error occured:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

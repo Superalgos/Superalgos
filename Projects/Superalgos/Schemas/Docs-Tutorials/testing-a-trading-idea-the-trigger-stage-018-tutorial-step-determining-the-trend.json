@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Determining the Trend",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We'll take an arbitrary and rather simple approach based on the 20-periods moving average (MA) built in the Bollinger Bands."
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Masters Layer Manager and turn on the Bollinger Channels Objects Layer!"
+        },
+        {
+            "style": "Note",
+            "text": "This indicator derives the direction of the MA and draws a green channel when the MA is going Up and a red channel when it's going Down."
+        }
+    ]
+}

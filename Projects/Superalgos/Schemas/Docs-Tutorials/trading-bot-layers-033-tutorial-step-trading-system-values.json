@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 33,
+    "type": "Tutorial Step - Trading System Values!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "formula"
+        },
+        "text": "The Trading System Values layers works like the layers on the Trading Engine layer manager showing the values of nodes..."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn the Trading System Values layer on, slide your mouse over the chart and check the stop formulas!"
+        },
+        {
+            "style": "Note",
+            "text": "The common theme among these layers is that they provide on-the-fly information about each node, for each candle!"
+        },
+        {
+            "style": "Success",
+            "text": "Is it fair to say that our Trading Bot is 100% acccountable?"
+        }
+    ]
+}

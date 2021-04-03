@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Let's Hunt For Errors!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Even when you are getting the results you expect, you may still have errors lurking around!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Some errors may be innocuous, and some may have hard-to-notice consequences."
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading System layer manager and turn on the Trading System Errors layer!"
+        },
+        {
+            "style": "Text",
+            "text": "Pan the charts to the left until you get to the first days of January. Do you see the error bullets below candles?",
+            "updated": 1617191460214
+        },
+        {
+            "style": "Note",
+            "text": "Feel free to turn off some layers if needed."
+        }
+    ]
+}

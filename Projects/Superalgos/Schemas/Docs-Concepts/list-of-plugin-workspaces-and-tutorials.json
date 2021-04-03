@@ -1,7 +1,8 @@
 {
     "type": "List of Plugin Workspaces and Tutorials",
     "definition": {
-        "text": "Write here the summary / definition of this Concept."
+        "text": "Tutorials exists withing specific workspaces. This is a list of the workspaces shipping with Superalgos and the tutorials each of them feature.",
+        "updated": 1616703721108
     },
     "paragraphs": [
         {
@@ -15,15 +16,18 @@
         },
         {
             "style": "List",
-            "text": "Welcome to Superalgos!"
+            "text": "Welcome to Superalgos Tutorial",
+            "updated": 1616703643988
         },
         {
             "style": "List",
-            "text": "Developers Intro"
+            "text": "Basic Education Tutorial",
+            "updated": 1616695524660
         },
         {
             "style": "List",
-            "text": "Install a New Market"
+            "text": "Contribute to Superalgos Tutorial",
+            "updated": 1616703652140
         },
         {
             "style": "Subtitle",
@@ -31,7 +35,17 @@
         },
         {
             "style": "List",
-            "text": "Trading Bot Layers"
+            "text": "Trading Bot Layers Tutorial",
+            "updated": 1616703658875
+        },
+        {
+            "style": "Subtitle",
+            "text": "Hello World Tutorial Plugin Workspace",
+            "updated": 1616695480453
+        },
+        {
+            "style": "List",
+            "text": "Hello World Tutorial"
         },
         {
             "style": "Subtitle",
@@ -39,19 +53,32 @@
         },
         {
             "style": "List",
-            "text": "Intro to Trading Systems"
+            "text": "Intro to Trading Systems Tutorial",
+            "updated": 1616703668889
         },
         {
             "style": "List",
-            "text": "Defining a Trading Idea"
+            "text": "Defining a Trading Idea Tutorial",
+            "updated": 1616703676357
         },
         {
             "style": "List",
-            "text": "Testing a Trading Idea - The Trigger Stage"
+            "text": "Testing a Trading Idea - The Trigger Stage Tutorial",
+            "updated": 1616703683018
         },
         {
             "style": "List",
-            "text": "Testing a Trading Idea - The Other Stages"
+            "text": "Testing a Trading Idea - The Other Stages Tutorial",
+            "updated": 1616703689861
+        },
+        {
+            "style": "Subtitle",
+            "text": "Tested Exchanges Plugin Workspace"
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market Tutorial",
+            "updated": 1616703698477
         },
         {
             "style": "Text",

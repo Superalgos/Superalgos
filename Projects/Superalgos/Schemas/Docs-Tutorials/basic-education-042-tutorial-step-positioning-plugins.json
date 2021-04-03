@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Positioning Plugins",
+    "definition": {
+        "text": "Here's the crazy bit... the Plugin File Position node determines where in the workspace the plugin is placed!",
+        "updated": 1615921131447,
+        "icon": {
+            "name": "plugin-file-position",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is why you found the Trading System node on top of the Plugin File Position node!",
+            "updated": 1615920675491
+        },
+        {
+            "style": "Success",
+            "text": "If you deleted the Trading System node, it would show up again the next time you reload the workspace! Plugins are loaded from the plugin file every time the workspace is loaded!",
+            "updated": 1615920995477
+        },
+        {
+            "style": "Text",
+            "text": "Feel free to try it! If so you wish, you may delete the Trading System node and refresh the page. Bear in mind that you will need to find the Basic Education tutorial and click Resume on the menu to continue!",
+            "updated": 1615921187621
+        }
+    ]
+}

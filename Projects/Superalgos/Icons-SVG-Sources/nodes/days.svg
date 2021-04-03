@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="96 11 512 512" style="enable-background:new 96 11 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E6EAEA;}
+	.st1{fill:#CDD4D5;}
+	.st2{fill:#FD6A33;}
+	.st3{fill:#FF8C29;}
+	.st4{fill:#4ACFD9;}
+	.st5{fill:#0295AA;}
+	.st6{fill:#F0353D;}
+	.st7{fill:#FFD1A9;}
+	.st8{fill:#365558;}
+	.st9{fill:#9BAAAB;}
+	.st10{fill:#FFFFFF;}
+	.st11{fill:#BCD643;}
+	.st12{font-family:'SegoeUI-Semibold';}
+	.st13{font-size:128.2065px;}
+</style>
+<path class="st0" d="M597.5,78.1H106.5c-5.8,0-10.5,4.7-10.5,10.5v423.9c0,5.8,4.7,10.5,10.5,10.5h491.1c5.8,0,10.5-4.7,10.5-10.5
+	V88.6C608,82.8,603.3,78.1,597.5,78.1z"/>
+<path class="st1" d="M106.5,78.1c-5.8,0-10.5,4.7-10.5,10.5v423.9c0,5.8,4.7,10.5,10.5,10.5H352V78.1H106.5z"/>
+<rect x="141.5" y="214" class="st2" width="105.3" height="105.5"/>
+<rect x="457.3" y="214" class="st3" width="105.3" height="105.5"/>
+<rect x="141.5" y="372.3" class="st2" width="105.3" height="105.5"/>
+<rect x="299.4" y="372.3" class="st3" width="105.3" height="105.5"/>
+<rect x="299.4" y="214" class="st3" width="105.3" height="105.5"/>
+<rect x="457.3" y="372.3" class="st3" width="105.3" height="105.5"/>
+<rect x="299.4" y="214" class="st2" width="52.6" height="105.5"/>
+<rect x="299.4" y="372.3" class="st2" width="52.6" height="105.5"/>
+<path class="st4" d="M374.3,11h-44.6c-5.8,0-10.5,4.7-10.5,10.5v134.2c0,5.8,4.7,10.5,10.5,10.5h44.6c5.8,0,10.5-4.7,10.5-10.5V21.5
+	C384.8,15.7,380.1,11,374.3,11z"/>
+<path class="st5" d="M329.7,11c-5.8,0-10.5,4.7-10.5,10.5v134.2c0,5.8,4.7,10.5,10.5,10.5H352V11H329.7z"/>
+<path class="st4" d="M541.7,11h-44.6c-5.8,0-10.5,4.7-10.5,10.5v134.2c0,5.8,4.7,10.5,10.5,10.5h44.6c5.8,0,10.5-4.7,10.5-10.5V21.5
+	C552.2,15.7,547.5,11,541.7,11z"/>
+<path class="st5" d="M206.9,11h-44.6c-5.8,0-10.5,4.7-10.5,10.5v134.2c0,5.8,4.7,10.5,10.5,10.5h44.6c5.8,0,10.5-4.7,10.5-10.5V21.5
+	C217.4,15.7,212.7,11,206.9,11z"/>
+<rect x="-485" y="33" class="st6" width="128" height="128"/>
+<rect x="-357" y="33" class="st2" width="128" height="128"/>
+<rect x="-229" y="33" class="st3" width="128" height="128"/>
+<rect x="-101" y="33" class="st7" width="128" height="128"/>
+<rect x="-485" y="161" class="st8" width="128" height="128"/>
+<rect x="-357" y="161" class="st5" width="128" height="128"/>
+<rect x="-229" y="161" class="st4" width="128" height="128"/>
+<rect x="-485" y="289" class="st9" width="128" height="128"/>
+<rect x="-357" y="289" class="st1" width="128" height="128"/>
+<rect x="-229" y="289" class="st0" width="128" height="128"/>
+<rect x="-101" y="289" class="st10" width="128" height="128"/>
+<rect x="-485" y="417" class="st11" width="128" height="128"/>
+<text transform="matrix(1 0 0 1 164.0034 313.2616)" class="st7 st12 st13">1</text>
+<text transform="matrix(1 0 0 1 318.6859 313.2615)" class="st7 st12 st13">2</text>
+<text transform="matrix(1 0 0 1 475.6857 313.2613)" class="st7 st12 st13">3</text>
+<text transform="matrix(1 0 0 1 156.3736 470.2612)" class="st7 st12 st13">4</text>
+<text transform="matrix(1 0 0 1 318.0561 470.2611)" class="st7 st12 st13">5</text>
+<text transform="matrix(1 0 0 1 475.0559 470.2609)" class="st7 st12 st13">6</text>
+</svg>

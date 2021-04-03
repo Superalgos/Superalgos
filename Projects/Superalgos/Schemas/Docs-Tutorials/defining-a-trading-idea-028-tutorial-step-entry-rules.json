@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Entry Rules",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-on-event"
+        },
+        "text": "The main entry rules were the focus of the analysis we did on the charts, but let's add a couple more considerations."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We found that a breakdown in the 1H chart may predict an intermediate-term reversal when on a daily uptrend,  and&mdash;when on a daily downtrend&mdash;an acceleration of the downturn. However, we also noticed several breakdowns that didn't produce either. This means that we should take a breakdown as a signal, not as a confirmation in and of itself."
+        },
+        {
+            "style": "Callout",
+            "text": "Our confirmation is a second consecutive breakdown in the 1H chart!"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 24,
+    "type": "Tutorial Step - March 7th to March 12th",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-bands"
+        },
+        "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "March 7th, 17 hs: A breakdown after a two-day-long volatility squeeze triggers a downtrend."
+        },
+        {
+            "style": "List",
+            "text": "March 8th, 15 hs: Further breakdowns accelerate the downturn."
+        },
+        {
+            "style": "List",
+            "text": "March 12th, 07 hs: Five hours before the biggest market crash in recent history, a series of breakdowns trigger a new downturn after three days of ranging price action."
+        },
+        {
+            "style": "Callout",
+            "text": "Do you see the pattern? Can you formulate a hypothesis that we can test?"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"convolutional_depthwise_serialization.js","sourceRoot":"","sources":["../../../src/keras_format/layers/convolutional_depthwise_serialization.ts"],"names":[],"mappings":"AAAA;;;;;;;;GAQG;AA0BH,4EAA4E;AAC5E,8EAA8E;AAE9E;;;;;GAKG;AACH,MAAM,CAAC,MAAM,qCAAqC,GACL;IACvC,iBAAiB;CAClB,CAAC"}

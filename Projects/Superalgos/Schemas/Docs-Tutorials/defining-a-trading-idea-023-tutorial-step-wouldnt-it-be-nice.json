@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Wouldn't It Be Nice?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "How cool would it be to be able to predict the continuation of a downturn once the trend is already established?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Predicting the reversal of a well-established trend is a very tricky task. The analysis we just did for April 10th is a good example: while the breakdown in the 1H and 4H time frames marked a trend reversal in the intermediate-term, the long-term trend remained intact."
+        },
+        {
+            "style": "Callout",
+            "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!"
+        }
+    ]
+}

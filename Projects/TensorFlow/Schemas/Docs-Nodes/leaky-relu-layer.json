@@ -1,0 +1,26 @@
+{
+    "type": "Leaky Relu Layer",
+    "definition": {
+        "text": "Leaky version of a rectified linear unit.",
+        "updated": 1613216814199
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It allows a small gradient when the unit is not active: ",
+            "updated": 1613216841876
+        },
+        {
+            "style": "Javascript",
+            "text": "f(x) = alpha * x for x < 0. f(x) = x for x >= 0."
+        },
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the configuration inputShape when using this layer as the first layer in a model."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

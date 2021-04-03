@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Clones",
     "definition": {
-        "text": "The clone feature is designed to produce copies of data structures when you need to replicate nodes and expect the copies to behave similarly to the original.",
-        "updated": 1611490308337
+        "text": "The clone feature is designed to produce copies of data structures when you need to replicate structures of nodes and expect the copies to behave similarly to the original.",
+        "updated": 1615832633335
     },
     "paragraphs": [
         {
@@ -17,8 +17,9 @@
             "text": "We will analyze the case of clones under the same lens we analyzed how backups work: we will study how clones treat outgoing, incoming and internal references."
         },
         {
-            "style": "Text",
-            "text": "Unlike with backups, clones behave in the same way independently of the existence of the original structure of nodes in the workspace, therefore, we will not make such distinction in the following paragraphs."
+            "style": "Note",
+            "text": "Unlike backups, clones behave in the same way independently of the existence of the original structure of nodes in the workspace, therefore, we will not make such distinction in the following paragraphs.",
+            "updated": 1615832413196
         },
         {
             "style": "Title",
@@ -34,7 +35,8 @@
         },
         {
             "style": "Text",
-            "text": "The same example as with backups apply: cloning a task running a session produces a copy of the task with the trading bot process instance maintaining the reference to the trading bot Multi-Period process, and the session maintaining the reference with the corresponding trading system."
+            "text": "The same example as with backups apply: cloning a Task running a Backtesting Session produces a copy of the Task with the Trading Process Instance maintaining the reference to the Trading Bot Multi-Period process, Trading Session Reference maintaining the reference to the corresponding Trading System, and the Trading Engine Reference keeping the reference to the Trading Engine hierarchy.",
+            "updated": 1615832824246
         },
         {
             "style": "Gif",
@@ -51,7 +53,8 @@
         },
         {
             "style": "Text",
-            "text": "Let’s go back to the example of a trading system, like we did when exploring backups:"
+            "text": "Let’s go back to the example of a Trading System, like we did when exploring backups:",
+            "updated": 1615838266411
         },
         {
             "style": "Gif",
@@ -72,7 +75,8 @@
         },
         {
             "style": "Text",
-            "text": "Going back to the shapes node example, the capture below shows how restonring a clone keeps internal references intact:"
+            "text": "Going back to the shapes node example, the capture below shows how restoring a clone keeps internal references intact:",
+            "updated": 1615838297924
         },
         {
             "style": "Gif",

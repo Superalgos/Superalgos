@@ -1,0 +1,32 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Custom Data Mine",
+    "definition": {
+        "text": "Not only Workspaces can be modified",
+        "icon": {
+            "name": "data-mine",
+            "project": "Superalgos"
+        },
+        "updated": 1614241455319
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "SA is very modular and can be arranged the way we prefer for our needs.",
+            "updated": 1614241605095
+        },
+        {
+            "style": "Text",
+            "text": "I prepared for you a very basic Workspace with a new Data Mine and arranged the nodes deleting all I don't need for this tutorial."
+        },
+        {
+            "style": "Success",
+            "text": "In SA data mines can be added and removed but the data saved on your hard disk will not be deleted if you remove an indicator!"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

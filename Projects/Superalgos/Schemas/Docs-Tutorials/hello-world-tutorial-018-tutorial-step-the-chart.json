@@ -1,0 +1,49 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 18,
+    "type": "Tutorial Step - The Chart",
+    "definition": {
+        "text": "Enjoy you backtest!",
+        "icon": {
+            "name": "charting-space",
+            "project": "Superalgos"
+        },
+        "updated": 1614269880685
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now it's time to move to the Charting Space and (if not already running) fire up:",
+            "updated": 1614269938039
+        },
+        {
+            "style": "List",
+            "text": "Episodes",
+            "updated": 1614269968163
+        },
+        {
+            "style": "List",
+            "text": "Strategies",
+            "updated": 1614269964528
+        },
+        {
+            "style": "List",
+            "text": "Market",
+            "updated": 1614269960052
+        },
+        {
+            "style": "List",
+            "text": "Buy and Sell Market Orders",
+            "updated": 1614269946923
+        },
+        {
+            "style": "List",
+            "text": "Position Quoted Asset"
+        },
+        {
+            "style": "Success",
+            "text": "Take your time and explore the visual results. Apply the SMA indicator to the chart and make sure bot has taken position when expected",
+            "updated": 1614333706446
+        }
+    ]
+}

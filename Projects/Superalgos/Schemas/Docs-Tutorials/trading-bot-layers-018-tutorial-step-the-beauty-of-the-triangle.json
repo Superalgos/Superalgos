@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 18,
+    "type": "Tutorial Step - The Beauty of the Triangle",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "I'm sure you would agree that the triangle is a quick visual clue to grasp how the trade went in a glimpse!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That's one of the core ideas behind these visualization features: quick and effective communication."
+        },
+        {
+            "style": "Note",
+            "text": "The second core idea is that&mdash;by being able to see what went on with the session&mdash;it is easier to spot the weaknesses in your strategies, and how you may be able to improve them!"
+        },
+        {
+            "style": "Success",
+            "text": "On a side note, notice that the data displayed on panels is the same data available on the Trading Engine hierarchy."
+        }
+    ]
+}

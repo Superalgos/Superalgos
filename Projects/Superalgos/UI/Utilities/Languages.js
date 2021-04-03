@@ -24,6 +24,18 @@ function newSuperalgosUtilitiesLanguages() {
                 languageLabel = 'Italian'
                 break
             }
+            case 'CN': {
+                languageLabel = 'Simplified Chinese-Mandarin'
+                break
+            }
+            case 'ID': {
+                languageLabel = 'Bahasa'
+                break
+            }
+            case 'TR': {
+                languageLabel = 'Turkish'
+                break
+            }
         }
         return languageLabel 
     }    

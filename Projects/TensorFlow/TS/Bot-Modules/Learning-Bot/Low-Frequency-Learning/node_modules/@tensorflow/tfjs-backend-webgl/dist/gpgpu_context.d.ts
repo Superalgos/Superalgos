@@ -1,0 +1,99 @@
+/**
+ * @license
+ * Copyright 2017 Google LLC. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+/// <reference types="webgl2" />
+import { PixelData, TypedArray } from '@tensorflow/tfjs-core';
+import { TextureConfig } from './tex_util';
+import { WebGL1DisjointQueryTimerExtension, WebGL2DisjointQueryTimerExtension } from './webgl_types';
+export interface FenceContext {
+    query: WebGLQuery | WebGLSync;
+    isFencePassed(): boolean;
+}
+export declare class GPGPUContext {
+    gl: WebGLRenderingContext;
+    textureFloatExtension: {};
+    textureHalfFloatExtension: {};
+    colorBufferFloatExtension: {};
+    colorBufferHalfFloatExtension: {};
+    disjointQueryTimerExtension: WebGL2DisjointQueryTimerExtension | WebGL1DisjointQueryTimerExtension;
+    vertexBuffer: WebGLBuffer;
+    indexBuffer: WebGLBuffer;
+    framebuffer: WebGLFramebuffer;
+    outputTexture: WebGLTexture | null;
+    program: WebGLProgram | null;
+    private disposed;
+    private disjoint;
+    textureConfig: TextureConfig;
+    constructor(gl?: WebGLRenderingContext);
+    private readonly debug;
+    dispose(): void;
+    createFloat32MatrixTexture(rows: number, columns: number): WebGLTexture;
+    createFloat16MatrixTexture(rows: number, columns: number): WebGLTexture;
+    createUnsignedBytesMatrixTexture(rows: number, columns: number): WebGLTexture;
+    uploadPixelDataToTexture(texture: WebGLTexture, pixels: PixelData | ImageData | HTMLImageElement | HTMLCanvasElement): void;
+    uploadDenseMatrixToTexture(texture: WebGLTexture, width: number, height: number, data: TypedArray): void;
+    createFloat16PackedMatrixTexture(rows: number, columns: number): WebGLTexture;
+    createPackedMatrixTexture(rows: number, columns: number): WebGLTexture;
+    deleteMatrixTexture(texture: WebGLTexture): void;
+    downloadByteEncodedFloatMatrixFromOutputTexture(texture: WebGLTexture, rows: number, columns: number): Float32Array;
+    downloadPackedMatrixFromBuffer(buffer: WebGLBuffer, batch: number, rows: number, columns: number, physicalRows: number, physicalCols: number): Float32Array;
+    downloadFloat32MatrixFromBuffer(buffer: WebGLBuffer, size: number): Float32Array;
+    createBufferFromTexture(texture: WebGLTexture, rows: number, columns: number): WebGLBuffer;
+    createAndWaitForFence(): Promise<void>;
+    private createFence;
+    downloadMatrixFromPackedTexture(texture: WebGLTexture, physicalRows: number, physicalCols: number): Float32Array;
+    private vertexAttrsAreBound;
+    createProgram(fragmentShaderSource: string): WebGLProgram;
+    deleteProgram(program: WebGLProgram): void;
+    setProgram(program: WebGLProgram | null): void;
+    getUniformLocation(program: WebGLProgram, uniformName: string, shouldThrow?: boolean): WebGLUniformLocation;
+    getAttributeLocation(program: WebGLProgram, attribute: string): number;
+    getUniformLocationNoThrow(program: WebGLProgram, uniformName: string): WebGLUniformLocation;
+    setInputMatrixTexture(inputMatrixTexture: WebGLTexture, uniformLocation: WebGLUniformLocation, textureUnit: number): void;
+    setOutputMatrixTexture(outputMatrixTexture: WebGLTexture, rows: number, columns: number): void;
+    setOutputPackedMatrixTexture(outputPackedMatrixTexture: WebGLTexture, rows: number, columns: number): void;
+    setOutputMatrixWriteRegion(startRow: number, numRows: number, startColumn: number, numColumns: number): void;
+    setOutputPackedMatrixWriteRegion(startRow: number, numRows: number, startColumn: number, numColumns: number): void;
+    debugValidate(): void;
+    executeProgram(): void;
+    blockUntilAllProgramsCompleted(): void;
+    private getQueryTimerExtension;
+    private getQueryTimerExtensionWebGL2;
+    private getQueryTimerExtensionWebGL1;
+    beginQuery(): WebGLQuery;
+    endQuery(): void;
+    waitForQueryAndGetTime(query: WebGLQuery): Promise<number>;
+    private getQueryTime;
+    private isQueryAvailable;
+    pollFence(fenceContext: FenceContext): Promise<void>;
+    private itemsToPoll;
+    pollItems(): void;
+    private addItemToPoll;
+    private bindTextureToFrameBuffer;
+    private unbindTextureToFrameBuffer;
+    private downloadMatrixDriver;
+    private setOutputMatrixTextureDriver;
+    private setOutputMatrixWriteRegionDriver;
+    private throwIfDisposed;
+    private throwIfNoProgram;
+}
+/**
+ * Finds the index of the last true element using linear search.
+ * Note: We can't do binary search because Chrome expects us to explicitly
+ * test all fences before download:
+ * https://github.com/tensorflow/tfjs/issues/1145
+ */
+export declare function linearSearchLastTrue(arr: Array<() => boolean>): number;

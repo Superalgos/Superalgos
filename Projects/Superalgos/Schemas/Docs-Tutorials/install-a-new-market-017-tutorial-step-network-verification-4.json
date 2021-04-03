@@ -1,0 +1,26 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Network Verification 4",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-storage"
+        },
+        "text": "Verify that the Data Storage nodes for the corresponding Market were created successfully."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:"
+        },
+        {
+            "style": "List",
+            "text": "A Market Data Products node under Data Mines Data, with a Data Mine Products node for each Data Mine in the workspace."
+        },
+        {
+            "style": "List",
+            "text": "A Market Trading Products node under Trading Mines Data, with a Trading Session Reference for each trading session in the testing and production environments."
+        }
+    ]
+}

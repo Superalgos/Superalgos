@@ -1,0 +1,33 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Entry Target Rate",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "entry-target-rate"
+        },
+        "text": "We are in the Current > Position section of the Trading Engine and, to your left, the Entry Target Rate node!",
+        "updated": 1610472841926
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Copy the node path from the menu!"
+        },
+        {
+            "style": "Text",
+            "text": "Now, let's add 3% to the node's value:",
+            "updated": 1610472749300
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.03"
+        },
+        {
+            "style": "Success",
+            "text": "Go ahead and use the above for the Phase #1 stop loss formula!",
+            "updated": 1610472786651
+        }
+    ]
+}

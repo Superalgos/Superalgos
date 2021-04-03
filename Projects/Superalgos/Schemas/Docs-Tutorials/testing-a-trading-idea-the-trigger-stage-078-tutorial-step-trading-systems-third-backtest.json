@@ -1,0 +1,14 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 78,
+    "type": "Tutorial Step - Trading Systems Third Backtest",
+    "definition": {
+        "text": "This step will play a video in full screen mode."
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/trading-systems-third-backtest.gif"
+        }
+    ]
+}

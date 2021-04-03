@@ -142,7 +142,85 @@
         },
         {
             "style": "Block",
-            "text": "Dummy"
+            "text": "Dummy",
+            "updated": 1616149124238
+        },
+        {
+            "style": "Title",
+            "text": "Contributions Reminder"
+        },
+        {
+            "style": "Block",
+            "text": "Contributions Reminder"
+        },
+        {
+            "style": "Title",
+            "text": "Switch to the Develop Branch and Update Before You Start",
+            "updated": 1613811592905
+        },
+        {
+            "style": "Note",
+            "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Switch to Develop",
+            "updated": 1613811609773
+        },
+        {
+            "style": "Text",
+            "text": "To switch to the develop branch:"
+        },
+        {
+            "style": "List",
+            "text": "Go to the footer of this page."
+        },
+        {
+            "style": "List",
+            "text": "Select Develop under the Contributions Branch title. "
+        },
+        {
+            "style": "List",
+            "text": "Then select Develop under the Choose the Current Branch title. "
+        },
+        {
+            "style": "List",
+            "text": "Follow the instructions to close and restart the app.",
+            "updated": 1613810110150
+        },
+        {
+            "style": "Subtitle",
+            "text": "Update to the Latest Version"
+        },
+        {
+            "style": "List",
+            "text": "Run the App Update Command"
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        },
+        {
+            "style": "List",
+            "text": "Close the app and restart."
+        },
+        {
+            "style": "Title",
+            "text": "Contribute to Superalgos Tutorial"
+        },
+        {
+            "style": "Text",
+            "text": "Before you go any further, do the Contribute to Superalgos tutorial in the Getting Started plugin workspace so that you learn the basics on how to deal with contributions from within the app. The tutorial will help you get your setup right so that contributions are seamless.",
+            "updated": 1613828879531
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1613588341297
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Text",

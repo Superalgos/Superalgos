@@ -1,0 +1,41 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Errors & Nodes",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "Notice that the design space repositioned to the node most related to the error, in this case, a Condition node. This is a crucial piece of information!",
+        "updated": 1612696302333
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Check the condition node!",
+            "updated": 1612696339712
+        },
+        {
+            "style": "Text",
+            "text": "So far, we got good information about:"
+        },
+        {
+            "style": "List",
+            "text": "when the error happened;"
+        },
+        {
+            "style": "List",
+            "text": "what the error is about;"
+        },
+        {
+            "style": "List",
+            "text": "and where it happened!"
+        },
+        {
+            "style": "Callout",
+            "text": "It seems like we have all the pieces of the puzzle! Let's take a few minutes to analyze the evidence!",
+            "updated": 1612639178963
+        }
+    ]
+}

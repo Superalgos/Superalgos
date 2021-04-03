@@ -1,0 +1,23 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Compartmentalize It!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-layers"
+        },
+        "text": "The reason why the access to values in the hierarchy is compartmentalized in layers is that layers correspond to data products output by the bot."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Compartmentalization of definitions&mdash;and information in general&mdash;is a theme in and of itself throughout the system, as it is one of the mechanisms by which complexity is successfully administered."
+        },
+        {
+            "style": "Callout",
+            "text": "When you need to use this feature to track values on the Trading Engine hierarchy, you may choose to turn on multiple layers at once... even all of them if you wish! Just keep in mind that the more layers you turn on, the more files de UI reads, thus the more load you put on your hardware!",
+            "updated": 1617182401577
+        }
+    ]
+}

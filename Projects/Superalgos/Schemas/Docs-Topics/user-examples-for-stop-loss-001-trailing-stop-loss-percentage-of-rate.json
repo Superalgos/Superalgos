@@ -1,0 +1,44 @@
+{
+    "topic": "User Examples for Stop Loss",
+    "pageNumber": 1,
+    "type": "Trailing Stop Loss - Percentage of Rate",
+    "definition": {
+        "text": "A Trailing Stop Loss tracks the rate and sets the Stop Loss a given distance away from it",
+        "updated": 1615285882641
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Change the \"trailingStopLoss\" value to what you see fit.",
+            "updated": 1615286541864
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trailing Stop Loss for a Long Position"
+        },
+        {
+            "style": "Javascript",
+            "text": "\nlet trailingStopLoss = 3 // Set the percentage you wish your Trailing Stop Loss to trail\n\nif ( chart.at01min.candle.close * ( 1 - (trailingStopLoss / 100) ) > tradingEngine.tradingCurrent.position.stopLoss.value ) {\nchart.at01min.candle.close * ( 1 - (trailingStopLoss / 100) )\n}\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
+            "updated": 1615286314820
+        },
+        {
+            "style": "Important",
+            "text": "For a Long Position we want our Stop Loss below the actual rate",
+            "updated": 1615286643236
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trailing Stop Loss for a Short Position"
+        },
+        {
+            "style": "Javascript",
+            "text": "let trailingStopLoss = 3 // Set the percentage you wish your Trailing Stop Loss to trail\n\nif ( chart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) ) < tradingEngine.tradingCurrent.position.stopLoss.value ) {\nchart.at01min.candle.close * ( 1 + (trailingStopLoss / 100) )\n}\nelse {\ntradingEngine.tradingCurrent.position.stopLoss.value\n}",
+            "updated": 1615297661487
+        },
+        {
+            "style": "Important",
+            "text": "For a Short Position we want our Stop Loss above the actual rate",
+            "updated": 1615286643236
+        }
+    ]
+}

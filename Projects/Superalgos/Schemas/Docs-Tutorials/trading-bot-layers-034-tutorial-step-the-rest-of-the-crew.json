@@ -1,0 +1,44 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 34,
+    "type": "Tutorial Step - The Rest of the Crew!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-layers"
+        },
+        "text": "The rest of the layers are virtually self-explanatory once you understand the standard workings... so, I'll be brief!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Status: for nodes which have one!",
+            "updated": 1617185025916
+        },
+        {
+            "style": "List",
+            "text": "Progress: for nodes that may feature an indication of progress!",
+            "updated": 1617185032757
+        },
+        {
+            "style": "List",
+            "text": "Running: for nodes that are evaluated at certain points in time!",
+            "updated": 1617185039459
+        },
+        {
+            "style": "List",
+            "text": "Announcements: for announcements set up at the trading system, currently broadcasted over Telegram!",
+            "updated": 1617185048147
+        },
+        {
+            "style": "List",
+            "text": "Warnings: when something unusual happens but is not considered an error! A verbose mode, if you will.",
+            "updated": 1617185081361
+        },
+        {
+            "style": "List",
+            "text": "System Info: may be displayed on many nodes, sort of like a verbose mode.",
+            "updated": 1617185066702
+        }
+    ]
+}

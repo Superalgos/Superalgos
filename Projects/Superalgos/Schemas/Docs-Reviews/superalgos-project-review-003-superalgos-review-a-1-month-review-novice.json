@@ -1,0 +1,20 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 3,
+    "type": "Superalgos Review - A 1 Month Review (novice)",
+    "definition": {
+        "text": "This is an update review after one month of working with and learning Superalgos\n",
+        "updated": 1616179126953
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I have been using Superalgos for about a month now. Prior to Superalgos, my trading knowledge and experience was limited. Admittedly, the initial learning curve was a bit overwhelming. I’m fairly new to the whole programming world, my recent introduction to raspberry pi’s is how I stumbled across Superalgos on GitHub. Ive had some fun with the getting started strategy, and have tweaked it here and there to achieve different results with success. At this point I probably have over 100 hours working through tutorials, no joke. Ive had to take what I’m learning through the tutorials, and investigate further on exchange sites / trading strategy sites, and am starting to develop a more clear understanding. I haven’t had any success with the other strategies yet. I seem to have little issues here and there with references sometimes not appearing and having to manually go through and apply them. But Ive also had some hardware issues that have held me back I think. My MacBook doesn’t love the charting during backtesting and trading, its slow and glitchy. Ive had some success running the server on my pi and gui on my Macbook. I may try my pc eventually. All in all, most of my issues are user error. Overall, I think Superalgos is a fantastic program, and community, and Im incredibly stoked to be a part of it and hope to make some valuable contributions one day!",
+            "updated": 1616180208859
+        },
+        {
+            "style": "Text",
+            "text": "GitHub:ndd91"
+        }
+    ]
+}

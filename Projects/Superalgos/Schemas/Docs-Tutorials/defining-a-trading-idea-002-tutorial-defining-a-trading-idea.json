@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 2,
+    "type": "Tutorial - Defining a Trading Idea",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "Before you may build a Trading Strategy, you first need to come up with a clear and testable trading idea."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A trading idea is a precursor to a trading strategy. While a complete strategy entails the rules for taking, managing and exiting a position, a trading idea is concerned with the first of those issues only."
+        },
+        {
+            "style": "Callout",
+            "text": "Testing a trading idea before committing to building a complete strategy is the logical approach because managing and exiting failed entries is not what you should be aiming for!"
+        },
+        {
+            "style": "Text",
+            "text": "This tutorial explains how to properly formulate a trading idea that may later be tested."
+        }
+    ]
+}

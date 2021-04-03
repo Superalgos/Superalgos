@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 22,
+    "type": "Tutorial Step - Look to Your Left!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "Does the price action to your left ring a bell? Do you recognize this major market crash?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "You're looking at the March 12-13th, 2020 ~50% pandemic market crash! Spend a few minutes analyzing the daily chart!"
+        },
+        {
+            "style": "Text",
+            "text": "In short, we can see that the market was in a downtrend since February 25th&mdash;if we take the turning south of the moving average and the breakdown of the bands as an indication of the beginning of the trend."
+        },
+        {
+            "style": "Success",
+            "text": "Take a look at the lower time frames too!"
+        }
+    ]
+}

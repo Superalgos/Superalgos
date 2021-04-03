@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Before we start...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-warning"
+        },
+        "text": "Let me give you the heads up on a few matters you should consider before we start!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Take any trading-related information for what it's worth! When I share trading concepts, take them with a grain of salt! I'm just a tutorial, not your financial advisor! I'm here to teach you Superalgos, not to tell you how to trade! If you are not a trader, you may pick up something of value, but always make sure you do your own research!"
+        },
+        {
+            "style": "List",
+            "text": "This tutorial is aimed at a wide audience! I'll take it easy and lay out concepts so that everyone may understand them. If you are a seasoned trader you may feel some explanations are too basic. In that case, feel free to skip this tutorial and go to the next one in the series."
+        }
+    ]
+}

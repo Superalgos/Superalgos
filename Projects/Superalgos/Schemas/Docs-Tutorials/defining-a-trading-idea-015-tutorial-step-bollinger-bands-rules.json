@@ -1,0 +1,32 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Bollinger Bands Rules",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-bands"
+        },
+        "text": "Now that you've seen the bands on the charts, let's go through the rules that teach us how to interpret and use them!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading these rules,",
+            "updated": 1610467009560
+        },
+        {
+            "style": "Link",
+            "text": "as defined by John Bollinger himself!->www.bollingerbands.com/bollinger-band-rules",
+            "updated": 1615384340218
+        },
+        {
+            "style": "Callout",
+            "text": "Please, read what John Bollinger has to say about how to interpret this popular indicator!"
+        },
+        {
+            "style": "Note",
+            "text": "Rules 6 to 8 are of particular significance to what we will be attempting later on!"
+        }
+    ]
+}

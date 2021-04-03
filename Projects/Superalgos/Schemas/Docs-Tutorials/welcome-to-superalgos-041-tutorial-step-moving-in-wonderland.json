@@ -1,0 +1,78 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 41,
+    "type": "Tutorial Step - Moving in Wonderland",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-left-click"
+        },
+        "text": "So, you are finally inside a chart. The first thing you'll want to do is move around and learn what these charts may do for you.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ecco, sei finalmente dentro un grafico. La prima cosa che vorrai fare sarà farci un giro e imparare cosa può fare per te.",
+                "updated": 1614893263479,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Akhirnya kamu berada didalam chart. Hal pertama yang harus dilakukan yaitu adalah berpindah-pindah dan mempelajari apa yang dapat dilakukan bagan ini untukmu.",
+                "updated": 1616949419191
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's get on with that! Like in the design space&mdash;when inside a time machine&mdash;you move by using your mouse and your keyboard. This is how:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Facciamolo subito! Proprio come nel Design Space, puoi muoverti usando mouse e tastiera. Ecco come:",
+                    "updated": 1614893324158,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari menuju kesana! Seperti di design space—saat berada didalam time machine—kamu bergerak dengan menggunakan mouse dan keyboard. Begini caranya:",
+                    "updated": 1616949477545
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "With the mouse, left-click and drag. With the keyboard, use the arrow keys: ← → ↑ ↓",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Con il mouse, fai click con il tasto sinistro e trascina. Con la tastiera, usa le frecce: ← → ↑ ↓",
+                    "updated": 1614893357947,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Dengan mouse, click-kiri dan drag. Dengan keyboard, gunakan panah: ← → ↑ ↓",
+                    "updated": 1616949524257
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "What? It's not working? Are you stuck with a frozen chart? Like in the video on the next step? Don't worry! I know what's going on...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Come? Non funziona? Il grafico resta fermo? Proprio come nel video nel prossimo step? Ah, non preoccuparti! Lo so io cosa sta succedendo...",
+                    "updated": 1614893399468,
+                    "style": "Note"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apa? Tidak bekerja? Apa kamu tersangkut dengan chart yang ngefreeze? Step video distep berikutnya? Jangan khawatir! Aku tahu apa yang terjadi...",
+                    "updated": 1616949623092
+                }
+            ]
+        }
+    ]
+}

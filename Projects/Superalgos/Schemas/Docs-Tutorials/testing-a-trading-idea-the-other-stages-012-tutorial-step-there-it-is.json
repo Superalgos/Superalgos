@@ -1,0 +1,36 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 12,
+    "type": "Tutorial Step - There It Is!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "balance"
+        },
+        "text": "I hope you found it on your own, but don't worry if you didn't! We'll go through the whole reasoning once again!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The goal is that you learn how to find the data you need in the confines of the Trading Engine, which is structured logically... Make sure you read the tooltips!"
+        },
+        {
+            "style": "List",
+            "text": "Trading Current because we need the balance at the moment of evaluation!",
+            "updated": 1617196763109
+        },
+        {
+            "style": "List",
+            "text": "Trading Episode because is the running balance kept along the whole trading session!",
+            "updated": 1617196769560
+        },
+        {
+            "style": "List",
+            "text": "Episode Base Asset because it's consistent with the rest of our definitions!"
+        },
+        {
+            "style": "List",
+            "text": "Balance because it's what we wanted!"
+        }
+    ]
+}

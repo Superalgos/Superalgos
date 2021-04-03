@@ -1,0 +1,13 @@
+{
+    "type": "Compile",
+    "definition": {
+        "text": "Configures and prepares the model for training and evaluation. Compiling outfits the model with an optimizer, loss, and/or metrics.",
+        "updated": 1615895514544
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

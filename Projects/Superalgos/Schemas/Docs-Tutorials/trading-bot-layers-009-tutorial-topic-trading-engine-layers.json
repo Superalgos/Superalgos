@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 9,
+    "type": "Tutorial Topic - Trading Engine Layers",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-engine"
+        },
+        "text": "You are familiar with the concept of the Trading Engine, right? I will teach you which layers affect which sections of the hierarchy so that you may access the info!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm assuming you've done the Welcome tutorial... Remember when you split the screen in half? You slid the mouse pointer over the candles on the chart, and for each candle, you could see the value of certain nodes in the trading engine hierarchy, right?"
+        },
+        {
+            "style": "Callout",
+            "text": "Well, that's what it's all about! When you turn a certain layer on, you turn on the visualization of values for a certain section of the hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "Let's take a closer look!"
+        }
+    ]
+}

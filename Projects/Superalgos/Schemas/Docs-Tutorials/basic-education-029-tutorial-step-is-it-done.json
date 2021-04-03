@@ -1,0 +1,37 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Is It Done?",
+    "definition": {
+        "text": "If you haven't yet, go ahead and establish a reference from the Trading System Reference to the Lightning Strike Trading System!",
+        "updated": 1615808208398,
+        "icon": {
+            "name": "trading-system",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You may find this technique to establish a reference to be a bit clumsy or impractical. If you have a better idea or know how to improve it, feel free to open a feature request issue. Make sure you consider the following:",
+            "updated": 1615808367637
+        },
+        {
+            "style": "List",
+            "text": "In a complex workspace, there may be hundreds of nodes that may be able to accept a reference."
+        },
+        {
+            "style": "List",
+            "text": "The reference must be established unequivocally from a specific node to another specific node.",
+            "updated": 1615808355918
+        },
+        {
+            "style": "Success",
+            "text": "In the meantime, let me assure you it's not that hard once you do it a couple of times!"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

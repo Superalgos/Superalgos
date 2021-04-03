@@ -44,6 +44,18 @@
                 "autoAdd": true
             },
             {
+                "name": "trading",
+                "type": "node",
+                "childType": "Trading",
+                "autoAdd": true
+            },
+            {
+                "name": "learning",
+                "type": "node",
+                "childType": "Learning",
+                "autoAdd": true
+            },
+            {
                 "name": "otherHierarchies",
                 "type": "node",
                 "childType": "Other Hierarchies",
@@ -82,8 +94,7 @@
         "addLeftIcons": true,
         "isPinned": false,
         "level": 2,
-        "propertyNameAtParent": "projectDefinition",
-        "icon": "bitcoin"
+        "propertyNameAtParent": "projectDefinition"
     },
     {
         "type": "Spaces",
@@ -98,6 +109,12 @@
                 "action": "Add UI Object",
                 "label": "Add Design Space",
                 "relatedUiObject": "Design Space",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Docs Space",
+                "relatedUiObject": "Docs Space",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -154,7 +171,7 @@
         "propertyNameAtParent": "mines"
     },
     {
-        "type": "Other Hierarchies",
+        "type": "Trading",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -164,20 +181,64 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Network",
-                "relatedUiObject": "Network",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
-                "label": "Add Super Scripts",
-                "relatedUiObject": "Super Scripts",
-                "actionFunction": "payload.executeAction"
-            },
-            {
-                "action": "Add UI Object",
                 "label": "Add Trading Engine",
                 "relatedUiObject": "Trading Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "mines"
+    },
+    {
+        "type": "Learning",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Learning System",
+                "relatedUiObject": "Learning System",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Learning Engine",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "isTitleAllwaysVisible": false,
+        "addLeftIcons": true,
+        "isPinned": false,
+        "level": 2,
+        "propertyNameAtParent": "mines"
+    },
+    {
+        "type": "Other Hierarchies",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Network",
+                "relatedUiObject": "Network",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -681,6 +742,12 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"codeName\": \"\", \n\"isLegacy\": false\n}"
+        },
         "childrenNodesProperties": [
             {
                 "name": "plotterPanelJavascriptCode",
@@ -695,6 +762,13 @@
             }
         ],
         "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -1674,7 +1748,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
+            "config": " { \"default\": {  \"opacity\": 0.2,  \"lineWidth\": 1,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\" }, \"atMousePosition\": {  \"opacity\": 0.3,  \"lineWidth\": 2,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.RUSTED_RED\" }}"
         },
         "menuItems": [
             {
@@ -2740,8 +2814,16 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "session",
-                "label": "Add Learning Session",
-                "relatedUiObject": "Learning Session",
+                "label": "Add Back Learning Session",
+                "relatedUiObject": "Back Learning Session",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "session",
+                "label": "Add Live Learning Session",
+                "relatedUiObject": "Live Learning Session",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -2779,7 +2861,12 @@
             {
                 "name": "session",
                 "type": "node",
-                "childType": "Learning Session"
+                "childType": "Back Learning Session"
+            },
+            {
+                "name": "session",
+                "type": "node",
+                "childType": "Live Learning Session"
             },
             {
                 "name": "executionStartedEvent",
@@ -2918,15 +3005,15 @@
         "level": 0,
         "childrenNodesProperties": [
             {
-                "name": "current",
+                "name": "tradingCurrent",
                 "type": "node",
-                "childType": "Current",
+                "childType": "Trading Current",
                 "autoAdd": true
             },
             {
-                "name": "last",
+                "name": "tradingLast",
                 "type": "node",
-                "childType": "Last",
+                "childType": "Trading Last",
                 "autoAdd": true
             },
             {
@@ -2936,6 +3023,571 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Learning Engine",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "learningCurrent",
+                "type": "node",
+                "childType": "Learning Current",
+                "autoAdd": true
+            },
+            {
+                "name": "features",
+                "type": "node",
+                "childType": "Features",
+                "autoAdd": true
+            },
+            {
+                "name": "labels",
+                "type": "node",
+                "childType": "Labels",
+                "autoAdd": true
+            },
+            {
+                "name": "predictions",
+                "type": "node",
+                "childType": "Predictions",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Predictions",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Prediction",
+                "relatedUiObject": "Prediction",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "predictions",
+        "childrenNodesProperties": [
+            {
+                "name": "predictions",
+                "type": "array",
+                "childType": "Prediction",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Prediction",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Predictions->"
+        },
+        "propertyNameAtParent": "predictions",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "predictionValue",
+                "type": "node",
+                "childType": "Prediction Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Prediction Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Prediction->"
+        },
+        "propertyNameAtParent": "predictionValue",
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Features",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Feature",
+                "relatedUiObject": "Feature",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "features",
+        "childrenNodesProperties": [
+            {
+                "name": "features",
+                "type": "array",
+                "childType": "Feature",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Feature",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Features->"
+        },
+        "propertyNameAtParent": "features",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "featureValue",
+                "type": "node",
+                "childType": "Feature Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Feature Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Feature->"
+        },
+        "propertyNameAtParent": "featureValue",
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Labels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Label",
+                "relatedUiObject": "Label",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "labels",
+        "childrenNodesProperties": [
+            {
+                "name": "labels",
+                "type": "array",
+                "childType": "Label",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Label",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Labels->"
+        },
+        "propertyNameAtParent": "labels",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "labelValue",
+                "type": "node",
+                "childType": "Label Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Label Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Label->"
+        },
+        "propertyNameAtParent": "labelValue",
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Dynamic Indicators",
@@ -3021,7 +3673,125 @@
         ]
     },
     {
-        "type": "Episode",
+        "type": "Learning Episode",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Current->"
+        },
+        "propertyNameAtParent": "learningEpisode",
+        "childrenNodesProperties": [
+            {
+                "name": "serialNumber",
+                "type": "node",
+                "childType": "Serial Number",
+                "autoAdd": true
+            },
+            {
+                "name": "identifier",
+                "type": "node",
+                "childType": "Identifier",
+                "autoAdd": true
+            },
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "beginRate",
+                "type": "node",
+                "childType": "Begin Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "endRate",
+                "type": "node",
+                "childType": "End Rate",
+                "autoAdd": true
+            },
+            {
+                "name": "status",
+                "type": "node",
+                "childType": "Status",
+                "autoAdd": true
+            },
+            {
+                "name": "exitType",
+                "type": "node",
+                "childType": "Exit Type",
+                "autoAdd": true
+            },
+            {
+                "name": "headOfTheMarket",
+                "type": "node",
+                "childType": "Head Of The Market",
+                "autoAdd": true
+            },
+            {
+                "name": "processDate",
+                "type": "node",
+                "childType": "Process Date",
+                "autoAdd": true
+            },
+            {
+                "name": "learningEpisodeCounters",
+                "type": "node",
+                "childType": "Learning Episode Counters",
+                "autoAdd": true
+            },
+            {
+                "name": "learningEpisodeStatistics",
+                "type": "node",
+                "childType": "Learning Episode Statistics",
+                "autoAdd": true
+            },
+            {
+                "name": "distanceToLearningEvent",
+                "type": "node",
+                "childType": "Distance To Learning Event",
+                "autoAdd": true
+            },
+            {
+                "name": "candle",
+                "type": "node",
+                "childType": "Candle",
+                "autoAdd": true
+            },
+            {
+                "name": "cycle",
+                "type": "node",
+                "childType": "Cycle",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Trading Episode",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3042,9 +3812,9 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
-        "propertyNameAtParent": "episode",
+        "propertyNameAtParent": "tradingEpisode",
         "childrenNodesProperties": [
             {
                 "name": "serialNumber",
@@ -3119,21 +3889,21 @@
                 "autoAdd": true
             },
             {
-                "name": "episodeCounters",
+                "name": "tradingEpisodeCounters",
                 "type": "node",
-                "childType": "Episode Counters",
+                "childType": "Trading Episode Counters",
                 "autoAdd": true
             },
             {
-                "name": "episodeStatistics",
+                "name": "tradingEpisodeStatistics",
                 "type": "node",
-                "childType": "Episode Statistics",
+                "childType": "Trading Episode Statistics",
                 "autoAdd": true
             },
             {
-                "name": "distanceToEvent",
+                "name": "distanceToTradingEvent",
                 "type": "node",
-                "childType": "Distance To Event",
+                "childType": "Distance To Trading Event",
                 "autoAdd": true
             },
             {
@@ -3151,7 +3921,7 @@
         ]
     },
     {
-        "type": "Episode Counters",
+        "type": "Trading Episode Counters",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3178,9 +3948,9 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "episodeCounters",
+        "propertyNameAtParent": "tradingEpisodeCounters",
         "childrenNodesProperties": [
             {
                 "name": "periods",
@@ -3204,6 +3974,64 @@
                 "name": "orders",
                 "type": "node",
                 "childType": "Orders",
+                "autoAdd": true
+            },
+            {
+                "name": "hits",
+                "type": "node",
+                "childType": "Hits",
+                "autoAdd": true
+            },
+            {
+                "name": "fails",
+                "type": "node",
+                "childType": "Fails",
+                "autoAdd": true
+            },
+            {
+                "name": "userDefinedCounters",
+                "type": "array",
+                "childType": "User Defined Counter",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Learning Episode Counters",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Counter",
+                "relatedUiObject": "User Defined Counter",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "learningEpisodeCounters",
+        "childrenNodesProperties": [
+            {
+                "name": "periods",
+                "type": "node",
+                "childType": "Periods",
                 "autoAdd": true
             },
             {
@@ -3420,7 +4248,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "positions"
     },
@@ -3474,7 +4302,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "strategies"
     },
@@ -3528,7 +4356,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->"
+            "compatibleTypes": "->Trading Episode Counters->"
         },
         "propertyNameAtParent": "orders"
     },
@@ -3582,7 +4410,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "fails"
     },
@@ -3636,7 +4464,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hits"
     },
@@ -3690,7 +4518,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->Order Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->Order Counters->"
         },
         "propertyNameAtParent": "periods"
     },
@@ -3744,12 +4572,64 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Counters->Position Counters->Strategy Counters->"
+            "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->"
         },
         "propertyNameAtParent": "userDefinedCounters"
     },
     {
-        "type": "Episode Statistics",
+        "type": "Learning Episode Statistics",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add User Defined Statistic",
+                "relatedUiObject": "User Defined Statistic",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "learningEpisodeStatistics",
+        "childrenNodesProperties": [
+            {
+                "name": "hitFail",
+                "type": "node",
+                "childType": "Hit Fail",
+                "autoAdd": true
+            },
+            {
+                "name": "days",
+                "type": "node",
+                "childType": "Days",
+                "autoAdd": true
+            },
+            {
+                "name": "userDefinedStatistics",
+                "type": "array",
+                "childType": "User Defined Statistic",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Trading Episode Statistics",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -3776,9 +4656,9 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "episodeStatistics",
+        "propertyNameAtParent": "tradingEpisodeStatistics",
         "childrenNodesProperties": [
             {
                 "name": "profitLoss",
@@ -3817,6 +4697,33 @@
                 "autoAdd": true
             }
         ]
+    },
+    {
+        "type": "Distance To Learning Event",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Episode->"
+        },
+        "propertyNameAtParent": "distanceToLearningEvent",
+        "childrenNodesProperties": []
     },
     {
         "type": "Stop Loss",
@@ -4528,7 +5435,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
         "propertyNameAtParent": "episodeBaseAsset",
         "childrenNodesProperties": [
@@ -4616,7 +5523,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
         "propertyNameAtParent": "episodeQuotedAsset",
         "childrenNodesProperties": [
@@ -5051,7 +5958,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "This",
+                "label": "Delete",
                 "iconPathOn": "delete-entity",
                 "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
@@ -5066,7 +5973,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->"
         },
         "propertyNameAtParent": "userDefinedStatistics",
         "childrenNodesProperties": [
@@ -5128,7 +6035,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "profitLoss"
     },
@@ -5236,7 +6143,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Order Statistics->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->Order Statistics->"
         },
         "propertyNameAtParent": "days"
     },
@@ -5506,7 +6413,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "ROI"
     },
@@ -5560,7 +6467,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "annualizedRateOfReturn"
     },
@@ -5614,12 +6521,12 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+            "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
         },
         "propertyNameAtParent": "hitFail"
     },
     {
-        "type": "Current",
+        "type": "Trading Current",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -5642,12 +6549,12 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "propertyNameAtParent": "current",
+        "propertyNameAtParent": "tradingCurrent",
         "childrenNodesProperties": [
             {
-                "name": "episode",
+                "name": "tradingEpisode",
                 "type": "node",
-                "childType": "Episode",
+                "childType": "Trading Episode",
                 "autoAdd": true
             },
             {
@@ -5684,6 +6591,40 @@
                 "name": "strategyCloseStage",
                 "type": "node",
                 "childType": "Strategy Close Stage",
+                "autoAdd": true
+            }
+        ]
+    },
+    {
+        "type": "Learning Current",
+        "menuItems": [
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "learningCurrent",
+        "childrenNodesProperties": [
+            {
+                "name": "learningEpisode",
+                "type": "node",
+                "childType": "Learning Episode",
                 "autoAdd": true
             }
         ]
@@ -5738,7 +6679,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
         "propertyNameAtParent": "balance"
     },
@@ -5851,7 +6792,7 @@
         "propertyNameAtParent": "endBalance"
     },
     {
-        "type": "Distance To Event",
+        "type": "Distance To Trading Event",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -5872,9 +6813,9 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->"
         },
-        "propertyNameAtParent": "distanceToEvent",
+        "propertyNameAtParent": "distanceToTradingEvent",
         "childrenNodesProperties": [
             {
                 "name": "triggerOn",
@@ -5982,7 +6923,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "triggerOn"
     },
@@ -6036,7 +6977,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "triggerOff"
     },
@@ -6090,7 +7031,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "takePosition"
     },
@@ -6144,7 +7085,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "closePosition"
     },
@@ -6198,7 +7139,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "nextPhase"
     },
@@ -6252,7 +7193,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "moveToPhase"
     },
@@ -6306,7 +7247,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "createOrder"
     },
@@ -6360,7 +7301,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "cancelOrder"
     },
@@ -6414,7 +7355,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Distance To Event->"
+            "compatibleTypes": "->Distance To Trading Event->"
         },
         "propertyNameAtParent": "closeOrder"
     },
@@ -6440,7 +7381,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyTriggerStage",
         "childrenNodesProperties": [
@@ -6504,7 +7445,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyManageStage",
         "childrenNodesProperties": [
@@ -6568,7 +7509,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyOpenStage",
         "childrenNodesProperties": [
@@ -6650,7 +7591,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->"
+            "compatibleTypes": "->Trading Current->"
         },
         "propertyNameAtParent": "strategyCloseStage",
         "childrenNodesProperties": [
@@ -6732,7 +7673,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->Last->"
+            "compatibleTypes": "->Trading Current->Trading Last->"
         },
         "propertyNameAtParent": "strategy",
         "childrenNodesProperties": [
@@ -6968,7 +7909,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "status"
     },
@@ -7184,7 +8125,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "serialNumber"
     },
@@ -7238,7 +8179,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Market Order->Limit Order->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
         },
         "propertyNameAtParent": "identifier"
     },
@@ -7400,7 +8341,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->Prediction->"
         },
         "propertyNameAtParent": "begin"
     },
@@ -7454,7 +8395,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Candle->Cycle->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->Stop Loss->Take Profit->Prediction->"
         },
         "propertyNameAtParent": "end"
     },
@@ -7780,7 +8721,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "beginRate"
     },
@@ -7834,7 +8775,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "endRate"
     },
@@ -7860,7 +8801,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Current->Last->"
+            "compatibleTypes": "->Trading Current->Trading Last->"
         },
         "propertyNameAtParent": "position",
         "childrenNodesProperties": [
@@ -8666,7 +9607,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->->Position->Market Order->Limit Order->Strategy Trigger Stage->Strategy Open Stage->Strategy Manage Stage->Strategy Close Stage->"
         },
         "propertyNameAtParent": "exitType"
     },
@@ -8720,7 +9661,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "processDate"
     },
@@ -8774,12 +9715,12 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "headOfTheMarket"
     },
     {
-        "type": "Last",
+        "type": "Trading Last",
         "menuItems": [
             {
                 "action": "Add Missing Children",
@@ -8802,7 +9743,7 @@
         "attachingRules": {
             "compatibleTypes": "->Trading Engine->"
         },
-        "propertyNameAtParent": "last",
+        "propertyNameAtParent": "tradingLast",
         "childrenNodesProperties": [
             {
                 "name": "position",
@@ -8852,7 +9793,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "candle",
         "childrenNodesProperties": [
@@ -8943,7 +9884,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Episode->"
+            "compatibleTypes": "->Trading Episode->Learning Episode->"
         },
         "propertyNameAtParent": "cycle",
         "childrenNodesProperties": [
@@ -9107,7 +10048,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Last->"
+            "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Trading Last->"
         },
         "propertyNameAtParent": "marketOrders",
         "childrenNodesProperties": [
@@ -9333,7 +10274,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Last->"
+            "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Trading Last->"
         },
         "propertyNameAtParent": "limitOrders",
         "childrenNodesProperties": [
@@ -9539,13 +10480,25 @@
         "addLeftIcons": true,
         "level": 2,
         "attachingRules": {
-            "compatibleTypes": "->Learning Session->"
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
         },
         "childrenNodesProperties": [
             {
                 "name": "learningAlgorithm",
                 "type": "node",
                 "childType": "Learning Algorithm",
+                "autoAdd": true
+            },
+            {
+                "name": "timeRange",
+                "type": "node",
+                "childType": "Time Range",
+                "autoAdd": true
+            },
+            {
+                "name": "timeFrame",
+                "type": "node",
+                "childType": "Time Frame",
                 "autoAdd": true
             },
             {
@@ -9614,6 +10567,58 @@
             "compatibleTypes": "->Trading Engine->"
         },
         "propertyNameAtParent": "tradingEngineReference"
+    },
+    {
+        "type": "Learning System Reference",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "attachingRules": {
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+        },
+        "referencingRules": {
+            "compatibleTypes": "->Learning System->"
+        },
+        "propertyNameAtParent": "learningSystemReference"
+    },
+    {
+        "type": "Learning Engine Reference",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "attachingRules": {
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+        },
+        "referencingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "learningEngineReference"
     },
     {
         "type": "Session Base Asset",
@@ -9782,7 +10787,7 @@
         },
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Parameters->"
+            "compatibleTypes": "->Trading Parameters->Learning Parameters->"
         },
         "propertyNameAtParent": "timeRange"
     },
@@ -9815,7 +10820,7 @@
         },
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Trading Parameters->"
+            "compatibleTypes": "->Trading Parameters->Learning Parameters->"
         },
         "propertyNameAtParent": "timeFrame"
     },
@@ -9972,7 +10977,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"\"\n}"
+            "config": "{ \n\"backLearningPredictingRatio\": 0.8\n}"
         },
         "addLeftIcons": true,
         "editors": {
@@ -10398,7 +11403,7 @@
         "propertyNameAtParent": "session"
     },
     {
-        "type": "Learning Session",
+        "type": "Back Learning Session",
         "menuItems": [
             {
                 "action": "Run Learning Session",
@@ -10443,7 +11448,7 @@
             {
                 "action": "Add Missing Children",
                 "label": "Add Missing Children",
-                "relatedUiObject": "Trading Parameters",
+                "relatedUiObject": "Learning Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -10479,15 +11484,116 @@
                 "autoAdd": true
             },
             {
-                "name": "tradingSystemReference",
+                "name": "learningSystemReference",
                 "type": "node",
-                "childType": "Trading System Reference",
+                "childType": "Learning System Reference",
                 "autoAdd": true
             },
             {
-                "name": "tradingEngineReference",
+                "name": "learningEngineReference",
                 "type": "node",
-                "childType": "Trading Engine Reference",
+                "childType": "Learning Engine Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "socialBots",
+                "type": "node",
+                "childType": "Social Bots"
+            }
+        ],
+        "propertyNameAtParent": "session"
+    },
+    {
+        "type": "Live Learning Session",
+        "menuItems": [
+            {
+                "action": "Run Learning Session",
+                "label": "Run",
+                "workingLabel": "Run Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Run",
+                "secondaryAction": "Stop Learning Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "run",
+                "iconPathOff": "run",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Resume Learning Session",
+                "label": "Resume",
+                "workingLabel": "Resume Request Sent",
+                "workDoneLabel": "Session Running",
+                "workFailedLabel": "Session Cannot be Resumed",
+                "secondaryAction": "Stop Learning Session",
+                "secondaryLabel": "Stop",
+                "secondaryWorkingLabel": "Stopping...",
+                "secondaryWorkDoneLabel": "Session Stopped",
+                "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+                "secondaryIcon": "stop",
+                "iconPathOn": "resume",
+                "iconPathOff": "resume",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
+        },
+        "level": 2,
+        "referencingRules": {
+            "compatibleTypes": "->Trading System->"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->Learning Process Instance->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "learningParameters",
+                "type": "node",
+                "childType": "Learning Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "learningSystemReference",
+                "type": "node",
+                "childType": "Learning System Reference",
+                "autoAdd": true
+            },
+            {
+                "name": "learningEngineReference",
+                "type": "node",
+                "childType": "Learning Engine Reference",
                 "autoAdd": true
             },
             {
@@ -11580,7 +12686,7 @@
         },
         "level": 4,
         "attachingRules": {
-            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->"
+            "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->"
         },
         "propertyNameAtParent": "formula"
     },
@@ -12066,6 +13172,30 @@
         ]
     },
     {
+        "type": "Learning System",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "machineLearningLibrary",
+                "type": "node",
+                "childType": "TensorFlow Library"
+            }
+        ]
+    },
+    {
         "type": "Trading Strategy",
         "menuItems": [
             {
@@ -12314,6 +13444,13 @@
         "type": "Open Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Open Stage",
@@ -12335,6 +13472,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 1,
         "attachingRules": {
@@ -13576,6 +14719,13 @@
         "type": "Close Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Close Stage",
@@ -13597,6 +14747,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 2,
         "attachingRules": {
@@ -13684,7 +14840,7 @@
         "addLeftIcons": true,
         "level": 4,
         "attachingRules": {
-            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Learning Session->"
+            "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Back Learning Session->Live Learning Session->"
         },
         "childrenNodesProperties": [
             {
@@ -13924,7 +15080,8 @@
                 "childType": "Signals Provider",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Signals Provider",
@@ -13965,10 +15122,11 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
-        "childrenNodesProperties": []
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Crypto Exchanges",
@@ -14131,6 +15289,10 @@
             {
                 "codeName": "hitbtc",
                 "iconName": "hitbtc"
+            },
+            {
+                "codeName": "luno",
+                "iconName": "luno"
             }
         ]
     },
@@ -14286,6 +15448,14 @@
             {
                 "codeName": "USD",
                 "iconName": "us-dollar"
+            },
+            {
+                "codeName": "ZAR",
+                "iconName": "zar"
+            },
+            {
+                "codeName": "XRP",
+                "iconName": "xrp"
             }
         ]
     },
@@ -14619,8 +15789,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n}"
-        },
+"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n}"        },
         "addLeftIcons": true,
         "editors": {
             "config": true
@@ -14631,6 +15800,53 @@
         },
         "propertyNameAtParent": "keys",
         "isPersonalData": true
+    },
+    {
+        "type": "Docs Space",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "spaceStyle",
+                "label": "Add Space Style",
+                "relatedUiObject": "Space Style",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "spaceSettings",
+                "label": "Add Space Settings",
+                "relatedUiObject": "Space Settings",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "actionFunction": "payload.executeAction",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity"
+            }
+        ],
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "spaceStyle",
+                "type": "node",
+                "childType": "Space Style",
+                "autoAdd": true
+            },
+            {
+                "name": "spaceSettings",
+                "type": "node",
+                "childType": "Space Settings",
+                "autoAdd": true
+            }
+        ]
     },
     {
         "type": "Design Space",
@@ -14684,7 +15900,7 @@
         "level": 4,
         "propertyNameAtParent": "spaceStyle",
         "attachingRules": {
-            "compatibleTypes": "->Charting Space->Design Space->"
+            "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
         },
         "editors": {
             "config": true
@@ -14717,13 +15933,13 @@
         "level": 4,
         "propertyNameAtParent": "spaceSettings",
         "attachingRules": {
-            "compatibleTypes": "->Charting Space->Design Space->"
+            "compatibleTypes": "->Charting Space->Design Space->Docs Space->"
         },
         "editors": {
             "config": true
         },
         "initialValues": {
-            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false}"
+            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"detachUsingMouse\":false }"
         },
         "menuItems": [
             {
@@ -17289,7 +18505,7 @@
         "level": 3,
         "alternativeIcons": "Use Reference Parent",
         "referencingRules": {
-            "compatibleTypes": "->Learning Session->"
+            "compatibleTypes": "->Back Learning Session->Live Learning Session->"
         },
         "attachingRules": {
             "compatibleTypes": "->Market Learning Products->"
@@ -17768,7 +18984,6 @@
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "propertyNameAtParent": "plugins",
         "childrenNodesProperties": [
             {
                 "name": "pluginProjects",
@@ -17830,9 +19045,21 @@
                 "autoAdd": false
             },
             {
+                "name": "pluginLearningMines",
+                "type": "node",
+                "childType": "Plugin Learning Mines",
+                "autoAdd": false
+            },
+            {
                 "name": "pluginTradingSystems",
                 "type": "node",
                 "childType": "Plugin Trading Systems",
+                "autoAdd": false
+            },
+            {
+                "name": "pluginLearningSystems",
+                "type": "node",
+                "childType": "Plugin Learning Systems",
                 "autoAdd": false
             },
             {
@@ -17842,9 +19069,9 @@
                 "autoAdd": false
             },
             {
-                "name": "pluginSuperScripts",
+                "name": "pluginLearningEngines",
                 "type": "node",
-                "childType": "Plugin Super Scripts",
+                "childType": "Plugin Learning Engines",
                 "autoAdd": false
             },
             {
@@ -18014,15 +19241,15 @@
         ]
     },
     {
-        "type": "Plugin Super Scripts",
+        "type": "Plugin Learning Mines",
         "menuItems": [
             {
-                "action": "Add Missing Plugin Super Scripts",
-                "label": "Add Missing Super Scripts",
+                "action": "Add Missing Plugin Learning Mines",
+                "label": "Add Missing Learning Mines",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Proceed",
                 "workDoneLabel": "Done",
-                "relatedUiObject": "Super Scripts",
+                "relatedUiObject": "Learning Mine",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -18037,7 +19264,81 @@
         ],
         "addLeftIcons": true,
         "level": 1,
-        "propertyNameAtParent": "pluginSuperScripts",
+        "propertyNameAtParent": "pluginLearningMines",
+        "attachingRules": {
+            "compatibleTypes": "->Plugin Project->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "pluginFiles",
+                "type": "array",
+                "childType": "Plugin File",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Plugin Learning Systems",
+        "menuItems": [
+            {
+                "action": "Add Missing Plugin Learning Systems",
+                "label": "Add Missing Learning Systems",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Learning System",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "pluginLearningSystems",
+        "attachingRules": {
+            "compatibleTypes": "->Plugin Project->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "pluginFiles",
+                "type": "array",
+                "childType": "Plugin File",
+                "autoAdd": false
+            }
+        ]
+    },
+    {
+        "type": "Plugin Learning Engines",
+        "menuItems": [
+            {
+                "action": "Add Missing Plugin Learning Engines",
+                "label": "Add Missing Learning Engines",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Proceed",
+                "workDoneLabel": "Done",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "pluginLearningEngines",
         "attachingRules": {
             "compatibleTypes": "->Plugin Project->"
         },
@@ -18112,7 +19413,7 @@
         "level": 2,
         "propertyNameAtParent": "pluginFiles",
         "attachingRules": {
-            "compatibleTypes": "->Plugin Tutorials->Plugin Super Scripts->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Data Mines->"
+            "compatibleTypes": "->Plugin Tutorials->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Learning Engines->Plugin Learning Systems->Plugin Learning Mines->Plugin Data Mines->"
         },
         "childrenNodesProperties": [
             {
@@ -18203,13 +19504,12 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
         "addLeftIcons": true,
         "level": 0,
-        "propertyNameAtParent": "tutorials",
         "childrenNodesProperties": [
             {
                 "name": "tutorialSteps",
@@ -18275,7 +19575,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"title\": \"\",\n \"summary\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "referencingRules": {
             "compatibleTypes": "->*Any Node*->",
@@ -18340,7 +19640,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n  \"subTitle\": \"\",\n \"gif\": \"\",\n \"image\": \"\",\n \"definition\": \"\",\n \"bulletListIntro\": \"\",\n \"bulletArray\": \n[\n [\"\", \"\"], \n[\"\", \"\"], \n[\"\", \"\"] \n],\n \"paragraph1\": \"\",\n \"callOut\": \"\",\n \"externalLink\": [\"\", \"\"],\n \"paragraph2\": \"\",\n \"note\": \"\",\n \"tip\": \"\",\n \"important\": \"\",\n \"warning\": \"\", \n \"position\": \"\",\n \"slider\": \"toTop\",\n \"pressButton\": \"\",\n \"documentationURL\": \"\" \n}"
+            "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
         },
         "referencingRules": {
             "compatibleTypes": "->*Any Node*->",

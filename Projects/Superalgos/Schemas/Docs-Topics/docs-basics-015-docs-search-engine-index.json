@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 15,
+    "type": "Docs Search Engine Index",
+    "definition": {
+        "text": "The Docs Search Engine builds an in-memory index that contains all the phrases of all Docs Pages, plus the name, type, config, and code of all nodes of the current Workspace.",
+        "updated": 1611001817080
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This index is built when the UI is launched, and rebuilt when the user runs the docs.reindex command or loads a new Workspace.",
+            "updated": 1611001858537
+        }
+    ]
+}

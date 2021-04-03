@@ -1,0 +1,82 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 60,
+    "type": "TS LF Trading Bot Error - Execution Unexpected Error",
+    "definition": {
+        "text": "An Unexpected Error occured while procesing the execution of orders. The LF Trading Bot continued running after reporting this error.",
+        "updated": 1611953087876
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The error prevented the LF Trading Bot from performing certain operations.",
+            "updated": 1611953150424
+        },
+        {
+            "style": "Error",
+            "text": "Execution Unexpected Error",
+            "updated": 1611736368660
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Success",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611736382407
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        }
+    ]
+}

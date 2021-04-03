@@ -1,0 +1,13 @@
+{
+    "type": "Bias",
+    "definition": {
+        "text": "A value indicating how far apart the average of predictions is from the average of labels in the dataset.",
+        "updated": 1613243679048
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

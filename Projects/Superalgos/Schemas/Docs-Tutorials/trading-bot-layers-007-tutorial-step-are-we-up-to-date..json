@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Are We Up to Date.....?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-process-instance"
+        },
+        "text": "Now we have to wait a bit! When all processes reach the 100% mark, we may proceed!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As you probably know, the time required to mine data depends on many things. If you already have some of this data from previous activities, it may be faster!"
+        },
+        {
+            "style": "Callout",
+            "text": "Monitor the processes for all indicators in the Sparta and Masters data mines. When all of them reach 100%, then stop the data mining operation and click Next to continue."
+        },
+        {
+            "style": "Success",
+            "text": "Bollinger Channels will likely be last!"
+        }
+    ]
+}

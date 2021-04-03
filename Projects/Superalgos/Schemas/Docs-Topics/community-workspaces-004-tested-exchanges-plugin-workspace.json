@@ -1,0 +1,70 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "4",
+    "type": "Tested Exchanges Plugin Workspace",
+    "definition": {
+        "text": "This workspace features the very basic setup for users to start with a clean slate. Use this workspace to start building your own Trading System. Alternatively, you may use this workspace to test new exchanges.",
+        "updated": 1616146238001
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151026914
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market Tutorial.",
+            "updated": 1616151119187
+        },
+        {
+            "style": "Important",
+            "text": "This workspace must be kept in a minimalist state to allow users to start from scratch.",
+            "updated": 1616156081401
+        },
+        {
+            "style": "Title",
+            "text": "Testing Workflow",
+            "updated": 1616156093719
+        },
+        {
+            "style": "Text",
+            "text": "The Crypto Ecosystem hierarchy features five different Crypto Exchanges nodes reflecting the status of the tests of each of the exchanges."
+        },
+        {
+            "style": "List",
+            "text": "Untested: Exchanges for which there is no recorded history of tests.",
+            "updated": 1616155760279
+        },
+        {
+            "style": "List",
+            "text": "Testing Queue: Exchanges that developers are currently testing.",
+            "updated": 1616155779390
+        },
+        {
+            "style": "List",
+            "text": "Failed OHLCVs Tests: Exchanges that were tested but failed to serve OHLCV data in the expected manner. Exchanges in this queue are not usable at the moment. Further efforts may be required to put them to work.",
+            "updated": 1616155913345
+        },
+        {
+            "style": "List",
+            "text": "Trading Tests Pending: Exchanges that have passed the OHLCV tests (are able to serve data in the manner Superalgos expects it) and are awaiting live trading tests.",
+            "updated": 1616156044085
+        },
+        {
+            "style": "List",
+            "text": "Tested: Exchanges that have been tested for data-mining and live trading, and that everyone should be able to use without hassle.",
+            "updated": 1616156004370
+        },
+        {
+            "style": "Title",
+            "text": "Brought to you by",
+            "updated": 1616151450651
+        },
+        {
+            "style": "List",
+            "text": "@us9808",
+            "updated": 1616151454415
+        }
+    ]
+}

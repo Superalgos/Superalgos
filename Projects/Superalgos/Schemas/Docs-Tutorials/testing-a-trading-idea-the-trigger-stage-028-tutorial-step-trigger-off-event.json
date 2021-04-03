@@ -1,0 +1,33 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Trigger Off Event",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-off-event"
+        },
+        "text": "Now that we have defined when the strategy should be triggered on, let's consider when the idea should be invalidated."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We don't want to trade with this strategy when there is no downtrend. So, we'll reverse the logic of the trigger on event! Find conditions 1 and 2 below:",
+            "updated": 1610470163153
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction === 'Up'",
+            "updated": 1610470169627
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope === 'Side'",
+            "updated": 1610470175519
+        },
+        {
+            "style": "Text",
+            "text": "We should trigger off the stategy when either of these conditions validate true. How?"
+        }
+    ]
+}

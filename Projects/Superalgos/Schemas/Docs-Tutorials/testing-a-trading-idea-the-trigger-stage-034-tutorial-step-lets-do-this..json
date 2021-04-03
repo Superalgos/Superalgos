@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 34,
+    "type": "Tutorial Step - Let's Do This...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "task"
+        },
+        "text": "This is going to be quick as we are testing a few months on the 24H time frame."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Remember that running a trading task is similar to running a data task. The difference is that after running the task you also need to run the trading session."
+        },
+        {
+            "style": "Callout",
+            "text": "Select Run on the BB Breakdown Task menu and then select Run on the Backtesting Session menu.",
+            "updated": 1617191181250
+        },
+        {
+            "style": "Note",
+            "text": "When the progress notice of the Trading Process Instance get's to the 100% mark, stop the task and click Next."
+        }
+    ]
+}

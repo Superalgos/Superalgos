@@ -1,0 +1,25 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Open Stage",
+    "definition": {
+        "text": "The Open Stage is where bot take position!",
+        "icon": {
+            "name": "open-stage",
+            "project": "Superalgos"
+        },
+        "updated": 1614260398081
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The strategy I want to backtest is based on 4h TF and the strategy is Long. This means that bot will Buy the asset to later Sell it (at a better price we hope!). To keep things simple, all I have to do is to indicate the TF in the Target Rate node using my full balance in the Target Size in Quoted Asset.",
+            "updated": 1614333476016
+        },
+        {
+            "style": "Success",
+            "text": "If our market is BTC/USDT then the Quoted Asset is USDT and Base Assest is BTC",
+            "updated": 1614260724325
+        }
+    ]
+}

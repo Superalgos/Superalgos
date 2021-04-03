@@ -58,7 +58,12 @@ function newSuperalgosUtilitiesStrings() {
                 if (text[i - 1] === '.') { return false }
             }
 
-            if (character === '.') { dotsDetected = true }
+            if (character === '.') { 
+                dotsDetected = true
+                 if (text[i-1] !== undefined && text[i+1] !== undefined && text[i-1] !== '.' && text[i+1] !== '.'){
+                     return true
+                 }
+            }
 
         }
         /* Check that there is at lest one upper case before numbers or dots */

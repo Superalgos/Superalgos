@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 27,
+    "type": "Tutorial Step - Bring Me Back To Earth!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "take-position-event"
+        },
+        "text": "I know! This all sounds too abstract! Let me lay out a few examples!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When working in sub-hour time frames and a concept or event&mdash;for example, a position&mdash;spans multiple days:"
+        },
+        {
+            "style": "List",
+            "text": "You may see multiple triangles! One triangle is drawn at the close of each day, and one last triangle is drawn at the close of the position, or&mdash;in case the position hasn't closed yet&mdash; at the current datetime."
+        },
+        {
+            "style": "List",
+            "text": "Statistics and metrics are fragmented too! For example, ROI, Profit Loss, and the evaluation of the position as a hit or a fail are determined daily!"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 5,
+    "type": "Docs Page Name",
+    "definition": {
+        "text": "The Docs Page Name is not only the visible name of a page displayed as the main title at the top but also the unique identifier of a page within a Project.",
+        "updated": 1613755348083
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The page name is always featured as the main title of the page and no two pages may have the same name.",
+            "updated": 1613755273710
+        },
+        {
+            "style": "Success",
+            "text": "It is important to remember the above at the time of naming a page. You should always use an unambiguous descriptive name as the name of a page.",
+            "updated": 1613755338171
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Important",
+            "text": "At this point, the name of the page may not be changed from within the Docs interface. To change the name of the page you need to manually modify the corresponding file, editing the type field and properly mapping the name of the page in the name of the file.",
+            "updated": 1613755498049
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

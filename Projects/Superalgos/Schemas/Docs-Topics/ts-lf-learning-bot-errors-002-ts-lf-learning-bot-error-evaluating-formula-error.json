@@ -1,0 +1,118 @@
+{
+    "topic": "TS LF Learning Bot Errors",
+    "pageNumber": "2",
+    "type": "TS LF Learning Bot Error - Evaluating Formula Error",
+    "definition": {
+        "text": "An error occured while evaluatiing a user-defined Formula at the Learning System.",
+        "updated": 1611926309593
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While running at the TS, the LF Learning Bot encountered an error trying to evaluate one of the formulas defined in the Learning System. Formulas are arbitrary Javascript Code that users may write. The code must be valid Javascript for Node JS.",
+            "updated": 1611926279221
+        },
+        {
+            "style": "Error",
+            "text": "Evaluating Formula Error",
+            "updated": 1611569347664
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Success",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611569373599
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the LF Learning Bot:",
+            "updated": 1611569424352
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the LF Learning Bot:",
+            "updated": 1611569434043
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the LF Learning Bot:",
+            "updated": 1611569440715
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the LF Learning Bot:",
+            "updated": 1611569446711
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name",
+            "updated": 1611571361685
+        },
+        {
+            "style": "Text",
+            "text": "The following is the node's name of the Node most related to this error:",
+            "updated": 1611571455498
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the code stored at the node that produced the error at the LF Learning Bot:",
+            "updated": 1611569545869
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode",
+            "updated": 1611569590234
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "type": "Bias Regularizer",
+    "definition": {
+        "text": "Regularizer function applied to the bias vector.",
+        "updated": 1613244759755
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Possible Values",
+            "updated": 1613244768649
+        },
+        {
+            "style": "Javascript",
+            "text": "l1l2\nstring\nRegularizer",
+            "updated": 1613244794672
+        }
+    ]
+}

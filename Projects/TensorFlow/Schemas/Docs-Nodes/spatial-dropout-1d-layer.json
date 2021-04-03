@@ -1,0 +1,18 @@
+{
+    "type": "Spatial Dropout 1D Layer",
+    "definition": {
+        "text": "Spatial 1D version of Dropout.",
+        "updated": 1613214223035
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This Layer type performs the same function as the Dropout layer, but it drops entire 1D feature maps instead of individual elements. For example, if an input example consists of 3 timesteps and the feature map for each timestep has a size of 4, a spatialDropout1d layer may zero out the feature maps of the 1st timesteps and 2nd timesteps completely while sparing all feature elements of the 3rd timestep.",
+            "updated": 1613214250740
+        },
+        {
+            "style": "Text",
+            "text": "If adjacent frames (timesteps) are strongly correlated (as is normally the case in early convolution layers), regular dropout will not regularize the activation and will otherwise just result in merely an effective learning rate decrease. In this case, spatialDropout1d will help promote independence among feature maps and should be used instead."
+        }
+    ]
+}

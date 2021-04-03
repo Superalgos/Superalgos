@@ -1,0 +1,79 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 35,
+    "type": "Tutorial Step - Talkin' Time Travel",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "I mentioned earlier there are two charts in this workspace. In Superalgos, we call each of these a Time Machine.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Poco fa ho detto che ci sono due grafici in questo workspace. In Superalgos, chiamiamo ognuno di questi grafici una Time Machine.",
+                "updated": 1614847393489,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Aku telah memberitahumu duluan ada dua charts di workspace ini. Dalam Superalgos, kam memanggilnya dengan Time Machine.",
+                "updated": 1616935192130
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A time machine may hold one Timeline Chart or more. We call them time machines because all timeline charts within a time machine are synchronized in time. This feature of time machines allows to superimpose different layers of data sharing the same Time Scale.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una Time Machine può contenere una o più Timeline Chart. Le chiamiamo così perchè tutti i Timeline Chart in una Time Machine sono sincronizzati nel tempo. Ciò permette di sovrapporre differenti livelli di dati che usano la stessa Time Scale.",
+                    "updated": 1614847651838,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Time machine akan menahan satu atau lebih Timeline Chart. Dalam time machines karena semua timeline charts dalam time machine tersingkronasi dengan waktu. Fitur time machines ini memungkinkan untuk menempatkan berbeda lapisan data dalam pembagian data di Time Scale yang sama.",
+                    "updated": 1616935672320
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Hover your mouse pointer over the time machines!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sposta il puntatore del mouse sopra le Time Machine!",
+                    "updated": 1614847549742,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Arahkan mouse pointer kearah time machines!",
+                    "updated": 1616935491446
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Notice the label emerging on the left-hand side showing which exchanges and markets the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges!",
+            "updated": 1610622145377,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le label che spuntano da sinistra mostrano a quale exchange e market si riferiscono i dati. Una singola Time Machine può contenere dati da diversi markets e exchanges!",
+                    "updated": 1614847670664,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan label yang ada dikiri yang menyatakan exchange dan market dari data yang diasosiasikan. Satu time machine akan dapat menyimpan dari berbagai market dan lebih dari satu exchange.",
+                    "updated": 1616935697836
+                }
+            ]
+        }
+    ]
+}

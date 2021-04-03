@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 40,
+    "type": "Tutorial Step - First Backtest!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "Now that we have the basic definitions in all stages, we may do a first backtest!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We'll be using the same parameters we ended up with at the end of the previous tutorial. Feel free to go and check!"
+        },
+        {
+            "style": "Callout",
+            "text": "Start the task for BB Breakdown 2 and start the corresponding backtesting session too!"
+        },
+        {
+            "style": "Note",
+            "text": "I'm assuming you have the data we mined during the previous tutorial! If you don't this is unlikely to work!"
+        }
+    ]
+}

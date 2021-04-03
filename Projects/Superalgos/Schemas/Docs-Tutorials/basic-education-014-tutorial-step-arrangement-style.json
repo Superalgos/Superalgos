@@ -1,0 +1,54 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Arrangement Style",
+    "definition": {
+        "text": "The button cycles through several arrangement options that affect where a node is placed in relation to its parent.",
+        "icon": {
+            "name": "set-node-arrangement-to-concave",
+            "project": "Superalgos"
+        },
+        "updated": 1615491939732
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the drawing, the orange dot represents the parent node, and the blue dots represent the node adopting the specific arrangement style.",
+            "updated": 1615492521130
+        },
+        {
+            "style": "List",
+            "text": "Concave: This is the default style. The node adopts a slot on a circumsference around its parent node.",
+            "updated": 1615492168857
+        },
+        {
+            "style": "List",
+            "text": "Convex: The slot is on a convex curve.",
+            "updated": 1615492208853
+        },
+        {
+            "style": "List",
+            "text": "Vertical-Right: On a vertical line to the right.",
+            "updated": 1615492432352
+        },
+        {
+            "style": "List",
+            "text": "Vertical-Left: The slot is on a vertical line to the left.",
+            "updated": 1615492424255
+        },
+        {
+            "style": "List",
+            "text": "Horizontal-Bottom: On a horizontal line below.",
+            "updated": 1615492441259
+        },
+        {
+            "style": "List",
+            "text": "Horizontal-Top: The slot is on a horizontal line above.",
+            "updated": 1615492346954
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

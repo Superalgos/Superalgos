@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Let's Study the Syntax!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "text"
+        },
+        "text": "The syntax to write conditions and formulas follows a few basic rules that will soon seem obvious!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It may take some time to master the syntax, particularly if you are not a technical person, but experience shows that Superalgos users get used to it while building their first strategy!"
+        },
+        {
+            "style": "Callout",
+            "text": "Please, read this page carefully!"
+        },
+        {
+            "style": "Success",
+            "text": "Don't worry if it seems hard to grasp... We'll practice a lot along this tutorial series!",
+            "updated": 1617190556168
+        }
+    ]
+}

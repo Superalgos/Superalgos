@@ -367,6 +367,8 @@ function newCanvas() {
     }
 
     async function onKeyDown(event) {
+        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+
         if (EDITOR_ON_FOCUS === true) {
             /*
              We will fordward the event to whoever is 
@@ -385,6 +387,10 @@ function newCanvas() {
         thisObject.mouse.action = 'key down'
 
         checkMediaRecording(event)
+
+        event.x = thisObject.mouse.position.x 
+        event.y = thisObject.mouse.position.y 
+
         UI.projects.superalgos.spaces.chartingSpace.onKeyPressed(event)
 
         /* Shourcuts to Menu Items */

@@ -24,22 +24,23 @@
         },
         {
             "style": "List",
-            "text": "Project: It's the project where the Node, Concept, Topic, Tutorial or Review is defined.",
-            "updated": 1610975746510
+            "text": "Project: It's the project where the page is defined.",
+            "updated": 1613764369592
         },
         {
             "style": "List",
-            "text": "Docs Page Category: Node, Concept, Topic, Tutorial or Review.",
-            "updated": 1610975692859
+            "text": "Docs Page Category: One of the available categories.",
+            "updated": 1613764395658
         },
         {
             "style": "List",
-            "text": "Docs Page Name: For Nodes it is the type of node; for Concepts, the concept name; for Topics, the topic's page name, for Tutorials, the tutorial step name; for Reviews, the review page name.",
-            "updated": 1610975736116
+            "text": "Docs Page Name: The name of the page.",
+            "updated": 1613764542342
         },
         {
             "style": "List",
-            "text": "Docs Page Anchor : This parameter is optional. If present, it refers to an Docs Anchor paragraph defined within the page."
+            "text": "Docs Page Anchor: This parameter is optional. When present, it refers to a Docs Paragraph with the Docs Anchor Style within the page.",
+            "updated": 1613764614157
         },
         {
             "style": "Title",

@@ -293,7 +293,7 @@ function newSuperalgosDocsContextMenu() {
         We need to locate the parent node that it is a Paragraph,
         otherwise we could end up in an inner html element.
         */
-        let paragraphNode = selection.baseNode
+        let paragraphNode = selection.anchorNode
 
         if (paragraphNode.id !== undefined && paragraphNode.parentNode.className === "docs-tooltip") {
             return false

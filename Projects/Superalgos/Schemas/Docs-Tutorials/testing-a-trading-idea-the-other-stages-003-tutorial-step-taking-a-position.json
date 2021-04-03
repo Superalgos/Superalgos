@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Taking a Position",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "open-stage"
+        },
+        "text": "As soon as the Take Position Event validates true, both the open stage and the manage stage become active."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "The Open Stage is activated to deal with order execution in entering the position."
+        },
+        {
+            "style": "List",
+            "text": "The Manage Stage is activated to monitor stop loss and take profit targets. It is possible that targets are hit even before actually executing the orders to take the position, and that is the reason why the stage must be activated immediately."
+        },
+        {
+            "style": "Success",
+            "text": "Read these first few paragraphs about the open stage!"
+        }
+    ]
+}

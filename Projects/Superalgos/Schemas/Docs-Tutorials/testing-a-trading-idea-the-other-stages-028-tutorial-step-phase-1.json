@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Phase 1",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "phase-0"
+        },
+        "text": "There is enormous depth to the concept of managing positions and Superalgos offers robust and flexible tools for that matter!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, we don't need to get into the details at this point, as&mdash;for the sake of our test&mdash;all we need to do is set up initial targets."
+        },
+        {
+            "style": "Callout",
+            "text": "Initial targets are set on Phase #1"
+        },
+        {
+            "style": "Success",
+            "text": "Later on, you will learn that you may manage your positions in phases, each with its formulas and events to switch back and forth to other phases."
+        }
+    ]
+}

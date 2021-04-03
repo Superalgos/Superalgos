@@ -1,0 +1,13 @@
+{
+    "type": "Core API",
+    "definition": {
+        "text": "The Core API is a lower-level API for building models.",
+        "updated": 1613201747129
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

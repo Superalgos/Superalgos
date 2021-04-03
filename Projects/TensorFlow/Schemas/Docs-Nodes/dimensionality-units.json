@@ -1,0 +1,25 @@
+{
+    "type": "Dimensionality Units",
+    "definition": {
+        "text": "Positive integer, dimensionality of the output space.",
+        "updated": 1613243190046,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Positive integer, dimensionality of the output space. In other words, the amount of neurons at the Artificial Neural Network layer.",
+                "updated": 1613805816485
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613243500472
+        },
+        {
+            "style": "Javascript",
+            "text": "number"
+        }
+    ]
+}

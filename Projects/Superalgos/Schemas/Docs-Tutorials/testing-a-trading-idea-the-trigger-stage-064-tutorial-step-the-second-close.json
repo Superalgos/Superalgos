@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 64,
+    "type": "Tutorial Step - The Second Close",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "When we came up with the trading idea, we noticed that a single breakdown in the 1H chart would produce bad entries..."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We decided that a first breakdown would be our signal, and that a second consecutive breakdown would be our confirmation."
+        },
+        {
+            "style": "Callout",
+            "text": "Let's refresh the concepts that will help us describe that situation! We are back on the Syntax Overview page. Please, read the section about the Previous Property!"
+        },
+        {
+            "style": "Text",
+            "text": "Can you write a second condition to finish the definition of the take position event?"
+        }
+    ]
+}

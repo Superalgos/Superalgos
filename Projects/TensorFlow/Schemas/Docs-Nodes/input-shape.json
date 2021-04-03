@@ -1,0 +1,13 @@
+{
+    "type": "Input Shape",
+    "definition": {
+        "text": "The first layer in the model needs an inputShape. Make sure you exclude the batch size when providing the inputShape. For example, if you plan to feed the model tensors of shape [B, 784], where B can be any batch size, specify inputShape as [784] when creating the model.",
+        "updated": 1613220197721
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

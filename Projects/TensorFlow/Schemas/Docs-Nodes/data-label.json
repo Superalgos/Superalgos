@@ -1,0 +1,13 @@
+{
+    "type": "Data Label",
+    "definition": {
+        "text": "A single individual Output Label.",
+        "updated": 1615896281923
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

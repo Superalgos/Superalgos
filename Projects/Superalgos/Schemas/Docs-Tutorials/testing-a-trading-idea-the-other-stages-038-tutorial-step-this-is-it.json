@@ -1,0 +1,34 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 38,
+    "type": "Tutorial Step - This is it!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-order"
+        },
+        "text": "This is the node you have to create the reference to: Market Buy Order #1."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Remember the tricks for the trip!"
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from node to node."
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!"
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+        }
+    ]
+}

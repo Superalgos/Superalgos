@@ -1,0 +1,13 @@
+{
+    "type": "Feature Formula",
+    "definition": {
+        "text": "A formula that allows users to specify an input value of a Data Feature, using any of the Data Structures provided by Superalgos to access indicators.",
+        "updated": 1615896367911
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

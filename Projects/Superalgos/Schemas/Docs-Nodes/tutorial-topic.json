@@ -23,7 +23,8 @@
         },
         {
             "style": "Note",
-            "text": "The configuration of the tutorial topic node is the same as the tutorial node. Refer to the latter, please."
+            "text": "The configuration of the tutorial topic node is the same as the Tutorial node. Refer to the latter, please.",
+            "updated": 1613846326015
         }
     ]
 }

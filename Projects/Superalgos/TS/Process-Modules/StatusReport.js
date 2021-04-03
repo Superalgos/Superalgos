@@ -113,6 +113,7 @@
                 if (checkThisDataBranch(networkNode.dataTasks) === true) { return }
                 if (checkThisTradingBranch(networkNode.testingTradingTasks) === true) { return }
                 if (checkThisTradingBranch(networkNode.productionTradingTasks) === true) { return }
+                if (checkThisLearningBranch(networkNode.learningTasks) === true) { return }
 
                 function checkThisDataBranch(branch) {
                     if (branch === undefined) { return }
@@ -216,6 +217,57 @@
                         }
                     }
                 }
+
+                function checkThisLearningBranch(branch) {
+                    if (branch === undefined) { return }
+                    for (let z = 0; z < branch.projectLearningTasks.length; z++) {
+                        let projectLearningTasks = branch.projectLearningTasks[z]
+                        for (let j = 0; j < projectLearningTasks.exchangeLearningTasks.length; j++) {
+                            let exchangeTasks = projectLearningTasks.exchangeLearningTasks[j]
+                            for (let p = 0; p < exchangeTasks.marketLearningTasks.length; p++) {
+                                let marketTasks = exchangeTasks.marketLearningTasks[p]
+                                if (marketTasks.referenceParent === undefined) { continue }
+                                if (marketTasks.referenceParent.id !== TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.id) { continue }
+                                for (let q = 0; q < marketTasks.learningMineTasks.length; q++) {
+                                    let mineTasks = marketTasks.learningMineTasks[q]
+                                    for (let k = 0; k < mineTasks.taskManagers.length; k++) {
+                                        let taskManager = mineTasks.taskManagers[k]
+                                        for (let m = 0; m < taskManager.tasks.length; m++) {
+                                            let task = taskManager.tasks[m]
+                                            if (task.bot === undefined) { continue }
+                                            for (let n = 0; n < task.bot.processes.length; n++) {
+                                                let process = task.bot.processes[n]
+                                                if (process.referenceParent === undefined) { continue }
+                                                let processDefinition = process.referenceParent
+                                                if (processThisDependsOn.id === processDefinition.id) {
+                                                    if (process.type === 'Learning Process Instance') {
+                                                        if (process.session !== undefined) {
+                                                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id !== process.session.id) {
+                                                                continue
+                                                            }
+                                                        } else {
+                                                            continue
+                                                        }
+                                                    }
+                                                    /* 
+                                                    We found where the task that runs the process definition this status report depends on 
+                                                    and where it is located on the network. 
+                                                    */
+                                                    thisObject.networkNode = networkNode
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + networkNode.name + " -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+
+                                                    fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort)
+                                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                                    return true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
@@ -252,7 +304,7 @@
 
             if (ownerId !== botId) {
 
-                let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
             } else {
                 filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process

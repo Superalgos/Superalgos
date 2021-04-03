@@ -1,0 +1,107 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "1",
+    "type": "How to Test New Exchanges",
+    "definition": {
+        "text": "Testing exchanges is an ongoing Community effort. If you wish to work with an exchange that is not tested, this topic covers everything you need to know to debug the Sensor Bot and find out what needs to be done to achieve the goal.",
+        "updated": 1616007833424
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "CCXT Library",
+            "updated": 1614590456998
+        },
+        {
+            "style": "Text",
+            "text": "CCXT is a popular open-source library that acts as a gateway to exchanges APIs. Its goal is to standardize access to different APIs so that software built using CCXT does not need to know the special dealings of each exchange. Even though it does a pretty good job, it is not perfect and there are still special configurations that must be used with different exchanges.",
+            "updated": 1616008057862
+        },
+        {
+            "style": "Text",
+            "text": "The root of this problem is that there is no standard across the industry and each exchange invents its own way to deal with each functionality."
+        },
+        {
+            "style": "Link",
+            "text": "CCXT at Github->https://github.com/ccxt/ccxt",
+            "updated": 1614590739125
+        },
+        {
+            "style": "Title",
+            "text": "Original Tests on Binance",
+            "updated": 1616008377556
+        },
+        {
+            "style": "Text",
+            "text": "The Superalgos software evolves fast as the team chooses to leave the fine-tuning and setups to the Community. The team tested Binance early on because it is the most popular exchange. It didn't work on the first try with the default configuration, so a special configuration was created.",
+            "updated": 1616009190093
+        },
+        {
+            "style": "Subtitle",
+            "text": "Binance Configuration",
+            "updated": 1616007864841
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"binance\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1614590679126
+        },
+        {
+            "style": "Title",
+            "text": "Community Effort",
+            "updated": 1616008789934
+        },
+        {
+            "style": "Text",
+            "text": "If you get to test an untested exchange, please participate in the Community Effort to Test Exchanges by documenting the results!",
+            "updated": 1616099671162
+        },
+        {
+            "style": "Success",
+            "text": "Testing exchanges is a valuable contribution! It enables everyone coming next —including less technical users— to enjoy working with their favorite exchange!"
+        },
+        {
+            "style": "Title",
+            "text": "Your Favorite Exchange Is Not Listed",
+            "updated": 1616008875311
+        },
+        {
+            "style": "Text",
+            "text": "There are many reasons why an exchange may not be listed even at the Untested Exchanges node. Here are some of them:",
+            "updated": 1616009095135
+        },
+        {
+            "style": "List",
+            "text": "When the list was created it did not exist (you can try the Add Missing Exchanges menu item of the Crypto Exchanges node).",
+            "updated": 1616009129072
+        },
+        {
+            "style": "List",
+            "text": "It is not listed at the CCXT library included with Superalgos (an npm update would be needed at the right folder to update the library). If the exchange appears after the update, please inform the team so as to update it for all users.",
+            "updated": 1616009133874
+        },
+        {
+            "style": "List",
+            "text": "The exchange does not provide historical data in 1-minute candles (you can check the exchange API docs). Exchanges that do not support this basic feature are filtered out while running Add Missing Exchanges command.",
+            "updated": 1616009139987
+        },
+        {
+            "style": "List",
+            "text": "The exchange does not support the function to list markets (check the exchange API docs).",
+            "updated": 1616009144377
+        },
+        {
+            "style": "Title",
+            "text": "Getting Started"
+        },
+        {
+            "style": "Text",
+            "text": "For the rest of this guide, we will assume that you are using the Getting Started workspace that comes as a Plugin. If you are not, please load that workpace and close the Welcome tutorial.",
+            "updated": 1616009292308
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

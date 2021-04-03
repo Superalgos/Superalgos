@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 61,
+    "type": "Tutorial Step - One More Detail!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-bands"
+        },
+        "text": "Look at the BB properties again! Two standard deviations is the deviation property!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "So, the lower band is the MA minus the deviation!"
+        },
+        {
+            "style": "Callout",
+            "text": "Can you write the condition with this information? Open a text editor and try it!"
+        },
+        {
+            "style": "Success",
+            "text": "The close of the candle in the 1H chart is lesser than the moving average minus the deviation!"
+        }
+    ]
+}

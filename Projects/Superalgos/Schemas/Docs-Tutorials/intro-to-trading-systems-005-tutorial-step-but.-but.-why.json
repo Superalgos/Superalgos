@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 5,
+    "type": "Tutorial Step - But... But... Why?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "Why would I want to have multiple strategies within a trading system, when only one of them may trade at any point?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before answering the burning question, let's take a look at a couple of examples. Take a look at the two strategies within the Weak-hands Buster (WHB v2) trading system!"
+        },
+        {
+            "style": "Callout",
+            "text": "Explore the definitions of the Trigger On Event on the Trigger Stage and see if you notice the difference between the two."
+        },
+        {
+            "style": "Success",
+            "text": "There's a hint in the name of each strategy!"
+        }
+    ]
+}

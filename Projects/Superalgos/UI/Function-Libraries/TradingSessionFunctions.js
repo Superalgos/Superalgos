@@ -73,11 +73,11 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
-            'Announcement->Announcement Formula->Announcement Condition->' +
             'Open Execution->Close Execution->' +
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Order Rate->Formula->' +
             'Create Order Event->Cancel Order Event->' +
+            'Announcement->Announcement Formula->Announcement Condition->' +
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +

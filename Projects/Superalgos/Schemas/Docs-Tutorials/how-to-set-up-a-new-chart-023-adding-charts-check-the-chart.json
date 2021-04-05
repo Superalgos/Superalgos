@@ -1,0 +1,29 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "23",
+    "type": "Adding Charts - Check the Chart",
+    "definition": {
+        "text": "At this point everything is all hooked up, hurray! ",
+        "updated": 1617652418858,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Run the Backtesting Session for the Lightning Strike Trading System and wait for it to finish. Then verify things are working in the Charting Space by turning on a few layers.",
+            "updated": 1617661474803
+        },
+        {
+            "style": "Important",
+            "text": "Remember to pay attention to the Time Frame and dates the session was run under. Otherwise you won’t see anything!"
+        },
+        {
+            "style": "Success",
+            "text": "The Lightning Strike Backtesting Session was run on the one minute time frame from September 1 2020 to September 2 2020.",
+            "updated": 1617651027780
+        }
+    ]
+}

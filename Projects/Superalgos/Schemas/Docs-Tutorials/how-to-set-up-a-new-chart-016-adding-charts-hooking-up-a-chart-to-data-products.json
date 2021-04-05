@@ -1,11 +1,11 @@
 {
     "tutorial": "How to set up a new Chart",
-    "pageNumber": "11",
-    "type": "Adding Charts – Hooking up a Chart to Data Products",
+    "pageNumber": "16",
+    "type": "Adding Charts - Hooking up a Chart to Data Products",
     "definition": {
         "text": "We are almost to the node we need!",
         "icon": {
-            "name": "market-data-products",
+            "name": "data-mine-products",
             "project": "Superalgos"
         },
         "updated": 1617329505743
@@ -18,8 +18,8 @@
         },
         {
             "style": "Note",
-            "text": "Depending on how many markets you have installed, you should see one Market Data Products node for each market.",
-            "updated": 1617329431556
+            "text": "There are three data mines installed in this Workspace. You will see one Market Data Products node for each market.",
+            "updated": 1617647424199
         }
     ]
 }

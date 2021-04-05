@@ -1,0 +1,20 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "110.5",
+    "type": "Tutorial Step - Beware of Impersonators!",
+    "definition": {
+        "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first!",
+        "icon": {
+            "name": "bullet-warning",
+            "project": "Superalgos"
+        },
+        "updated": 1617608574624
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "Scammers are lurking! Beware! It's no news that trading-related groups attract all sorts of scammers, and we are aware that they contact people in our groups attempting all sorts of tricks. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way! We want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.",
+            "updated": 1617608980211
+        }
+    ]
+}

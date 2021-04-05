@@ -3,22 +3,18 @@
     "pageNumber": "2",
     "type": "LF Trading Bot - Market Data Structure",
     "definition": {
-        "text": "The Market Data Structure is one of the 3 data structures available at Conditions and Formulas with data from Indicator and Sensor bots.",
-        "updated": 1612351166683
+        "text": "You may use this Javascript object from within conditions and formulas when you want to specify a Market different from the Default Market. For example, you may access data of the ETH/USDT market from a Trading System running on the BTC/USDT market.",
+        "updated": 1617617047716
     },
     "paragraphs": [
-        {
-            "style": "Note",
-            "text": "This Javascript object can be used when you want to specify a market which is different fomr the Default Market. In this way you can access data of the ETH/USDT market from a stragegy running for example at the BTC/USDT market.",
-            "updated": 1612351365558
-        },
         {
             "style": "Title",
             "text": "Structure"
         },
         {
             "style": "List",
-            "text": "The root of the object is called..."
+            "text": "The root of the object is...",
+            "updated": 1617617057256
         },
         {
             "style": "Json",
@@ -27,8 +23,8 @@
         },
         {
             "style": "List",
-            "text": "After it you need to spacify the codeName of an Asset representing the Market Base Asset, like the following...",
-            "updated": 1612351559165
+            "text": "Then you must specify the codeName of an Asset representing the Market Base Asset, as follows...",
+            "updated": 1617617165183
         },
         {
             "style": "Json",
@@ -37,7 +33,8 @@
         },
         {
             "style": "List",
-            "text": "After that again the codeName of an Asset but this time representing the Market Quoted Asset.."
+            "text": "After that, specify the codeName of an Asset but this time representing the Market Quoted Asset...",
+            "updated": 1617617108322
         },
         {
             "style": "Json",
@@ -45,8 +42,8 @@
         },
         {
             "style": "List",
-            "text": "Finally you continue with the syntax of the LF Trading Bot - Chart Data Structure",
-            "updated": 1612352138708
+            "text": "Finally, continue with the syntax of the LF Trading Bot - Chart Data Structure",
+            "updated": 1617617178876
         },
         {
             "style": "Title",
@@ -54,17 +51,17 @@
             "updated": 1612352364588
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "market.ETH.BTC.chart.at01min.support.support5Rate",
             "updated": 1612351751906
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "market.BTC.USDT.chart.at05min.candle.open",
             "updated": 1612351782297
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "market.ETH.USDT.chart.at24hs.bollingerBand.movingAverage",
             "updated": 1612351804074
         }

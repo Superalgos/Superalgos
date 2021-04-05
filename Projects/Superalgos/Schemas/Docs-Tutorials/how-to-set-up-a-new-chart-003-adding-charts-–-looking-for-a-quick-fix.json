@@ -1,0 +1,42 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "3",
+    "type": "Adding Charts – Looking for a quick fix?",
+    "definition": {
+        "text": "Are you less interested in a custom chart and just want a quick way to see the Trading Strategy you've been working on? No worries! Follow these quick steps to get everything working. \nBut if you would like to learn how to have super human control over your charts. Click next and we will get started!",
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        },
+        "updated": 1617366815080
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Backup your Backtesting Session and Live Trading Session Parameters.",
+            "updated": 1617451879969
+        },
+        {
+            "style": "List",
+            "text": "Uninstall the Market so everything gets cleaned."
+        },
+        {
+            "style": "List",
+            "text": "Backup your Trading System and restore it side by side to the existing one.",
+            "updated": 1617366571139
+        },
+        {
+            "style": "List",
+            "text": "Install the market again. The installation process will detect two trading systems at the Workspace and will automatically create both the Trading Tasks and Charts for your trading system.",
+            "updated": 1617451930164
+        },
+        {
+            "style": "List",
+            "text": "Restore your Session Parameters and replace the auto generated ones."
+        },
+        {
+            "style": "Text",
+            "text": "Now you should have a nice basic setup.  But if you want more, click the next button!"
+        }
+    ]
+}

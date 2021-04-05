@@ -1,0 +1,28 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "2",
+    "type": "Adding Charts - Introduction",
+    "definition": {
+        "text": "Today we will learn how to add your own custom Charts!",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"   
+        },
+        "updated": 1617323336592
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The charting system within Superalgos is quite powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place.",
+            "updated": 1617369523502
+        },
+        {
+            "style": "Text",
+            "text": "As I am sure you have figured out by now, there are a lot of moving pieces within Superalgos. The charting space lets you tap into the specific information you want to see. You can look at different combinations of indicators, backtesting and live trading results. Even data from different markets and exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right!"
+        },
+        {
+            "style": "Text",
+            "text": "That being said, if you are just starting out here in Superalgos, all this freedom might be a bit overwhelming.  That’s where I come in!  I will walk you through how to start setting up charts just the way you want them.  "
+        }
+    ]
+}

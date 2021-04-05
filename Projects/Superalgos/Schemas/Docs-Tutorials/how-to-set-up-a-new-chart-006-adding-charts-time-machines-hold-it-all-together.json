@@ -1,0 +1,29 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "6",
+    "type": "Adding Charts - Time Machines hold it all together",
+    "definition": {
+        "text": "You've seen these portals to another dimention before! Now let's take a closer look at the magical Time Machine.",
+        "icon": {
+            "name": "time-machine",
+            "project": "Superalgos"
+        },
+        "updated": 1617327420869
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As you can see, each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. Take a minute and read their documentation page to get a better idea of what they do.",
+            "updated": 1617327414064
+        },
+        {
+            "style": "Text",
+            "text": "The Time Machine is all about synchronizing.  Whether it’s matching up candles with volume indicators or seeing exactly when a buy order was placed by your strategy, the time machine is your best friend in the Charting Space.  "
+        },
+        {
+            "style": "Note",
+            "text": "One Time Machine in the Design Space will show up as one box, or set of Charts, in the Charting Space",
+            "updated": 1617327310111
+        }
+    ]
+}

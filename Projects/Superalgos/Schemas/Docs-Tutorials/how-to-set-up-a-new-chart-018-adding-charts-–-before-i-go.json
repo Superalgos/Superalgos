@@ -1,0 +1,43 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "18",
+    "type": "Adding Charts – Before I go",
+    "definition": {
+        "text": "Want some more help figuring out complex chart configurations? You are in luck! I have some friends who would love to help you out.",
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        },
+        "updated": 1617371031010
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Click one of the links below to get started!"
+        },
+        {
+            "style": "List",
+            "text": "How to customize a Layer Manager Tutorial",
+            "updated": 1617375492766
+        },
+        {
+            "style": "List",
+            "text": "How to set up a custom Rate Scale Tutorial",
+            "updated": 1617453801398
+        },
+        {
+            "style": "List",
+            "text": "How to combine Markets in a Chart Tutorial",
+            "updated": 1617453794685
+        },
+        {
+            "style": "List",
+            "text": "How to combine Exchanges in a Chart Tutorial",
+            "updated": 1617453789889
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

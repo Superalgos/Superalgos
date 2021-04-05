@@ -28,6 +28,11 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
     let tradingStagesModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex)
 
+    let taskParameters = {
+        market: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+            '/' +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+    }
     return thisObject
 
     function initialize() {
@@ -140,6 +145,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingSystem = undefined
         tradingEngine = undefined
         sessionParameters = undefined
+        taskParameters = undefined
     }
 
     function mantain() {

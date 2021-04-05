@@ -1,0 +1,24 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "4",
+    "type": "Adding Charts - Before We Begin",
+    "definition": {
+        "text": "Make sure you know the basics!",
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        },
+        "updated": 1617326504902
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before we get started, this tutorial assumes that you have finished the Welcome to Superalgos Tutorial, Basic Education Tutorial, Contribute to Superalgos Tutorial, and Install a New Market Tutorial. ",
+            "updated": 1617326373703
+        },
+        {
+            "style": "Text",
+            "text": "If you have not completed these tutorials and do not have a basic working knowledge of how to get around within your Workspace, this tutorial may be confusing. I would suggest that you pause and come back here once you know your way around a little."
+        }
+    ]
+}

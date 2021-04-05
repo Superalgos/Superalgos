@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "14",
+    "type": "Adding Charts – Hooking up a Chart to a Trading System",
+    "definition": {
+        "text": "I hope you are ready to see your Trading System in action!",
+        "icon": {
+            "name": "trading-system",
+            "project": "Superalgos"
+        },
+        "updated": 1617369846347
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The next thing you will want to connect with most charts are the results of your trading strategies. For the most part this is the same as connecting to a data mine. There are just a few differences that I will walk you through.",
+            "updated": 1617369878347
+        },
+        {
+            "style": "Text",
+            "text": "One major difference is that each Time Machine can only reference one Trading Session. For example, one Backtesting Session that is associated with one Trading Strategy. This helps keep your charts clean and readable. It would be confusing to see buy orders from two different trading strategies all at once!",
+            "updated": 1617369907239
+        },
+        {
+            "style": "Text",
+            "text": "What this means for connecting a chart is that we need to establish two references in order for things to work.",
+            "updated": 1617369951260
+        }
+    ]
+}

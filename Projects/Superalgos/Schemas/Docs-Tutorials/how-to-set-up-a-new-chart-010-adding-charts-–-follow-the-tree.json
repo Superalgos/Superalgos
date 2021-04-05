@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "10",
+    "type": "Adding Charts – Follow the Tree!",
+    "definition": {
+        "text": "Follow the Data Storage hierarchy and find the Data Mine Products.",
+        "icon": {
+            "name": "data-mines-data",
+            "project": "Superalgos"
+        },
+        "updated": 1617328950687
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To do this, pin and drag your whole Time Machine over to the Network node and find the Data Storage node. Expand the Data Storage node. You should notice that there are three branches.  One for each type of data we can access in our charts. Since we are interested in Data Mine Products, expand the Data Mines Data node and follow it down. Do you notice any similarity with the other parts of Superalgos you’ve seen? That’s right! The hierarchy is organized according to Project, Exchange, Market, and Data Mine.",
+            "updated": 1617452392093
+        },
+        {
+            "style": "Note",
+            "text": "This is the same basic organization you will find with other types of data as well.",
+            "updated": 1617328905528
+        },
+        {
+            "style": "Text",
+            "text": "As you build your workspace, this granularity means that you can access Data Products in any combination. Do you want to see data from two different exchanges on the same market? Easily possible. Do you want to see data from two similar markets side by side? Piece of cake! The combinations of data you can view within your charts is truly up to your imagination. Whew! I am getting a little carried away. We will cover these exciting possiblities in a little while. Let's refocus and finish adding those Data Mine Products.",
+            "updated": 1617452446548
+        }
+    ]
+}

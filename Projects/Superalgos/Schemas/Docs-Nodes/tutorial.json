@@ -1,8 +1,8 @@
 {
     "type": "Tutorial",
     "definition": {
-        "text": "The tutorial hierarchy features a free arrangement of Tutorial Topic and Tutorial Step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents an HTML page that is overlaid on top of both the design space and the charting space.",
-        "updated": 1613839026788
+        "text": "The tutorial hierarchy features a free arrangement of Tutorial Topic and Tutorial Step nodes that make up a tutorial. Each node in the hierarchy, including the parent tutorial node, represents an HTML page that may be overlaid on top of both the Design Space and the Charting Space.",
+        "updated": 1617610222444
     },
     "paragraphs": [
         {
@@ -11,18 +11,23 @@
         },
         {
             "style": "Text",
-            "text": "Nodes in the hierarchy may be arranged freely, meaning that there may be as many tutorial topics and tutorial steps as desired. ",
-            "updated": 1613839088895
+            "text": "Nodes in the hierarchy may be arranged freely, meaning that there may be as many tutorial topics and tutorial steps as desired. Tutorial topics may contain tutorial steps but also tutorial topics. This allows nesting topics to use them as subtopics.",
+            "updated": 1617610249818
         },
         {
             "style": "Text",
-            "text": "In general terms, all types of nodes behave similarly in the sense that each node, independently of the precise type, represents a tutorial step in and of itself. Subtle differences shall be covered where appropriate.",
-            "updated": 1613839117191
+            "text": "The system – as usual – reads the hierarchy in a clockwise direction starting from the node to the right of the parent Tutorial node, and goes to the depest point of each branch before moving to the next one.",
+            "updated": 1617609961401
         },
         {
-            "style": "Success",
-            "text": "The key similarity among all types of nodes in the hierarchy is that all of them may draw content from a tutorial page in the Docs.",
-            "updated": 1613839286982
+            "style": "Text",
+            "text": "In general terms, all types of nodes behave similarly in the sense that each node, independently of the precise type, represents a Tutorial Step in and of itself. Subtle differences shall be covered where appropriate.",
+            "updated": 1617609984716
+        },
+        {
+            "style": "Note",
+            "text": "The key similarity among all types of nodes in the hierarchy is that all of them may draw content from the tutorial's collection of pages in the Docs. That is, each node in the hierarchy points to a page in the Docs, and it is that page in the Docs that features the content that tutorials display. The pointer is specified in the configuration of each node (see the docs property).",
+            "updated": 1617611604392
         },
         {
             "style": "Block",
@@ -35,18 +40,18 @@
         },
         {
             "style": "Text",
-            "text": "The configuration of each node in the tutorial hierarchy determines the content and behavior of each step. All types of nodes share the same basic configuration. However, Tutorial Step nodes have extra properties, described elsewhere.",
-            "updated": 1613839329036
+            "text": "The configuration of each node in the tutorial hierarchy determines the content and behavior of each step. All types of nodes share the same basic configuration. However, Tutorial Step nodes have extra properties, described on the Tutorial Step node page.",
+            "updated": 1617610392929
         },
         {
             "style": "Text",
-            "text": "The layout of the HTML page follows the layout of the referenced page in the Docs, although displayed within the confines of the tutorial window. ",
-            "updated": 1613839417342
+            "text": "The layout of the HTML page follows the layout of the associated page in the Docs, although displayed within the confines of the tutorial window.",
+            "updated": 1617610416865
         },
         {
             "style": "Callout",
-            "text": "In other words, you affect the layout of the step by writing content and applying styles to individual paragraphs in the associated Docs Page.",
-            "updated": 1613839489189
+            "text": "In other words, you affect the layout of the particular step by writing content and applying styles to individual paragraphs in the associated Docs Page.",
+            "updated": 1617610435932
         },
         {
             "style": "Note",
@@ -60,8 +65,18 @@
         },
         {
             "style": "List",
-            "text": "icon: the name and project of one of the icons stored in the \\Projects\\[Project-Name]\\Iconsfolder, without the extension. When the configuration exists, the icon is placed within a table, on the left-hand side of the text block featured in the definition field. When there is no icon, the definition occupies the full width.",
-            "updated": 1613840648780
+            "text": "icon: Features the name of the icon without the extension, and the project the icon belongs to. For your reference, icons are stored in the following path:",
+            "updated": 1617610705494
+        },
+        {
+            "style": "Json",
+            "text": "\\Projects\\[Project-Name]\\Icons",
+            "updated": 1617610685030
+        },
+        {
+            "style": "Text",
+            "text": "When the configuration exists, the icon is placed within a table, on the left-hand side of the text block featured in the definition field of the corresponding Docs page. When there is no icon, the definition occupies the full width.",
+            "updated": 1617610852528
         },
         {
             "style": "Json",
@@ -69,9 +84,14 @@
             "updated": 1613840669552
         },
         {
+            "style": "Text",
+            "text": "The above configuration places the balance.png icon of the Superalgos project in the table of the corresponding Docs page.",
+            "updated": 1617610921825
+        },
+        {
             "style": "List",
-            "text": "position: determines the position of the floating HTML. There are three alternatives... \"Left\", \"Right\", or leave the field empty to position the page in the center of the screen.",
-            "updated": 1613842749882
+            "text": "position: Determines the position of the floating HTML. There are three alternatives... \"Left\", \"Right\", or leave the field empty to position the page in the center of the screen.",
+            "updated": 1617610967355
         },
         {
             "style": "Json",
@@ -80,8 +100,8 @@
         },
         {
             "style": "List",
-            "text": "slider: determines the position of the horizontal slider. There are three alternatives... \"toTop\", \"toBottom\", \"toMiddle\".",
-            "updated": 1613842783566
+            "text": "slider: Determines the position of the horizontal slider. There are three alternatives... \"toTop\", \"toBottom\", \"toMiddle\".",
+            "updated": 1617610973439
         },
         {
             "style": "Json",
@@ -89,8 +109,8 @@
         },
         {
             "style": "List",
-            "text": "pressButton: allows you to forcefully \"Stop\" the tutorial, go to the \"Next\" step, go to the \"Previous\" step, or \"Skip\" a step. When a step is loaded and one of these options is configured in this property, the action is applied immediately. A common use of this feature is to skip a step, for instance, a Tutorial Topic node that is used solely for organizational purposes within the hierarchy, thus has no content.",
-            "updated": 1613842824873
+            "text": "pressButton: Allows you to forcefully \"Stop\" the tutorial, go to the \"Next\" step, go to the \"Previous\" step, or \"Skip\" a step. When a step is loaded and one of these options is configured in this property, the action is applied immediately. A common use of this feature is to skip a step, for instance, a Tutorial Topic node that is used solely for organizational purposes within the hierarchy, thus has no content.",
+            "updated": 1617611004815
         },
         {
             "style": "Json",
@@ -98,9 +118,19 @@
             "updated": 1613841332185
         },
         {
+            "style": "Success",
+            "text": "You may use Tutorial Topic nodes for organizational purposes only, for instance, to arrange the hierarchy in a way that it's easy to maintain. Topics with too many steps are harder to deal with later on. In other words, you may use a Tutorial Topic node to group several steps, even if you don't intend the Tutorial Topic node to display any content. In such cases, you may use this property to skip the step that is not intended for content-display.",
+            "updated": 1617611332634
+        },
+        {
+            "style": "Note",
+            "text": "Leave the filed empty for the step to play in the usual fashion.",
+            "updated": 1617611454046
+        },
+        {
             "style": "List",
-            "text": "docs: the property is used to reference the Docs Tutorial Page that feeds content to the particular tutorial step. The definition requires the name of the Project, the Docs Page Category which is always Tutorial, and the complete name of the tutorial step page.",
-            "updated": 1613841395148
+            "text": "docs: The property is used to point to the Docs Tutorial Page that feeds content to the particular tutorial step. The definition requires the name of the Project, the Docs Page Category which is always Tutorial, and the complete name of the Tutorial Step page.",
+            "updated": 1617611566144
         },
         {
             "style": "Json",

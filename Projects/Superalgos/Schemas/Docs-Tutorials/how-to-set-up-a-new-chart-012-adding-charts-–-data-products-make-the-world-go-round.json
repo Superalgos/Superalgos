@@ -1,0 +1,25 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "12",
+    "type": "Adding Charts – Data Products make the world go round",
+    "definition": {
+        "text": "We finally found it!",
+        "icon": {
+            "name": "data-mine-products",
+            "project": "Superalgos"
+        },
+        "updated": 1617330357641
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Underneath the Market Data Products node are the nodes we are after, the Data Mine Products nodes. These nodes are the ones we will connect to our chart! If the Data Storage node was your treasure chest, Data Products are your gold!",
+            "updated": 1617452590612
+        },
+        {
+            "style": "Note",
+            "text": "You should see one Data Mine Products node for each data mine you have installed in your workspace. I hope the pattern is starting to sink in for you!",
+            "updated": 1617329732074
+        }
+    ]
+}

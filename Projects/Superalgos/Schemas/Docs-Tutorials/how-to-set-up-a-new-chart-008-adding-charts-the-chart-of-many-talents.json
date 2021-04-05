@@ -1,0 +1,46 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "8",
+    "type": "Adding Charts - The Chart of many talents",
+    "definition": {
+        "text": "The Timeline Chart gives you total control.",
+        "icon": {
+            "name": "timeline-chart",
+            "project": "Superalgos"
+        },
+        "updated": 1617452143875
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As I mentioned earlier, one of the main features the Charting Space offers is the ability to combine many different types of data all in one place.  The Timeline Chart gives you this control!  ",
+            "updated": 1617327963114
+        },
+        {
+            "style": "Text",
+            "text": "Each Timeline Chart contains a Layer Manager. As you may remember, the Layer Manager is what allows you to turn different charts on and off while inside a Time Machine. Each Layer Manager can be hooked up to three main types of data:",
+            "updated": 1617328059523
+        },
+        {
+            "style": "List",
+            "text": "Data Mine Products "
+        },
+        {
+            "style": "List",
+            "text": "Trading Mine Products"
+        },
+        {
+            "style": "List",
+            "text": "Learning Mine Products"
+        },
+        {
+            "style": "Text",
+            "text": "Let’s walk through how to get things working!",
+            "updated": 1617328098683
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

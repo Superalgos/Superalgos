@@ -1,0 +1,23 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Let's Mine Some Data.....!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "run"
+        },
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Select Run All Project Data Tasks on the Data Tasks node menu!",
+            "updated": 1617181714117
+        },
+        {
+            "style": "Note",
+            "text": "If you are doing this tutorial after doing the Getting Started tutorial, chances are you may already have part of the data required, which may make things faster!"
+        }
+    ]
+}

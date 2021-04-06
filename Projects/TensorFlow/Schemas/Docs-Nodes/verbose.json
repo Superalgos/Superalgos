@@ -1,0 +1,13 @@
+{
+    "type": "Verbose",
+    "definition": {
+        "text": "Verbose mode is an option available in many computer operating systems and programming languages that provides additional details as to what the computer is doing and what drivers and software it is loading during startup or in programming it would produce detailed output for diagnostic purposes thus makes a program easier to debug.",
+        "updated": 1615895950551
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

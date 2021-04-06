@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Initial Targets....",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "initial-targets"
+        },
+        "text": "I just brought you to the Initial Targets node in the open stage. Before we start, let's make a quick note for clarity's sake!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "You're not in the trading system you set up during the previous tutorial! It's a new one!"
+        },
+        {
+            "style": "Note",
+            "text": "I set up a new trading system and named it BB Breakdown 2 so that I have better control of your experience during this tutorial. Notice that I recreated the stages you deleted in the previous tutorials. All I had to do was select Add Missing Stages on the trading strategy menu!"
+        }
+    ]
+}

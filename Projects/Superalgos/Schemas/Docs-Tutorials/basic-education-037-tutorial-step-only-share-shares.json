@@ -1,0 +1,28 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Only Share Shares!",
+    "definition": {
+        "text": "Shares are just like Backups, but the resulting file is stripped off sensitive personal information!",
+        "icon": {
+            "name": "share-entity",
+            "project": "Superalgos"
+        },
+        "updated": 1617037759268
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Get used to share Shares! This good practice will help you avoid dangerous mistakes in the future!",
+            "updated": 1617037960260
+        },
+        {
+            "style": "Callout",
+            "text": "Read the page about Shares for more info!"
+        },
+        {
+            "style": "Warning",
+            "text": "Whenever you wish to share your work, never share your Workspace files or Backups. Those files may contain sensitive information such as your Exchange Account Key. Instead, share your Shares!"
+        }
+    ]
+}

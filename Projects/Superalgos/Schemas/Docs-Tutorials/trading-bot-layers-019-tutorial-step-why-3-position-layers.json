@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Why 3 Position Layers?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "position"
+        },
+        "text": "Did you notice there are three different layers about positions? Position, Position Base Asset, and Position Quoted Asset!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll give you the short version:"
+        },
+        {
+            "style": "Callout",
+            "text": "The system keeps the accounts relative to both the base asset and the quoted asset. It also keeps a consolidated account of both assets (hence, position). What set of accounts is relevant to you depends on how the strategy is designed!"
+        },
+        {
+            "style": "Important",
+            "text": "Reading this documentation page is a must to fully understand this concept."
+        }
+    ]
+}

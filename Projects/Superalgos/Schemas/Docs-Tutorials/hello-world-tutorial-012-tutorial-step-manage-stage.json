@@ -1,0 +1,39 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Manage Stage",
+    "definition": {
+        "text": "The Manage Stage is where the bot check if it has to Take Profit or a Stop Loss",
+        "icon": {
+            "name": "manage-stage",
+            "project": "Superalgos"
+        },
+        "updated": 1614261028631
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In this stage bot check if the price has hit Take Profit (TP) or Stop Loss (SL). Initial conditions for my strategy was to set a SL at 20% from entry and a TP at 100% or when MA50 cross under MA200.",
+            "updated": 1614333590591
+        },
+        {
+            "style": "Text",
+            "text": "Stop Loss formula:",
+            "updated": 1614333601220
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.position.entryTargetRate.value * 0.8",
+            "updated": 1614261430746
+        },
+        {
+            "style": "Text",
+            "text": "Take Profit formula is a little bit more elaborate:",
+            "updated": 1614333616750
+        },
+        {
+            "style": "Javascript",
+            "text": "if (chart.at04hs.popularSMA.sma50 > chart.at04hs.popularSMA.sma200) {tradingEngine.tradingCurrent.position.entryTargetRate.value * 2} else {chart.at04hs.candle.close}"
+        }
+    ]
+}

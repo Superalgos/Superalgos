@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Let's Do Some Reading!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "open-execution"
+        },
+        "text": "Read these first few paragraphs about the Open Execution so that we may then start working on the definitions."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The point to take home is that Superalgos proposes granular definitions of orders set up within execution algorithms, which in turn are built into strategies, as the way to program both simple and complex execution logic."
+        },
+        {
+            "style": "Success",
+            "text": "We'll do some more reading before we bring all this down to Earth!"
+        }
+    ]
+}

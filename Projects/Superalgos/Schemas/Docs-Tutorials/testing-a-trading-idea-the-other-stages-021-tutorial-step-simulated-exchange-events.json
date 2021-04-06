@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Simulated Exchange Events",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "simulated-exchange-events"
+        },
+        "text": "This section of the definitions offers another example of granular control at the level of the order, in this case affecting how orders are simulated!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These definitions&mdash;if used&mdash;override the Slippage and Fee Structure Trading Parameters at the level of the trading session, which affect all orders equally. Notice there is a node that may even define how to simulate the filling of orders! If there is no definition of how to simulate the individual order, the session-level parameters remain relevant."
+        },
+        {
+            "style": "Callout",
+            "text": "For the time being, we are not going to use these granular-level simulation parameters, so go ahead and delete the simulated exchange events node!"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 82,
+    "type": "Tutorial Step - A Little Speculation Game",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "Let's do a quick mental exercise! Consider the point of the first take position event, that is, the 8hs candle, closing at 9 hs."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages!"
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Masters Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!"
+        },
+        {
+            "style": "Text",
+            "text": "Now place the pointer of the mouse on the 8hs candle. As you can see on the panel, that candle closed at 8702 USDT. That would be our take position rate, give or take slippage. Now go to the 12hs candle. The min value for that candle is 8445 USDT. After that short-term low, the market goes in an uptrend (in the 1H time frame)."
+        }
+    ]
+}

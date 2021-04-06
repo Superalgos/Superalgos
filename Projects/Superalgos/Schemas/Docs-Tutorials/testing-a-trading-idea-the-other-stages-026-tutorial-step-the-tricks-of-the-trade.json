@@ -1,0 +1,36 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 26,
+    "type": "Tutorial Step - The Tricks of the Trade",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-pointer"
+        },
+        "text": "Establishing a reference is kid's play! The only \"challenge\" here is that the node to be referenced is far away from the originator.",
+        "updated": 1615805937875
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These UI tricks may make your life easier:"
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from node to node."
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "updated": 1617199512325
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+        }
+    ]
+}

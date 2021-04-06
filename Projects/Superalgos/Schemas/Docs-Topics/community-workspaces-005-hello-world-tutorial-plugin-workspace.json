@@ -1,0 +1,30 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "5",
+    "type": "Hello World Tutorial Plugin Workspace",
+    "definition": {
+        "text": "This workspace serves as a demonstration on how to build a very simple strategy, complementing the education provided by the Trading System Design Tutorials Plugin Workspace, with a different approach.",
+        "updated": 1616148044271
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151478524
+        },
+        {
+            "style": "List",
+            "text": "Hello World Tutorial",
+            "updated": 1616151556035
+        },
+        {
+            "style": "Title",
+            "text": "Brough to you by",
+            "updated": 1616151546656
+        },
+        {
+            "style": "List",
+            "text": "@us9808"
+        }
+    ]
+}

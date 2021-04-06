@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 45,
+    "type": "Tutorial Step - Chronology of a Position",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "position"
+        },
+        "text": "Let's take a few minutes to dissect this position, looking particularly into what makes each stage tick..."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Trigger Stage: Opens on Feb 17th at 0 hs because the 24H Bollinger SubChannel turned Down and not Side. Go check if that is the case! The stage closes on Feb 28th at 9 hs, after the second breakdown triggers the take position event."
+        },
+        {
+            "style": "List",
+            "text": "Open Stage: Opens when the trigger stage closes, and closes one hour later (!?) after the market sell order is placed."
+        },
+        {
+            "style": "Note",
+            "text": "One hour later? Yes! Remember we are running the simulation on the 1H time frame! We'll discuss this matter in depth later on!"
+        }
+    ]
+}

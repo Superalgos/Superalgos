@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 19,
+    "type": "Tutorial Step - 100% of 100% = ?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-sell-order"
+        },
+        "text": "As you can see, the percentageOfAlgorithmSize is also 100% by default, and that is what we'll use for the test."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is, we'll set up a single order to enter the position. The order will handle 100% of what is assigned to the algorithm, which in turn handles 100% of what is assigned to the stage. And we assigned the stage 100% of the balance! In other words, we'll place one market sell order with the size of the Balance to enter each position."
+        },
+        {
+            "style": "Success",
+            "text": "I told you we'd keep it simple! This is the simplest possible order execution arrangement and, as you can see, you just need to create the algo and the order, and use the default settings!"
+        }
+    ]
+}

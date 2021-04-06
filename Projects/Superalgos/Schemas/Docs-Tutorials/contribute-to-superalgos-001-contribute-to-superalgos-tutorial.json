@@ -1,0 +1,24 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 1,
+    "type": "Contribute to Superalgos Tutorial",
+    "definition": {
+        "text": "This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
+        "updated": 1616697721841
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111531823
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Plugin Workspace."
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
+        }
+    ]
+}

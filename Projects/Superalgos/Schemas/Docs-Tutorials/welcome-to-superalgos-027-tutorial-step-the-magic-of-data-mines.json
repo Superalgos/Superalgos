@@ -1,0 +1,78 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 27,
+    "type": "Tutorial Step - The Magic of Data Mines",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-mine-tasks"
+        },
+        "text": "Within each market, the operation is organized by Data Mine. Superalgos ships with several open-source data mines, each with multiple indicators.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "All'interno di ogni market i processi sono organizzati dal Data Mine. Superalgos è equipaggiato con alcuni data mines open-source, ognuno dei quali ha diversi indicatori.",
+                "updated": 1614845425485,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Disetiap market, operasi diorganisasi melalui Data Mine. Superlagos berkerjasama dengan beberapa data mine open-source, dan setiap darinya memiliki banyak indicator.",
+                "updated": 1616771187052
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Think of data mines as plugins that developers may create to extend the data analysis capacity of the system. An Indicator Bot may process data other indicators produce, hence adding value and producing deeper and richer analysis.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi vedere i data mines come plugins che gli sviluppatori possono creare per ampliare la capacità di analisi del sistema. Un Indicator Bot può processare dati che altri indicatori producono, producendo così analisi più ricche e approfondite.",
+                    "updated": 1614845409717,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Pikirkan data mine sebagai plugin yang developer akan buat untuk memperpanjang kapasitas  analisis data dari sistem. Indicator Bot akan memproses data, indikator lain akan membuatnya, sehingga menambah nilai dan menghasilkan analisis yang lebih dalam dan lebih kaya.",
+                    "updated": 1616771335447
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "If you have a basic understanding  of JavaScript, you may create indicators too!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se hai una conoscenza base di JavaScript, puoi creare indicatori anche tu!",
+                    "updated": 1614845457577,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu memiliki pemahaman dasar tentang JavaScript, kamu juga dapat membuat indikator!",
+                    "updated": 1616771371122
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "But I'm getting ahead of myself talking about building data mines at this point! Let's get back on track!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma sto correndo troppo parlando di costruire data mines a questo punto! Torniamo dove eravamo rimasti!",
+                    "updated": 1614845542277,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tapi aku terlalu terburu-buru berbicara tentang membangun data mine pada saat ini! Ayo kembali ke jalurnya!",
+                    "updated": 1616771422206
+                }
+            ]
+        }
+    ]
+}

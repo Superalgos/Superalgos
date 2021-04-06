@@ -1,0 +1,13 @@
+{
+    "type": "Metrics",
+    "definition": {
+        "text": "A number that you care about. May or may not be directly optimized in a machine-learning system. A metric that your system tries to optimize is called an objective.",
+        "updated": 1615895860780
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

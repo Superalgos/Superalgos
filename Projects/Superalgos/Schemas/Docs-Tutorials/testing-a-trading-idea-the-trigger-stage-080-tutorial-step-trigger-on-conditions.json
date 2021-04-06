@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 80,
+    "type": "Tutorial Step - Trigger On Conditions!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "Trigger on conditions require the subchannel direction to be Down and the slope to not be Side at the current 24H candle!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are looking at 1H candles between 9 and 14 hs, on Feb 28th. Those are the candles on which the strategy is triggering and taking the position. Check for yourself!"
+        },
+        {
+            "style": "Callout",
+            "text": "What is the current daily candle? Think of what you learned earlier about evaluating closed candles!"
+        },
+        {
+            "style": "Text",
+            "text": "The current daily candle is the one that closed last: the Feb 27th candle, because the Feb 28th candle hasn't closed yet! Go to the 24H chart and confirm that the subchannel is Down and not Side on Feb 27th!"
+        }
+    ]
+}

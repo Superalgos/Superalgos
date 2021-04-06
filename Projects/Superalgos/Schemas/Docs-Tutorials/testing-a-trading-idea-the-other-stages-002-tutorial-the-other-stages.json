@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 2,
+    "type": "Tutorial - The Other Stages",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "We are a few steps away from being able to fully test the first trading idea! You need to learn a thing or two first!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the third tutorial in the series, we covered the definitions and nuances of the Trigger Stage."
+        },
+        {
+            "style": "Callout",
+            "text": "In this tutorial, we will complete the basic definitions of the rest of the stages so that we may finally test our hypothesis!"
+        },
+        {
+            "style": "Note",
+            "text": "I highly recommend you do the first three tutorials in the series before doing this one! The story is carried from one to the next!"
+        }
+    ]
+}

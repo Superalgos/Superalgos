@@ -1,0 +1,54 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 1,
+    "type": "Community Effort to Test Exchanges",
+    "definition": {
+        "text": "This topic covers the results of the Community work testing exchanges. Each page in the topic describes the results of the tests performed on one exchange, and explains whether the exchange is usable or not.",
+        "updated": 1616010652806
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "CCXT Library",
+            "updated": 1616154563847
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos uses the CCXT library to communicate with exchanges. CCXT is an open-source project attempting to standardize access to exchanges APIs."
+        },
+        {
+            "style": "Text",
+            "text": "The project lists more than 120 exchanges as \"supported\" and a few dozen exchanges as \"certified\". See the list in the following ink:",
+            "updated": 1616006648441
+        },
+        {
+            "style": "Link",
+            "text": "CCXT List of Exchange Markets->github.com/ccxt/ccxt/wiki/Exchange-Markets",
+            "updated": 1616006289241
+        },
+        {
+            "style": "Text",
+            "text": "However, it is not clear what exactly is supported nor what is certified. Current experience shows that standardization has still a long way to go.",
+            "updated": 1616006593509
+        },
+        {
+            "style": "Success",
+            "text": "To know if your preferred exchange is ready to be used in Superalgos, consult the corresponding page in this topic.",
+            "updated": 1616006719622
+        },
+        {
+            "style": "Title",
+            "text": "If Your Preferred Exchange Is Not Tested",
+            "updated": 1616154613520
+        },
+        {
+            "style": "Text",
+            "text": "If your preferred exchange doesn't show up in this list, it means that it hasn't been tested. You may want to ask in the Develop Group to see if anyone has started tests. ",
+            "updated": 1616154716371
+        },
+        {
+            "style": "Success",
+            "text": "If you are a developer, you may want to learn How to Test New Exchanges and help the Community in the quest to expand the list."
+        }
+    ]
+}

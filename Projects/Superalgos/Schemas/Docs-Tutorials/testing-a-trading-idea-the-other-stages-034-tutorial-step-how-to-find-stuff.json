@@ -1,0 +1,36 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 34,
+    "type": "Tutorial Step - How to Find Stuff",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-engine"
+        },
+        "text": "Let me walk you through the reasoning to find the required information on the Trading Engine"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are in the Trading Current > Strategy Open Stage > Stage Quoted Asset section. This is why:",
+            "updated": 1617205430340
+        },
+        {
+            "style": "List",
+            "text": "Trading Current: it's all about the current position.",
+            "updated": 1617205459033
+        },
+        {
+            "style": "List",
+            "text": "Strategy Open Stage : because the transaction to enter the position happened during this stage. We want to know how much USDT we got!"
+        },
+        {
+            "style": "List",
+            "text": "Stage Quoted Asset : because we sold the base asset and obtained the quoted asset, and it's the quoted asset we want to get rid of during the close stage! The question is how much of it!"
+        },
+        {
+            "style": "Text",
+            "text": "Any ideas for the formula?"
+        }
+    ]
+}

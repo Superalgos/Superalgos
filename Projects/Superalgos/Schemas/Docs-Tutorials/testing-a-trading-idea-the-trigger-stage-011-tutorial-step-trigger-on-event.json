@@ -1,0 +1,28 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Trigger On Event",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-on-event"
+        },
+        "text": "The Trigger On Event defines the market Situation in which the Trading Strategy shall be triggered.",
+        "updated": 1617190348439
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's refresh the basic concepts! The triggering of a strategy has two main implications:"
+        },
+        {
+            "style": "List",
+            "text": "The strategy is selected among other strategies in the Trading System and is assigned the capital available for the trading session. This is important because we'll eventually have two strategies in the trading system!",
+            "updated": 1617190335600
+        },
+        {
+            "style": "List",
+            "text": "Once a strategy is triggered, the trading bot starts evaluating the Take Position Event and the Trigger Off Event. When any of those two validate true, the strategy exits the Trigger Stage!"
+        }
+    ]
+}

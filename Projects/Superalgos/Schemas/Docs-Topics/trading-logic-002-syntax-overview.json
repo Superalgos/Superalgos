@@ -160,11 +160,13 @@
         },
         {
             "style": "Javascript",
-            "text": "productName.[currentCandleIndex-n].propertyName"
+            "text": "productName.[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-n].propertyName",
+            "updated": 1616079715540
         },
         {
             "style": "Text",
-            "text": "... where currentCandleIndex represents the last closed candle and n may be replaced by any integer number."
+            "text": "... where tradingEngine.tradingCurrent.tradingEpisode.candle.index.value represents the last closed candle and n may be replaced by any integer number.",
+            "updated": 1616079709332
         },
         {
             "style": "Text",
@@ -173,7 +175,8 @@
         },
         {
             "style": "Javascript",
-            "text": "chart.at01hs.candle.[currentCandleIndex-5].max"
+            "text": "chart.at01hs.candle.[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-5].max",
+            "updated": 1616079725136
         },
         {
             "style": "Text",

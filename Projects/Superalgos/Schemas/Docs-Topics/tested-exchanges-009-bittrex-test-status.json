@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 9,
+    "type": "Bittrex Test Status",
+    "definition": {
+        "text": "Bittrex is not fully tested for data mining nor for live trading.",
+        "updated": 1616005578529
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Unknown. The ability to fetch historic data for backtesting purposes has not been verified.",
+            "updated": 1616005666238
+        },
+        {
+            "style": "List",
+            "text": "Market History: Unknown.",
+            "updated": 1616005647200
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Unknown. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616005641922
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining it's extremely slow due to API restriction",
+            "updated": 1615450349464
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"bittrex\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 2\n        }\n    ]\n}",
+            "updated": 1615450253869
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

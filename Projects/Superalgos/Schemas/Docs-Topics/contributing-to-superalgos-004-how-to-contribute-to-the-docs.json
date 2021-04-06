@@ -1,0 +1,94 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": 4,
+    "type": "How to Contribute to the Docs",
+    "definition": {
+        "text": "Helping with keeping the Docs up to date, improving the delivery of the information, expanding on explanations, or simply fixing typos and grammar mistakes makes for a better user experience and lowers entry barriers for new users.",
+        "updated": 1613810324131
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Coordination",
+            "updated": 1613819062207
+        },
+        {
+            "style": "Text",
+            "text": "Join the Docs Group to coordinate efforts with other contributors:",
+            "updated": 1613819084738
+        },
+        {
+            "style": "Link",
+            "text": "Docs Group->t.me/superalgosdocs",
+            "updated": 1615385427537
+        },
+        {
+            "style": "Text",
+            "text": "Please, introduce yourself and get up to speed with the group currently doing the work. The main coordination efforts involve planning the documentation of new functionality or discussing which sections of the Docs need a revision.",
+            "updated": 1613819203043
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Contributions Reminder"
+        },
+        {
+            "style": "Title",
+            "text": "Learn How the Docs Work",
+            "updated": 1613811876102
+        },
+        {
+            "style": "Text",
+            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
+            "updated": 1613827243519
+        },
+        {
+            "style": "Text",
+            "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should read The Docs Explained book.",
+            "updated": 1613819297682
+        },
+        {
+            "style": "Title",
+            "text": "Logistics and Best Practice",
+            "updated": 1613817330818
+        },
+        {
+            "style": "Text",
+            "text": "There may be several people contributing to the Docs at any point in time. To minimize the occurrence of conflicts at the time of merging your contributions into the Superalgos repository, the following practices are highly recommended.",
+            "updated": 1613819314231
+        },
+        {
+            "style": "List",
+            "text": "Update your app frequently so that you incorporate recent changes other users may have submitted.",
+            "updated": 1613817514502
+        },
+        {
+            "style": "List",
+            "text": "Do not keep changes locally for too long. Split your work and submit your contributions every day.",
+            "updated": 1613817561886
+        },
+        {
+            "style": "Text",
+            "text": "When you run the App Contribute Command, a Pull Request is created at your fork. The Superalgos repo maintainers will look into your submission and determine if it may be merged as is, or if the work requires any adjustments.",
+            "updated": 1613818674004
+        },
+        {
+            "style": "List",
+            "text": "Keep track of your contributions until they are merged.",
+            "updated": 1613818739120
+        },
+        {
+            "style": "List",
+            "text": "Stay responsive if there is any feedback or requests from maintainers.",
+            "updated": 1613818758881
+        },
+        {
+            "style": "List",
+            "text": "Be attentive to emails you may get from GitHub.com",
+            "updated": 1613819348463
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

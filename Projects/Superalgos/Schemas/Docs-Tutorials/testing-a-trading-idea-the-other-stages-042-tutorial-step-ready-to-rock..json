@@ -1,0 +1,34 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Ready to Rock....?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Make sure the following layers are turned on in each of the layer managers:"
+        },
+        {
+            "style": "List",
+            "text": "Masters Data: Candles and Bollinger Bands."
+        },
+        {
+            "style": "List",
+            "text": "Simulation Objects: Strategies, Market Buy Orders, Market Sell Orders, Position Base Asset, Stop Loss, and Take Profit."
+        },
+        {
+            "style": "List",
+            "text": "Trading System: Trading System Errors and Trading System Warnings."
+        },
+        {
+            "style": "Success",
+            "text": "The next step shows what you should see!"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": "31",
+    "type": "Tutorial Step - A Book on Tutorials",
+    "definition": {
+        "text": "Congratulations! You reached the end of another tutorial! I hope you feel that you're starting to grasp how Superalgos works!",
+        "icon": {
+            "name": "scripts-library",
+            "project": "Superalgos"
+        },
+        "updated": 1617034361694
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's talk about what comes next! The page I just opened is the First Steps Tutorials book. From now on, you're free to choose what tutorials to do next!",
+            "updated": 1617034497284
+        },
+        {
+            "style": "Callout",
+            "text": "Take a look at the list of tutorials available on each of the Plugin Worspaces and choose which one to do next! I believe the order in the list may be appropriate, but it probably depends on your interests, so I'll leave it up to you!",
+            "updated": 1617034816159
+        },
+        {
+            "style": "Success",
+            "text": "See you on the next tutorial!"
+        }
+    ]
+}

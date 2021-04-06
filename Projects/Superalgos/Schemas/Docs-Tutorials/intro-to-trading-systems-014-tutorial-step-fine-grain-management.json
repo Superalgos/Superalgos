@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Fine-Grain Management!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We haven't yet got into how strategies are defined, but you do know that Superalgos allows managing the take profit and stop loss targets..."
+        },
+        {
+            "style": "Callout",
+            "text": "Each strategy in a trading system may have its own logic for managing positions!"
+        },
+        {
+            "style": "Text",
+            "text": "If you handle multiple variations of the same logic for example, to take a position, then you will likely need to handle multiple variations for managing the position. It is easier and cleaner to do both on separate strategies."
+        }
+    ]
+}

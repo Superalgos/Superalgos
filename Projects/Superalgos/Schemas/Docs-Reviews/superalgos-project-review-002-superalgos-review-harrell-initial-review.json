@@ -1,0 +1,53 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 2,
+    "type": "Superalgos Review - Harrell Initial Review",
+    "definition": {
+        "text": "Amazing platform that will definitely surpass all the proprietary bots in the future.  A true testiment to the power of the open source community.",
+        "updated": 1615948612321
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Wow I am very impressed with the scope of this project! I have seen so many trading bot platforms that are more like scams than actual tools. Whether it be from outragious subscriptions prices to completely hidden trading logic. Superalgos is a breath of fresh air. I am a hobbist programmer and even with my limited experience I can see the massive amount of work that has gone into this platform already. I firmly believe that the relationship we have with the tools we use should not be blind consumerism. The community drive behind this project is a wonderful example of what can be accomplished with open source. I am excited to have found it and am looking forward to continuing to learn and improve it.",
+            "updated": 1615948666225
+        },
+        {
+            "style": "Text",
+            "text": "I was overwhelmed at first with Superalgos. Just the sheer size of the system is a lot to wrap your head around at first. However, the tutorials where an excellent method to break things down and learn bit by bit. Also having the documentation directly accessible in the user interface is such a time saver and lowers the learning barrier as well. ",
+            "updated": 1615948794237
+        },
+        {
+            "style": "Text",
+            "text": "However, this project still has some work to do with making the barrier to entry a little more managable for less technical users. Having some experience with github and node.js made the techincal side of setting up straightforward for myself, but I can only imagine how daunting it would be to try and take on trading concepts and techincal concepts all at once."
+        },
+        {
+            "style": "Text",
+            "text": "I appreciate the focus on visual scripting and seperation from hard code in the design space. It has made trying to learn the concepts of trading much easier without having to try and code at the same time. I am very new to the relm of crypto trading and have had to give myself a crash course into trading concepts and ideas to help suppliment the material I am learning in tutorials. It would be helpful for new traders like myself to have some more resources for basic trading concepts more easily accessible within the first few moments on the platform. It has taken me a hot minute to figure out what is in the documentation/tutorials and what I need to research more on my own."
+        },
+        {
+            "style": "Text",
+            "text": "Overall, Superalgos is the best crypto trading project I have come across by far. There is no comparison. The amount of control and extensiblity of the project is absolutely magical. As the project grows and hardens I can only imagine how powerful and accessible it will be for the whole world."
+        },
+        {
+            "style": "Text",
+            "text": "Brenden Harrell"
+        },
+        {
+            "style": "Text",
+            "text": "harrellbm"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

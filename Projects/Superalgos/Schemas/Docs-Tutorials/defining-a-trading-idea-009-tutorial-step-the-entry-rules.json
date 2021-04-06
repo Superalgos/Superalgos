@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 9,
+    "type": "Tutorial Step - The Entry Rules",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "take-position-event"
+        },
+        "text": "The third aspect to be defined are the rules for triggering the strategy and taking a position."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Many times, the rules to trigger the strategy derive from the analysis of the context. For example, you wish the strategy to be active when a specific trend is detected by some specific method."
+        },
+        {
+            "style": "Callout",
+            "text": "The rules to take a position are usually referred to as the signal and the signal confirmation."
+        },
+        {
+            "style": "Text",
+            "text": "Those rules are the description of the specific event that determines when to enter a position. For example, the crossover of two specific lines, or a certain value on a specific indicator."
+        }
+    ]
+}

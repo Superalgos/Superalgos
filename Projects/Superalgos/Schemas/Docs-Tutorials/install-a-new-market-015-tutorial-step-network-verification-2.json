@@ -1,0 +1,30 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Network Verification 2",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "testing-trading-tasks"
+        },
+        "text": "Verify that the Testing Trading Tasks tasks for the corresponding Market were created successfully."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:"
+        },
+        {
+            "style": "List",
+            "text": "A Market Trading Tasks node for the new market."
+        },
+        {
+            "style": "List",
+            "text": "One Trading Mine Tasks node for each trading mine included in the Workspace."
+        },
+        {
+            "style": "List",
+            "text": "One Task Manager per trading mine and one Task with a Backtesting Session for each Trading System in the workspace."
+        }
+    ]
+}

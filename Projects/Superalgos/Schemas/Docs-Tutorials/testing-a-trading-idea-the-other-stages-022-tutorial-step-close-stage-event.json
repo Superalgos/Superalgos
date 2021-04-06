@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 22,
+    "type": "Tutorial Step - Close Stage Event",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage-event"
+        },
+        "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The open stage closes automatically once the target size is filled, or when the stop loss or take profit targets are hit. The former is what we expect to happen in our case, as we are using a single market order to take the position, and it is placed as soon as the take position event is triggered. It is safe to assume that the order will get filled immediately."
+        },
+        {
+            "style": "Callout",
+            "text": "The close stage event offers&mdash;again&mdash;an additional level of control! For example, when the position is taken with multiple orders, you may want to stop placing orders under certain circumstances."
+        }
+    ]
+}

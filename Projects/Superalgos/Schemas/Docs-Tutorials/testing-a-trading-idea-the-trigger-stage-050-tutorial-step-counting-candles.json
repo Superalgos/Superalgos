@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 50,
+    "type": "Tutorial Step - Counting Candles!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "Take a good look at the first few candles in the data set. Do you see anything unusual?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The Bollinger SubChannels does not exist for the first 19 candles! Hence, the object is undefined!"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator derives from the Bollinger Bands, and the bands require at least 20 periods of historic data to be calculated. That is why it's undefined for 19 candles."
+        },
+        {
+            "style": "Success",
+            "text": "If we want to test a certain time range, we must make sure that all indicators we use in our trading system are calculated for the full range!"
+        }
+    ]
+}

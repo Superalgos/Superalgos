@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Look Around!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "initial-targets"
+        },
+        "text": "Take a look at the nodes under Initial Targets. Do you have an intuition as to what they may be about?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These are the first few basic definitions required:"
+        },
+        {
+            "style": "List",
+            "text": "Target Rate is a reference rate. Think of it as a ball-park rate at which you wish to enter the position. There is a lot more depth to this concept, but the simplification serves us well at this point."
+        },
+        {
+            "style": "List",
+            "text": "The Target Size In Base Asset and it's brother node, target size in quoted asset, is the definition of the maximum size the position should achieve."
+        },
+        {
+            "style": "Note",
+            "text": "The final rates and size is determined later on, in the definitions of the Execution Algorithm."
+        }
+    ]
+}

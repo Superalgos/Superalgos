@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 55,
+    "type": "Tutorial Step - The Key Moment",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hits"
+        },
+        "text": "This is the key moment in the period tested. March 2020 saw a clear downtrend that ended with a huge market crash!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The good news is that, as we'd seen in the previous tutorial, two good entries anticipated the crash, with the very simple rules we defined. If you ask me, this looks promising, but judge for yourself!"
+        },
+        {
+            "style": "Callout",
+            "text": "Take some time to fiddle with these positions! Start thinking about how you may manage these trades."
+        },
+        {
+            "style": "Success",
+            "text": "Once you're done feasting your eyes, we'll take a quick look at the rest of the period tested!"
+        }
+    ]
+}

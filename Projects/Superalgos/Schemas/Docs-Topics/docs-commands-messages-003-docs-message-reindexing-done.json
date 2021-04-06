@@ -11,6 +11,11 @@
                 "text": "Il comando docs.reindex ha terminato di ricostruire il Docs Search Engine Index.",
                 "updated": 1614713976492,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "docs.reindex command selesai membuat ulang Docs Search Engine Index.",
+                "updated": 1616762872651
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "L'indice é stato ricostruito e ora include tutte le ultime modifiche fatte da quando hai aperto l'interfaccia grafica, o dall'ultima volta che hai lanciato il comando docs.reindex. Questo significa che i nuovi contenuti creati adesso possono essere cercati. Anche i cambiamenti del Workspace sono stati indicizzati.",
                     "updated": 1614714113459,
                     "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Index sudah dibuat ulang dan memiliki perubahan terbaru yang kamu buat sejak kamu membuka UI atau menjalankan docs.reindex command. Artinya konten baru sudah dibuat dan bisa dicari. Perubahan di Workspace sudah masuk ke index juga.",
+                    "updated": 1616763231526
                 }
             ]
         }

@@ -1,0 +1,28 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Take Position",
+    "definition": {
+        "text": "Time to take Position!",
+        "icon": {
+            "name": "take-position",
+            "project": "Superalgos"
+        },
+        "updated": 1614246263376
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In this node I use the same trick used for the Trigger Off Event but in this case forcing it to True. I already defined in the Trigger On Event what are my conditions. So in this node I can just copy the two conditions or set it to True.",
+            "updated": 1614260289104
+        },
+        {
+            "style": "Success",
+            "text": "Of course if I need more conditions I can add or modify them as per my needs!"
+        },
+        {
+            "style": "Note",
+            "text": "Cool. My initial definitions are set. It's time to move to the Open Stage!"
+        }
+    ]
+}

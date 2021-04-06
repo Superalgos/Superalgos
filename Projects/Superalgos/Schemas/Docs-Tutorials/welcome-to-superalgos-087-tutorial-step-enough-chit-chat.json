@@ -1,0 +1,36 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 87,
+    "type": "Tutorial Step - Enough Chit Chat!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "production-trading-tasks"
+        },
+        "text": "Ok, my friend... It's time for the real deal! Are you ready for a little Live Trading Session?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll help you with the three main requirements:"
+        },
+        {
+            "style": "List",
+            "text": "Check your parameters, in particular, decide how much capital you wish to assign to the session."
+        },
+        {
+            "style": "List",
+            "text": "Set up an Exchange Account Key so that the app may access your account at the exchange."
+        },
+        {
+            "style": "List",
+            "text": "Ensure a live data feed, that is, the data mining operation with the indicators required by the Trading System must be running and up to date.",
+            "updated": 1610642474628
+        },
+        {
+            "style": "Note",
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going.",
+            "updated": 1610642653006
+        }
+    ]
+}

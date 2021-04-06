@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 29,
+    "type": "Tutorial Step - The Workings of Situations",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "situation"
+        },
+        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "A situation validates true when all conditions within validate true. Think of this as if conditions within a situation were bound by the && (and) operator. If all of them are true at the same time, then the situation is true as well."
+        },
+        {
+            "style": "List",
+            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!"
+        },
+        {
+            "style": "Success",
+            "text": "Can you tell how to set up this definition?",
+            "updated": 1610445299181
+        }
+    ]
+}

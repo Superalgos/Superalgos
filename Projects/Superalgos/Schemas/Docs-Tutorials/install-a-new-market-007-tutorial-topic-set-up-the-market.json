@@ -1,0 +1,23 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 7,
+    "type": "Tutorial Topic - Set Up the Market",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market"
+        },
+        "text": "If there is no Market set up with the pair you wish to work with under Exchange Markets, you must set up the market definition before installing it."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The next few steps teach you how to set up the market so that you may later install it."
+        },
+        {
+            "style": "Important",
+            "text": "Make sure that the combination of Market Base Asset and Market Quoted Asset that you wish to define as a Market in Superalgos exists as a market listed at the exchange.",
+            "updated": 1617211041220
+        }
+    ]
+}

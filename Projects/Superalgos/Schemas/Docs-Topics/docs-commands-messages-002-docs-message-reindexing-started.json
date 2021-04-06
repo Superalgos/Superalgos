@@ -11,6 +11,11 @@
                 "text": "Il comando docs.reindex ha avviato la ricostruzione del Docs Search Engine Index.",
                 "updated": 1614713649286,
                 "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "docs.reindex command akan menyusun ulang Docs Search Engine Index.",
+                "updated": 1616764015935
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "La reindicizzazione é un processo dispendioso dal punto di vista computazionale. Mentre é in atto, non sarai in grado di usare l'interfaccia grafica perché tutte le risorse della CPU saranno impegnate a ricostruire l'indice il più velocemente possibile.",
                     "updated": 1614713781526,
                     "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Reindexing merupakan proses intensif sumber daya. Saat proses berjalan, kamu tidak akan dapat menggunakan antarmuka karena semua sumber daya CPU didedikasikan untuk membuat ulang indeks secepat mungkin.",
+                    "updated": 1616764125582
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "text": "La dimensione del tuo Workspace ha influenza sul tempo richiesto per la reindicizzazione, perché ogni suo nodo deve essere scansionato. Tutto il codice e le varie configurazioni sono indicizzate.",
                     "updated": 1614714208819,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Beratnya workspace berdampak pada waktu yang digunakan untuk reindex konten karena tiap node di workspace harus discan. Semua code dan konfigurasi juga diindex.",
+                    "updated": 1616764251832
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "text": "Aspetta qualche secondo perché il processo finisca. Riceverai un messaggio quando questo avviene.",
                     "updated": 1614713939759,
                     "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tunggu sebentar untuk beberapa detik sampai proses selesai. Kamu akan mendapatkan pesan baru setelah selesai.",
+                    "updated": 1616764371829
                 }
             ]
         }

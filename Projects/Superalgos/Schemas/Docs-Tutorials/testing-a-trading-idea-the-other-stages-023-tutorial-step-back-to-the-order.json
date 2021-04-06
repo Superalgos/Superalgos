@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Back to the Order",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-order"
+        },
+        "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Trading Bot keeps track of each order at all times and saves the corresponding information in a specific structure of nodes in the Trading Engine."
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Market Sell Order #1 node and take a look inside."
+        },
+        {
+            "style": "Note",
+            "text": "Because each order has a life of it's own, the bot stores information about each order in separate structures of nodes, one per order."
+        }
+    ]
+}

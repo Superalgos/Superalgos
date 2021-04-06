@@ -1,0 +1,24 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Set Up the Market 4",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market"
+        },
+        "text": "Label the Market with the ticker names corresponding to the Market Base Asset and the Market Quoted Asset, just like the exchange listing. ",
+        "updated": 1617212204904
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "For example: ETH/USDT.",
+            "updated": 1617212210997
+        },
+        {
+            "style": "Success",
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity. These labels may be used by other nodes!"
+        }
+    ]
+}

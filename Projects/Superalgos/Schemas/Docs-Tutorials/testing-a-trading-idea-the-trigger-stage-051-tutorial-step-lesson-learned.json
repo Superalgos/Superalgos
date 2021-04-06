@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 51,
+    "type": "Tutorial Step - Lesson Learned?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "learning-bot"
+        },
+        "text": "At this moment, the error doesn't affect us, because the first 19 days of the data set correspond to an uptrend! However...",
+        "updated": 1612696618351
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "... it would affect us if we were working with uptrends!"
+        },
+        {
+            "style": "Callout",
+            "text": "The troubleshooting process we just went through may come naturally to you if you are a developer. If you are not, you must become familiar with it, because you will certainly need to use it."
+        },
+        {
+            "style": "Success",
+            "text": "Trading automation requires many pieces of information to fit together like in a Swiss watch. You will make errors building strats. Deal with 'em!"
+        }
+    ]
+}

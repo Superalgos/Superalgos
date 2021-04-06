@@ -31,8 +31,7 @@
                 "project": "Superalgos",
                 "autoAdd": true
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Machine Learning",
@@ -142,8 +141,7 @@
                 "type": "node",
                 "childType": "Self Learning"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Supervised Learning",
@@ -178,8 +176,7 @@
                 "type": "node",
                 "childType": "Artificial Neural Network"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Unsupervised Learning",
@@ -322,8 +319,7 @@
                 "type": "node",
                 "childType": "Model"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Model",
@@ -410,8 +406,7 @@
                 "type": "node",
                 "childType": "Fit Dataset"
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Compile",
@@ -754,8 +749,8 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "layersModel",
-                "label": "Add Secuential Model",
-                "relatedUiObject": "Secuential Model",
+                "label": "Add Sequential Model",
+                "relatedUiObject": "Sequential Model",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -786,7 +781,7 @@
             {
                 "name": "layersModel",
                 "type": "node",
-                "childType": "Secuential Model"
+                "childType": "Sequential Model"
             },
             {
                 "name": "layersModel",
@@ -819,7 +814,7 @@
         "icon": "tensorflow"
     },
     {
-        "type": "Secuential Model",
+        "type": "Sequential Model",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -831,8 +826,8 @@
             },
             {
                 "action": "Add UI Object",
-                "label": "Add Secuential Layer",
-                "relatedUiObject": "Secuential Layer",
+                "label": "Add Sequential layer",
+                "relatedUiObject": "Sequential layer",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -868,7 +863,7 @@
             {
                 "name": "layers",
                 "type": "array",
-                "childType": "Secuential Layer"
+                "childType": "Sequential layer"
             },
             {
                 "name": "outputLayer",
@@ -879,7 +874,7 @@
         "icon": "tensorflow"
     },
     {
-        "type": "Secuential Layer",
+        "type": "Sequential layer",
         "menuItems": [
             {
                 "action": "Add UI Object",
@@ -918,7 +913,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Secuential Model->"
+            "compatibleTypes": "->Sequential Model->"
         },
         "propertyNameAtParent": "layers",
         "childrenNodesProperties": [
@@ -1004,7 +999,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Secuential Layer->"
+            "compatibleTypes": "->Sequential layer->"
         },
         "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
@@ -1339,7 +1334,7 @@
         "addLeftIcons": true,
         "level": 0,
         "attachingRules": {
-            "compatibleTypes": "->Secuential Layer->"
+            "compatibleTypes": "->Sequential layer->"
         },
         "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
@@ -2513,7 +2508,7 @@
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
-            "compatibleTypes": "->Secuential Layer->"
+            "compatibleTypes": "->Sequential layer->"
         },
         "propertyNameAtParent": "typeOfLayer",
         "childrenNodesProperties": [
@@ -2883,10 +2878,10 @@
         "addLeftIcons": true,
         "level": 3,
         "referencingRules": {
-            "compatibleTypes": "->Secuential Layer->"
+            "compatibleTypes": "->Sequential layer->"
         },
         "attachingRules": {
-            "compatibleTypes": "->Secuential Model->"
+            "compatibleTypes": "->Sequential Model->"
         },
         "propertyNameAtParent": "inputLayer",
         "childrenNodesProperties": [
@@ -3076,10 +3071,10 @@
         "addLeftIcons": true,
         "level": 3,
         "referencingRules": {
-            "compatibleTypes": "->Secuential Layer->"
+            "compatibleTypes": "->Sequential layer->"
         },
         "attachingRules": {
-            "compatibleTypes": "->Secuential Model->"
+            "compatibleTypes": "->Sequential Model->"
         },
         "propertyNameAtParent": "outputLayer",
         "childrenNodesProperties": [
@@ -3305,8 +3300,7 @@
                 "childType": "Environment Flags",
                 "autoAdd": true
             }
-        ],
-        "icon": "tensorflow"
+        ]
     },
     {
         "type": "Environment Flags",
@@ -3424,8 +3418,7 @@
             "compatibleTypes": "->Execution Environment->"
         },
         "propertyNameAtParent": "backend",
-        "childrenNodesProperties": [],
-        "icon": "tensorflow"
+        "childrenNodesProperties": []
     },
     {
         "type": "WASM Backend",

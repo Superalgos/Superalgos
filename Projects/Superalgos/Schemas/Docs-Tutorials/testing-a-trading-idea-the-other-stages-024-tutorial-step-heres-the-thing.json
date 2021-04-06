@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Here's The Thing!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-order"
+        },
+        "text": "The system doesn't know which arrangement of execution algorithms and orders you are going to create!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For that reason, it doesn't know what kind of data structure you will need at the trading engine to keep track of all your orders!"
+        },
+        {
+            "style": "Callout",
+            "text": "For the time being, there is a manual process that is required to tell Superalgos what orders you need to keep track of, and where the information should be stored! And that is what we need to do next!"
+        },
+        {
+            "style": "Text",
+            "text": "Don't worry, it's no big deal! As it's often the case, it takes longer to explain than to do it!"
+        }
+    ]
+}

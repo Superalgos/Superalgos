@@ -1,0 +1,22 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Steep Vs. Extreme",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "Did you find the difference? Don't worry if you didn't! There are lots of conditions! I'll give you another hint!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Look again and notice that the first seven conditions of the Trigger On Event are the same on both strategies! The remaining conditions are different, though!"
+        },
+        {
+            "style": "Success",
+            "text": "You may drag the Trigger On Event of a strategy and pin it closer to the event of the other strategy for easier comparison!"
+        }
+    ]
+}

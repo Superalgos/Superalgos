@@ -1,0 +1,25 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Trigger Off",
+    "definition": {
+        "text": "If you do not need a condition just set it to False or True!",
+        "icon": {
+            "name": "trigger-off",
+            "project": "Superalgos"
+        },
+        "updated": 1614333368044
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For my backtest I don't need a Trigger Off condition so I just write false in Javascript code",
+            "updated": 1614334212315
+        },
+        {
+            "style": "Success",
+            "text": "Remember that Conditions can be only True or False. When I write some Javascript code inside these type of nodes, they must evaluate True or False because essentially what I'm writing is a test.",
+            "updated": 1614245807894
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Predictions and Testing",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "user-defined-statistic"
+        },
+        "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Prediction: We expect either of these ideas to trade at least twice per month, with a 50% hit ratio."
+        },
+        {
+            "style": "List",
+            "text": "Testing: For uptrends, we will set these targets: stop loss at 3% and take profit at 5%. For downtrends we should be more optimistic as the strategy aims to capture big market moves: we will set a 3% stop loss and 10% take profit targets."
+        },
+        {
+            "style": "Note",
+            "text": "Remember! This doesn't mean that is how we would manage the positions! It's just to evaluate the entry points!"
+        }
+    ]
+}

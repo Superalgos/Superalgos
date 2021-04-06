@@ -26,23 +26,25 @@
         },
         {
             "style": "Text",
-            "text": "The system features an automatic adjustment of the scale, which is turned on by default in our shared workspaces. The scale may be automatic in its minimum value, in its maximum value, or both."
+            "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, in both, or none (manual mode).",
+            "updated": 1616506577511
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "When the scale is automatic in the minimum value, the scale is adjusted so that the chart shows all data from the beginning of the market. Panning the charts under such setting has the effect of compressing and decompressing the data against the left border of the chart."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "When the scale is automatic in the maximum value, the scale is adjusted so that the chart shows all data until the end of the market. In such case, panning the charts has the effect of compressing and decompressing the data against the right border of the chart."
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "When the scale is automatic in both the minimum and maximum value, the scale is adjusted so that the chart shows the whole market. In such case, when you click and drag to pan the charts, the settings turns back to manual on both ends of the chart."
         },
         {
             "style": "Note",
-            "text": "Having the time scale set to automatic by default helps finding the data as soon as it starts being processed the first time you run the Masters bot instances."
+            "text": "Having the time scale set to automatic by default helps finding the data as soon as it starts being processed the first time you run the Masters Data Mine Bots.",
+            "updated": 1616506548663
         },
         {
             "style": "Title",
@@ -67,8 +69,18 @@
         },
         {
             "style": "Text",
-            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time box, press the <kbd>Shift</kbd> key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. Notice a tiny green triangle to the sides of the time scale icon.",
-            "updated": 1609782562160
+            "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time box, press the Shift key and slowly scroll the wheel of the mouse.",
+            "updated": 1616506660450
+        },
+        {
+            "style": "Text",
+            "text": "If you run into issues using the mouse wheel (certain OS + browser + mouse combinations may not work as expected), you may also point the mouse at the scale box and use ↑ ↓ to toggle through the different automatic modes.",
+            "updated": 1616506765350
+        },
+        {
+            "style": "Success",
+            "text": "Notice the tiny green triangles to the sides of the time scale icon.",
+            "updated": 1616506804850
         },
         {
             "style": "List",
@@ -93,11 +105,8 @@
         },
         {
             "style": "Text",
-            "text": "2. To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the time box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual."
-        },
-        {
-            "style": "Text",
-            "text": "{% include image.html file='interface/time-scale-01.gif' url='yes' max-width='100' caption='When the scale is set to manual, scrolling the mouse wheel on top of the time scale box changes the scale.' %}"
+            "text": "To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the time box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual.",
+            "updated": 1616512684144
         },
         {
             "style": "Text",

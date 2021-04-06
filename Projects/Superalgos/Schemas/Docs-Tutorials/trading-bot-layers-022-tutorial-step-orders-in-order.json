@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 22,
+    "type": "Tutorial Step - Orders in Order",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-market-sell-order"
+        },
+        "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Weak-hands Buster V.2&mdash;born with earlier versions of the system&mdash;uses single market orders to get in and out of positions. Let's see how those look over the charts..."
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Market Buy Orders and Market Sell Orders layers and turn them on!"
+        },
+        {
+            "style": "Note",
+            "text": "Like with limit orders, a red bullet means a sell order, and a green bullet means a buy order."
+        }
+    ]
+}

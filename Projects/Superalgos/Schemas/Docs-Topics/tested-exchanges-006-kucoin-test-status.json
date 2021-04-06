@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 6,
+    "type": "Kucoin Test Status",
+    "definition": {
+        "text": "Kucoin is not tested for data mining nor for live trading.",
+        "updated": 1616003885667
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Unknown. The ability to fetch historic data for backtesting purposes has not been verified.",
+            "updated": 1616003998850
+        },
+        {
+            "style": "List",
+            "text": "Market History: 1 day",
+            "updated": 1615211188110
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
+            "updated": 1616003950201
+        },
+        {
+            "style": "List",
+            "text": "Comments: While testing with standard configuration it was possible to fetch 1 day of historical Raw Data",
+            "updated": 1615211286656
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"kucoin\"\n}",
+            "updated": 1615211313657
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

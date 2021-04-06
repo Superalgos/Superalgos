@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 10,
+    "type": "Tutorial Step - The Prediction",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hit-ratio"
+        },
+        "text": "The fourth aspect to consider is what we expect from this idea, and this is highly dependent on the type of strategy."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For example, for a swing strategy, taking a position twice per month with a 50% hit ratio may be acceptable, but not for a scalping strategy."
+        },
+        {
+            "style": "Callout",
+            "text": "Defining what we expect from the strategy in terms of trading frequency and hit ratio helps to determine if the strategy is worth pursuing or not."
+        },
+        {
+            "style": "Text",
+            "text": "If the tests show that the idea doesn't produce as many trades or as many good entries as is desirable, you may want to come up with a new idea."
+        }
+    ]
+}

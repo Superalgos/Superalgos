@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 68,
+    "type": "Tutorial Step - Let's Do It!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "task"
+        },
+        "text": "This is going to take a bit longer than the first backtest, as we are now testing on the 1H time frame."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If your trading task is still running, select Run on the Backtesting Session menu. If not, select Run on the Task menu first."
+        },
+        {
+            "style": "Note",
+            "text": "When the progress notice of the Trading Process Instance get's to the 100% mark, stop the task and click Next."
+        }
+    ]
+}

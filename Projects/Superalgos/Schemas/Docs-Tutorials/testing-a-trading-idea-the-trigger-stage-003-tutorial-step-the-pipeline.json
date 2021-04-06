@@ -1,0 +1,39 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 3,
+    "type": "Tutorial Step - The Pipeline",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "dataset-definition"
+        },
+        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "The Trigger Stage with it's three events (Trigger On Event, Trigger Off Event, and Take Position Event).",
+            "updated": 1610382946451
+        },
+        {
+            "style": "List",
+            "text": "Basic definitions including what is a Situation, a Condition, and a Formula."
+        },
+        {
+            "style": "List",
+            "text": "Syntax, or how to write conditions and formulas."
+        },
+        {
+            "style": "List",
+            "text": "Indicator properties and how to use them."
+        },
+        {
+            "style": "List",
+            "text": "Open, Manage, and Close Stages basics."
+        },
+        {
+            "style": "Success",
+            "text": "Have you read about these topics? No worries... you will!"
+        }
+    ]
+}

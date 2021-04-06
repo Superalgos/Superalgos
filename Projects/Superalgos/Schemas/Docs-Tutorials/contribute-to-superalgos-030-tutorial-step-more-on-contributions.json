@@ -1,0 +1,25 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": "30",
+    "type": "Tutorial Step - More on Contributions",
+    "definition": {
+        "text": "I can't stress enough how important it is for the project that users contribute whatever they build with Superalgos!",
+        "icon": {
+            "name": "execution-algorithm",
+            "project": "Superalgos"
+        },
+        "updated": 1617033287328
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you choose to get involved with the project and the Community, you may participate in the collective effort to make Superalgos better. But even if you are not interested in team work, you will still develop your skills, become a power user, and build many things that may be of use to people coming after you!",
+            "updated": 1617033959946
+        },
+        {
+            "style": "Success",
+            "text": "How to Contribute to Superalgos is the topic that covers the logistics on how to contribute trading systems, data mines, icons, documentation, translations, and so on. Remember: all contributions are incentived with Superalgos tokens!",
+            "updated": 1617034022307
+        }
+    ]
+}

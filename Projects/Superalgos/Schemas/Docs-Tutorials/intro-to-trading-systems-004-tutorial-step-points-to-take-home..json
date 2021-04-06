@@ -1,0 +1,34 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Points to Take Home...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "There are some key learnings in the previous reading: multiple strategies, single positions, and precedence."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's take some mental notes for what comes next:"
+        },
+        {
+            "style": "List",
+            "text": "Multiple strategies may coexist within a trading system&mdash;as many as you wish."
+        },
+        {
+            "style": "List",
+            "text": "One active strategy with one open position at any given moment is allowed only."
+        },
+        {
+            "style": "List",
+            "text": "Precedence is given by the order in which strategies are defined around the Trading System node. You may change the order, of course!"
+        },
+        {
+            "style": "Note",
+            "text": "You are probably asking why? Do these rules sound arbitrary? They are, for good reason!"
+        }
+    ]
+}

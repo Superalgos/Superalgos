@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Right Out of the Box!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "This is the trading system we will use, virtually as it comes right out of the box!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "All I've done with it is organize the hierarchy the way I like it, and give it a name: BB Breakdown."
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the hierarchy and look around! Notice the Downtrends strategy... Expand each of the nodes corresponding to the four stages, one by one, and take a good look inside!"
+        },
+        {
+            "style": "Note",
+            "text": "The nodes you see within each of these stages make up the definitions of a strategy..."
+        }
+    ]
+}

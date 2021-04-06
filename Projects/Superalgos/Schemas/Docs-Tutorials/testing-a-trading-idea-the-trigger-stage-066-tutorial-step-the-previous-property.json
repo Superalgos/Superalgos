@@ -1,0 +1,29 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 66,
+    "type": "Tutorial Step - The Previous Property",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "record-property"
+        },
+        "text": "I mentioned we would use the previous property to modify each property on both sides of the statement..."
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "But such use is not mandatory! You may use the previous property as you wish. We need to compare the close of the candle with the moving average and the deviation of the same candle! That is why we apply it to all statements!",
+            "updated": 1610471797965
+        },
+        {
+            "style": "Text",
+            "text": "But you may, for instance, want to compare the close of the current candle to the close of the previous candle:",
+            "updated": 1610471869420
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > \nchart.at01hs.candle.previous.close",
+            "updated": 1610471621224
+        }
+    ]
+}

@@ -742,6 +742,12 @@
         "attachingRules": {
             "compatibleTypes": "->Plotter Module->"
         },
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"codeName\": \"\", \n\"isLegacy\": false\n}"
+        },
         "childrenNodesProperties": [
             {
                 "name": "plotterPanelJavascriptCode",
@@ -756,6 +762,13 @@
             }
         ],
         "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
             {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
@@ -1735,7 +1748,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
+            "config": " { \"default\": {  \"opacity\": 0.2,  \"lineWidth\": 1,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\" }, \"atMousePosition\": {  \"opacity\": 0.3,  \"lineWidth\": 2,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.RUSTED_RED\" }}"
         },
         "menuItems": [
             {
@@ -3041,6 +3054,18 @@
                 "autoAdd": true
             },
             {
+                "name": "features",
+                "type": "node",
+                "childType": "Features",
+                "autoAdd": true
+            },
+            {
+                "name": "labels",
+                "type": "node",
+                "childType": "Labels",
+                "autoAdd": true
+            },
+            {
                 "name": "predictions",
                 "type": "node",
                 "childType": "Predictions",
@@ -3217,8 +3242,351 @@
             "compatibleTypes": "->Prediction->"
         },
         "propertyNameAtParent": "predictionValue",
-        "childrenNodesProperties": [
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Features",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Feature",
+                "relatedUiObject": "Feature",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
         ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "features",
+        "childrenNodesProperties": [
+            {
+                "name": "features",
+                "type": "array",
+                "childType": "Feature",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Feature",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Features->"
+        },
+        "propertyNameAtParent": "features",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "featureValue",
+                "type": "node",
+                "childType": "Feature Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Feature Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Feature->"
+        },
+        "propertyNameAtParent": "featureValue",
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Labels",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add Label",
+                "relatedUiObject": "Label",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Learning Engine->"
+        },
+        "propertyNameAtParent": "labels",
+        "childrenNodesProperties": [
+            {
+                "name": "labels",
+                "type": "array",
+                "childType": "Label",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Label",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add Missing Children",
+                "label": "Add Missing Children",
+                "relatedUiObject": "Learning Engine",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Labels->"
+        },
+        "propertyNameAtParent": "labels",
+        "childrenNodesProperties": [
+            {
+                "name": "begin",
+                "type": "node",
+                "childType": "Begin",
+                "autoAdd": true
+            },
+            {
+                "name": "end",
+                "type": "node",
+                "childType": "End",
+                "autoAdd": true
+            },
+            {
+                "name": "labelValue",
+                "type": "node",
+                "childType": "Label Value",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "Label Value",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Copy Node Path",
+                "label": "Copy Node Path",
+                "iconPathOn": "copy-path",
+                "iconPathOff": "copy-path",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Value",
+                "label": "Copy Node Value",
+                "iconPathOn": "copy-value",
+                "iconPathOff": "copy-value",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Copy Node Type",
+                "label": "Copy Node Type",
+                "iconPathOn": "copy-type",
+                "iconPathOff": "copy-type",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\n\"initialValue\": 0\n}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Label->"
+        },
+        "propertyNameAtParent": "labelValue",
+        "childrenNodesProperties": [],
         "icon": "bitcoin"
     },
     {
@@ -5590,7 +5958,7 @@
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
-                "label": "This",
+                "label": "Delete",
                 "iconPathOn": "delete-entity",
                 "iconPathOff": "delete-entity",
                 "actionFunction": "payload.executeAction"
@@ -13076,6 +13444,13 @@
         "type": "Open Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Open Stage",
@@ -13097,6 +13472,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 1,
         "attachingRules": {
@@ -14338,6 +14719,13 @@
         "type": "Close Stage",
         "menuItems": [
             {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
                 "action": "Add Missing Children",
                 "label": "Add Missing Items",
                 "relatedUiObject": "Close Stage",
@@ -14359,6 +14747,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "initialValues": {
+            "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+        },
+        "editors": {
+            "config": true
+        },
         "addLeftIcons": true,
         "level": 2,
         "attachingRules": {
@@ -14686,7 +15080,8 @@
                 "childType": "Signals Provider",
                 "autoAdd": true
             }
-        ]
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Signals Provider",
@@ -14727,10 +15122,11 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/Binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+            "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
         },
         "propertyNameAtParent": "signalsProviders",
-        "childrenNodesProperties": []
+        "childrenNodesProperties": [],
+        "icon": "bitcoin"
     },
     {
         "type": "Crypto Exchanges",
@@ -14893,6 +15289,10 @@
             {
                 "codeName": "hitbtc",
                 "iconName": "hitbtc"
+            },
+            {
+                "codeName": "luno",
+                "iconName": "luno"
             }
         ]
     },
@@ -15048,6 +15448,14 @@
             {
                 "codeName": "USD",
                 "iconName": "us-dollar"
+            },
+            {
+                "codeName": "ZAR",
+                "iconName": "zar"
+            },
+            {
+                "codeName": "XRP",
+                "iconName": "xrp"
             }
         ]
     },
@@ -15381,8 +15789,7 @@
             }
         ],
         "initialValues": {
-            "config": "{ \n\"codeName\": \"Paste your exchange API name or label\",\n\"secret\": \"Paste your exchange API secret key\"\n}"
-        },
+"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n}"        },
         "addLeftIcons": true,
         "editors": {
             "config": true
@@ -15532,7 +15939,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false}"
+            "config": "{\"node\":{\"distancePercentage\":60,\"radiusPercentage\":85,\"massPercentage\":100,\"animationSteps\":2,\"menuItem\":{\"widthPercentage\":100,\"heightPercentage\":60,\"radiusPercentage\":90}},\"physics\":false,\"detachUsingMouse\":false }"
         },
         "menuItems": [
             {

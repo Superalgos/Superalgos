@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Market Sell Orders",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-sell-order"
+        },
+        "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There is quite a bit of depth on the matter of how orders work! We'll get into the details on a tutorial focusing on the nuances of order execution. But for the time being, we'll keep it simple:"
+        },
+        {
+            "style": "Callout",
+            "text": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices."
+        },
+        {
+            "style": "Success",
+            "text": "Check the configuration of the sell order!"
+        }
+    ]
+}

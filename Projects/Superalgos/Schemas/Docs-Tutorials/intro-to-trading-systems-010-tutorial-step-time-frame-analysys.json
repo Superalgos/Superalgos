@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Time Frame Analysys",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-frame"
+        },
+        "text": "Each strategy specializes in specific market conditions by analyzing the state of the market on different time frames!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a look at the name of each strategy... 3H Down, 2H Down, 4H Up..."
+        },
+        {
+            "style": "Text",
+            "text": "If you study the conditions that define the trigger on event, you will notice that 3H Down referes to the fact that the particular strategy is triggered when the 3-hour time frame is in a downwtrend."
+        },
+        {
+            "style": "Note",
+            "text": "Each of the strategies speciallizes on a certain time frame and trend!"
+        }
+    ]
+}

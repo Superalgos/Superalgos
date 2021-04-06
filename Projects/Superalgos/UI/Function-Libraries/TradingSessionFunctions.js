@@ -65,7 +65,6 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Dynamic Indicators->Indicator Function->Formula->' +
             'Trading Strategy->' +
             'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-            'Announcement->Announcement Formula->' +
             'Open Stage->' +
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
@@ -74,7 +73,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
-            'Announcement->Announcement Formula->' +
+            'Announcement->Announcement Formula->Announcement Condition->' +
             'Open Execution->Close Execution->' +
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Order Rate->Formula->' +

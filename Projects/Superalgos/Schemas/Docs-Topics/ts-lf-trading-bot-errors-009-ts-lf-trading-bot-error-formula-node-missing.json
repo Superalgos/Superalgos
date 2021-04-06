@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "9",
+    "pageNumber": 9,
     "type": "TS LF Trading Bot Error - Formula Node Missing",
     "definition": {
         "text": "A Formula node was expected but not found at the node where the error originated.",

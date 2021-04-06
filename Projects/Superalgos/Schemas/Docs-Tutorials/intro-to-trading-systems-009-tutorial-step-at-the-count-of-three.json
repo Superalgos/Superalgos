@@ -1,0 +1,27 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 9,
+    "type": "Tutorial Step - At The Count of Three!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "BB Top Bounce features an interesting approach: it defines the trading idea with three simple conditions."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You are looking at the Trigger On Event of the first strategy. Notice the first three conditions defined..."
+        },
+        {
+            "style": "Callout",
+            "text": "Now go and look at the trigger on event of any of the other strategies... What do you see?"
+        },
+        {
+            "style": "Text",
+            "text": "Exactly! All strategies feature the same first three conditions on the trigger on event. This shows that all strategies are based on the same trading idea. Now... how are they different?",
+            "updated": 1610466052450
+        }
+    ]
+}

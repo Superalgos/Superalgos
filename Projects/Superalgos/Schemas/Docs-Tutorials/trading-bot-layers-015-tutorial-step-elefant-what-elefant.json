@@ -1,0 +1,27 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Elefant? What Elefant?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "strategy"
+        },
+        "text": "Will someone please acknowledge the elefant in the room? Why did those counters point to one or two strategies and one position?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Simulation Objects layer manager and turn on the Strategies layer."
+        },
+        {
+            "style": "Text",
+            "text": "What's that? It's a strategy! We are in a simulation! The Strategies layer marks the span of time on which a strategy is active. ",
+            "updated": 1617182688542
+        },
+        {
+            "style": "Success",
+            "text": "Notice the Plotter Panel that drifted to the corner when you turned the layer on. Now, point your mouse to the span of time between the strategy brakets and see what happens..."
+        }
+    ]
+}

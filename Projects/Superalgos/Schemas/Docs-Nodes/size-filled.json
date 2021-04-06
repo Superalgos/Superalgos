@@ -1,7 +1,8 @@
 {
     "type": "Size Filled",
     "definition": {
-        "text": "Size filled is the amount of the order that has been filled at the exchange."
+        "text": "Size filled is the amount of the order that has been filled at the exchange. It can also represent the cumulative Size Filled of the Open or Close Stages.",
+        "updated": 1615100388371
     },
     "paragraphs": [
         {

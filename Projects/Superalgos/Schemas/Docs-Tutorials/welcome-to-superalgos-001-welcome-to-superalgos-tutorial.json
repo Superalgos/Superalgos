@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 1,
+    "type": "Welcome to Superalgos Tutorial",
+    "definition": {
+        "text": "This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
+        "updated": 1616697023254
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111443632
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Plugin Workspace.",
+            "updated": 1617111458359
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Close Stage",
+    "definition": {
+        "text": "The Close Stage is in charge of closing the trade",
+        "icon": {
+            "name": "close-stage",
+            "project": "Superalgos"
+        },
+        "updated": 1614261551174
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the previous stage (the Manage Stage) bot is checking if the current price has hit the SL or the TP. Once one of these two events has been hit, then the Close Stage take charge of closing the trade. The way it works is very similar to the Open Stage. Bot need to know at what candle should look",
+            "updated": 1614261954345
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.candle.close"
+        },
+        {
+            "style": "Text",
+            "text": "And obviously as opposed to the Open Stage, here we Sell the asset so we need a Market Sell Order and what bot sells is the Quoted asset"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

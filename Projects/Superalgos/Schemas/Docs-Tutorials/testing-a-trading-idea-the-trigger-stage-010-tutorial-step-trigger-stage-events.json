@@ -1,0 +1,35 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Trigger Stage Events",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trigger-stage"
+        },
+        "text": "In a way, strategies are defined as a collection of events. The events that trigger a Trading Strategy are the first to consider!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the next few steps, we will define the..."
+        },
+        {
+            "style": "List",
+            "text": "Trigger On Event "
+        },
+        {
+            "style": "List",
+            "text": "Trigger Off Event "
+        },
+        {
+            "style": "List",
+            "text": "Take Position Event "
+        },
+        {
+            "style": "Callout",
+            "text": "If you haven't yet, please read this page to get up to speed with these concepts! If you've read this page before, a refresher wouldn't hurt!",
+            "updated": 1617190236835
+        }
+    ]
+}

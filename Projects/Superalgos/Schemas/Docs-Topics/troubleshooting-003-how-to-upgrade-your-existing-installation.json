@@ -9,82 +9,46 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You should expect new releases of Superalgos to become available every few months. Release announcements are made through the Official Superalgos Telegram Announcements Channel.",
-            "updated": 1611511377439
+            "text": "You should expect new releases of Superalgos to become available every few months. Release announcements are made through the official Superalgos Announcements Channel.",
+            "updated": 1617647047464
         },
         {
             "style": "Note",
-            "text": "During this beta stage, patches may be released as frequently as several times per week. Due to their high-frequency, minor updates go unannounced. If you ever experience a malfunction, make sure you upgrade your installation to the latest version available in the Superalgos repository before reporting a bug.",
-            "updated": 1611511390486
+            "text": "During the beta stage, patches and new features may become available in the develop branch as frequently as several times per week. Due to the high frequency of their occurrence, minor updates go unannounced. If you ever experience a malfunction, make sure you upgrade your installation to the latest version available in the develop branch of the Superalgos repository before reporting a bug.",
+            "updated": 1617647903163
         },
         {
             "style": "Title",
-            "text": "New Releases"
-        },
-        {
-            "style": "Text",
-            "text": "If you are upgrading to a new official release, make sure you follow these instructions as well as those under the All Upgrades section."
-        },
-        {
-            "style": "Subtitle",
             "text": "Read the Announcement Carefully"
         },
         {
             "style": "Text",
-            "text": "Read and understand the announcement explaining the changes and how they may impact your workflow. Most importantly, find out if the new version requires upgrading your workspace."
-        },
-        {
-            "style": "Subtitle",
-            "text": "Check the Getting Started Guide"
-        },
-        {
-            "style": "Text",
-            "text": "It would be wise to go through the potentially new Getting Started Guide in the documentation, as it may reveal important information."
-        },
-        {
-            "style": "Subtitle",
-            "text": "Back Up Your Personal Work"
-        },
-        {
-            "style": "Text",
-            "text": "If the new version requires upgrading to a new workspace, you must decide which parts of your work you wish to backup so that you may restore them on the upgraded workspace (e.g.: you may want to backup your trading systems, data mines, super scripts, specific settings or configurations such as testing sessions, time machines, and so on)."
-        },
-        {
-            "style": "Text",
-            "text": "If there is no need to upgrade the workspace, that means that the new version of the system should work well with your existing workspace, provided that you are only one version behind."
+            "text": "Read and understand the announcement explaining the changes and how they may impact your workflow. Most importantly, find out if the new version requires upgrading your workspaces or the rest of the assets you may be working with (trading systems, data mines, etc).",
+            "updated": 1617646452770
         },
         {
             "style": "Title",
-            "text": "All Upgrades"
+            "text": "Back-Up Your Personal Work",
+            "updated": 1617647919380
         },
         {
-            "style": "Subtitle",
-            "text": "Back Up the Workspace"
+            "style": "Important",
+            "text": "Always back up your personal work. Whether the new version is backward-compatible or not, you may — for whatever reason — want to go back to the state of affairs before the upgrade.",
+            "updated": 1617647956316
         },
         {
             "style": "Text",
-            "text": "Always back up your existing workspace before switching versions. You may go back to a working version of the software in case something goes wrong with the new one, by installing the previous version of the system and restoring your old workspace from a backup file if needed."
+            "text": "The new version will always ship with its own Plugin Workspaces. The release announcement should make it clear if the new version is backward-compatible or not. If it's not, the announcement should cover any consideration relevant to upgrading from the previous version.",
+            "updated": 1617648003762
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Put the House in Order"
         },
         {
             "style": "Text",
-            "text": "1. Stop all tasks that may be running in the network hierarchy, and close your browser. Allow a minute or two until all activity stops before closing the Console/Command Line/Terminal running the servers."
-        },
-        {
-            "style": "Text",
-            "text": "2. Check if you have any personal files, such as your workspace backups and so on in your Superalgos-master folders. Move them to a different location if you do, or take precautions not to delete them in the next step."
-        },
-        {
-            "style": "Text",
-            "text": "3. You will keep the Data-Storage and My-Workspaces folders intact and delete all the remaining folders within the Superalgos folder."
-        },
-        {
-            "style": "Important",
-            "text": "You do not need to get rid of the historic market data or the workspaces you have been working with every time you upgrade your system. Do not delete your Data-Storage or your My-Workspaces folder.",
-            "updated": 1611511439947
+            "text": "Stop all tasks that may be running in the Network hierarchy. Allow a minute or two until all activity stops.",
+            "updated": 1617646656306
         },
         {
             "style": "Title",
@@ -93,8 +57,18 @@
         },
         {
             "style": "Text",
-            "text": "Always follow the instructions in the Official Announcements Channel and the official blog post about the new release.",
-            "updated": 1611511529701
+            "text": "Run the App Update Command to install the new version of the app. Follow the instructions to close the browser and stop the client once the system is updated.",
+            "updated": 1617647599654
+        },
+        {
+            "style": "Title",
+            "text": "Apply the Guidance in the Announcement",
+            "updated": 1617647633126
+        },
+        {
+            "style": "Text",
+            "text": "If the official announcement provides information on how to upgrade your assets to use them in the new version, this is the time to follow the relevant guidance.",
+            "updated": 1617647676913
         },
         {
             "style": "Important",
@@ -107,18 +81,21 @@
         },
         {
             "style": "Text",
-            "text": "Once the system loads in your browser window and before you start working, you need to empty Chrome’s cache and do a hard reload to make sure the browser does use the newly installed files."
+            "text": "Once the system loads in your browser window and before you start working, it's always good practice to empty Chrome’s cache and do a hard reload to make sure the browser does use the newly installed files.",
+            "updated": 1617647736967
         },
         {
-            "style": "Text",
-            "text": "1. Hit F12 to open Chrome’s Developer Tools. You do not need to use the Developers Tools, but opening it allows performing the next task."
+            "style": "List",
+            "text": "Hit F12 to open Chrome’s Developer Tools. You do not need to use the Developers Tools, but opening it allows performing the next task.",
+            "updated": 1617647751232
         },
         {
-            "style": "Text",
-            "text": "2. Right-click on the refresh icon and select Empty Cache and Hard Reload from the drop-down menu. Once refreshed, you may close Developer Tools with F12."
+            "style": "List",
+            "text": "Right-click on the refresh icon and select Empty Cache and Hard Reload from the drop-down menu. Once refreshed, you may close Developer Tools with F12.",
+            "updated": 1617647755781
         },
         {
-            "style": "Text",
+            "style": "List",
             "text": "F12 to open Developer Tools, then right-click on the refresh icon."
         },
         {
@@ -135,11 +112,8 @@
         },
         {
             "style": "Text",
-            "text": "Before going deep back to work, it is always recommeended to test the new version a bit and make sure that your existing work performs as you would expect."
-        },
-        {
-            "style": "Text",
-            "text": "If you run into any issues, feel free to drop us a line in our Community."
+            "text": "Before going deep back to work, it is always recommended to test the new version a bit and make sure that your existing work performs as you would expect.",
+            "updated": 1617648042507
         }
     ]
 }

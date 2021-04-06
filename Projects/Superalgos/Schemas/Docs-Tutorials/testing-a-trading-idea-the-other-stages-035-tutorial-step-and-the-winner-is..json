@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 35,
+    "type": "Tutorial Step - And the Winner Is...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "target-size"
+        },
+        "text": "The answer is Size Filled minus Fees Paid! I'll explain why none of the other nodes fit the bill!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Target Size: no, because this is just the target we defined!"
+        },
+        {
+            "style": "List",
+            "text": "Size Placed: closer, but no, because the order won't necessarily fill for the exact amount placed, due to decimal roundings or other reasons!"
+        },
+        {
+            "style": "List",
+            "text": "Size Filled: yes! But remember the exchange takes its cut too, so you must subtract the fees!"
+        },
+        {
+            "style": "Success",
+            "text": "Can you produce the correct syntax for the formula? Remember you can copy the paths of the nodes holding the data we need!"
+        }
+    ]
+}

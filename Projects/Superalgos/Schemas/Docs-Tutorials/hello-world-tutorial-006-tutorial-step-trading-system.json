@@ -1,0 +1,38 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Trading System",
+    "definition": {
+        "text": "Trading System is already set up. Let's have a look!",
+        "icon": {
+            "name": "trading-system-reference",
+            "project": "Superalgos"
+        },
+        "updated": 1614242955916
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The strategy is already deployed. So let's have a look around to understand it!",
+            "updated": 1614243171735
+        },
+        {
+            "style": "Text",
+            "text": "As you cand see, a Trading System has 2 main offsprings:"
+        },
+        {
+            "style": "List",
+            "text": "Dynamic Indicators: This lets you build On-The-Fly indicators",
+            "updated": 1614243245995
+        },
+        {
+            "style": "List",
+            "text": "Trading Strategy: Is where we define parameters, conditions and formulas for our strategy",
+            "updated": 1614243343779
+        },
+        {
+            "style": "Success",
+            "text": "This tutorial doesn't cover definitions or concepts used in SA. This tutorial is only about how to deploy a strategy!"
+        }
+    ]
+}

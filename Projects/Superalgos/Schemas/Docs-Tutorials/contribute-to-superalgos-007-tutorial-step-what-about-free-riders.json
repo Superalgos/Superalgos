@@ -1,0 +1,34 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - What About Free Riders?",
+    "definition": {
+        "text": "Free-ridding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
+        "updated": 1616872224110,
+        "icon": {
+            "name": "bullet-error",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The project has implemented a powerful incentives scheme to promote the desired behavior and to foster a culture of collaboration. We are distributing the Superalgos (SA) token exclusively among contributors!",
+            "updated": 1616872270381
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos (SA) Token!->superalgos.org/token-overview.shtml"
+        },
+        {
+            "style": "Success",
+            "text": "We combat free-ridding with incentives!",
+            "updated": 1616872334799
+        },
+        {
+            "style": "Callout",
+            "text": "Let's get your first contribution rolling! First, I'll teach you how to switch branches!",
+            "updated": 1616872424219
+        }
+    ]
+}

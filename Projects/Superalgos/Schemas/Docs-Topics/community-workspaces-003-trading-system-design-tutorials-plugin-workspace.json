@@ -1,0 +1,53 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "3",
+    "type": "Trading System Design Tutorials Plugin Workspace",
+    "definition": {
+        "text": "This workspace features a series of tutorials about designing trading systems. It is the first step users should take to learn about building strategies after completing their basic education.",
+        "updated": 1616145724293
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1616151265546
+        },
+        {
+            "style": "List",
+            "text": "Intro to Trading Systems Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Defining a Trading Idea Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Trigger Stage Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Testing a Trading Idea - The Other Stages Tutorial"
+        },
+        {
+            "style": "Important",
+            "text": "This series must keep growing to cover trade execution and trade management with specific examples."
+        },
+        {
+            "style": "Title",
+            "text": "Brought to you by",
+            "updated": 1616151252550
+        },
+        {
+            "style": "List",
+            "text": "@julian-molina"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

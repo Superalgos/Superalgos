@@ -1,0 +1,37 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 63,
+    "type": "Tutorial Step - In The Mean Time!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "scripts-library"
+        },
+        "text": "If you are willing to keep going on your own, mastering building strategies requires some reading and a lot of practice!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Continue your education by reading the following sections of the documentation:"
+        },
+        {
+            "style": "List",
+            "text": "The nuances of stages of Trading Strategies.",
+            "updated": 1610465367806
+        },
+        {
+            "style": "List",
+            "text": "The whole Trading Engine section.",
+            "updated": 1610465391868
+        },
+        {
+            "style": "List",
+            "text": "The whole topic on the Overview of the Management Issue.",
+            "updated": 1612723291316
+        },
+        {
+            "style": "Success",
+            "text": "You may keep developing what we started on this series, or go your own way and start implementing your own idea! Good luck, and see you on the next tutorial!"
+        }
+    ]
+}

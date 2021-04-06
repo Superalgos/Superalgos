@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Ready to Mine..?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "We'll mine some data to analyze a few events over the charts. We'll use the same data to test the trading idea in the next tutorial!"
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020, along with the following indicators from the Masters data mine: Candles Volumes, Bollinger Bands, and Bollinger Channels."
+        },
+        {
+            "style": "Warning",
+            "text": "If you have data on this market/exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!"
+        }
+    ]
+}

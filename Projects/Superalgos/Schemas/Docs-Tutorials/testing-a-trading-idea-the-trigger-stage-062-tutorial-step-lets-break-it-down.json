@@ -1,0 +1,42 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 62,
+    "type": "Tutorial Step - Let's Break It Down!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "condition"
+        },
+        "text": "We will go through the statement step and step and put it into proper syntax!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Remember, time goes first: in the 1H chart! ",
+            "updated": 1610470932699
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs."
+        },
+        {
+            "style": "List",
+            "text": "The close of the candle is lesser than: ",
+            "updated": 1610470968732
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close <"
+        },
+        {
+            "style": "List",
+            "text": "The moving average minus the deviation, with a time frame defined for every statement:",
+            "updated": 1610471073502
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.bollingerBand.movingAverage - \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1610471042788
+        }
+    ]
+}

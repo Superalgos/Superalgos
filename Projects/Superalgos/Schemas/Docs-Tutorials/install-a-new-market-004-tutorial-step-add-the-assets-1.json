@@ -1,0 +1,18 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Add the Assets 1",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "exchange-assets"
+        },
+        "text": "Open the Exchange Assets node menu and use the Add Asset button to add the required assets."
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Assets under Exchange Assets may not be duplicated. If the definitions for the assets you are interested in already exist, you may reuse them instead of creating new ones. If such is the case, simply skip the next few steps until you need to set up the Market."
+        }
+    ]
+}

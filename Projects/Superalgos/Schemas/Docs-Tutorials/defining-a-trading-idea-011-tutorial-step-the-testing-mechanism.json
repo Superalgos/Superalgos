@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 11,
+    "type": "Tutorial Step - The Testing Mechanism",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "The final concern is defining how the idea is to be tested. This too is dependent on the type of strategy!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The focus of the trading idea is the entry point, not the management of the trade or the exit. However..."
+        },
+        {
+            "style": "Callout",
+            "text": "How do we measure if the entry points are good or bad? What period do we use for testing?"
+        },
+        {
+            "style": "Text",
+            "text": "The first question leads us to acknowledge that we may need to define some arbitrary stop loss and take profit targets so that we can determine if the resulting entry points are likely to be hits or fails. We will deal with the second question in the next tutorial."
+        }
+    ]
+}

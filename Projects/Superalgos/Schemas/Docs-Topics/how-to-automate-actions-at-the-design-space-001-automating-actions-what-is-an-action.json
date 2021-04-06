@@ -1,0 +1,50 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 1,
+    "type": "Automating Actions - What is an Action?",
+    "definition": {
+        "text": "An Action is what is executed when users picks something from the menu of a Node. ",
+        "updated": 1614941717428
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Why a New Action",
+            "updated": 1614939785554
+        },
+        {
+            "style": "Text",
+            "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or some other similar stuff, then you might be able to create an Action function that can automate all this. This will allow you to stop doing those repetitive tasks youself and the ones that will come after you if you contribute these changes to the project.",
+            "updated": 1614940379811
+        },
+        {
+            "style": "Title",
+            "text": "Workflow"
+        },
+        {
+            "style": "Text",
+            "text": "New Actions are implemented as functions inside a Function Library. So the basic workflow to implement a new Action is the following:",
+            "updated": 1614940407806
+        },
+        {
+            "style": "List",
+            "text": "Add a Menu Item: First you need to add a Menu Item to the node type that will allow the user to execute your action.",
+            "updated": 1614940496055
+        },
+        {
+            "style": "List",
+            "text": "Locate a Function Library: Then you will need to locate the Function Library that is better suited to host the function that is going to be executed once the action is triggered.",
+            "updated": 1614926393154
+        },
+        {
+            "style": "List",
+            "text": "Add your Code: Then you will need to write the code for that function.",
+            "updated": 1614940528253
+        },
+        {
+            "style": "List",
+            "text": "Connect Menu Item to your Code: Finally you will connect the Menu Item to that function you wrote.",
+            "updated": 1614940545908
+        }
+    ]
+}

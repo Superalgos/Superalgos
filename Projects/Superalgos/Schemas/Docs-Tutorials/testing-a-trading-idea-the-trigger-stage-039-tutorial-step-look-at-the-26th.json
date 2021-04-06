@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 39,
+    "type": "Tutorial Step - Look at the 26th!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "Let's shift the mouse pointer to the next candle, on February 26th!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "On the 26th the direction is Down and the slope is Gentle. Both conditions are met, so the strategy is triggered as soon as the candle closes."
+        },
+        {
+            "style": "Important",
+            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times!"
+        }
+    ]
+}

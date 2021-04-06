@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 71,
+    "type": "Tutorial Step - What Do We Have Here?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes!"
+        },
+        {
+            "style": "Text",
+            "text": "Of course, the triggering has nothing to do with the hourly candle closing, but with the daily candle (that closes at the same time) validating both trigger on conditions as true.  It doesn't matter what chart you are looking at or in what time frame the trading session runs. The trading bot validates each statement on the defined time frame."
+        }
+    ]
+}

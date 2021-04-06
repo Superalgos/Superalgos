@@ -1200,6 +1200,9 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.controlDocs !== undefined) {
             if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+            } 
+            if (nodeConfig.controlDocs.searchPage === true) {
+                UI.projects.superalgos.spaces.docsSpace.searchPage()
             }
         } else {
             UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)

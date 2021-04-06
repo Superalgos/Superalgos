@@ -1,7 +1,7 @@
 {
-    "topic": "User Examples for Stop Loss ",
+    "topic": "User Examples for Stop Loss",
     "pageNumber": 1,
-    "type": " Trailing Stop Loss - Percentage of Rate",
+    "type": "Trailing Stop Loss - Percentage of Rate",
     "definition": {
         "text": "A Trailing Stop Loss tracks the rate and sets the Stop Loss a given distance away from it",
         "updated": 1615285882641

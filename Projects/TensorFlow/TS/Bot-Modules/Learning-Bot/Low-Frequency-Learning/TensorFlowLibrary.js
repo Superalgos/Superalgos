@@ -109,7 +109,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                         if (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel === undefined) { return }
 
                         switch (learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel.type) {
-                            case 'Secuential Model': {
+                            case 'Sequential Model': {
                                 setupSecuentialModel(learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.api.layersModel)
                                 break
                             }
@@ -319,7 +319,11 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     }
 
     async function saveModel() {
-        await tensorFlowModel.save('file://' + getModelPath())
+        let fileLocation = getModelPath()
+        /* If necesary a folder or folders are created before writing the file to disk. */
+        TS.projects.superalgos.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
+
+        await tensorFlowModel.save('file://' + fileLocation)
     }
 
     function getModelPath() {
@@ -372,6 +376,14 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
             if (dataFeature.featureFormula === undefined) { continue }
             let featureValue = learningSystem.formulas.get(dataFeature.featureFormula.id)
             features.push(featureValue)
+
+            /*
+            We will store at the Learning Engine data structure the features we have calculated.
+            */
+            if (learningEngine.features.features[i] === undefined) { continue }
+            learningEngine.features.features[i].featureValue.value = featureValue
+            learningEngine.features.features[i].begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
+            learningEngine.features.features[i].end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
         }
 
         /*
@@ -415,6 +427,14 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                 if (dataLabel.labelFormula === undefined) { continue }
                 let labelValue = learningSystem.formulas.get(dataLabel.labelFormula.id)
                 labels.push(labelValue)
+
+                /*
+                We will store at the Learning Engine data structure the labels we have calculated.
+                */
+                if (learningEngine.labels.labels[i] === undefined) { continue }
+                learningEngine.labels.labels[i].labelValue.value = labelValue
+                learningEngine.labels.labels[i].begin.value = learningEngine.learningCurrent.learningEpisode.candle.begin.value
+                learningEngine.labels.labels[i].end.value = learningEngine.learningCurrent.learningEpisode.candle.end.value
             }
 
             tensorFlowData = require("@tensorflow/tfjs-data")

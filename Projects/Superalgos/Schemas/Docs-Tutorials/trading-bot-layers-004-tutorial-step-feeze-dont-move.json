@@ -1,0 +1,22 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Feeze! Don't Move!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "stop-loss"
+        },
+        "text": "I've got something to tell you before we move on, but I'm struggling to find the right words... I just wouldn't want to come across as a control freak!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's not like you may break something or anything... nothing to fear at all... it's just that... I rely on the fresh state of the workspace to predict what you will see when I take you places. I may comment on what you will experience along the journey, and use my predictions to make the tour juicier and interesting! So..."
+        },
+        {
+            "style": "Callout",
+            "text": "Don't fool around too much unless I tell you to! I mean, you may look around, but don't make a mess! Fine! Do what you want! If you ever feel I lost you, just start over with a fresh workspace!"
+        }
+    ]
+}

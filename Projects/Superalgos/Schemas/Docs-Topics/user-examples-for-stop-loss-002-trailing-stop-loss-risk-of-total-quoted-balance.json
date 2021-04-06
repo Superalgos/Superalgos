@@ -1,7 +1,7 @@
 {
-    "topic": "User Examples for Stop Loss ",
+    "topic": "User Examples for Stop Loss",
     "pageNumber": 2,
-    "type": " Trailing Stop Loss - Risk of Total Quoted Balance",
+    "type": "Trailing Stop Loss - Risk of Total Quoted Balance",
     "definition": {
         "text": "This Trailing Stop Loss sets the Stop Loss according to the percentage you are willing to risk out of your Total Quoted Balance",
         "updated": 1615287509462

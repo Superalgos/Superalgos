@@ -1,0 +1,38 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Backtest",
+    "definition": {
+        "text": "Make sure Parameters are in place!",
+        "updated": 1614267651634,
+        "icon": {
+            "name": "backtesting-session",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before runnin the backtest, make sure that the Trading Parameters node has consistent data. I already prepared everything for you, but take some time and notice that:",
+            "updated": 1614267828443
+        },
+        {
+            "style": "List",
+            "text": "Session Base Asset is set to 0"
+        },
+        {
+            "style": "List",
+            "text": "Session Quoted Asset is set to 1000 (That is 1000$USDT in this case)"
+        },
+        {
+            "style": "List",
+            "text": "Slippage is set to 0 because I'm backtesting small amounts and I can assume orders are filled with no slippage",
+            "updated": 1614267847410
+        },
+        {
+            "style": "Important",
+            "text": "Are you ready? Run the backtest!",
+            "updated": 1614267899321
+        }
+    ]
+}

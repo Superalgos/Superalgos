@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 59,
+    "type": "Tutorial Step - Candle Properties",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "We have direct access to the properties of candles, and the value of the close is available at the close property."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This makes accessing the close value of the candle quite straightforward:"
+        },
+        {
+            "style": "List",
+            "text": "Declare the time frame: <br/>chart.at01hs."
+        },
+        {
+            "style": "List",
+            "text": "Followed by product and property: <br/>candle.close"
+        },
+        {
+            "style": "Success",
+            "text": "That was the easy bit! Let's tackle the Bollinger Bands bit!"
+        }
+    ]
+}

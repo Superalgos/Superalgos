@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 84,
+    "type": "Tutorial Step - Not So Great Right?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hit-fail"
+        },
+        "text": "That first entry doesn't look great if you ask me! Let's carry on with the same speculation game on the second potential entry!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the next instance of the trigger stage after the time range we analyzed earlier."
+        },
+        {
+            "style": "Callout",
+            "text": "Looks a lot more promising, right? It's the prelude to the March 12th crash, and there are good entries ahead of it!"
+        },
+        {
+            "style": "Text",
+            "text": "The first is at the close of the 15hs candle on March 8th. The second, at the close of the 8hs candle on March 12th. This is exactly what we were expecting from the analysis we did in the second tutorial."
+        }
+    ]
+}

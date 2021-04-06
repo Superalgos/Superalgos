@@ -8,17 +8,17 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1616761358289
+        },
+        {
             "style": "Text",
-            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead.",
-            "updated": 1613820612132
+            "text": "English is considered the default language. When you switch to a different language, the system attempts to show the content in the new language. However, if the translation is not yet available, it shows the English version instead."
         },
         {
             "style": "Text",
             "text": "Node types, variable names, the title of pages in the Docs, and a few more elements of Superalgos may not be translated, as they are unique identifiers of the said elements. You will always get those in English."
-        },
-        {
-            "style": "Success",
-            "text": "If you wish to contribute translations, read the How to Contribute Translations page."
         },
         {
             "style": "Success",
@@ -28,6 +28,15 @@
             "style": "Note",
             "text": "You may only add or delete pages to the Docs when the language is set to English.",
             "updated": 1613820648230
+        },
+        {
+            "style": "Block",
+            "text": "End"
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to contribute translations, read the How to Contribute Translations page.",
+            "updated": 1616761556162
         }
     ]
 }

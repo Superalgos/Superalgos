@@ -1,0 +1,22 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 13,
+    "type": "Tutorial Topic - Network Verification",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network-node"
+        },
+        "text": "The Install Market function sets up many data structures in the local Network Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the next few steps, you will verify that each of the expected data structures was created successfully. The expected structures are:"
+        },
+        {
+            "style": "Callout",
+            "text": "1. Data Tasks tasks for all data mines included in your workspace.<br/><br/>2. Backtesting and live trading tasks for all included trading systems.<br/><br/>3. The corresponding Data Storage definitions."
+        }
+    ]
+}

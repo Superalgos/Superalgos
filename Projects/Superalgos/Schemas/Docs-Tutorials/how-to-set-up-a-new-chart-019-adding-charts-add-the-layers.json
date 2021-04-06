@@ -1,0 +1,33 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "19",
+    "type": "Adding Charts - Add the Layers",
+    "definition": {
+        "text": "Add those layers!",
+        "updated": 1617648557491,
+        "icon": {
+            "name": "layer",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The last step is to hover over the Layer Manager and click Add All Mine Layers. This will automatically add references to all of the individual layers produced by the Data Mine. ",
+            "updated": 1617656376504
+        },
+        {
+            "style": "Important",
+            "text": "Make sure to run all Data Tasks and wait for them to reach 100%.",
+            "updated": 1617656439904
+        },
+        {
+            "style": "Text",
+            "text": "Now you should be able to check the Charting Space and see the indicators from the Data Mine showing up in your chart!"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

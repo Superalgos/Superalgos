@@ -1,0 +1,22 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 18,
+    "type": "Tutorial Step - What Else is Going On?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "We just took note of what happened after this breakdown of the bands on the 1H chart... What else is going on with the market?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a look at the price action a few candles earlier!"
+        },
+        {
+            "style": "Note",
+            "text": "There were two breakdowns previous to the one we checked, one on April 9th at 12 hs, and before that, another one on April 7th at 21 hs. Both breakdowns were significant, in the sense that the candles closed way lower than the lower band. However, in both cases price bounced back into the bands."
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Situations, Conditions, and Formulas in Superalgos",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "situation"
+        },
+        "text": "Before we get to write definitions for the trigger on event, you need to get the basic education on these fundamental topics!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If you haven't yet, please read this page outlining the concepts of situations, conditions, and formulas. These are the key concepts that make up most definitions in a strategy!"
+        },
+        {
+            "style": "Note",
+            "text": "Don't worry about the syntax in the examples. We will get to that soon! If you are not a developer, focus on the simple examples."
+        }
+    ]
+}

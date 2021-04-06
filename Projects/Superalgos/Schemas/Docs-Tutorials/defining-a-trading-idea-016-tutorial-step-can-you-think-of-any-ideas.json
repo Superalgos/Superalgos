@@ -1,0 +1,26 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Can You Think of Any Ideas?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "You've seen the Bollinger Bands and you know how to read them... Can you think of a trading idea to build a strategy with?"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a few minutes roaming around this chart and see if you can come up with something!"
+        },
+        {
+            "style": "Note",
+            "text": "Indicators are usually built by analysts and traders to mathematically describe trading ideas."
+        },
+        {
+            "style": "Success",
+            "text": "The idea we will discuss next has to do with breakouts! But that is just one of the four or five popular ideas using this indicator!"
+        }
+    ]
+}

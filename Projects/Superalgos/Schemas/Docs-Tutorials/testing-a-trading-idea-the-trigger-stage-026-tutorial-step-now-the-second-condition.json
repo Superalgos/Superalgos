@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 26,
+    "type": "Tutorial Step - Now the Second Condition!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "javascript-code"
+        },
+        "text": "Select Add Condition on the situation's menu and paste the code in the Javascript Code node!"
+    },
+    "paragraphs": [
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.slope != 'Side'"
+        },
+        {
+            "style": "Callout",
+            "text": "Label the condition node 24H Not Side and label the situation as Downtrend to keep things tidy!"
+        },
+        {
+            "style": "Note",
+            "text": "We could have chosen to write the two conditions in one by using the && operator. I'll tell you why that is not a good idea in the next step!",
+            "updated": 1610470019656
+        }
+    ]
+}

@@ -305,6 +305,29 @@
             "updated": 1617723650896
         },
         {
+            "style": "Title",
+            "text": "Proper English",
+            "updated": 1617733994160
+        },
+        {
+            "style": "Text",
+            "text": "There are at least two reasons why it's desirable to have spell and grammar-checked tutorials:",
+            "updated": 1617734204593
+        },
+        {
+            "style": "List",
+            "text": "Proper language speaks to the quality of the product."
+        },
+        {
+            "style": "List",
+            "text": "Users who don't speak English may be using online translators, which perform well only when they have a proper source."
+        },
+        {
+            "style": "Important",
+            "text": "Always use a grammar and spell-checker to make sure your tutorial is as correct as it may be!",
+            "updated": 1617734220351
+        },
+        {
             "style": "Text",
             "text": ""
         }

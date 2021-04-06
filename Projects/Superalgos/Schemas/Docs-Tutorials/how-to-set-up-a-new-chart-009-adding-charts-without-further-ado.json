@@ -1,0 +1,33 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "9",
+    "type": "Adding Charts - Without Further Ado",
+    "definition": {
+        "text": "I know I'm ready to add some charts. Are you?",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1617635653798
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Enough chit-chat, let’s start adding some charts! Hover over the Testing Environment Dashboard and click Add Time Machine. Then add a name that makes it easy to identify.",
+            "updated": 1617635008264
+        },
+        {
+            "style": "Text",
+            "text": "Now that we have something to hold our charts, let's go ahead and add one. Hover over your time machine and click Add Timeline Chart (make sure to name it as well).",
+            "updated": 1617635775344
+        },
+        {
+            "style": "Text",
+            "text": " "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

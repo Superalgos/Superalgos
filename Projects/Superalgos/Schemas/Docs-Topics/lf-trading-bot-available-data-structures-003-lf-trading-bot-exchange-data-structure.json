@@ -3,21 +3,18 @@
     "pageNumber": "3",
     "type": "LF Trading Bot - Exchange Data Structure",
     "definition": {
-        "text": "Write a summary for this topic page."
+        "text": "You may use this Javascript object when you want to specify a Crypto Exchange which is different from the Default Exchange. Then you may, for example, access data from Coinbase Pro from a Trading Session running on Binance.",
+        "updated": 1617617256390
     },
     "paragraphs": [
-        {
-            "style": "Note",
-            "text": "This Javascript object can be used when you want to specify a Cryto Exchage which is different fomr the Default Exchange. In this way you can access data from Coinbase Pro from a stragegy running for example at Binance.",
-            "updated": 1612351988656
-        },
         {
             "style": "Title",
             "text": "Structure"
         },
         {
             "style": "List",
-            "text": "The root of the object is called..."
+            "text": "The root of the object is...",
+            "updated": 1617617272058
         },
         {
             "style": "Json",
@@ -26,8 +23,8 @@
         },
         {
             "style": "List",
-            "text": "After it you need to spacify the codeName of a Crypto Exchange, like the following...",
-            "updated": 1612352057634
+            "text": "Then, you must specify the codeName of a Crypto Exchange, for instance...",
+            "updated": 1617617294733
         },
         {
             "style": "Json",
@@ -36,8 +33,8 @@
         },
         {
             "style": "List",
-            "text": "Finally you continue with the syntax of the LF Trading Bot - Market Data Structure",
-            "updated": 1612352124926
+            "text": "Finally, continue with the syntax of the LF Trading Bot - Market Data Structure",
+            "updated": 1617617310038
         },
         {
             "style": "Title",
@@ -45,17 +42,17 @@
             "updated": 1612352354839
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "exchange.poloniex.market.ETH.BTC.chart.at01min.support.support5Rate",
             "updated": 1612352167087
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "exchange.bitfinex.market.BTC.USDT.chart.at05min.candle.open",
             "updated": 1612352188098
         },
         {
-            "style": "Text",
+            "style": "Json",
             "text": "exchange.binance.market.ETH.USDT.chart.at24hs.bollingerBand.movingAverage",
             "updated": 1612352200136
         },
@@ -66,7 +63,8 @@
         },
         {
             "style": "Text",
-            "text": "As you can see at the following example you can have a mix of chart, market and exchange usage withing the same Formula or Condition. "
+            "text": "As you can see in the following example, you may have a mix of chart, market and exchange usage within the same Formula or Condition.",
+            "updated": 1617617348929
         },
         {
             "style": "Json",

@@ -408,12 +408,15 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         function runWhenStatusIsOpening() {
             /* Opening Status Procedure */
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {
+                let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
+                let manageStage = strategy.manageStage
+                
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
                 Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
                 the Manage Stage as closed.
                 */
-                if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage === undefined) {
+                if (manageStage === undefined) {
                     changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
                     changeStageStatus('Close Stage', 'Opening')
                     return
@@ -421,6 +424,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 /* Now we switch to the Open status. */
                 changeStageStatus('Manage Stage', 'Open')
+                announcementsModuleObject.makeAnnoucements(manageStage)
             }
         }
 

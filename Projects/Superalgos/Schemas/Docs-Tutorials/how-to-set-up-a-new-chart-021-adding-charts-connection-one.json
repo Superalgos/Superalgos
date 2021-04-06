@@ -1,0 +1,24 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "21",
+    "type": "Adding Charts - Connection one",
+    "definition": {
+        "text": "Let's make the first connection.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1617370061516
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first connection is between a Trading Session and the Time Machine we have been working on. Drag your Time Machine back up to the Network node. Find the Testing Trading Tasks hierarchy. Follow it down until you find the Backtesting Task for the Lightning Strike Trading System. Continue down the hierarchy until you find the Backtesting Session. Now take your Time Machine and create a reference to it.",
+            "updated": 1617649517982
+        },
+        {
+            "style": "Note",
+            "text": "These steps are the same for connecting to a Live Trading Session.  The only difference is following the Production Trading Task hierarchy instead."
+        }
+    ]
+}

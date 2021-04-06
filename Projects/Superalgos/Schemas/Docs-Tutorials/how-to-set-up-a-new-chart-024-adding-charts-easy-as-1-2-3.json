@@ -1,11 +1,11 @@
 {
     "tutorial": "How to set up a new Chart",
-    "pageNumber": "17",
-    "type": "Adding Charts – Easy as 1, 2, 3",
+    "pageNumber": "24",
+    "type": "Adding Charts - Easy as 1, 2, 3",
     "definition": {
         "text": "You did it!  I knew you could.",
         "icon": {
-            "name": "docs-success-style",
+            "name": "charting-space",
             "project": "Superalgos"
         },
         "updated": 1617370584556
@@ -18,8 +18,8 @@
         },
         {
             "style": "Text",
-            "text": "You now know the basic steps of chart creation. You can repeat the same sets, adding more Timeline Charts, to connect any combination of data you want.",
-            "updated": 1617370662709
+            "text": "You now know the basic steps of chart creation. You can repeat the same steps, adding more Timeline Charts, to connect any combination of data you want.",
+            "updated": 1617651306951
         },
         {
             "style": "Text",

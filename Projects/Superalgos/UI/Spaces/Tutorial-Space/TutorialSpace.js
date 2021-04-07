@@ -892,7 +892,6 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -907,7 +906,6 @@ function newSuperalgosTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
 
         navigationStack = []
         node.payload.uiObject.isPlaying = true

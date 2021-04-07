@@ -1,0 +1,29 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Look around",
+    "definition": {
+        "text": "Workspaces can be changed!",
+        "updated": 1614241100778,
+        "icon": {
+            "name": "layer",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I arranged the workspace in a slightly different way compared to Getting Started. It's a good practice to customize the workspace to keep it tidy and clean. Remember that every hierarchy, node or offspring can impact on your machine resources.",
+            "updated": 1614241304126
+        },
+        {
+            "style": "Success",
+            "text": "Have a look around, right click on empty space and explore the Workspace I arranged for you!",
+            "updated": 1614334045360
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -234,7 +234,7 @@
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME =
                     new Date(contextVariables.lastFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
                 let fromDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf())
-                let lastDate = new Date()
+                let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
 
                 advanceTime()
 
@@ -328,7 +328,7 @@
                     dependencyLoopBody()
 
                     function dependencyLoopBody() {
-                        let dependency = dataDependenciesModule.nodeArray[dependencyIndex]
+                        let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         if (dependency === undefined) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -453,7 +453,7 @@
 
                     function dependencyControlLoop() {
                         dependencyIndex++;
-                        if (dependencyIndex < dataDependenciesModule.nodeArray.length) {
+                        if (dependencyIndex < dataDependenciesModule.curatedDependencyNodeArray.length) {
                             dependencyLoopBody()
                         } else {
                             generateOutput()
@@ -549,7 +549,7 @@
                     }
                     let key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + productCodeName + "-" +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name + "-" +
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "-" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                     let event = {

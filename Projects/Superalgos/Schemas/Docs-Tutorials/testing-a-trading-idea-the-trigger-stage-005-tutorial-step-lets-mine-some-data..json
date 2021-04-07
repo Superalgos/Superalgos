@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Let's Mine Some Data...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "run"
+        },
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If you didn't do the second tutorial in the series, select Run All Project Data Tasks on the Data Tasks node menu!"
+        },
+        {
+            "style": "Note",
+            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!"
+        }
+    ]
+}

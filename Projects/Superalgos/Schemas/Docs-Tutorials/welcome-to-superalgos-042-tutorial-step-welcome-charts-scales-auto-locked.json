@@ -1,0 +1,27 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 42,
+    "type": "Tutorial Step - Welcome Charts Scales Auto Locked",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video in modalità schermo intero.",
+                "updated": 1614893428433,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1616949686304
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-charts-scales-auto-locked.gif"
+        }
+    ]
+}

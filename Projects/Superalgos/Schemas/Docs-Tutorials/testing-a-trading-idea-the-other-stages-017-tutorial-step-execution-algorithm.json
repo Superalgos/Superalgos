@@ -1,0 +1,31 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Execution Algorithm",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "execution-algorithm"
+        },
+        "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too!",
+        "updated": 1617197894850
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For our test&mdash;and for most simple strategies&mdash;one execution algorithm is all we need."
+        },
+        {
+            "style": "Callout",
+            "text": "Once you finish reading, take a look at the configuration of the algorithm!"
+        },
+        {
+            "style": "Text",
+            "text": "Notice that the algo is assigned&mdash;by default&mdash;100% of the stage's size."
+        },
+        {
+            "style": "Success",
+            "text": "This is the first instance in which the target size we defined earlier comes into the scene!"
+        }
+    ]
+}

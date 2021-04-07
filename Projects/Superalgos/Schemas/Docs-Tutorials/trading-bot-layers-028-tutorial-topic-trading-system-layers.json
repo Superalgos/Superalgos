@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 28,
+    "type": "Tutorial Topic - Trading System Layers",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "The last layer manager is about the Trading System that features the trading rules for the simulation!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These layers work similar to those in the Trading Engine layer manager: they show information on the design space, not on the charts. The difference is that these show stuff on the trading system hierarchy!"
+        },
+        {
+            "style": "Note",
+            "text": "These layers are particularly useful when designing, testing, and debugging strategies! Just wait and see!"
+        },
+        {
+            "style": "Success",
+            "text": "Before continuing, turn some Simulation Objects layers off to avoid cluttering up the screen!"
+        }
+    ]
+}

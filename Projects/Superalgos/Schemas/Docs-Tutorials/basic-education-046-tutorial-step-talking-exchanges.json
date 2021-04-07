@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Talking Exchanges",
+    "definition": {
+        "text": "Now that I mentioned testing exchanges, let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Superalgos"
+        },
+        "updated": 1615999626738
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos uses CCXT, an open-source library proposing a standard for exchange API comms. The system works with exchanges complying with the standard:",
+            "updated": 1616000957350
+        },
+        {
+            "style": "Link",
+            "text": "List of Exchanges Pledging Compliance With CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+            "updated": 1616001030925
+        },
+        {
+            "style": "Note",
+            "text": "However, appearing in the list is not enough! Many exchanges don't really comply! As a result, there is an ongoing community effort to test exchanges and document which may be used with Superalgos and how! This is the topic in the Docs covering the effort. Look at the TOC to find which exchanges have been tested and to which extent.",
+            "updated": 1616010477500
+        }
+    ]
+}

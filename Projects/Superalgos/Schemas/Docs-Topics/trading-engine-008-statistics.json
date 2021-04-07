@@ -18,12 +18,12 @@
         },
         {
             "style": "Title",
-            "text": "Episode Statistics",
+            "text": "Trading Episode Statistics",
             "updated": 1611260256691
         },
         {
             "style": "Include",
-            "text": "Superalgos->Node->Episode Statistics->Definition",
+            "text": "Superalgos->Node->Trading Episode Statistics->Definition",
             "updated": 1611260259469
         },
         {
@@ -32,7 +32,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Superalgos->Episode Statistics->2",
+            "text": "Superalgos->Trading Episode Statistics->2",
             "updated": 1611260262273
         },
         {

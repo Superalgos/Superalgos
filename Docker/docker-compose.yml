@@ -1,0 +1,16 @@
+version: "3"
+services:
+  superalgos:
+    build: 
+      context: ..
+      dockerfile: ./Docker/Dockerfile
+    image: superalgos
+    command: ["minMemo"]
+    ports:
+      - '34248:34248'
+      - '18041:18041'
+    volumes:
+      - ../Data-Storage:/app/Data-Storage
+      - ../Log-Files:/app/Log-Files
+      - ../My-Workspaces:/app/My-Workspaces
+    restart: on-failure

@@ -1,0 +1,13 @@
+{
+    "type": "Functional Model",
+    "definition": {
+        "text": "The key difference between a Functional and Sequential Model is that Functional Models allows you to create an arbitrary graph of layers, as long as they don't have cycles.",
+        "updated": 1613207678780
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

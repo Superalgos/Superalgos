@@ -147,7 +147,7 @@ function newSuperalgosDocsDocumentPage() {
 
             /* Title */
             let titleLabel = thisObject.docsSchemaDocument.type
-            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > '  + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
             if (thisObject.docsSchemaDocument.deleted === true) {
                 let key = 'auto-generated-flag-paragraph'
@@ -855,6 +855,9 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon()
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"
@@ -882,6 +885,9 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
                         let collectionImage = getIcon()
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"
@@ -971,6 +977,9 @@ function newSuperalgosDocsDocumentPage() {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
                         let collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'configuration')
+                        if (collectionImage === undefined) {
+                            continue
+                        }
                         let imageElement = collectionImage.cloneNode()
 
                         imageElement.className = "docs-collapsible-image"

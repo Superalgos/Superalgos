@@ -1,0 +1,27 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 3,
+    "type": "Tutorial Topic - Frame It Flexibly!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "A Trading System governs trading strategies, and provides a flexible&mdash;but structured&mdash; framework to build them."
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Please, read this page to get up to speed with how trading systems work!",
+            "updated": 1610367185240
+        },
+        {
+            "style": "Success",
+            "text": "There is no substitute for knowledge, so you will need to do some reading before I get your hands dirty with good ol' trading logic!"
+        },
+        {
+            "style": "Warning",
+            "text": "Skipping the reading may result in permanent neurological impairment. Your call!"
+        }
+    ]
+}

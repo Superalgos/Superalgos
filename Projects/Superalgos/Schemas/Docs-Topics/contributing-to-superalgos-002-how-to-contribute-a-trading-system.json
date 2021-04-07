@@ -1,0 +1,121 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": 2,
+    "type": "How to Contribute a Trading System",
+    "definition": {
+        "text": "To contribute a Trading System, you must provide the trading system file, a clean workspace, and proper documentation.",
+        "updated": 1613586065560
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Contributions Reminder",
+            "updated": 1613588504452
+        },
+        {
+            "style": "Title",
+            "text": "Requirements"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Trading System File",
+            "updated": 1613586209394
+        },
+        {
+            "style": "List",
+            "text": "Prepare a clean and tidy Trading System. Organize and name strategies, situations, conditions, orders, etc. so that it's easier to read.",
+            "updated": 1613586689994
+        },
+        {
+            "style": "List",
+            "text": "Add the Trading System file as a plugin in the proper folder.",
+            "updated": 1613586830612
+        },
+        {
+            "style": "Json",
+            "text": "Plugins/Trading-Systems"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Workspace File",
+            "updated": 1613586227342
+        },
+        {
+            "style": "List",
+            "text": "Prepare a clean Workspace featuring your Trading System and the required data mines only.",
+            "updated": 1613586969193
+        },
+        {
+            "style": "List",
+            "text": "Install the Market and remove the unnecessary Data Tasks so that users know what indicators are required. Make sure you remove the unnecessary Data Storage nodes too.",
+            "updated": 1613586983832
+        },
+        {
+            "style": "List",
+            "text": "Add a Workspace file as a workspace plugin in the appropriate folder.",
+            "updated": 1613587034029
+        },
+        {
+            "style": "Json",
+            "text": "Plugins/Workspaces",
+            "updated": 1613587162166
+        },
+        {
+            "style": "Subtitle",
+            "text": "Documentation",
+            "updated": 1613587174588
+        },
+        {
+            "style": "List",
+            "text": "Take the BB Top Bounce (BBTB) page as an example of the content you should provide as documentation for the trading system.",
+            "updated": 1613588848793
+        },
+        {
+            "style": "List",
+            "text": "The name of the page you create must follow the following format...",
+            "updated": 1613587567753
+        },
+        {
+            "style": "Json",
+            "text": "[Market] - Trading System Name"
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "updated": 1613587598566
+        },
+        {
+            "style": "Json",
+            "text": "BTC-USDT - BB Top Bounce (BBTB)"
+        },
+        {
+            "style": "List",
+            "text": "The above assumes that the Trading System is optimized for a specific Market. Even if that is not the case, specify the market the is installed in the Workspace file.",
+            "updated": 1613587803249
+        },
+        {
+            "style": "List",
+            "text": "Create the page within the Community Trading Systems topic. You may edit the command below to fit your needs.",
+            "updated": 1613587940298
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Superalgos: Community Trading Systems->BTC-USDT - Strategy Name",
+            "updated": 1613588675025
+        },
+        {
+            "style": "Title",
+            "text": "Optional Content",
+            "updated": 1613588691827
+        },
+        {
+            "style": "Text",
+            "text": "Consider creating an interactive Tutorial that goes through the implementation of the Trading System and shows how it works in a simulation (backtest). This adds significant value and is certainly incentivized!",
+            "updated": 1613588894036
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Can't See What's Expected?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I will cover some troubleshooting tactics later on, but for the time being, the solution is to go back in the tutorial and make sure you did everything I told you to do!"
+        },
+        {
+            "style": "List",
+            "text": "Did you turn on the right layers? "
+        },
+        {
+            "style": "List",
+            "text": "Did you run the backtest? "
+        },
+        {
+            "style": "List",
+            "text": "Did you set up the definitions as instructed? "
+        },
+        {
+            "style": "Success",
+            "text": "Go backwards in the tutorial, step by step, and make sure you didn't skip any steps!"
+        }
+    ]
+}

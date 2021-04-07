@@ -1,0 +1,13 @@
+{
+    "type": "Permute Layer",
+    "definition": {
+        "text": "Permutes the dimensions of the input according to a given pattern. Useful for, e.g., connecting RNNs and convnets together.",
+        "updated": 1613214015429
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -663,9 +663,19 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTradingEngines(action.node, action.rootNodes)
                 }
                 break
-            case 'Add Missing Plugin Super Scripts':
+            case 'Add Missing Plugin Learning Mines':
                 {
-                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingSuperScripts(action.node, action.rootNodes)
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningMines(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Learning Systems':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningSystems(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Learning Engines':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingLearningEngines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Tutorials':

@@ -13,7 +13,14 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         finalize: finalize
     }
 
+    /* 
+    These 3 are the main data structures available to users
+    when writing conditions and formulas.
+    */
     let chart
+    let exchange
+    let market
+
     let tradingSystem
     let tradingEngine
     let sessionParameters
@@ -21,6 +28,11 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
     let tradingStagesModuleObject = TS.projects.superalgos.botModules.tradingStages.newSuperalgosBotModulesTradingStages(processIndex)
 
+    let taskParameters = {
+        market: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+            '/' +
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+    }
     return thisObject
 
     function initialize() {
@@ -68,7 +80,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the error at the
             charts.
             */
-            let rate = tradingEngine.current.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             errorDataArray.push(rate)
             tradingSystem.errors.push(errorDataArray)
         }
@@ -79,7 +91,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = tradingEngine.current.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             warningDataArray.push(rate)
             tradingSystem.warnings.push(warningDataArray)
         }
@@ -90,7 +102,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             This rate will later help plotting the warning at the
             charts.
             */
-            let rate = tradingEngine.current.episode.candle.close.value
+            let rate = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
             infoDataArray.push(rate)
             tradingSystem.infos.push(infoDataArray)
         }
@@ -115,6 +127,8 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingStagesModuleObject = undefined
 
         chart = undefined
+        exchange = undefined
+        market = undefined
 
         tradingSystem.conditions = undefined
         tradingSystem.formulas = undefined
@@ -131,6 +145,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingSystem = undefined
         tradingEngine = undefined
         sessionParameters = undefined
+        taskParameters = undefined
     }
 
     function mantain() {
@@ -151,9 +166,16 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         tradingSystem.announcements = []
     }
 
-    function updateChart(pChart) {
-        chart = pChart // We need chat to be a local object accessible from conditions and formulas.
-        tradingStagesModuleObject.updateChart(pChart)
+    function updateChart(pChart, pExchange, pMarket) {
+        /* 
+        We need these 3 data structures  to be a local objects 
+        accessible while evaluating conditions and formulas.
+        */
+        chart = pChart
+        exchange = pExchange
+        market = pMarket
+
+        tradingStagesModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     function buildDynamicIndicators() {

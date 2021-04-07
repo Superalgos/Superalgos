@@ -1,0 +1,16 @@
+{
+    "topic": "How To Debug Exchange Raw Data Sensor Bot",
+    "pageNumber": "6",
+    "type": "Exchange Raw Data - Find Out Why Is Not Working",
+    "definition": {
+        "text": "With the intelligence you gathered at Exchange Raw Data - Research Your Exchange combined with the insight provided by debuging the code step by step, you might have figure out how why it is not working.",
+        "updated": 1614592591570
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the process you might wat to try different configurations. For this just remember that you need to re-run the Task after any changes at the Crypto Exchange config.",
+            "updated": 1614593148805
+        }
+    ]
+}

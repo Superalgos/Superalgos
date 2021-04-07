@@ -1,0 +1,66 @@
+{
+    "topic": "How to Automate Actions at The Design Space",
+    "pageNumber": 7,
+    "type": "Automating Actions - Using the Workspace",
+    "definition": {
+        "text": "The workspace object will give you access to all the hierarchies of nodes, and once there you will be able to manipulate those structures at will.",
+        "updated": 1614941811976
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You can access to the workspace object in this way:",
+            "updated": 1614931075101
+        },
+        {
+            "style": "Javascript",
+            "text": "UI.projects.superalgos.spaces.designSpace.workspace",
+            "updated": 1614931100393
+        },
+        {
+            "style": "Text",
+            "text": "Check for the functions defined at thisObject what can be useful in your case. ",
+            "updated": 1614931205528
+        },
+        {
+            "style": "Text",
+            "text": "It is not very common to use the Workspace object from an Action, since you have access to the rootNodes array directly as a parameter of your Action function. Useful Workspace function for this use case might be:",
+            "updated": 1614931466216
+        },
+        {
+            "style": "List",
+            "text": "getProjectsHeads",
+            "updated": 1614931357766
+        },
+        {
+            "style": "List",
+            "text": "getHierarchyHeads",
+            "updated": 1614931364737
+        },
+        {
+            "style": "List",
+            "text": "getHierarchyHeadsById",
+            "updated": 1614931372173
+        },
+        {
+            "style": "List",
+            "text": "getHierarchyHeadsByType",
+            "updated": 1614931380751
+        },
+        {
+            "style": "List",
+            "text": "getNodeThatIsOnFocus",
+            "updated": 1614931389528
+        },
+        {
+            "style": "List",
+            "text": "getNodeByShortcutKey",
+            "updated": 1614931399849
+        },
+        {
+            "style": "List",
+            "text": "getNodeById",
+            "updated": 1614931406224
+        }
+    ]
+}

@@ -1,0 +1,212 @@
+{
+    "topic": "Trading Farms",
+    "pageNumber": "2",
+    "type": "Trading Farms - Set Up a Network of Nodes",
+    "definition": {
+        "text": "Install Superalgos on each machine, to then create and set up a network node for each machine. ",
+        "updated": 1614352888183
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There are essentially two approaches from here. ",
+            "updated": 1614354810094
+        },
+        {
+            "style": "List",
+            "text": "Install All in One Node: The first one and probably the easiest one is to first install the markets at one Network Node and later move the branches you want to move to other Network Nodes.",
+            "updated": 1614354841546
+        },
+        {
+            "style": "List",
+            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand."
+        },
+        {
+            "style": "Title",
+            "text": "Install Market"
+        },
+        {
+            "style": "Text",
+            "text": "The procedure to setup a Network Node is by executing the Install Market menu option of a certain Market node. This is a complex procedure that will connect all the dots for you from A to Z. You can do by hand what this procedure does, but it will take you a lot of time, and you will need to know all the details of how to connect everything together.",
+            "updated": 1617263888269
+        },
+        {
+            "style": "Important",
+            "text": "One of the most important things to undestand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. "
+        },
+        {
+            "style": "Text",
+            "text": "For example: if you have 2 trading systems, it will automatically create backtesting and live trading tasks for both of them.",
+            "updated": 1617263908126
+        },
+        {
+            "style": "Text",
+            "text": "The procedure will also be applied to each Network Node found at the workspace, assuming that you will later delete the Tasks or other branches you don't need. But in order to do so, you need to know what is being added as a result of this execution.",
+            "updated": 1617263931507
+        },
+        {
+            "style": "Subtitle",
+            "text": "At the Network Hierarchy"
+        },
+        {
+            "style": "Text",
+            "text": "Here this procedure will essentially add 2 things:",
+            "updated": 1617263943061
+        },
+        {
+            "style": "List",
+            "text": "Tasks: This includes Backtesting, Live Trading, Learning or any other supported type of Task."
+        },
+        {
+            "style": "List",
+            "text": "Data Products: You can think of this as references to the physical data. These definitions are what tells the system in general where the data is physically located.",
+            "updated": 1617263962570
+        },
+        {
+            "style": "Subtitle",
+            "text": "At the Charting Space Hierarchy"
+        },
+        {
+            "style": "Text",
+            "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this branch, you will find Layer s node, which references the Data Products at the Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
+            "updated": 1617263990004
+        },
+        {
+            "style": "Success",
+            "text": "If you understand all the previous relationships, you can go ahead and install a market in all Network Node s at the same time, and then try to delete all the duplicated definitions. If you don't have all that clear, it is recommended that you install all your markets at one single Network Node and then move the branches you want from one Network Node to the other.",
+            "updated": 1617264010597
+        },
+        {
+            "style": "Title",
+            "text": "Moving Tasks"
+        },
+        {
+            "style": "Text",
+            "text": "Assuming you will go with the startegy of installing one Network Node first, this is what you need to know on how to move Task s to other Network Nodes.",
+            "updated": 1614357184981
+        },
+        {
+            "style": "Text",
+            "text": "There are different types of Tasks and each one needs to be moved together with their corresponding Data Products definitions in order for the system to being able to track dependencies. The Data Products definitions are the ones under the Data Storage node of a Network Node. They are subdivided in different branches depending of the Type of Data, Project, Exchange, Market and many other stuff, but in the end you will find Data Product nodes which reference Product Definitions inside Mines. When you move Tasks from one Network Node to other you also need to move the related branch at Data Storage to the same Network Node.",
+            "updated": 1617264118423
+        },
+        {
+            "style": "Text",
+            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implcit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node."
+        },
+        {
+            "style": "Warning",
+            "text": "If you only move a Task and do not move the related Data Products definitions most likely things will stop working right there."
+        },
+        {
+            "style": "Success",
+            "text": "The definitions at the Charting System hierarchy do not need to be changed at all. They will continue pointing to the Data Products they were pointed to no matter where you moved those Data Products definitions. If you changed them from one Network Node to another, the Plotter will simply fetch the data from the Network Node where you left those Data Product s definitions.",
+            "updated": 1617264173906
+        },
+        {
+            "style": "Note",
+            "text": "When we say moving, what we are saying is detaching a Node branch and re-attaching that same branch somewhere else. Note that if you, for example, make a backup of a branch, restore that somehwhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up the incoming references, which will cause things to not work anymore.",
+            "updated": 1617264249424
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Before You Begin"
+        },
+        {
+            "style": "Text",
+            "text": "Make a quick list with the name you wish to give to each node and the corresponding IP address on the network. You will need those to configure each network node."
+        },
+        {
+            "style": "Text",
+            "text": "Also, you may want to plan what your operation should look like."
+        },
+        {
+            "style": "Callout",
+            "text": "First and foremost, you may want to decide on which node you will keep the workspace on which the network of nodes shall be configured. We call this, the home node."
+        },
+        {
+            "style": "Text",
+            "text": "This is not a requirement, as you may keep different workspaces in different nodes, and even set up different networks on different workspaces, but it’s the most usual setup."
+        },
+        {
+            "style": "Text",
+            "text": "Also, you may want to plan which nodes in the network should run which data-mining tasks, which nodes should run which trading sessions, and so on. As hinted in the fundamental concepts page, possibilities are endless, so we are not going to cover alternatives here. If you know exactly what you want to do, it should be easy to implement. That said, you are free to explore and experiment as well."
+        },
+        {
+            "style": "Title",
+            "text": "Start Here"
+        },
+        {
+            "style": "Text",
+            "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the Client without firing up the UI."
+        },
+        {
+            "style": "Text",
+            "text": "2. Run the UI to access the home node."
+        },
+        {
+            "style": "Text",
+            "text": "You may access the home node locally, that is, running the browser on the machine where the home node is running, or you may run the browser on any other machine in the physical network—even one not running Superalgos—by navigating to the home node’s IP address."
+        },
+        {
+            "style": "Note",
+            "text": "If you are accessing the home node remotely, you need to configure the My Computer network node to use the machine’s IP address instead of localhost in the host parameter. This enables the web sockets connection.",
+            "updated": 1611343511090
+        },
+        {
+            "style": "Success",
+            "text": "For organizational purposes and to avoid confusion later on, it is recommended to clean up the home node’s workspace, uninstalling the markets that you don’t need.",
+            "updated": 1617264320991
+        },
+        {
+            "style": "Text",
+            "text": "Click to learn how to uninstall an existing market"
+        },
+        {
+            "style": "Text",
+            "text": "3. Add and configure a network node for each machine."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Adding a Network Node"
+        },
+        {
+            "style": "Text",
+            "text": "To add a network node, select Add Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Configuring the Network Node"
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration."
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n\"host\": \"localhost\",\n\"webPort\": \"34248\",\n\"webSocketsPort\": \"18041\"\n}",
+            "updated": 1611344373383
+        },
+        {
+            "style": "List",
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the Client services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1.  Use the dotted IP address rather than a host name, since this reduces host name lookups.",
+            "updated": 1617264451129
+        },
+        {
+            "style": "List",
+            "text": "webPort is the port used by the Web Server, at this stage 34248."
+        },
+        {
+            "style": "List",
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+        },
+        {
+            "style": "Text",
+            "text": "Configure the first node and hit F5 to refresh the page. Once the page reloads, a notice indicating the system is connecting with the new network node will show on the top of the screen. Repeat the process for each machine."
+        }
+    ]
+}

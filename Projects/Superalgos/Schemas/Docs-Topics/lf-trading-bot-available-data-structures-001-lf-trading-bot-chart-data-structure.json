@@ -1,0 +1,113 @@
+{
+    "topic": "LF Trading Bot Available Data Structures",
+    "pageNumber": "1",
+    "type": "LF Trading Bot - Chart Data Structure",
+    "definition": {
+        "text": "The Chart Data Structure is an object that contains Indicator Bot or Sensor Bot data available at runtime, and can be accessed from the code of Conditions and Formulas.",
+        "updated": 1617615874508
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "This Javascript object, together with the other two data structures described on this topic, ultimately defines the syntax that used to write conditions and formulas, and more precisely the syntax to retrieve Indicator Bot and Sensor Bot data.",
+            "updated": 1617615932665
+        },
+        {
+            "style": "Title",
+            "text": "Structure"
+        },
+        {
+            "style": "List",
+            "text": "The root of the object is...",
+            "updated": 1617615941456
+        },
+        {
+            "style": "Json",
+            "text": "chart"
+        },
+        {
+            "style": "List",
+            "text": "After the root, the definition of the timeframe is mandatory...",
+            "updated": 1617616001919
+        },
+        {
+            "style": "Json",
+            "text": "at01min, at02min ... at45min, at01hs ... at24hs",
+            "updated": 1612349768772
+        },
+        {
+            "style": "List",
+            "text": "After that comes the singleVariableName defined at the config of the Product Definition of an Indicator Bot or Sensor Bot.",
+            "updated": 1617616054644
+        },
+        {
+            "style": "List",
+            "text": "Finally, the last property is the codeName of a Record Property node, corresponding to the same Product Definition mentioned earlier.",
+            "updated": 1617616859394
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1612350235632
+        },
+        {
+            "style": "Json",
+            "text": "chart.at01min.support.support5Rate",
+            "updated": 1612349808636
+        },
+        {
+            "style": "Json",
+            "text": "chart.at05min.candle.open",
+            "updated": 1612350213519
+        },
+        {
+            "style": "Json",
+            "text": "chart.at24hs.bollingerBand.movingAverage"
+        },
+        {
+            "style": "Title",
+            "text": "Advanced Use",
+            "updated": 1617616121116
+        },
+        {
+            "style": "Text",
+            "text": "You also have access to the set of indicator objects loaded in memory through this same data structure.",
+            "updated": 1617616255365
+        },
+        {
+            "style": "Text",
+            "text": "If instead of using the singleVariableName you use the pluralVariableName, you get an array of objects that — depending on the time frame — could be the object featuring the whole market (for time frames of one hour and above) or the current and previous day (for time frames below one hour).",
+            "updated": 1617616419121
+        },
+        {
+            "style": "Note",
+            "text": "Remember that time frames of one hour and above are stored as Market Files while time frames below one hour are stored as Daily Files."
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Json",
+            "text": "chart.at05min.candles"
+        },
+        {
+            "style": "Text",
+            "text": "The above returns an array of candles of the previous days concatenated with the candles of the current day. You may use this information as you wish.",
+            "updated": 1617616467792
+        },
+        {
+            "style": "Json",
+            "text": "chart.at24hs.bollingerBands"
+        },
+        {
+            "style": "Text",
+            "text": "The above returns an array of all bollingerBands object of the whole market since the time frame is above 1 hour.",
+            "updated": 1617616877744
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

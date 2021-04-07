@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="96 11 512 512" style="enable-background:new 96 11 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:#F0353D;}
+	.st2{fill:#FD6A33;}
+	.st3{fill:#FF8C29;}
+	.st4{fill:#FFD1A9;}
+	.st5{fill:#365558;}
+	.st6{fill:#0295AA;}
+	.st7{fill:#4ACFD9;}
+	.st8{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st9{fill:#9BAAAB;}
+	.st10{fill:#CDD4D5;}
+	.st11{fill:#E6EAEA;}
+	.st12{fill:#FFFFFF;}
+	.st13{fill:#BCD643;}
+</style>
+<polygon class="st0" points="1164.7,-585 906,-585 906,-73 1418,-73 1418,-236.9 1164.7,-236.9 "/>
+<rect x="1164.7" y="-585" class="st0" width="253.3" height="348.1"/>
+<g class="st0">
+	
+		<text transform="matrix(1 0 0 1 942.4224 -454.0488)" style="display:inline;fill:#CDD4D5; font-family:'Saira-Black'; font-size:64.1866px;">E = mc</text>
+	
+		<text transform="matrix(1 0 0 1 1135.1074 -475.4227)" style="display:inline;fill:#CDD4D5; font-family:'Saira-Black'; font-size:37.4208px;">2</text>
+</g>
+<g>
+	<rect x="-474" y="-251.9" class="st1" width="128" height="128"/>
+	<rect x="-346" y="-251.9" class="st2" width="128" height="128"/>
+	<rect x="-218" y="-251.9" class="st3" width="128" height="128"/>
+	<rect x="-90" y="-251.9" class="st4" width="128" height="128"/>
+	<rect x="-474" y="-123.9" class="st5" width="128" height="128"/>
+	<rect x="-346" y="-123.9" class="st6" width="128" height="128"/>
+	<rect x="-218" y="-123.9" class="st7" width="128" height="128"/>
+	<rect x="-90" y="-123.9" class="st8" width="128" height="128"/>
+	<rect x="-474" y="4.1" class="st9" width="128" height="128"/>
+	<rect x="-346" y="4.1" class="st10" width="128" height="128"/>
+	<rect x="-218" y="4.1" class="st11" width="128" height="128"/>
+	<rect x="-90" y="4.1" class="st12" width="128" height="128"/>
+	<rect x="-474" y="132.1" class="st13" width="128" height="128"/>
+	<rect x="-346" y="132.1" class="st8" width="128" height="128"/>
+	<rect x="-218" y="132.1" class="st8" width="128" height="128"/>
+	<rect x="-90" y="132.1" class="st8" width="128" height="128"/>
+</g>
+<g>
+	<path class="st3" d="M533.1,11c-4.9,0-9.7,2.4-12.8,6.2L373.9,184.3l48.2,34.4l128-142.3c3.1-3.8,7.9-6.2,12.8-6.2h44.2V10.9
+		L533.1,11L533.1,11z"/>
+	<polygon class="st3" points="362.3,125 362.4,253.3 483.8,211.9 	"/>
+</g>
+<g>
+	<path class="st7" d="M533.1,523h74v-59.3h-44.2c-4.9,0-9.7-2.4-12.8-6.2l-128-142.3l-48.2,34.4l146.4,167.1
+		C523.4,520.5,528.2,522.9,533.1,523L533.1,523z"/>
+	<polygon class="st7" points="483.8,322 362.4,280.6 362.3,408.9 	"/>
+</g>
+<g>
+	<path class="st6" d="M170,10.9H96v59.3h44.2c4.9,0,9.7,2.4,12.8,6.2l128,142.3l48.2-34.4L182.8,17.2C179.7,13.4,174.9,11,170,10.9
+		L170,10.9z"/>
+	<polygon class="st6" points="219.3,211.9 340.7,253.4 340.8,125 	"/>
+</g>
+<g>
+	<path class="st2" d="M170,523c4.9,0,9.7-2.4,12.8-6.2l146.4-167.1L281,315.3L153,457.6c-3.1,3.8-7.9,6.2-12.8,6.2H96V523L170,523
+		L170,523z"/>
+	<polygon class="st2" points="340.8,409 340.7,280.6 219.3,322.1 	"/>
+</g>
+</svg>

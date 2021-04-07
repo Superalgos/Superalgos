@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 81,
+    "type": "Tutorial Step - Take Position Conditions!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "The take position conditions require that two consecutive 1H candles close below the lower Bollinger Band!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is quite easy to check! We've got the first close of the trigger stage at 9hs, after the 7hs and 8hs candles closed below the lower band. So, far, so good!"
+        },
+        {
+            "style": "Callout",
+            "text": "We have four more consecutive hourly closes below the lower band! On each of them, the condition of two consecutive closes below the lower band is true! Now that we understand what we see on this chart, let's discuss what this means for our trading idea!"
+        }
+    ]
+}

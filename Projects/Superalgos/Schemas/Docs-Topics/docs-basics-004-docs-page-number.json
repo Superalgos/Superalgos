@@ -1,0 +1,20 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 4,
+    "type": "Docs Page Number",
+    "definition": {
+        "text": "Each topic or tutorial page has a sequential page number. The page number is used to build the corresponding table of content.",
+        "updated": 1611000559709
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "At this point, the number of the page may not be changed from within the Docs interface. To change the number of the page you need to manually modify the corresponding file, editing the pageNumeber field and properly mapping the page number of the page in the name of the file.",
+            "updated": 1613755941767
+        },
+        {
+            "style": "Success",
+            "text": "The Docs Repaginate Command helps with arranging page numbers of large collection of pages."
+        }
+    ]
+}

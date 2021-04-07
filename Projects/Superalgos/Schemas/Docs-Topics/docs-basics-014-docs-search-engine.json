@@ -1,0 +1,16 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 14,
+    "type": "Docs Search Engine",
+    "definition": {
+        "text": "The Docs feature a search engine that allows users to search through the collection of pages.",
+        "updated": 1611001784831
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The search engine builds a Docs Search Engine Index that is later used to find matches with the phrases users type at the search box.",
+            "updated": 1613760285709
+        }
+    ]
+}

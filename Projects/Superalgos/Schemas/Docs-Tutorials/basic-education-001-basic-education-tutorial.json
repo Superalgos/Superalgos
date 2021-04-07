@@ -1,0 +1,24 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 1,
+    "type": "Basic Education Tutorial",
+    "definition": {
+        "text": "This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
+        "updated": 1616697309196
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111489986
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Getting Started Plugin Workspace."
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
+        }
+    ]
+}

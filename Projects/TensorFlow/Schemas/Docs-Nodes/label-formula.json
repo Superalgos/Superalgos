@@ -1,0 +1,13 @@
+{
+    "type": "Label Formula",
+    "definition": {
+        "text": "A user defined formula that defines which data will be feeded to a certain Data Label.",
+        "updated": 1615896316212
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

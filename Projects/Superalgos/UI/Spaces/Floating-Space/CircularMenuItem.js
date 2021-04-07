@@ -14,7 +14,7 @@ function newCircularMenuItem() {
         disableIfPropertyIsDefined: undefined,
         propertyToCheckFor: undefined,
         action: undefined,
-        actionProject: undefined, 
+        actionProject: undefined,
         actionFunction: undefined,
         actionStatus: undefined,
         label: undefined,
@@ -194,17 +194,32 @@ function newCircularMenuItem() {
         }
         radiusGrowthFactor = radiusGrowthFactor * UI.projects.superalgos.spaces.floatingSpace.settings.node.menuItem.radiusPercentage / 100
 
-        thisObject.container.frame.position.x =
-            thisObject.payload.floatingObject.targetRadius *
-            radiusGrowthFactor / 7
-            * Math.cos(toRadians(thisObject.angle)) -
-            thisObject.currentRadius * 1.5
+        if (thisObject.label !== undefined) {
+            thisObject.container.frame.position.x =
+                thisObject.payload.floatingObject.targetRadius *
+                radiusGrowthFactor / 7
+                * Math.cos(toRadians(thisObject.angle)) * 1.5
+                - thisObject.currentRadius * 1.5
+                - thisObject.payload.floatingObject.targetRadius / 4
 
-        thisObject.container.frame.position.y =
-            thisObject.payload.floatingObject.targetRadius *
-            radiusGrowthFactor / 7
-            * Math.sin(toRadians(thisObject.angle))
-            - thisObject.container.frame.height / 2
+            thisObject.container.frame.position.y =
+                thisObject.payload.floatingObject.targetRadius *
+                radiusGrowthFactor / 7
+                * Math.sin(toRadians(thisObject.angle)) * 2
+                - thisObject.container.frame.height / 2
+        } else {
+            thisObject.container.frame.position.x =
+                thisObject.payload.floatingObject.targetRadius *
+                radiusGrowthFactor / 7
+                * Math.cos(toRadians(thisObject.angle))
+                - thisObject.currentRadius * 1.5
+
+            thisObject.container.frame.position.y =
+                thisObject.payload.floatingObject.targetRadius *
+                radiusGrowthFactor / 7
+                * Math.sin(toRadians(thisObject.angle))
+                - thisObject.container.frame.height / 2
+        }
     }
 
     function disablePhysics() {

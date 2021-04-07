@@ -1,0 +1,16 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "1",
+    "type": "Plugin Workspaces",
+    "definition": {
+        "text": "Superalgos ships with several plugin workspaces set up by the community to facilitate user onboarding. This topic covers each of them and explains their purpose.",
+        "updated": 1616145035073
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each plugin workspace shipping with Superalgos was built with a specific purpose. ",
+            "updated": 1616172565179
+        }
+    ]
+}

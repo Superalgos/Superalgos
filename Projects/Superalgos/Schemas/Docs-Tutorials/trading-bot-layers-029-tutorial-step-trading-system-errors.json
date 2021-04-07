@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 29,
+    "type": "Tutorial Step - Trading System Errors!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-error"
+        },
+        "text": "When writing conditions and formulas, you may make mistakes. Remember conditions must evaluate to true or false and formulas to a number?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Well, if they don't, you will get an error! Turning on this layer when you're going back and forth crafting and testing a strategy is a must!"
+        },
+        {
+            "style": "Callout",
+            "text": "There are no errors in this trading system, but I just planted a fake one so that you may see how they are reported! Look at the Formula on the left!"
+        },
+        {
+            "style": "Text",
+            "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?<br/>Let's run a quick test! Collapse the Initial Targets node!"
+        }
+    ]
+}

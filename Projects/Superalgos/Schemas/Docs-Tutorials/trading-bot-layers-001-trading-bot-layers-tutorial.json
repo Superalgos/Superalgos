@@ -1,0 +1,24 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 1,
+    "type": "Trading Bot Layers Tutorial",
+    "definition": {
+        "text": "This tutorial walks you through the layers made available by the Trading Bot on the charts, in particular, the layers associated with all types of Trading Sessions. You will run a backtest of the BTC-USDT - Weak-hands Buster - WHB trading system and explore some of the trades while learning how to use the layers.",
+        "updated": 1617107011471
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About This Tutorial",
+            "updated": 1617111575959
+        },
+        {
+            "style": "List",
+            "text": "Workspace: Weak-Hands Buster v2 Plugin Workspace."
+        },
+        {
+            "style": "List",
+            "text": "Maintainer: @julianmolina (Telegram)."
+        }
+    ]
+}

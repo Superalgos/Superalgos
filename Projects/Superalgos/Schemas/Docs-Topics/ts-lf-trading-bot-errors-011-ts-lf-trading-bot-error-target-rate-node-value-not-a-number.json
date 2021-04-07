@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "11",
+    "pageNumber": 11,
     "type": "TS LF Trading Bot Error - Target Rate Node Value Not A Number",
     "definition": {
         "text": "The value of the Target Rate node must be a number.",

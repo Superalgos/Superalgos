@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Do You Have The Data?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "If you didn't do the second tutorial in the series, chances are you are missing the data you need to do this one!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If you did the second tutorial, you can skip the data mining! If you didn't, then proceed!"
+        },
+        {
+            "style": "Note",
+            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020."
+        },
+        {
+            "style": "Warning",
+            "text": "If you have data on this market but on a different time range, this may affect your data! Read the sensor bot documentation to learn how!"
+        }
+    ]
+}

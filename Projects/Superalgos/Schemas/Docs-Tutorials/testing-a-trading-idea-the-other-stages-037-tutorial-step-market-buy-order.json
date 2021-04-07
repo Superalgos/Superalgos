@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 37,
+    "type": "Tutorial Step - Market Buy Order",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market-buy-order"
+        },
+        "text": "Just like for the open stage, I created the execution algorithm and the market buy order..."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's take care of a couple of things before we move on:"
+        },
+        {
+            "style": "List",
+            "text": "Delete the Simulated Exchange Events node! We are not going to use it for the time being..."
+        },
+        {
+            "style": "List",
+            "text": "Enter true in the JavaScript Code node of the Create Order Event condition."
+        },
+        {
+            "style": "Success",
+            "text": "Now you have to create the reference from the Market Buy Order node to the Market Order in the trading engine. I will show you which one in the next step!"
+        }
+    ]
+}

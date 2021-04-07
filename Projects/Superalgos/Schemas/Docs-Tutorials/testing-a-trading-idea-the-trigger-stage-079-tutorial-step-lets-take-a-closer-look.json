@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 79,
+    "type": "Tutorial Step - Let's Take a Closer Look!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bot-data-dependencies"
+        },
+        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The fact that the strategy is triggering and closing five times in a row in five consecutive candles must mean the following:"
+        },
+        {
+            "style": "List",
+            "text": "The Trigger On Event validates true on each of these candles. "
+        },
+        {
+            "style": "List",
+            "text": "The Take Position Event also validates true on each of these candles! "
+        },
+        {
+            "style": "Success",
+            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true!"
+        }
+    ]
+}

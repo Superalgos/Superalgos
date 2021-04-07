@@ -1,0 +1,23 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Set Up the Market 1",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "market"
+        },
+        "text": "Add a new Market node using the Add Market option on the menu."
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "A Market node should be added featuring two offspring: a Market Base Asset and a Market Quoted Asset.",
+            "updated": 1617211390857
+        },
+        {
+            "style": "Important",
+            "text": "Before continuing, make sure which is the base and which the quoted asset in the exchange's listing. Usually, the base asset is the first in the name of the pair, but this is not enforced on every exchange, so be vigilant."
+        }
+    ]
+}

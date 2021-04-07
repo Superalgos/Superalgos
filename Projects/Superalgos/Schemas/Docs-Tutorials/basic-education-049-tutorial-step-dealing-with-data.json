@@ -1,0 +1,29 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 49,
+    "type": "Tutorial Step - Dealing With Data",
+    "definition": {
+        "text": "The data you download from exchanges and process with indicators is available across the board, accessible from any workspace and strategy.",
+        "icon": {
+            "name": "dataset-definition",
+            "project": "Superalgos"
+        },
+        "updated": 1616174427620
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Data is stored on disk under the Data-Storage folder and is organized by Project, Data Mine, bot, and Market. It doesn't matter what workspace you used to mine the data or process indicators.",
+            "updated": 1616175467234
+        },
+        {
+            "style": "Note",
+            "text": "All of the data is available to all workspaces, so that you may work with the same data sources irrespective of what you are doing."
+        },
+        {
+            "style": "Success",
+            "text": "There is no built-in data-management in the app. Use your file system instead!",
+            "updated": 1616175397455
+        }
+    ]
+}

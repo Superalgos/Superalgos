@@ -1,0 +1,13 @@
+{
+    "type": "NodeJS Backend",
+    "definition": {
+        "text": "In the TensorFlow Node.js backend, 'node', the TensorFlow C API is used to accelerate operations. This will use the machine's available hardware acceleration, like CUDA, if available.",
+        "updated": 1613058717641
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

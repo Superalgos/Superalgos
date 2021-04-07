@@ -1,0 +1,30 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 14,
+    "type": "Tutorial Step - That's it",
+    "definition": {
+        "text": "Strategy is defined!",
+        "icon": {
+            "name": "announcement",
+            "project": "Superalgos"
+        },
+        "updated": 1614262144926
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As you have seen, implementing a simple strategy is a matter of few lines of code!",
+            "updated": 1614262171702
+        },
+        {
+            "style": "Success",
+            "text": "Keep this in mind to deal correctly with Base and Quoted Asset. Base is on top, Quoted is at bottom! So in our case BTC/USD we have BTC is the Base Asset while USDT is the Quoted Asset",
+            "updated": 1614262277141
+        },
+        {
+            "style": "Warning",
+            "text": "It doesn't change if you go Short. If strategy is Short then in the Open Stage bot will sell the Base Asset and later buy it back using Quoted Asset!",
+            "updated": 1614262348272
+        }
+    ]
+}

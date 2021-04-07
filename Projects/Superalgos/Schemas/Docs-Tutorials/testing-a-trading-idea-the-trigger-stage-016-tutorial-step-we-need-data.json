@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 16,
+    "type": "Tutorial Step - We Need Data",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-process-instance"
+        },
+        "text": "By now, all processes should be at 100%. We need the data to be ready so that we can go and do some work on the charts!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If you are mining data because you didn't do it in the previous tutorial, look around and see if all processes are at 100%. If all of them are, then stop the data mining!"
+        },
+        {
+            "style": "Note",
+            "text": "Wait until all processes reach the 100% mark before continuing!"
+        },
+        {
+            "style": "Success",
+            "text": "Let's go to the charts!"
+        }
+    ]
+}

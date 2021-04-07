@@ -1,0 +1,15 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 24,
+    "type": "Tutorial Step - GitHub.com Auth Clip",
+    "definition": {
+        "text": "Write here a summary for this tutorial page."
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/github-personal-access-token.gif",
+            "updated": 1610813170120
+        }
+    ]
+}

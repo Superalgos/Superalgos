@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "13",
+    "type": "Adding Charts – Make the connection",
+    "definition": {
+        "text": "Let's make the connection.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1617374708610
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now that we are where we need to be, find the Layer Manager under the new Timeline Chart you added earlier. Then establish a reference between the layer manager and the Masters Data Mine Products node. If things are connected correctly, the name of the data mine should appear over the layer manager.",
+            "updated": 1617452964578
+        },
+        {
+            "style": "Text",
+            "text": "The last step is to hover over the Layer Manager and click Add All Mine Layers. This will automatically add references to all of the individual layers produced by the Data Mine. Now you should be able to check the Charting Space and see the indicators from the Data Mine showing up in your chart!",
+            "updated": 1617453050830
+        },
+        {
+            "style": "Note",
+            "text": "You can repeat these steps to add more timeline charts and connect them to as many different Data Mines as you would like.",
+            "updated": 1617453088099
+        }
+    ]
+}

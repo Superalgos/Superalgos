@@ -1,0 +1,49 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "1",
+    "type": "Debugging - First Step",
+    "definition": {
+        "text": "Using an Integrated development environment (IDE) will help you catch bugs.",
+        "updated": 1614257102916,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Using an Integrated development environment (IDE) will help you catch bugs. ",
+                "updated": 1614338765880
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "For the following steps, we are going to show the concept of debugging using Visual Studio Code. You may use any other Integrated development environment (IDE) that you feel comfortable with.",
+            "updated": 1614264361700
+        },
+        {
+            "style": "Subtitle",
+            "text": "<hr>",
+            "updated": 1614264382973
+        },
+        {
+            "style": "Subtitle",
+            "text": "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\" -Thomas Edison"
+        },
+        {
+            "style": "Subtitle",
+            "text": "<hr>"
+        },
+        {
+            "style": "Text",
+            "text": "So, you've come up with your new indicator idea, jotted down the outlines, translated it into code - Perfect!...then it stops with an error.",
+            "updated": 1614257276497
+        },
+        {
+            "style": "Text",
+            "text": "Grab some coffee and mosquito repellent - We're going bug hunting."
+        },
+        {
+            "style": "Text",
+            "text": "<a href=\"https://visualstudio.microsoft.com/free-developer-offers/\" target=\"_blank\">Get Visual Studio Code</a>"
+        }
+    ]
+}

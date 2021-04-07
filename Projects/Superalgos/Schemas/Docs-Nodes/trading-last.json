@@ -1,0 +1,32 @@
+{
+    "type": "Trading Last",
+    "definition": {
+        "text": "The last object stores instances of position and strategy objects, in particular the instances that were last open at the time of evaluation, hence the adjective last."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Conceptually, last is used as an adjective applied to these concepts, such as the last position or the last strategy, providing the context on which those concepts exist."
+        },
+        {
+            "style": "Text",
+            "text": "The last context exists so that you may easily access information about the strategy that was last triggered or the position that was last opened."
+        },
+        {
+            "style": "Text",
+            "text": "This is valuable information, both for users and trading systems alike."
+        },
+        {
+            "style": "List",
+            "text": "As a user, you will value being able to visually follow what happened with the last position after it closed, or the last strategy after it triggered off, and at the same time see what is going on with the current position or the current strategy."
+        },
+        {
+            "style": "List",
+            "text": "From within a trading system, your strategies may make decisions factoring in what happened with the last position or strategy. For example, you may want to affect the size of the next position depending on the result of the last one."
+        }
+    ]
+}

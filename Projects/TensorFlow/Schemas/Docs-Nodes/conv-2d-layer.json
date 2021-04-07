@@ -1,0 +1,13 @@
+{
+    "type": "Conv 2D Layer",
+    "definition": {
+        "text": "2D convolution layer (e.g. spatial convolution over images). This layer creates a convolution kernel that is convolved with the layer input to produce a tensor of outputs.",
+        "updated": 1613218624550
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and select the pencil button to enter edit mode."
+        }
+    ]
+}

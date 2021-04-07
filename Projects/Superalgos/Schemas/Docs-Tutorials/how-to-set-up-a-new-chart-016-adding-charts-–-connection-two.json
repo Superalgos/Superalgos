@@ -1,0 +1,39 @@
+{
+    "tutorial": "How to set up a new Chart",
+    "pageNumber": "16",
+    "type": "Adding Charts – Connection two",
+    "definition": {
+        "text": "And now the second.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1617374736974
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now we can go back to the Data Storage hierarchy and follow the Trading Mines Data branch until we find the Backtesting Session Reference node that matches the Backtesting Session we just came from.",
+            "updated": 1617453374362
+        },
+        {
+            "style": "Text",
+            "text": "We are almost there! Under the Backtesting Session Reference node you will see a Trading Mine Products node. Just like before, add a new Timeline Chart (don’t forget to name it). Then create a reference between the Trading Mine Products node and the Layer Manager.",
+            "updated": 1617453393860
+        },
+        {
+            "style": "Text",
+            "text": "At this point everything is all hooked up, hurray!  Go verify it in the charting space by turning on a few layers.  "
+        },
+        {
+            "style": "Note",
+            "text": "Remember to pay attention to the Time Frame and dates the session was run under. Otherwise you won’t see anything!",
+            "updated": 1617370261272
+        },
+        {
+            "style": "Success",
+            "text": "The Lightning Strike Backtesting Session was run on the one minute time frame from September 1 2020 to September 2 2020.",
+            "updated": 1617370309570
+        }
+    ]
+}

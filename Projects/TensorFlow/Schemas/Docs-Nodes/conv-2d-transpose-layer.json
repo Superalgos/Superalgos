@@ -1,0 +1,22 @@
+{
+    "type": "Conv 2D Transpose Layer",
+    "definition": {
+        "text": "Transposed convolutional layer (sometimes called Deconvolution). The need for transposed convolutions generally arises from the desire to use a transformation going in the opposite direction of a normal convolution, i.e., from something that has the shape of the output of some convolution to something that has the shape of its input while maintaining a connectivity pattern that is compatible with said convolution.",
+        "updated": 1613218678919
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When using this layer as the first layer in a model, provide the configuration inputShape (Array of integers, does not include the sample axis), e.g., inputShape: [128, 128, 3] for 128x128 RGB pictures in dataFormat: 'channelsLast'.",
+            "updated": 1613218856414
+        },
+        {
+            "style": "List",
+            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if dataFormat is 'channelsFirst'. or 4D tensor with shape [batch, rows, cols, channels] if dataFormat is 'channelsLast."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if dataFormat is 'channelsFirst'. or 4D tensor with shape: [batch, newRows, newCols, filters] if dataFormat is 'channelsLast'."
+        }
+    ]
+}

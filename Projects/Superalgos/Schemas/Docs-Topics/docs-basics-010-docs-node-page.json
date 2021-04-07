@@ -1,0 +1,42 @@
+{
+    "topic": "Docs Basics",
+    "pageNumber": 10,
+    "type": "Docs Node Page",
+    "definition": {
+        "text": "Each Node defined in the context of a Project features a Docs Node Page explaining what the Node is and how it is used.",
+        "updated": 1613756218722
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the page that opens when clicking the help button in the menu of the node.",
+            "updated": 1613756213394
+        },
+        {
+            "style": "Text",
+            "text": "A Docs Node Page features:"
+        },
+        {
+            "style": "List",
+            "text": "Definition: a short description of what the node is, and what it represents in the hierarchy. The definition is displayed to the left of the node's icon.",
+            "updated": 1613756314649
+        },
+        {
+            "style": "List",
+            "text": "Content: all the information relative to the node in terms of how the node is used, how it affects operations, or how it relates to other nodes.",
+            "updated": 1613756365684
+        },
+        {
+            "style": "List",
+            "text": "Configuration: a section describing the elements of the node's configuration file."
+        },
+        {
+            "style": "List",
+            "text": "Auto-generated content: information extracted from the system, workspace, etc., to provide the technical context in which the node exists."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

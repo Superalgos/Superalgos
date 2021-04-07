@@ -1,0 +1,34 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Let's Zoom Out!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-frame"
+        },
+        "text": "We've got an idea of what's going on in the 1H time frame. Let's zoom out a bit and take a look at the intermediate-term."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I just brought you to the 4H chart, on the same dates. Notice the following:"
+        },
+        {
+            "style": "List",
+            "text": "Breakdown: The breakdown we saw in the 1H chart is evident in the 4H chart too."
+        },
+        {
+            "style": "List",
+            "text": "Immediate past: Before the breakdown on April 10th, the market had been ranging for a while."
+        },
+        {
+            "style": "List",
+            "text": "Before that: The market was trending upwards&mdash;that is, the intermediate-term was in an uptrend."
+        },
+        {
+            "style": "List",
+            "text": "Downtrend: The breakdown on April 10th marked the start of a downtrend in the intermediate-term."
+        }
+    ]
+}

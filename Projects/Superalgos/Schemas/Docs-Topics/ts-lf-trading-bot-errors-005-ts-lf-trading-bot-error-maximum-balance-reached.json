@@ -1,6 +1,6 @@
 {
     "topic": "TS LF Trading Bot Errors",
-    "pageNumber": "5",
+    "pageNumber": 5,
     "type": "TS LF Trading Bot Error - Maximum Balance Reached",
     "definition": {
         "text": "The Trading Session stopped because the maximum balance configured for the session was reached.",

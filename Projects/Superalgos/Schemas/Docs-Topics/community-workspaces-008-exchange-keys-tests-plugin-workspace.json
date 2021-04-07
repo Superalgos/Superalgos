@@ -1,0 +1,20 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "8",
+    "type": "Exchange Keys Tests Plugin Workspace",
+    "definition": {
+        "text": "This workspace features four simple Trading Systems with their four respective trading tasks under the Production Trading Tasks node in the Network so that you may easily test your Exchange Account Key.",
+        "updated": 1616150355126
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Brought to you by",
+            "updated": 1616153711861
+        },
+        {
+            "style": "List",
+            "text": "@luis_fernando_molina"
+        }
+    ]
+}

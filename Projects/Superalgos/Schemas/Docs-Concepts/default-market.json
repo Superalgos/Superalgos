@@ -1,0 +1,13 @@
+{
+    "type": "Default Market",
+    "definition": {
+        "text": "The Default Market is the one referenced by the Market Data Tasks, Market Trading Tasks, Market Learning Tasks nodes of which a certain Task decends from. The Trading Bot running inside that Task will considered that reference market to be it's Default Market.",
+        "updated": 1612352846165
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

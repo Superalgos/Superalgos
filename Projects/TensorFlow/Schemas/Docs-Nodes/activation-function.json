@@ -1,0 +1,23 @@
+{
+    "type": "Activation Function",
+    "definition": {
+        "text": "A function (for example, ReLU or sigmoid) that takes in the weighted sum of all of the inputs from the previous layer and then generates and passes an output value (typically nonlinear) to the next layer.",
+        "updated": 1613243485558
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Activation function to use. If unspecified, no activation is applied.",
+            "updated": 1613243465795
+        },
+        {
+            "style": "Subtitle",
+            "text": "Possible Values"
+        },
+        {
+            "style": "Javascript",
+            "text": "elu\nhardSigmoid\nlinear\nrelu\nrelu6\nselu\nsigmoid\nsoftmax\nsoftplus\nsoftsign\ntanh",
+            "updated": 1613244131007
+        }
+    ]
+}

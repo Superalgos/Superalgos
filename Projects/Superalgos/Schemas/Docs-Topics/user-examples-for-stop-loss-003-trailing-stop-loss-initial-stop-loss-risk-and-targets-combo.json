@@ -1,0 +1,43 @@
+{
+    "topic": "User Examples for Stop Loss",
+    "pageNumber": 3,
+    "type": "Trailing Stop Loss - Initial Stop Loss, Risk and Targets Combo",
+    "definition": {
+        "text": "Setting an initial Risk Percentage of your Total Quoted Balance, after reaching the first Profit Target your first Trailing Stop Loss takes place. After reaching second Profit Target, we'll set the Trailing Stop Loss to a fixed percentage.",
+        "updated": 1615298179984
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Initial Stop Loss, Risk and Target Combo",
+            "updated": 1615297964577
+        },
+        {
+            "style": "Text",
+            "text": "The idea of this is to initially give the position some space to move."
+        },
+        {
+            "style": "Text",
+            "text": "When ever the position reaches the first Profit Target, it will use a Trailing Stop Loss set to the Profit divided by your Profit Divider. After reaching the second Profit Target, the Trailing Stop Loss will use a fixed percentage."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example for a Long Position"
+        },
+        {
+            "style": "Javascript",
+            "text": "\nriskPercentage = 1 // Initial Stop Loss is set by this Risk Percentage out of your Total Quoted Balance\n\nprofitTarget1 = 0.5 // First Percent Profit\nprofitDivider = 2 // The profit will be divided with this value and set your Stop Loss to the Entry Rate + Half Profit\n\nprofitTarget2 = 5 // Second Percent Profit\ntrailingStopLoss = 2.5 // Fixed Trailing Percentage\n\nif ( chart.at01min.candle.close > (tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 + (profitTarget2 / 100))) && tradingEngine.tradingCurrent.position.stopLoss.value < (chart.at01min.candle.close * (1 - (trailingStopLoss2 / 100))) ) {\n    chart.at01min.candle.close * (1 - (trailingStopLoss / 100))\n}\n\nelse if ( chart.at01min.candle.close > (tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 + (profitTarget1 / 100))) && tradingEngine.tradingCurrent.position.stopLoss.value < chart.at01min.candle.close - ( (chart.at01min.candle.close - tradingEngine.tradingCurrent.position.entryTargetRate.value) / profitDivider) ) {\n    chart.at01min.candle.close - ( (chart.at01min.candle.close - tradingEngine.tradingCurrent.position.entryTargetRate.value) / profitDivider)\n}\n\nelse {\n    tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 - (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value))\n}",
+            "updated": 1615298020120
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example for a Short Position",
+            "updated": 1615298191803
+        },
+        {
+            "style": "Javascript",
+            "text": "\nriskPercentage = 1 // Initial Stop Loss is set by this Risk Percentage out of your Total Quoted Balance\n\nprofitTarget1 = 0.5 // First Percent Profit\nprofitDivider = 2 // The profit will be divided with this value and set your Stop Loss to the Entry Rate + Half Profit\n\nprofitTarget2 = 5 // Second Percent Profit\ntrailingStopLoss = 2.5 // Fixed Trailing Percentage\n\nif ( chart.at01min.candle.close < (tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 - (profitTarget2 / 100))) && tradingEngine.tradingCurrent.position.stopLoss.value > (chart.at01min.candle.close * (1 + (trailingStopLoss2 / 100))) ) {\n    chart.at01min.candle.close * (1 + (trailingStopLoss / 100))\n}\n\nelse if ( chart.at01min.candle.close < (tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 - (profitTarget1 / 100))) && tradingEngine.tradingCurrent.position.stopLoss.value > chart.at01min.candle.close + ( (chart.at01min.candle.close - tradingEngine.tradingCurrent.position.entryTargetRate.value) / profitDivider) ) {\n    chart.at01min.candle.close + ( (chart.at01min.candle.close + tradingEngine.tradingCurrent.position.entryTargetRate.value) / profitDivider)\n}\n\nelse {\n    tradingEngine.tradingCurrent.position.entryTargetRate.value * (1 + (( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value * (riskPercentage / 100)) / tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value))\n}",
+            "updated": 1615298026442
+        }
+    ]
+}

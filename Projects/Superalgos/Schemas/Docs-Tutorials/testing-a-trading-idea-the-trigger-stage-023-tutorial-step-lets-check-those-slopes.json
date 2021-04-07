@@ -1,0 +1,22 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Let's Check Those Slopes",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "We will use the slope property of the Bollinger Subchannels indicator to confirm that a trend is a trend!"
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Slide the pointer of the mouse over different subchannels and notice their reported slope in the plotter panel."
+        },
+        {
+            "style": "Text",
+            "text": "Notice that when the market is trending, the subchannel slope is almost never Side. And that's to be expected, as the Side slope represents the shallower slope possible in the MA. On the other hand, the periods on which the market is ranging, although the direction may go back and forth between Up and Down, the slope is mostly Side."
+        }
+    ]
+}

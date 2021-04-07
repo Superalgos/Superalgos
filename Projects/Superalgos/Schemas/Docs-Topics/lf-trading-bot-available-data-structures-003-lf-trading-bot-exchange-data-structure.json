@@ -1,0 +1,75 @@
+{
+    "topic": "LF Trading Bot Available Data Structures",
+    "pageNumber": "3",
+    "type": "LF Trading Bot - Exchange Data Structure",
+    "definition": {
+        "text": "You may use this Javascript object when you want to specify a Crypto Exchange which is different from the Default Exchange. Then you may, for example, access data from Coinbase Pro from a Trading Session running on Binance.",
+        "updated": 1617617256390
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Structure"
+        },
+        {
+            "style": "List",
+            "text": "The root of the object is...",
+            "updated": 1617617272058
+        },
+        {
+            "style": "Json",
+            "text": "exchange",
+            "updated": 1612352008621
+        },
+        {
+            "style": "List",
+            "text": "Then, you must specify the codeName of a Crypto Exchange, for instance...",
+            "updated": 1617617294733
+        },
+        {
+            "style": "Json",
+            "text": "biance, bitfinex, coinbasepro... etc.",
+            "updated": 1612352082792
+        },
+        {
+            "style": "List",
+            "text": "Finally, continue with the syntax of the LF Trading Bot - Market Data Structure",
+            "updated": 1617617310038
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1612352354839
+        },
+        {
+            "style": "Json",
+            "text": "exchange.poloniex.market.ETH.BTC.chart.at01min.support.support5Rate",
+            "updated": 1612352167087
+        },
+        {
+            "style": "Json",
+            "text": "exchange.bitfinex.market.BTC.USDT.chart.at05min.candle.open",
+            "updated": 1612352188098
+        },
+        {
+            "style": "Json",
+            "text": "exchange.binance.market.ETH.USDT.chart.at24hs.bollingerBand.movingAverage",
+            "updated": 1612352200136
+        },
+        {
+            "style": "Title",
+            "text": "Formula Example",
+            "updated": 1612352272503
+        },
+        {
+            "style": "Text",
+            "text": "As you can see in the following example, you may have a mix of chart, market and exchange usage within the same Formula or Condition.",
+            "updated": 1617617348929
+        },
+        {
+            "style": "Json",
+            "text": "chart.at01min.support.support5Rate +\nexchange.poloniex.market.ETH.USDT.chart.at05min.candle.close",
+            "updated": 1612352290634
+        }
+    ]
+}

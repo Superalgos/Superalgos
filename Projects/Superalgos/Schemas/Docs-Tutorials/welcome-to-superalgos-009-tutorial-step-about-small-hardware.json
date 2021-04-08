@@ -21,6 +21,11 @@
                 "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks!",
                 "updated": 1616696668510,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Aunque hardware minimalista como la Raspberry Pi puede manejar el Cliente Superalgos y ejecutar las trading y data task. Puede ser necesaria mas potencia para correr la UI.",
+                "updated": 1617882587343
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Hal ini ditujukan untuk menjalankan Client dalam perangkat keras fisik atau virtual untuk memaksimalkan efisiensi biaya dalam penerapan produksi. Dalam konteks seperti ini, UI akan digunakan seminimal mungkin.",
                     "updated": 1616696694333,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La idea central de ejecutar el cliente en un hardware físico o virtual sencillo es maximizar la eficiencia de costo en un modelo de produccion. En estos contextos, la interfaz de usuario se utiliza al mínimo.",
+                    "updated": 1617882393315
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Jika spesifikasi perangkat terlalu lambat selama tutorial, Saya sarankan untuk menginstal di spesifikasi perangkat yang biasa seperti PC untuk mempelajari Superalgos, membuat strategi pertama, dan siap untuk diterapkan. Jika tidak, ini mungkin akan sangat memfrustasikan.",
                     "updated": 1616696610795,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Recomendamos utilizar un PC normal mientras aprendes a usara SA. Si nota que su hardware sencillo es demasiado lento durante el tutorial, considere la posibilidad de usar un PC normal hasta que aprenda el sistema, desarrolle sus primeras estrategias y esté listo para desplegarlo. De lo contrario, puede ser frustrante.",
+                    "updated": 1617882521244
                 }
             ]
         }

@@ -1,7 +1,7 @@
 {
-    "tutorial": "How to set up a new Chart",
+    "tutorial": "How to Set up a New Chart",
     "pageNumber": "7",
-    "type": "Adding Charts - Time Machines hold it all together",
+    "type": "Adding Charts - Time Machines Hold It all Together",
     "definition": {
         "text": "You've seen these portals to another dimension before! Now let's take a closer look at the magical Time Machine.",
         "icon": {
@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As you can see, each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. Take a minute and read their documentation page to get a better idea of what they do.",
-            "updated": 1617327414064
+            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. Take a minute and read their documentation page to get a better idea of what they do.",
+            "updated": 1617799568096
         }
     ]
 }

@@ -1,7 +1,7 @@
 {
-    "tutorial": "How to set up a new Chart",
+    "tutorial": "How to Set up a New Chart",
     "pageNumber": "13",
-    "type": "Adding Charts - Your data treasure trove",
+    "type": "Adding Charts - Your Data Treasure Trove",
     "definition": {
         "text": "The Data Storage node holds all the important data your bots work so hard to produce. Think of it like your own personal tresure chest full of data.",
         "icon": {

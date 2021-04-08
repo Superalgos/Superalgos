@@ -1,7 +1,7 @@
 {
-    "tutorial": "How to set up a new Chart",
+    "tutorial": "How to Set up a New Chart",
     "pageNumber": "15",
-    "type": "Adding Charts - The data you want to see",
+    "type": "Adding Charts - The Data You Want to See",
     "definition": {
         "text": "You control the flow of data.",
         "updated": 1617646900550,
@@ -13,12 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The granularity of the Data Storage hierarchy means that you can access Data Products in any combination. Do you want to see data from two different exchanges on the same market? Easily possible. Do you want to see data from two similar markets side by side? Piece of cake! The combinations of data you can view within your charts is truly up to your imagination. ",
-            "updated": 1617646868051
+            "text": "Do you notice any similarity with the other parts of Superalgos you’ve seen? That’s right! The hierarchy is organized according to Project, Exchange, Market, and Data Mine. This is the same basic organization you will find with all data here in Superalgos.",
+            "updated": 1617840932423
         },
         {
-            "style": "Text",
-            "text": "Whew! I am getting a little carried away. My friends will cover these exciting possiblities in a little while. Let's refocus and finish adding those Data Mine Products."
+            "style": "Important",
+            "text": "This granularity means you can access Data Products in any combination. Do you want to see data from two different exchanges on the same market? Easily possible. Do you want to see data from two similar markets side by side? Piece of cake! The combinations of data you can view within your charts is truly up to your imagination.",
+            "updated": 1617842448486
         }
     ]
 }

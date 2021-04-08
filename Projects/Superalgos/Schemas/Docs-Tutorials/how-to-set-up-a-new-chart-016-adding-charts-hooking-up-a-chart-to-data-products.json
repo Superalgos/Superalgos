@@ -1,25 +1,30 @@
 {
-    "tutorial": "How to set up a new Chart",
+    "tutorial": "How to Set up a New Chart",
     "pageNumber": "16",
     "type": "Adding Charts - Hooking up a Chart to Data Products",
     "definition": {
-        "text": "We are almost to the node we need!",
+        "text": "Get your Time Machine in position. ",
         "icon": {
             "name": "data-mine-products",
             "project": "Superalgos"
         },
-        "updated": 1617329505743
+        "updated": 1617841161571
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We've been working on adding some Data Mine Products to our chart. Let's be a little more specific, we are going to add the data mine products for the Masters Data Mine in the Binance BTC/USDT market. As you follow the hierarchy down you should see the Market Data Products nodes for the Binance BTC/USDT market.",
-            "updated": 1617452481209
+            "text": "Whew! I am getting a little carried away. My friends will cover these exciting possiblities in a little while. Let's refocus and finish adding those Data Mine Products we've been working on.",
+            "updated": 1617841292233
         },
         {
-            "style": "Note",
-            "text": "There are three data mines installed in this Workspace. You will see one Market Data Products node for each market.",
-            "updated": 1617647424199
+            "style": "Callout",
+            "text": "Pin and drag your whole Time Machine over to Data Mine Products nodes you found earlier.",
+            "updated": 1617842351106
+        },
+        {
+            "style": "Success",
+            "text": "Don't forget Ctrl + ← → ↑ ↓. It's a bit of a trek!",
+            "updated": 1617841738597
         }
     ]
 }

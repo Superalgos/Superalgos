@@ -20,6 +20,11 @@
                 "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step!",
                 "updated": 1614718112355,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si estas accediendo al cliente en la misma maquina, puedes saltarte este paso! ",
+                "updated": 1617891297631
             }
         ]
     },

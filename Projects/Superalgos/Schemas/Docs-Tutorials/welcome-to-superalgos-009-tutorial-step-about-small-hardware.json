@@ -25,7 +25,8 @@
             {
                 "language": "ES",
                 "text": "Aunque hardware minimalista como la Raspberry Pi puede manejar el Cliente Superalgos y ejecutar las trading y data task. Puede ser necesaria mas potencia para correr la UI.",
-                "updated": 1617882587343
+                "updated": 1617882587343,
+                "style": "Definition"
             }
         ]
     },
@@ -50,7 +51,8 @@
                 {
                     "language": "ES",
                     "text": "La idea central de ejecutar el cliente en un hardware físico o virtual sencillo es maximizar la eficiencia de costo en un modelo de produccion. En estos contextos, la interfaz de usuario se utiliza al mínimo.",
-                    "updated": 1617882393315
+                    "updated": 1617882393315,
+                    "style": "Text"
                 }
             ]
         },
@@ -73,8 +75,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Recomendamos utilizar un PC normal mientras aprendes a usara SA. Si nota que su hardware sencillo es demasiado lento durante el tutorial, considere la posibilidad de usar un PC normal hasta que aprenda el sistema, desarrolle sus primeras estrategias y esté listo para desplegarlo. De lo contrario, puede ser frustrante.",
-                    "updated": 1617882521244
+                    "text": "Recomendamos utilizar un PC normal mientras aprendes a usara SA. Si nota que su hardware es demasiado lento durante el tutorial, considere la posibilidad de usar un PC normal hasta que aprenda el sistema, desarrolle sus primeras estrategias y esté listo para desplegarlo. De lo contrario, puede ser frustrante.",
+                    "updated": 1617885366802,
+                    "style": "Success"
                 }
             ]
         }

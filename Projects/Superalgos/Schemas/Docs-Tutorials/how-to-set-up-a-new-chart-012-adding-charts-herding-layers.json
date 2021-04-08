@@ -13,12 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Layer Managers keep track of all the layers connected beneath them.  They are also the nodes that accept references to a variety of Data Mine Products. By establishing references with a particular mine we can easily add all the data associated with it.  ",
-            "updated": 1617640517891
-        },
-        {
-            "style": "Text",
-            "text": "The three main types of data are:"
+            "text": "Layer Managers keep track of all the layers connected beneath them. They are also the nodes that accept references to a variety of Data Mine Products. By establishing references with a particular Mine, we can easily add all the data associated with it. The three main types of data are:",
+            "updated": 1617839461481
         },
         {
             "style": "List",

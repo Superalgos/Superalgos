@@ -3,23 +3,32 @@
     "pageNumber": "14",
     "type": "Adding Charts - Follow the Tree!",
     "definition": {
-        "text": "Follow the Data Storage hierarchy and find the Data Mine Products.",
+        "text": "Follow the Data Mines Data hierarchy and find the Data Mine Products.",
         "icon": {
             "name": "data-mines-data",
             "project": "Superalgos"
         },
-        "updated": 1617328950687
+        "updated": 1617849486659
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "To do this, pin and drag your whole Time Machine over to the Network node and find the Data Storage node. Expand the Data Storage node. You should notice that there are three branches.  One for each type of data we can access in our charts. Since we are interested in Data Mine Products, expand the Data Mines Data node and follow it down. Do you notice any similarity with the other parts of Superalgos you’ve seen? That’s right! The hierarchy is organized according to Project, Exchange, Market, and Data Mine.",
-            "updated": 1617452392093
+            "style": "Callout",
+            "text": "Keep following the hierarchy. See if you can find the Data Mine Products nodes on your own.",
+            "updated": 1617849736915
         },
         {
-            "style": "Note",
-            "text": "This is the same basic organization you will find with other types of data as well.",
-            "updated": 1617328905528
+            "style": "Text",
+            "text": "Did you find them? Keep going farther down the hierarchy until you see them!",
+            "updated": 1617849595158
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Important",
+            "text": "You should see three data mine products nodes. One for each Data Mine install within this Workspace.",
+            "updated": 1617849622065
         }
     ]
 }

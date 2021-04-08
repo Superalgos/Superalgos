@@ -13,13 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The charting system within Superalgos is quite powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place.",
-            "updated": 1617369523502
-        },
-        {
-            "style": "Text",
-            "text": "As I am sure you have figured out by now, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see. You can look at different combinations of Indicators, Backtesting and Live Trading results, even data from different Markets and Exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right!",
-            "updated": 1617631456321
+            "text": "The charting system within Superalgos is quite powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As I am sure you have figured out by now, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see. You can look at different combinations of Indicators, Backtesting and Live Trading results, even data from different Markets and Exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right!",
+            "updated": 1617796990054
         }
     ]
 }

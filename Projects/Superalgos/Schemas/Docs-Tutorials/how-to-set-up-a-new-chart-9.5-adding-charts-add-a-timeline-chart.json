@@ -1,0 +1,33 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "9.5",
+    "type": "Adding Charts - Add a Timeline Chart",
+    "definition": {
+        "text": "Now that we have something to hold our charts, let's go ahead and add one!",
+        "updated": 1617800759702,
+        "icon": {
+            "name": "timeline-chart",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Hover over your Time Machine and click Add Timeline Chart.",
+            "updated": 1617800816707
+        },
+        {
+            "style": "Text",
+            "text": "Just like with time machines, giving a helpful name to a Timeline Chart is important. A good naming practice is to name timeline charts after the Data Mine or Data Product with which it will be connected. Today we will be adding Data Mine data to this timeline chart. So a helpful name would be:",
+            "updated": 1617801165071
+        },
+        {
+            "style": "Json",
+            "text": "Data Mine Layers"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

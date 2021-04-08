@@ -3,23 +3,30 @@
     "pageNumber": "22",
     "type": "Adding Charts - Connection Two",
     "definition": {
-        "text": "And now the second.",
+        "text": "We are almost there! Go drag your Time Machine back over here.",
         "icon": {
             "name": "delink-node",
             "project": "Superalgos"
         },
-        "updated": 1617374736974
+        "updated": 1617886454003
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now we can go back to the Data Storage hierarchy and follow the Trading Mines Data branch until we find the Backtesting Session Reference node that matches the Backtesting Session we just came from.",
-            "updated": 1617453374362
+            "text": "Under the Session Reference node you will see the Trading Mine Products node we are after."
+        },
+        {
+            "style": "Callout",
+            "text": "Now create a reference between your new Layer Manager and the Trading Mind Products node.",
+            "updated": 1617886479339
+        },
+        {
+            "style": "Success",
+            "text": "If you hooked it up correctly, the name Masters should appear over the layer manager."
         },
         {
             "style": "Text",
-            "text": "We are almost there! Under the Backtesting Session Reference node you will see a Trading Mine Products node. Just like before, add a new Timeline Chart (don’t forget to name it). Then create a reference between the Trading Mine Products node and the Layer Manager.",
-            "updated": 1617453393860
+            "text": ""
         }
     ]
 }

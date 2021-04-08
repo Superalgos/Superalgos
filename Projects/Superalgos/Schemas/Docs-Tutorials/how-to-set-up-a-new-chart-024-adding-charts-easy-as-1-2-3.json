@@ -13,18 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Congratulations, your custom chart is now hooked up and working! ",
-            "updated": 1617370495984
-        },
-        {
-            "style": "Text",
-            "text": "You now know the basic steps of chart creation. You can repeat the same steps, adding more Timeline Charts, to connect any combination of data you want.",
-            "updated": 1617651306951
-        },
-        {
-            "style": "Text",
-            "text": "Just a quick reminder, the three types of nodes you can connect a Timeline Chart’s Layer Manager to are:",
-            "updated": 1617370557381
+            "text": "Congratulations, your custom chart is now hooked up and working! You now know the basic steps of chart creation. You can repeat the same steps, adding more Timeline Charts, to connect any combination of data you want. Just a quick reminder, the three types of nodes you can connect a Timeline Chart’s Layer Manager to are:",
+            "updated": 1617886835178
         },
         {
             "style": "List",

@@ -67,6 +67,21 @@
         },
         {
             "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Chaikin Oscillator | chaikinOscillator | chaikinOscillator, zeroLine |",
+            "updated": 1617967606206
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES */\n\n// Bullish cross\nchart.at01hs.chaikinOscillator.previous.chaikinOscillator < \nchart.at01hs.chaikinOscillator.previous.zeroLine && \nchart.at01hs.chaikinOscillator.chaikinOscillator > \nchart.at01hs.chaikinOscillator.zeroLine\n\n// Bearish cross\nchart.at01hs.chaikinOscillator.previous.chaikinOscillator > \nchart.at01hs.chaikinOscillator.previous.zeroLine && \nchart.at01hs.chaikinOscillator.chaikinOscillator < \nchart.at01hs.chaikinOscillator.zeroLine",
+            "updated": 1617967996718
+        },
+        {
+            "style": "Subtitle",
             "text": ""
         }
     ]

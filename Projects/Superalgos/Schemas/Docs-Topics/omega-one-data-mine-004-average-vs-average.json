@@ -39,8 +39,8 @@
         },
         {
             "style": "List",
-            "text": "A zero-line that represents the slow average of the elements.",
-            "updated": 1617960380897
+            "text": "A mid-line that represents the slow average of the elements (it always has the value 1).",
+            "updated": 1617973206308
         },
         {
             "style": "List",
@@ -164,6 +164,21 @@
             "style": "Png",
             "text": "PNGs/Superalgos/Docs/indicators/average-vs-average-user-defined.png",
             "updated": 1617958965558
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Average VS Average | averageVsAverage | bullPriceDeviation, smaPrice, volumeDeviation, openInterestDeviation |",
+            "updated": 1617972838194
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES */\n\n// Average price is increasing compared to the slow average price\nchart.at01hs.averageVsAverage.previous.smaPrice < \nchart.at01hs.averageVsAverage.smaPrice\n\n// Bull Power crosses the mid-line (mid-line is always '1') (Bullish)\nchart.at01hs.averageVsAverage.previous.bullPriceDeviation < 1 &&\nchart.at01hs.averageVsAverage.bullPriceDeviation > 1\n\n// Bull Power crosses the mid-line while Open Interest is above mid-line (Bullish)\n( chart.at01hs.averageVsAverage.previous.bullPriceDeviation < 1 &&\nchart.at01hs.averageVsAverage.bullPriceDeviation > 1 ) &&\nchart.at01hs.averageVsAverage.openInterestDeviation < 1\n\n// Volume increases and SMA Price is below mid-line and SMA Price is getting stronger\nchart.at01hs.averageVsAverage.previous.volumeDeviation < \nchart.at01hs.averageVsAverage.volumeDeviation &&\nchart.at01hs.averageVsAverage.smaPrice < 1 &&\nchart.at01hs.averageVsAverage.previous.smaPrice < \nchart.at01hs.averageVsAverage.smaPrice",
+            "updated": 1617973639173
         },
         {
             "style": "Text",

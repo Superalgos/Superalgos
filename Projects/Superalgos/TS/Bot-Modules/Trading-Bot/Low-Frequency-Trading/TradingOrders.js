@@ -643,7 +643,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
         let message
         let docs
-        
+
         if (order === undefined) {
 
             message = 'Order Status Not Sync With Exchange'
@@ -714,7 +714,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
-            return
+            return true
         }
 
         const AT_EXCHANGE_STATUS = {

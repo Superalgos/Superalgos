@@ -125,6 +125,41 @@
         },
         {
             "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ARPS Slow | slowARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+            "updated": 1617968683265
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Slow */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.slowARPS.previous.apsBull < \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull > \nchart.at01hs.slowARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.slowARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull < \nchart.at01hs.slowARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.slowARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.slowARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.slowARPS.ARPS > 1",
+            "updated": 1617969217661
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ARPS Fast | fastARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+            "updated": 1617969400921
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Fast */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.fastARPS.previous.apsBull < \nchart.at01hs.fastARPS.previous.apsBear && \nchart.at01hs.fastARPS.apsBull > \nchart.at01hs.fastARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.fastARPS.previous.apsBull > \nchart.at01hs.fastARPS.previous.apsBear && \nchart.at01hs.fastARPS.apsBull < \nchart.at01hs.fastARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.fastARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.fastARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.fastARPS.ARPS > 1",
+            "updated": 1617969438749
+        },
+        {
+            "style": "Subtitle",
+            "text": "That Wombo-Combo!",
+            "updated": 1617969861080
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Slow and ARPS Fast combined */\n\n// Fast SMA crosses Slow SMA (Bullish)\nchart.at01hs.fastARPS.previous.SMA < \nchart.at01hs.slowARPS.previous.SMA && \nchart.at01hs.fastARPS.SMA > \nchart.at01hs.slowARPS.SMA\n\n// Fast Bull crosses Slow SMA (Bearish)\nchart.at01hs.fastARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.SMA && \nchart.at01hs.fastARPS.apsBull < \nchart.at01hs.slowARPS.SMA\n\n// Fast Average Price is above Slow Average Price\nchart.at01hs.fastARPS.SMA > chart.at01hs.slowARPS.SMA\n\n// The Fast Average Range is greater than 0.5 & greater than the Slow Average Range\nchart.at01hs.fastARPS.percentageARPS > 0.5 &&\nchart.at01hs.fastARPS.ARPS > chart.at01hs.slowARPS.ARPS",
+            "updated": 1617969959288
+        },
+        {
+            "style": "Subtitle",
             "text": ""
         }
     ]

@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "task"
         },
-        "text": "Let's get going! This is going to be quick anyway, as we are testing a single day worth of historic data."
+        "text": "Let's get going! This is going to be quick anyway, as we are testing a single day worth of historic data.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Forza, iniziamo! Sarà comunque una cosa veloce, perchè stiamo testando dati di una sola giornata.",
+                "updated": 1618060660046
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session."
+            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Eseguire una task di trading è simile a eseguire una task di data mining. La differenza sta nel fatto che, dopo aver lanciato la task, devi anche lanciare la trading session.",
+                    "updated": 1618060706178
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Select Run on the Task menu!<br/><br/>Now select Run on the Backtesting Session menu!",
-            "updated": 1616428472102
+            "updated": 1616428472102,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Seleziona Run dal menu Task, e poi seleziona Run dal menu della Backtesting Session!",
+                    "updated": 1618060790679
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When the progress notice of the Trading Process Instance get's to the 100% mark, stop the task and click Next."
+            "text": "When the progress notice of the Trading Process Instance get's to the 100% mark, stop the task and click Next.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando la progress bar della Trading Process Instance raggiunge il 100%, ferma la task e clicca Next.",
+                    "updated": 1618060849542
+                }
+            ]
         }
     ]
 }

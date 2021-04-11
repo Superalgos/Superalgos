@@ -8,7 +8,14 @@
             "name": "telegram-bot"
         },
         "text": "We strive to help users progress fast and push the boundaries of what is possible with Superalgos! Join the conversation in the...",
-        "updated": 1610957615235
+        "updated": 1610957615235,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo il massimo impegno nell'aiutare gli utenti a migliorare e ridefinire il concetto di cosa sia possibile fare con Superalgos! Unisciti alla conversazione...",
+                "updated": 1618073819599
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -28,7 +35,14 @@
         {
             "style": "Callout",
             "text": "Join the <a href=\"https://t.me/superalgos\" target=\"_blank\" style=\"color:blue;\">Announcements Channel</a> to be the first to know about new releases, hot fixes, and important issues!",
-            "updated": 1610964709408
+            "updated": 1610964709408,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti!",
+                    "updated": 1618073910521
+                }
+            ]
         },
         {
             "style": "Text",

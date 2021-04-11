@@ -1,0 +1,84 @@
+{
+    "topic": "How To",
+    "pageNumber": "3",
+    "type": "Create the Plugins-Docs Branch in Old Forks",
+    "definition": {
+        "text": "If your Superalgos fork is older than April 6, 2021, you must create the plugin-docs branch before you may switch to that branch! Newer forks already have the branch, so you don't need to follow this guide in that case!",
+        "updated": 1618155549345
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "If you didn't create a fork at all, and cloned or downloaded the Superalgos repository directory instead, you will not be able to send your contributions. If that is the case, you will need to close the app, delete the Superalgos folder, and follow the instructions on the README file to fork the repository.",
+            "updated": 1618158446203
+        },
+        {
+            "style": "Title",
+            "text": "1. Go to Your Fork at Github.com"
+        },
+        {
+            "style": "Text",
+            "text": "Your fork is located in the following URL, replacing USERNAME with your actual Github.com username:"
+        },
+        {
+            "style": "Json",
+            "text": "https://github.com/USERNAME/Superalgos/"
+        },
+        {
+            "style": "Title",
+            "text": "2. Make Sure You Are on the Master Branch",
+            "updated": 1618156383837
+        },
+        {
+            "style": "Text",
+            "text": "Check the branch name in the combo box:",
+            "updated": 1618156395319
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/how-to/create-plugins-docs-branch-01.png",
+            "updated": 1618157385110
+        },
+        {
+            "style": "Title",
+            "text": "3. Click on 'master' and type <code>plugins-docs</code> in the Field",
+            "updated": 1618156956365
+        },
+        {
+            "style": "Important",
+            "text": "Make sure the spelling is exact!"
+        },
+        {
+            "style": "Json",
+            "text": "plugins-docs"
+        },
+        {
+            "style": "Title",
+            "text": "4. Click the <code>Create branch: plugins-docs from 'master'</code> Button",
+            "updated": 1618156987815
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/how-to/create-plugins-docs-branch-02.png",
+            "updated": 1618157499323
+        },
+        {
+            "style": "Text",
+            "text": "You should end up with the confirmation that the new branch has been created.",
+            "updated": 1618157121114
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/how-to/create-plugins-docs-branch-03.png",
+            "updated": 1618157524877
+        },
+        {
+            "style": "Title",
+            "text": "5. That's it!"
+        },
+        {
+            "style": "Success",
+            "text": "Now you may go back to the tutorial!"
+        }
+    ]
+}

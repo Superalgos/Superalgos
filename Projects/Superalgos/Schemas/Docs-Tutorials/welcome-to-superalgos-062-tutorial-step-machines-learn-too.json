@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Machines Learn Too!",
     "definition": {
         "icon": {
-            "name": "learning-tasks",
+            "name": "tensorflow-project",
             "project": "Superalgos"
         },
         "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",

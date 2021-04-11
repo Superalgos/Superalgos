@@ -7,13 +7,27 @@
             "project": "Superalgos",
             "name": "trading-engine"
         },
-        "text": "The Trading Engine administers the complexity entailed in automated trading by making information accessible to users and trading systems."
+        "text": "The Trading Engine administers the complexity entailed in automated trading by making information accessible to users and trading systems.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il Trading Engine gestisce la complessità del trading automatico rendendo le informazioni accessibili agli utenti e ai sistemi di trading.",
+                "updated": 1618067277865
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Rember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder:",
-            "updated": 1610536534720
+            "updated": 1610536534720,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ricordi i miei commenti sulla granularità? Ricordi come la formula del trading system prendeva il valore dell'Exit Target Rate? Ecco un promemoria:",
+                    "updated": 1618067378217
+                }
+            ]
         },
         {
             "style": "Json",
@@ -22,7 +36,14 @@
         {
             "style": "Callout",
             "text": "This string holds the path to that piece of information in the data structure of the Trading Engine hierarchy! Can you find the Exit Target Rate node? Expand the hierarchy and follow the breadcrumb trail!",
-            "updated": 1616429836465
+            "updated": 1616429836465,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila!",
+                    "updated": 1618067490282
+                }
+            ]
         }
     ]
 }

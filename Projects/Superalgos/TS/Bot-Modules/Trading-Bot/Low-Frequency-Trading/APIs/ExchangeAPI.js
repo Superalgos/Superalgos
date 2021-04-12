@@ -98,6 +98,13 @@
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
 
             logError("getOrder -> Error = " + err.message);
+            if (err.message === 'coinbasepro NotFound') {
+                logInfo("getOrder -> coinbasepro NotFound, so order is actually closed.")
+                order = {
+                    status: 'NotFound'
+                }
+                return order
+            }
         }
     }
 

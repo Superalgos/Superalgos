@@ -124,10 +124,10 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                         if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value === 'First') { continue }
                         /* When the stage is closing we can not create new orders */
                         if (tradingEngineStage.status.value === 'Closing') { continue }
-                        /* 
+                        /*
                         Check if we can create an order based on the config value for spawnMultipleOrders.
                         Trading System Orders that cannot spawn more than one Trading Engine Order needs to check if
-                        at the Trading Engine Order the lock is Open or Closed. 
+                        at the Trading Engine Order the lock is Open or Closed.
                         */
                         if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                             if (tradingEngineOrder.lock.value === 'Closed') {
@@ -166,7 +166,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                     if (allGood !== true) {
                         /*
-                        For some reason we could not check the order at the exchange, so we will not even check if we 
+                        For some reason we could not check the order at the exchange, so we will not even check if we
                         need to cancel it, since we could end up with inconsistent information at the accounting level.
                         */
                         if (tradingSystemOrder.cancelOrderEvent !== undefined) {
@@ -193,7 +193,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                     /* Check if we need to cancel the order */
                     await checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder)
                     /*
-                    If by this time the order is closed, we need to clone it and get the close 
+                    If by this time the order is closed, we need to clone it and get the close
                     to the Last node at the Trading Engine data structure.
                     */
                     if (tradingEngineOrder.status.value === 'Closed') {
@@ -214,11 +214,11 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
     }
 
     async function checkCancelOrderEvent(tradingEngineStage, executionAlgorithm, executionNode, tradingEngineOrder, tradingSystemOrder) {
-        /* 
-        In the previous steps, we might have discovered that the order was cancelled 
-        at the exchange, or filled, so  the order might still not be Open. 
-        If the stage is closing or the order is not Open, we wont be cancelling orders 
-        based on defined events. 
+        /*
+        In the previous steps, we might have discovered that the order was cancelled
+        at the exchange, or filled, so  the order might still not be Open.
+        If the stage is closing or the order is not Open, we wont be cancelling orders
+        based on defined events.
         */
         if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
@@ -386,7 +386,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
                 tradingEngineOrder.rate.value = TS.projects.superalgos.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.rate.value, 10)
             } else {
-                /* 
+                /*
                 For Market Orders, the rate is irrelevant, since it is not sent to the Exchange.
                 We store at this field the last know price as a reference.
                 */
@@ -640,6 +640,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         }
 
         let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
+        logInfo("checkExchangeEvents -> order.status = " + order.status)
 
         let message
         let docs
@@ -662,59 +663,6 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 ]
             )
             return false
-        }
-
-        if (order === null) {
-            /* 
-            Some exchanges, like Coinbase Pro, deletes orders after being cancelled, and when we request information
-            about them, it returns null. We will interprate this as ORDER NOT FOUND.
-            */
-            message = 'Order Not Found at the Exchange'
-            docs = {
-                project: 'Superalgos',
-                category: 'Topic',
-                type: 'TS LF Trading Bot Warning - ' + message,
-                placeholder: {}
-            }
-
-            tradingSystem.addWarning(
-                [
-                    [tradingSystemOrder.id, tradingEngineOrder.id],
-                    message,
-                    docs
-                ]
-            )
-
-            /* Close this Order */
-            tradingEngineOrder.status.value = 'Closed'
-            /* 
-            We must be carefull here not to overide an already defined exitType. It can happen
-            for instance that the order was cancellerd from the but veryfing the cancellation
-            was not possible because of a connection to the exchange problem. In that case
-            the exit type was defined but the order was kept open until the verification could be done.
-            */
-            if (tradingEngineOrder.exitType.value === tradingEngineOrder.exitType.config.initialValue) {
-                tradingEngineOrder.exitType.value = 'Not Found at the Exchange'
-            }
-            /* Initialize this */
-            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
-
-            await updateEndsWithCycle(tradingEngineOrder)
-
-            let message = "Order Closed"
-            let docs = {
-                project: 'Superalgos',
-                category: 'Topic',
-                type: 'TS LF Trading Bot Info - ' + message,
-                placeholder: {}
-            }
-            contextInfo = {
-                exitType: tradingEngineOrder.exitType.value
-            }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
-            return true
         }
 
         const AT_EXCHANGE_STATUS = {
@@ -783,7 +731,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         if (order.status === AT_EXCHANGE_STATUS.CANCELLED) {
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
-            /* 
+            /*
             We must be carefull here not to overide an already defined exitType. It can happen
             for instance that the order was cancellerd from the but veryfing the cancellation
             was not possible because of a connection to the exchange problem. In that case
@@ -817,7 +765,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         }
 
         /*
-        If the order happens to be at least partially filled, there is a syncronization work 
+        If the order happens to be at least partially filled, there is a syncronization work
         we need to do, that includes discovering which is the Actual Rate the order is being filled,
         the Fees Paid and many other thing we need to account for.
         */
@@ -825,9 +773,9 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
         }
 
-        /* 
+        /*
         Forced Cancellation Check: Here we check if we need to cancel this order because the
-        stage is closing. 
+        stage is closing.
         */
         if (tradingEngineStage.status.value === 'Closing' && tradingEngineOrder.status.value !== 'Closed') {
             await exchangeCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Closing Stage')
@@ -1012,7 +960,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             /* Balances Update */
             switch (true) {
                 /*
-                For Sell orders, the fees are being paid in Quote Asset. 
+                For Sell orders, the fees are being paid in Quote Asset.
                 */
                 case tradingSystemOrder.type === 'Market Sell Order' || tradingSystemOrder.type === 'Limit Sell Order': {
 
@@ -1142,13 +1090,13 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             /* At this point we know which is the exit type for this order */
             tradingEngineOrder.exitType.value = exitType
 
-            /* 
+            /*
             Perhaps the order was filled a bit more between the last time we checked and when it was cancelled.
             To sync our accounting, we need to check the order one last time and if it changed, fix it.
             */
 
             let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
-
+            logInfo("exchangeCancelOrder -> order.status = " + order.status)
             if (order === undefined) {
 
                 const message = 'Order Status Not Sync With Exchange'
@@ -1168,12 +1116,43 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 )
                 return false
             }
+            if (order.status === 'NotFound') {
+                /*
+                Some exchanges, like Coinbase Pro, deletes orders after being cancelled, and when we request information
+                about them, it returns null. We will interprate this as ORDER NOT FOUND.
+                */
+                logInfo("exchangeCancelOrder -> order.status NotFound -> Closing Order")
+                const message = 'Order Not Found at the Exchange'
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Warning - ' + message,
+                    placeholder: {}
+                }
 
-            /* 
-            Close this Order. Note that we are not closing the order until we have the exchange 
+                tradingSystem.addWarning(
+                    [
+                        [tradingSystemOrder.id, tradingEngineOrder.id],
+                        message,
+                        docs
+                    ]
+                )
+                /*
+                We must be carefull here not to overide an already defined exitType. It can happen
+                for instance that the order was cancellerd from the but veryfing the cancellation
+                was not possible because of a connection to the exchange problem. In that case
+                the exit type was defined but the order was kept open until the verification could be done.
+                */
+                if (tradingEngineOrder.exitType.value === tradingEngineOrder.exitType.config.initialValue) {
+                    tradingEngineOrder.exitType.value = 'Not Found at the Exchange'
+                }
+            }
+
+            /*
+            Close this Order. Note that we are not closing the order until we have the exchange
             response with the order details that we can use to syncronize with our accoounting.
-            Otherwise if the connection to the exchange fails, we would have a closed order not 
-            accounted in any way. 
+            Otherwise if the connection to the exchange fails, we would have a closed order not
+            accounted in any way.
             */
             tradingEngineOrder.status.value = 'Closed'
 
@@ -1196,18 +1175,20 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
-            await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
-
+            if (order.status !== 'NotFound') {
+                await syncWithExchange(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order)
+            }
             await recalculateStageSize(tradingEngineStage, tradingEngineOrder)
+            logInfo("exchangeCancelOrder -> Order Closed.")
         }
     }
 
     async function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
-        /* 
-        Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
-        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
-        only the part filled can be considered placed, so we need to substract from the stage size 
-        the remainder. To achieve this with the information we currently have, we are going first 
+        /*
+        Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage
+        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that
+        only the part filled can be considered placed, so we need to substract from the stage size
+        the remainder. To achieve this with the information we currently have, we are going first
         to unaccount the order actual size, and the account only the sizeFilled + the feesPaid.
         */
         tradingEngineStage.stageBaseAsset.sizePlaced.value =
@@ -1231,8 +1212,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
     }
 
     async function applyFeePercentage(feesNodePropertyName, tradingEngineOrder, tradingSystemOrder, feePercentage, percentageFilled) {
-        /* 
-        The exchange fees are taken from the Base Asset or the Quoted Asset depending if we 
+        /*
+        The exchange fees are taken from the Base Asset or the Quoted Asset depending if we
         are buying or selling.
         */
         let feesNode
@@ -1318,7 +1299,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             /* We reset the order data structure inside the Trading Engine to its initial value */
             TS.projects.superalgos.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
-                /* 
+                /*
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.
                  */
                 if (stageStatus === 'Open') {
@@ -1352,5 +1333,8 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         */
         throw 'Error Already Recorded'
     }
-}
 
+    function logInfo(message) {
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] ' + message)
+    }
+}

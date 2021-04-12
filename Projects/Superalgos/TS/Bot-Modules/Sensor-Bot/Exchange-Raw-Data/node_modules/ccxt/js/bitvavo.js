@@ -5,6 +5,7 @@
 const Exchange = require ('./base/Exchange');
 const { ExchangeError, BadSymbol, AuthenticationError, InsufficientFunds, InvalidOrder, ArgumentsRequired, OrderNotFound, InvalidAddress, BadRequest, RateLimitExceeded, PermissionDenied, ExchangeNotAvailable, AccountSuspended, OnMaintenance } = require ('./base/errors');
 const { SIGNIFICANT_DIGITS, DECIMAL_PLACES, TRUNCATE, ROUND } = require ('./base/functions/number');
+const Precise = require ('./base/Precise');
 
 // ----------------------------------------------------------------------------
 
@@ -306,7 +307,7 @@ module.exports = class bitvavo extends Exchange {
                 'precision': precision,
                 'limits': {
                     'amount': {
-                        'min': this.safeFloat (market, 'minOrderInBaseAsset'),
+                        'min': this.safeNumber (market, 'minOrderInBaseAsset'),
                         'max': undefined,
                     },
                     'price': {
@@ -314,7 +315,7 @@ module.exports = class bitvavo extends Exchange {
                         'max': undefined,
                     },
                     'cost': {
-                        'min': this.safeFloat (market, 'minOrderInQuoteAsset'),
+                        'min': this.safeNumber (market, 'minOrderInQuoteAsset'),
                         'max': undefined,
                     },
                 },
@@ -377,7 +378,7 @@ module.exports = class bitvavo extends Exchange {
                 'code': code,
                 'name': name,
                 'active': active,
-                'fee': this.safeFloat (currency, 'withdrawalFee'),
+                'fee': this.safeNumber (currency, 'withdrawalFee'),
                 'precision': precision,
                 'limits': {
                     'amount': {
@@ -393,7 +394,7 @@ module.exports = class bitvavo extends Exchange {
                         'max': undefined,
                     },
                     'withdraw': {
-                        'min': this.safeFloat (currency, 'withdrawalMinAmount'),
+                        'min': this.safeNumber (currency, 'withdrawalMinAmount'),
                         'max': undefined,
                     },
                 },
@@ -450,14 +451,14 @@ module.exports = class bitvavo extends Exchange {
         const marketId = this.safeString (ticker, 'market');
         const symbol = this.safeSymbol (marketId, market, '-');
         const timestamp = this.safeInteger (ticker, 'timestamp');
-        const last = this.safeFloat (ticker, 'last');
-        const baseVolume = this.safeFloat (ticker, 'volume');
-        const quoteVolume = this.safeFloat (ticker, 'volumeQuote');
+        const last = this.safeNumber (ticker, 'last');
+        const baseVolume = this.safeNumber (ticker, 'volume');
+        const quoteVolume = this.safeNumber (ticker, 'volumeQuote');
         const vwap = this.vwap (baseVolume, quoteVolume);
         let change = undefined;
         let percentage = undefined;
         let average = undefined;
-        const open = this.safeFloat (ticker, 'open');
+        const open = this.safeNumber (ticker, 'open');
         if ((open !== undefined) && (last !== undefined)) {
             change = last - open;
             if (open > 0) {
@@ -469,12 +470,12 @@ module.exports = class bitvavo extends Exchange {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'high'),
-            'low': this.safeFloat (ticker, 'low'),
-            'bid': this.safeFloat (ticker, 'bid'),
-            'bidVolume': this.safeFloat (ticker, 'bidSize'),
-            'ask': this.safeFloat (ticker, 'ask'),
-            'askVolume': this.safeFloat (ticker, 'askSize'),
+            'high': this.safeNumber (ticker, 'high'),
+            'low': this.safeNumber (ticker, 'low'),
+            'bid': this.safeNumber (ticker, 'bid'),
+            'bidVolume': this.safeNumber (ticker, 'bidSize'),
+            'ask': this.safeNumber (ticker, 'ask'),
+            'askVolume': this.safeNumber (ticker, 'askSize'),
             'vwap': vwap,
             'open': open,
             'close': last,
@@ -488,14 +489,6 @@ module.exports = class bitvavo extends Exchange {
             'info': ticker,
         };
         return result;
-    }
-
-    parseTickers (tickers, symbols = undefined) {
-        const result = [];
-        for (let i = 0; i < tickers.length; i++) {
-            result.push (this.parseTicker (tickers[i]));
-        }
-        return this.filterByArray (result, 'symbol', symbols);
     }
 
     async fetchTickers (symbols = undefined, params = {}) {
@@ -611,12 +604,11 @@ module.exports = class bitvavo extends Exchange {
         //         feeCurrency: 'EUR'
         //     }
         //
-        const price = this.safeFloat (trade, 'price');
-        const amount = this.safeFloat (trade, 'amount');
-        let cost = undefined;
-        if ((price !== undefined) && (amount !== undefined)) {
-            cost = price * amount;
-        }
+        const priceString = this.safeString (trade, 'price');
+        const amountString = this.safeString (trade, 'amount');
+        const price = this.parseNumber (priceString);
+        const amount = this.parseNumber (amountString);
+        const cost = this.parseNumber (Precise.stringMul (priceString, amountString));
         const timestamp = this.safeInteger (trade, 'timestamp');
         const side = this.safeString (trade, 'side');
         const id = this.safeString2 (trade, 'id', 'fillId');
@@ -627,7 +619,7 @@ module.exports = class bitvavo extends Exchange {
         if (taker !== undefined) {
             takerOrMaker = taker ? 'taker' : 'maker';
         }
-        const feeCost = this.safeFloat (trade, 'fee');
+        const feeCost = this.safeNumber (trade, 'fee');
         let fee = undefined;
         if (feeCost !== undefined) {
             const feeCurrencyId = this.safeString (trade, 'feeCurrency');
@@ -698,11 +690,11 @@ module.exports = class bitvavo extends Exchange {
         //
         return [
             this.safeInteger (ohlcv, 0),
-            this.safeFloat (ohlcv, 1),
-            this.safeFloat (ohlcv, 2),
-            this.safeFloat (ohlcv, 3),
-            this.safeFloat (ohlcv, 4),
-            this.safeFloat (ohlcv, 5),
+            this.safeNumber (ohlcv, 1),
+            this.safeNumber (ohlcv, 2),
+            this.safeNumber (ohlcv, 3),
+            this.safeNumber (ohlcv, 4),
+            this.safeNumber (ohlcv, 5),
         ];
     }
 
@@ -750,13 +742,12 @@ module.exports = class bitvavo extends Exchange {
             const balance = response[i];
             const currencyId = this.safeString (balance, 'symbol');
             const code = this.safeCurrencyCode (currencyId);
-            const account = {
-                'free': this.safeFloat (balance, 'available'),
-                'used': this.safeFloat (balance, 'inOrder'),
-            };
+            const account = this.account ();
+            account['free'] = this.safeString (balance, 'available');
+            account['used'] = this.safeString (balance, 'inOrder');
             result[code] = account;
         }
-        return this.parseBalance (result);
+        return this.parseBalance (result, false);
     }
 
     async fetchDepositAddress (code, params = {}) {
@@ -806,7 +797,7 @@ module.exports = class bitvavo extends Exchange {
             if (price !== undefined) {
                 cost = amount * price;
             } else {
-                cost = this.safeFloat2 (params, 'cost', 'amountQuote');
+                cost = this.safeNumber2 (params, 'cost', 'amountQuote');
             }
             if (cost !== undefined) {
                 const precision = market['precision']['price'];
@@ -819,7 +810,7 @@ module.exports = class bitvavo extends Exchange {
             request['price'] = this.priceToPrecision (symbol, price);
             request['amount'] = this.amountToPrecision (symbol, amount);
         } else if (isStopMarket || isStopLimit) {
-            let stopPrice = this.safeFloat2 (params, 'stopPrice', 'triggerAmount');
+            let stopPrice = this.safeNumber2 (params, 'stopPrice', 'triggerAmount');
             if (stopPrice === undefined) {
                 if (isStopLimit) {
                     throw new ArgumentsRequired (this.id + ' createOrder requires a stopPrice parameter for a ' + type + ' order');
@@ -881,7 +872,7 @@ module.exports = class bitvavo extends Exchange {
         await this.loadMarkets ();
         const market = this.market (symbol);
         let request = {};
-        const amountRemaining = this.safeFloat (params, 'amountRemaining');
+        const amountRemaining = this.safeNumber (params, 'amountRemaining');
         params = this.omit (params, 'amountRemaining');
         if (price !== undefined) {
             request['price'] = this.priceToPrecision (symbol, price);
@@ -945,7 +936,6 @@ module.exports = class bitvavo extends Exchange {
         if (symbol === undefined) {
             throw new ArgumentsRequired (this.id + ' fetchOrder() requires a symbol argument');
         }
-        await this.loadMarkets ();
         await this.loadMarkets ();
         const market = this.market (symbol);
         const request = {
@@ -1172,26 +1162,13 @@ module.exports = class bitvavo extends Exchange {
         const status = this.parseOrderStatus (this.safeString (order, 'status'));
         const side = this.safeString (order, 'side');
         const type = this.safeString (order, 'orderType');
-        const price = this.safeFloat (order, 'price');
-        const amount = this.safeFloat (order, 'amount');
-        let remaining = this.safeFloat (order, 'amountRemaining');
-        let filled = this.safeFloat (order, 'filledAmount');
-        const remainingCost = this.safeFloat (order, 'remainingCost');
-        if ((remainingCost !== undefined) && (remainingCost === 0.0)) {
-            remaining = 0;
-        }
-        if ((amount !== undefined) && (remaining !== undefined)) {
-            filled = Math.max (0, amount - remaining);
-        }
-        const cost = this.safeFloat (order, 'filledAmountQuote');
-        let average = undefined;
-        if (cost !== undefined) {
-            if (filled) {
-                average = cost / filled;
-            }
-        }
+        const price = this.safeNumber (order, 'price');
+        const amount = this.safeNumber (order, 'amount');
+        const remaining = this.safeNumber (order, 'amountRemaining');
+        const filled = this.safeNumber (order, 'filledAmount');
+        const cost = this.safeNumber (order, 'filledAmountQuote');
         let fee = undefined;
-        const feeCost = this.safeFloat (order, 'feePaid');
+        const feeCost = this.safeNumber (order, 'feePaid');
         if (feeCost !== undefined) {
             const feeCurrencyId = this.safeString (order, 'feeCurrency');
             const feeCurrencyCode = this.safeCurrencyCode (feeCurrencyId);
@@ -1200,32 +1177,24 @@ module.exports = class bitvavo extends Exchange {
                 'currency': feeCurrencyCode,
             };
         }
-        let lastTradeTimestamp = undefined;
-        const rawTrades = this.safeValue (order, 'fills');
-        let trades = undefined;
-        if (rawTrades !== undefined) {
-            trades = this.parseTrades (rawTrades, market, undefined, undefined, {
-                'symbol': symbol,
-                'order': id,
-                'side': side,
-            });
-            const numTrades = trades.length;
-            if (numTrades > 0) {
-                const lastTrade = this.safeValue (trades, numTrades - 1);
-                lastTradeTimestamp = lastTrade['timestamp'];
-            }
-        }
+        const rawTrades = this.safeValue (order, 'fills', []);
+        const trades = this.parseTrades (rawTrades, market, undefined, undefined, {
+            'symbol': symbol,
+            'order': id,
+            'side': side,
+            'type': type,
+        });
         const timeInForce = this.safeString (order, 'timeInForce');
         const postOnly = this.safeValue (order, 'postOnly');
         // https://github.com/ccxt/ccxt/issues/8489
-        const stopPrice = this.safeFloat (order, 'triggerPrice');
-        return {
+        const stopPrice = this.safeNumber (order, 'triggerPrice');
+        return this.safeOrder ({
             'info': order,
             'id': id,
             'clientOrderId': undefined,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'lastTradeTimestamp': lastTradeTimestamp,
+            'lastTradeTimestamp': undefined,
             'symbol': symbol,
             'type': type,
             'timeInForce': timeInForce,
@@ -1235,13 +1204,13 @@ module.exports = class bitvavo extends Exchange {
             'stopPrice': stopPrice,
             'amount': amount,
             'cost': cost,
-            'average': average,
+            'average': undefined,
             'filled': filled,
             'remaining': remaining,
             'status': status,
             'fee': fee,
             'trades': trades,
-        };
+        });
     }
 
     async fetchMyTrades (symbol = undefined, since = undefined, limit = undefined, params = {}) {
@@ -1436,11 +1405,11 @@ module.exports = class bitvavo extends Exchange {
         const currencyId = this.safeString (transaction, 'symbol');
         const code = this.safeCurrencyCode (currencyId, currency);
         const status = this.parseTransactionStatus (this.safeString (transaction, 'status'));
-        const amount = this.safeFloat (transaction, 'amount');
+        const amount = this.safeNumber (transaction, 'amount');
         const address = this.safeString (transaction, 'address');
         const txid = this.safeString (transaction, 'txId');
         let fee = undefined;
-        const feeCost = this.safeFloat (transaction, 'fee');
+        const feeCost = this.safeNumber (transaction, 'fee');
         if (feeCost !== undefined) {
             fee = {
                 'cost': feeCost,

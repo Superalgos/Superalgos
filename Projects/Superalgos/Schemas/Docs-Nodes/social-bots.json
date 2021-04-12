@@ -1,3 +1,19 @@
 {
-    "type": "Social Bots"
+    "type": "Social Bots",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Social Bots node contains children nodes for each messaging bot. These messaging bots are used to configure the third party applications used to send announcements and receive incoming commands.",
+            "updated": 1618221943424
+        },
+        {
+            "style": "Note",
+            "text": "At present Superalgos only supports the Telegram messaging application.",
+            "updated": 1618221056200
+        }
+    ],
+    "definition": {
+        "text": "A Social Bots node is used to define the bots for each messaging application. These messaging bots are used to send announcements and receive commands used to interact with Superalgos.",
+        "updated": 1618222853055
+    }
 }

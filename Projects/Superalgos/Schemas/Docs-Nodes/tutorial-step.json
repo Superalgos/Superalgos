@@ -56,7 +56,8 @@
         },
         {
             "style": "Text",
-            "text": "Setting up a reference to a time machine node in the charting space hierarchy while using the below parameter causes the following:"
+            "text": "Setting up a reference to a time machine node in the Charting Space hierarchy while using the below parameter causes the following:",
+            "updated": 1617706853889
         },
         {
             "style": "List",
@@ -81,7 +82,8 @@
         },
         {
             "style": "Text",
-            "text": "Setting up a reference to a time machine node in the charting space hierarchy and using the below parameters allows simulating the pressing of relevant key combinations when on a time machine."
+            "text": "Setting up a reference to a time machine node in the charting space hierarchy and using the below parameters allows replicating the pressing of relevant key combinations when on a time machine.",
+            "updated": 1617706916777
         },
         {
             "style": "Javascript",
@@ -103,17 +105,22 @@
         },
         {
             "style": "Text",
-            "text": "The batchConfigChangesReferenceParent parameter allows you to edit the configuration of a referenced node and their offspring.",
-            "updated": 1613846892311
+            "text": "The batchConfigChangesReferenceParent property allows you to edit the configuration of a referenced node and their offspring.",
+            "updated": 1617707009812
         },
         {
             "style": "Text",
             "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the nodePath is the path of the node whose configuration must be changed relative to the referenceParent, and the properties parameter is the actual configuration to be set."
         },
         {
-            "style": "Javascript",
-            "text": "    \"batchConfigChangesReferenceParent\": [\n        {\n            \"nodePath\": \"referenceParent.timeScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"fromDate\": \"2020-08-31T23:40:00.000Z\",\n                \"toDate\": \"2020-09-01T01:00:00.000Z\"\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.rateScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"minValue\": 11400,\n                \"maxValue\": 11800\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.timeFrameScale\",\n            \"properties\": {\n                \"value\": \"01-min\"\n            }\n        }\n    ]",
-            "updated": 1613846829780
+            "style": "Json",
+            "text": "\"batchConfigChangesReferenceParent\": [\n        {\n            \"nodePath\": \"referenceParent.timeScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"fromDate\": \"2020-08-31T23:40:00.000Z\",\n                \"toDate\": \"2020-09-01T01:00:00.000Z\"\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.rateScale\",\n            \"properties\": {\n                \"autoMinScale\": false,\n                \"autoMaxScale\": false,\n                \"minValue\": 11400,\n                \"maxValue\": 11800\n            }\n        },\n        {\n            \"nodePath\": \"referenceParent.timeFrameScale\",\n            \"properties\": {\n                \"value\": \"01-min\"\n            }\n        }\n    ]",
+            "updated": 1617707082553
+        },
+        {
+            "style": "Success",
+            "text": "A typical use case for this resource is when you wish to bring to user to a specific point in a chart, but it may be used for any other case that requires manipulating node's configurations.",
+            "updated": 1617707174287
         }
     ]
 }

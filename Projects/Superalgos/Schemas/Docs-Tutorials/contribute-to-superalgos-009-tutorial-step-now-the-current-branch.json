@@ -13,13 +13,18 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Now it's time to change the Current Branch! When you do that, the app will run a series of Git commands that will download the software from the develop branch of your fork! The current software will be automatically replaced on your disk! For that reason, you will need to close the app after switching, restart, find the tutorial and resume to keep going!",
-            "updated": 1617017990927
+            "text": "Next in line is switching the Current Branch, but we need to run some checks first!",
+            "updated": 1618154759190
         },
         {
-            "style": "Important",
-            "text": "But before you switch branches, let's take a moment to think of the consequences!",
-            "updated": 1617008246622
+            "style": "Callout",
+            "text": "If you forked the Superalgos repo before April 6th, 2021, follow the instructions on this page to create the plugins-docs branch. Otherwise, keep going!",
+            "updated": 1618154888356
+        },
+        {
+            "style": "Text",
+            "text": "When you switch branches, the app will run a series of Git commands that will download the software from the plugins-docs branch of your fork! The current software will be replaced on your disk! For that reason, you will need to close the app after switching. But let's discuss a couple more things before you proceed!",
+            "updated": 1618159009151
         }
     ]
 }

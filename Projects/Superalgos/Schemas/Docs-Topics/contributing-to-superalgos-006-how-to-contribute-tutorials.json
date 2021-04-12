@@ -1,0 +1,409 @@
+{
+    "topic": "Contributing to Superalgos",
+    "pageNumber": "6",
+    "type": "How to Contribute Tutorials",
+    "definition": {
+        "text": "Tutorials are the ultimate educational resource available in Superalgos, and they play a crucial role during the onboarding of new users. Contributing tutorials is a great way to help the project grow the user base and is highly appreciated!",
+        "updated": 1617710488028
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This page discusses best practices to build and contribute Superalgos tutorials. It doesn't cover the actual mechanics of building tutorials. Instead, it focuses on what is desirable.",
+            "updated": 1617732597782
+        },
+        {
+            "style": "Title",
+            "text": "The Quest for Quality",
+            "updated": 1617710819169
+        },
+        {
+            "style": "Text",
+            "text": "At Superalgos, we take pride in the quality of the product we are building. Documentation and tutorials are crucial parts of Superalgos.",
+            "updated": 1617732636344
+        },
+        {
+            "style": "Text",
+            "text": "That said, we understand that it takes time and effort to get to a quality product, thus iterating on early prototypes and implementing early-stage feedback is a good way to achieve the desired quality standards.",
+            "updated": 1617732666027
+        },
+        {
+            "style": "Success",
+            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers.",
+            "updated": 1617712109958
+        },
+        {
+            "style": "Title",
+            "text": "The Associated Workspace",
+            "updated": 1617712309440
+        },
+        {
+            "style": "Text",
+            "text": "To deliver the best possible experience, a tutorial must be featured in a specific Workspace, and the workspace must be custom-tailored to serve the tutorial. The workspace must be clean and feature the assets required for the learning experience to be optimal. It is best to keep the workspace clean, light, and stripped of unnecessary resources.",
+            "updated": 1617732813825
+        },
+        {
+            "style": "Title",
+            "text": "Tutorial Series & Planning",
+            "updated": 1617712970783
+        },
+        {
+            "style": "Text",
+            "text": "Some topics are broad, have ramifications, or require a nuanced analysis to be covered thoroughly. In such cases, planning for a series of tutorials is ideal.",
+            "updated": 1617712578718
+        },
+        {
+            "style": "Text",
+            "text": "Take, for example, the series of tutorials in the Trading System Design Tutorials Plugin Workspace:",
+            "updated": 1617712745906
+        },
+        {
+            "style": "List",
+            "text": "The first tutorial in the series gives a broad introduction to the topic, mostly in conceptual terms. This allows users to see the big picture and learn how the concepts are structured and why they are structured the way they are."
+        },
+        {
+            "style": "List",
+            "text": "The second tutorial in the series proposes an exercise that takes several more tutorials to develop and implement. That is, the tutorial sets the basis for what the series will cover.",
+            "updated": 1617732839409
+        },
+        {
+            "style": "List",
+            "text": "The remaining tutorials in the series dissect the exercise proposed earlier and cover with a fine level of detail the implementation. At the same time, they cover all the context and many lateral topics.",
+            "updated": 1617732881797
+        },
+        {
+            "style": "Note",
+            "text": "The whole series threads a common theme and develops it from the simplest to the most complex concepts, step by step. A tutorial series must be exhaustive and eventually, cover the whole topic. It must become the ultimate tool to learn about the subject matter!",
+            "updated": 1617732933799
+        },
+        {
+            "style": "Title",
+            "text": "The Target Audience",
+            "updated": 1617713465981
+        },
+        {
+            "style": "Text",
+            "text": "People are different. We all have slightly different wirings in our heads, and we all learn differently. In that sense, building tutorials is a bit of a challenge. Some people like tutorials that go straight to the point and show them how to solve a very specific issue. Others prefer tutorials that get to the bone, explain every detail, and properly cover the context.",
+            "updated": 1617733011186
+        },
+        {
+            "style": "Text",
+            "text": "At this early stage, we can't afford to duplicate efforts and build different tutorials for different kinds of learners. We have to choose the method that best serves the project.",
+            "updated": 1617714108723
+        },
+        {
+            "style": "Important",
+            "text": "We choose to focus on building comprehensive tutorials that everyone can follow and that leaves no one behind. We believe that a tutorial that goes slow, covering every detail, and taking the time to explain the nuance is the right approach at this stage. By building tutorials in a such manner, we guarantee that those who are willing to invest the time to learn the system have adequate material to quickly become power users.",
+            "updated": 1617733086141
+        },
+        {
+            "style": "Text",
+            "text": "Such tutorials may be slightly annoying to fast-learners, or to people that just want a specific question answered. But such needs are already covered by the searchable knowledge base comprised in the Docs.",
+            "updated": 1617714293925
+        },
+        {
+            "style": "Title",
+            "text": "Communication Resources",
+            "updated": 1617720397017
+        },
+        {
+            "style": "Text",
+            "text": "Let's get into some of the specifics on building tutorials for Superalgos!",
+            "updated": 1617720149756
+        },
+        {
+            "style": "Callout",
+            "text": "Superalgos tutorials have evolved through several months worth of feedback from early adopters. We feel we have found a sweet spot, and have started to develop a style in the way we use the space available in each tutorial step. The following are some notes that will help you build tutorials that match the format of existing tutorials.",
+            "updated": 1617733117832
+        },
+        {
+            "style": "Title",
+            "text": "Consistent Use of Space and Styles",
+            "updated": 1617904223037
+        },
+        {
+            "style": "Text",
+            "text": "Use the different sections on the page and the different paragraph styles for consistent purposes. This helps users get accustomed to a certain format so that they know what to expect from each section of the page. Consistency in the way the information is delivered makes tutorials more usable!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Definition Box"
+        },
+        {
+            "style": "Text",
+            "text": "The definition box is the space to the right of the icon, below the title. Use this space to introduce what the step is about, that is, to set up the story the step will tell, or to provide some basic context. ",
+            "updated": 1617902992986
+        },
+        {
+            "style": "Note",
+            "text": "To use the definition box correctly, explain the context in four to five lines. Avoid one or two lines or anything over five.",
+            "updated": 1617903200520
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Call For Action"
+        },
+        {
+            "style": "Text",
+            "text": "The most important section on any given step is the call for action, that is, the instruction that the user must follow to progress in the tutorial. Many times users redo tutorials or go back a few steps just to make sure they did everything right. ",
+            "updated": 1617904108044
+        },
+        {
+            "style": "Callout",
+            "text": "Always use the callout style — the one applied to this paragraph — for the call for action! Similarly, try to avoid using this style for anything else. If the particular step doesn't have a call for action, then the step should not feature this style at all!"
+        },
+        {
+            "style": "Text",
+            "text": "Each tutorial step should have a single call for action, that is, a single instruction that the user must carry out. This is the ideal case scenario. There may be exceptions, for example, when we ask the user to read a page in the Docs and do something else as the main instruction.",
+            "updated": 1617904124728
+        },
+        {
+            "style": "Success",
+            "text": "In general terms and when possible, try to avoid giving the user more than one task on the same step. Instead, if you expect the user to perform several sequential actions, try to split the process into more than one step — as many as it takes.",
+            "updated": 1617904133804
+        },
+        {
+            "style": "Text",
+            "text": "In some cases, you may need the user to take a very simple action so that the main call for action may be delivered. In such cases, you may use the definition box to tell the user how to get ready to execute the call for action delivered later in the page."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Alternating Colors",
+            "updated": 1617906135945
+        },
+        {
+            "style": "Text",
+            "text": "Colorful tutorial steps look great, while a white pages full of text feel too much like non-interactive documentation. Makes sure you break the monotony with the four different styles of boxes:",
+            "updated": 1617906625458
+        },
+        {
+            "style": "Success",
+            "text": "This is great for additional tips."
+        },
+        {
+            "style": "Note",
+            "text": "Use this every once in a while to break up otherwise large sections of plain text."
+        },
+        {
+            "style": "Important",
+            "text": "Leave this box for the truly important stuff. Things you don't want users to overlook or forget.",
+            "updated": 1617906591147
+        },
+        {
+            "style": "Warning",
+            "text": "And this one, save it for real warnings. Things that may represent a threat or risk.",
+            "updated": 1617906578635
+        },
+        {
+            "style": "Title",
+            "text": "Use of Docs Pages"
+        },
+        {
+            "style": "Text",
+            "text": "When you need the user to learn about a specific concept to get the proper context on the subject, do not replicate in the tutorial information that exists in the Docs. Duplicating information is not a good idea, as it makes it harder to maintain the Docs and tutorials.",
+            "updated": 1617730695174
+        },
+        {
+            "style": "Success",
+            "text": "Asking the user to read a page or a section of a page in the Docs is the correct approach. This has the added benefit of making the user aware that the Docs cover the topic too.",
+            "updated": 1617724009821
+        },
+        {
+            "style": "Important",
+            "text": "If you find that the relevant page in the Docs is outdated, doesn't cover the topic with the appropriate depth, or maybe even doesn't exist, helping create, complete, and/or improve the delivery of the information in the Docs is just as valuable as building the tutorial! Long format explanations do not fit well in tutorials. They do fit well in the Docs!",
+            "updated": 1617733203373
+        },
+        {
+            "style": "Title",
+            "text": "Interactivity",
+            "updated": 1617724494717
+        },
+        {
+            "style": "Text",
+            "text": "The whole point of tutorials — and the main difference with the Docs as learning material — is that they offer the opportunity for hands-on learning. Tutorials are interactive while the Docs are less so!",
+            "updated": 1617730782624
+        },
+        {
+            "style": "Callout",
+            "text": "Make sure you use this quality to the fullest, but also try to maintain a certain balance!",
+            "updated": 1617725782977
+        },
+        {
+            "style": "List",
+            "text": "If the tutorial is talking about a hierarchy, a group of nodes, or a particular node, make sure that the tutorial step takes you to that place in the Workspace. This adds a visual element to the explanation and helps the user get familiar with the data structures involved.",
+            "updated": 1617725808080
+        },
+        {
+            "style": "List",
+            "text": "Tutorials can affect the Workspace in many ways replicating actions the user may do. When you want the user to learn to do something, it's best to ask the user to do it, instead of having the tutorial do it for the user.",
+            "updated": 1617733271488
+        },
+        {
+            "style": "List",
+            "text": "On the other hand, the tutorial should take care of doing certain things that are not conducive to learning something relevant to the context of the tutorial. Performing these actions directly may help keep the user focused on what matters most.",
+            "updated": 1617733297397
+        },
+        {
+            "style": "List",
+            "text": "In some cases, the actions users take may have certain effects. Showing users the outcome of their actions immediately after completing a task has a great educational value. For example, if the user is setting up a new Time Machine in a tutorial about the Charting Space, show users how the time machine appears in the charting space immediately after creating it. If users then set up a Timeline Chart that references a particular Data Mine, show users how the new Timeline Chart appears within the Time Machine, and let them verify that the expected layer managers are there. Don't be afraid to go back and forth... that is the whole point after all!",
+            "updated": 1617905020985
+        },
+        {
+            "style": "Title",
+            "text": "Tooltips",
+            "updated": 1617731886888
+        },
+        {
+            "style": "Text",
+            "text": "The system recognizes the name of all entities that have a Docs Page when the name of the entity is written in title case. When that happens, the system automatically creates a tooltip for the phrase. This is a valuable resource, as it provides context that you don't need to explain.",
+            "updated": 1617731953773
+        },
+        {
+            "style": "Text",
+            "text": "Make sure you use this resource wisely, as too many tooltips on a single tutorial page may be overwhelming, and probably irrelevant."
+        },
+        {
+            "style": "Success",
+            "text": "When you believe the tooltip is relevant, then write the name of the entity in title case. If the tooltip is not relevant, then write the name of the entity in lower case.",
+            "updated": 1617733407351
+        },
+        {
+            "style": "Title",
+            "text": "Naming of Nodes",
+            "updated": 1617731585276
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos is a complex system. Helping users develop good organizational habits is highly desirable. The more top-level users we may help form, the more powerful the project becomes.",
+            "updated": 1617732614881
+        },
+        {
+            "style": "Text",
+            "text": "When users create new data structures, it's good practice to have them name the relevant nodes. This is particularly important with nodes that pass on their names through references to other nodes.",
+            "updated": 1617733435330
+        },
+        {
+            "style": "Note",
+            "text": "Make sure your tutorial goes the extra mile and reminds users to name those kinds of nodes. Proposing a specific name is ideal. Remember that the user may not know what comes next or what the node is used for at the time of creation, so they may not know what a relevant name may be. But you do, so you may propose a name that is consistent with the tutorial's goal.",
+            "updated": 1617731598259
+        },
+        {
+            "style": "Title",
+            "text": "Look & Feel",
+            "updated": 1617722154194
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "There is a philosophical debate on whether beauty is objective or subjective. Some people think beauty is in the eyes of the beholder, while others believe that there are inherently beautiful things.",
+            "updated": 1617733474625
+        },
+        {
+            "style": "Callout",
+            "text": "Whatever the case may be, we want the overall look & feel of tutorials to be consistent!",
+            "updated": 1617733495986
+        },
+        {
+            "style": "Text",
+            "text": "Here's a list of requirements that help tutorials be consistent in their look & feel:",
+            "updated": 1617722868882
+        },
+        {
+            "style": "List",
+            "text": "Always use an icon to illustrate the step. Sometimes the appropriate icon is the one corresponding to the node the user is working with. Other times you may use icons figuratively, playing with alternate meanings of what the drawing may represent."
+        },
+        {
+            "style": "List",
+            "text": "Avoid stud step pages. Steps with very little content seem empty and feel strange. You don't need to feel the space with gibberish or unnecessary information. Instead, try to use the space to provide context for the call for action. Explain why the user is asked to do this or that. Let the user know what may be expected from the action and so on.",
+            "updated": 1617733584684
+        },
+        {
+            "style": "List",
+            "text": "As a corollary of the above, the opposite case may be problematic too. That is, when the content barely fits the page and gets too close to the row of buttons fixed at the bottom of each step. The problem is that some browsers / OS combinations render styles slightly differently, and what may seem close to the buttons in one system may overlap the buttons in the next. Try to level at least one full empty line — preferably two.",
+            "updated": 1617733668851
+        },
+        {
+            "style": "List",
+            "text": "Do not set two consecutive paragraphs with the same style. The only exception is for bullet lists. Even the Docs Text Style is not formated to look good as consecutive paragraphs in the context of a tutorial (there is no padding between paragraphs).",
+            "updated": 1617723650896
+        },
+        {
+            "style": "Title",
+            "text": "Titles"
+        },
+        {
+            "style": "Text",
+            "text": "Always use proper title case for titles. But, what exactly is proper title case? Let's agree to the standard propose in this blog post:",
+            "updated": 1617902503383
+        },
+        {
+            "style": "Link",
+            "text": "Capitalization of titles 101->www.grammarcheck.net/capitalization-in-titles-101/",
+            "updated": 1617902444077
+        },
+        {
+            "style": "Success",
+            "text": "Titles look best when they span a single line. Use two-line titles only if strictly necessary!",
+            "updated": 1617902549247
+        },
+        {
+            "style": "Subtitle",
+            "text": "Unique Identifiers",
+            "updated": 1617905396529
+        },
+        {
+            "style": "Important",
+            "text": "Remember that the title of a tutorial step is also the unique identifier of the corresponding Docs Page. This means that the system does not allow for duplicate titles. Avoid at all costs naming pages after single words or short phrases. Let's leave those unique names for particular cases that may merit the use of such special phrases."
+        },
+        {
+            "style": "Text",
+            "text": "For the same reason, all titles should begin with the following fixed string of text:",
+            "updated": 1617905464492
+        },
+        {
+            "style": "Json",
+            "text": "Tutorial Step - ",
+            "updated": 1617905492001
+        },
+        {
+            "style": "Text",
+            "text": "The above helps reserve some phrases for contexts different than tutorials.",
+            "updated": 1617905844332
+        },
+        {
+            "style": "Success",
+            "text": "Don't worry! Your titles will not look ugly in the tutorial, as the system filters the prefix and doesn't show it in the tutorial window!",
+            "updated": 1617905922481
+        },
+        {
+            "style": "Title",
+            "text": "Proper English",
+            "updated": 1617733994160
+        },
+        {
+            "style": "Text",
+            "text": "There are at least two reasons why it's desirable to have spell and grammar-checked tutorials:",
+            "updated": 1617734204593
+        },
+        {
+            "style": "List",
+            "text": "Proper language speaks to the quality of the product."
+        },
+        {
+            "style": "List",
+            "text": "Users who don't speak English may be using online translators, which perform well only when they have a proper source."
+        },
+        {
+            "style": "Important",
+            "text": "Always use a grammar and spell-checker to make sure your tutorial is as correct as it may be!",
+            "updated": 1617734220351
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

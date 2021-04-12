@@ -3,8 +3,8 @@
     "pageNumber": 8,
     "type": "Tutorial Step - Switching Branches",
     "definition": {
-        "text": "The master branch in the Superalgos repo features the latest stable version, while the develop branch features the version in development!",
-        "updated": 1616759979604,
+        "text": "Superalgos allows you to switch branches directly from within the app! But, why would you want to switch branches?",
+        "updated": 1618145423371,
         "icon": {
             "name": "github",
             "project": "Superalgos"
@@ -18,13 +18,13 @@
         },
         {
             "style": "Success",
-            "text": "Or you may wish to submit a contribution, which must always be sent to the develop branch!",
-            "updated": 1616760455582
+            "text": "Or you may wish to submit a contribution, like in our case right now! Let's do it!",
+            "updated": 1618145540691
         },
         {
             "style": "Callout",
-            "text": "Scroll down the Docs page to the footer and select Develop as your Contributions Branch! It's the option on the right-hand side, not in the center!",
-            "updated": 1616760852432
+            "text": "Scroll down the Docs page to the footer and select Plugins/Docs as your Contributions Branch! It's the option on the right-hand side, not in the center!",
+            "updated": 1618145561816
         }
     ]
 }

@@ -641,10 +641,13 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
 
         let order = await exchangeAPIModuleObject.getOrder(tradingSystemOrder, tradingEngineOrder)
 
+        let message
+        let docs
+
         if (order === undefined) {
 
-            const message = 'Order Status Not Sync With Exchange'
-            let docs = {
+            message = 'Order Status Not Sync With Exchange'
+            docs = {
                 project: 'Superalgos',
                 category: 'Topic',
                 type: 'TS LF Trading Bot Warning - ' + message,
@@ -659,6 +662,59 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                 ]
             )
             return false
+        }
+
+        if (order === null) {
+            /* 
+            Some exchanges, like Coinbase Pro, deletes orders after being cancelled, and when we request information
+            about them, it returns null. We will interprate this as ORDER NOT FOUND.
+            */
+            message = 'Order Not Found at the Exchange'
+            docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Warning - ' + message,
+                placeholder: {}
+            }
+
+            tradingSystem.addWarning(
+                [
+                    [tradingSystemOrder.id, tradingEngineOrder.id],
+                    message,
+                    docs
+                ]
+            )
+
+            /* Close this Order */
+            tradingEngineOrder.status.value = 'Closed'
+            /* 
+            We must be carefull here not to overide an already defined exitType. It can happen
+            for instance that the order was cancellerd from the but veryfing the cancellation
+            was not possible because of a connection to the exchange problem. In that case
+            the exit type was defined but the order was kept open until the verification could be done.
+            */
+            if (tradingEngineOrder.exitType.value === tradingEngineOrder.exitType.config.initialValue) {
+                tradingEngineOrder.exitType.value = 'Not Found at the Exchange'
+            }
+            /* Initialize this */
+            tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.closeOrder.value = 1
+
+            await updateEndsWithCycle(tradingEngineOrder)
+
+            let message = "Order Closed"
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Info - ' + message,
+                placeholder: {}
+            }
+            contextInfo = {
+                exitType: tradingEngineOrder.exitType.value
+            }
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+            tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
+            return true
         }
 
         const AT_EXCHANGE_STATUS = {

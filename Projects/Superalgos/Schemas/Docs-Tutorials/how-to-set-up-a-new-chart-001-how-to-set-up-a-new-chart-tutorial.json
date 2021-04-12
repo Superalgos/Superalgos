@@ -1,0 +1,16 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "1",
+    "type": "How to Set up a New Chart Tutorial",
+    "definition": {
+        "text": "This Tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
+        "updated": 1617371694835
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This tutorial can be found in the Creating Custom Charts Workspace",
+            "updated": 1617660792312
+        }
+    ]
+}

@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You may have two clones of your fork running from separate folders, one of them in the develop branch.",
-            "updated": 1617018731051
+            "text": "You may have two clones of your fork running from separate folders, each on different branches.",
+            "updated": 1618158812449
         },
         {
             "style": "Note",
@@ -23,8 +23,8 @@
         },
         {
             "style": "Success",
-            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in develop to contribute and test new features!",
-            "updated": 1617018806324
+            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in another branch to contribute and test new features! But you can't run two versions at the same time, unless you change ports! We won't go there now!",
+            "updated": 1618148172616
         }
     ]
 }

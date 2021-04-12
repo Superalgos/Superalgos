@@ -20,7 +20,8 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
 
-**NOTE FOR RASPBERRY PI USERS:** From the SSH Terminal, send the following commands to install Node. **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
+**NOTE FOR RASPBERRY PI USERS:** You may install Node.JS just like you would on any other machine as per the above instructions. As an alternative, you may also try the following from the SSH Terminal. **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
+
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 ```
@@ -53,8 +54,7 @@ Git is an open-source distributed version control system required to download an
 
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
-**NOTE FOR RASPBERRY PI USERS:**
-Send the SSH Terminal command to install git. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
+**NOTE FOR RASPBERRY PI USERS:** Just like with Node.JS, you may follow the above instructions to install Git, or us the SSH Terminal command. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
 ```
 sudo apt-get install git
 ```
@@ -148,7 +148,7 @@ A Welcome Tutorial pops-up automatically. You must do this Tutorial to finish th
 
 ![run-the-system-01](https://user-images.githubusercontent.com/13994516/107037804-e5fc6200-67bb-11eb-82f2-d0f40247fa14.gif)
 
-If you are running a headless Raspberry Pi (one without a screen) it is recommended to use the following instead.
+If you are running a headless Raspberry Pi (one without a screen) you may need to change directories first and run Superalgos with the `minMemo` and `noBrowser` options.
 ```
 cd Superalgos
 ```
@@ -348,6 +348,11 @@ No problem, code or integrate libraries with your own version of any component a
 * Superalgos may be integrated into your existing operation, feeding to and from other systems.
 
 # Support
+
+The Superalgos Community meets on several Telegram groups.
+
+> **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!**
+Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way. Our [Community Safetey Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.
 
 ## Via Telegram
 

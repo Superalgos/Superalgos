@@ -1,0 +1,25 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "4",
+    "type": "Adding Charts - Charts without Tears",
+    "definition": {
+        "text": "I've got your back!",
+        "updated": 1617630234092,
+        "icon": {
+            "name": "charting-space",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are just starting out here in Superalgos, all this freedom might be a bit overwhelming. That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination.",
+            "updated": 1617632679120
+        },
+        {
+            "style": "Note",
+            "text": "The goal of this tutorial is to teach you how to make custom charts. But if you are looking for a quick fix, the next step will walk you through the easiest way to add a new working chart. After that we will dig into the good stuff!",
+            "updated": 1617630368066
+        }
+    ]
+}

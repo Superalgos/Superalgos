@@ -3,8 +3,8 @@
     "pageNumber": 21,
     "type": "Docs Anchor Style",
     "definition": {
-        "text": "Anchor paragraphs are used together with the Docs Goto Command. When you want to generate a Docs Link to an specific part of a Docs Page, you first need to create an Anchor paragraph in order to be able to create the link to that part of the page.",
-        "updated": 1615591597546
+        "text": "Anchor paragraphs are used together with the Docs Goto Command. When you want to generate a Docs Link to a specific part of a Docs Page, you first need to create an Anchor paragraph to be able to create the link to the specific paragraph in the page.",
+        "updated": 1617649387777
     },
     "paragraphs": [
         {

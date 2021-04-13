@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "binance"
         },
-        "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!"
+        "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prima di lanciare la Live Trading Session, assicurati di avere abbastanza USDT nel tuo wallet spot sull'exchange.",
+                "updated": 1618070262891
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look at your balance at the exchange and arrange for enough USDT for the session!"
+            "text": "Take a look at your balance at the exchange and arrange for enough USDT for the session!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione!",
+                    "updated": 1618070327486
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled, as explained earlier."
+            "text": "The Trading Bot will place one limit order for the initialBalance, and cancel it the next minute in case it is not filled, as explained earlier.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Trading Bot inserirà un limit order del valore di initialBalance, e lo cancellerà il minuto successivo se non viene evaso, come spiegato prima.",
+                    "updated": 1618070448288
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Keep going even if you are not ready to trade. You'll learn a few more tricks before we finish.",
-            "updated": 1616431994687
+            "updated": 1616431994687,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Continua il tutorial anche se non sei pronto al live trading. Imparerai altri trucchi utili prima della fine.",
+                    "updated": 1618070434600
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "10",
+    "type": "Adding Charts - Why is It Blank?",
+    "definition": {
+        "text": "Woohoo, you did it! You have added your first custom chart.",
+        "updated": 1617636144825,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, at this point, your chart is pretty boring.",
+            "updated": 1617636174999
+        },
+        {
+            "style": "Callout",
+            "text": "Check the Charting Space. Your Time Machine is there, but it is totally blank. ",
+            "updated": 1617801603388
+        },
+        {
+            "style": "Text",
+            "text": "That’s because we haven’t hooked it up to any of your data. Let’s change that!",
+            "updated": 1617801613196
+        }
+    ]
+}

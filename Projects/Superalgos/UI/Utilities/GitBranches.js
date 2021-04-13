@@ -16,8 +16,8 @@ function newSuperalgosUtilitiesGitBranches() {
                 branchLabel = 'Develop'
                 break
             }
-            case 'bug-fixes': {
-                branchLabel = 'Bug Fixes'
+            case 'plugins-docs': {
+                branchLabel = 'Plugins/Docs'
                 break
             }
         }

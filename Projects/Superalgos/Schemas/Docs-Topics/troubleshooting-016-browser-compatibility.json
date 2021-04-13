@@ -1,0 +1,41 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "16",
+    "type": "Browser Compatibility",
+    "definition": {
+        "text": "There is no recommended browser to use!",
+        "updated": 1618298878638
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While there is no recommended browser to use with Superalgos, there is the need to use a common base for developers and users to develop SA and troubleshoot possible errors. As of today Chrome is one of the most used browser worldwide and that's why it's suggested to use it. Some users reported that Edge and Brave browser both based on chromium project are working with no (or minor) issues.",
+            "updated": 1618299516232
+        },
+        {
+            "style": "List",
+            "text": "Chrome -> Common base browser used by devs to develop SA and troubleshoot issues"
+        },
+        {
+            "style": "List",
+            "text": "Edge -> Based on chromium, unknown issues"
+        },
+        {
+            "style": "List",
+            "text": "Brave -> Based on chromium, unknown issues. Shields should be set down",
+            "updated": 1618300294258
+        },
+        {
+            "style": "List",
+            "text": "Firefox -> No reports, unknown"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

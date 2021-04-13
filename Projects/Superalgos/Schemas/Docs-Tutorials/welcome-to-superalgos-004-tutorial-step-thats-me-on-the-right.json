@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico!",
-                "updated": 1613595123263,
+                "text": "test* Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico!",
+                "updated": 1618308718993,
                 "style": "Definition"
             },
             {
@@ -42,8 +42,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos es intrínsecamente una herramienta visual. El sistema representa la información en estructuras jerárquicas de nodos interconectados, representados por iconos. Lo que ve a su derecha es una de estas jerarquías, en concreto, una jerarquía de Tutorial con una etiqueta que dice Welcome to Superalgos!",
-                    "updated": 1613595175809,
+                    "text": "Superalgos es intrínsecamente una herramienta visual. El sistema representa la información en estructuras jerárquicas de nodos interconectados, representados por iconos. Lo que ve a su derecha es una de estas jerarquías, en concreto, una jerarquía de Tutorial con una etiqueta que dice Welcome to Superalgos!  Warning!!! This translation is outdated. English version is... Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies—in particular, a Tutorial hierarchy. In this case, \"tutorial\" is the type of node and \"Welcome to Superalgos!\" is the name of the node. Please update this translation.",
+                    "updated": 1618308709145,
                     "style": "Text"
                 },
                 {

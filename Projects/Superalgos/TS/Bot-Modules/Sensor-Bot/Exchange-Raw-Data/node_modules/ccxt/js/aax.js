@@ -5,6 +5,7 @@
 const Exchange = require ('./base/Exchange');
 const { ArgumentsRequired, AuthenticationError, ExchangeError, ExchangeNotAvailable, OrderNotFound, InvalidOrder, CancelPending, RateLimitExceeded, InsufficientFunds, BadRequest, BadSymbol, PermissionDenied } = require ('./base/errors');
 const { TICK_SIZE } = require ('./base/functions/number');
+const Precise = require ('./base/Precise');
 
 // ----------------------------------------------------------------------------
 
@@ -35,6 +36,7 @@ module.exports = class aax extends Exchange {
                 'fetchOrder': true,
                 'fetchOrderBook': true,
                 'fetchOrders': true,
+                'fetchStatus': true,
                 'fetchTicker': 'emulated',
                 'fetchTickers': true,
                 'fetchTrades': true,
@@ -233,6 +235,37 @@ module.exports = class aax extends Exchange {
         });
     }
 
+    async fetchStatus (params = {}) {
+        const response = await this.publicGetAnnouncementMaintenance (params);
+        //
+        //     {
+        //         "code": 1,
+        //         "data": {
+        //             "startTime":"2020-06-25T02:15:00.000Z",
+        //             "endTime":"2020-06-25T02:45:00.000Z"，
+        //             "description":"Spot Trading :UTC Jun 25, 2020 02:15 to 02:45 (HKT Jun 25 10:15 to 10:45),Futures Trading: UTC Jun 25, 2020 02:15 to 02:45 (HKT Jun 25 10:15 to 10:45).We apologize for any inconvenience caused. Thank you for your patience and understanding.Should you have any enquiries, please do not hesitate our live chat support or via email at cs@aax.com."
+        //         },
+        //         "message":"success",
+        //         "ts":1593043237000
+        //     }
+        //
+        const data = this.safeValue (response, 'data', {});
+        const timestamp = this.milliseconds ();
+        const startTime = this.parse8601 (this.safeString (data, 'startTime'));
+        const endTime = this.parse8601 (this.safeString (data, 'endTime'));
+        const update = {
+            'updated': this.safeInteger (response, 'ts', timestamp),
+        };
+        if (endTime !== undefined) {
+            const startTimeIsOk = (startTime === undefined) ? true : (timestamp < startTime);
+            const isOk = (timestamp > endTime) || startTimeIsOk;
+            update['eta'] = endTime;
+            update['status'] = isOk ? 'ok' : 'maintenance';
+        }
+        this.status = this.extend (this.status, update);
+        return this.status;
+    }
+
     async fetchMarkets (params = {}) {
         const response = await this.publicGetInstruments (params);
         //
@@ -318,8 +351,8 @@ module.exports = class aax extends Exchange {
             const quote = this.safeCurrencyCode (quoteId);
             const status = this.safeString (market, 'status');
             const active = (status === 'enable');
-            const taker = this.safeFloat (market, 'takerFee');
-            const maker = this.safeFloat (market, 'makerFee');
+            const taker = this.safeNumber (market, 'takerFee');
+            const maker = this.safeNumber (market, 'makerFee');
             const type = this.safeString (market, 'type');
             let inverse = undefined;
             let linear = undefined;
@@ -337,8 +370,8 @@ module.exports = class aax extends Exchange {
                 symbol = base + '/' + quote;
             }
             const precision = {
-                'amount': this.safeFloat (market, 'lotSize'),
-                'price': this.safeFloat (market, 'tickSize'),
+                'amount': this.safeNumber (market, 'lotSize'),
+                'price': this.safeNumber (market, 'tickSize'),
             };
             result.push ({
                 'id': id,
@@ -396,8 +429,8 @@ module.exports = class aax extends Exchange {
         const timestamp = this.safeInteger (ticker, 't');
         const marketId = this.safeString (ticker, 's');
         const symbol = this.safeSymbol (marketId, market);
-        const last = this.safeFloat (ticker, 'c');
-        const open = this.safeFloat (ticker, 'o');
+        const last = this.safeNumber (ticker, 'c');
+        const open = this.safeNumber (ticker, 'o');
         let change = undefined;
         let percentage = undefined;
         let average = undefined;
@@ -408,13 +441,13 @@ module.exports = class aax extends Exchange {
             }
             average = this.sum (last, open) / 2;
         }
-        const quoteVolume = this.safeFloat (ticker, 'v');
+        const quoteVolume = this.safeNumber (ticker, 'v');
         return {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'h'),
-            'low': this.safeFloat (ticker, 'l'),
+            'high': this.safeNumber (ticker, 'h'),
+            'low': this.safeNumber (ticker, 'l'),
             'bid': undefined,
             'bidVolume': undefined,
             'ask': undefined,
@@ -561,8 +594,8 @@ module.exports = class aax extends Exchange {
         if (market !== undefined) {
             symbol = market['symbol'];
         }
-        let price = this.safeFloat2 (trade, 'p', 'filledPrice');
-        const amount = this.safeFloat2 (trade, 'q', 'filledQty');
+        let priceString = this.safeString2 (trade, 'p', 'filledPrice');
+        const amountString = this.safeString2 (trade, 'q', 'filledQty');
         const orderId = this.safeString (trade, 'orderID');
         const isTaker = this.safeValue (trade, 'taker');
         let takerOrMaker = undefined;
@@ -576,17 +609,15 @@ module.exports = class aax extends Exchange {
             side = 'sell';
         }
         if (side === undefined) {
-            side = (price > 0) ? 'buy' : 'sell';
+            side = (priceString[0] === '-') ? 'sell' : 'buy';
         }
-        side = (price > 0) ? 'buy' : 'sell';
-        price = Math.abs (price);
-        let cost = undefined;
-        if ((price !== undefined) && (amount !== undefined)) {
-            cost = price * amount;
-        }
+        priceString = (priceString[0] === '-') ? priceString.slice (1) : priceString;
+        const price = this.parseNumber (priceString);
+        const amount = this.parseNumber (amountString);
+        const cost = this.parseNumber (Precise.stringMul (priceString, amountString));
         const orderType = this.parseOrderType (this.safeString (trade, 'orderType'));
         let fee = undefined;
-        const feeCost = this.safeFloat (trade, 'commission');
+        const feeCost = this.safeNumber (trade, 'commission');
         if (feeCost !== undefined) {
             let feeCurrency = undefined;
             if (market !== undefined) {
@@ -654,11 +685,11 @@ module.exports = class aax extends Exchange {
         //
         return [
             this.safeTimestamp (ohlcv, 5),
-            this.safeFloat (ohlcv, 0),
-            this.safeFloat (ohlcv, 1),
-            this.safeFloat (ohlcv, 2),
-            this.safeFloat (ohlcv, 3),
-            this.safeFloat (ohlcv, 4),
+            this.safeNumber (ohlcv, 0),
+            this.safeNumber (ohlcv, 1),
+            this.safeNumber (ohlcv, 2),
+            this.safeNumber (ohlcv, 3),
+            this.safeNumber (ohlcv, 4),
         ];
     }
 
@@ -743,12 +774,12 @@ module.exports = class aax extends Exchange {
                 const currencyId = this.safeString (balance, 'currency');
                 const code = this.safeCurrencyCode (currencyId);
                 const account = this.account ();
-                account['free'] = this.safeFloat (balance, 'available');
-                account['used'] = this.safeFloat (balance, 'unavailable');
+                account['free'] = this.safeString (balance, 'available');
+                account['used'] = this.safeString (balance, 'unavailable');
                 result[code] = account;
             }
         }
-        return this.parseBalance (result);
+        return this.parseBalance (result, false);
     }
 
     async createOrder (symbol, type, side, amount, price = undefined, params = {}) {
@@ -776,7 +807,7 @@ module.exports = class aax extends Exchange {
             request['clOrdID'] = clientOrderId;
             params = this.omit (params, [ 'clOrdID', 'clientOrderId' ]);
         }
-        const stopPrice = this.safeFloat (params, 'stopPrice');
+        const stopPrice = this.safeNumber (params, 'stopPrice');
         if (stopPrice === undefined) {
             if ((orderType === 'STOP-LIMIT') || (orderType === 'STOP')) {
                 throw new ArgumentsRequired (this.id + ' createOrder() requires a stopPrice parameter for ' + orderType + ' orders');
@@ -894,7 +925,7 @@ module.exports = class aax extends Exchange {
             // 'price': this.priceToPrecision (symbol, price),
             // 'stopPrice': this.priceToPrecision (symbol, stopPrice),
         };
-        const stopPrice = this.safeFloat (params, 'stopPrice');
+        const stopPrice = this.safeNumber (params, 'stopPrice');
         if (stopPrice !== undefined) {
             request['stopPrice'] = this.priceToPrecision (symbol, stopPrice);
             params = this.omit (params, 'stopPrice');
@@ -1531,15 +1562,18 @@ module.exports = class aax extends Exchange {
         const marketId = this.safeString (order, 'symbol');
         market = this.safeMarket (marketId, market);
         const symbol = market['symbol'];
-        const price = this.safeFloat (order, 'price');
-        const stopPrice = this.safeFloat (order, 'stopPrice');
+        const price = this.safeNumber (order, 'price');
+        const stopPrice = this.safeNumber (order, 'stopPrice');
         const timeInForce = this.parseTimeInForce (this.safeString (order, 'timeInForce'));
         const execInst = this.safeString (order, 'execInst');
         const postOnly = (execInst === 'Post-Only');
-        const average = this.safeFloat (order, 'avgPrice');
-        const amount = this.safeFloat (order, 'orderQty');
-        const filled = this.safeFloat (order, 'cumQty');
-        const remaining = this.safeString (order, 'leavesQty');
+        const average = this.safeNumber (order, 'avgPrice');
+        const amount = this.safeNumber (order, 'orderQty');
+        const filled = this.safeNumber (order, 'cumQty');
+        let remaining = this.safeNumber (order, 'leavesQty');
+        if ((filled === 0) && (remaining === 0)) {
+            remaining = undefined;
+        }
         let cost = undefined;
         let lastTradeTimestamp = undefined;
         if (filled !== undefined) {
@@ -1554,7 +1588,7 @@ module.exports = class aax extends Exchange {
             }
         }
         let fee = undefined;
-        const feeCost = this.safeFloat (order, 'commission');
+        const feeCost = this.safeNumber (order, 'commission');
         if (feeCost !== undefined) {
             let feeCurrency = undefined;
             if (market !== undefined) {

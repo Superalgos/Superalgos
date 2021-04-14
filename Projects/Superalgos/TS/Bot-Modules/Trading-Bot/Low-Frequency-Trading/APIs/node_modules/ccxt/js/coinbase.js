@@ -4,6 +4,7 @@
 
 const Exchange = require ('./base/Exchange');
 const { ExchangeError, ArgumentsRequired, AuthenticationError, RateLimitExceeded, InvalidNonce } = require ('./base/errors');
+const Precise = require ('./base/Precise');
 
 // ----------------------------------------------------------------------------
 
@@ -411,10 +412,10 @@ module.exports = class coinbase extends Exchange {
         const timestamp = this.parse8601 (this.safeValue (transaction, 'created_at'));
         const updated = this.parse8601 (this.safeValue (transaction, 'updated_at'));
         const type = this.safeString (transaction, 'resource');
-        const amount = this.safeFloat (subtotalObject, 'amount');
+        const amount = this.safeNumber (subtotalObject, 'amount');
         const currencyId = this.safeString (subtotalObject, 'currency');
         const currency = this.safeCurrencyCode (currencyId);
-        const feeCost = this.safeFloat (feeObject, 'amount');
+        const feeCost = this.safeNumber (feeObject, 'amount');
         const feeCurrencyId = this.safeString (feeObject, 'currency');
         const feeCurrency = this.safeCurrencyCode (feeCurrencyId);
         const fee = {
@@ -490,15 +491,12 @@ module.exports = class coinbase extends Exchange {
         const orderId = undefined;
         const side = this.safeString (trade, 'resource');
         const type = undefined;
-        const cost = this.safeFloat (subtotalObject, 'amount');
-        const amount = this.safeFloat (amountObject, 'amount');
-        let price = undefined;
-        if (cost !== undefined) {
-            if ((amount !== undefined) && (amount > 0)) {
-                price = cost / amount;
-            }
-        }
-        const feeCost = this.safeFloat (feeObject, 'amount');
+        const costString = this.safeString (subtotalObject, 'amount');
+        const amountString = this.safeString (amountObject, 'amount');
+        const cost = this.parseNumber (costString);
+        const amount = this.parseNumber (amountString);
+        const price = this.parseNumber (Precise.stringDiv (costString, amountString));
+        const feeCost = this.safeNumber (feeObject, 'amount');
         const feeCurrencyId = this.safeString (feeObject, 'currency');
         const feeCurrency = this.safeCurrencyCode (feeCurrencyId);
         const fee = {
@@ -566,7 +564,7 @@ module.exports = class coinbase extends Exchange {
                                 'max': undefined,
                             },
                             'cost': {
-                                'min': this.safeFloat (quoteCurrency, 'min_size'),
+                                'min': this.safeNumber (quoteCurrency, 'min_size'),
                                 'max': undefined,
                             },
                         },
@@ -648,7 +646,7 @@ module.exports = class coinbase extends Exchange {
                 'precision': undefined,
                 'limits': {
                     'amount': {
-                        'min': this.safeFloat (currency, 'min_size'),
+                        'min': this.safeNumber (currency, 'min_size'),
                         'max': undefined,
                     },
                     'price': {
@@ -679,9 +677,9 @@ module.exports = class coinbase extends Exchange {
         const buy = await this.publicGetPricesSymbolBuy (request);
         const sell = await this.publicGetPricesSymbolSell (request);
         const spot = await this.publicGetPricesSymbolSpot (request);
-        const ask = this.safeFloat (buy['data'], 'amount');
-        const bid = this.safeFloat (sell['data'], 'amount');
-        const last = this.safeFloat (spot['data'], 'amount');
+        const ask = this.safeNumber (buy['data'], 'amount');
+        const bid = this.safeNumber (sell['data'], 'amount');
+        const last = this.safeNumber (spot['data'], 'amount');
         return {
             'symbol': symbol,
             'timestamp': timestamp,
@@ -724,7 +722,7 @@ module.exports = class coinbase extends Exchange {
             if (this.inArray (balance['type'], accounts)) {
                 const currencyId = this.safeString (balance['balance'], 'currency');
                 const code = this.safeCurrencyCode (currencyId);
-                const total = this.safeFloat (balance['balance'], 'amount');
+                const total = this.safeNumber (balance['balance'], 'amount');
                 const free = total;
                 const used = undefined;
                 if (code in result) {
@@ -1025,7 +1023,7 @@ module.exports = class coinbase extends Exchange {
         //     }
         //
         const amountInfo = this.safeValue (item, 'amount', {});
-        let amount = this.safeFloat (amountInfo, 'amount');
+        let amount = this.safeNumber (amountInfo, 'amount');
         let direction = undefined;
         if (amount < 0) {
             direction = 'out';
@@ -1051,7 +1049,7 @@ module.exports = class coinbase extends Exchange {
         if (feeInfo !== undefined) {
             const feeCurrencyId = this.safeString (feeInfo, 'currency');
             const feeCurrencyCode = this.safeCurrencyCode (feeCurrencyId, currency);
-            const feeAmount = this.safeFloat (feeInfo, 'amount');
+            const feeAmount = this.safeNumber (feeInfo, 'amount');
             fee = {
                 'cost': feeAmount,
                 'currency': feeCurrencyCode,

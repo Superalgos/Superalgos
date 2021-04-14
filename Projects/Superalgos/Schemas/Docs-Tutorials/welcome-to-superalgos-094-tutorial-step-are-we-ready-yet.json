@@ -8,21 +8,49 @@
             "name": "indicator-process-instance"
         },
         "text": "Resistances and Supports Multi-Period-Daily to the left is the last of the processes to finish.",
-        "updated": 1610643083669
+        "updated": 1610643083669,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Resistances and Supports Multi-Period-Daily a sinistra è l'ultimo processo a terminare.",
+                "updated": 1618071215837
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If this process is at 100%, then we are ready to go."
+            "text": "If this process is at 100%, then we are ready to go.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se il processo è a 100%, allora siamo pronti a iniziare.",
+                    "updated": 1618071233196
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal!"
+            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ad ogni modo, non succede niente di catastrofico se tenti di lanciare una Live Trading Session quando gl indicatori non sono pronti. Ti viene semplicemente notificato un errore. Nessun problema quindi!",
+                    "updated": 1618071277306
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "In the next step I'll ask you to start the Task and the Live Trading Session. If you choose not to, keep going with the tutorial as if you had...",
-            "updated": 1610643323637
+            "updated": 1610643323637,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo step ti chiederò di lanciare la Task e la Live Trading Session. Se non vuoi farlo, continua con il tutorial come se niente fosse.",
+                    "updated": 1618071315670
+                }
+            ]
         }
     ]
 }

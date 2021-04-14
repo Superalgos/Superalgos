@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, Nosotros! (los tutoriales) funcionamos.",
-                "updated": 1618436347889
+                "updated": 1618436347889,
+                "style": "Definition"
             }
         ]
     },
@@ -49,7 +50,8 @@
                 {
                     "language": "ES",
                     "text": "En resumen, tu eres el Jefe!",
-                    "updated": 1618436575558
+                    "updated": 1618436575558,
+                    "style": "Success"
                 }
             ]
         },
@@ -67,7 +69,8 @@
                 {
                     "language": "ES",
                     "text": "Puedes detener un tutorial y saltarte pasos -o temas enteros- en cualquier momento. Una vez que estés listo para retomar la lección, búscanos en la sección inferior del Design space.. Selecciona Resume en el menú para continuar donde lo dejaste, o en el primer paso que te saltaste. Selecciona Play para empezar desde el principio.",
-                    "updated": 1618436484170
+                    "updated": 1618436484170,
+                    "style": "Text"
                 }
             ]
         },
@@ -89,8 +92,9 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Vamos a probar esto! . Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
-                    "updated": 1618436541587
+                    "text": "Vamos a probar algo!. Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
+                    "updated": 1618437777462,
+                    "style": "Callout"
                 }
             ]
         }

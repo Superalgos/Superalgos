@@ -2,7 +2,7 @@
 
 All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
-> **IMPORTANT:** Minimalist hardware —both virtual and physical— is better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GIU to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave minimalist hardware for when you are ready to start trading live.
+> **IMPORTANT:** Minimalist hardware —both virtual and physical— is better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave minimalist hardware for when you are ready to start trading live.
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -130,7 +130,7 @@ In order to migrate your own workspaces to Beta 9, you will need to open My Work
 
 ### Renaming of Exchange Folders
 
-In Beta 9, the `exchange id` is used at the code and folder names instead of the exchange name. To migrate to Beta 9 users running on case sensitive Operating Systems (like Linux) must rename their Data-Storage Exchange folders using the Id of the exchange (in the case of Binance, it's the same name, but with lower-case b: binance). If you are using a different exchange, look at its node configuration and use the value at the property `codeName` to name the folder.
+In Beta 9, the `exchange id` is used at the code and folder names instead of the exchange name. To migrate to Beta 9, users running on case sensitive Operating Systems (like Linux) must rename their Data-Storage Exchange folders using the Id of the exchange (in the case of Binance, it's the same name, but with lower-case b: binance). If you are using a different exchange, look at its node configuration and use the value at the property `codeName` to name the folder.
 
 # Usage
 

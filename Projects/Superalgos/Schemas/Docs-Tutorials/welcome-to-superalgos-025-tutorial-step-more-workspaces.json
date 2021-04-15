@@ -18,7 +18,13 @@
             {
                 "language": "ID",
                 "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri!",
-                "updated": 1616770406123
+                "updated": 1616770406123,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Sí. Algunos de ellos son plugins que vienen con el sistema y otros son los tuyos propios! ",
+                "updated": 1618438936999
             }
         ]
     },
@@ -37,7 +43,13 @@
                 {
                     "language": "ID",
                     "text": "Segera setelah memulai sistem, workspace akan tersimpan setiap menit. Hal itu juga tersimpan sebelum menutup browser atau tab browser, dan juga bisa simpan manual dengan Ctrl + Shift + Key-S",
-                    "updated": 1616770552231
+                    "updated": 1616770552231,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tan pronto como empiezas a usar el sistema, el workspace es guardado cada minuto. También se guarda antes de cerrar el navegador o la pestaña del navegador, y puedes guardarlo manualmente utilizando las teclas Ctrl + Shift + Key-S",
+                    "updated": 1618439054191
                 }
             ]
         },
@@ -54,7 +66,13 @@
                 {
                     "language": "ID",
                     "text": "Saat workspace plugin dimodifikasi dalam cara apapun, salinan akan tersimpan di folder My-Workspaces.",
-                    "updated": 1616770626561
+                    "updated": 1616770626561,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando un plugin workspace se modifica de alguna manera, se almacena una copia en la carpeta  My-Workspaces.",
+                    "updated": 1618439039856
                 }
             ]
         },
@@ -71,7 +89,13 @@
                 {
                     "language": "ID",
                     "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem!",
-                    "updated": 1616770726775
+                    "updated": 1616770726775,
+                    "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los archivos de los plugins no pueden ser modificados desde el sistema!",
+                    "updated": 1618439194749
                 }
             ]
         }

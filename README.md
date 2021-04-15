@@ -107,7 +107,7 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 **C.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
 
-## 4. Migrating from Superalgos Beta 8
+## 4. Migrating from Superalgos Beta 8 (skip this step if you are a new user)
 
 ### Refactorings 
 

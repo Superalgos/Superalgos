@@ -4,6 +4,7 @@
 
 const Exchange = require ('./base/Exchange');
 const { ExchangeError, AccountSuspended, ArgumentsRequired, AuthenticationError, DDoSProtection, ExchangeNotAvailable, InvalidOrder, OrderNotFound, PermissionDenied, InsufficientFunds, BadSymbol, RateLimitExceeded, BadRequest } = require ('./base/errors');
+const Precise = require ('./base/Precise');
 
 //  ---------------------------------------------------------------------------
 
@@ -229,9 +230,9 @@ module.exports = class bibox extends Exchange {
             const quote = this.safeCurrencyCode (quoteId);
             symbol = base + '/' + quote;
         }
-        const last = this.safeFloat (ticker, 'last');
-        const change = this.safeFloat (ticker, 'change');
-        const baseVolume = this.safeFloat2 (ticker, 'vol', 'vol24H');
+        const last = this.safeNumber (ticker, 'last');
+        const change = this.safeNumber (ticker, 'change');
+        const baseVolume = this.safeNumber2 (ticker, 'vol', 'vol24H');
         let open = undefined;
         if ((last !== undefined) && (change !== undefined)) {
             open = last - change;
@@ -245,11 +246,11 @@ module.exports = class bibox extends Exchange {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'high'),
-            'low': this.safeFloat (ticker, 'low'),
-            'bid': this.safeFloat (ticker, 'buy'),
+            'high': this.safeNumber (ticker, 'high'),
+            'low': this.safeNumber (ticker, 'low'),
+            'bid': this.safeNumber (ticker, 'buy'),
             'bidVolume': undefined,
-            'ask': this.safeFloat (ticker, 'sell'),
+            'ask': this.safeNumber (ticker, 'sell'),
             'askVolume': undefined,
             'vwap': undefined,
             'open': open,
@@ -260,7 +261,7 @@ module.exports = class bibox extends Exchange {
             'percentage': percentage,
             'average': undefined,
             'baseVolume': baseVolume,
-            'quoteVolume': this.safeFloat (ticker, 'amount'),
+            'quoteVolume': this.safeNumber (ticker, 'amount'),
             'info': ticker,
         };
     }
@@ -274,17 +275,6 @@ module.exports = class bibox extends Exchange {
         };
         const response = await this.publicGetMdata (this.extend (request, params));
         return this.parseTicker (response['result'], market);
-    }
-
-    parseTickers (rawTickers, symbols = undefined) {
-        const tickers = [];
-        for (let i = 0; i < rawTickers.length; i++) {
-            const ticker = this.parseTicker (rawTickers[i]);
-            if ((symbols === undefined) || (this.inArray (ticker['symbol'], symbols))) {
-                tickers.push (ticker);
-            }
-        }
-        return tickers;
     }
 
     async fetchTickers (symbols = undefined, params = {}) {
@@ -319,7 +309,7 @@ module.exports = class bibox extends Exchange {
             symbol = market['symbol'];
         }
         let fee = undefined;
-        const feeCost = this.safeFloat (trade, 'fee');
+        const feeCost = this.safeNumber (trade, 'fee');
         let feeCurrency = this.safeString (trade, 'fee_symbol');
         if (feeCurrency !== undefined) {
             if (feeCurrency in this.currencies_by_id) {
@@ -329,12 +319,11 @@ module.exports = class bibox extends Exchange {
             }
         }
         const feeRate = undefined; // todo: deduce from market if market is defined
-        const price = this.safeFloat (trade, 'price');
-        const amount = this.safeFloat (trade, 'amount');
-        let cost = undefined;
-        if (price !== undefined && amount !== undefined) {
-            cost = price * amount;
-        }
+        const priceString = this.safeString (trade, 'price');
+        const amountString = this.safeString (trade, 'amount');
+        const price = this.parseNumber (priceString);
+        const amount = this.parseNumber (amountString);
+        const cost = this.parseNumber (Precise.stringMul (priceString, amountString));
         if (feeCost !== undefined) {
             fee = {
                 'cost': -feeCost,
@@ -385,7 +374,7 @@ module.exports = class bibox extends Exchange {
             request['size'] = limit; // default = 200
         }
         const response = await this.publicGetMdata (this.extend (request, params));
-        return this.parseOrderBook (response['result'], this.safeFloat (response['result'], 'update_time'), 'bids', 'asks', 'price', 'volume');
+        return this.parseOrderBook (response['result'], this.safeNumber (response['result'], 'update_time'), 'bids', 'asks', 'price', 'volume');
     }
 
     parseOHLCV (ohlcv, market = undefined) {
@@ -401,11 +390,11 @@ module.exports = class bibox extends Exchange {
         //
         return [
             this.safeInteger (ohlcv, 'time'),
-            this.safeFloat (ohlcv, 'open'),
-            this.safeFloat (ohlcv, 'high'),
-            this.safeFloat (ohlcv, 'low'),
-            this.safeFloat (ohlcv, 'close'),
-            this.safeFloat (ohlcv, 'vol'),
+            this.safeNumber (ohlcv, 'open'),
+            this.safeNumber (ohlcv, 'high'),
+            this.safeNumber (ohlcv, 'low'),
+            this.safeNumber (ohlcv, 'close'),
+            this.safeNumber (ohlcv, 'vol'),
         ];
     }
 
@@ -497,7 +486,7 @@ module.exports = class bibox extends Exchange {
                         'max': undefined,
                     },
                     'withdraw': {
-                        'min': this.safeFloat (currency, 'withdraw_min'),
+                        'min': this.safeNumber (currency, 'withdraw_min'),
                         'max': undefined,
                     },
                 },
@@ -629,19 +618,17 @@ module.exports = class bibox extends Exchange {
                 code = this.currencies_by_id[code]['code'];
             }
             const account = this.account ();
-            let balance = indexed[id];
+            const balance = indexed[id];
             if (typeof balance === 'string') {
-                balance = parseFloat (balance);
                 account['free'] = balance;
-                account['used'] = 0.0;
                 account['total'] = balance;
             } else {
-                account['free'] = this.safeFloat (balance, 'balance');
-                account['used'] = this.safeFloat (balance, 'freeze');
+                account['free'] = this.safeString (balance, 'balance');
+                account['used'] = this.safeString (balance, 'freeze');
             }
             result[code] = account;
         }
-        return this.parseBalance (result);
+        return this.parseBalance (result, false);
     }
 
     async fetchDeposits (code = undefined, since = undefined, limit = undefined, params = {}) {
@@ -732,8 +719,8 @@ module.exports = class bibox extends Exchange {
         let tag = this.safeString (transaction, 'addr_remark');
         const type = this.safeString (transaction, 'type');
         const status = this.parseTransactionStatusByType (this.safeString (transaction, 'status'), type);
-        const amount = this.safeFloat (transaction, 'amount');
-        let feeCost = this.safeFloat (transaction, 'fee');
+        const amount = this.safeNumber (transaction, 'amount');
+        let feeCost = this.safeNumber (transaction, 'fee');
         if (type === 'deposit') {
             feeCost = 0;
             tag = undefined;
@@ -841,26 +828,19 @@ module.exports = class bibox extends Exchange {
         if (market !== undefined) {
             symbol = market['symbol'];
         }
-        const type = (order['order_type'] === 1) ? 'market' : 'limit';
-        const timestamp = order['createdAt'];
-        const price = this.safeFloat (order, 'price');
-        const average = this.safeFloat (order, 'deal_price');
-        const filled = this.safeFloat (order, 'deal_amount');
-        const amount = this.safeFloat (order, 'amount');
-        let cost = this.safeFloat2 (order, 'deal_money', 'money');
-        let remaining = undefined;
-        if (filled !== undefined) {
-            if (amount !== undefined) {
-                remaining = amount - filled;
-            }
-            if (cost === undefined) {
-                cost = price * filled;
-            }
-        }
-        const side = (order['order_side'] === 1) ? 'buy' : 'sell';
+        const rawType = this.safeString (order, 'order_type');
+        const type = (rawType === '1') ? 'market' : 'limit';
+        const timestamp = this.safeInteger (order, 'createdAt');
+        const price = this.safeNumber (order, 'price');
+        const average = this.safeNumber (order, 'deal_price');
+        const filled = this.safeNumber (order, 'deal_amount');
+        const amount = this.safeNumber (order, 'amount');
+        const cost = this.safeNumber2 (order, 'deal_money', 'money');
+        const rawSide = this.safeString (order, 'order_side');
+        const side = (rawSide === '1') ? 'buy' : 'sell';
         const status = this.parseOrderStatus (this.safeString (order, 'status'));
         const id = this.safeString (order, 'id');
-        const feeCost = this.safeFloat (order, 'fee');
+        const feeCost = this.safeNumber (order, 'fee');
         let fee = undefined;
         if (feeCost !== undefined) {
             fee = {
@@ -868,8 +848,7 @@ module.exports = class bibox extends Exchange {
                 'currency': undefined,
             };
         }
-        cost = cost ? cost : (parseFloat (price) * filled);
-        return {
+        return this.safeOrder ({
             'info': order,
             'id': id,
             'clientOrderId': undefined,
@@ -887,11 +866,11 @@ module.exports = class bibox extends Exchange {
             'cost': cost,
             'average': average,
             'filled': filled,
-            'remaining': remaining,
+            'remaining': undefined,
             'status': status,
             'fee': fee,
             'trades': undefined,
-        };
+        });
     }
 
     parseOrderStatus (status) {
@@ -1059,7 +1038,7 @@ module.exports = class bibox extends Exchange {
             };
             const response = await this.privatePostTransfer (request);
             info[code] = response;
-            withdrawFees[code] = this.safeFloat (response['result'], 'withdraw_fee');
+            withdrawFees[code] = this.safeNumber (response['result'], 'withdraw_fee');
         }
         return {
             'info': info,

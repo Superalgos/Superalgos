@@ -20,6 +20,11 @@
                 "text": "Ada satu hal lagi yang berguna untukmu dalam memanipulasi waktu! yaitu fungsi zomm native browser!",
                 "updated": 1616699454737,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hay una herramienta más que puede resultarte útil para manipular el espacio-tiempo. La función nativa de zoom del navegador.",
+                "updated": 1618436075914
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "text": "Terkadang kamu ingin visualisasi yang lebih besar dari Design Space yang tertahan dari layarmu.",
                     "updated": 1616699514300,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "A veces es posible que desee visualizar secciones más grandes del Design Space de lo que permite su pantalla.",
+                    "updated": 1618436141915
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "Tekan Ctrl dan scroll mouse wheel di Windows atau ⌘ dan - atau + di Mac.",
                     "updated": 1616699557574,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pulsa Ctrl y desplaza la rueda del ratón en Windows o ⌘ y - o + en Mac.",
+                    "updated": 1618436175073
                 }
             ]
         },
@@ -82,6 +97,11 @@
                     "text": "Chrome mengindikasi ukuran zoom di bagian atas-kanan. Saat zooming kecil/besar,desing space akan ketengah layar. Gunakan design space map untuk kembali ketempat yang seharusnya.",
                     "updated": 1616699735896,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Chrome indica el nivel de zoom en la esquina superior derecha. Al acercar o alejar el zoom, el Desing Space vuelve al centro. Utiliza el mapa para volver a donde estabas.",
+                    "updated": 1618436232576
                 }
             ]
         }

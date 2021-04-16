@@ -18,7 +18,13 @@
             {
                 "language": "ID",
                 "text": "Sekarang kamu bisa nyaman kemana-mana, Aku ingin kamu untuk pergi tour kecil-kecilan untuk mengeksplor bagian Data Tasks dari hirarki.",
-                "updated": 1616770842957
+                "updated": 1616770842957,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que te sientes cómodo por aqui, quiero que hagas un pequeño recorrido explorando la sección Data Tasks de la jerarquía.",
+                "updated": 1618439383864
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ID",
                     "text": "Perhatikan hal-hal berikut:",
-                    "updated": 1616770892134
+                    "updated": 1616770892134,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fijate en lo siguiente",
+                    "updated": 1618439399867
                 }
             ]
         },
@@ -53,7 +65,13 @@
                 {
                     "language": "ID",
                     "text": "Bagian ini diatur — pertama dan terpenting — menurut project, exchange, dan market. Ini akan membantu kamu bekerja dengan banyak exchange dan banyak market secara teratur.",
-                    "updated": 1616770973515
+                    "updated": 1616770973515,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La sección está organizada, en primer lugar, por proyecto, exchage  y mercado. Esto le ayudará a trabajar con varios exchanges y mercados de forma ordenada.",
+                    "updated": 1618439477366
                 }
             ]
         },
@@ -70,7 +88,13 @@
                 {
                     "language": "ID",
                     "text": "Exchange Data Tasks dan Market Data Tasks node dapat mengontrol semua tugas di exchange dan market masing-masing.",
-                    "updated": 1616771015778
+                    "updated": 1616771015778,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los nodos de Exchange Data Tasks y Market Data Tasks pueden controlar todas las tareas del exchange y del mercado respectivamente.",
+                    "updated": 1618439583481
                 }
             ]
         },
@@ -87,7 +111,13 @@
                 {
                     "language": "ID",
                     "text": "Pergilah dan periksa node-node tersebut dan menunya!",
-                    "updated": 1616771060371
+                    "updated": 1616771060371,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Salga y explore esos nodos y sus menús.",
+                    "updated": 1618439650404
                 }
             ]
         }

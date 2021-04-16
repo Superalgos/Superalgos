@@ -117,55 +117,85 @@
             "updated": 1617733117832
         },
         {
-            "style": "Subtitle",
-            "text": "One Call For Action Only"
+            "style": "Title",
+            "text": "Consistent Use of Space and Styles",
+            "updated": 1617904223037
         },
         {
             "style": "Text",
-            "text": "Each tutorial step should have a single call for action, that is, a single instruction that the user must carry out. This is the ideal case scenario. There may be exceptions, for example, when we ask the user to read a page in the Docs and do something else as the main instruction. ",
-            "updated": 1617720707328
+            "text": "Use the different sections on the page and the different paragraph styles for consistent purposes. This helps users get accustomed to a certain format so that they know what to expect from each section of the page. Consistency in the way the information is delivered makes tutorials more usable!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Definition Box"
+        },
+        {
+            "style": "Text",
+            "text": "The definition box is the space to the right of the icon, below the title. Use this space to introduce what the step is about, that is, to set up the story the step will tell, or to provide some basic context. ",
+            "updated": 1617902992986
+        },
+        {
+            "style": "Note",
+            "text": "To use the definition box correctly, explain the context in four to five lines. Avoid one or two lines or anything over five.",
+            "updated": 1617903200520
+        },
+        {
+            "style": "Subtitle",
+            "text": "The Call For Action"
+        },
+        {
+            "style": "Text",
+            "text": "The most important section on any given step is the call for action, that is, the instruction that the user must follow to progress in the tutorial. Many times users redo tutorials or go back a few steps just to make sure they did everything right. ",
+            "updated": 1617904108044
+        },
+        {
+            "style": "Callout",
+            "text": "Always use the callout style — the one applied to this paragraph — for the call for action! Similarly, try to avoid using this style for anything else. If the particular step doesn't have a call for action, then the step should not feature this style at all!"
+        },
+        {
+            "style": "Text",
+            "text": "Each tutorial step should have a single call for action, that is, a single instruction that the user must carry out. This is the ideal case scenario. There may be exceptions, for example, when we ask the user to read a page in the Docs and do something else as the main instruction.",
+            "updated": 1617904124728
         },
         {
             "style": "Success",
             "text": "In general terms and when possible, try to avoid giving the user more than one task on the same step. Instead, if you expect the user to perform several sequential actions, try to split the process into more than one step — as many as it takes.",
-            "updated": 1617721156206
+            "updated": 1617904133804
+        },
+        {
+            "style": "Text",
+            "text": "In some cases, you may need the user to take a very simple action so that the main call for action may be delivered. In such cases, you may use the definition box to tell the user how to get ready to execute the call for action delivered later in the page."
         },
         {
             "style": "Subtitle",
-            "text": "Consistent Use of Styles and Space",
-            "updated": 1617722131538
+            "text": "Alternating Colors",
+            "updated": 1617906135945
         },
         {
             "style": "Text",
-            "text": "Use the different sections on the page and the different paragraph styles for consistent purposes. This helps users get accustomed to a certain format so that they know what to expect from each section of the page. Consistency in the way the information is delivered makes tutorials more usable!",
-            "updated": 1617733162806
+            "text": "Colorful tutorial steps look great, while a white pages full of text feel too much like non-interactive documentation. Makes sure you break the monotony with the four different styles of boxes:",
+            "updated": 1617906625458
         },
         {
-            "style": "Text",
-            "text": "Consider the following:",
-            "updated": 1617722201424
+            "style": "Success",
+            "text": "This is great for additional tips."
         },
         {
-            "style": "Text",
-            "text": "The definition box is the space to the right of the icon, below the title. Use this space to introduce what the step is about, that is, to set up the story the step will tell, or to provide some basic context.",
-            "updated": 1617721881227
+            "style": "Note",
+            "text": "Use this every once in a while to break up otherwise large sections of plain text."
         },
         {
-            "style": "Callout",
-            "text": "The most important section on any given step is the call for action, that is, the instruction that the user must follow to progress in the tutorial. Many times users redo tutorials or go back a few steps just to make sure they did everything right. Always use the callout style — the one applied to this paragraph — for the call for action! Similarly, try to avoid using this style for anything else. If the particular step doesn't have a call for action, then the step should not feature this style at all!",
-            "updated": 1617733181730
+            "style": "Important",
+            "text": "Leave this box for the truly important stuff. Things you don't want users to overlook or forget.",
+            "updated": 1617906591147
         },
         {
-            "style": "Text",
-            "text": "In some cases, you may need the user to take a very simple action so that the main call for action may be delivered. In such cases, you may use the definition box to tell the user how to get ready to execute the call for action delivered later in the page.",
-            "updated": 1617722090611
+            "style": "Warning",
+            "text": "And this one, save it for real warnings. Things that may represent a threat or risk.",
+            "updated": 1617906578635
         },
         {
-            "style": "Text",
-            "text": "Use the rest of the styes to develop the content."
-        },
-        {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Use of Docs Pages"
         },
         {
@@ -184,7 +214,7 @@
             "updated": 1617733203373
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Interactivity",
             "updated": 1617724494717
         },
@@ -214,7 +244,12 @@
             "updated": 1617733297397
         },
         {
-            "style": "Subtitle",
+            "style": "List",
+            "text": "In some cases, the actions users take may have certain effects. Showing users the outcome of their actions immediately after completing a task has a great educational value. For example, if the user is setting up a new Time Machine in a tutorial about the Charting Space, show users how the time machine appears in the charting space immediately after creating it. If users then set up a Timeline Chart that references a particular Data Mine, show users how the new Timeline Chart appears within the Time Machine, and let them verify that the expected layer managers are there. Don't be afraid to go back and forth... that is the whole point after all!",
+            "updated": 1617905020985
+        },
+        {
+            "style": "Title",
             "text": "Tooltips",
             "updated": 1617731886888
         },
@@ -233,7 +268,7 @@
             "updated": 1617733407351
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Naming of Nodes",
             "updated": 1617731585276
         },
@@ -278,15 +313,6 @@
         },
         {
             "style": "List",
-            "text": "Always use proper title case for titles.",
-            "updated": 1617722923539
-        },
-        {
-            "style": "List",
-            "text": "Titles look best when they span a single line. Use two-line titles only if strictly necessary!"
-        },
-        {
-            "style": "List",
             "text": "Always use an icon to illustrate the step. Sometimes the appropriate icon is the one corresponding to the node the user is working with. Other times you may use icons figuratively, playing with alternate meanings of what the drawing may represent."
         },
         {
@@ -303,6 +329,54 @@
             "style": "List",
             "text": "Do not set two consecutive paragraphs with the same style. The only exception is for bullet lists. Even the Docs Text Style is not formated to look good as consecutive paragraphs in the context of a tutorial (there is no padding between paragraphs).",
             "updated": 1617723650896
+        },
+        {
+            "style": "Title",
+            "text": "Titles"
+        },
+        {
+            "style": "Text",
+            "text": "Always use proper title case for titles. But, what exactly is proper title case? Let's agree to the standard propose in this blog post:",
+            "updated": 1617902503383
+        },
+        {
+            "style": "Link",
+            "text": "Capitalization of titles 101->www.grammarcheck.net/capitalization-in-titles-101/",
+            "updated": 1617902444077
+        },
+        {
+            "style": "Success",
+            "text": "Titles look best when they span a single line. Use two-line titles only if strictly necessary!",
+            "updated": 1617902549247
+        },
+        {
+            "style": "Subtitle",
+            "text": "Unique Identifiers",
+            "updated": 1617905396529
+        },
+        {
+            "style": "Important",
+            "text": "Remember that the title of a tutorial step is also the unique identifier of the corresponding Docs Page. This means that the system does not allow for duplicate titles. Avoid at all costs naming pages after single words or short phrases. Let's leave those unique names for particular cases that may merit the use of such special phrases."
+        },
+        {
+            "style": "Text",
+            "text": "For the same reason, all titles should begin with the following fixed string of text:",
+            "updated": 1617905464492
+        },
+        {
+            "style": "Json",
+            "text": "Tutorial Step - ",
+            "updated": 1617905492001
+        },
+        {
+            "style": "Text",
+            "text": "The above helps reserve some phrases for contexts different than tutorials.",
+            "updated": 1617905844332
+        },
+        {
+            "style": "Success",
+            "text": "Don't worry! Your titles will not look ugly in the tutorial, as the system filters the prefix and doesn't show it in the tutorial window!",
+            "updated": 1617905922481
         },
         {
             "style": "Title",

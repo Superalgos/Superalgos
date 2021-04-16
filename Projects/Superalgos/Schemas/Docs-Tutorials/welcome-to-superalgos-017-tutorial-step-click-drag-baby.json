@@ -20,6 +20,11 @@
                 "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik!",
                 "updated": 1616698440258,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Quiero enseñarte algo mientras avanza la operación de  Data Mining. Te enseñaré a moverte... ¡en unos segundos!",
+                "updated": 1618435437797
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Cukup click dan drag mouse-mu!",
                     "updated": 1616698465027,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Simplemente haz hacer clic y arrastrar con el ratón.",
+                    "updated": 1618435534077
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "text": "Mudah bukan? Bagus! Design space area yang luas, dan aku tidak enak jika melajarkanmu hal yang rumit dengan mendrag seperti ini. ",
                     "updated": 1616698595115,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el espacio de diseño es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
+                    "updated": 1618435473213
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "text": "Aku akan melajarkan beberapa trik lanjutan di step berikutnya",
                     "updated": 1616698622895,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te enseñaré un par de trucos más en los siguientes pasos.",
+                    "updated": 1618435496165
                 }
             ]
         }

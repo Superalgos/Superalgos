@@ -3,7 +3,14 @@
     "pageNumber": 86,
     "type": "Tutorial Step - Welcome Backtesting Trading Engine Visualization 02",
     "definition": {
-        "text": "This step will play a video in full screen mode."
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step riprodurrà un video a schermo intero.",
+                "updated": 1618068335719
+            }
+        ]
     },
     "paragraphs": [
         {

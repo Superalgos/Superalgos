@@ -8,22 +8,50 @@
             "name": "exchange-account-key"
         },
         "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
-        "updated": 1610817577376
+        "updated": 1610817577376,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Qui è dove configuro le Exchange Account Key per la Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1618070825773
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Acess the configuration and carefully enter the API Pubilic Key and the API secret key.",
-            "updated": 1616435074225
+            "updated": 1616435074225,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Accedi alla configurazione e inserisci attentamente la API Public Key e la API Secret Key.",
+                    "updated": 1618070869172
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys."
+            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cancella prima la stringa di testo di default per ogni parametro, così da non rischiare errori inserendo le tue chiavi.",
+                    "updated": 1618070932988
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when the Trading Bot deals with orders. It is never sent or stored anywhere else.",
-            "updated": 1616435057411
+            "updated": 1616435057411,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'Exchange Account Key è salvata nel workspace file. È utilizzata dal Trading Bot per autenticarsi sull'exchange quando gestisce gli ordini. Non viene inviata nè salvata in nessun'altro luogo.",
+                    "updated": 1618071006665
+                }
+            ]
         }
     ]
 }

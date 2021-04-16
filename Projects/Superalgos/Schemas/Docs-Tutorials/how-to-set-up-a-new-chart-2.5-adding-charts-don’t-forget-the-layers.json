@@ -1,0 +1,24 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "22.5",
+    "type": "Adding Charts - Don’t Forget the Layers!",
+    "definition": {
+        "text": "You’ve done this before!",
+        "updated": 1617888380713,
+        "icon": {
+            "name": "layer",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Hover over the Layer Manager and click Add All Mine Layers. "
+        },
+        {
+            "style": "Text",
+            "text": "This is an easy step to forget but very important! If there are't any layers under the layer manager, nothing will show up no matter how hard you try.",
+            "updated": 1617888419678
+        }
+    ]
+}

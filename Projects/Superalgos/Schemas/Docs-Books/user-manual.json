@@ -42,8 +42,13 @@
         },
         {
             "style": "Chapter",
-            "text": "VIII->Superalgos->Topic->Order Management->One of the crucial aspects of trading automation is the management of orders. The system operates with assumptions that must be verified and synchronized with the exchange. Learning how the Low-Frequency Trading Bot manages orders will help you understand the life cycle of orders and how your definitions in the Open Stage and the Close Stage affect the results.",
-            "updated": 1611237227549
+            "text": "VIII->Superalgos->Topic->LF Trading Bot Available Data Structures->This chapter describes the three main data structures made available by the Trading Bot.",
+            "updated": 1617708146321
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Superalgos->Topic->Order Management->One of the crucial aspects of trading automation is the management of orders. The system operates with assumptions that must be verified and synchronized with the exchange. Learning how the Low-Frequency Trading Bot manages orders will help you understand the life cycle of orders and how your definitions in the Open Stage and the Close Stage affect the results.",
+            "updated": 1617708175194
         },
         {
             "style": "Text",
@@ -51,8 +56,8 @@
         },
         {
             "style": "Chapter",
-            "text": "IX->Superalgos->Topic->Trading Engine->The trading engine is about making the data processed by the Trading Bot accessible. Use it while debugging strategies to visually track every piece of information processed by the trading bot at any point in time. Use it from within trading systems to feed strategies with the details of what happens at runtime.",
-            "updated": 1611260954268
+            "text": "X->Superalgos->Topic->Trading Engine->The trading engine is about making the data processed by the Trading Bot accessible. Use it while debugging strategies to visually track every piece of information processed by the trading bot at any point in time. Use it from within trading systems to feed strategies with the details of what happens at runtime.",
+            "updated": 1617708180990
         },
         {
             "style": "Text",
@@ -60,38 +65,38 @@
         },
         {
             "style": "Chapter",
-            "text": "X->Superalgos->Topic->Trading Farms->Superalgos may coordinate Data Tasks and Trading Tasks across different machines on a network. Trading farms provide a robust environment for smart and scalable deployments.",
-            "updated": 1611503033139
+            "text": "XI->Superalgos->Topic->Trading Farms->Superalgos may coordinate Data Tasks and Trading Tasks across different machines on a network. Trading farms provide a robust environment for smart and scalable deployments.",
+            "updated": 1617708186995
         },
         {
             "style": "Chapter",
-            "text": "XI->Superalgos->Topic->Crypto Ecosystem->The crypto ecosystem manages the interactions with parties external to Superalgos, primarily exchanges. ",
-            "updated": 1611503004599
+            "text": "XII->Superalgos->Topic->Crypto Ecosystem->The crypto ecosystem manages the interactions with parties external to Superalgos, primarily exchanges.",
+            "updated": 1617708192899
         },
         {
             "style": "Chapter",
-            "text": "XII->Superalgos->Topic->Data Mines->Data Mines deal with bots that process data and feature a visual scripting framework that solves most all of the infrastructure intricacies of building indicators and plotters.",
-            "updated": 1611503425133
+            "text": "XIII->Superalgos->Topic->Data Mines->Data Mines deal with bots that process data and feature a visual scripting framework that solves most all of the infrastructure intricacies of building indicators and plotters.",
+            "updated": 1617708198397
         },
         {
             "style": "Chapter",
-            "text": "XIII->Superalgos->Topic->Integrations->Superalgos integrates with Telegram Bots to broadcast announcements emerging from trading sessions. On the other hand, Superalgos supports receiving webhook messages, enabling automated actions originating from messages sent from third-party services, like TradingView.",
-            "updated": 1611503645995
+            "text": "XIV->Superalgos->Topic->Integrations->Superalgos integrates with Telegram Bots to broadcast announcements emerging from trading sessions. On the other hand, Superalgos supports receiving webhook messages, enabling automated actions originating from messages sent from third-party services, like TradingView.",
+            "updated": 1617708209659
         },
         {
             "style": "Chapter",
-            "text": "XIV->Superalgos->Topic->Productivity Tools->This chapter discusses a collection of tools that help optimize productivity.",
-            "updated": 1611503697142
+            "text": "XV->Superalgos->Topic->Productivity Tools->This chapter discusses a collection of tools that help optimize productivity.",
+            "updated": 1617708217018
         },
         {
             "style": "Chapter",
-            "text": "XV->Superalgos->Topic->Troubleshooting->Superalgos is a vast system and you will run into confusing situations while learning it. You must acquire the knowledge on how to analyze the issues that you may encounter. There usually is a good explanation for what is going on. This chapter helps you in that process.",
-            "updated": 1611649840313
+            "text": "XVI->Superalgos->Topic->Troubleshooting->Superalgos is a vast system and you will run into confusing situations while learning it. You must acquire the knowledge on how to analyze the issues that you may encounter. There usually is a good explanation for what is going on. This chapter helps you in that process.",
+            "updated": 1617708223623
         },
         {
             "style": "Chapter",
-            "text": "XVI->Superalgos->Topic->Contributing to Superalgos->Superalgos is a Community project. Everything you build with Superalgos is susceptible to be contributed to the project. Contributing to the project earns you Superalgos (SA) tokens! This chapter covers how you may contribute some of the intelligence you build for yourself, and also how you may get involved with the project at a deeper level.",
-            "updated": 1617094031124
+            "text": "XVII->Superalgos->Topic->Contributing to Superalgos->Superalgos is a Community project. Everything you build with Superalgos is susceptible to be contributed to the project. Contributing to the project earns you Superalgos (SA) tokens! This chapter covers how you may contribute some of the intelligence you build for yourself, and also how you may get involved with the project at a deeper level.",
+            "updated": 1617708229948
         },
         {
             "style": "Text",

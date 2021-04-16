@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Superalgos permite ejecutar el Cliente en una máquina y acceder a él a través de Chrome desde otra máquina de la red.",
-                "updated": 1613595518833,
+                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red",
+                "updated": 1618433029749,
                 "style": "Definition"
             },
             {

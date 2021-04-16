@@ -21,6 +21,11 @@
                 "text": "Open the Data Tasks node menu dan cari tombol Run All Project Data Tasks dibagian atas kanan...",
                 "updated": 1616697053489,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Abra el menú del nodo Data Tasks y busque el botón Run All Project Data Tasks en la esquina superior derecha...",
+                "updated": 1618434308521
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Click tombol Run All Project Data Tasks!",
                     "updated": 1616697004627,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz click en el botón Run All Project Data Tasks!",
+                    "updated": 1618434334439
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "Konfirmasi request dengan click tombol di second time. Dalam 30 detik, kamu akan melihat notice status dibawah Data Mining node yang menjelaskan 1/1 Exchange Data Tasks node sedang berjalan.",
                     "updated": 1616696981851,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Confirme la solicitud haciendo clic en el botón por segunda vez. En unos 30 segundos, debería ver un aviso de estado bajo el nodo Data Mining que indica que se está ejecutando 1 out of 1 Exchange Data Tasks.",
+                    "updated": 1618434426749
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "text": "Console app akan memperlihatkan sesuatu yang mirip dengan video di step selanjutnya.",
                     "updated": 1616696802459,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tu aplicación de consola, deberia mostrar algo similar a lo que aparece en el video, a continuación",
+                    "updated": 1618434455552
                 }
             ]
         }

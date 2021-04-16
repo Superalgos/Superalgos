@@ -18,7 +18,13 @@
             {
                 "language": "ID",
                 "text": "Pada point ini, Aku sudah membuatmu banyak mengingat! Tapi jangan khawatir ... kamu dapat kembali ke step sebelumnya!",
-                "updated": 1616768312747
+                "updated": 1616768312747,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "En este punto, probablemente esté  saturando tu hipocampo! Pero no te preocupes... ¡puedes volver a cualquier paso anterior!",
+                "updated": 1618436677513
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ID",
                     "text": "Jika kamu membutuhkan pengingat tentang salah satu topik...",
-                    "updated": 1616768354407
+                    "updated": 1616768354407,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si alguna vez necesitas un recordatorio sobre estos temas...",
+                    "updated": 1618436771239
                 }
             ]
         },
@@ -53,7 +65,13 @@
                 {
                     "language": "ID",
                     "text": "Temukan Tutorial Topic dan replay! Kamu mungkin menemukannya dibawah-kiri dari design space, expand itu, dan Jelajahi melalui hirarki dari topik dan step, dan click Play yang dipilih. Topik diatur searah jarum jam, dimulai dari kanan yang ada pada main Tutorial node.",
-                    "updated": 1616769317775
+                    "updated": 1616769317775,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Busque el Tutorial Topic y reprodúzcalo! Puede encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
+                    "updated": 1618436934915
                 }
             ]
         },
@@ -71,7 +89,13 @@
                 {
                     "language": "ID",
                     "text": "Butuh Reminder Cepat? Temukan step pada Tutorials & Help topik dibawah. Lalu click Stop, dan mulai ulang dengan Mengclick Play disamping Tutorial Step!",
-                    "updated": 1616769536924
+                    "updated": 1616769536924,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Necesitas refrescar tu memoria? Busque el paso en el tema de Tutorials & Help. A continuación, haga clic en Stop y reinicie haciendo clic en Play en dicho paso del tutorial.",
+                    "updated": 1618437112467
                 }
             ]
         }

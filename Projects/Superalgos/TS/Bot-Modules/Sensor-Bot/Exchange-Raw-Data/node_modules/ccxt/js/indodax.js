@@ -4,6 +4,7 @@
 
 const Exchange = require ('./base/Exchange');
 const { ExchangeError, ArgumentsRequired, InsufficientFunds, InvalidOrder, OrderNotFound, AuthenticationError, BadSymbol } = require ('./base/errors');
+const Precise = require ('./base/Precise');
 
 //  ---------------------------------------------------------------------------
 
@@ -164,7 +165,7 @@ module.exports = class indodax extends Exchange {
             const base = this.safeCurrencyCode (baseId);
             const quote = this.safeCurrencyCode (quoteId);
             const symbol = base + '/' + quote;
-            const taker = this.safeFloat (market, 'trade_fee_percent');
+            const taker = this.safeNumber (market, 'trade_fee_percent');
             const isMaintenance = this.safeInteger (market, 'is_maintenance');
             const active = (isMaintenance) ? false : true;
             const pricePrecision = this.safeInteger (market, 'price_round');
@@ -174,11 +175,11 @@ module.exports = class indodax extends Exchange {
             };
             const limits = {
                 'amount': {
-                    'min': this.safeFloat (market, 'trade_min_traded_currency'),
+                    'min': this.safeNumber (market, 'trade_min_traded_currency'),
                     'max': undefined,
                 },
                 'price': {
-                    'min': this.safeFloat (market, 'trade_min_base_currency'),
+                    'min': this.safeNumber (market, 'trade_min_base_currency'),
                     'max': undefined,
                 },
                 'cost': {
@@ -216,11 +217,11 @@ module.exports = class indodax extends Exchange {
             const currencyId = currencyIds[i];
             const code = this.safeCurrencyCode (currencyId);
             const account = this.account ();
-            account['free'] = this.safeFloat (free, currencyId);
-            account['used'] = this.safeFloat (used, currencyId);
+            account['free'] = this.safeString (free, currencyId);
+            account['used'] = this.safeString (used, currencyId);
             result[code] = account;
         }
-        return this.parseBalance (result);
+        return this.parseBalance (result, false);
     }
 
     async fetchOrderBook (symbol, limit = undefined, params = {}) {
@@ -257,16 +258,16 @@ module.exports = class indodax extends Exchange {
         const timestamp = this.safeTimestamp (ticker, 'server_time');
         const baseVolume = 'vol_' + market['baseId'].toLowerCase ();
         const quoteVolume = 'vol_' + market['quoteId'].toLowerCase ();
-        const last = this.safeFloat (ticker, 'last');
+        const last = this.safeNumber (ticker, 'last');
         return {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'high'),
-            'low': this.safeFloat (ticker, 'low'),
-            'bid': this.safeFloat (ticker, 'buy'),
+            'high': this.safeNumber (ticker, 'high'),
+            'low': this.safeNumber (ticker, 'low'),
+            'bid': this.safeNumber (ticker, 'buy'),
             'bidVolume': undefined,
-            'ask': this.safeFloat (ticker, 'sell'),
+            'ask': this.safeNumber (ticker, 'sell'),
             'askVolume': undefined,
             'vwap': undefined,
             'open': undefined,
@@ -276,8 +277,8 @@ module.exports = class indodax extends Exchange {
             'change': undefined,
             'percentage': undefined,
             'average': undefined,
-            'baseVolume': this.safeFloat (ticker, baseVolume),
-            'quoteVolume': this.safeFloat (ticker, quoteVolume),
+            'baseVolume': this.safeNumber (ticker, baseVolume),
+            'quoteVolume': this.safeNumber (ticker, quoteVolume),
             'info': ticker,
         };
     }
@@ -291,14 +292,11 @@ module.exports = class indodax extends Exchange {
         }
         const type = undefined;
         const side = this.safeString (trade, 'type');
-        const price = this.safeFloat (trade, 'price');
-        const amount = this.safeFloat (trade, 'amount');
-        let cost = undefined;
-        if (price !== undefined) {
-            if (amount !== undefined) {
-                cost = price * amount;
-            }
-        }
+        const priceString = this.safeString (trade, 'price');
+        const amountString = this.safeString (trade, 'amount');
+        const price = this.parseNumber (priceString);
+        const amount = this.parseNumber (amountString);
+        const cost = this.parseNumber (Precise.stringMul (priceString, amountString));
         return {
             'id': id,
             'info': trade,
@@ -353,7 +351,7 @@ module.exports = class indodax extends Exchange {
         const status = this.parseOrderStatus (this.safeString (order, 'status', 'open'));
         let symbol = undefined;
         let cost = undefined;
-        const price = this.safeFloat (order, 'price');
+        const price = this.safeNumber (order, 'price');
         let amount = undefined;
         let remaining = undefined;
         let filled = undefined;
@@ -367,18 +365,18 @@ module.exports = class indodax extends Exchange {
             if ((market['baseId'] === 'idr') && ('remain_rp' in order)) {
                 baseId = 'rp';
             }
-            cost = this.safeFloat (order, 'order_' + quoteId);
+            cost = this.safeNumber (order, 'order_' + quoteId);
             if (cost) {
                 amount = cost / price;
-                const remainingCost = this.safeFloat (order, 'remain_' + quoteId);
+                const remainingCost = this.safeNumber (order, 'remain_' + quoteId);
                 if (remainingCost !== undefined) {
                     remaining = remainingCost / price;
                     filled = amount - remaining;
                 }
             } else {
-                amount = this.safeFloat (order, 'order_' + baseId);
+                amount = this.safeNumber (order, 'order_' + baseId);
                 cost = price * amount;
-                remaining = this.safeFloat (order, 'remain_' + baseId);
+                remaining = this.safeNumber (order, 'remain_' + baseId);
                 filled = amount - remaining;
             }
         }

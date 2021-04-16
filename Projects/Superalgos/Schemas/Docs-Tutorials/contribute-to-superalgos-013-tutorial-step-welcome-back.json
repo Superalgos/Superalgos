@@ -3,18 +3,18 @@
     "pageNumber": 13,
     "type": "Tutorial Step - Welcome Back!",
     "definition": {
-        "text": "If you followed my instructions to the letter, you should now be running the software in the develop branch! Awesome!",
+        "text": "If you followed my instructions to the letter, you should now be running the software in the plugins-docs branch! Awesome!",
         "icon": {
             "name": "hits",
             "project": "Superalgos"
         },
-        "updated": 1617007379836
+        "updated": 1618159282200
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The software you are currently running is the version of Superalgos that was at the develop branch the day you forked the project! This is because the process of switching branches downloads the software from your fork and not the upstream repository.",
-            "updated": 1617020053004
+            "text": "The software you are currently running is the version of Superalgos that was at the plugins-docs branch the day you forked the project! This is because the process of switching branches downloads the software from your fork and not the upstream repository.",
+            "updated": 1618159308510
         },
         {
             "style": "Success",

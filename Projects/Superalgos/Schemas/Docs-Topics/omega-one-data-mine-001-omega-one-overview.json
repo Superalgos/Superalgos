@@ -1,0 +1,42 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "1",
+    "type": "Omega One - Overview",
+    "definition": {
+        "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Indicator list:",
+            "updated": 1617873731007
+        },
+        {
+            "style": "List",
+            "text": "Chaikin Oscillator"
+        },
+        {
+            "style": "Text",
+            "text": "The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements."
+        },
+        {
+            "style": "List",
+            "text": "ARPS Slow & ARPS Fast",
+            "updated": 1617875374428
+        },
+        {
+            "style": "Text",
+            "text": "ARPS - Average Range Percentage Spread measures the amount force of Bull Power and Bear Power. Two separate indicators measuring the same thing, in order to be used either separatly or combined.",
+            "updated": 1617957855552
+        },
+        {
+            "style": "List",
+            "text": "Average VS Average"
+        },
+        {
+            "style": "Text",
+            "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. Considering price movement, volume and a so called \"open interest\".",
+            "updated": 1617957863133
+        }
+    ]
+}

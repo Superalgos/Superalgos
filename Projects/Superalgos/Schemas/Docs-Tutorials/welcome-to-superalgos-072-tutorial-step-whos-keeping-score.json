@@ -7,7 +7,14 @@
             "project": "Superalgos",
             "name": "layer-resistance"
         },
-        "text": "Check the table below and see if you can interpret the support levels you see on the charts."
+        "text": "Check the table below and see if you can interpret the support levels you see on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Guarda questa tabella per interpretare i livelli di supporto che vedi sul grafico.",
+                "updated": 1618062212883
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -16,7 +23,14 @@
         },
         {
             "style": "Text",
-            "text": "<br/>For a new support level with one rejection, the dotted line marks the exact level on which price bounced. For further rejections, the blocks mark the rate ranges on which subsequent rejections are counted."
+            "text": "<br/>For a new support level with one rejection, the dotted line marks the exact level on which price bounced. For further rejections, the blocks mark the rate ranges on which subsequent rejections are counted.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<br>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
+                    "updated": 1618062387108
+                }
+            ]
         }
     ]
 }

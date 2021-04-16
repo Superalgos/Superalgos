@@ -1,0 +1,40 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 7,
+    "type": "Superalgos Review - Feature-rich platform for algorithmic trading",
+    "definition": {
+        "text": "The possibilities are endless when you are in control of the platform. Superalgos allows the end-user to create sophisticated trading strategies through a visual designer with built-in backtesting capabilities based on historical market data.",
+        "updated": 1618174871748
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "After more time than I care to admit executing crypto trades manually, I began to wonder what tools successful traders were able to leverage to quickly recognize and respond to market indicators. I started looking for a trading bot that I could leverage to make trades, but quickly realized that most of the software available today required me to give my account information to a service hosted by someone else.",
+            "updated": 1618175562829
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos, a community-developed open-source project, does not work in that way at all. With SA, I’m able to run the software from my own device without relying on anyone else for the necessary infrastructure. I don’t need to pay a monthly subscription, and I don’t need to worry about my trading account security being at risk. "
+        },
+        {
+            "style": "Text",
+            "text": "It does, however, require a bit of patience and attention to gain an understanding of the fundamental concepts. A familiarity with coding, particularly in Javascript, is helpful, but not necessary to execute successful strategies. The tool features an entirely visual scripting designer to help create and debug your very own strategies and indicators. Once your strategy is designed, the tool has built-in backtesting capabilities that leverage downloaded historical market data, giving you peace of mind that your strategy is fully tested before moving on to live trading. "
+        },
+        {
+            "style": "Text",
+            "text": "Out of the box, there are several community-built strategies to learn from. In fact, the community is perhaps the most highly underrated feature included with the tool! A healthy set of contributors and a dedicated group of users who are willing to share and contribute their time and effort has seen this project enjoy rapid growth. "
+        },
+        {
+            "style": "Text",
+            "text": "I have personal experience with the speed at which features can be developed, and problems can be addressed; it’s quite astonishing! As an open-sourced project, the capabilities of Superalgos are limitless."
+        },
+        {
+            "style": "Text",
+            "text": "Thaddeus McCloud"
+        },
+        {
+            "style": "Text",
+            "text": "raubot "
+        }
+    ]
+}

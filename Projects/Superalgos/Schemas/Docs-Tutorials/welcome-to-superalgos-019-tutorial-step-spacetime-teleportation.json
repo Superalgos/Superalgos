@@ -20,6 +20,11 @@
                 "text": "Apakah kamu menyukai teleportasi? Saatnya mengimplementasikan hal tersebut. Dengan cara menggunakan design space map.",
                 "updated": 1616699119657,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Vale, en realidad no te vas a teletransportar, ni vas a doblar el espacio-tiempo, ¡pero casi lo parece! Es hora de aprender a utilizar el mapa del Desing Space.",
+                "updated": 1618435736486
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Design space sangatlah besar, Butuh clicks dan drags yang sangat banyak. Namun dengan keyboard akan mempercepat waktumu, Tetapi itu tidak semenarik teleporting! Baiklah ini dia cara menggunakannya:",
                     "updated": 1616699222605,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Dije antes que el Design Space es gigantesco, y lo decía en serio! Ir de una esquina a la opuesta llevaría cientos de clics y arrastres. Aunque el uso del teclado te permite desarrollar velocidades que te rompen el cuello, ¡no es tan guay como teletransportarse! Así es como funciona:",
+                    "updated": 1618435825322
                 }
             ],
             "updated": 1616414991030
@@ -59,6 +69,11 @@
                     "text": "Click-kanan untuk membuka map dan click-kiri dimana saja untuk teleport ke tempat yang dituju!",
                     "updated": 1616699289600,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic con el botón derecho para abrir el mapa y haz clic con el botón izquierdo en cualquier lugar para ir a ese punto específico.",
+                    "updated": 1618435846567
                 }
             ]
         },

@@ -3,23 +3,23 @@
     "pageNumber": 10,
     "type": "Tutorial Step - Before You Switch",
     "definition": {
-        "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list bfore you proceed!",
+        "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list before you proceed!",
         "icon": {
             "name": "bullet-warning",
             "project": "Superalgos"
         },
-        "updated": 1617018123415
+        "updated": 1618147991903
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "It may happen that the workspaces or other data structures in the master branch are not compatible with those in the develop branch. ",
-            "updated": 1617017830521
+            "text": "It may happen that the workspaces or other data structures in the master branch are not compatible with those in the other branch.",
+            "updated": 1618158546133
         },
         {
             "style": "List",
-            "text": "If the current workspace is incompatible with the software in the other branch, the workspace may break upon reloading the app. In such a case, you must load a Plugin Workspace of the new branch.",
-            "updated": 1617018153708
+            "text": "If the current workspace is incompatible with the software in the other branch, the workspace may break upon reloading the app. In such a case, load one of the Plugin Workspaces of the new branch.",
+            "updated": 1618158600251
         },
         {
             "style": "List",
@@ -28,8 +28,8 @@
         },
         {
             "style": "Important",
-            "text": "Always check the README file in the develop branch of the repository for any comments on backward compatibility. Before switching branches, it is always good to back up your work!",
-            "updated": 1617017837289
+            "text": "Always check the README file in the branch of the repository you wish to access for any comments on backward compatibility. Before switching branches, back up your work!",
+            "updated": 1618158675366
         }
     ]
 }

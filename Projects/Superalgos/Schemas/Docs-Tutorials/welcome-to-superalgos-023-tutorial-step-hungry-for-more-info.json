@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "No entraré en todos los detalles mientras avanzamos, pero si necesitas más información sobre un nodo, el botón de ayuda del menú te lleva directamente a su documentación.",
-                "updated": 1618437888108
+                "updated": 1618437888108,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "La documentación de un nodo puede incluir una o varias de las siguientes secciones:",
-                    "updated": 1618437914338
+                    "updated": 1618437914338,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "Definition: describe que es o que hace el nodo",
-                    "updated": 1618437935444
+                    "updated": 1618437935444,
+                    "style": "List"
                 }
             ]
         },
@@ -94,7 +97,8 @@
                 {
                     "language": "ES",
                     "text": "Content: describe como funciona el nodo",
-                    "updated": 1618437948010
+                    "updated": 1618437948010,
+                    "style": "List"
                 }
             ]
         },
@@ -118,7 +122,8 @@
                 {
                     "language": "ES",
                     "text": "Configuration: Algunos nodos pueden tenerla",
-                    "updated": 1618437961538
+                    "updated": 1618437961538,
+                    "style": "List"
                 }
             ]
         },
@@ -129,8 +134,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "<b>Info tecniche:</b> il resto delle informazioni sono solitamente di natura tecnica, principalmente per gli sviluppatori.",
-                    "updated": 1614791106174,
+                    "text": "Info tecniche: il resto delle informazioni sono solitamente di natura tecnica, principalmente di interesse per gli sviluppatori.",
+                    "updated": 1618646206784,
                     "style": "List"
                 },
                 {
@@ -142,7 +147,8 @@
                 {
                     "language": "ES",
                     "text": "Technical: El resto de la info es de caracter técnico, orientada a desarrolladores",
-                    "updated": 1618438001044
+                    "updated": 1618438001044,
+                    "style": "List"
                 }
             ]
         },
@@ -165,7 +171,8 @@
                 {
                     "language": "ES",
                     "text": "Haz click en el boton de aydua del nodo de Data Tasks!",
-                    "updated": 1618438023008
+                    "updated": 1618438023008,
+                    "style": "Callout"
                 }
             ]
         }

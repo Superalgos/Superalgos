@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "IT",
-                    "text": "Superalgos é per natura uno strumento visivo. Il sistema rappresenta le informazioni in una struttura gerarchica di nodi interconnessi, rappresentati da icone. Alla tua destra c'é una di queste gerarchie: più precisamente, una gerarchia Tutorial con la didascalia \"Welcome to Superalgos!\".",
-                    "updated": 1614713100480,
+                    "text": "Superalgos é per natura uno strumento visivo. Il sistema rappresenta le informazioni in una struttura gerarchica di nodi interconnessi, rappresentati da icone. Alla tua destra c'é una di queste gerarchie: più precisamente, una gerarchia Tutorial. In questo caso \"tutorial\" è il tipo del nodo e \"Welcome to Superalgos\" è il suo nome.",
+                    "updated": 1618645075554,
                     "style": "Text"
                 }
             ],
@@ -75,7 +75,8 @@
                 {
                     "language": "ES",
                     "text": "Pase el puntero del ratón sobre el node  Tutorial y vea lo que ocurre. ¡Wow! Genial, ¿verdad? ¡Son un montón de botones!",
-                    "updated": 1618432002187
+                    "updated": 1618432002187,
+                    "style": "Callout"
                 }
             ]
         }

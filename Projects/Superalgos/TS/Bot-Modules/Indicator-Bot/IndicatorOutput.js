@@ -41,11 +41,15 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+            let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency'
+                )
 
             if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateDataDependencies(processIndex, dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray (
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
+                )
             if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -90,7 +94,8 @@
                     resultsWithIrregularPeriods,
                     interExecutionMemory,
                     processingDailyFiles,
-                    currentDay
+                    currentDay,
+                    outputDatasetNode.referenceParent.parentNode.config.parameters
                 )
 
                 /* Add the calculated properties */
@@ -102,7 +107,10 @@
                 products[outputDatasetNode.referenceParent.parentNode.config.pluralVariableName] = outputData
             }
 
-            /*At the fourth and last phase, we will save the new information generated into files corresponding to each output outputDatasetNode.*/
+            /*
+            At the fourth and last phase, we will save the new information generated into files 
+            corresponding to each output outputDatasetNode.
+            */
             let totalFilesWritten = 0
             for (let i = 0; i < outputDatasets.length; i++) {
                 let outputDatasetNode = outputDatasets[i]

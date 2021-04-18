@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Dare a Superalgos una stella su GitHub migliora il suo ranking nella ricerca delle repo sul sito, e aiuta più sviluppatori a trovarci!",
-                "updated": 1618073606346,
+                "text": "Ti è piaciuto questo tutorial? Ti va di mostrare gratitudine alla Community dando alla repo di Superalgos una stella?",
+                "updated": 1618649022612,
                 "style": "Definition"
             }
         ]
@@ -26,8 +26,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Questo gesto di apprezzamento non aiuta solo l'intera Community, ma anche te! Più sviluppatori contribuiscono al progetto, migliore Superalgos diventa, e meglio può servire ai tuoi scopi!",
-                    "updated": 1618073681997,
+                    "text": "Altri utenti hanno impiegato il loro tempo e i loro sforzi per creare tutorials in modo da darti un'esperienza migliore! Dare una stella alla nostra repo è un buon modo per dire \"grazie\"! Le stelle migliorano il ranking nelle ricerche su Github. Più stelle ha il progetto, più è facile per altri trovarlo e contribuirvi: dare una stella alla repo può quindi essere anche nel tuo interesse!",
+                    "updated": 1618649405317,
                     "style": "Text"
                 }
             ]
@@ -39,8 +39,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Torna semplicemente al nostro repository e clicca il bottone a forma di stella nell'angolo in alto a destra!",
-                    "updated": 1618073720679,
+                    "text": "Se non lo hai già fatto, torna al nostro repository e clicca il bottone a forma di stella nell'angolo in alto a destra!",
+                    "updated": 1618649349174,
                     "style": "Callout"
                 }
             ]

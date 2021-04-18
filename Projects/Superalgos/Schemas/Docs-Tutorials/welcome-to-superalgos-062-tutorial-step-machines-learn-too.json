@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "name": "tensorflow-project",
-            "project": "Superalgos"
+            "project": "TensorFlow"
         },
         "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
         "updated": 1616691534660,
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "L'ultima versione di Superalgos presenta un integrazione sperimentale per sfruttare il machine learning.",
-                "updated": 1618058419040
+                "updated": 1618058419040,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "L'integrazione mappa la TensorFlow Library di NodeJS, che contiene un algoritmo di Supervised Learning e la relativa Artificial Neural Network, allo stesso tipo di struttura di nodi tipica di Superalgos.",
-                    "updated": 1618058443954
+                    "updated": 1618058443954,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "L'integrazione sfrutta l'infrastuttura di Superalgos, quindi puoi usare i tuoi datasets per fare il training degli algoritmi di ML e usarne i modelli direttamente dal Trading System.",
-                    "updated": 1618058363973
+                    "updated": 1618058363973,
+                    "style": "Note"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Dopo i primi tutorial, dai un'occhiata a Machine Learning Demo Plugin Workspace!",
-                    "updated": 1618058432041
+                    "updated": 1618058432041,
+                    "style": "Success"
                 }
             ]
         }

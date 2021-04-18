@@ -11657,6 +11657,14 @@
         "type": "Indicator Bot Instance",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "timeFramesFilter",
@@ -11680,6 +11688,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"parameter1\": \"Value for parameter1 defined at the Product Definition\"\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 3,

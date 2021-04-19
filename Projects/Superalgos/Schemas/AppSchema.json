@@ -2498,6 +2498,14 @@
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "bot",
+                "label": "Add API Data Fetcher Bot",
+                "relatedUiObject": "API Data Fetcher Bot Instance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "bot",
                 "label": "Add Indicator Bot Instance",
                 "relatedUiObject": "Indicator Bot Instance",
                 "actionFunction": "payload.executeAction"
@@ -2552,6 +2560,11 @@
                 "name": "bot",
                 "type": "node",
                 "childType": "Sensor Bot Instance"
+            },
+            {
+                "name": "bot",
+                "type": "node",
+                "childType": "API Data Fetcher Bot Instance"
             },
             {
                 "name": "bot",
@@ -2681,6 +2694,36 @@
         },
         "childrenNodesProperties": [],
         "propertyNameAtParent": "processes"
+    },
+    {
+        "type": "API Data Fetcher Process Instance",
+        "menuItems": [
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "title": [
+            "Use Reference Parent Parent",
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 2,
+        "referencingRules": {
+            "compatibleTypes": "->Process Definition->"
+        },
+        "attachingRules": {
+            "compatibleTypes": "->API Data Fetcher Bot Instance->"
+        },
+        "childrenNodesProperties": [],
+        "propertyNameAtParent": "processes",
+        "icon": "bitcoin"
     },
     {
         "type": "Indicator Process Instance",
@@ -11654,6 +11697,56 @@
         "propertyNameAtParent": "bot"
     },
     {
+        "type": "API Data Fetcher Bot Instance",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Instance",
+                "relatedUiObject": "API Data Fetcher Process Instance",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"startDate\": \"2020-01-01\"\n}"
+        },
+        "level": 3,
+        "attachingRules": {
+            "compatibleTypes": "->Task->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "API Data Fetcher Process Instance",
+                "autoAdd": false
+            }
+        ],
+        "propertyNameAtParent": "bot",
+        "icon": "bitcoin"
+    },
+    {
         "type": "Indicator Bot Instance",
         "menuItems": [
             {
@@ -11734,6 +11827,12 @@
             },
             {
                 "action": "Add UI Object",
+                "label": "Add API Data Fetcher Bot",
+                "relatedUiObject": "API Data Fetcher Bot",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
                 "label": "Add Indicator Bot",
                 "relatedUiObject": "Indicator Bot",
                 "actionFunction": "payload.executeAction"
@@ -11769,6 +11868,11 @@
                 "name": "sensorBots",
                 "type": "array",
                 "childType": "Sensor Bot"
+            },
+            {
+                "name": "apiDataFetcherBot",
+                "type": "array",
+                "childType": "API Data Fetcher Bot"
             },
             {
                 "name": "indicatorBots",
@@ -11956,6 +12060,68 @@
         "propertyNameAtParent": "sensorBots"
     },
     {
+        "type": "API Data Fetcher Bot",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Process Definition",
+                "relatedUiObject": "Process Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add Product Definition",
+                "relatedUiObject": "Product Definition",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n  \"codeName\": \"\"\n}"
+        },
+        "level": 1,
+        "attachingRules": {
+            "compatibleTypes": "->Data Mine->"
+        },
+        "childrenNodesProperties": [
+            {
+                "name": "processes",
+                "type": "array",
+                "childType": "Process Definition",
+                "autoAdd": true
+            },
+            {
+                "name": "products",
+                "type": "array",
+                "childType": "Product Definition",
+                "autoAdd": true
+            }
+        ],
+        "propertyNameAtParent": "apiDataFetcherBots",
+        "icon": "bitcoin"
+    },
+    {
         "type": "Process Definition",
         "menuItems": [
             {
@@ -11992,7 +12158,7 @@
         },
         "level": 1,
         "attachingRules": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->"
+            "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->"
         },
         "childrenNodesProperties": [
             {
@@ -12406,7 +12572,7 @@
             "compatibleTypes": "->Plotter Module->"
         },
         "attachingRules": {
-            "compatibleTypes": "->Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
+            "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
         },
         "childrenNodesProperties": [
             {
@@ -15803,7 +15969,8 @@
             }
         ],
         "initialValues": {
-"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n,\n\"password\": \"REPLACE_THIS_STRING_WITH_YOUR_PASSWORD_IF_NECESSARY\"\n}"        },
+            "config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n,\n\"password\": \"REPLACE_THIS_STRING_WITH_YOUR_PASSWORD_IF_NECESSARY\"\n}"
+        },
         "addLeftIcons": true,
         "editors": {
             "config": true

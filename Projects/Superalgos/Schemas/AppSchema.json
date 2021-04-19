@@ -260,6 +260,12 @@
                 "actionFunction": "payload.executeAction"
             },
             {
+                "action": "Add UI Object",
+                "label": "Add API Map",
+                "relatedUiObject": "API Map",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -19625,6 +19631,368 @@
         "level": 3,
         "propertyNameAtParent": "pluginFilePosition",
         "childrenNodesProperties": []
+    },
+    {
+        "type": "API Map",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Version",
+                "relatedUiObject": "API Version",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"protocol\": \"https\",\"hostName\": \"\",\"portNumber\":\"\"}"
+        },
+        "isTitleAllwaysVisible": true,
+        "isHierarchyHead": true,
+        "addLeftIcons": true,
+        "level": 0,
+        "childrenNodesProperties": [
+            {
+                "name": "apiVersions",
+                "type": "array",
+                "childType": "API Version",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Version",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Endpoint",
+                "relatedUiObject": "API Version Endpoint",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\"}"
+        },
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 1,
+        "propertyNameAtParent": "apiVersions",
+        "childrenNodesProperties": [
+            {
+                "name": "apiEndpoints",
+                "type": "array",
+                "childType": "API Endpoint",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Endpoint",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Query Parameters",
+                "relatedUiObject": "API Query Parameters",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Query Responses",
+                "relatedUiObject": "API Query Responses",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\"}"
+        },
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 2,
+        "propertyNameAtParent": "apiEndpoints",
+        "childrenNodesProperties": [
+            {
+                "name": "apiQueryParameters",
+                "type": "node",
+                "childType": "API Query Parameters",
+                "autoAdd": true
+            },
+            {
+                "name": "apiQueryResponses",
+                "type": "node",
+                "childType": "API Query Responses",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Query Parameters",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Query Parameter",
+                "relatedUiObject": "API Query Parameter",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\"}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "propertyNameAtParent": "apiQueryParameters",
+        "childrenNodesProperties": [
+            {
+                "name": "apiQueryParameters",
+                "type": "array",
+                "childType": "API Query Parameter",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Query Parameter",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\", \"isString\": false, \"isOptional\": false, \"description\": \"\"}"
+        },
+        "isTitleAllwaysVisible": true,
+        "addLeftIcons": true,
+        "level": 4,
+        "propertyNameAtParent": "apiQueryParameters",
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Query Responses",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Query Response",
+                "relatedUiObject": "API Query Response",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\"}"
+        },
+        "addLeftIcons": true,
+        "level": 3,
+        "propertyNameAtParent": "apiQueryResponses",
+        "childrenNodesProperties": [
+            {
+                "name": "apiQueryResponse",
+                "type": "array",
+                "childType": "API Query Response",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Query Response",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Response Schema",
+                "relatedUiObject": "API Response Schema",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\"}"
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "propertyNameAtParent": "apiQueryResponses",
+        "childrenNodesProperties": [
+            {
+                "name": "apiResponseSchema",
+                "type": "node",
+                "childType": "API Response Schema",
+                "autoAdd": true
+            }
+        ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Response Schema",
+        "menuItems": [
+            {
+                "action": "Configure",
+                "actionFunction": "uiObject.configEditor.activate",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration"
+            },
+            {
+                "action": "Add UI Object",
+                "label": "Add API Response Field",
+                "relatedUiObject": "API Response Field",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{\"codeName\": \"\", \"fieldType\": \"\", \"descrption\": \"\"}"
+        },
+        "addLeftIcons": true,
+        "level": 4,
+        "propertyNameAtParent": "apiResponseSchema",
+        "childrenNodesProperties": [
+            {
+                "name": "apiResponseFields",
+                "type": "array",
+                "childType": "API Response Field",
+                "autoAdd": false
+            }
+        ],
+        "icon": "bitcoin"
     },
     {
         "type": "Tutorial",

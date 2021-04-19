@@ -20,6 +20,12 @@
                 "text": "Sebelum kita menjalankan data mining, Saya punya pertanyaan buatmu: apakah kamu trading di binance.com atau binance.us?",
                 "updated": 1616352567195,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com o en binance.us?",
+                "updated": 1618434029175,
+                "style": "Definition"
             }
         ]
     },
@@ -38,6 +44,12 @@
                     "language": "ID",
                     "text": "Jika kamu trading di binance.com atau tidak menggunakan Binance sama sekali, sebaiknya melewati step ini dan Next!",
                     "updated": 1616352636966,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si  opera en binance.com o nisiquiera opera con Binance, entonces puedes saltarte este paso y el siguiente.",
+                    "updated": 1618434095119,
                     "style": "Text"
                 }
             ]
@@ -58,6 +70,12 @@
                     "text": "JIka kamu trading di binance.us kamu harus mengkonfigurasi Binance node disamping! Video selanjutnya akan memberitahukan caranya!",
                     "updated": 1616352712406,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Si comercia en binance.us necesita configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
+                    "updated": 1618434112532,
+                    "style": "Callout"
                 }
             ]
         },
@@ -68,14 +86,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "1. <i>Apri</i> la configurazione e cambia il codeName in binanceus. Sposta il cursore del mouse dalla bolla di configurazione e questa si chiuderà, salvando automaticamente le modifiche.",
-                    "updated": 1614719935190,
+                    "text": "1. Apri la configurazione e cambia il codeName in binanceus. Sposta il cursore del mouse dalla bolla di configurazione e questa si chiuderà, salvando automaticamente le modifiche.",
+                    "updated": 1618645707633,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "1. Open konfigurasi dan ubah codeName to binanceus. Arahkan mouse pointer keluar dari konfigurasi bubble dan akan tertutup serta data tersimpan otomatis.",
                     "updated": 1616352808312,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Abra la configuración y cambie el codeName a binanceus. Mueve el cursor fuera de la burbuja de configuración, se cerrará y guardará automáticamente.",
+                    "updated": 1618434145311,
                     "style": "List"
                 }
             ]
@@ -87,14 +111,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "2. Modifica la label del nodo in Binanceus.",
-                    "updated": 1614719998652,
+                    "text": "2. Modifica la label del nodo in \"Binanceus\".",
+                    "updated": 1618645731666,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "2. Ubah label dari node ke Binanceus.",
                     "updated": 1616352869688,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Edita la etiqueta del nodo para que sea Binanceus.",
+                    "updated": 1618434167698,
                     "style": "List"
                 }
             ]

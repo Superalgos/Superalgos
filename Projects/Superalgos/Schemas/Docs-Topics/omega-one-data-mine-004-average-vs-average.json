@@ -1,0 +1,188 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "4",
+    "type": "Average VS Average",
+    "definition": {
+        "text": "An oscillator that considers averages of price, volume and \"open interest\".",
+        "updated": 1617958214490
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
+            "updated": 1617958138349
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/average-vs-average.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Average VS Average"
+        },
+        {
+            "style": "Text",
+            "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. It measures Price Movement, Volume and a so called Open Interest.",
+            "updated": 1617958497266
+        },
+        {
+            "style": "Text",
+            "text": "The idea is to visualise if the trend weakens or gets stronger, within the current trend."
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is a zero-line cross indicator that is best used with an own rate and scale (in order to place it below the candle chart)."
+        },
+        {
+            "style": "Text",
+            "text": "The elements in the indicator are:"
+        },
+        {
+            "style": "List",
+            "text": "A mid-line that represents the slow average of the elements (it always has the value 1).",
+            "updated": 1617973206308
+        },
+        {
+            "style": "List",
+            "text": "A green line that shows fast average Bull Power compared to the slow average.",
+            "updated": 1617960429886
+        },
+        {
+            "style": "List",
+            "text": "A dotted line that shows the fast average Open Interest compared to the slow average.",
+            "updated": 1617960458863
+        },
+        {
+            "style": "List",
+            "text": "Faded green and red bars in the background that shows the fast average volume compared to the slow average volume. It changes colors depending on the previous value.",
+            "updated": 1617961835292
+        },
+        {
+            "style": "List",
+            "text": "Non-faded green and red bars close to the zero-line showing the fast price average compared to the slow price average. It changes colors depending on the previous value.",
+            "updated": 1617961849374
+        },
+        {
+            "style": "Subtitle",
+            "text": "What is \"Open Interest\"?"
+        },
+        {
+            "style": "Text",
+            "text": "The idea of measuring Open Interest - is that a red candle might not be an indication of a bearish interest and vice versa. Considering volume, candle direction and amount movement defines the strength of Open Interest.",
+            "updated": 1617961616124
+        },
+        {
+            "style": "List",
+            "text": "Bull Candle and Volume Increase = Bull Interest"
+        },
+        {
+            "style": "List",
+            "text": "Bull Candle and Volume Decrease = Bear Interest"
+        },
+        {
+            "style": "List",
+            "text": "Bear Candle and Volume Increase = Bear Interest"
+        },
+        {
+            "style": "List",
+            "text": "Bear Candle and Volume Decrease = Bull Interest"
+        },
+        {
+            "style": "Subtitle",
+            "text": "How is the Average VS Average calculated?"
+        },
+        {
+            "style": "List",
+            "text": "Bull Power is defined by measuring the value between candle min and candle close, out of the total candle range. Comparing the fast average Bull Power through the slow average Bull Power.",
+            "updated": 1617961207015
+        },
+        {
+            "style": "List",
+            "text": "Volume is measured by the fast average Total Volume through the slow average Total Volume.",
+            "updated": 1617961227511
+        },
+        {
+            "style": "List",
+            "text": "The fast average Price is compared to the slow average Price.",
+            "updated": 1617961304593
+        },
+        {
+            "style": "List",
+            "text": "The fast average Open Interest is compared to the slow average Open Interest. ",
+            "updated": 1617961386984
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it."
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node."
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node."
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice."
+        },
+        {
+            "style": "Note",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/average-vs-average-code-node.png",
+            "updated": 1617958956443
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/average-vs-average-user-defined.png",
+            "updated": 1617958965558
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Average VS Average | averageVsAverage | bullPriceDeviation, smaPrice, volumeDeviation, openInterestDeviation |",
+            "updated": 1617972838194
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES */\n\n// Average price is increasing compared to the slow average price\nchart.at01hs.averageVsAverage.previous.smaPrice < \nchart.at01hs.averageVsAverage.smaPrice\n\n// Bull Power crosses the mid-line (mid-line is always '1') (Bullish)\nchart.at01hs.averageVsAverage.previous.bullPriceDeviation < 1 &&\nchart.at01hs.averageVsAverage.bullPriceDeviation > 1\n\n// Bull Power crosses the mid-line while Open Interest is above mid-line (Bullish)\n( chart.at01hs.averageVsAverage.previous.bullPriceDeviation < 1 &&\nchart.at01hs.averageVsAverage.bullPriceDeviation > 1 ) &&\nchart.at01hs.averageVsAverage.openInterestDeviation < 1\n\n// Volume increases and SMA Price is below mid-line and SMA Price is getting stronger\nchart.at01hs.averageVsAverage.previous.volumeDeviation < \nchart.at01hs.averageVsAverage.volumeDeviation &&\nchart.at01hs.averageVsAverage.smaPrice < 1 &&\nchart.at01hs.averageVsAverage.previous.smaPrice < \nchart.at01hs.averageVsAverage.smaPrice",
+            "updated": 1617973639173
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

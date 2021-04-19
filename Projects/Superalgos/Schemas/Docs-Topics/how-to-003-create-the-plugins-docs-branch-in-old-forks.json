@@ -1,0 +1,85 @@
+{
+    "topic": "How To",
+    "pageNumber": "3",
+    "type": "Create the Plugins-Docs Branch in Old Forks",
+    "definition": {
+        "text": "If your Superalgos fork is older than April 6, 2021, you must create the plugin-docs branch before you may switch to that branch! Newer forks already have the branch, so you don't need to follow this guide in that case!",
+        "updated": 1618155549345
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "If you didn't create a fork at all, and cloned or downloaded the Superalgos repository directory instead, you will not be able to send your contributions. If that is the case, you will need to close the app, delete the Superalgos folder, and follow the instructions on the README file to fork the repository."
+        },
+        {
+            "style": "Title",
+            "text": "I'm not sure if I have the branch! How can I tell?",
+            "updated": 1618317357821
+        },
+        {
+            "style": "Text",
+            "text": "Start a new console/terminal window and change directories to the root of the Superalgos folder. Once there, run the following command:",
+            "updated": 1618317471815
+        },
+        {
+            "style": "Json",
+            "text": "git branch --list",
+            "updated": 1618317490652
+        },
+        {
+            "style": "Callout",
+            "text": "If you see the plugins-docs branch listed, then you may go back to the tutorial! If not, then proceed with the instructions on this page!",
+            "updated": 1618317621633
+        },
+        {
+            "style": "Title",
+            "text": "Let's create the branch!",
+            "updated": 1618317417213
+        },
+        {
+            "style": "Subtitle",
+            "text": "1. Make sure you are on the Master branch",
+            "updated": 1618317374702
+        },
+        {
+            "style": "Important",
+            "text": "You will create a branch using a Git command, but you must make sure that you create the new branch as a copy of the master branch. If you are currently running the software from a branch different than the master branch, you must first switch to the master branch, and only then create the new branch.",
+            "updated": 1618316571133
+        },
+        {
+            "style": "Subtitle",
+            "text": "2. Create the plugins-docs branch",
+            "updated": 1618317383194
+        },
+        {
+            "style": "Text",
+            "text": "Start a new console/terminal window and change directories to the root of the Superalgos folder. Once there, run the following command:",
+            "updated": 1618316776970
+        },
+        {
+            "style": "Json",
+            "text": "git branch plugins-docs",
+            "updated": 1618316691052
+        },
+        {
+            "style": "Text",
+            "text": "You will likely NOT get any confirmation that the branch was created. Instead, you will get the prompt again. Run the following command to make sure the branch exists:",
+            "updated": 1618316910204
+        },
+        {
+            "style": "Json",
+            "text": "git branch --list",
+            "updated": 1618316915062
+        },
+        {
+            "style": "Text",
+            "text": "You should get a list of the existing local branches, one of which should be the plugins-docs branch.",
+            "updated": 1618316950598
+        },
+        {
+            "style": "Success",
+            "text": "That's it! Now you may go back to the tutorial!",
+            "updated": 1618317782493
+        }
+    ]
+}

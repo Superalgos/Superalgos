@@ -20,6 +20,12 @@
                 "text": "Data Tasks node mengkontrol semua data mining tasks yang telah ditentukan untuk Network Node.",
                 "updated": 1616352238548,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este Network Node.",
+                "updated": 1618433799425,
+                "style": "Definition"
             }
         ]
     },
@@ -39,6 +45,12 @@
                     "text": "Kamu akan memulai aktivitas pertama berikut yang akan kami bahas setelah ini:",
                     "updated": 1616352314863,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas a punto de empezar las siguientes actividades, que cubriremos en los proximos minutos",
+                    "updated": 1618433837116,
+                    "style": "Text"
                 }
             ]
         },
@@ -48,14 +60,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "1. <i> Eseguire </i> un operazione di data mining per ottenere i dati per il Market BTC/USDT da Binance.",
-                    "updated": 1614719245405,
+                    "text": "1.  Eseguire un operazione di data mining per ottenere i dati per il Market BTC/USDT da Binance.",
+                    "updated": 1618645569627,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "1. Menjalankan operasi data mining untuk mendapatkan data BTC/USDT Market dari Binance.",
                     "updated": 1616352385845,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una operación de data mining para obtener datos del mercado BTC/USDT de Binance.",
+                    "updated": 1618433865098,
                     "style": "List"
                 }
             ],
@@ -67,14 +85,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "2. <i>Eseguire</i> una Backtesting Session con una strategia open-source già esistente.",
-                    "updated": 1614719466297,
+                    "text": "2. Eseguire una Backtesting Session con una strategia open-source già esistente.",
+                    "updated": 1618645582737,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "2. Menjalankan Backtesting Session dengan strategi sumber terbuka yang ada.",
                     "updated": 1616352419031,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una Backtesting session con una estrategia de código abierto existente.",
+                    "updated": 1618433902156,
                     "style": "List"
                 }
             ],
@@ -86,14 +110,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "3. <i>Eseguire</i> una Live Trading Session con una minima quantità di fondi, per testare gli aspetti più critici del sistema.",
-                    "updated": 1614719396162,
+                    "text": "3. Eseguire una Live Trading Session con un importo minimo, per testare gli aspetti critici del sistema.",
+                    "updated": 1618645614529,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "3. Menjalankan Live Trading Session dengan modal kecil, untuk menguji aspek krusial dari sistem.",
                     "updated": 1616352469782,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una Live trading session con fondos mínimos, para descubrir aspectos críticos del sistema.",
+                    "updated": 1618433958316,
                     "style": "List"
                 }
             ],
@@ -113,6 +143,12 @@
                     "language": "ID",
                     "text": "Apakah kamu aman dengan hal ini? Mari kita mulai?",
                     "updated": 1616352500052,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos activos con esto? Empezamos?",
+                    "updated": 1618433978877,
                     "style": "Callout"
                 }
             ]

@@ -4,6 +4,7 @@
 
 const Exchange = require ('./base/Exchange');
 const { ExchangeError } = require ('./base/errors');
+const Precise = require ('./base/Precise');
 
 //  ---------------------------------------------------------------------------
 
@@ -89,11 +90,11 @@ module.exports = class foxbit extends Exchange {
                 // otherwise we will lose the info if the currency balance has been funded or traded or not
                 if (currencyId in balances) {
                     const account = this.account ();
-                    let used = this.safeFloat (balances, currencyId + '_locked');
+                    let used = this.safeNumber (balances, currencyId + '_locked');
                     if (used !== undefined) {
                         used *= 1e-8;
                     }
-                    let total = this.safeFloat (balances, currencyId);
+                    let total = this.safeNumber (balances, currencyId);
                     if (total !== undefined) {
                         total *= 1e-8;
                     }
@@ -128,16 +129,16 @@ module.exports = class foxbit extends Exchange {
         const timestamp = this.milliseconds ();
         const lowercaseQuote = market['quote'].toLowerCase ();
         const quoteVolume = 'vol_' + lowercaseQuote;
-        const last = this.safeFloat (ticker, 'last');
+        const last = this.safeNumber (ticker, 'last');
         return {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'high'),
-            'low': this.safeFloat (ticker, 'low'),
-            'bid': this.safeFloat (ticker, 'buy'),
+            'high': this.safeNumber (ticker, 'high'),
+            'low': this.safeNumber (ticker, 'low'),
+            'bid': this.safeNumber (ticker, 'buy'),
             'bidVolume': undefined,
-            'ask': this.safeFloat (ticker, 'sell'),
+            'ask': this.safeNumber (ticker, 'sell'),
             'askVolume': undefined,
             'vwap': undefined,
             'open': undefined,
@@ -147,8 +148,8 @@ module.exports = class foxbit extends Exchange {
             'change': undefined,
             'percentage': undefined,
             'average': undefined,
-            'baseVolume': this.safeFloat (ticker, 'vol'),
-            'quoteVolume': this.safeFloat (ticker, quoteVolume),
+            'baseVolume': this.safeNumber (ticker, 'vol'),
+            'quoteVolume': this.safeNumber (ticker, quoteVolume),
             'info': ticker,
         };
     }
@@ -161,14 +162,11 @@ module.exports = class foxbit extends Exchange {
             symbol = market['symbol'];
         }
         const side = this.safeString (trade, 'side');
-        const price = this.safeFloat (trade, 'price');
-        const amount = this.safeFloat (trade, 'amount');
-        let cost = undefined;
-        if (price !== undefined) {
-            if (amount !== undefined) {
-                cost = amount * price;
-            }
-        }
+        const priceString = this.safeString (trade, 'price');
+        const amountString = this.safeString (trade, 'amount');
+        const price = this.parseNumber (priceString);
+        const amount = this.parseNumber (amountString);
+        const cost = this.parseNumber (Precise.stringMul (priceString, amountString));
         return {
             'id': id,
             'info': trade,

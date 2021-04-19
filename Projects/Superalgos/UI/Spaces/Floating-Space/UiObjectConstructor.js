@@ -44,8 +44,10 @@ function newUiObjectConstructor() {
         payload.floatingObject = floatingObject
 
         /*
-        When this object is created based on a backup, share or clone, we will have a savedPayload that we will use to set the initial properties.
-        If it is a new object being created out of the user interface, we jusst continue with the construction process.
+        When this object is created based on a backup, share or clone, 
+        we will have a savedPayload that we will use to set the initial properties.
+        If it is a new object being created out of the user interface, 
+        we jusst continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {
@@ -81,7 +83,8 @@ function newUiObjectConstructor() {
         }
 
         /*
-        For brand new objects being created directly by the user, we will make them inherit some properties
+        For brand new objects being created directly by the user, 
+        we will make them inherit some properties
         from their closest siblings, and if they don't have, from their parents.
         */
 
@@ -365,6 +368,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Parent Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
                 actionFunction: floatingObject.payload.executeAction,
                 actionProject: 'Superalgos',
                 label: undefined,
@@ -380,6 +385,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Reference Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
                 actionFunction: floatingObject.payload.executeAction,
                 actionProject: 'Superalgos',
                 label: undefined,

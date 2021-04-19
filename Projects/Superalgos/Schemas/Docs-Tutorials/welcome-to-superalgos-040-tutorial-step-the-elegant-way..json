@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Aku tahu!, Memperbesar ke tempat acak tidak seperti langsung menuju ke kotak chart discreenmu, benar? Jangan khawatir... Coba trik ini!",
-                "updated": 1616948885540
+                "updated": 1616948885540,
+                "style": "Definition"
             }
         ],
         "updated": 1616417516192
@@ -32,7 +33,8 @@
                 {
                     "language": "ID",
                     "text": "Menyesuaikan aspect ratio: Point mouse-mu ke chart dan tekan Ctrl + Shift + Key-A",
-                    "updated": 1616948923519
+                    "updated": 1616948923519,
+                    "style": "List"
                 }
             ]
         },
@@ -43,7 +45,8 @@
                 {
                     "language": "ID",
                     "text": "Zoom out: gunakan mouse wheel untuk memposisikan zoom out terkecil; hanya dari posisi ini perintah berikutnya akan bekerja!",
-                    "updated": 1616949119939
+                    "updated": 1616949119939,
+                    "style": "List"
                 }
             ]
         },
@@ -53,14 +56,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai doppio click sulla Time Machine in cima! Due volte!",
-                    "updated": 1614893194631,
+                    "text": "Fai doppio click sulla Time Machine in cima: questo centrerà il grafico e lo zoomerà, lasciando del margine per visualizzarne il nome e la tab in alto a sinistra.",
+                    "updated": 1618647317393,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "Double-click sekali: Ini memusatkan chart dan membawamu ke tingkat zoom tertentu; margin terlihat kekiri agar pas dengan nama dan tab chart di sudut kiri atas.",
-                    "updated": 1616949208729
+                    "updated": 1616949208729,
+                    "style": "List"
                 }
             ],
             "updated": 1616418234728
@@ -71,14 +75,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il primo doppio click centra il grafico e lo zoomma, lasciando un po' di margine per mostrare il nome e la tab in alto a sinistra. Il secondo doppio-click ti trasporta al suo interno, al livello di zoom dove emergono i layer managers.",
-                    "updated": 1614893166373,
+                    "text": "Fai un altro doppio click: questo ti trasporterà dentro il grafico, zoomandolo quanto basta per adattarlo perfettamente allo schermo e farne emergere i layer.",
+                    "updated": 1618647548231,
                     "style": "List"
                 },
                 {
                     "language": "ID",
                     "text": "Double-click lagi: Ini membawamu lebih jauh kedalam bagan, tingkat zoom ini secara sempurna cocok dengan layar beserta layer managers yang muncul.",
-                    "updated": 1616949317416
+                    "updated": 1616949317416,
+                    "style": "List"
                 }
             ],
             "updated": 1616418383322

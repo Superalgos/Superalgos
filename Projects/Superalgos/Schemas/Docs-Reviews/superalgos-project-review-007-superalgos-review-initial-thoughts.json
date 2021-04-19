@@ -1,0 +1,29 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 7,
+    "type": "Superalgos Review - Initial Thoughts",
+    "definition": {
+        "text": "My initial thoughts on Superalgos.",
+        "updated": 1618134889544
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first thought that came to my mind was how well documented, polished and presented Superalgos is.  Considering the shear amount of knowledge to be conveied to a new user, the tutorials move at a the right pace as to not overwhelm.",
+            "updated": 1618134839988
+        },
+        {
+            "style": "Text",
+            "text": "Having written my own basic trading interface and bots using python, I look forward to not having to worry about software edge cases or outcomes I hadn't considered.  Only through the work of a focussed community team can these issues be effectivly solved."
+        },
+        {
+            "style": "Text",
+            "text": "Wish I'd found this earlier. Can't wait to dig in.",
+            "updated": 1618484966020
+        },
+        {
+            "style": "Text",
+            "text": "brycey12"
+        }
+    ]
+}

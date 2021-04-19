@@ -1,0 +1,33 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "7.5",
+    "type": "Tutorial Step - Repository Branches",
+    "definition": {
+        "text": "The Superalgos repository features three main branches: master, develop, and the one we're looking for, plugins-docs.",
+        "icon": {
+            "name": "github",
+            "project": "Superalgos"
+        },
+        "updated": 1618143614949
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "There may be more, but these are the main!",
+            "updated": 1618143442686
+        },
+        {
+            "style": "List",
+            "text": "Master Branch: Features the stable version of the software. Never submit contributions to this branch!"
+        },
+        {
+            "style": "List",
+            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase.",
+            "updated": 1618143744374
+        },
+        {
+            "style": "List",
+            "text": "Plugins/Docs Branch: Features the version in the master branch plus the latest changes in the Docs and Plugins. Submit contributions of translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!"
+        }
+    ]
+}

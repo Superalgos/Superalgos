@@ -11657,6 +11657,14 @@
         "type": "Indicator Bot Instance",
         "menuItems": [
             {
+                "action": "Configure",
+                "label": "Configure",
+                "iconPathOn": "configuration",
+                "iconPathOff": "configuration",
+                "dontShowAtFullscreen": true,
+                "actionFunction": "uiObject.configEditor.activate"
+            },
+            {
                 "action": "Add UI Object",
                 "disableIfPropertyIsDefined": true,
                 "propertyToCheckFor": "timeFramesFilter",
@@ -11680,6 +11688,12 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
+        "editors": {
+            "config": true
+        },
+        "initialValues": {
+            "config": "{ \n\"parameter1\": \"Value for parameter1 defined at the Product Definition\"\n}"
+        },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,
         "level": 3,
@@ -15789,7 +15803,7 @@
             }
         ],
         "initialValues": {
-"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n}"        },
+"config": "{ \n\"codeName\": \"DOUBLE_CLICK_ON_THIS_STRING_TO_SELECT_IT_XXX_DELETE_IT_AND_PASTE_YOUR_EXCHANGE_API_PUBLIC_KEY\",\n\"secret\": \"REPLACE_THIS_STRING_WITH_YOUR_API_KEY_SECRET\"\n,\n\"uid\": \"REPLACE_THIS_STRING_WITH_YOUR_UID_IF_NECESSARY\"\n,\n\"password\": \"REPLACE_THIS_STRING_WITH_YOUR_PASSWORD_IF_NECESSARY\"\n}"        },
         "addLeftIcons": true,
         "editors": {
             "config": true

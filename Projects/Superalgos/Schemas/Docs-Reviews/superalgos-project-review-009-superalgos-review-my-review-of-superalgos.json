@@ -1,0 +1,15 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 9,
+    "type": "Superalgos Review - My review of SuperAlgos",
+    "definition": {
+        "text": "I love the software so far! There are a lot of stuff that has to be learned. Also the freedom to do what you like with the software it's ... unique.",
+        "updated": 1618354560435
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

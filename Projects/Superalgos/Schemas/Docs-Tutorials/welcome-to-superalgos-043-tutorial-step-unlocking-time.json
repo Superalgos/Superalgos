@@ -36,8 +36,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per cambiare tra automatico e manuale, premi Shift e ruota una volta la rotella del mouse sopra a una time scale box.",
-                    "updated": 1614893644877,
+                    "text": "Per cambiare tra automatico e manuale, premi Shift e ruota una volta la rotella del mouse sopra a una time scale box. Oppure, posiziona il cursore sulla scale box e usa i tasti freccia ↑ ↓.",
+                    "updated": 1618647811116,
                     "style": "Callout"
                 }
             ],
@@ -46,7 +46,14 @@
         {
             "style": "Text",
             "text": "You should now be able to move freely on the X-axis, that is, the time axis of the chart.",
-            "updated": 1616495689238
+            "updated": 1616495689238,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dovresti poterti muovere liberamente sull'asse X del grafico, ossia quella del tempo.",
+                    "updated": 1618647843971
+                }
+            ]
         }
     ]
 }

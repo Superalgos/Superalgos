@@ -24,8 +24,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ruotare la rotella del mouse su una time scale box espande e comprime il tempo!",
-                    "updated": 1614893833795,
+                    "text": "Ruotare la rotella del mouse su una time scale box espande e comprime il tempo! In alternativa, posiziona il mouse sulla scale box e usa i tasti freccia ← → ",
+                    "updated": 1618647977786,
                     "style": "Callout"
                 }
             ],
@@ -37,8 +37,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "C'è un dettaglio interessante nel video precedente: quando la time scale esce dalla modalità automatica, i due piccoli triangoli verdi che indicano gli estremi della scala automatica scompaiono!",
-                    "updated": 1614893892461,
+                    "text": "C'è un dettaglio interessante nel video precedente: quando la time scale esce dalla modalità automatica, i due triangoli verdi che indicano gli estremi della scala scompaiono! La scala puó essere impostata come automatica su uno degli estremi, entrambi o nessuno!",
+                    "updated": 1618648074699,
                     "style": "Note"
                 }
             ],

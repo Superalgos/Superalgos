@@ -19662,7 +19662,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\"protocol\": \"https\",\"hostName\": \"\",\"portNumber\":\"\"}"
+            "config": "{\"protocol\": \"https\",\"portNumber\":\"\"\"portNumber\":\"\",\"hostName\": \"\",\"path\": \"\"}"
         },
         "isTitleAllwaysVisible": true,
         "isHierarchyHead": true,
@@ -19691,7 +19691,7 @@
             {
                 "action": "Add UI Object",
                 "label": "Add API Endpoint",
-                "relatedUiObject": "API Version Endpoint",
+                "relatedUiObject": "API Endpoint",
                 "actionFunction": "payload.executeAction"
             },
             {
@@ -19792,13 +19792,6 @@
         "type": "API Query Parameters",
         "menuItems": [
             {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add API Query Parameter",
                 "relatedUiObject": "API Query Parameter",
@@ -19814,12 +19807,6 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\"codeName\": \"\"}"
-        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -19875,13 +19862,6 @@
         "type": "API Query Responses",
         "menuItems": [
             {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add API Query Response",
                 "relatedUiObject": "API Query Response",
@@ -19897,12 +19877,6 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\"codeName\": \"\"}"
-        },
         "addLeftIcons": true,
         "level": 3,
         "attachingRules": {
@@ -19949,7 +19923,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{\"codeName\": \"\"}"
+            "config": "{\"codeName\": \"\", \"isError\": false}"
         },
         "addLeftIcons": true,
         "level": 4,
@@ -19971,13 +19945,6 @@
         "type": "API Response Schema",
         "menuItems": [
             {
-                "action": "Configure",
-                "actionFunction": "uiObject.configEditor.activate",
-                "label": "Configure",
-                "iconPathOn": "configuration",
-                "iconPathOff": "configuration"
-            },
-            {
                 "action": "Add UI Object",
                 "label": "Add API Response Field",
                 "relatedUiObject": "API Response Field",
@@ -19993,12 +19960,6 @@
                 "actionFunction": "payload.executeAction"
             }
         ],
-        "editors": {
-            "config": true
-        },
-        "initialValues": {
-            "config": "{\"codeName\": \"\", \"fieldType\": \"\", \"descrption\": \"\"}"
-        },
         "addLeftIcons": true,
         "level": 4,
         "attachingRules": {

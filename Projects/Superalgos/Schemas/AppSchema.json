@@ -2705,6 +2705,14 @@
         "type": "API Data Fetcher Process Instance",
         "menuItems": [
             {
+                "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "apiMapReference",
+                "label": "Add API Map Reference",
+                "relatedUiObject": "API Map Reference",
+                "actionFunction": "payload.executeAction"
+            },
+            {
                 "action": "Delete UI Object",
                 "askConfirmation": true,
                 "confirmationLabel": "Confirm to Delete",
@@ -2727,7 +2735,14 @@
         "attachingRules": {
             "compatibleTypes": "->API Data Fetcher Bot Instance->"
         },
-        "childrenNodesProperties": [],
+        "childrenNodesProperties": [
+            {
+                "name": "apiMapReference",
+                "type": "node",
+                "childType": "API Map Reference",
+                "autoAdd": true
+            }
+        ],
         "propertyNameAtParent": "processes",
         "icon": "bitcoin"
     },
@@ -19739,12 +19754,16 @@
             },
             {
                 "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "apiQueryParameters",
                 "label": "Add API Query Parameters",
                 "relatedUiObject": "API Query Parameters",
                 "actionFunction": "payload.executeAction"
             },
             {
                 "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "apiQueryResponses",
                 "label": "Add API Query Responses",
                 "relatedUiObject": "API Query Responses",
                 "actionFunction": "payload.executeAction"
@@ -19905,6 +19924,8 @@
             },
             {
                 "action": "Add UI Object",
+                "disableIfPropertyIsDefined": true,
+                "propertyToCheckFor": "apiResponseSchema",
                 "label": "Add API Response Schema",
                 "relatedUiObject": "API Response Schema",
                 "actionFunction": "payload.executeAction"
@@ -20022,6 +20043,36 @@
                 "autoAdd": false
             }
         ],
+        "icon": "bitcoin"
+    },
+    {
+        "type": "API Map Reference",
+        "menuItems": [
+            {
+                "action": "Add UI Object",
+                "label": "Add API Response Field",
+                "relatedUiObject": "API Response Field",
+                "actionFunction": "payload.executeAction"
+            },
+            {
+                "action": "Delete UI Object",
+                "askConfirmation": true,
+                "confirmationLabel": "Confirm to Delete",
+                "label": "Delete",
+                "iconPathOn": "delete-entity",
+                "iconPathOff": "delete-entity",
+                "actionFunction": "payload.executeAction"
+            }
+        ],
+        "title": [
+            "Use Reference Parent"
+        ],
+        "addLeftIcons": true,
+        "level": 4,
+        "propertyNameAtParent": "apiMapReference",
+        "referencingRules": {
+            "compatibleTypes": "->API Map->"
+        },
         "icon": "bitcoin"
     },
     {

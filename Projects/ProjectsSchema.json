@@ -570,6 +570,21 @@
                     "folderName": "Sensor-Bot/Webhooks"
                 },
                 {
+                    "name": "Single Market API Data Fetcher Bot",
+                    "propertyName": "singleMarketAPIDataFetcherBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketAPIDataFetcherBot",
+                    "fileName": "SingleMarketAPIDataFetcherBot.js",
+                    "folderName": "API-Data-Fetcher-Bot",
+                    "botType": "API Data Fetcher Bot"
+                },
+                {
+                    "name": "API Data Fetcher Fetching Process",
+                    "propertyName": "fetchingProcess",
+                    "functionName": "newSuperalgosBotModulesFetchingProcess",
+                    "fileName": "FetchingProcess.js",
+                    "folderName": "API-Data-Fetcher-Bot"
+                },
+                {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",

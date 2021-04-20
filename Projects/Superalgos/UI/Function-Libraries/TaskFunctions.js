@@ -114,7 +114,6 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
             'Sensor Process Instance->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
-            'API Map Reference->' + 
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -151,7 +150,10 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Trading Bot->' +
             'Learning Bot->' +
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-            'Data Mine->Trading Mine->Learning Mine->'
+            'Data Mine->Trading Mine->Learning Mine->'+
+            'API Map Reference->' + 
+            'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Query Responses->API Query Response->API Response Schema->' + 
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
         let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 

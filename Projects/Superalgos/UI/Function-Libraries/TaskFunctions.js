@@ -109,7 +109,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
         let taskLightingPath = '->Task->' +
             'Sensor Bot Instance->' +
-            'API Data Fetcher Bot Instance->'
+            'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +

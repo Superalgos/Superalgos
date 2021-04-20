@@ -1,6 +1,6 @@
-﻿exports.newSuperalgosBotModulesSingleMarketIndicatorBot = function (processIndex) {
+exports.newSuperalgosBotModulesSingleMarketAPIDataFetcherBot = function (processIndex) {
 
-    const MODULE_NAME = "Single Market Indicator Bot";
+    const MODULE_NAME = "Single Market API Data Fetcher Bot";
 
     let thisObject = {
         initialize: initialize,
@@ -13,6 +13,7 @@
     return thisObject
 
     function initialize(callBackFunction) {
+        /*  This function is exactly the same in the 3 modules representing the 2 different bot types loops. */
         try {
             /* We will check that we have received all the nodes needed to run this bot. */
             if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.checkUpstreamOfTaskNode(processIndex) === false) {
@@ -29,7 +30,7 @@
             must be specified at the bot process config.
             */
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule === undefined) {
-                /* The code of the bot is defined at the UI. No need to load a file with the code. */
+                /* The code of the bot is defined at the UI. No need to load a module for this. */
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
             } else {
@@ -45,7 +46,7 @@
                 let moduleFunction = botModule[botModuleDefinition.functionName]
                 botModuleObject = moduleFunction(processIndex)
 
-                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
                 return
             }
 
@@ -58,20 +59,22 @@
 
     function run(callBackFunction) {
         try {
-            loop()
+            loop();
 
             function loop() {
                 try {
+                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Running...")
+                    function pad(str, max) {
+                        str = str.toString();
+                        return str.length < max ? pad(" " + str, max) : str;
+                    }
+
                     /* For each loop we want to create a new log file. */
                     if (TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT !== undefined) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.finalize()
                     }
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT =
-                        TS.projects.superalgos.taskModules.debugLog.newSuperalgosTaskModulesDebugLog(processIndex)
-                    TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(
-                        MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id,
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT
-                    )
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT = TS.projects.superalgos.taskModules.debugLog.newSuperalgosTaskModulesDebugLog(processIndex)
+                    TS.projects.superalgos.globals.taskVariables.LOGGER_MAP.set(MODULE_NAME + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT)
 
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER++;
 
@@ -84,19 +87,15 @@
                     /* Main Loop Console Logging */
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newMainLoop()
 
-                    /* We will prepare first the infraestructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+                    /* We will prepare first the infraestructure needed for the bot to run. There are 4 modules we need to sucessfullly initialize first. */
                     let processExecutionEvents
-                    let processFramework;
                     let statusDependencies;
-                    let dataDependencies;
-
                     let nextWaitTime;
 
                     initializeProcessExecutionEvents();
 
                     function initializeProcessExecutionEvents() {
                         try {
-
                             processExecutionEvents = TS.projects.superalgos.processModules.processExecutionEvents.newSuperalgosProcessModulesProcessExecutionEvents(processIndex)
                             processExecutionEvents.initialize(onInizialized);
 
@@ -139,6 +138,7 @@
                                     return
                                 }
                             }
+
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] run -> loop -> initializeProcessExecutionEvents -> err = " + err.stack);
@@ -217,7 +217,7 @@
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                 "[INFO] run -> loop -> initializeStatusDependencies -> onInizialized -> Execution finished well.");
-                                            initializeDataDependencies();
+                                            initializeBotModuleObject();
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
@@ -259,83 +259,6 @@
                         }
                     }
 
-                    function initializeDataDependencies() {
-                        try {
-                            dataDependencies = TS.projects.superalgos.processModules.dataDependencies.newSuperalgosProcessModulesDataDependencies(processIndex);
-                            dataDependencies.initialize(onInizialized);
-
-                            function onInizialized(err) {
-                                try {
-                                    switch (err.result) {
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
-                                            /* If the process is configured to run inside a framework, we continue there, otherwise we run the bot directly. */
-                                            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework === undefined) {
-                                                initializeBotModuleObject();
-                                                return;
-                                            }
-
-                                            switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
-                                                case 'Multi-Period-Market': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesMultiPeriodMarket(processIndex);
-                                                    intitializeProcessFramework();
-                                                    break;
-                                                }
-                                                case 'Multi-Period-Daily': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodDaily.newSuperalgosBotModulesMultiPeriodDaily(processIndex);
-                                                    intitializeProcessFramework();
-                                                    break;
-                                                }
-                                                default: {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework Name = " +
-                                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name);
-                                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                                    return
-                                                }
-                                            }
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] run -> loop -> initializeDataDependencies -> onInizialized -> Retry Later. Requesting Execution Retry.");
-                                            nextWaitTime = 'Retry';
-                                            loopControl(nextWaitTime);
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Operation Failed. Aborting the process.");
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                        default: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                    }
-                                } catch (err) {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] run -> loop -> initializeDataDependencies ->  onInizialized -> err = " + err.stack);
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                    return
-                                }
-                            }
-                        } catch (err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] run -> loop -> initializeDataDependencies -> err = " + err.stack);
-                            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                            return
-                        }
-                    }
-
                     function initializeBotModuleObject() {
                         try {
                             botModuleObject.initialize(statusDependencies, onInizialized);
@@ -345,20 +268,20 @@
                                     switch (err.result) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[INFO] run -> loop -> initializeBotModuleObject -> onInizialized -> Execution finished well.");
+                                                "[INFO] run -> loop -> initializeBotModuleObject -> onInizialized > Execution finished well.");
                                             startBotModuleObject();
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] run -> loop -> initializeBotModuleObject -> onInizialized -> Retry Later. Requesting Execution Retry.");
+                                                "[WARN] run -> loop -> initializeBotModuleObject -> onInizialized > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Operation Failed. Aborting the process.");
+                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized > Operation Failed. Aborting the process.");
                                             TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                             return
                                         }
@@ -375,16 +298,16 @@
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
+                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized > Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
+                                                "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized > Unhandled err.result received. -> err = " + err.message);
                                             TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                             return
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] run -> loop -> initializeBotModuleObject ->  onInizialized -> err = " + err.stack);
+                                        "[ERROR] run -> loop -> initializeBotModuleObject -> onInizialized -> err = " + err.stack);
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                     return
@@ -408,20 +331,20 @@
                                     switch (err.result) {
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[INFO] run -> loop -> startBotModuleObject -> onFinished -> Execution finished well.");
+                                                "[INFO] run -> loop -> startBotModuleObject -> onFinished > Execution finished well.");
                                             finishProcessExecutionEvents()
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Retry Later. Requesting Execution Retry.");
+                                                "[WARN] run -> loop -> startBotModuleObject -> onFinished > Retry Later. Requesting Execution Retry.");
                                             nextWaitTime = 'Retry';
                                             loopControl(nextWaitTime);
                                             return;
                                         }
                                         case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Operation Failed. Aborting the process.");
+                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished > Operation Failed. Aborting the process.");
                                             TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                             return
                                         }
@@ -430,21 +353,21 @@
                                             switch (err.message) {
                                                 case "Dependency does not exist.": {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
+                                                        "[WARN] run -> loop -> startBotModuleObject -> onFinished > Dependency does not exist. This Loop will go to sleep.");
                                                     nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 case "Dependency not ready.": {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] run -> loop -> startBotModuleObject -> onFinished -> Dependency not ready. Will Retry Later.");
-                                                    nextWaitTime = 'Retry';
+                                                        "[WARN] run -> loop -> startBotModuleObject -> onFinished > Dependency not ready. This Loop will go to sleep.");
+                                                    nextWaitTime = 'Sleep';
                                                     loopControl(nextWaitTime);
                                                     return;
                                                 }
                                                 default: {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled custom response received. -> err = " + err.message);
+                                                        "[ERROR] run -> loop -> startBotModuleObject -> onFinished > Unhandled custom response received. -> err = " + err.message);
                                                     TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                                     return
                                                 }
@@ -452,9 +375,9 @@
                                         }
                                         default: {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
+                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished > Unhandled err.result received. -> err.result = " + err.result);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished -> Unhandled err.result received. -> err = " + err.message);
+                                                "[ERROR] run -> loop -> startBotModuleObject -> onFinished > Unhandled err.result received. -> err = " + err.message);
                                             TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                                             return
                                         }
@@ -470,153 +393,6 @@
                         } catch (err) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[ERROR] run -> loop -> startBotModuleObject -> err = " + err.stack);
-                            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                            return
-                        }
-                    }
-
-                    function intitializeProcessFramework() {
-                        try {
-                            processFramework.initialize(statusDependencies, dataDependencies, onInizialized);
-
-                            function onInizialized(err) {
-                                try {
-                                    switch (err.result) {
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[INFO] run -> loop -> intitializeProcessFramework -> onInizialized -> Execution finished well.");
-                                            startProcessFramework();
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] run -> loop -> intitializeProcessFramework -> onInizialized -> Retry Later. Requesting Execution Retry.");
-                                            nextWaitTime = 'Retry';
-                                            loopControl(nextWaitTime);
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Operation Failed. Aborting the process.");
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result: {
-
-                                            switch (err.message) {
-                                                default: {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized > Unhandled custom response received. -> err = " + err.message);
-                                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                                    return
-                                                }
-                                            }
-                                        }
-                                        default: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err.result = " + err.result);
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> intitializeProcessFramework -> onInizialized -> Unhandled err.result received. -> err = " + err.message);
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                    }
-                                } catch (err) {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] run -> loop -> intitializeProcessFramework ->  onInizialized -> err = " + err.stack);
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                    return
-                                }
-                            }
-                        } catch (err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] run -> loop -> intitializeProcessFramework -> err = " + err.stack);
-                            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                            return
-                        }
-                    }
-
-                    function startProcessFramework() {
-                        try {
-                            processFramework.start(onFinished);
-
-                            function onFinished(err) {
-                                try {
-                                    processFramework.finalize()
-                                    processFramework = undefined
-                                    dataDependencies.finalize()
-                                    dataDependencies = undefined
-                                    statusDependencies.finalize()
-                                    statusDependencies = undefined
-
-                                    switch (err.result) {
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[INFO] run -> loop -> startProcessFramework -> onFinished -> Execution finished well.");
-                                            finishProcessExecutionEvents()
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE.result: {  // Something bad happened, but if we retry in a while it might go through the next time.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] run -> loop -> startProcessFramework -> onFinished -> Retry Later. Requesting Execution Retry.");
-                                            nextWaitTime = 'Retry';
-                                            loopControl(nextWaitTime);
-                                            return;
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE.result: { // This is an unexpected exception that we do not know how to handle.
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Operation Failed. Aborting the process.");
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                        case TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result: {
-
-                                            switch (err.message) {
-                                                case "Dependency does not exist.": {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency does not exist. This Loop will go to sleep.");
-                                                    nextWaitTime = 'Sleep';
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                case "Dependency not ready.": {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] run -> loop -> startProcessFramework -> onFinished -> Dependency not ready. This Loop will go to sleep.");
-                                                    nextWaitTime = 'Sleep';
-                                                    loopControl(nextWaitTime);
-                                                    return;
-                                                }
-                                                default: {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled custom response received. -> err = " + err.message);
-                                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                                    return
-                                                }
-                                            }
-                                        }
-                                        default: {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err.result = " + err.result);
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] run -> loop -> startProcessFramework -> onFinished -> Unhandled err.result received. -> err = " + err.message);
-                                            TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                            return
-                                        }
-                                    }
-                                } catch (err) {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] run -> loop -> startProcessFramework -> onFinished -> err = " + err.stack);
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
-                                    return
-                                }
-                            }
-                        } catch (err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] run -> loop -> startProcessFramework -> err = " + err.stack);
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.superalgos.functionLibraries.processFunctions.stopProcess(processIndex, callBackFunction, nextLoopTimeoutHandle)
                             return
@@ -684,8 +460,6 @@
                             "[INFO] run -> loop -> loopControl -> nextWaitTime = " + nextWaitTime)
 
                         /* We show we reached the end of the loop. */
-                        TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex)
-
                         /* Here we check if we must stop the loop gracefully. */
                         shallWeStop(onStop, onContinue);
 
@@ -697,45 +471,37 @@
                         }
 
                         function onContinue() {
-                            /* Indicator bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
+                            /* API Data Fetcher bots are going to be executed after a configured period of time after the last execution ended. This is to avoid overlapping executions. */
                             switch (nextWaitTime) {
                                 case 'Normal': {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " +
-                                        (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime / 1000) + " seconds.")
+                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime / 1000 + " seconds for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime / 1000 + " seconds for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist();
                                 }
                                     break;
                                 case 'Retry': {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " +
-                                        (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000) + " seconds.")
+                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000) + " seconds.")
                                     nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Trying to recover from some problem. Waiting " +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000 + " seconds for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Trying to recover from some problem. Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.retryWaitTime / 1000 + " seconds for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist();
                                 }
                                     break;
                                 case 'Sleep': {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " +
-                                        (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000) + " minutes.")
+                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000) + " minutes.")
                                     nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000 + " minutes for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.sleepWaitTime / 60000 + " minutes for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist();
                                 }
                                     break;
                                 case 'Coma': {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " +
-                                        (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000) + " hours.")
+                                        "[INFO] run -> loop -> loopControl -> Restarting Loop in " + (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000) + " hours.")
                                     nextLoopTimeoutHandle = setTimeout(loop, TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime);
-                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000 + " hours for next execution.")
+                                    TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, undefined, undefined, "Waiting " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.comaWaitTime / 3600000 + " hours for next execution.")
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist();
                                 }
                                     break;
@@ -759,6 +525,7 @@
                             return
                         }
                     }
+
                 } catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] run -> loop -> err = " + err.stack);
@@ -767,8 +534,9 @@
                     return
                 }
             }
+        }
 
-        } catch (err) {
+        catch (err) {
             TS.projects.superalgos.globals.taskVariables.UNEXPECTED_ERROR = err
 
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

@@ -748,6 +748,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             let mine = node.payload.referenceParent
 
             addTasksForBotArray(mine.sensorBots)
+            addTasksForBotArray(mine.apiDataFetcherBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
             addTasksForBotArray(mine.learningBots)
@@ -772,7 +773,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                         case 'API Data Fetcher Bot': {
                             let task = addTask(taskManager)
 
-                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Instance')
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)

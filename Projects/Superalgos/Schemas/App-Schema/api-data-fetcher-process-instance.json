@@ -33,7 +33,7 @@
         "compatibleTypes": "->API Data Fetcher Bot Instance->"
     },
     "childrenNodesProperties": [
-        {
+        {            
             "name": "apiMapReference",
             "type": "node",
             "childType": "API Map Reference",

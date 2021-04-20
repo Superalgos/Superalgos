@@ -60,7 +60,7 @@
             "childType": "Sensor Bot"
         },
         {
-            "name": "apiDataFetcherBot",
+            "name": "apiDataFetcherBots",
             "type": "array",
             "childType": "API Data Fetcher Bot"
         },

@@ -26,5 +26,8 @@
     "referencingRules": {
         "compatibleTypes": "->API Map->"
     },
+    "attachingRules": {
+        "compatibleTypes": "->API Data Fetcher Process Instance->"
+    },
     "icon": "bitcoin"
 }

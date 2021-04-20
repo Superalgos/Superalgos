@@ -1,0 +1,44 @@
+{
+    "type": "Crypto Exchanges",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Crypto Exchange",
+            "relatedUiObject": "Crypto Exchange",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Crypto Exchanges",
+            "label": "Add Missing Exchanges",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Crypto Exchange",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Ecosystem->"
+    },
+    "propertyNameAtParent": "cryptoExchanges",
+    "childrenNodesProperties": [
+        {
+            "name": "exchanges",
+            "type": "array",
+            "childType": "Crypto Exchange",
+            "autoAdd": true
+        }
+    ]
+}

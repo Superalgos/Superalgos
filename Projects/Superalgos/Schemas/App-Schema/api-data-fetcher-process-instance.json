@@ -1,0 +1,45 @@
+{
+    "type": "API Data Fetcher Process Instance",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiMapReference",
+            "label": "Add API Map Reference",
+            "relatedUiObject": "API Map Reference",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent",
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Process Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->API Data Fetcher Bot Instance->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "apiMapReference",
+            "type": "node",
+            "childType": "API Map Reference",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "processes",
+    "icon": "bitcoin"
+}

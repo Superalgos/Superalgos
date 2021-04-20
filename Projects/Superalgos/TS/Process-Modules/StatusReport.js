@@ -133,6 +133,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }
@@ -184,6 +185,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }
@@ -235,6 +237,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }

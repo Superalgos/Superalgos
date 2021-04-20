@@ -1,0 +1,34 @@
+{
+    "type": "Output Labels",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Label",
+            "relatedUiObject": "Data Label",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Output Layer->"
+    },
+    "propertyNameAtParent": "outputLabels",
+    "childrenNodesProperties": [
+        {
+            "name": "dataLabels",
+            "type": "array",
+            "childType": "Data Label"
+        }
+    ],
+    "icon": "tensorflow"
+}

@@ -1,0 +1,57 @@
+{
+    "type": "Trigger Stage",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Events",
+            "relatedUiObject": "Trigger Stage",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Strategy->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "triggerOn",
+            "type": "node",
+            "childType": "Trigger On Event",
+            "autoAdd": true
+        },
+        {
+            "name": "triggerOff",
+            "type": "node",
+            "childType": "Trigger Off Event",
+            "autoAdd": true
+        },
+        {
+            "name": "takePosition",
+            "type": "node",
+            "childType": "Take Position Event",
+            "autoAdd": true
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement"
+        }
+    ],
+    "propertyNameAtParent": "triggerStage"
+}

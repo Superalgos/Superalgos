@@ -1,0 +1,34 @@
+{
+    "type": "Trading Bot Instance",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Process Instance",
+            "relatedUiObject": "Trading Process Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Task->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processes",
+            "type": "array",
+            "childType": "Trading Process Instance",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "bot"
+}

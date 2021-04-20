@@ -1,0 +1,49 @@
+{
+    "type": "Other Hierarchies",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Network",
+            "relatedUiObject": "Network",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Tutorial",
+            "relatedUiObject": "Tutorial",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Plugins",
+            "relatedUiObject": "Plugins",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add APIs",
+            "relatedUiObject": "APIs",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add API Map",
+            "relatedUiObject": "API Map",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": false,
+    "level": 2,
+    "propertyNameAtParent": "otherHierarchies"
+}

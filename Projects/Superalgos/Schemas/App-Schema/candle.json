@@ -1,0 +1,70 @@
+{
+    "type": "Candle",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Episode->Learning Episode->"
+    },
+    "propertyNameAtParent": "candle",
+    "childrenNodesProperties": [
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "open",
+            "type": "node",
+            "childType": "Open",
+            "autoAdd": true
+        },
+        {
+            "name": "close",
+            "type": "node",
+            "childType": "Close",
+            "autoAdd": true
+        },
+        {
+            "name": "min",
+            "type": "node",
+            "childType": "Min",
+            "autoAdd": true
+        },
+        {
+            "name": "max",
+            "type": "node",
+            "childType": "Max",
+            "autoAdd": true
+        },
+        {
+            "name": "index",
+            "type": "node",
+            "childType": "Index",
+            "autoAdd": true
+        }
+    ]
+}

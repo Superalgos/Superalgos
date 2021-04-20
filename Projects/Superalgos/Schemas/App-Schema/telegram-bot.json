@@ -1,0 +1,34 @@
+{
+    "type": "Telegram Bot",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"botToken\": \"Paste the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Type or paste the chat or group id -a number with no quotes- where announcements are going to be sent to\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Social Bots->"
+    },
+    "childrenNodesProperties": [],
+    "propertyNameAtParent": "bots"
+}

@@ -1,0 +1,49 @@
+{
+    "type": "Style Condition",
+    "level": 4,
+    "propertyNameAtParent": "styleConditions",
+    "attachingRules": {
+        "compatibleTypes": "->Polygon Body->Polygon Border->"
+    },
+    "editors": {
+        "code": true
+    },
+    "initialValues": {
+        "code": ""
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "style",
+            "type": "node",
+            "childType": "Style",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.codeEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "style",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Style",
+            "relatedUiObject": "Style"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

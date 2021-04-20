@@ -1,0 +1,50 @@
+{
+    "type": "Exchange Data Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Data Products",
+            "relatedUiObject": "Market Data Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Market Data Products",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market Data Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Project Data Products->"
+    },
+    "propertyNameAtParent": "exchangeDataProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "marketDataProducts",
+            "type": "array",
+            "childType": "Market Data Products"
+        }
+    ]
+}

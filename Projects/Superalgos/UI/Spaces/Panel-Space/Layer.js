@@ -177,7 +177,7 @@ function newLayer() {
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->Indicator Bot->Trading Bot->Learning Bot->' +
+                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->' +
                 'Data Mine->Trading Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Record Formula->' +
@@ -226,6 +226,9 @@ function newLayer() {
             }
 
             thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Sensor Bot', undefined, false, true, true, true)
+            if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'API Data Fetcher Bot', undefined, false, true, true, true)
+            }
             if (thisObject.bot === undefined) {
                 thisObject.bot = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Indicator Bot', undefined, false, true, true, true)
             }

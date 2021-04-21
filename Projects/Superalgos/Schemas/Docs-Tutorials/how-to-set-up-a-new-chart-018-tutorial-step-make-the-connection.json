@@ -3,12 +3,12 @@
     "pageNumber": "18",
     "type": "Tutorial Step - Make the Connection",
     "definition": {
-        "text": "Let's make the connection.",
+        "text": "You got this. Creating references is a piece of cake. Let's make the connection!",
         "icon": {
             "name": "delink-node",
             "project": "Superalgos"
         },
-        "updated": 1617374708610
+        "updated": 1619024303385
     },
     "paragraphs": [
         {

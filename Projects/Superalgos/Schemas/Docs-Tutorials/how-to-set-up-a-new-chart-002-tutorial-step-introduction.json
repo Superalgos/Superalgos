@@ -3,12 +3,12 @@
     "pageNumber": "2",
     "type": "Tutorial Step - Introduction",
     "definition": {
-        "text": "Today we will learn how to add your own custom Charts!",
+        "text": "Today we will learn how to add your own custom Charts! By the end of this tutorial you will have the basic knowledge you need to unlock the power of the Charting Space.",
         "icon": {
             "name": "chart-points",
             "project": "Superalgos"
         },
-        "updated": 1617323336592
+        "updated": 1619015372330
     },
     "paragraphs": [
         {

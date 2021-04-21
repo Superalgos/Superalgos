@@ -3,12 +3,12 @@
     "pageNumber": "24",
     "type": "Tutorial Step - Easy as 1, 2, 3",
     "definition": {
-        "text": "You did it!  I knew you could.",
+        "text": "You did it! I knew you could. You have successfully added you first custom chart. I hope you had as much fun as I did!",
         "icon": {
             "name": "charting-space",
             "project": "Superalgos"
         },
-        "updated": 1617370584556
+        "updated": 1619025041063
     },
     "paragraphs": [
         {

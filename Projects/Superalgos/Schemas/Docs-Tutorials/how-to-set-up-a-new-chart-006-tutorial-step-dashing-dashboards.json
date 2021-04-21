@@ -3,12 +3,12 @@
     "pageNumber": "6",
     "type": "Tutorial Step - Dashing Dashboards",
     "definition": {
-        "text": "A Dashboard helps us stay organized.",
+        "text": "The first node we will learn about today is the Dashboard. A Dashboard helps us stay organized.",
         "icon": {
             "name": "dashboard",
             "project": "Superalgos"
         },
-        "updated": 1617326878352
+        "updated": 1619016609687
     },
     "paragraphs": [
         {

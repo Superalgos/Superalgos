@@ -3,8 +3,8 @@
     "pageNumber": " 23.5",
     "type": "Tutorial Step - Not Seeing Anything?",
     "definition": {
-        "text": "Are you having trouble with the Trading Layers?",
-        "updated": 1617887420953,
+        "text": "Are you having trouble with the Trading Layers? It is important you know what you are looking for otherwise you might not find it.",
+        "updated": 1619024985292,
         "icon": {
             "name": "bot-data-dependencies",
             "project": "Superalgos"

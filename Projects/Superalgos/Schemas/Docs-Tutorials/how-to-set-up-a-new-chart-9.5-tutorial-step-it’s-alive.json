@@ -3,8 +3,8 @@
     "pageNumber": "19.5",
     "type": "Tutorial Step - It’s Alive!",
     "definition": {
-        "text": "Let's take a look at your new working chart!",
-        "updated": 1617850745525,
+        "text": "Let's take a look at your new working chart.  I hope you are as excited as I am!",
+        "updated": 1619024389980,
         "icon": {
             "name": "trading-system",
             "project": "Superalgos"
@@ -23,8 +23,8 @@
         },
         {
             "style": "Text",
-            "text": "If can see layers showing up when you turn them on, great job! If nothing is showing up, go back over previous steps and make sure you didn't miss anything.",
-            "updated": 1617851145572
+            "text": "If you can see layers showing up when you turn them on, great job! If nothing is showing up, go back over previous steps and make sure you didn't miss anything.",
+            "updated": 1619023984488
         }
     ]
 }

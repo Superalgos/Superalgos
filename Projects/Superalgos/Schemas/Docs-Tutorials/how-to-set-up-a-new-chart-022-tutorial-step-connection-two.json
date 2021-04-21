@@ -3,12 +3,12 @@
     "pageNumber": "22",
     "type": "Tutorial Step - Connection Two",
     "definition": {
-        "text": "We are almost there! Go drag your Time Machine back over here.",
+        "text": "We are almost there! Go drag your Time Machine back over here and make the last connection.",
         "icon": {
             "name": "delink-node",
             "project": "Superalgos"
         },
-        "updated": 1617886454003
+        "updated": 1619024620415
     },
     "paragraphs": [
         {

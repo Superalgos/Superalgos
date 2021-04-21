@@ -3,12 +3,12 @@
     "pageNumber": "9",
     "type": "Tutorial Step - Without Further Ado",
     "definition": {
-        "text": "I know I'm ready to add some charts. Are you?",
+        "text": "I know I'm ready to add some charts. Are you? Let's add the foundational nodes we need to start our chart.",
         "icon": {
             "name": "chart-points",
             "project": "Superalgos"
         },
-        "updated": 1617635653798
+        "updated": 1619016875911
     },
     "paragraphs": [
         {

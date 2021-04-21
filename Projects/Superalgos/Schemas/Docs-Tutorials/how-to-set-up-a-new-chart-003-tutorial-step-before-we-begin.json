@@ -3,12 +3,12 @@
     "pageNumber": "3",
     "type": "Tutorial Step - Before We Begin",
     "definition": {
-        "text": "Make sure you know the basics!",
+        "text": "Before you start creating custom charts you should make sure you know the basics of getting around within Superalgos.",
         "icon": {
             "name": "tutorial",
             "project": "Superalgos"
         },
-        "updated": 1617326504902
+        "updated": 1619015612947
     },
     "paragraphs": [
         {

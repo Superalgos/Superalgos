@@ -3,12 +3,12 @@
     "pageNumber": "16",
     "type": "Tutorial Step - Hooking up a Chart to Data Products",
     "definition": {
-        "text": "Get your Time Machine in position. ",
+        "text": "Now let's get your Time Machine in position to make the connection.",
         "icon": {
             "name": "data-mine-products",
             "project": "Superalgos"
         },
-        "updated": 1617841161571
+        "updated": 1619024211736
     },
     "paragraphs": [
         {

@@ -1,0 +1,25 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "23",
+    "type": "Tutorial Step - Check the Chart",
+    "definition": {
+        "text": "At this point everything is all hooked up, hurray! Go ahead and take your new shine charts for a spin!",
+        "updated": 1619024696288,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Make sure to run the Backtesting Session for the Lightning Strike Trading System and wait for it to finish.",
+            "updated": 1617887112622
+        },
+        {
+            "style": "Callout",
+            "text": "Check your chart by turning on a few Trading System layers.",
+            "updated": 1617887153627
+        }
+    ]
+}

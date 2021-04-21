@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "14",
+    "type": "Tutorial Step - Follow the Tree!",
+    "definition": {
+        "text": "Follow the Data Mines Data hierarchy and find the Data Mine Products.",
+        "icon": {
+            "name": "data-mines-data",
+            "project": "Superalgos"
+        },
+        "updated": 1617849486659
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Keep following the hierarchy. See if you can find the Data Mine Products nodes on your own.",
+            "updated": 1617849736915
+        },
+        {
+            "style": "Text",
+            "text": "Did you find them? Keep going farther down the hierarchy until you see them!",
+            "updated": 1617849595158
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Important",
+            "text": "You should see three data mine products nodes. One for each Data Mine install within this Workspace.",
+            "updated": 1617849622065
+        }
+    ]
+}

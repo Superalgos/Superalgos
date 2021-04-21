@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "21.5",
+    "type": "Tutorial Step - Back to Data Storage",
+    "definition": {
+        "text": "Let's find some more Data Products. You are gonna be a pro at finding things in the Data Storage hierarchy.",
+        "updated": 1619024563334,
+        "icon": {
+            "name": "trading-mines-data",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You should notice there are three branches. One for each type of data we can access in our charts. Since we are now interested in the data from our Trading System, we need the data products held under the Trading Mines Data hierarchy. ",
+            "updated": 1617884873448
+        },
+        {
+            "style": "Callout",
+            "text": "Just like before, follow the hierarchy until you find the Trading Mine Products nodes.",
+            "updated": 1617884949563
+        },
+        {
+            "style": "Success",
+            "text": "Make sure to look under the Trading Session Reference nodes!",
+            "updated": 1617884973014
+        }
+    ]
+}

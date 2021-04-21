@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "10",
+    "type": "Tutorial Step - Why Is It Blank?",
+    "definition": {
+        "text": "Woohoo, you did it! You have added your first custom chart. Let's see what we've got so far. Zoom all the way into your chart and take a look around.",
+        "updated": 1619020412228,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Your chart is there alright, but it's pretty boring still.",
+            "updated": 1619020652143
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Layer Manager for the Timeline Chart you added within your Time Machine. Use your mouse wheel to scroll a few times.",
+            "updated": 1619020968459
+        },
+        {
+            "style": "Text",
+            "text": "No matter how hard you scroll nothing happens does it? Don't worry, nothing is broken! We just haven’t hooked it up to any of your data. Let’s change that!",
+            "updated": 1619022736646
+        }
+    ]
+}

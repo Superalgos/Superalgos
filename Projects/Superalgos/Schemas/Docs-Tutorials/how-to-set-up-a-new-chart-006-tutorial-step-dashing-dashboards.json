@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "6",
+    "type": "Tutorial Step - Dashing Dashboards",
+    "definition": {
+        "text": "The first node we will learn about today is the Dashboard. A Dashboard helps us stay organized.",
+        "icon": {
+            "name": "dashboard",
+            "project": "Superalgos"
+        },
+        "updated": 1619016609687
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To get us started,  I want you to get a little more comfortable with how the Charting Space is set up.",
+            "updated": 1617798279418
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Charting Space node and take a look at the Dashboards underneath. What do you notice? ",
+            "updated": 1617798044669
+        },
+        {
+            "style": "Text",
+            "text": "That’s right! There is one Dashboard set up for Backtesting and one set up for Live Trading. Dashboards are a convenient way to group charts according to type.",
+            "updated": 1617798035878
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

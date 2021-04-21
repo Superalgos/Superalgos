@@ -1,0 +1,20 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "7",
+    "type": "Tutorial Step - Time Machines Hold It All Together",
+    "definition": {
+        "text": "You've seen these portals to another dimension before! Now let's take a closer look at the magical Time Machine.",
+        "icon": {
+            "name": "time-machine",
+            "project": "Superalgos"
+        },
+        "updated": 1617634105980
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. Take a minute and read their documentation page to get a better idea of what they do.",
+            "updated": 1617799568096
+        }
+    ]
+}

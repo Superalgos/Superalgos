@@ -1,0 +1,40 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "3",
+    "type": "Tutorial Step - Before We Begin",
+    "definition": {
+        "text": "Before you start creating custom charts you should make sure you know the basics of getting around within Superalgos.",
+        "icon": {
+            "name": "tutorial",
+            "project": "Superalgos"
+        },
+        "updated": 1619015612947
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Before we get started, this tutorial assumes that you have finished the following tutorials:",
+            "updated": 1617631888828
+        },
+        {
+            "style": "List",
+            "text": "Welcome to Superalgos Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Basic Education Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Contribute to Superalgos Tutorial"
+        },
+        {
+            "style": "List",
+            "text": "Install a New Market Tutorial"
+        },
+        {
+            "style": "Text",
+            "text": "If you have not completed these tutorials and do not have a basic working knowledge of how to get around within your Workspace, this tutorial may be confusing. I would suggest that you pause and come back here once you know your way around a little."
+        }
+    ]
+}

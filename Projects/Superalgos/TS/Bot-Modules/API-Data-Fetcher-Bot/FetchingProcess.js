@@ -34,11 +34,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             }
 
             let fileContent
-            getContextVariables(saveMessages)
+            getContextVariables(fetchData)
 
             function getContextVariables(callBack) {
                 try {
-                    let reportKey = "Masters" + "-" + "Webhooks" + "-" + "Check-Webhook"
+                    let processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
+                    let reportKey = processNode.parentNode.parentNode.config.codeName + "-" + processNode.parentNode.config.codeName + "-" + processNode.config.codeName
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
@@ -52,7 +53,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (thisReport.file.lasrRun !== undefined) {
+                    if (thisReport.file.lastRun !== undefined) {
 
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
@@ -87,16 +88,53 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 }
             }
 
-            function saveMessages() {
+            function fetchData() {
                 try {
-                    let http = require('http');
-                    let url = 'http://' + global.env.WEB_SERVER_URL +
-                        ':' + global.env.HTTP_INTERFACE_PORT +
-                        '/Webhook/Fetch-Messages/' +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + 
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                    if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
+                        // TODO Error Handling
+                        return
+                    }
 
+                    let apiMAP = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
+                    if (apiMap === undefined) {
+                        // TODO Error Handling
+                        return
+                    }
+
+                    let hostName
+                    let portNumber = ""
+                    let path = ""
+                    let protocol = "https" // default value
+
+                    if (apiMAP.config.hostName === undefined || apiMAP.config.hostName === "") {
+                        // TODO Error Handling
+                        return
+                    }
+
+                    if (apiMAP.config.portNumber !== undefined && apiMAP.config.portNumber !== "") {
+                        portNumber = ":" + apiMAP.config.portNumber
+                    }
+
+                    if (apiMAP.config.protocol !== undefined && apiMAP.config.protocol !== "") {
+                        protocol = apiMAP.config.protocol
+                    }
+
+                    if (apiMAP.config.path !== undefined && apiMAP.config.path !== "") {
+                        path = "/" + apiMAP.config.path
+                    }
+
+                    if (apiVersions.length === 0) {
+                        // TODO Error Handling
+                        return
+                    }
+
+                    let http = require('http');
+                    let url = protocol + '://' +
+                        hostName +
+                        portNumber +
+                        path 
+
+                        
                     http.get(url, onResponse);
 
                     function onResponse(response) {
@@ -134,7 +172,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             function onFileCreated(err) {
                                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> saveMessages -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
+                                        "[ERROR] start -> fetchData -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 } else {
                                     writeStatusReport()
@@ -146,7 +184,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> saveMessages -> err = " + err.stack);
+                        "[ERROR] start -> fetchData -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                     abort = true
                 }
@@ -155,7 +193,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             function writeStatusReport() {
                 try {
                     thisReport.file = {
-                        lasrRun: (new Date()).toISOString()
+                        lastRun: (new Date()).toISOString()
                     };
                     thisReport.save(onSaved);
 

@@ -135,6 +135,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Record Formula->' +
+            'API Response Field Reference->API Response Field->' + 
             'Data Building Procedure->' +
             'Procedure Initialization->Procedure Javascript Code->' +
             'Procedure Loop->Procedure Javascript Code->' +

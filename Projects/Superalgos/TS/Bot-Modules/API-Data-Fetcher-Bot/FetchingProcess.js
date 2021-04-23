@@ -2,7 +2,7 @@
 exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
     const MODULE_NAME = "Fetching Process";
-    const FOLDER_NAME = "External-Signals";
+    const FOLDER_NAME = "API-Data";
 
     thisObject = {
         initialize: initialize,
@@ -54,7 +54,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.lastRun !== undefined) {
-
+                        /*
+                        If this process already ran before, then we are going to load the data stored so as to append
+                        information to it later.
+                        */
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
                         fileStorage.getTextFile(filePath + '/' + fileName, onFileReceived);
@@ -70,7 +73,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 callBack()
                             }
                         }
-                    } else { // If there is no status report, we assume there is no previous file or that if there is we will override it.
+                    } else { 
+                        /*
+                        If there is no status report, we assume there is no previous file or that if there is we will override it.
+                        */
                         callBack()
                     }
                 } catch (err) {
@@ -134,35 +140,35 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         portNumber +
                         path 
 
-                        
+
                     http.get(url, onResponse);
 
                     function onResponse(response) {
                         const chunks = []
-                        response.on('data', onMessegesArrived)
+                        response.on('data', onDataArrived)
                         response.on('end', onEnd)
 
-                        function onMessegesArrived(chunk) {
+                        function onDataArrived(chunk) {
                             chunks.push(chunk)
                         }
 
                         function onEnd() {
-                            let messages = Buffer.concat(chunks).toString('utf8')
+                            let dataReceived = Buffer.concat(chunks).toString('utf8')
 
                             if (fileContent !== undefined) {
-                                // we are going to append the curernt messages to the existing file.
+                                // we are going to append the curernt dataReceived to the existing file.
                                 let fileContentArray = JSON.parse(fileContent)
-                                let messagesArray = JSON.parse(messages)
+                                let dataReceivedArray = JSON.parse(dataReceived)
 
-                                for (let i = 0; i < messagesArray.length; i++) {
-                                    let message = messagesArray[i]
+                                for (let i = 0; i < dataReceivedArray.length; i++) {
+                                    let message = dataReceivedArray[i]
                                     fileContentArray.push(message)
                                 }
 
                                 fileContent = JSON.stringify(fileContentArray)
                             } else {
-                                // we are going to save the current messages.
-                                fileContent = messages
+                                // we are going to save the current dataReceived.
+                                fileContent = dataReceived
                             }
 
                             let fileName = 'Data.json'

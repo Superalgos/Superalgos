@@ -76,6 +76,12 @@
             "name": "dataBuilding",
             "type": "node",
             "childType": "Data Building Procedure"
+        },
+        {
+            "name": "apiQueryParameters",
+            "type": "node",
+            "childType": "API Query Parameters",
+            "autoAdd": false
         }
     ],
     "propertyNameAtParent": "products"

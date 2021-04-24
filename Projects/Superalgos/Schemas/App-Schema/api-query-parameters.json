@@ -20,7 +20,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->API Endpoint->"
+        "compatibleTypes": "->API Endpoint->Product Definition->"
     },
     "propertyNameAtParent": "apiQueryParameters",
     "childrenNodesProperties": [

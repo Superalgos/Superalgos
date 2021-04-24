@@ -12,7 +12,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We mentioned earlier that when either the take position event or the trigger of event validates true, the trigger stage closes."
+            "text": "We mentioned earlier that when either the take position event or the trigger off event validates true, the trigger stage closes."
         },
         {
             "style": "Callout",

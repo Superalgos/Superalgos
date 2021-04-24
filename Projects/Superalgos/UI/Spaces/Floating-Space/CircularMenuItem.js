@@ -316,12 +316,6 @@ function newCircularMenuItem() {
     function onMouseClick() {
         if (thisObject.isEnabled === false) { return }
 
-        if (thisObject.label === undefined) {
-            /* This is what we have in the case of menu items that are only Icons. In this situation there is no complex logic, just execute the specified action. */
-            thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject })
-            return
-        }
-
         if (thisObject.askConfirmation !== true) { /* No confirmation is needed */
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_PRIMARY_WORK_DONE) {
                 executeAction()

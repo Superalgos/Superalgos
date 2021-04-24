@@ -11,14 +11,15 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ormai tutti i processi dovrebbero essere al 100%. Quando ciò accade, diciamo che l`operazione di data mining è up to date.",
-                "updated": 1614845999951,
+                "text": "Ormai tutti i processi dovrebbero essere al 100%. Quando ciò accade, l'operazione di data mining si trova in uno stato \"up to date\"",
+                "updated": 1618646312962,
                 "style": "Definition"
             },
             {
                 "language": "ID",
                 "text": "Seharusnya sekarang semua proses sudah di 100%. Disaat hal itu terjadi, kita harus kembali ke data mining operation yang \"up to date\".",
-                "updated": 1616773354182
+                "updated": 1616773354182,
+                "style": "Definition"
             }
         ],
         "updated": 1616415623576
@@ -37,7 +38,8 @@
                 {
                     "language": "ID",
                     "text": "Disaat semua proses up to date, bot tetap berjalan, dan memproses informasi secara realtime yang dihasilkan di exchange. Itu dia, data mining operation tidak akan berhenti kecuali kamu menghentikannya!",
-                    "updated": 1616773455412
+                    "updated": 1616773455412,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,7 +56,8 @@
                 {
                     "language": "ID",
                     "text": "Lihat apakah semua proses sudah 100%",
-                    "updated": 1616773494236
+                    "updated": 1616773494236,
+                    "style": "Callout"
                 }
             ]
         },
@@ -64,14 +67,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per una Live Trading Session hai bisogno di un feed costante di dati dall'exchange che vengono processae in tempo realte, cosicchè il Trading Bot possa applicare le regole del tuo Trading System per prendere decisioni.",
-                    "updated": 1614846102542,
+                    "text": "Per una Live Trading Session hai bisogno di un feed costante di dati dall'exchange, processati in tempo reale cosicchè cosicchè il Trading Bot possa applicare le regole del tuo Trading System per prendere decisioni. ",
+                    "updated": 1618646375123,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
                     "text": "Untuk menjalankan Live Trading Session, kamu butuh informasi konstan dari exchange yang memproses secara realtime sehingga Trading Bot akan menerapkan aturanmu di Trading System untuk membuat keputusan di live trading.",
-                    "updated": 1616773677042
+                    "updated": 1616773677042,
+                    "style": "Text"
                 }
             ],
             "updated": 1616415667438

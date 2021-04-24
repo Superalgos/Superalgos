@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "Antes de comenzar la mineria de datos, tengo una pequeña pregunta para ti: ¿operas en binance.com o en binance.us?",
-                "updated": 1618434029175
+                "updated": 1618434029175,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "Si  opera en binance.com o nisiquiera opera con Binance, entonces puedes saltarte este paso y el siguiente.",
-                    "updated": 1618434095119
+                    "updated": 1618434095119,
+                    "style": "Text"
                 }
             ]
         },
@@ -72,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "¡Si comercia en binance.us necesita configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
-                    "updated": 1618434112532
+                    "updated": 1618434112532,
+                    "style": "Callout"
                 }
             ]
         },
@@ -83,8 +86,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "1. <i>Apri</i> la configurazione e cambia il codeName in binanceus. Sposta il cursore del mouse dalla bolla di configurazione e questa si chiuderà, salvando automaticamente le modifiche.",
-                    "updated": 1614719935190,
+                    "text": "1. Apri la configurazione e cambia il codeName in binanceus. Sposta il cursore del mouse dalla bolla di configurazione e questa si chiuderà, salvando automaticamente le modifiche.",
+                    "updated": 1618645707633,
                     "style": "List"
                 },
                 {
@@ -96,7 +99,8 @@
                 {
                     "language": "ES",
                     "text": "Abra la configuración y cambie el codeName a binanceus. Mueve el cursor fuera de la burbuja de configuración, se cerrará y guardará automáticamente.",
-                    "updated": 1618434145311
+                    "updated": 1618434145311,
+                    "style": "List"
                 }
             ]
         },
@@ -107,8 +111,8 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "2. Modifica la label del nodo in Binanceus.",
-                    "updated": 1614719998652,
+                    "text": "2. Modifica la label del nodo in \"Binanceus\".",
+                    "updated": 1618645731666,
                     "style": "List"
                 },
                 {
@@ -120,7 +124,8 @@
                 {
                     "language": "ES",
                     "text": "Edita la etiqueta del nodo para que sea Binanceus.",
-                    "updated": 1618434167698
+                    "updated": 1618434167698,
+                    "style": "List"
                 }
             ]
         }

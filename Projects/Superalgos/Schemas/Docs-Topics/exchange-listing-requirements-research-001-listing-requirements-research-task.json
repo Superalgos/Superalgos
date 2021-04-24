@@ -3,8 +3,8 @@
     "pageNumber": "1",
     "type": "Listing Requirements Research Task",
     "definition": {
-        "text": "This task is a Community effort lead by the Token Task Force. Researching the listing requirements of exchanges is the first step in the process of getting the Superalgos (SA) Token listed.",
-        "updated": 1618499716026
+        "text": "This task is a Community effort lead by the Token Task Force. Researching the listing requirements of exchanges is the first step in the process of getting the Superalgos SA Token listed.",
+        "updated": 1618851904040
     },
     "paragraphs": [
         {
@@ -18,8 +18,8 @@
         },
         {
             "style": "Text",
-            "text": "In brief, the job is about researching the token listing process and requirements of top exchanges so that we may later evaluate and decide which exchanges the project shall approach first.",
-            "updated": 1618503468261
+            "text": "In brief, the job is about researching the token listing process and requirements of top exchanges so that we may later evaluate and decide which exchanges the project shall approach first, and how.",
+            "updated": 1618848602693
         },
         {
             "style": "Text",
@@ -75,8 +75,13 @@
         },
         {
             "style": "Text",
-            "text": "Use the following syntax, replacing \"Exchange Name\" with the name of the exchange, and replacing the \"N\" in the last section of the command with the next page number available in the topic (look at the last page in the TOC and assign the next number in the series):",
-            "updated": 1618486240996
+            "text": "The easiest way to set up the new page is as follows:",
+            "updated": 1618849031020
+        },
+        {
+            "style": "List",
+            "text": "Use the following syntax, replacing \"Exchange Name\" with the name of the exchange, and replacing the \"N\" in the last section of the command with the next page number available in the topic (look at the last page in the TOC below and assign the next number in the series).",
+            "updated": 1618849098487
         },
         {
             "style": "Json",
@@ -84,28 +89,9 @@
             "updated": 1618486204475
         },
         {
-            "style": "Important",
-            "text": "Do not submit a Pull Request until the research is complete! We don't want meaningless or incomplete reports. Only submit the research once you have gathered all the data required.",
-            "updated": 1618498440485
-        },
-        {
-            "style": "Subtitle",
-            "text": "3. Copy and paste the Research Requirements list",
-            "updated": 1618489873953
-        },
-        {
-            "style": "Text",
-            "text": "The following list details the information that is required to document the listing requirements of each exchange. When you report on an exchange, you must provide all the information required in this list.",
-            "updated": 1618486434207
-        },
-        {
-            "style": "Text",
-            "text": "The easiest way to set up the new page is as follows:"
-        },
-        {
             "style": "List",
-            "text": "Assign the Docs List Style to the first paragraph of the new page.",
-            "updated": 1618486499220
+            "text": "Assign the Docs List Style to the first paragraph of the new page (the one showing the default blurb of text).",
+            "updated": 1618849141146
         },
         {
             "style": "List",
@@ -121,6 +107,16 @@
             "style": "List",
             "text": "Replace the explanation of each point in the list with the results of your research.",
             "updated": 1618487056091
+        },
+        {
+            "style": "Note",
+            "text": "If any of the required pieces of information is not available or does not apply to the exchange in question, please complete the field with \"N/A\". Do not leave blank fields, as that may suggest that the report is incomplete.",
+            "updated": 1618848890250
+        },
+        {
+            "style": "Important",
+            "text": "Do not submit a Pull Request until the research is complete! We don't want meaningless or incomplete reports. Only submit the research once you have gathered all the data required.",
+            "updated": 1618848886024
         },
         {
             "style": "Title",
@@ -224,6 +220,10 @@
         {
             "style": "List",
             "text": "Researcher's Telegram Username: Same as above."
+        },
+        {
+            "style": "List",
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
         },
         {
             "style": "Text",

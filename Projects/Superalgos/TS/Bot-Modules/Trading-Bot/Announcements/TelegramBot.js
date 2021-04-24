@@ -22,15 +22,15 @@ exports.newSuperalgosBotModulesTelegramBot = function (processIndex) {
 
             thisObject.telegramBot = new Telegraf(botToken)
             thisObject.telegramBot.start((ctx) => ctx.reply('Hi! I am the Telegram Bot that will tell you what happens with your trading session.'))
-            thisObject.telegramBot.help((ctx) => ctx.reply('I can stop the session if you type STOP.'))
-            thisObject.telegramBot.hears('STOP', (ctx) => TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, ' by STOP command at Telegram.'))
+            thisObject.telegramBot.help((ctx) => ctx.replyWithHTML('<b><u>SUPERALGOS BOT HELP</u></b>\n\n•   Use /stop to stop the session.\n•   Use /help to receive this help message.'))
+            thisObject.telegramBot.command('stop', (ctx) => TS.projects.superalgos.functionLibraries.sessionFunctions.stopSession(processIndex, 'by command from Telegram.'))
             thisObject.telegramBot.launch()
 
             const Telegram = require('telegraf/telegram')
 
             thisObject.telegramAPI = new Telegram(botToken)
 
-            const message = "Telegram bot is starting."
+            const message = "Telegram bot is starting. For assistance type /help."
             thisObject.telegramAPI.sendMessage(thisObject.chatId, message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeTelegramBot -> Telegram API error -> err = " + err))
 
         } catch (err) {

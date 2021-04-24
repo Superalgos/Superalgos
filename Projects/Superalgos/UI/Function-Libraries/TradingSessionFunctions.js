@@ -69,7 +69,6 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
-            'Close Stage Event->' +
             'Situation->Condition->Javascript Code->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
@@ -77,6 +76,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Order Rate->Formula->' +
             'Create Order Event->Cancel Order Event->' +
+            'Close Stage Event->' +
             'Announcement->Announcement Formula->Announcement Condition->' +
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
             'Situation->Condition->Javascript Code->' +

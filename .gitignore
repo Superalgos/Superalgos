@@ -6,5 +6,6 @@ debug.log
 *.db
 Projects/Superalgos/Icons/Thumbs.db
 *.bat
+!launch-windows.bat
 *.exe
 

@@ -56,9 +56,35 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
-        node.payload.uiObject.run(eventsServerClient, callBackFunction)
-
         let key = node.name + '-' + node.type + '-' + node.id
+
+        /* Setup Listener to check Parent Task Status of the Session */
+        let eventSubscriptionIdOnStatus
+        let eventHandlerKey = "Task Client - " + node.payload.parentNode.payload.parentNode.payload.parentNode.id
+
+        eventsServerClient.listenToEvent(eventHandlerKey, 'Task Status', undefined, node.id, onResponse, onStatus)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
+
+        function onStatus(message) {
+            eventsServerClient.stopListening(eventHandlerKey, eventSubscriptionIdOnStatus, node.id)
+
+            /* If Task is Not Running Display Error */
+            if (message.event.status === 'Task Process Not Running') {
+                node.payload.uiObject.setErrorMessage('Parent Task Not Running.')
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            } else {
+                node.payload.uiObject.run(eventsServerClient, callBackFunction)
+            }
+        }
+
+        /* Raise Event to Check Task Status */
+        let eventKey = {}
+        eventKey.taskId = node.payload.parentNode.payload.parentNode.payload.parentNode.id
+
+        eventsServerClient.raiseEvent("Task Manager", 'Task Status', eventKey)
 
         let lightingPath = '' +
             'Trading System->' +

@@ -712,6 +712,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
+            case 'Send Telegram Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
+                }
+                break
         }
     }
 }

@@ -8,22 +8,50 @@
             "name": "trading-system-reference",
             "project": "Superalgos"
         },
-        "updated": 1615476811627
+        "updated": 1615476811627,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prova le diverse distanze sul nodo Trading System Reference! Avanti! Clicca il bottone con il metro!",
+                "updated": 1619386377440
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Pretty straightforward, right? Now, what happens when the node you are adjusting has offspring of its own?",
-            "updated": 1615476877641
+            "updated": 1615476877641,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Facile, vero? Ma cosa succede se il nodo che stai configurando ha a sua volta figli?",
+                    "updated": 1619386431164
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node!"
+            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Proviamo! Clicca una volta il bottone Distance to Parent sul menù del nodo Trading Parameters!",
+                    "updated": 1619386474651
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Because you increased the distance separating the Trading Parameters node from the Backtesting Session node, the offspring of the Trading Parameters node also increased proportionally!",
-            "updated": 1615476086180
+            "updated": 1615476086180,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Aumentando la distanza che separa il nodo Trading Parameters dal nodo Backtesting Session, la distanza dei figli del nodo Trading Parameters aumenta proporzionalmente!",
+                    "updated": 1619386535428
+                }
+            ]
         },
         {
             "style": "Text",

@@ -8,23 +8,51 @@
         "icon": {
             "name": "freeze-structure-of-nodes",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il bottone freeze è utile in circostanze specifiche: quando le animazioni sono attivate a livello del Design Space.",
+                "updated": 1619387246995
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive!",
-            "updated": 1615544003132
+            "updated": 1615544003132,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il Design Space offre alcune personalizzazioni, una delle quali è attivare la fisica dell'universo. Quando è attiva, l'intero spazio diventa vivo!",
+                    "updated": 1619387306264
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum!",
-            "updated": 1615544598765
+            "updated": 1615544598765,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non ci addentriamo troppo nell'argomento: non fa parte del curriculum di educazione base!",
+                    "updated": 1619387348794
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The freeze option freezes the node’s chain connections with its parent and offspring and connecting lines turn blue. Freezing releases CPU resources when physics animations are on, as the system stops calculating nodes' positions and status.",
-            "updated": 1615544553909
+            "updated": 1615544553909,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'opzione freeze congela le connessioni di un nodo con il padre e i figli. Quando è attiva, le linee diventano blu. Ciò libera le risorse della CPU quando le animazioni sono attive, perchè il sistema smette di calcolare la posizione e lo stato del nodo.",
+                    "updated": 1619387441768
+                }
+            ]
         }
     ]
 }

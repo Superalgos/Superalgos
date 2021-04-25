@@ -8,18 +8,39 @@
         "icon": {
             "name": "set-angle-to-parent-node-to-360-degrees",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Di default, i nodi seguono una simmetria rotazionale intorno al proprio nodo padre. La simmetria può coprire 360 gradi o meno, dipendentemente dalle impostazioni.",
+                "updated": 1619385351883
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "When you click on the Angle to Parent node button, you cycle among five different settings: 360, 180, 90, and 45 degrees, plus the option to dissable the rotational symmetry.",
-            "updated": 1615459469714
+            "updated": 1615459469714,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cliccando sul bottone Angle to Parent del menù nodo, cicli attraverso cinque impostazioni: 360, 180, 90, 45 gradi o disattivato.",
+                    "updated": 1619385410654
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Take a quick look at the setting selected on each of the offspring of the Lightning Strike Backtesting Session node: Trading Parameters, Trading System Reference, and the Trading Engine Reference. They are all set to 180 degrees, right?",
-            "updated": 1615317622421
+            "updated": 1615317622421,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata alle impostazioni su ognuno dei nodi figli del nodo Backtesting Session: Trading Parameters, Trading System Reference e Trading Engine Reference. Sono tutti su 180 gradi, giusto?",
+                    "updated": 1619385477259
+                }
+            ]
         }
     ]
 }

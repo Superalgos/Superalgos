@@ -8,43 +8,99 @@
             "name": "set-node-arrangement-to-concave",
             "project": "Superalgos"
         },
-        "updated": 1615491939732
+        "updated": 1615491939732,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il bottone cicla attraverso diverse opzioni di disposizione che controllano dove un nodo viene posizionato in relazione al padre.",
+                "updated": 1619386798604
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In the drawing, the orange dot represents the parent node, and the blue dots represent the node adopting the specific arrangement style.",
-            "updated": 1615492521130
+            "updated": 1615492521130,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel disegno, il punto arancione rappresenta il padre e i punti blu i figli che adottano la specifica disposizione.",
+                    "updated": 1619386844410
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Concave: This is the default style. The node adopts a slot on a circumsference around its parent node.",
-            "updated": 1615492168857
+            "updated": 1615492168857,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Concava: lo stile di default. I nodi prendono posto in una circonferenza intorno al padre.",
+                    "updated": 1619386885837
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Convex: The slot is on a convex curve.",
-            "updated": 1615492208853
+            "updated": 1615492208853,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Convessa: la disposizione è su una curva convessa.",
+                    "updated": 1619386913222
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Vertical-Right: On a vertical line to the right.",
-            "updated": 1615492432352
+            "updated": 1615492432352,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verticale-Destra: su una retta verticale alla destra.",
+                    "updated": 1619386944012
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Vertical-Left: The slot is on a vertical line to the left.",
-            "updated": 1615492424255
+            "updated": 1615492424255,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verticale-Sinistra: su una retta verticale alla sinistra.",
+                    "updated": 1619386972995
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Horizontal-Bottom: On a horizontal line below.",
-            "updated": 1615492441259
+            "updated": 1615492441259,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Orizzontale-Sotto: su una linea orizzontale in basso.",
+                    "updated": 1619387026425
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Horizontal-Top: The slot is on a horizontal line above.",
-            "updated": 1615492346954
+            "updated": 1615492346954,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Orizzontale-Sopra: su una linea orizzontale in alto.",
+                    "updated": 1619387015608
+                }
+            ]
         },
         {
             "style": "Text",

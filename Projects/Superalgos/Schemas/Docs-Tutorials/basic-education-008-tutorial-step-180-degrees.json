@@ -8,22 +8,50 @@
         "icon": {
             "name": "set-angle-to-parent-node-to-180-degrees",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando tutti i nodi figli hanno un angolo di 180 gradi, ognuno prende uno spazio nella frazione di una circonferenza che copre appunto 180 gradi, in posizione normale rispetto al padre.",
+                "updated": 1619385539468
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "But what happens if one of the offspring nodes has a different Angle to Parent setting? Let's run an experiment!",
-            "updated": 1615459555706
+            "updated": 1615459555706,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma che succede se uno dei figli ha un valore differente per quella proprietà?",
+                    "updated": 1619385562213
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Click once on the Trading Parameters Angle to Parent setting and exit the menu!"
+            "text": "Click once on the Trading Parameters Angle to Parent setting and exit the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca una volta sulla proprietà Angle to Parent del nodo Trading Parameters e esci dal menù!",
+                    "updated": 1619385589373
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The node takes a slot in a smaller angle — 90 degrees! Do the same with the Trading System Reference and Trading Engine Reference nodes!",
-            "updated": 1615318799392
+            "updated": 1615318799392,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il nodo prende posto in un angolo di 90 gradi! Fai lo stesso con i nodi Trading System Reference e Trading Engine Reference!",
+                    "updated": 1619385656456
+                }
+            ]
         }
     ]
 }

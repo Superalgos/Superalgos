@@ -8,22 +8,50 @@
             "name": "pinned-node",
             "project": "Superalgos"
         },
-        "updated": 1615315595276
+        "updated": 1615315595276,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando un nodo è \"pinned\", è fissato in una posizione indipendentemente dalle altre proprietà di disposizione.",
+                "updated": 1619385221197
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may pin a node, a structure of nodes, and even the complete hierarchy. Let's try something else...",
-            "updated": 1615316007384
+            "updated": 1615316007384,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi fissare un nodo, una struttura di nodi e anche una gerarchia. Proviamo qualcos'altro...",
+                    "updated": 1619385181423
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Pin the Trading Parameters node and drag it away!"
+            "text": "Pin the Trading Parameters node and drag it away!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fissa il nodo Trading Parameters e trascinalo.",
+                    "updated": 1619385199214
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice how all offspring nodes follow the parent node. However, the Session Base Asset node remains in position! Before we move on, unpin all nodes to keep the workspace in order!",
-            "updated": 1615316147113
+            "updated": 1615316147113,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come tutti i nodi figli seguono il nodo padre, mentre il nodo Session Base Asset rimane in posizione! Prima di proseguire, togli il pin da tutti i nodi per tenere in ordine il workspace.",
+                    "updated": 1619385299305
+                }
+            ]
         }
     ]
 }

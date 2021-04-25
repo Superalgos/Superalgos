@@ -8,22 +8,50 @@
         "icon": {
             "name": "tutorial",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ho sentito che il mio amico, Welcome Tutorial, ti ha fatto fare un giro e stupito con qualche banale trucco...che esibizionista!",
+                "updated": 1619384718285
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Well, now it's time to work!",
-            "updated": 1615310150633
+            "updated": 1615310150633,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Beh, ora è il momento di fare sul serio!",
+                    "updated": 1619384709525
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Learning Superalgos is quite an endeavor! Not because it's difficult, but because the system is vast, extremely flexible, and is built on a new paradigm that is not obvious in the beginning..."
+            "text": "Learning Superalgos is quite an endeavor! Not because it's difficult, but because the system is vast, extremely flexible, and is built on a new paradigm that is not obvious in the beginning...",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Imparare Superalgos richiede un certo sforzo! Non perchè sia difficile, ma perchè il sistema è vasto, molto flessibile e costruito su un nuovo paradigma che non appare subito ovvio...",
+                    "updated": 1619384784315
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "But don't worry! If you pay attention and do all available tutorials, you will be able to tackle the learning curve like a champ! Still, be warned... most people do tutorials more than once!",
-            "updated": 1616241028048
+            "updated": 1616241028048,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma non preoccuparti! Se stai attento e segui tutti i tutorial, imparerai tutto in un battibaleno! In ogni caso, sappi che la maggior parte delle persone ripete i tutorial più di una volta!",
+                    "updated": 1619384846531
+                }
+            ]
         }
     ]
 }

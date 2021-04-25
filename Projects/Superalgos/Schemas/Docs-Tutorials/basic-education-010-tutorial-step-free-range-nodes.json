@@ -8,18 +8,39 @@
         "icon": {
             "name": "remove-angle-to-parent-node",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quando selezioni l'opzione per cancellare l'impostazione Angle to Parent, il nodo è libero di posizionarsi a ogni angolo relativo al padre e ai fratelli!",
+                "updated": 1619385961467
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Open the menu of the Trading Parameters node, select the option to cancel the Angle to Parent setting, and move the node in any direction!",
-            "updated": 1615474082667
+            "updated": 1615474082667,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Apri il menù del nodo Trading Parameters, seleziona l'opzione per cancellare la proprietà Angle to Parent e sposta il nodo in una direzione qualunque.",
+                    "updated": 1619385999762
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "As you can see, the node stays where you leave it, and the dotted line connecting to its parent turns yellow. Notice that both the angle to the parent node and the distance become arbitrary.",
-            "updated": 1615474122131
+            "updated": 1615474122131,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Come vedi,il nodo sta esattamente dove lo posizioni, e la linea tratteggiata che lo collega al nodo padre diventa gialla.",
+                    "updated": 1619386058250
+                }
+            ]
         }
     ]
 }

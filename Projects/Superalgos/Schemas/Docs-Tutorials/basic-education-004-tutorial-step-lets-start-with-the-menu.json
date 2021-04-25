@@ -8,22 +8,50 @@
         "icon": {
             "name": "unpinned-node",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La parte sinistra del menù di un nodo è la stessa per quasi tutti i nodi. La parte destra, invece, è specifica per ognuno!",
+                "updated": 1619384910203
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Let's take a close look at the left-hand side!",
-            "updated": 1615313694440
+            "updated": 1615313694440,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Diamo un'occhiata al lato sinistro del menù!",
+                    "updated": 1619384930745
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu."
+            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il design space segue il paradigma di un workspace auto-organizzato in cui i nodi tendono a trovare il proprio posto secondo certe proprietà sul menù, che ne controllano la disposizione.",
+                    "updated": 1619385025007
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Click the pin button on the top-left corner of the Session Base Asset node. Now drag the node away and release it! Now drag and release any other node without pinning it. See the difference?",
-            "updated": 1615315170878
+            "updated": 1615315170878,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca il bottone Pin nell'angolo in alto a sinistra del nodo Session Base Asset. Ora trascina il nodo e rilascialo! Prova a trascinare e rilasciare un altro nodo senza cliccare prima Pin. Vedi la differenza?",
+                    "updated": 1619385084403
+                }
+            ]
         }
     ]
 }

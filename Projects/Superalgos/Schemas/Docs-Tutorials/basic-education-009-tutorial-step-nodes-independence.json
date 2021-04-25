@@ -8,22 +8,50 @@
         "icon": {
             "name": "set-angle-to-parent-node-to-90-degrees",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Nota come, cambiando l'impostazione Angle to Parent su diversi nodi figlio, ognuno di loro si redispone in modo indipendente dagli altri!",
+                "updated": 1619385710556
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception:",
-            "updated": 1615459643749
+            "updated": 1615459643749,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi controllare la posizione di ogni nodo dal suo menù. Ciò non influirà nè sulla posizione del padre nè dei fratelli, a parte in una situazione...",
+                    "updated": 1619385821044
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!"
+            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Torna al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
+                    "updated": 1619385863753
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling!",
-            "updated": 1615322906744
+            "updated": 1615322906744,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vedrai che il nuovo nodo Social Bots eredita il valore della proprietà Angle to Parent dal nodo fratello più vicino!",
+                    "updated": 1619385906628
+                }
+            ]
         },
         {
             "style": "Text",

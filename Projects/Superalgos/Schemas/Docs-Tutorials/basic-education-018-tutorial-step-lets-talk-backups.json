@@ -8,23 +8,51 @@
         "icon": {
             "name": "backup-entity",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I Backups sono molto potenti, e hanno molti casi d'uso! Quando clicchi sul tasto backup, il nodo e i suoi figli sono salvati in un file JSON!",
+                "updated": 1619387504117
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may want to backup a structure of nodes to safeguard your work or to keep a copy of the structure in its current state.",
-            "updated": 1615546257502
+            "updated": 1615546257502,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi fare il backup di una struttura di nodi per salvare il tuo lavoro o per tenere una copia della struttura nel suo stato corrente.",
+                    "updated": 1619387569133
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Take a backup of the Lightning Strike trading system and check your downloads folder!",
-            "updated": 1615546438350
+            "updated": 1615546438350,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai un backup del nodo Lightning Strike Trading System e controlla la tua cartella dei downloads!",
+                    "updated": 1619387595869
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The file is downloaded by the browser and stored in the default Downloads folder. If you take multiple backups of the same file, the browser renames the file with sequential numbers.",
-            "updated": 1615546360738
+            "updated": 1615546360738,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il file viene scaricato dal browser e salvato nella cartella default Downloads. Se fai più backups dello stesso file, il browser li rinomina con numeri sequenziali.",
+                    "updated": 1619387657093
+                }
+            ]
         }
     ]
 }

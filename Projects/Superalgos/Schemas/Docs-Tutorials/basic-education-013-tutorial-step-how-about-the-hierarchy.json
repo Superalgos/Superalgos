@@ -8,23 +8,51 @@
         "icon": {
             "name": "set-distance-to-parent-node-to-one-and-a-half",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La ragione per cui la distanza dal nodo padre è relativa alla distanza del padre dal proprio padre è per permetterti di modificare lunghe serie di nodi!",
+                "updated": 1619386602066
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Click once on the Distance to Parent button of the Network node!",
-            "updated": 1615477834548
+            "updated": 1615477834548,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca una volta sul bottone Distance to Parent del nodo Network!",
+                    "updated": 1619386635830
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Wow! See? These tools allow you full control over how you visually organize hierarchies!",
-            "updated": 1615478179417
+            "updated": 1615478179417,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Wow! Visto? Questi strumenti ti danno il pieno controllo su come organizzare a livello visivo le gerarchie!",
+                    "updated": 1619386685736
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Try canceling the Distance to Parent setting on the Testing Trading Tasks node! As you can see, you may set any arbitrary distance to the parent node, but the angle to the parent remains fixed.",
-            "updated": 1615478515588
+            "updated": 1615478515588,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prova a cancellare la proprietà Distance to Parent sul nodo Testing Trading Tasks! Come vedi, puoi definire una distanza arbitraria dal nodo padre, ma l'angolo con il padre rimane fisso.",
+                    "updated": 1619386733788
+                }
+            ]
         }
     ]
 }

@@ -13,8 +13,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are just starting out here in Superalgos, all this freedom might be a bit overwhelming. That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination.",
-            "updated": 1617632679120
+            "text": "If you are just starting out here in Superalgos, all this freedom might be a bit overwhelming. Superalgos allows you to do almost anything you can think up, but there are some key puzzle pieces that need to be in place.",
+            "updated": 1619404909688
+        },
+        {
+            "style": "Success",
+            "text": "That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination."
         }
     ]
 }

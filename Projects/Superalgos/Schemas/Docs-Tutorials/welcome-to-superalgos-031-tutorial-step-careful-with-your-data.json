@@ -52,6 +52,11 @@
                     "text": "Cara yang tepat untuk menutup Superalgos adalah:",
                     "updated": 1616932216490,
                     "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Il modo corretto per chiudere Superalgos è il seguente:",
+                    "updated": 1619414380482
                 }
             ]
         },
@@ -65,6 +70,11 @@
                     "text": "Matikan semua tasks dan tunggu beberapa menit.",
                     "updated": 1616932788679,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Stoppa tutte le task e attendi un paio di minuti",
+                    "updated": 1619414393601
                 }
             ]
         },
@@ -78,6 +88,11 @@
                     "text": "Setelah semua tasks berhenti kamu harus menutup console app.",
                     "updated": 1616932273154,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Chiudi la console app quando le task sono ferme",
+                    "updated": 1619414448240
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "text": "Kamu akan menutup browser dan membiarkan tasks memproses dilatar belakang.",
                     "updated": 1616932749614,
                     "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Puoi chiudere il browser in qualsiasi momento e lasciare le task continuare in background.",
+                    "updated": 1619414476921
                 }
             ]
         },
@@ -103,6 +123,11 @@
                     "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt!",
                     "updated": 1616932378361,
                     "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Chiudere il Client prima che le task siano ferme può corrompere i tuoi dati!",
+                    "updated": 1619414501662
                 }
             ]
         }

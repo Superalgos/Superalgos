@@ -1,0 +1,54 @@
+{
+    "type": "Strategy Name",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Copy Node Path",
+            "label": "Copy Node Path",
+            "iconPathOn": "copy-path",
+            "iconPathOff": "copy-path",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Copy Node Value",
+            "label": "Copy Node Value",
+            "iconPathOn": "copy-value",
+            "iconPathOff": "copy-value",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Copy Node Type",
+            "label": "Copy Node Type",
+            "iconPathOn": "copy-type",
+            "iconPathOff": "copy-type",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"initialValue\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Strategy->"
+    },
+    "propertyNameAtParent": "strategyName"
+}

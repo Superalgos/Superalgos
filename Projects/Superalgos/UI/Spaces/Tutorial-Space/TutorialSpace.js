@@ -1157,7 +1157,7 @@ function newSuperalgosTutorialSpace() {
             schemaDocument = {
                 type: 'Tutorial',
                 definition: {
-                    text: "You need to reference a page at the docs at the config of this node. Use the docs property for that."
+                    text: "If you are a new user then please refresh the UI with F5. This is a nasty bug we could not reproduce and fix yet."
                 },
                 icon: {
                     project: "Superalgos",
@@ -1166,7 +1166,7 @@ function newSuperalgosTutorialSpace() {
                 paragraphs: [
                     {
                         style: "Title",
-                        text: "Example"
+                        text: "Reference Missing"
                     },
                     {
                         style: "Json",
@@ -1178,8 +1178,8 @@ function newSuperalgosTutorialSpace() {
                     },
                     {
                         style: "Note",
-                        text: "If you did, then that page was not found."
-                    },
+                        text: "Add at the config a reference to a Tutorial Page."
+                    }
                 ]
             }
         }

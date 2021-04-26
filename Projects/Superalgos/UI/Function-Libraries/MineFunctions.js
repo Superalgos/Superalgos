@@ -65,6 +65,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
         */
         let dataMine = node.payload.referenceParent
         scanBotArray(dataMine.sensorBots)
+        scanBotArray(dataMine.apiDataFetcherBots)
         scanBotArray(dataMine.indicatorBots)
         scanBotArray(dataMine.tradingBots)
         scanBotArray(dataMine.learningBots)

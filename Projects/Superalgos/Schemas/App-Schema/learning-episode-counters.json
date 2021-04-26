@@ -1,0 +1,58 @@
+{
+    "type": "Learning Episode Counters",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Learning Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Defined Counter",
+            "relatedUiObject": "User Defined Counter",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Learning Episode->"
+    },
+    "propertyNameAtParent": "learningEpisodeCounters",
+    "childrenNodesProperties": [
+        {
+            "name": "periods",
+            "type": "node",
+            "childType": "Periods",
+            "autoAdd": true
+        },
+        {
+            "name": "hits",
+            "type": "node",
+            "childType": "Hits",
+            "autoAdd": true
+        },
+        {
+            "name": "fails",
+            "type": "node",
+            "childType": "Fails",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedCounters",
+            "type": "array",
+            "childType": "User Defined Counter",
+            "autoAdd": false
+        }
+    ]
+}

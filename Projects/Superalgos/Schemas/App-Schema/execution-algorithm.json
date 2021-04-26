@@ -1,0 +1,79 @@
+{
+    "type": "Execution Algorithm",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Buy Order",
+            "relatedUiObject": "Market Buy Order",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Sell Order",
+            "relatedUiObject": "Market Sell Order",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Limit Buy Order",
+            "relatedUiObject": "Limit Buy Order",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Limit Sell Order",
+            "relatedUiObject": "Limit Sell Order",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{\n\"percentageOfStageTargetSize\": 100 \n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Open Execution->Close Execution->"
+    },
+    "propertyNameAtParent": "executionAlgorithms",
+    "childrenNodesProperties": [
+        {
+            "name": "marketBuyOrders",
+            "type": "array",
+            "childType": "Market Buy Order"
+        },
+        {
+            "name": "marketSellOrders",
+            "type": "array",
+            "childType": "Market Sell Order"
+        },
+        {
+            "name": "limitBuyOrders",
+            "type": "array",
+            "childType": "Limit Buy Order"
+        },
+        {
+            "name": "limitSellOrders",
+            "type": "array",
+            "childType": "Limit Sell Order"
+        }
+    ]
+}

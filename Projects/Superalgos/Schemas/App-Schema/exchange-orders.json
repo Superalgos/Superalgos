@@ -1,0 +1,78 @@
+{
+    "type": "Exchange Orders",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "marketBuyOrders",
+            "label": "Add Market Buy Orders",
+            "relatedUiObject": "Market Buy Orders",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "marketSellOrders",
+            "label": "Add Market Sell Orders",
+            "relatedUiObject": "Market Sell Orders",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "limitBuyOrders",
+            "label": "Add Limit Buy Orders",
+            "relatedUiObject": "Limit Buy Orders",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "limitSellOrders",
+            "label": "Add Limit Sell Orders",
+            "relatedUiObject": "Limit Sell Orders",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Engine->"
+    },
+    "propertyNameAtParent": "exchangeOrders",
+    "childrenNodesProperties": [
+        {
+            "name": "marketBuyOrders",
+            "type": "node",
+            "childType": "Market Buy Orders",
+            "autoAdd": true
+        },
+        {
+            "name": "marketSellOrders",
+            "type": "node",
+            "childType": "Market Sell Orders",
+            "autoAdd": true
+        },
+        {
+            "name": "limitBuyOrders",
+            "type": "node",
+            "childType": "Limit Buy Orders",
+            "autoAdd": true
+        },
+        {
+            "name": "limitSellOrders",
+            "type": "node",
+            "childType": "Limit Sell Orders",
+            "autoAdd": true
+        }
+    ]
+}

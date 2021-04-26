@@ -1,0 +1,76 @@
+{
+    "type": "Polygon",
+    "level": 3,
+    "propertyNameAtParent": "polygons",
+    "attachingRules": {
+        "compatibleTypes": "->Shapes->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "polygonCondition",
+            "type": "node",
+            "childType": "Polygon Condition",
+            "autoAdd": false
+        },
+        {
+            "name": "polygonBody",
+            "type": "node",
+            "childType": "Polygon Body",
+            "autoAdd": true
+        },
+        {
+            "name": "polygonBorder",
+            "type": "node",
+            "childType": "Polygon Border",
+            "autoAdd": true
+        },
+        {
+            "name": "polygonVertexes",
+            "type": "array",
+            "childType": "Polygon Vertex",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "polygonCondition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Polygon Condition",
+            "relatedUiObject": "Polygon Condition"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "polygonBody",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Polygon Body",
+            "relatedUiObject": "Polygon Body"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "polygonBorder",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Polygon Border",
+            "relatedUiObject": "Polygon Border"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Polygon Vertex",
+            "relatedUiObject": "Polygon Vertex"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

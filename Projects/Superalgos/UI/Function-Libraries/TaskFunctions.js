@@ -109,10 +109,11 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
         let taskLightingPath = '->Task->' +
             'Sensor Bot Instance->' +
+            'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -134,6 +135,9 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Record Formula->' +
+            'API Response Field Reference->' + 
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->' +
+            'API Response Schema->API Query Response->API Query Responses->API Endpoint->' + 
             'Data Building Procedure->' +
             'Procedure Initialization->Procedure Javascript Code->' +
             'Procedure Loop->Procedure Javascript Code->' +
@@ -144,11 +148,15 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +
             'Sensor Bot->' +
-            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
+            'API Data Fetcher Bot->' +
             'Indicator Bot->' +
             'Trading Bot->' +
             'Learning Bot->' +
-            'Data Mine->Trading Mine->Learning Mine->'
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
+            'Data Mine->Trading Mine->Learning Mine->'+
+            'API Map Reference->' + 
+            'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Query Responses->API Query Response->API Response Schema->' + 
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
         let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -169,9 +177,10 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Back Learning Session->Live Learning Session->' +
+            'API Map Reference->' + 
             'Market->' +
             'Process Definition->'
 
@@ -744,6 +753,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             let mine = node.payload.referenceParent
 
             addTasksForBotArray(mine.sensorBots)
+            addTasksForBotArray(mine.apiDataFetcherBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
             addTasksForBotArray(mine.learningBots)
@@ -760,6 +770,15 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                             let task = addTask(taskManager)
 
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance.name = bot.name
+
+                            addProcessInstance(task, bot, botInstance)
+                            break
+                        }
+                        case 'API Data Fetcher Bot': {
+                            let task = addTask(taskManager)
+
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -826,6 +845,11 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                             switch (bot.type) {
                                 case 'Sensor Bot': {
                                     processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Sensor Process Instance')
+                                    processInstance.payload.referenceParent = process
+                                    break
+                                }
+                                case 'API Data Fetcher Bot': {
+                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
                                     processInstance.payload.referenceParent = process
                                     break
                                 }

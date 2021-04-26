@@ -52,7 +52,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (thisReport.file.lasrRun !== undefined) {
+                    if (thisReport.file.lastRun !== undefined) {
 
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
@@ -155,7 +155,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
             function writeStatusReport() {
                 try {
                     thisReport.file = {
-                        lasrRun: (new Date()).toISOString()
+                        lastRun: (new Date()).toISOString()
                     };
                     thisReport.save(onSaved);
 

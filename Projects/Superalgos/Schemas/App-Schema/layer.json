@@ -1,0 +1,59 @@
+{
+    "type": "Layer",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "initialValues": {
+        "config": "{ \n\"status\": \"off\"\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 3,
+    "title": [
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Data Product->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Layer Manager->Bot Layers->Layer Folder->"
+    },
+    "propertyNameAtParent": "layers",
+    "childrenNodesProperties": [
+        {
+            "name": "layerPanels",
+            "type": "node",
+            "childType": "Layer Panels"
+        },
+        {
+            "name": "layerPolygons",
+            "type": "node",
+            "childType": "Layer Polygons"
+        }
+    ]
+}

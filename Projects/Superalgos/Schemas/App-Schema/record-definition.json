@@ -1,0 +1,34 @@
+{
+    "type": "Record Definition",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Record Property",
+            "relatedUiObject": "Record Property",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Product Definition->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "properties",
+            "type": "array",
+            "childType": "Record Property",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "record"
+}

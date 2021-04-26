@@ -1,0 +1,140 @@
+{
+    "type": "Basic Layers",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Activation Layer",
+            "relatedUiObject": "Activation Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Dense Layer",
+            "relatedUiObject": "Dense Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Dropout Layer",
+            "relatedUiObject": "Dropout Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Embedding Layer",
+            "relatedUiObject": "Embedding Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Flatten Layer",
+            "relatedUiObject": "Flatten Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Permute Layer",
+            "relatedUiObject": "Permute Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Repeat Vector Layer",
+            "relatedUiObject": "Repeat Vector Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Reshape Layer",
+            "relatedUiObject": "Reshape Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Spatial Dropout 1D Layer",
+            "relatedUiObject": "Spatial Dropout 1D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 0,
+    "attachingRules": {
+        "compatibleTypes": "->Sequential layer->"
+    },
+    "propertyNameAtParent": "typeOfLayer",
+    "childrenNodesProperties": [
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Activation Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Dense Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Dropout Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Embedding Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Flatten Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Permute Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Repeat Vector Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Reshape Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Spatial Dropout 1D Layer"
+        }
+    ],
+    "icon": "tensorflow"
+}

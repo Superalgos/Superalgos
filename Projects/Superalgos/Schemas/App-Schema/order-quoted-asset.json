@@ -1,0 +1,64 @@
+{
+    "type": "Order Quoted Asset",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Market Order->Limit Order->"
+    },
+    "propertyNameAtParent": "orderQuotedAsset",
+    "childrenNodesProperties": [
+        {
+            "name": "actualSize",
+            "type": "node",
+            "childType": "Actual Size",
+            "autoAdd": true
+        },
+        {
+            "name": "size",
+            "type": "node",
+            "childType": "Size",
+            "autoAdd": true
+        },
+        {
+            "name": "sizeFilled",
+            "type": "node",
+            "childType": "Size Filled",
+            "autoAdd": true
+        },
+        {
+            "name": "amountReceived",
+            "type": "node",
+            "childType": "Amount Received",
+            "autoAdd": true
+        },
+        {
+            "name": "feesPaid",
+            "type": "node",
+            "childType": "Fees Paid",
+            "autoAdd": true
+        },
+        {
+            "name": "feesToBePaid",
+            "type": "node",
+            "childType": "Fees To Be Paid",
+            "autoAdd": true
+        }
+    ]
+}

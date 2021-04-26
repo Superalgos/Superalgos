@@ -1,0 +1,52 @@
+{
+    "type": "Stage Quoted Asset",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Strategy Open Stage->Strategy Close Stage->"
+    },
+    "propertyNameAtParent": "stageQuotedAsset",
+    "childrenNodesProperties": [
+        {
+            "name": "targetSize",
+            "type": "node",
+            "childType": "Target Size",
+            "autoAdd": true
+        },
+        {
+            "name": "sizePlaced",
+            "type": "node",
+            "childType": "Size Placed",
+            "autoAdd": true
+        },
+        {
+            "name": "sizeFilled",
+            "type": "node",
+            "childType": "Size Filled",
+            "autoAdd": true
+        },
+        {
+            "name": "feesPaid",
+            "type": "node",
+            "childType": "Fees Paid",
+            "autoAdd": true
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "type": "Simulated Exchange Events",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Simulated Partial Fill",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "simulatedPartialFill",
+            "relatedUiObject": "Simulated Partial Fill",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Simulated Actual Rate",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "simulatedActualRate",
+            "relatedUiObject": "Simulated Actual Rate",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Simulated Fees Paid",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "simulatedFeesPaid",
+            "relatedUiObject": "Simulated Fees Paid",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "simulatedPartialFill",
+            "type": "node",
+            "childType": "Simulated Partial Fill",
+            "autoAdd": true
+        },
+        {
+            "name": "simulatedActualRate",
+            "type": "node",
+            "childType": "Simulated Actual Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "simulatedFeesPaid",
+            "type": "node",
+            "childType": "Simulated Fees Paid",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "simulatedExchangeEvents"
+}

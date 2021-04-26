@@ -1,0 +1,47 @@
+{
+    "type": "Polygon Body",
+    "level": 4,
+    "propertyNameAtParent": "polygonBody",
+    "attachingRules": {
+        "compatibleTypes": "->Polygon->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "style",
+            "type": "node",
+            "childType": "Style",
+            "autoAdd": true
+        },
+        {
+            "name": "styleConditions",
+            "type": "array",
+            "childType": "Style Condition"
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "style",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Style",
+            "relatedUiObject": "Style"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Style Condition",
+            "relatedUiObject": "Style Condition"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

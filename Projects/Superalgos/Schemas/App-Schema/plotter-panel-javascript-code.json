@@ -1,0 +1,34 @@
+{
+    "type": "Plotter Panel Javascript Code",
+    "level": 4,
+    "propertyNameAtParent": "plotterPanelJavascriptCode",
+    "editors": {
+        "code": true
+    },
+    "initialValues": {
+        "code": "// Type you code"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Plotter Panel->"
+    },
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.codeEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "bitcoin",
+            "iconPathOff": "bitcoin"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true,
+    "icon": "bitcoin"
+}

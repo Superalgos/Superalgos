@@ -561,13 +561,6 @@
                     "botType": "Sensor Bot"
                 },
                 {
-                    "name": "Single Market Sensor Bot",
-                    "propertyName": "singleMarketSensorBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
-                    "fileName": "SingleMarketSensorBot.js",
-                    "folderName": "Sensor-Bot/"
-                },
-                {
                     "name": "Exchange Raw Data Historic OHLCVs",
                     "propertyName": "historicOHLCVs",
                     "functionName": "newSuperalgosBotModulesHistoricOHLCVs",
@@ -580,6 +573,21 @@
                     "functionName": "newSuperalgosBotModulesCheckWebhook",
                     "fileName": "CheckWebhook.js",
                     "folderName": "Sensor-Bot/Webhooks"
+                },
+                {
+                    "name": "Single Market API Data Fetcher Bot",
+                    "propertyName": "singleMarketAPIDataFetcherBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketAPIDataFetcherBot",
+                    "fileName": "SingleMarketAPIDataFetcherBot.js",
+                    "folderName": "API-Data-Fetcher-Bot",
+                    "botType": "API Data Fetcher Bot"
+                },
+                {
+                    "name": "API Data Fetcher Fetching Process",
+                    "propertyName": "fetchingProcess",
+                    "functionName": "newSuperalgosBotModulesFetchingProcess",
+                    "fileName": "FetchingProcess.js",
+                    "folderName": "API-Data-Fetcher-Bot"
                 },
                 {
                     "name": "Single Market Indicator Bot",

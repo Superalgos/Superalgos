@@ -1,0 +1,63 @@
+{
+    "type": "Image",
+    "level": 3,
+    "propertyNameAtParent": "images",
+    "attachingRules": {
+        "compatibleTypes": "->Shapes->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"\", \n\"size\": 10\n}"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "imageCondition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Image Condition",
+            "relatedUiObject": "Image Condition"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "imagePosition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Image Position",
+            "relatedUiObject": "Image Position"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "childrenNodesProperties": [
+        {
+            "name": "imageCondition",
+            "type": "node",
+            "childType": "Image Condition",
+            "autoAdd": true
+        },
+        {
+            "name": "imagePosition",
+            "type": "node",
+            "childType": "Image Position",
+            "autoAdd": true
+        }
+    ],
+    "addLeftIcons": true
+}

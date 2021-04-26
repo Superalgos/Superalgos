@@ -117,8 +117,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     if (apiMAP.config.hostName === undefined || apiMAP.config.hostName === "") {
                         // TODO Error Handling
                         return
+                    } else {
+                        hostName = apiMAP.config.hostName
                     }
-
+                    
                     if (apiMAP.config.portNumber !== undefined && apiMAP.config.portNumber !== "") {
                         portNumber = ":" + apiMAP.config.portNumber
                     }
@@ -185,8 +187,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let separator = ""
                         if (productDefinition.apiQueryParameters !== undefined) {
                             queryString = '?'
-                            for (j = 0; j < productDefinition.apiQueryParameters.length; j++) {
-                                let apiQueryParameter = productDefinition.apiQueryParameters[j]
+                            for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
+                                let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
                                 queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
                                 separator = "&"
                             }

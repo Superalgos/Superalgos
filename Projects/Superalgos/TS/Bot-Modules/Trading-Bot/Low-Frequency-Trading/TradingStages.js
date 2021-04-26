@@ -800,6 +800,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         runWhenStatusIsOpening()
         await runWhenStatusIsOpen()
+        await runWhenStatusIsClosing()
 
         function runWhenStatusIsOpening() {
 
@@ -861,6 +862,58 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             }
         }
 
+        async function runWhenStatusIsClosing() {
+            /* Closing Status Procedure */
+            if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Closing') {
+                /*
+                During the closing stage status, we do not place new orders, just check
+                if the ones placed were filled, and cancel the ones not filled.
+                */
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
+                let executionNode = tradingSystemStage.closeExecution
+
+                /*
+                Check if there are unfilled orders, we will check if they were executed,
+                and cancel the ones that were not.
+                */
+                tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
+                tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
+
+                await tradingExecutionModuleObject.runExecution(
+                    executionNode,
+                    tradingEngine.tradingCurrent.strategyCloseStage
+                )
+
+                /*
+                The Closing is finished when the sizeFilled + feesPaid reaches the sizePlaced.
+                This can happens either because we update the sizeFilled value when we see
+                at the exchange that orders were filled, or we reduce the sizePlaced when
+                we cancel not yet filled orders. Here it does not matter the targetSize since
+                this status represent a force closure of this stage.
+                */
+                switch (tradingEngine.tradingCurrent.strategyCloseStage.stageDefinedIn.value) {
+                    case 'Base Asset': {
+                        if (
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizePlaced.value
+                        ) {
+                            changeStageStatus('Close Stage', 'Closed')
+                        }
+                        break
+                    }
+                    case 'Quoted Asset': {
+                        if (
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizePlaced.value
+                        ) {
+                            changeStageStatus('Close Stage', 'Closed')
+                        }
+                        break
+                    }
+                }
+            }
+        }
+
         function initializeStageTargetSize() {
             /*
             Validations that all needed nodes are there.
@@ -887,6 +940,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         initialized to their defualts.  
         */
         if (tradingEngine.tradingCurrent.position.status.value !== 'Open' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
+        if (tradingEngine.tradingCurrent.position.status.value !== 'Close' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
         if (
             (
                 tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Closed' ||

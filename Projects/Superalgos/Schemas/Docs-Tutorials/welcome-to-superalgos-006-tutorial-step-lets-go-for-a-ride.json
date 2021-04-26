@@ -97,8 +97,8 @@
                 },
                 {
                     "language": "IT",
-                    "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining. Ma prima di partire, ho una domanda al volo per te: stai utilizzando il Client da remoto?",
-                    "updated": 1614717611211,
+                    "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining.",
+                    "updated": 1618645279020,
                     "style": "Text"
                 }
             ]
@@ -116,7 +116,8 @@
                 {
                     "language": "ES",
                     "text": "Pero antes de empezar, tengo una pregunta para ti, estas accediendo al cliete de forma remota? ",
-                    "updated": 1618432190261
+                    "updated": 1618432190261,
+                    "style": "Note"
                 }
             ]
         }

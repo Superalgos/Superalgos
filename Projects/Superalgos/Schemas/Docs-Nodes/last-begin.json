@@ -1,7 +1,7 @@
 {
     "type": "Last Begin",
     "definition": {
-        "text": "Left click and Edit to enter edit mode and change this text."
+        "text": "Right click and Edit to enter edit mode and change this text."
     },
     "paragraphs": [
         {
@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "Left click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text."
         },
         {
             "style": "Block",

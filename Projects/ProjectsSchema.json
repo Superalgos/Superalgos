@@ -120,6 +120,11 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newSuperalgosFunctionLibraryWorkspaceFunctions"
+                },
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSuperalgosFunctionLibrarySocialBotsFunctions"
                 }
             ],
             "utilities": [

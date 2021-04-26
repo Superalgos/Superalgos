@@ -8,22 +8,50 @@
             "name": "mouse-right-click",
             "project": "Superalgos"
         },
-        "updated": 1615573035743
+        "updated": 1615573035743,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora dobbiamo collegare il backup del nodo Trading Parameters al nodo Backtesting Session. Come facciamo?",
+                "updated": 1619415112799
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node!"
+            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai click col tasto destro sul nodo Trading Parameters e spostalo vicino al nodo Backtesting Session! Rilascialo quando vedi un cerchio arancione che circonda il nodo Backtesting Session!",
+                    "updated": 1619415202576
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That's it! The backup of the Trading Parameters node is restored and back in use.",
-            "updated": 1615573476475
+            "updated": 1615573476475,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco qua! Il backup del nodo Trading Parameters è stato ripristinato.",
+                    "updated": 1619415240945
+                }
+            ]
         },
         {
-            "style": "Note",
+            "style": "Text",
             "text": "Notice that you may delete the second Trading Parameters node if you wish, or you can keep it on the side for later use.",
-            "updated": 1615573597034
+            "updated": 1615573597034,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota che puoi cancellare il secondo nodo Trading Parameters se vuoi, o puoi tenerlo da parte per usarlo in un secondo momento.",
+                    "updated": 1619415338196
+                }
+            ]
         }
     ]
 }

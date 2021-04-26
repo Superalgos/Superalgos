@@ -8,18 +8,39 @@
             "name": "detach-node",
             "project": "Superalgos"
         },
-        "updated": 1615571995273
+        "updated": 1615571995273,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Non testeremo realmente la strategia con parametri diversi, stiamo solo simulando uno scenario!",
+                "updated": 1619414895394
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Let's pretend we modified the Trading Parameters and now we want to go back to using the original ones. We already have the backup in the design space — detached from the hierarchy — and we need to replace the existing Trading Parameters node with the backup.",
-            "updated": 1615572909121
+            "updated": 1615572909121,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo che abbiamo modificato i Trading Parameter e vogliamo tornare ad utilizzare quelli originali. Abbiamo già il backup nel Design Space, isolato dalla gerarchia, e vogliamo rimpiazzare il nodo Trading Parameters esistente con il nostro backup.",
+                    "updated": 1619414987401
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
-            "updated": 1615572965552
+            "updated": 1615572965552,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al nodo Trading Parameter in uso, quello collegato al nodo Backtesting Session, e clicca il pulsante Detach Node. Il nodo si è separato dalla gerarchia! Ora puoi metterlo da parte!",
+                    "updated": 1619415065617
+                }
+            ]
         }
     ]
 }

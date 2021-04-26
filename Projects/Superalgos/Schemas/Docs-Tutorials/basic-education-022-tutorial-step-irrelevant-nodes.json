@@ -8,18 +8,39 @@
         "icon": {
             "name": "detach-node",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I nodi che non sono collegati a una gerarchia non sono calcolati. Esistono nel workspace, ma non influenzano i suoi processi in alcun modo.",
+                "updated": 1619415378842
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This means that you may keep as many structures of nodes detached from hierarchies, for as long as you wish, keeping them at hand for later use, or for whatever reason.",
-            "updated": 1615580307483
+            "updated": 1615580307483,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ciò significa che puoi mantenere tante strutture di nodi scollegate dalle gerarchie quante ne desideri, per quanto tempo vuoi, per tenerle da parte e usarle più tardi o per un qualsiasi motivo.",
+                    "updated": 1619415453899
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "A common scenario is keeping multiple versions of certain definitions while building strategies, so that you may test a set of rules and switch to other rules for the next run. You may even keep multiple versions of entire strategies!",
-            "updated": 1615575707975
+            "updated": 1615575707975,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Uno scenario comune è mantenere diverse versioni di alcune definizioni mentre si costruisce una strategia: in questo modo puoi testare un set di regole e cambiare ad altre regole per testare quelle. Puoi anche mantenere diverse versioni di intere strategie!",
+                    "updated": 1619415527412
+                }
+            ]
         }
     ]
 }

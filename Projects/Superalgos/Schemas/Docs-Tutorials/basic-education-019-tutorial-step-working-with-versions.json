@@ -8,23 +8,51 @@
         "icon": {
             "name": "hand-drag",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo che tu voglia testare una strategia con diversi set di parametri: fai un backup del nodo Trading Parameters!",
+                "updated": 1619414638186
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Go ahead and take the backup! Now that you have a backup of all Trading Parameters, you may change any of them knowing that you can always go back to your backup! If you are on Chrome, the backup must be visible in the bottom-left corner of the browser window.",
-            "updated": 1615571301913
+            "updated": 1615571301913,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai avanti e fai il backup! Ora che hai un backup di tutti i Trading Parameters, li puoi modificare sapendo che hai sempre la possibilità di ripristinare quelli originali! Se sei su Chrome, il backup dovrebbe essere visibile nell'angolo in basso a sinistra del browser.",
+                    "updated": 1619414736964
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Now drag the backup file and drop it in the Design Space! That's how you restore a backup!",
-            "updated": 1615571393497
+            "updated": 1615571393497,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ora trascina il file backup e lascialo nel Design Space! È così che ripristini un backup!",
+                    "updated": 1619414768258
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Easy right? In the next step, I'll show you how to get back to using the original version!",
-            "updated": 1615571399267
+            "updated": 1615571399267,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Facile, no? Nel prossimo step, ti mostrerò come tornare a utilizzare la versione originale!",
+                    "updated": 1619414806532
+                }
+            ]
         }
     ]
 }

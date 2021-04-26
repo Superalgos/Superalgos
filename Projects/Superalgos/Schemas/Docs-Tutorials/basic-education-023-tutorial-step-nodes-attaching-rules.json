@@ -8,23 +8,51 @@
             "name": "help",
             "project": "Superalgos"
         },
-        "updated": 1615580946356
+        "updated": 1615580946356,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Clicca il tasto Help sul nodo Trading Parameters per accedere alla corrispondente pagina Docs. Ti mostrerò una cosa...",
+                "updated": 1619415577939
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Scroll the page all the way to the bottom until you find the Trading Parameters Attaching Rules title.",
-            "updated": 1615583276420
+            "updated": 1615583276420,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Scorri la pagina fino in fondo, fin quando vedrai il titolo Trading Parameters Attaching Rules.",
+                    "updated": 1619415662861
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Each node may be attached to certain node types. These attaching rules are listed on the node's page in the Docs.",
-            "updated": 1615583315164
+            "updated": 1615583315164,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni nodo può essere collegato solo ad alcuni tipi di nodo. I tipi compatibili sono elencati nella pagina Docs del nodo.",
+                    "updated": 1619415735709
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "When there are several nodes that may accept the connection, each candidate displays a grey ring indicating their readiness to take the attachment. Only the candidate closer to the node to be attached is highlighted in orange.",
-            "updated": 1615582903959
+            "updated": 1615582903959,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando ci sono più nodi che possono essere collegati, ogni candidato ha un anello grigio che mostra la sua compatibilitá. Solo il candidato più vicino al nodo che si deve collegare ha un anello arancione.",
+                    "updated": 1619415838121
+                }
+            ]
         }
     ]
 }

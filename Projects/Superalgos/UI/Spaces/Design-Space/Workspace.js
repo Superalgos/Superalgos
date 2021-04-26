@@ -112,12 +112,16 @@ function newWorkspace() {
 
                     function onIndexingFinished() {
                         setupEventsServerClients()
-                        setTimeout(runTasksAndSessions, 10000) 
+                        runTasksAndSessions()
+
                         thisObject.enabled = true
                         UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                         CAN_SPACES_DRAW = true
 
                         thisObject.isInitialized = true
+
+                        playTutorials()
+
                         savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                         UI.projects.superalgos.utilities.statusBar.changeStatus("Displaying the UI...")
                     }
@@ -132,6 +136,9 @@ function newWorkspace() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
+    }
+
+    function playTutorials() {
         executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 

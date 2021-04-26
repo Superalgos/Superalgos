@@ -128,7 +128,8 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
-            'Output Dataset->Dataset Definition->Product Definition->' +
+            'Output Dataset->Dataset Definition->Product Definition->API Query Parameters->API Query Parameter->' +
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
             'Data Mine Data Dependencies->Bot Data Dependencies->' +

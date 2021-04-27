@@ -8,6 +8,12 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add Discord Bot",
+            "label": "Add Discord Bot",
+            "relatedUiObject": "Discord Bot",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -26,7 +32,7 @@
         {
             "name": "bots",
             "type": "array",
-            "childType": "Telegram Bot",
+            "childType": "Telegram Bot, Discord Bot",
             "autoAdd": true
         }
     ],

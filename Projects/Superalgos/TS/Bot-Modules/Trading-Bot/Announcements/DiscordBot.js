@@ -3,7 +3,6 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
     const MODULE_NAME = 'Discord Bot'
 
     let thisObject = {
-        DiscordBot: undefined,
         webhookURL: undefined,
         sendMessage: sendMessage,
         initialize: initialize,

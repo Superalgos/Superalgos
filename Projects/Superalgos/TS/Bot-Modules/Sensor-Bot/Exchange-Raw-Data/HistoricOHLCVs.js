@@ -199,6 +199,11 @@
                         return;
                     }
 
+                    /* Check if the uiStartDate is Invalid, if so lets set it to the Epoch and let the getMarketStart function later take care of it */
+                    if(isNaN(uiStartDate)) {
+                        uiStartDate = new Date(0)
+                    }
+
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
                     if (thisReport.file.beginingOfMarket !== undefined) { // This means this is not the first time this process has run.
@@ -347,7 +352,7 @@
 
                     while (true) {
 
-                        let invalidDate = false
+                        let invalidSince = false
 
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {
@@ -385,18 +390,23 @@
                                        await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                         /*
-                        If no results are returned, check if to see if the date the user has entered is before
-                        the start of the Market on the Exchange. If this isn't the case, jump forward to the
-                        next available OHLCV.
+                        If no results are returned, check if to see if the start date the user has entered is
+                        before the start of the Market on the Exchange. If this is the case, jump forward to the
+                        next valid OHLCV record.
                          */
                         if (OHLCVs.length === 0) {
-                            let earliestSince
 
-                            earliestSince = await findEarliestDate()
+                            let marketStartSince
+                            marketStartSince = await findMarketStart()
 
-                            if (initialProcessTimestamp < earliestSince) {
-                                since = earliestSince
+                            if (initialProcessTimestamp < marketStartSince) {
+                                since = marketStartSince
                             } else {
+
+                                /*
+                                Otherwise we might be dealing with extended maintenance longer than our OHLCV limit.
+                                If this is the case jump forward to the next valid OHLCV record.
+                                 */
                                 since = await findNextValidOHLCV()
                             }
                         }
@@ -407,30 +417,31 @@
                         and Market in 1D intervals until it finds the earliest date with values.
                         */
 
-                        async function findEarliestDate() {
+                        async function findMarketStart() {
 
-                            let earliestSince = undefined
+                            let earliestMarketSince = undefined
                             let foundDate = false
 
                             while (foundDate !== true) {
 
-                                const earlyOHLCVs = await exchange.fetchOHLCV(symbol, '1d', earliestSince, limit, params)
+                                await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
+                                const earlyOHLCVs = await exchange.fetchOHLCV(symbol, '1d', earliestMarketSince, limit, params)
 
                                 if (earlyOHLCVs.length === limit) {
-                                    earliestSince = (earlyOHLCVs[0][0] - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS * limit)
+                                    earliestMarketSince = (earlyOHLCVs[0][0] - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS * limit)
                                 } else {
                                     foundDate = true
-                                    invalidDate = true
+                                    invalidSince = true
                                     return earlyOHLCVs[0][0]
                                 }
                             }
                         }
 
                         /*
-                        CCXT will return an empty array if there are no candles for the limit.
+                        CCXT will return an empty array if there are no OHLCVs for the limit.
                         This can happen when the Exchange has extended maintenance i.e. over
                         1,000 minutes (example see Binance on 2018-02-08). This function will
-                        skip to the next valid returned OHLCV.
+                        return the next valid returned OHLCV.
                         */
 
                         async function findNextValidOHLCV() {
@@ -438,13 +449,15 @@
                             let foundDate = false
 
                             while (foundDate !== true) {
+
+                                await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                                 const nextValidOHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                                 if (nextValidOHLCVs.length === 0) {
                                     since = (since + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * limit)
                                 } else {
                                     foundDate = true
-                                    invalidDate = true
+                                    invalidSince = true
                                     return nextValidOHLCVs[0][0]
                                 }
                             }
@@ -486,15 +499,12 @@
                                 fromDate = new Date(beginingOfMarket.valueOf())
                                 firstTimeThisProcessRun = false
                             }
-                        }
 
-                        if (OHLCVs.length >= 1) {
                             previousSince = since
                             since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched come with exactly the same timestamp.
                             }
-
 
                             lastId = OHLCVs[OHLCVs.length - 1]['id']
 
@@ -524,7 +534,7 @@
                         limit. then break and stop till the next loop.
                          */
                         if (
-                            (OHLCVs.length < limit - 1 && invalidDate === false && TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date())) ||
+                            (OHLCVs.length < limit - 1 && invalidSince === false && TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date())) ||
                             TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true ||
                             rawDataArray.length >= MAX_OHLCVs_PER_EXECUTION
                         ) {

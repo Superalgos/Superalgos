@@ -676,6 +676,13 @@
                     "folderName": "Trading-Bot/Announcements"
                 },
                 {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSuperalgosBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
                     "name": "Trading Process",
                     "propertyName": "tradingProcess",
                     "functionName": "newSuperalgosBotModulesTradingProcess",

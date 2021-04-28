@@ -93,6 +93,9 @@
                         if (API.rateLimit !== undefined) {
                             rateLimit = API.rateLimit
                         }
+                        if (API.limit !== undefined) {
+                            limit = API.limit
+                        }
                         if (API.hostname !== undefined) {
                             hostname = API.hostname
                         }
@@ -105,9 +108,6 @@
                                 maxTradesPerFetch = API.maxTradesPerFetch
                             }
                         }
-                    }
-                    if (API.limit !== undefined) {
-                        limit = API.limit
                     }
                 }
             }
@@ -342,11 +342,12 @@
                     let lastOHLCVKey = ''
                     let params = undefined
                     let previousSince
-                    let invalidDate = false
                     let fromDate = new Date(since)
                     let lastDate = new Date()
 
                     while (true) {
+
+                        let invalidDate = false
 
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {

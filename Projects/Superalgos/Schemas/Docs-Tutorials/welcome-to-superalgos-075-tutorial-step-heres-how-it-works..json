@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Hai capito? Il Trading Bot piazza i Limit Buy Order al quarto livello di supporto! Qual'è la logica di questa scelta?",
-                "updated": 1618064697343
+                "updated": 1618064697343,
+                "style": "Definition"
             }
         ]
     },
@@ -24,20 +25,23 @@
                 {
                     "language": "IT",
                     "text": "È una scelta più o meno arbitraria, ma la strategia definisce come \"falling knife\" la price action che riesce a rompere almeno tre livelli di supporto e raggiungere il quarto nel giro di un singolo minuto. Statisticamente, questi eventi (su questo time frame) producono più rimbalzi che proseguimenti. Possono essere causati da market orders di grandi dimensioni che aumentano temporaneamente il bid/ask spread nell'order book.",
-                    "updated": 1618064825884
+                    "updated": 1618064825884,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Take a minute to verify that buy orders are placed at the fifth support level!",
+            "text": "Take a minute to verify that buy orders are placed at the fourth support level!",
             "translations": [
                 {
                     "language": "IT",
                     "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quinto supporto!",
-                    "updated": 1618064944102
+                    "updated": 1618064944102,
+                    "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1619614895363
         }
     ]
 }

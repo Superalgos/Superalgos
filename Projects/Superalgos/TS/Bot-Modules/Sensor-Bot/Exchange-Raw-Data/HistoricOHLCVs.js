@@ -1,5 +1,4 @@
-﻿
-exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
+﻿exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
     const MODULE_NAME = "Historic OHLCVs";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";
@@ -100,15 +99,15 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         if (API.fetchType !== undefined) {
                             fetchType = API.fetchType
                         }
-                        if (API.limit !== undefined) {
-                            limit = API.limit
-                        }
                         if (API.useFetchTradesForFetchOHLCVs !== undefined) {
                             useFetchTradesForFetchOHLCVs = API.useFetchTradesForFetchOHLCVs
                             if (API.maxTradesPerFetch !== undefined) {
                                 maxTradesPerFetch = API.maxTradesPerFetch
                             }
                         }
+                    }
+                    if (API.limit !== undefined) {
+                        limit = API.limit
                     }
                 }
             }
@@ -343,6 +342,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                     let lastOHLCVKey = ''
                     let params = undefined
                     let previousSince
+                    let invalidDate = false
                     let fromDate = new Date(since)
                     let lastDate = new Date()
 
@@ -384,6 +384,73 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                        await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
                         /*
+                        If no results are returned, check if to see if the date the user has entered is before
+                        the start of the Market on the Exchange. If this isn't the case, jump forward to the
+                        next available OHLCV.
+                         */
+                        if (OHLCVs.length === 0) {
+                            let earliestSince
+
+                            earliestSince = await findEarliestDate()
+
+                            if (initialProcessTimestamp < earliestSince) {
+                                since = earliestSince
+                            } else {
+                                since = await findNextValidOHLCV()
+                            }
+                        }
+
+                        /*
+                        CCXT will return an empty array if the since date is too far in the past
+                        if this occurs this function will recursively step backwards in the Exchange
+                        and Market in 1D intervals until it finds the earliest date with values.
+                        */
+
+                        async function findEarliestDate() {
+
+                            let earliestSince = undefined
+                            let foundDate = false
+
+                            while (foundDate !== true) {
+
+                                const earlyOHLCVs = await exchange.fetchOHLCV(symbol, '1d', earliestSince, limit, params)
+
+                                if (earlyOHLCVs.length === limit) {
+                                    earliestSince = (earlyOHLCVs[0][0] - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS * limit)
+                                } else {
+                                    foundDate = true
+                                    invalidDate = true
+                                    return earlyOHLCVs[0][0]
+                                }
+                            }
+                        }
+
+                        /*
+                        CCXT will return an empty array if there are no candles for the limit.
+                        This can happen when the Exchange has extended maintenance i.e. over
+                        1,000 minutes (example see Binance on 2018-02-08). This function will
+                        skip to the next valid returned OHLCV.
+                        */
+
+                        async function findNextValidOHLCV() {
+
+                            let foundDate = false
+
+                            while (foundDate !== true) {
+                                const nextValidOHLCVs = await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
+
+                                if (nextValidOHLCVs.length === 0) {
+                                    since = (since + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * limit)
+                                } else {
+                                    foundDate = true
+                                    invalidDate = true
+                                    return nextValidOHLCVs[0][0]
+                                }
+                            }
+
+                        }
+
+                        /*
                         OHLCV Structure
                         The fetchOHLCV method shown above returns a list (a flat array) of OHLCV candles represented by the following structure:
 
@@ -420,7 +487,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             }
                         }
 
-                        if (OHLCVs.length > 1) {
+                        if (OHLCVs.length >= 1) {
                             previousSince = since
                             since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
@@ -444,8 +511,19 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             heartBeat(true)
                         }
 
+                        let currentDate = new Date(since)
+
+                        /*
+                        If we've pulled less OHLCVs than the limit, this either means:
+                        (1) we reached the current date and are now pulling the latest
+                        (2) there was exchange maintenance on the date being processed
+                        (3) we've found zero records as the start date was way in the past
+
+                        If (1) is the case, or if we're stopping the task or have hit the max
+                        limit. then break and stop till the next loop.
+                         */
                         if (
-                            OHLCVs.length < limit - 1 ||
+                            (OHLCVs.length < limit - 1 && invalidDate === false && TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date())) ||
                             TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true ||
                             rawDataArray.length >= MAX_OHLCVs_PER_EXECUTION
                         ) {

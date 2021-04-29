@@ -2,7 +2,6 @@
 exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
     const MODULE_NAME = "Fetching Process";
-    const FOLDER_NAME = "API-Data";
 
     thisObject = {
         initialize: initialize,
@@ -33,10 +32,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 return
             }
 
-            let fileContent
-            getContextVariables(fetchData)
+            let thisReport          // This holds the status report.
 
-            function getContextVariables(callBack) {
+            getContextVariables()
+            startProcess()
+
+            function getContextVariables() {
                 try {
                     let processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
                     let reportKey = processNode.parentNode.parentNode.config.codeName + "-" + processNode.parentNode.config.codeName + "-" + processNode.config.codeName
@@ -53,32 +54,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (thisReport.file.lastRun !== undefined) {
-                        /*
-                        If this process already ran before, then we are going to load the data stored so as to append
-                        information to it later.
-                        */
-                        let fileName = 'Data.json'
-                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
-                        fileStorage.getTextFile(filePath + '/' + fileName, onFileReceived);
-
-                        function onFileReceived(err, text) {
-                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> getContextVariables -> onFileReceived -> Could read file. ->  filePath = " + filePath + "/" + fileName);
-                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                            } else {
-
-                                fileContent = text
-                                callBack()
-                            }
-                        }
-                    } else {
-                        /*
-                        If there is no status report, we assume there is no previous file or that if there is we will override it.
-                        */
-                        callBack()
-                    }
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -90,11 +65,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 
-            function fetchData() {
+            function startProcess() {
                 try {
                     let processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
 
@@ -120,7 +94,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     } else {
                         hostName = apiMAP.config.hostName
                     }
-                    
+
                     if (apiMAP.config.portNumber !== undefined && apiMAP.config.portNumber !== "") {
                         portNumber = ":" + apiMAP.config.portNumber
                     }
@@ -141,7 +115,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         // TODO Error Handling
                         return
                     }
-
+                    /*
+                    Process Output Datasets determine which Datasets are going to be built by 
+                    this process. We will loop though all of them and build a file for each.
+                    If the file already exists, we will add new information to it.
+                    */
                     for (let i = 0; i < processNode.processOutput.outputDatasets.length; i++) {
                         let outputDataset = processNode.processOutput.outputDatasets[i]
                         if (outputDataset.referenceParent === undefined) {
@@ -150,112 +128,186 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         if (outputDataset.referenceParent.parentNode === undefined) {
                             continue
                         }
-                        let productDefinition = outputDataset.referenceParent.parentNode
-                        let endpoint
-                        /*
-                        To get the endpoint node, we will go through the references at the Record Definition. 
-                        We will check that all references are pointing to fields belonging to the same Endpoint node.                    
-                        */
-                        for (let j = 0; j < productDefinition.record.properties.length; j++) {
-                            let recordProperty = productDefinition.record.properties[j]
-                            if (recordProperty.apiResponseFieldReference !== undefined) {
-                                if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
-                                    let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
-                                    let endpointFound = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
+                        let productDefinition = outputDataset.referenceParent.parentNode    // This is the Product Definition Node related to the current Output Dataset.
+                        let endpointNode                                                    // This holds the Endpoint Node at the API Map 
+                        let existingFileContent                                             // This holds the data of the existing dataset file.
+                        let queryString = ""                                                // This holds the query string to be sent at the API call.
+                        let apiDataReceived                                                 // This hold the data received from the API call.
 
-                                    if (endpointFound === undefined) {
-                                        // TODO Error Handling
-                                        return
-                                    }
+                        getApiEndpoint()
+                        getEndpointQueryParameters()
 
-                                    if (endpoint === undefined) {
-                                        /* The first enpoint found will be our endpoint */
-                                        endpoint = endpointFound
-                                    }
+                        /* Async call to the API Server */
+                        await fetchAPIData()
 
-                                    if (endpointFound.id !== endpoint.id) {
-                                        // TODO Error Handling - we can not reference fields from different enpoints.
-                                        return
+                        readDatasetFile() 
+                        appendToExistingDataset()
+                        saveDatasetFile() 
+
+                        function getApiEndpoint() {
+                            /*
+                            We will assume that each Dataset is built fetching data from a single endpointNode at the target API.                        
+                            To get the endpointNode node, we will go through the references at the Record Definition. 
+                            We will check that all references are pointing to fields belonging to the same endpointNode node.
+                            If they are not, we will consider the user did not define well the relationaships between nodes
+                            and abort the process.                    
+                            */
+                            for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                let recordProperty = productDefinition.record.properties[j]
+                                if (recordProperty.apiResponseFieldReference !== undefined) {
+                                    if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
+                                        let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
+                                        let endpointNodeFound = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API endpoint')
+
+                                        /*
+                                        Every Record Property with an apiResponseFieldReference must be on the path 
+                                        to a certain enpoint.
+                                        */
+                                        if (endpointNodeFound === undefined) {
+                                            // TODO Error Handling
+                                            return
+                                        }
+
+                                        if (endpointNode === undefined) {
+                                            /* The first endpointNode found will be our endpointNode */
+                                            endpointNode = endpointNodeFound
+                                        }
+
+                                        /*
+                                        Here we check all enpoints are actually the same endpoiht.
+                                        */
+                                        if (endpointNodeFound.id !== endpointNode.id) {
+                                            // TODO Error Handling - we can not reference fields from different enpoints.
+                                            return
+                                        }
                                     }
                                 }
                             }
                         }
-                        /*
-                        Let's see if we need to place the API call with Parameters...
-                        */
-                        let queryString = ""
-                        let separator = ""
-                        if (productDefinition.apiQueryParameters !== undefined) {
-                            queryString = '?'
-                            for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
-                                let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
-                                queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
-                                separator = "&"
+
+                        function getEndpointQueryParameters() {
+                            /*
+                            Parameters to tue query of the API are all optional. Here we will see if
+                            we need to place the API call with Parameters...
+                            */
+                            let separator = ""
+                            if (productDefinition.apiQueryParameters !== undefined) {
+                                queryString = '?'
+                                for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
+                                    let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
+                                    queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
+                                    separator = "&"
+                                }
                             }
                         }
-                        /* 
-                        Now that we have the Endpoint, we can call the API.
-                        */
-                        let http = require('http');
-                        let url = protocol + '://' +
-                            hostName +
-                            portNumber +
-                            path +
-                            '/' + endpoint.config.codeName +
-                            queryString
 
-                        http.get(url, onResponse);
+                        async function fetchAPIData() {
+                            let promise = new Promise((resolve, reject) => {
+                                /* 
+                                Now that we have the endpointNode, the parameters and all the information 
+                                needed to place the call to the API.
+                                */
+                                let http = require('http');
+                                let url = protocol + '://' +
+                                    hostName +
+                                    portNumber +
+                                    path +
+                                    '/' + endpointNode.config.codeName +
+                                    queryString
 
-                        function onResponse(response) {
-                            const chunks = []
-                            response.on('data', onDataArrived)
-                            response.on('end', onEnd)
+                                /*
+                                This is how we call the API.
+                                */
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[INFO] start -> startProcess -> fetchAPIData -> http.get ->  url = " + url)
 
-                            function onDataArrived(chunk) {
-                                chunks.push(chunk)
-                            }
+                                http.get(url, onResponse)
 
-                            function onEnd() {
-                                let dataReceived = Buffer.concat(chunks).toString('utf8')
+                                function onResponse(response) {
+                                    const chunks = []
+                                    response.on('data', onDataArrived)
+                                    response.on('end', onEnd)
 
-                                if (fileContent !== undefined) {
-                                    // we are going to append the curernt dataReceived to the existing file.
-                                    let fileContentArray = JSON.parse(fileContent)
-                                    let dataReceivedArray = JSON.parse(dataReceived)
-
-                                    for (let i = 0; i < dataReceivedArray.length; i++) {
-                                        let message = dataReceivedArray[i]
-                                        fileContentArray.push(message)
+                                    function onDataArrived(chunk) {
+                                        chunks.push(chunk)
                                     }
-
-                                    fileContent = JSON.stringify(fileContentArray)
-                                } else {
-                                    // we are going to save the current dataReceived.
-                                    fileContent = dataReceived
                                 }
+
+                                function onEnd() {
+                                    apiDataReceived = Buffer.concat(chunks).toString('utf8')
+                                    resolve()
+                                }
+                            })
+
+                            return promise
+                        }
+
+                        function readDatasetFile() {
+                            /*
+                            If this process already ran before, then we are going to load the data stored so as to append
+                            information to it later.
+                            */
+                            if (thisReport.file.lastRun !== undefined) {
 
                                 let fileName = 'Data.json'
-                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
-                                fileStorage.createTextFile(filePath + '/' + fileName, fileContent + '\n', onFileCreated);
+                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.config.codeName
+                                let response = fileStorage.asyncGetTextFile(filePath + '/' + fileName)
+                                let text = response.text
 
-                                function onFileCreated(err) {
-                                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> fetchData -> onResponse -> onEnd -> onFileCreated -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
-                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                                    } else {
-                                        writeStatusReport()
-                                    }
+                                if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> startProcess -> readDatasetFile -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                    throw (response.err)
+                                } else {
+                                    existingFileContent = text
                                 }
+
+                            } else {
+                                /*
+                                If there is no status report, we assume there is no previous file or that if there is we will override it.
+                                */
+                                existingFileContent = "[]"
+                            }
+                        }
+
+                        function appendToExistingDataset() {
+                            if (existingFileContent !== undefined) {
+                                // we are going to append the curernt apiDataReceived to the existing file.
+                                let fileContentArray = JSON.parse(existingFileContent)
+                                let dataReceivedArray = JSON.parse(apiDataReceived)
+
+                                for (let i = 0; i < dataReceivedArray.length; i++) {
+                                    let message = dataReceivedArray[i]
+                                    fileContentArray.push(message)
+                                }
+
+                                existingFileContent = JSON.stringify(fileContentArray)
+                            } else {
+                                // we are going to save the current apiDataReceived.
+                                existingFileContent = apiDataReceived
+                            }
+                        }
+
+                        function saveDatasetFile() {
+
+                            let fileName = 'Data.json'
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.config.codeName
+                            let response = fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
+
+                            if (response.err !== undefined && err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                    "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
+                                throw (response.err)
                             }
                         }
                     }
+                    writeStatusReport()
+
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> fetchData -> err = " + err.stack);
+                        "[ERROR] start -> startProcess -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 

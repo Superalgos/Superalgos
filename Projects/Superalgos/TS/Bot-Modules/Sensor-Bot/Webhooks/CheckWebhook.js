@@ -83,7 +83,6 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
                             "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 
@@ -148,7 +147,6 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] start -> saveMessages -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 

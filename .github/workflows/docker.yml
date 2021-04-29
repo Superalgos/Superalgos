@@ -20,7 +20,7 @@ jobs:
         REGISTRY="ghcr.io"
         IMAGE="${REGISTRY}/${{ steps.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }}"
-        if [[ $GITHUB_REF == ref/head/master ]]; then
+        if [[ $GITHUB_REF == refs/heads/master ]]; then
           TAGS="${TAGS},${IMAGE}:latest"
         fi
         echo ::set-output name=tags::${TAGS}

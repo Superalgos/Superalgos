@@ -8,22 +8,50 @@
             "name": "scripts-library",
             "project": "Superalgos"
         },
-        "updated": 1617034361694
+        "updated": 1617034361694,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Congratulazioni! Sei alla fine di un altro tutorial! Spero che ormai tu abbia un'idea di come funziona Superalgos!",
+                "updated": 1619638188232
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Let's talk about what comes next! The page I just opened is the First Steps Tutorials book. From now on, you're free to choose what tutorials to do next!",
-            "updated": 1617034497284
+            "updated": 1617034497284,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Parliamo di cosa verrà dopo! La pagina che ho aperto è il libro First Step Tutorials. D'ora in poi sei libero di scegliere che tutorial fare!",
+                    "updated": 1619638242869
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Take a look at the list of tutorials available on each of the Plugin Worspaces and choose which one to do next! I believe the order in the list may be appropriate, but it probably depends on your interests, so I'll leave it up to you!",
-            "updated": 1617034816159
+            "updated": 1617034816159,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Plugin Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
+                    "updated": 1619638304612
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "See you on the next tutorial!"
+            "text": "See you on the next tutorial!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ci vediamo al prossimo tutorial!",
+                    "updated": 1619638313318
+                }
+            ]
         }
     ]
 }

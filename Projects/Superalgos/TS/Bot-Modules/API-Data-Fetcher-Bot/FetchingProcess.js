@@ -140,9 +140,9 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         /* Async call to the API Server */
                         await fetchAPIData()
 
-                        readDatasetFile() 
+                        readDatasetFile()
                         appendToExistingDataset()
-                        saveDatasetFile() 
+                        saveDatasetFile()
 
                         function getApiEndpoint() {
                             /*
@@ -273,15 +273,62 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         function appendToExistingDataset() {
                             if (existingFileContent !== undefined) {
                                 // we are going to append the curernt apiDataReceived to the existing file.
-                                let fileContentArray = JSON.parse(existingFileContent)
+                                let existingFileArray = JSON.parse(existingFileContent)
                                 let dataReceivedArray = JSON.parse(apiDataReceived)
 
-                                for (let i = 0; i < dataReceivedArray.length; i++) {
-                                    let message = dataReceivedArray[i]
-                                    fileContentArray.push(message)
+                                /*
+                                We will create a map with all the existing record primary keys, so as to use it
+                                later to avoid appending records that already exists. The first step is to 
+                                build an array with the primary keys of the file. After that we will populate 
+                                the existingKeys map.
+                                */
+                                let primaryKeys = []
+                                let existingKeys = new Map()
+
+                                /*
+                                Setup the primaryKeys array.
+                                */
+                                for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                    let recordProperty = productDefinition.record.properties[j]
+                                    if (recordProperty.config.primaryKey === true) {
+                                        primaryKeys.push(recordProperty.config.codeName)
+                                    }
                                 }
 
-                                existingFileContent = JSON.stringify(fileContentArray)
+                                /*
+                                Setup the existingKeys map.
+                                */
+                                for (let i = 0; i < existingFileArray.length; i++) {
+                                    let record = existingFileArray[i]
+                                    let key = ""
+                                    for (j = 0; j < primaryKeys.length; j++) {
+                                        let keyValue = record[primaryKeys[j]]
+                                        key = key + '->' + keyValue
+                                    }
+                                    existingKeys.set(key, record)
+                                }
+
+                                /*
+                                Scan the dataReceivedArray array and insert records into
+                                the existingFileArray array only when they are not going to
+                                duplicate a primary key.
+                                */
+                                for (let i = 0; i < dataReceivedArray.length; i++) {
+                                    let record = dataReceivedArray[i]
+
+                                    let key = ""
+                                    for (j = 0; j < primaryKeys.length; j++) {
+                                        let keyValue = record[primaryKeys[j]]
+                                        key = key + '->' + keyValue
+                                    }
+                                    if (existingKeys.get(key) === undefined) {
+                                        existingFileArray.push(record)
+                                        existingKeys.set(key, record)
+                                    }
+                                    
+                                }
+
+                                existingFileContent = JSON.stringify(existingFileArray)
                             } else {
                                 // we are going to save the current apiDataReceived.
                                 existingFileContent = apiDataReceived

@@ -132,14 +132,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let endpointNode                                                    // This holds the Endpoint Node at the API Map 
                         let existingFileContent                                             // This holds the data of the existing dataset file.
                         let queryString = ""                                                // This holds the query string to be sent at the API call.
-                        let apiDataReceived                                                 // This hold the data received from the API call.
+                        let apiDataReceived                                                 // This hold the data received from the latest API call.
+                        let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
+                        let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
+                        let pageQueryString                                                 // This holds the node part of query sting that deals with page numbers 
 
                         getApiEndpoint()
                         getEndpointQueryParameters()
-
-                        /* Async call to the API Server */
-                        await fetchAPIData()
-
+                        fetchAllPages()
                         readDatasetFile()
                         appendToExistingDataset()
                         saveDatasetFile()
@@ -195,8 +195,57 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 queryString = '?'
                                 for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
                                     let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
-                                    queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
-                                    separator = "&"
+
+                                    /*
+                                    There is a special parameter which has a flag to indicate is a Page Number.
+                                    This will be treated differently since we will need to iterate to get each possible page.
+                                    The page number will no be added here to the query string.
+                                    */
+                                    if (apiQueryParameter.config.isPageNumber === true) {
+                                        pageNumberParameter = apiQueryParameter
+                                    } else {
+                                        queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
+                                        separator = "&"
+                                    }
+                                }
+                            }
+                        }
+
+                        async function fetchAllPages() {
+
+                            if (pageNumberParameter === undefined) {
+                                /* 
+                                There is no paging mechanism at this Endpoint, so we will just make an
+                                Async call to the API Server 
+                                */
+                                await fetchAPIData()
+                                dataReceivedArray = JSON.parse(apiDataReceived)
+                            } else {
+                                /*
+                                There is a paging mechanism at this Endpoint, so we will iterate through all
+                                the available pages. If this process was ran before, we will have at the Status
+                                Report the latest page fetched. We will fetch that one again, since it might have 
+                                been not full the last time we fetched it. We will assume there will be a huge amount
+                                of pages available to fetch, and we will also assume that once we get an empty array
+                                that will mean that we have requested already the last page with data.
+                                */
+                                let initialPage = 1
+                                let finalPage = MAX_SAFE_INTEGER
+                                if (thisReport.file.lastPage !== undefined) {
+                                    initialPage = thisReport.file.lastPage
+                                }
+                                for (let page = initialPage; page < finalPage; page++) {
+                                    if (queryString === "") {
+                                        queryString = "?" + pageNumberParameter.config.codeName + "=" + page
+                                    } else {
+                                        queryString = queryString + "&" + pageNumberParameter.config.codeName + "=" + page
+                                    }
+                                    await fetchAPIData()
+                                    /*
+                                    This is how we accumulate the data from multiple pages into a single array.
+                                    */
+                                    let latestDataReceivedArray = JSON.parse(apiDataReceived)
+                                    dataReceivedArray = dataReceivedArray.concat(latestDataReceivedArray)
                                 }
                             }
                         }
@@ -213,7 +262,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     portNumber +
                                     path +
                                     '/' + endpointNode.config.codeName +
-                                    queryString
+                                    queryString +
+                                    pageQueryString
 
                                 /*
                                 This is how we call the API.
@@ -274,7 +324,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             if (existingFileContent !== undefined) {
                                 // we are going to append the curernt apiDataReceived to the existing file.
                                 let existingFileArray = JSON.parse(existingFileContent)
-                                let dataReceivedArray = JSON.parse(apiDataReceived)
 
                                 /*
                                 We will create a map with all the existing record primary keys, so as to use it
@@ -325,7 +374,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         existingFileArray.push(record)
                                         existingKeys.set(key, record)
                                     }
-                                    
+
                                 }
 
                                 existingFileContent = JSON.stringify(existingFileArray)

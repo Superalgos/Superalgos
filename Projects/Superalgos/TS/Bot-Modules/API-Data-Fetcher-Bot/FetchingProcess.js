@@ -136,6 +136,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
                         let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
                         let pageQueryString                                                 // This holds the node part of query sting that deals with page numbers 
+                        let lastPage = {}                                                   // This holds the last page fetched for each endpoint
 
                         getApiEndpoint()
                         getEndpointQueryParameters()
@@ -232,7 +233,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 let initialPage = 1
                                 let finalPage = MAX_SAFE_INTEGER
                                 if (thisReport.file.lastPage !== undefined) {
-                                    initialPage = thisReport.file.lastPage
+                                    initialPage = thisReport.file.lastPage[endpointNode.config.codeName]
                                 }
                                 for (let page = initialPage; page < finalPage; page++) {
                                     if (queryString === "") {
@@ -240,6 +241,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     } else {
                                         queryString = queryString + "&" + pageNumberParameter.config.codeName + "=" + page
                                     }
+                                    lastPage[endpointNode.config.codeName] = page
                                     await fetchAPIData()
                                     /*
                                     This is how we accumulate the data from multiple pages into a single array.
@@ -410,7 +412,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             function writeStatusReport() {
                 try {
                     thisReport.file = {
-                        lastRun: (new Date()).toISOString()
+                        lastRun: (new Date()).toISOString(),
+                        lastPage: lastPage
                     };
                     thisReport.save(onSaved);
 

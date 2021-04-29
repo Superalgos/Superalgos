@@ -2,13 +2,13 @@
     "type": "Social Bots",
     "menuItems": [
         {
-            "action": "Add Telegram Bot",
+            "action": "Add UI Object",
             "label": "Add Telegram Bot",
             "relatedUiObject": "Telegram Bot",
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Add Discord Bot",
+            "action": "Add UI Object",
             "label": "Add Discord Bot",
             "relatedUiObject": "Discord Bot",
             "actionFunction": "payload.executeAction"
@@ -32,7 +32,13 @@
         {
             "name": "bots",
             "type": "array",
-            "childType": "Telegram Bot, Discord Bot",
+            "childType": "Telegram Bot",
+            "autoAdd": true
+        },
+        {
+            "name": "bots",
+            "type": "array",
+            "childType": "Discord Bot",
             "autoAdd": true
         }
     ],

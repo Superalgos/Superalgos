@@ -297,7 +297,8 @@
         resultsWithIrregularPeriods,
         interExecutionMemory,
         processingDailyFiles,
-        currentDay
+        currentDay,
+        parametersDefinition
     ) {
 
         /* 
@@ -346,7 +347,25 @@
             return dataDependencies[dependencyName].get(key)
         }
 
-        /* This is Initialization Code */
+        /*
+        Indicators might have parameters that influences it's calculations. These parameters
+        are defined at the Product Definition config, and their values are set at the Process Instance config.
+        Parameters are extracted at the Procedure Initialization Code. In order to facilitate this extraction
+        we will create an object here that will be accesed from the Procedure Initialization with all parameters
+        and their defined values.
+        */
+        let parameters = {}
+        if (parametersDefinition !== undefined) {
+            for (let i = 0; i < parametersDefinition.length; i++) {
+                let parameterName = parametersDefinition[i]
+                let parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.config[parameterName]
+                if (parameterValue !== undefined) {
+                    parameters[parameterName] = parameterValue
+                }
+            }
+        }
+
+        /* Here we run the Procedure Initialization Code */
         if (dataBuildingProcedure.initialization !== undefined) {
             if (dataBuildingProcedure.initialization.procedureJavascriptCode !== undefined) {
                 try {
@@ -374,7 +393,7 @@
             }
         }
 
-        /* This is Initialization Code */
+        /* Here we run the Prcedure Loop Code */
         if (dataBuildingProcedure.loop !== undefined) {
             if (dataBuildingProcedure.loop.procedureJavascriptCode !== undefined) {
                 let lastRecord

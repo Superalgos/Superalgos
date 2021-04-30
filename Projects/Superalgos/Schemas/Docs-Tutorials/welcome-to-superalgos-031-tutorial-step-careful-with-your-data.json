@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Membutuhkan hingga satu menit untuk semua tasks agar sampai berhenti. Jangan menutup sistem sebelum semua tasks berhenti.",
-                "updated": 1616932775779
+                "updated": 1616932775779,
+                "style": "Definition"
             }
         ]
     },
@@ -29,14 +30,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Dai un'occhiata alla console app per vedere come le tasks ricevono il segnale di stop!",
-                    "updated": 1614846474138,
+                    "text": "Guarda la console per verificare che le tasks si stoppino!",
+                    "updated": 1618646677731,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
                     "text": "Periksa console app untuk melihat tasks berhenti!",
-                    "updated": 1616932267740
+                    "updated": 1616932267740,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616416021973
@@ -48,7 +50,8 @@
                 {
                     "language": "ID",
                     "text": "Cara yang tepat untuk menutup Superalgos adalah:",
-                    "updated": 1616932216490
+                    "updated": 1616932216490,
+                    "style": "Text"
                 }
             ]
         },
@@ -60,7 +63,8 @@
                 {
                     "language": "ID",
                     "text": "Matikan semua tasks dan tunggu beberapa menit.",
-                    "updated": 1616932788679
+                    "updated": 1616932788679,
+                    "style": "List"
                 }
             ]
         },
@@ -72,7 +76,8 @@
                 {
                     "language": "ID",
                     "text": "Setelah semua tasks berhenti kamu harus menutup console app.",
-                    "updated": 1616932273154
+                    "updated": 1616932273154,
+                    "style": "List"
                 }
             ]
         },
@@ -83,7 +88,8 @@
                 {
                     "language": "ID",
                     "text": "Kamu akan menutup browser dan membiarkan tasks memproses dilatar belakang.",
-                    "updated": 1616932749614
+                    "updated": 1616932749614,
+                    "style": "List"
                 }
             ]
         },
@@ -95,7 +101,8 @@
                 {
                     "language": "ID",
                     "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt!",
-                    "updated": 1616932378361
+                    "updated": 1616932378361,
+                    "style": "Warning"
                 }
             ]
         }

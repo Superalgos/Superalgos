@@ -1,0 +1,166 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "3",
+    "type": "ARPS Slow & ARPS Fast",
+    "definition": {
+        "text": "Measures the average Bull Power and average Bear Power in the average Total Range.",
+        "updated": 1617958264294
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
+            "updated": 1617957983880
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/arps-slow-arps-fast.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "ARPS - Average Range Percentage Spread",
+            "updated": 1617957610783
+        },
+        {
+            "style": "Text",
+            "text": "ARPS Slow and ARPS Fast measures the Average Bull and Average Bear power within a given, configurable range."
+        },
+        {
+            "style": "Text",
+            "text": "Two separate indicators that can be used either separatly or in combination with others."
+        },
+        {
+            "style": "Text",
+            "text": "ARPS follows price action by using a SMA center line, and prints out the bullish power visualised by a blue line, and a red line for bearish power. The distance from the centerline represents the strength of the powers. The greater distance away from the center line, the greater advantage.",
+            "updated": 1617953949590
+        },
+        {
+            "style": "Text",
+            "text": "The distance between the bull and bear lines represents the average total range for the period."
+        },
+        {
+            "style": "Text",
+            "text": "Looking at the Plotter Panel will give you the values measured in percentage (%)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "How is ARPS calculated?"
+        },
+        {
+            "style": "Text",
+            "text": "All values are being calculated through a SMA function."
+        },
+        {
+            "style": "List",
+            "text": "Bull Power is the measured distance between the candle low and candle close, divided the candle range.",
+            "updated": 1617952901003
+        },
+        {
+            "style": "List",
+            "text": "Bear Power is the measured distance between the candle high and candle close, divided the candle range.",
+            "updated": 1617952943789
+        },
+        {
+            "style": "List",
+            "text": "The average Bull Power and average Bear Power are divided through the Average Total Range for the same given period - Giving the Average Range Spread.",
+            "updated": 1617953325703
+        },
+        {
+            "style": "List",
+            "text": "All values are multiplied by 100 to convert it to precentage form (%)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it."
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node."
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node."
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice."
+        },
+        {
+            "style": "Note",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/arps-code-node.png",
+            "updated": 1617954552809
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/arps-user-defined.png",
+            "updated": 1617954568478
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ARPS Slow | slowARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+            "updated": 1617968683265
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Slow */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.slowARPS.previous.apsBull < \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull > \nchart.at01hs.slowARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.slowARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.apsBear && \nchart.at01hs.slowARPS.apsBull < \nchart.at01hs.slowARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.slowARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.slowARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.slowARPS.ARPS > 1",
+            "updated": 1617969217661
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| ARPS Fast | fastARPS | ARPS, apsBull, apsBear, SMA, percentageARPS, percentageApsBull, percentage apsBear |",
+            "updated": 1617969400921
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Fast */\n\n// Bullish cross (Bull Power turns greater than Bear Power)\nchart.at01hs.fastARPS.previous.apsBull < \nchart.at01hs.fastARPS.previous.apsBear && \nchart.at01hs.fastARPS.apsBull > \nchart.at01hs.fastARPS.apsBear\n\n// Bearish cross (Bear Power turns greater than Bull Power)\nchart.at01hs.fastARPS.previous.apsBull > \nchart.at01hs.fastARPS.previous.apsBear && \nchart.at01hs.fastARPS.apsBull < \nchart.at01hs.fastARPS.apsBear\n\n// Average Price is going up compared to previous Average Price\nchart.at01hs.fastARPS.previous.SMA < chart.at01hs.slowARPS.SMA\n\n// The Average Range, measured in percent, is greater than 0.5%\nchart.at01hs.fastARPS.percentageARPS > 0.5\n\n// The Average Range, measured in rate, is greater than 1\nchart.at01hs.fastARPS.ARPS > 1",
+            "updated": 1617969438749
+        },
+        {
+            "style": "Subtitle",
+            "text": "That Wombo-Combo!",
+            "updated": 1617969861080
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES for ARPS Slow and ARPS Fast combined */\n\n// Fast SMA crosses Slow SMA (Bullish)\nchart.at01hs.fastARPS.previous.SMA < \nchart.at01hs.slowARPS.previous.SMA && \nchart.at01hs.fastARPS.SMA > \nchart.at01hs.slowARPS.SMA\n\n// Fast Bull crosses Slow SMA (Bearish)\nchart.at01hs.fastARPS.previous.apsBull > \nchart.at01hs.slowARPS.previous.SMA && \nchart.at01hs.fastARPS.apsBull < \nchart.at01hs.slowARPS.SMA\n\n// Fast Average Price is above Slow Average Price\nchart.at01hs.fastARPS.SMA > chart.at01hs.slowARPS.SMA\n\n// The Fast Average Range is greater than 0.5 & greater than the Slow Average Range\nchart.at01hs.fastARPS.percentageARPS > 0.5 &&\nchart.at01hs.fastARPS.ARPS > chart.at01hs.slowARPS.ARPS",
+            "updated": 1617969959288
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        }
+    ]
+}

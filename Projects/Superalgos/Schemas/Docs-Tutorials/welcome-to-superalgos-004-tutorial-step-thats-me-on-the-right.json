@@ -18,7 +18,7 @@
             {
                 "language": "ES",
                 "text": "Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico!",
-                "updated": 1613595123263,
+                "updated": 1618431969376,
                 "style": "Definition"
             },
             {
@@ -42,14 +42,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos es intrínsecamente una herramienta visual. El sistema representa la información en estructuras jerárquicas de nodos interconectados, representados por iconos. Lo que ve a su derecha es una de estas jerarquías, en concreto, una jerarquía de Tutorial con una etiqueta que dice Welcome to Superalgos!",
-                    "updated": 1613595175809,
+                    "text": "Superalgos es intrínsecamente una herramienta visual. El sistema representa la información en estructuras jerárquicas de nodos interconectados, representados por iconos. Lo que ve a su derecha es una de estas jerarquías, en concreto, una jerarquía de Tutorial. En este caso, \"tutorial\" es el tipo de nodo y \"¡Bienvenido a Superalgos!\" es el nombre del node.",
+                    "updated": 1618432149966,
                     "style": "Text"
                 },
                 {
                     "language": "IT",
-                    "text": "Superalgos é per natura uno strumento visivo. Il sistema rappresenta le informazioni in una struttura gerarchica di nodi interconnessi, rappresentati da icone. Alla tua destra c'é una di queste gerarchie: più precisamente, una gerarchia Tutorial con la didascalia \"Welcome to Superalgos!\".",
-                    "updated": 1614713100480,
+                    "text": "Superalgos é per natura uno strumento visivo. Il sistema rappresenta le informazioni in una struttura gerarchica di nodi interconnessi, rappresentati da icone. Alla tua destra c'é una di queste gerarchie: più precisamente, una gerarchia Tutorial. In questo caso \"tutorial\" è il tipo del nodo e \"Welcome to Superalgos\" è il suo nome.",
+                    "updated": 1618645075554,
                     "style": "Text"
                 }
             ],
@@ -70,6 +70,12 @@
                     "language": "IT",
                     "text": "Sposta il cursore del mouse sul nodo Tutorial e guarda cosa succede! Wow! Forte, vero? Ci sono un sacco di pulsanti!",
                     "updated": 1614717176134,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pase el puntero del ratón sobre el node  Tutorial y vea lo que ocurre. ¡Wow! Genial, ¿verdad? ¡Son un montón de botones!",
+                    "updated": 1618432002187,
                     "style": "Callout"
                 }
             ]

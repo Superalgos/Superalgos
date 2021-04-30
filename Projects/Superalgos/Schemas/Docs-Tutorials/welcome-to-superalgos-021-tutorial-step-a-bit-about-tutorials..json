@@ -20,6 +20,12 @@
                 "text": "Sebelum kembali ke hal ini, Biarkan saya memberitahumu cara kerja dari tutorial ini.",
                 "updated": 1616699795511,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, Nosotros! (los tutoriales) funcionamos.",
+                "updated": 1618436347889,
+                "style": "Definition"
             }
         ]
     },
@@ -31,14 +37,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Questo è il concetto più importante: sei tu il boss! Puoi stoppare un tutorial e saltare step o interi capitoli in qualsiasi momento. Una volta che sei pronto a riprendere, ci trovi nell'angolo in basso a sinistra del Design Space. Seleziona Resume nel menu per riprendere da dove ti sei fermato, o dal primo step saltato. Oppure seleziona Play per ricominciare da capo!",
-                    "updated": 1614789696848,
+                    "text": "Per farla breve, sei tu il capo!",
+                    "updated": 1618646159860,
                     "style": "Success"
                 },
                 {
                     "language": "ID",
                     "text": "Secara singkat: Kamu adalah Bossnya!",
                     "updated": 1616766454759,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "En resumen, tu eres el Jefe!",
+                    "updated": 1618436575558,
                     "style": "Success"
                 }
             ]
@@ -51,7 +63,14 @@
                 {
                     "language": "ID",
                     "text": " Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
-                    "updated": 1616766476966
+                    "updated": 1616766476966,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes detener un tutorial y saltarte pasos -o temas enteros- en cualquier momento. Una vez que estés listo para retomar la lección, búscanos en la sección inferior del Design space.. Selecciona Resume en el menú para continuar donde lo dejaste, o en el primer paso que te saltaste. Selecciona Play para empezar desde el principio.",
+                    "updated": 1618436484170,
+                    "style": "Text"
                 }
             ]
         },
@@ -69,6 +88,12 @@
                     "language": "ID",
                     "text": "Ayo dicoba! Click tombol Stop, dan ketika saya hilang, buka menu dan pilih Resume.",
                     "updated": 1616700065579,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a probar algo!. Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
+                    "updated": 1618437777462,
                     "style": "Callout"
                 }
             ]

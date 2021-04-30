@@ -1,0 +1,43 @@
+{
+    "topic": "Superalgos Community Task Forces",
+    "pageNumber": "2",
+    "type": "Token Task Force",
+    "definition": {
+        "text": "The mission of the Token Task Force is to realize the maximum potential of the Superalgos SA Token.",
+        "updated": 1618852034121
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Superalgos SA Token is the backbone of the project and the main resource available to incentivize contributions. As such, it is of the utmost importance that sufficient resources are allocated to developing the token ecosystem.",
+            "updated": 1618852056760
+        },
+        {
+            "style": "Title",
+            "text": "Join the Task Force"
+        },
+        {
+            "style": "Success",
+            "text": "The task force meets in the Token Group. To join the task force, join the group!",
+            "updated": 1618851705842
+        },
+        {
+            "style": "Note",
+            "text": "The current focus of the Token Task Force is getting the Superalgos SA Token listed in as many exchanges as possible.",
+            "updated": 1618852050971
+        },
+        {
+            "style": "Title",
+            "text": "Current Tasks",
+            "updated": 1618852117253
+        },
+        {
+            "style": "List",
+            "text": "Listing Requirements Research Task"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "2",
+    "type": "Tutorial Step - Introduction",
+    "definition": {
+        "text": "Today we will learn how to add your own custom Charts! By the end of this tutorial you will have the basic knowledge you need to unlock the power of the Charting Space.",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1619015372330
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The charting system within Superalgos is quite powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As I am sure you have figured out by now, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see. You can look at different combinations of Indicators, Backtesting and Live Trading results, even data from different Markets and Exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right!",
+            "updated": 1617796990054
+        }
+    ]
+}

@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Sekarang kita tidak akan menjalankan Live Trading Session, jadi tidak ada gunanya data mining berjalan saat ini.",
-                "updated": 1616773798618
+                "updated": 1616773798618,
+                "style": "Definition"
             }
         ]
     },
@@ -30,14 +31,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ci sono due motivi principali per eseguire Data Tasks:",
-                    "updated": 1614846176409,
+                    "text": "Ci sono due casi d'uso principali per le Data Tasks:",
+                    "updated": 1618646593100,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
                     "text": "Ada dua kasusutama untuk menjalankan Data Tasks:",
-                    "updated": 1616774098023
+                    "updated": 1616774098023,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ID",
                     "text": "Untuk memproses data historis: Kamu mungkin ingin memproses range datetime dari Market untuk menjalankan Backtesting Session, atau memproses indicators baru.",
-                    "updated": 1616773908847
+                    "updated": 1616773908847,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ID",
                     "text": "Untuk menjalankan live session: Live sessions dari tipe berbeda, seperti Paper Trading Session, Forward Testing Session, dan Live Trading Session, membutuhkan umpan live market.",
-                    "updated": 1616774152845
+                    "updated": 1616774152845,
+                    "style": "List"
                 }
             ]
         },
@@ -83,14 +87,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se tutti i processi sono up to date, seleziona Stop All Tasks nel Task Manager.",
-                    "updated": 1614846354737,
+                    "text": "Se tutti i processi sono up to date, seleziona Stop All Tasks nel Task Manager. Altrimenti aspetta ancora un po'.",
+                    "updated": 1618646617286,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
                     "text": "Jika semua proses up to date, pilih Stop All Tasks pada Masters Task Manager. Jika tidak, tunggu lebih lama!",
-                    "updated": 1616774172365
+                    "updated": 1616774172365,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616415772977

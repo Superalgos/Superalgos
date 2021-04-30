@@ -3,7 +3,14 @@
     "pageNumber": 100,
     "type": "Tutorial Step - Welcome Live Trading Binance Orders",
     "definition": {
-        "text": "This step will play a video in full screen mode."
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video a schermo intero.",
+                "updated": 1618071771852
+            }
+        ]
     },
     "paragraphs": [
         {

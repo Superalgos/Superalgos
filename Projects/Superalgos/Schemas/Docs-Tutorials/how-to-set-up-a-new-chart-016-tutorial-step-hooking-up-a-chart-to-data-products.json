@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "16",
+    "type": "Tutorial Step - Hooking up a Chart to Data Products",
+    "definition": {
+        "text": "Now let's get your Time Machine in position to make the connection.",
+        "icon": {
+            "name": "data-mine-products",
+            "project": "Superalgos"
+        },
+        "updated": 1619024211736
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Whew! I am getting a little carried away. My friends will cover these exciting possiblities in a little while. Let's refocus and finish adding those Data Mine Products we've been working on.",
+            "updated": 1617841292233
+        },
+        {
+            "style": "Callout",
+            "text": "Pin and drag your whole Time Machine over to Data Mine Products nodes you found earlier.",
+            "updated": 1617842351106
+        },
+        {
+            "style": "Success",
+            "text": "Don't forget Ctrl + ← → ↑ ↓. It's a bit of a trek!",
+            "updated": 1617841738597
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "19.5",
+    "type": "Tutorial Step - It’s Alive!",
+    "definition": {
+        "text": "Let's take a look at your new working chart.  I hope you are as excited as I am!",
+        "updated": 1619024389980,
+        "icon": {
+            "name": "trading-system",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "First make sure to run all Data Tasks and wait for them to reach 100%.",
+            "updated": 1617850764129
+        },
+        {
+            "style": "Callout",
+            "text": "Fire up the Charting Space and take a look at your Chart.  Have some fun and turn a few layers on and off.",
+            "updated": 1617850952279
+        },
+        {
+            "style": "Text",
+            "text": "If you can see layers showing up when you turn them on, great job! If nothing is showing up, go back over previous steps and make sure you didn't miss anything.",
+            "updated": 1619023984488
+        }
+    ]
+}

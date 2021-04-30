@@ -112,7 +112,7 @@ function newWorkspace() {
 
                     function onIndexingFinished() {
                         setupEventsServerClients()
-                        runTasksAndSessions()
+                        setTimeout(runTasksAndSessions, 10000) 
                         thisObject.enabled = true
                         UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                         CAN_SPACES_DRAW = true

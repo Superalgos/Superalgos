@@ -20,6 +20,12 @@
                 "text": "Aku membawamu kepada kebingungan akan operasi Data Mining. Lihat progress dari Sensor Bot Instance disebelah kanan!",
                 "updated": 1616697727995,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
+                "updated": 1618434622270,
+                "style": "Definition"
             }
         ]
     },
@@ -39,6 +45,12 @@
                     "text": "sensor bot sedang mengekstrak data dari exchange. Setelah selesai mengekstrak maka range datetime yang telah ditentukan akan berubah secara otomatis!",
                     "updated": 1616697880677,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El sensor bot está extrayendo datos del exchage. En cuanto complete la extracción para el rango de fechas definido, sucederá algo realmente genial... ¡automáticamente!",
+                    "updated": 1618434692416,
+                    "style": "Text"
                 }
             ]
         },
@@ -57,6 +69,12 @@
                     "text": "Apakah kamu bisa mengira apa yang akan terjadi?",
                     "updated": 1616697509340,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes imaginar que es lo va a suceder?",
+                    "updated": 1618434705659,
+                    "style": "Callout"
                 }
             ]
         },
@@ -67,14 +85,20 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non te lo dirò! Lo scoprirai presto...sii paziente! Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non puoi proprio aspettare? Va bene! Clicca su Next per un anticipo!",
-                    "updated": 1614720621816,
+                    "text": "Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non vedi proprio l'ora? Va bene! Clicca su Next per un anticipo!",
+                    "updated": 1618645818271,
                     "style": "Success"
                 },
                 {
                     "language": "ID",
                     "text": "Aku tidak akan memberitahumu! Kamu harus mencarinya... Bersabarlah! Tidak akan lama cukup 3 - 5 menit untuk mengekstrak data Binance, bisa lebih lama, tergantung perangkatmu. Click Next untuk orang yang tidak sabaran!",
                     "updated": 1616697911652,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "No debería tomar más de 3 a 5 minutos extraer los datos de Binance, o un poco más, dependiendo de su hardware. ¿No quieres esperar? Sin problema. Haz clic en Siguiente para obtener una pequeña pista.",
+                    "updated": 1618434774699,
                     "style": "Success"
                 }
             ]

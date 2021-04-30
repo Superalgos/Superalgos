@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Satu hal lagi sebelum kita lebih dalam ke charts. Kamu harus tahu bagaimana menata suatu tempat!",
-                "updated": 1616948198296
+                "updated": 1616948198296,
+                "style": "Definition"
             }
         ]
     },
@@ -29,14 +30,15 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Arriverà il momento in cui potresti dover lavorare con decine di grafici contemporaneamente. Sai già come modificare il loro formato, ma devi sapere come spostarli in modo da configurarli esattamente come vuoi tu. Tranquillo, è facile:",
-                    "updated": 1614848290495,
+                    "text": "Arriverà il momento in cui potresti dover lavorare con decine di grafici contemporaneamente. Sai già come modificare il loro formato. Ora devi imparare come spostarli in modo da configurarli esattamente come vuoi tu. Tranquillo, è facile: ",
+                    "updated": 1618647123812,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
                     "text": "Waktunya akan tiba dimana kamu mungkin bekerja dengan puluhan chart. Kamu sudah tahu cara mengubah formatnya. Sekarang kamu perlu mempelajari cara memindahkannya sehingga bisa membuat pengaturan apa pun dibutuhkan. Cukup mudah dengan:",
-                    "updated": 1616948323131
+                    "updated": 1616948323131,
+                    "style": "Text"
                 }
             ],
             "updated": 1616416902513
@@ -55,7 +57,8 @@
                 {
                     "language": "ID",
                     "text": "Tekan Shift, Click-kiri, dan drag!",
-                    "updated": 1616948350330
+                    "updated": 1616948350330,
+                    "style": "Callout"
                 }
             ]
         },
@@ -72,7 +75,8 @@
                 {
                     "language": "ID",
                     "text": "Aku yakin kita telah membahas segalanya tentang cara mengelola charting space. Saatnya menuju ke chart!",
-                    "updated": 1616948406170
+                    "updated": 1616948406170,
+                    "style": "Success"
                 }
             ]
         }

@@ -59,7 +59,7 @@ module.exports = class bitz extends Exchange {
                     'assets': 'https://{hostname}',
                 },
                 'www': 'https://www.bitz.com',
-                'doc': 'https://apidoc.bitz.com/en/',
+                'doc': 'https://apidocv2.bitz.plus/en/',
                 'fees': 'https://www.bitz.com/fee?type=1',
                 'referral': 'https://u.bitz.com/register?invite_code=1429193',
             },
@@ -76,6 +76,11 @@ module.exports = class bitz extends Exchange {
                         'currencyRate',
                         'currencyCoinRate',
                         'coinRate',
+                        'getContractCoin',
+                        'getContractKline',
+                        'getContractOrderBook',
+                        'getContractTradesHistory',
+                        'getContractTickers',
                     ],
                 },
                 'trade': {
@@ -88,11 +93,29 @@ module.exports = class bitz extends Exchange {
                         'getUserNowEntrustSheet', // open orders
                         'getEntrustSheetInfo', // order
                         'depositOrWithdraw', // transactions
+                        'getCoinAddress',
+                        'getCoinAddressList',
+                        'marketTrade',
+                        'addEntrustSheetBatch',
                     ],
                 },
                 'assets': {
                     'post': [
                         'getUserAssets',
+                    ],
+                },
+                'contract': {
+                    'post': [
+                        'addContractTrade',
+                        'cancelContractTrade',
+                        'getContractActivePositions',
+                        'getContractAccountInfo',
+                        'getContractMyPositions',
+                        'getContractOrderResult',
+                        'getContractTradeResult',
+                        'getContractOrder',
+                        'getContractMyHistoryTrade',
+                        'getContractMyTrades',
                     ],
                 },
             },
@@ -281,8 +304,8 @@ module.exports = class bitz extends Exchange {
                 'precision': precision,
                 'limits': {
                     'amount': {
-                        'min': this.safeFloat (market, 'minTrade'),
-                        'max': this.safeFloat (market, 'maxTrade'),
+                        'min': this.safeNumber (market, 'minTrade'),
+                        'max': this.safeNumber (market, 'maxTrade'),
                     },
                     'price': {
                         'min': Math.pow (10, -precision['price']),
@@ -331,12 +354,12 @@ module.exports = class bitz extends Exchange {
             const currencyId = this.safeString (balance, 'name');
             const code = this.safeCurrencyCode (currencyId);
             const account = this.account ();
-            account['used'] = this.safeFloat (balance, 'lock');
-            account['total'] = this.safeFloat (balance, 'num');
-            account['free'] = this.safeFloat (balance, 'over');
+            account['used'] = this.safeString (balance, 'lock');
+            account['total'] = this.safeString (balance, 'num');
+            account['free'] = this.safeString (balance, 'over');
             result[code] = account;
         }
-        return this.parseBalance (result);
+        return this.parseBalance (result, false);
     }
 
     parseTicker (ticker, market = undefined) {
@@ -366,8 +389,8 @@ module.exports = class bitz extends Exchange {
         const timestamp = undefined;
         const marketId = this.safeString (ticker, 'symbol');
         const symbol = this.safeSymbol (marketId, market, '_');
-        const last = this.safeFloat (ticker, 'now');
-        const open = this.safeFloat (ticker, 'open');
+        const last = this.safeNumber (ticker, 'now');
+        const open = this.safeNumber (ticker, 'open');
         let change = undefined;
         let average = undefined;
         if (last !== undefined && open !== undefined) {
@@ -378,22 +401,22 @@ module.exports = class bitz extends Exchange {
             'symbol': symbol,
             'timestamp': timestamp,
             'datetime': this.iso8601 (timestamp),
-            'high': this.safeFloat (ticker, 'high'),
-            'low': this.safeFloat (ticker, 'low'),
-            'bid': this.safeFloat (ticker, 'bidPrice'),
-            'bidVolume': this.safeFloat (ticker, 'bidQty'),
-            'ask': this.safeFloat (ticker, 'askPrice'),
-            'askVolume': this.safeFloat (ticker, 'askQty'),
+            'high': this.safeNumber (ticker, 'high'),
+            'low': this.safeNumber (ticker, 'low'),
+            'bid': this.safeNumber (ticker, 'bidPrice'),
+            'bidVolume': this.safeNumber (ticker, 'bidQty'),
+            'ask': this.safeNumber (ticker, 'askPrice'),
+            'askVolume': this.safeNumber (ticker, 'askQty'),
             'vwap': undefined,
             'open': open,
             'close': last,
             'last': last,
             'previousClose': undefined,
             'change': change,
-            'percentage': this.safeFloat (ticker, 'priceChange24h'),
+            'percentage': this.safeNumber (ticker, 'priceChange24h'),
             'average': average,
-            'baseVolume': this.safeFloat (ticker, 'volume'),
-            'quoteVolume': this.safeFloat (ticker, 'quoteVolume'),
+            'baseVolume': this.safeNumber (ticker, 'volume'),
+            'quoteVolume': this.safeNumber (ticker, 'quoteVolume'),
             'info': ticker,
         };
     }
@@ -583,8 +606,8 @@ module.exports = class bitz extends Exchange {
         if (market !== undefined) {
             symbol = market['symbol'];
         }
-        const price = this.safeFloat (trade, 'p');
-        const amount = this.safeFloat (trade, 'n');
+        const price = this.safeNumber (trade, 'p');
+        const amount = this.safeNumber (trade, 'n');
         let cost = undefined;
         if (price !== undefined) {
             if (amount !== undefined) {
@@ -652,11 +675,11 @@ module.exports = class bitz extends Exchange {
         //
         return [
             this.safeInteger (ohlcv, 'time'),
-            this.safeFloat (ohlcv, 'open'),
-            this.safeFloat (ohlcv, 'high'),
-            this.safeFloat (ohlcv, 'low'),
-            this.safeFloat (ohlcv, 'close'),
-            this.safeFloat (ohlcv, 'volume'),
+            this.safeNumber (ohlcv, 'open'),
+            this.safeNumber (ohlcv, 'high'),
+            this.safeNumber (ohlcv, 'low'),
+            this.safeNumber (ohlcv, 'close'),
+            this.safeNumber (ohlcv, 'volume'),
         ];
     }
 
@@ -754,22 +777,17 @@ module.exports = class bitz extends Exchange {
         if (side !== undefined) {
             side = (side === 'sale') ? 'sell' : 'buy';
         }
-        const price = this.safeFloat (order, 'price');
-        const amount = this.safeFloat (order, 'number');
-        const remaining = this.safeFloat (order, 'numberOver');
-        const filled = this.safeFloat (order, 'numberDeal');
+        const price = this.safeNumber (order, 'price');
+        const amount = this.safeNumber (order, 'number');
+        const remaining = this.safeNumber (order, 'numberOver');
+        const filled = this.safeNumber (order, 'numberDeal');
         let timestamp = this.safeInteger (order, 'timestamp');
         if (timestamp === undefined) {
             timestamp = this.safeTimestamp (order, 'created');
         }
-        let cost = this.safeFloat (order, 'orderTotalPrice');
-        if (price !== undefined) {
-            if (filled !== undefined) {
-                cost = filled * price;
-            }
-        }
+        const cost = this.safeNumber (order, 'orderTotalPrice');
         const status = this.parseOrderStatus (this.safeString (order, 'status'));
-        return {
+        return this.safeOrder ({
             'id': id,
             'clientOrderId': undefined,
             'datetime': this.iso8601 (timestamp),
@@ -791,7 +809,7 @@ module.exports = class bitz extends Exchange {
             'fee': undefined,
             'info': order,
             'average': undefined,
-        };
+        });
     }
 
     async createOrder (symbol, type, side, amount, price = undefined, params = {}) {
@@ -1118,7 +1136,7 @@ module.exports = class bitz extends Exchange {
         const type = this.safeStringLower (transaction, 'type');
         const status = this.parseTransactionStatus (this.safeString (transaction, 'status'));
         let fee = undefined;
-        const feeCost = this.safeFloat (transaction, 'network_fee');
+        const feeCost = this.safeNumber (transaction, 'network_fee');
         if (feeCost !== undefined) {
             fee = {
                 'cost': feeCost,
@@ -1133,7 +1151,7 @@ module.exports = class bitz extends Exchange {
             'address': this.safeString (transaction, 'wallet'),
             'tag': this.safeString (transaction, 'memo'),
             'type': type,
-            'amount': this.safeFloat (transaction, 'number'),
+            'amount': this.safeNumber (transaction, 'number'),
             'currency': code,
             'status': status,
             'updated': timestamp,

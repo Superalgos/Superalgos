@@ -1,0 +1,16 @@
+{
+    "topic": "Superalgos Chat Groups",
+    "pageNumber": "2",
+    "type": "Announcements Channel",
+    "definition": {
+        "text": "This is the official channel broadcasting news about releases, hot fixes, and critical info.",
+        "updated": 1618833395055
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "Use this link to join the channel->t.me/superalgos",
+            "updated": 1618833434615
+        }
+    ]
+}

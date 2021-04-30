@@ -1,0 +1,20 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "4",
+    "type": "Tutorial Step - Charts Without Tears",
+    "definition": {
+        "text": "It's frustrating to look at a chart that is empty. I am here to make sure you don’t feel stuck setting up the charts of your dreams.",
+        "updated": 1619015910948,
+        "icon": {
+            "name": "charting-space",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are just starting out here in Superalgos, all this freedom might be a bit overwhelming. That’s where I come in! My friends and I will walk you through how to customize charts from start to finish! By the time we are done you will have the tools to create charts limited only by your imagination.",
+            "updated": 1617632679120
+        }
+    ]
+}

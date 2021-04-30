@@ -1,0 +1,68 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "7.5",
+    "type": "Tutorial Step - Repository Branches",
+    "definition": {
+        "text": "The Superalgos repository features three main branches: master, develop, and the one we're looking for, plugins-docs.",
+        "icon": {
+            "name": "github",
+            "project": "Superalgos"
+        },
+        "updated": 1618143614949,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "La repository di Superalgos ha tree branches principali: master, develop e quella che cerchiamo noi, plugins-docs.",
+                "updated": 1619633110033
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "There may be more, but these are the main!",
+            "updated": 1618143442686,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ce ne sono altre, ma queste sono le principali!",
+                    "updated": 1619633138117
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Master Branch: Features the stable version of the software. Never submit contributions to this branch!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Master Branch: ospita l'ultima versione stabile del software. Non mandare mai contributi a questo branch!",
+                    "updated": 1619633296240
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase.",
+            "updated": 1618143744374,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Develop Branch: contiene la versione attualmente in sviluppo. Manda qui i contributi riguardanti la codebase.",
+                    "updated": 1619633304194
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Plugins/Docs Branch: Features the version in the master branch plus the latest changes in the Docs and Plugins. Submit contributions of translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Plugins/Docs Branch: contiene la versione del master branch più le ultime modifiche a Docs e Plugins. Presenta qui i contributi a Docs, tutorial e plugins, come Data Mines, Trading Systems e così via!",
+                    "updated": 1619633285534
+                }
+            ]
+        }
+    ]
+}

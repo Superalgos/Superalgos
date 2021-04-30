@@ -91,14 +91,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para iniciar tu primera operación de minería de datos. Pero antes de empezar, tengo una pregunta rápida para ti: ¿estás accediendo al Cliente de forma remota?",
-                    "updated": 1613595481110,
+                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para empezar su primera operación de minería de datos.",
+                    "updated": 1618432296243,
                     "style": "Text"
                 },
                 {
                     "language": "IT",
-                    "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining. Ma prima di partire, ho una domanda al volo per te: stai utilizzando il Client da remoto?",
-                    "updated": 1614717611211,
+                    "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining.",
+                    "updated": 1618645279020,
                     "style": "Text"
                 }
             ]
@@ -110,7 +110,14 @@
                 {
                     "language": "ID",
                     "text": "Sebelum mulai, aku punya pertanyaan: Apakah kamu mengakses Client secara remote?",
-                    "updated": 1616766215561
+                    "updated": 1616766215561,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pero antes de empezar, tengo una pregunta para ti, estas accediendo al cliete de forma remota? ",
+                    "updated": 1618432190261,
+                    "style": "Note"
                 }
             ]
         }

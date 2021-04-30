@@ -1,0 +1,233 @@
+{
+    "topic": "Exchange Listing Requirements Research",
+    "pageNumber": "1",
+    "type": "Listing Requirements Research Task",
+    "definition": {
+        "text": "This task is a Community effort lead by the Token Task Force. Researching the listing requirements of exchanges is the first step in the process of getting the Superalgos SA Token listed.",
+        "updated": 1618851904040
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "About the Task",
+            "updated": 1618499836929
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "In brief, the job is about researching the token listing process and requirements of top exchanges so that we may later evaluate and decide which exchanges the project shall approach first, and how.",
+            "updated": 1618848602693
+        },
+        {
+            "style": "Text",
+            "text": "In brief:"
+        },
+        {
+            "style": "List",
+            "text": "Pick any of the exchanges in the Top 100 list of coinmarketcap.com",
+            "updated": 1618500361591
+        },
+        {
+            "style": "Link",
+            "text": "CMC Top 100 Exchanges->coinmarketcap.com/rankings/exchanges/",
+            "updated": 1618500271334
+        },
+        {
+            "style": "List",
+            "text": "Search the exchange's website for information describing the listing process and requirements. Study the information carefully.",
+            "updated": 1618562031958
+        },
+        {
+            "style": "List",
+            "text": "Report on your findings using the Research Requirements bullet list below.",
+            "updated": 1618503420995
+        },
+        {
+            "style": "Success",
+            "text": "If you wish to participate in this task, please join the Token Group and let us know which exchanges you intend to research! Communicating with the rest of the participants helps avoid duplicating efforts! You may start as soon as you can!",
+            "updated": 1618562059185
+        },
+        {
+            "style": "Warning",
+            "text": "Do not use third-party sources to obtain information about the listing process and requirements. Always go directly to the source!",
+            "updated": 1618562161136
+        },
+        {
+            "style": "Text",
+            "text": "When you are ready to report on the findings of any given exchange, follow the steps below.",
+            "updated": 1618562184135
+        },
+        {
+            "style": "Subtitle",
+            "text": "1. Get up to speed with your contributions setup"
+        },
+        {
+            "style": "Text",
+            "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Plugin Workspace and do the Contribute to Superalgos Tutorial."
+        },
+        {
+            "style": "Subtitle",
+            "text": "2. Create a new page on this topic",
+            "updated": 1618562206227
+        },
+        {
+            "style": "Text",
+            "text": "The easiest way to set up the new page is as follows:",
+            "updated": 1618849031020
+        },
+        {
+            "style": "List",
+            "text": "Use the following syntax, replacing \"Exchange Name\" with the name of the exchange, and replacing the \"N\" in the last section of the command with the next page number available in the topic (look at the last page in the TOC below and assign the next number in the series).",
+            "updated": 1618849098487
+        },
+        {
+            "style": "Json",
+            "text": "docs.add Topic to Superalgos: Exchange Listing Requirements Research->Exchange Name Listing Requirements->N",
+            "updated": 1618486204475
+        },
+        {
+            "style": "List",
+            "text": "Assign the Docs List Style to the first paragraph of the new page (the one showing the default blurb of text).",
+            "updated": 1618849141146
+        },
+        {
+            "style": "List",
+            "text": "Select and copy the below Research Requirements list. Do not include the title.",
+            "updated": 1618489636622
+        },
+        {
+            "style": "List",
+            "text": "Edit the first paragraph on the new page and paste what you just copied. This should result in a list just like the one below.",
+            "updated": 1618562247672
+        },
+        {
+            "style": "List",
+            "text": "Replace the explanation of each point in the list with the results of your research.",
+            "updated": 1618487056091
+        },
+        {
+            "style": "Note",
+            "text": "If any of the required pieces of information is not available or does not apply to the exchange in question, please complete the field with \"N/A\". Do not leave blank fields, as that may suggest that the report is incomplete.",
+            "updated": 1618848890250
+        },
+        {
+            "style": "Important",
+            "text": "Do not submit a Pull Request until the research is complete! We don't want meaningless or incomplete reports. Only submit the research once you have gathered all the data required. Please, make sure you are submitting a quality report. We prefer quality over quantity, always!",
+            "updated": 1618999399703
+        },
+        {
+            "style": "Title",
+            "text": "Research Requirements",
+            "updated": 1618487167171
+        },
+        {
+            "style": "List",
+            "text": "Exchange name: Use the official, most common name of the exchange; the same you used in the name of the page.",
+            "updated": 1618487538591
+        },
+        {
+            "style": "List",
+            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+        },
+        {
+            "style": "List",
+            "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). Assing the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
+            "updated": 1618563171395
+        },
+        {
+            "style": "List",
+            "text": "Exchange Name->exchangeURL.com"
+        },
+        {
+            "style": "List",
+            "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. Assing the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
+            "updated": 1618563178702
+        },
+        {
+            "style": "List",
+            "text": "Listing requirements->pageURL.com",
+            "updated": 1618487640763
+        },
+        {
+            "style": "List",
+            "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. Assing the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
+            "updated": 1618563162279
+        },
+        {
+            "style": "List",
+            "text": "Listing request form->pageURL.com",
+            "updated": 1618498025893
+        },
+        {
+            "style": "List",
+            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case.",
+            "updated": 1618563298620
+        },
+        {
+            "style": "List",
+            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+        },
+        {
+            "style": "List",
+            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words.",
+            "updated": 1618496697565
+        },
+        {
+            "style": "List",
+            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard.",
+            "updated": 1618496806801
+        },
+        {
+            "style": "List",
+            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard."
+        },
+        {
+            "style": "List",
+            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard.",
+            "updated": 1618497261513
+        },
+        {
+            "style": "List",
+            "text": "Waiting period: Most exchanges have a queue of listing requests and they may be able to estimate how long it takes to process. If there is information in this regard, include it here. The exchange may not announce what the estimate is, but you may deduce it or find out in community chats, forums, etc. Do your research.",
+            "updated": 1618497924251
+        },
+        {
+            "style": "List",
+            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "updated": 1618563333459
+        },
+        {
+            "style": "List",
+            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "updated": 1618563404176
+        },
+        {
+            "style": "List",
+            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it.",
+            "updated": 1618563421527
+        },
+        {
+            "style": "List",
+            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here."
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+        },
+        {
+            "style": "List",
+            "text": "Researcher's Telegram Username: Same as above."
+        },
+        {
+            "style": "List",
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

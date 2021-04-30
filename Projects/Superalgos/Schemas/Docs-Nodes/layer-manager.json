@@ -14,7 +14,8 @@
         },
         {
             "style": "Note",
-            "text": "The Layer Manager node usually references a Trading Mine Products or Data Mine Products node in the Data Storage section of the Network Node."
+            "text": "The Layer Manager node usually references a Trading Mine Products or Data Mine Products node in the Data Storage section of the Network Node. Once the reference is established, you may use the Add All Mine Layers button to add the layers corresponding to the referenced node.",
+            "updated": 1619094934893
         },
         {
             "style": "Block",

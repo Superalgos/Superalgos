@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Superalgos ti permette di cambiare branches direttamente da dentro l'app! Ma perchè dovresti volerlo fare?",
-                "updated": 1619633498230
+                "updated": 1619633498230,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos è in costante evoluzione. A un certo punto, potresti voler provare la versione in sviluppo. Forse contiene una nuova funzionalità, o un fix non ancora portato nel branch master...",
-                    "updated": 1619633561044
+                    "updated": 1619633561044,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,19 +40,21 @@
                 {
                     "language": "IT",
                     "text": "O magari vuoi mandare un contributo, come faremo noi adesso! Forza!",
-                    "updated": 1619633608903
+                    "updated": 1619633608903,
+                    "style": "Success"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Scroll down the Docs page to the footer and select Plugins/Docs as your Contributions Branch! It's the option on the right-hand side, not in the center!",
-            "updated": 1618145561816,
+            "text": "Scroll down the Docs page to the footer and select Plugins-Docs as your Contributions Branch! It's the option on the right-hand side, not in the center!",
+            "updated": 1619794957137,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Scorri la pagina dei Docs fino al footer e selezione Plugins/Docs come Contributions Branch! È l'opzione sulla destra, non al centro!",
-                    "updated": 1619633667745
+                    "updated": 1619633667745,
+                    "style": "Callout"
                 }
             ]
         }

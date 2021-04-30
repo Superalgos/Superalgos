@@ -3,8 +3,8 @@
     "pageNumber": 7,
     "type": "Tutorial Step - What About Free Riders?",
     "definition": {
-        "text": "Free-ridding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
-        "updated": 1616872224110,
+        "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
+        "updated": 1619786483852,
         "icon": {
             "name": "bullet-error",
             "project": "Superalgos"
@@ -12,8 +12,9 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il free-riding non è bello! Siamo certi che, una volta che inizierai a contribuire, ispirerai più persone a seguire il tuo esempio!",
-                "updated": 1619632922872
+                "text": "Il free-riding non è bello! Siamo certi che, una volta che inizierai a contribuire, ispirerai più persone a seguire il tuo esempio! Warning!!!",
+                "updated": 1619786662350,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Il progetto ha implementato un buon incentivo per promuovere il contributo, verso una collaborazione globale. Stiamo distribuendo il Superalgos (SA) Token, in esclusiva, a chi contribuisce al progetto!",
-                    "updated": 1619633002722
+                    "updated": 1619633002722,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,7 +44,8 @@
                 {
                     "language": "IT",
                     "text": "Combattiamo il free-riding con incentivi!",
-                    "updated": 1619633037700
+                    "updated": 1619633037700,
+                    "style": "Success"
                 }
             ]
         },
@@ -54,7 +57,8 @@
                 {
                     "language": "IT",
                     "text": "Occupiamoci del tuo primo contributo! Prima di tutto, ti insegnerò come cambiare branches!",
-                    "updated": 1619633070799
+                    "updated": 1619633070799,
+                    "style": "Callout"
                 }
             ]
         }

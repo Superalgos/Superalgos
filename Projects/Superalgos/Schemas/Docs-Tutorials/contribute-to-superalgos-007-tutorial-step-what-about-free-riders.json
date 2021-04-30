@@ -1,0 +1,66 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - What About Free Riders?",
+    "definition": {
+        "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
+        "updated": 1619786483852,
+        "icon": {
+            "name": "bullet-error",
+            "project": "Superalgos"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il free-riding non è bello! Siamo certi che, una volta che inizierai a contribuire, ispirerai più persone a seguire il tuo esempio! Warning!!!",
+                "updated": 1619786662350,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The project has implemented a powerful incentives scheme to promote the desired behavior and to foster a culture of collaboration. We are distributing the Superalgos (SA) token exclusively among contributors!",
+            "updated": 1616872270381,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il progetto ha implementato un buon incentivo per promuovere il contributo, verso una collaborazione globale. Stiamo distribuendo il Superalgos (SA) Token, in esclusiva, a chi contribuisce al progetto!",
+                    "updated": 1619633002722,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos (SA) Token!->superalgos.org/token-overview.shtml"
+        },
+        {
+            "style": "Success",
+            "text": "We combat free-ridding with incentives!",
+            "updated": 1616872334799,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Combattiamo il free-riding con incentivi!",
+                    "updated": 1619633037700,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's get your first contribution rolling! First, I'll teach you how to switch branches!",
+            "updated": 1616872424219,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Occupiamoci del tuo primo contributo! Prima di tutto, ti insegnerò come cambiare branches!",
+                    "updated": 1619633070799,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

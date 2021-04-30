@@ -1,0 +1,46 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Welcome Back!",
+    "definition": {
+        "text": "If you followed my instructions to the letter, you should now be running the software in the plugins-docs branch! Awesome!",
+        "icon": {
+            "name": "hits",
+            "project": "Superalgos"
+        },
+        "updated": 1618159282200,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se hai seguito le mie istruzioni, ora il tuo software sta girando sulla branch plugins-docs! Fantastico!",
+                "updated": 1619634969342
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The software you are currently running is the version of Superalgos that was at the plugins-docs branch the day you forked the project! This is because the process of switching branches downloads the software from your fork and not the upstream repository.",
+            "updated": 1618159308510,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il software corrente è la versione di Superalgos che si trovava nel branch plugins-docs il giorno che hai fatto il fork del progetto! Questo perchè cambiando branch scarichi il software dal tuo fork e non dalla repo originale.",
+                    "updated": 1619635036896
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "You need to update so that you run the latest version! This is particularly important when you intend to contribute to the project. You should always work on the latest version so that the changes you make include the latest changes produced by other contributors!",
+            "updated": 1617020167891,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Devi fare l'update così da eseguire l'ultima versione! È importante soprattutto se vuoi contribuire al progetto. Lavora sempre sull'ultima versione, così che i cambiamenti che fai includano le ultime modifiche degli altri utenti!",
+                    "updated": 1619635122521
+                }
+            ]
+        }
+    ]
+}

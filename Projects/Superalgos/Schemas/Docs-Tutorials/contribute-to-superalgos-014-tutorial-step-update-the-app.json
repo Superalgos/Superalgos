@@ -1,0 +1,61 @@
+{
+    "tutorial": "Contribute to Superalgos!",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Update the App!",
+    "definition": {
+        "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
+        "icon": {
+            "name": "indicator-process-instance",
+            "project": "Superalgos"
+        },
+        "updated": 1617020636889,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il comando App Update scarica l'ultima versione del software dalla repo originale nel Current Branch!",
+                "updated": 1619635188773
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That means that you may use this command on either of the branches! This is it:",
+            "updated": 1617020758219,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi usare questo comando su una qualsiasi delle branch! Eccolo:",
+                    "updated": 1619635221928
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        },
+        {
+            "style": "Callout",
+            "text": "Copy and run the command!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Copia e lancia il comando!",
+                    "updated": 1619635232561
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Once the update is done, you will need to close the app again, restart it, find the tutorial and click Resume, just like you did earlier!",
+            "updated": 1617020620260,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta che l'update è completo, dovrai chiudere l'app, riavviarla, cercare il tutorial e proseguire, proprio come hai fatto prima!",
+                    "updated": 1619635269785
+                }
+            ]
+        }
+    ]
+}

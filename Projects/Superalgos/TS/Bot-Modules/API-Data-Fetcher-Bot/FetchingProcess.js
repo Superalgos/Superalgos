@@ -33,13 +33,15 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             }
 
             let thisReport          // This holds the status report.
+            let processNode         // This hold the node Process Definition
+            let lastPage = {}       // This holds the last page fetched for each endpoint
 
             getContextVariables()
             startProcess()
 
             function getContextVariables() {
                 try {
-                    let processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
+                    processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
                     let reportKey = processNode.parentNode.parentNode.config.codeName + "-" + processNode.parentNode.config.codeName + "-" + processNode.config.codeName
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -68,9 +70,9 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 }
             }
 
-            function startProcess() {
+            async function startProcess() {
                 try {
-                    let processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
+                    processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
                         // TODO Error Handling
@@ -136,14 +138,13 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
                         let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
                         let pageQueryString                                                 // This holds the node part of query sting that deals with page numbers 
-                        let lastPage = {}                                                   // This holds the last page fetched for each endpoint
 
                         getApiEndpoint()
                         getEndpointQueryParameters()
-                        fetchAllPages()
-                        readDatasetFile()
+                        await fetchAllPages()
+                        await readDatasetFile()
                         appendToExistingDataset()
-                        saveDatasetFile()
+                        await saveDatasetFile()
 
                         function getApiEndpoint() {
                             /*
@@ -158,7 +159,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 if (recordProperty.apiResponseFieldReference !== undefined) {
                                     if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
                                         let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
-                                        let endpointNodeFound = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API endpoint')
+                                        let endpointNodeFound = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
 
                                         /*
                                         Every Record Property with an apiResponseFieldReference must be on the path 
@@ -231,23 +232,46 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 that will mean that we have requested already the last page with data.
                                 */
                                 let initialPage = 1
-                                let finalPage = MAX_SAFE_INTEGER
+                                let finalPage = Number.MAX_SAFE_INTEGER
                                 if (thisReport.file.lastPage !== undefined) {
                                     initialPage = thisReport.file.lastPage[endpointNode.config.codeName]
                                 }
+
                                 for (let page = initialPage; page < finalPage; page++) {
                                     if (queryString === "") {
-                                        queryString = "?" + pageNumberParameter.config.codeName + "=" + page
+                                        pageQueryString = "?" + pageNumberParameter.config.codeName + "=" + page
                                     } else {
-                                        queryString = queryString + "&" + pageNumberParameter.config.codeName + "=" + page
+                                        pageQueryString = "&" + pageNumberParameter.config.codeName + "=" + page
                                     }
                                     lastPage[endpointNode.config.codeName] = page
-                                    await fetchAPIData()
-                                    /*
-                                    This is how we accumulate the data from multiple pages into a single array.
-                                    */
-                                    let latestDataReceivedArray = JSON.parse(apiDataReceived)
-                                    dataReceivedArray = dataReceivedArray.concat(latestDataReceivedArray)
+                                    let fetchResult = await fetchAPIData()
+
+                                    switch (fetchResult) {
+                                        case 'UNEXPECTED_API_RESPONSE': {
+                                            /*
+                                            Any unexpected response will abort this loop and allow the process to continue,
+                                            possibly saving accumulated data.
+                                            */
+                                            page = finalPage
+                                            break
+                                        }
+                                        case 'NO_MORE_PAGES': {
+                                            /*
+                                            We will just abort this loop and continue.
+                                            */
+                                            page = finalPage
+                                            break
+                                        }
+                                        case 'PAGE_FETCHED': {
+                                            /*
+                                            Just stay at the current loop and try to fetch more pages.
+                                            This is how we accumulate the data from multiple pages into a single array.
+                                            */
+                                            let latestDataReceivedArray = JSON.parse(apiDataReceived)
+                                            dataReceivedArray = dataReceivedArray.concat(latestDataReceivedArray)
+                                            break
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -283,18 +307,38 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     function onDataArrived(chunk) {
                                         chunks.push(chunk)
                                     }
-                                }
 
-                                function onEnd() {
-                                    apiDataReceived = Buffer.concat(chunks).toString('utf8')
-                                    resolve()
+                                    function onEnd() {
+                                        apiDataReceived = Buffer.concat(chunks).toString('utf8')
+
+                                        /*
+                                        If we did not received an array, that probably means something is not 
+                                        good, and we got an HTML with the reason inside.
+                                        */
+                                        if (apiDataReceived.substring(0, 1) !== "[") {
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiDataReceived = " + apiDataReceived);
+                                            resolve('UNEXPECTED_API_RESPONSE')
+                                            return
+                                        }
+
+                                        /*
+                                        The response is an Array, depending if it has data or not we will return
+                                        NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
+                                        */
+                                        if (apiDataReceived === "[]") {
+                                            resolve('NO_MORE_PAGES')
+                                        } else {
+                                            resolve('PAGE_FETCHED')
+                                        }
+                                    }
                                 }
                             })
 
                             return promise
                         }
 
-                        function readDatasetFile() {
+                        async function readDatasetFile() {
                             /*
                             If this process already ran before, then we are going to load the data stored so as to append
                             information to it later.
@@ -302,8 +346,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             if (thisReport.file.lastRun !== undefined) {
 
                                 let fileName = 'Data.json'
-                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.config.codeName
-                                let response = fileStorage.asyncGetTextFile(filePath + '/' + fileName)
+                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName
+                                let response = await fileStorage.asyncGetTextFile(filePath + '/' + fileName)
                                 let text = response.text
 
                                 if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -323,82 +367,83 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         }
 
                         function appendToExistingDataset() {
-                            if (existingFileContent !== undefined) {
-                                // we are going to append the curernt apiDataReceived to the existing file.
-                                let existingFileArray = JSON.parse(existingFileContent)
 
-                                /*
-                                We will create a map with all the existing record primary keys, so as to use it
-                                later to avoid appending records that already exists. The first step is to 
-                                build an array with the primary keys of the file. After that we will populate 
-                                the existingKeys map.
-                                */
-                                let primaryKeys = []
-                                let existingKeys = new Map()
+                            // we are going to append the curernt apiDataReceived to the existing file.
+                            let existingFileArray = JSON.parse(existingFileContent)
 
-                                /*
-                                Setup the primaryKeys array.
-                                */
-                                for (let j = 0; j < productDefinition.record.properties.length; j++) {
-                                    let recordProperty = productDefinition.record.properties[j]
-                                    if (recordProperty.config.primaryKey === true) {
-                                        primaryKeys.push(recordProperty.config.codeName)
-                                    }
+                            /*
+                            We will create a map with all the existing record primary keys, so as to use it
+                            later to avoid appending records that already exists. The first step is to 
+                            build an array with the primary keys of the file. After that we will populate 
+                            the existingKeys map.
+                            */
+                            let primaryKeys = []
+                            let existingKeys = new Map()
+
+                            /*
+                            Setup the primaryKeys array.
+                            */
+                            for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                let recordProperty = productDefinition.record.properties[j]
+                                if (recordProperty.config.primaryKey === true) {
+                                    primaryKeys.push(recordProperty.config.codeName)
                                 }
+                            }
 
-                                /*
-                                Setup the existingKeys map.
-                                */
-                                for (let i = 0; i < existingFileArray.length; i++) {
-                                    let record = existingFileArray[i]
-                                    let key = ""
-                                    for (j = 0; j < primaryKeys.length; j++) {
-                                        let keyValue = record[primaryKeys[j]]
-                                        key = key + '->' + keyValue
-                                    }
+                            /*
+                            Setup the existingKeys map.
+                            */
+                            for (let i = 0; i < existingFileArray.length; i++) {
+                                let record = existingFileArray[i]
+                                let key = ""
+                                for (j = 0; j < primaryKeys.length; j++) {
+                                    let keyValue = record[primaryKeys[j]]
+                                    key = key + '->' + keyValue
+                                }
+                                existingKeys.set(key, record)
+                            }
+
+                            /*
+                            Scan the dataReceivedArray array and insert records into
+                            the existingFileArray array only when they are not going to
+                            duplicate a primary key.
+                            */
+                            for (let i = 0; i < dataReceivedArray.length; i++) {
+                                let record = dataReceivedArray[i]
+
+                                let key = ""
+                                for (j = 0; j < primaryKeys.length; j++) {
+                                    let keyValue = record[primaryKeys[j]]
+                                    key = key + '->' + keyValue
+                                }
+                                if (existingKeys.get(key) === undefined) {
+                                    existingFileArray.push(record)
                                     existingKeys.set(key, record)
                                 }
 
-                                /*
-                                Scan the dataReceivedArray array and insert records into
-                                the existingFileArray array only when they are not going to
-                                duplicate a primary key.
-                                */
-                                for (let i = 0; i < dataReceivedArray.length; i++) {
-                                    let record = dataReceivedArray[i]
-
-                                    let key = ""
-                                    for (j = 0; j < primaryKeys.length; j++) {
-                                        let keyValue = record[primaryKeys[j]]
-                                        key = key + '->' + keyValue
-                                    }
-                                    if (existingKeys.get(key) === undefined) {
-                                        existingFileArray.push(record)
-                                        existingKeys.set(key, record)
-                                    }
-
-                                }
-
-                                existingFileContent = JSON.stringify(existingFileArray)
-                            } else {
-                                // we are going to save the current apiDataReceived.
-                                existingFileContent = apiDataReceived
                             }
+
+                            existingFileContent = JSON.stringify(existingFileArray)
                         }
 
-                        function saveDatasetFile() {
+                        async function saveDatasetFile() {
 
                             let fileName = 'Data.json'
-                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.config.codeName
-                            let response = fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
+                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName
+                            let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
 
-                            if (response.err !== undefined && err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                            if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
                                 throw (response.err)
                             }
                         }
                     }
+
+                    /*
+                    When all Output Datasets have been succesfully written, we can go and write
+                    the Status Report.
+                    */
                     writeStatusReport()
 
                 } catch (err) {

@@ -14,11 +14,13 @@
         },
         {
             "style": "Text",
-            "text": "The community surrounding the project is one of the greatest attractions, as well as the fact that the software isn't being run through a third party website controlling the data. I look forward to being an active contributor and especially hope to be able to learn and contribute in the machine learning subject."
+            "text": "The community surrounding the project is one of the greatest attractions, as well as the fact that the software isn't being run through a third party website controlling the data. I look forward to being an active contributor and especially hope to be able to learn and contribute in the machine learning subject. Really excited that the new version is incorporating TensorFlow!",
+            "updated": 1619860799196
         },
         {
             "style": "Text",
-            "text": "github: maxspecktor"
+            "text": "maxspecktor",
+            "updated": 1619860667407
         }
     ]
 }

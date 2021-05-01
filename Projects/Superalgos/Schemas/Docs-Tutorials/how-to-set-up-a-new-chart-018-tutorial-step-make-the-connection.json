@@ -1,0 +1,28 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "18",
+    "type": "Tutorial Step - Make the Connection",
+    "definition": {
+        "text": "You got this. Creating references is a piece of cake. Let's make the connection!",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1619024303385
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Out of the three Data Mine Products nodes available, we are going to connect our chart to the Masters Data Mine.",
+            "updated": 1617850389465
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Layer Manager under the Timeline Chart you added earlier. Then establish a reference between it and the Masters Data Mine Products node."
+        },
+        {
+            "style": "Success",
+            "text": "If things are connected correctly, the name of the data mine should appear over the layer manager."
+        }
+    ]
+}

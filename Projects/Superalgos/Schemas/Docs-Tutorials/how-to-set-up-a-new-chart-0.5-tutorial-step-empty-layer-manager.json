@@ -1,0 +1,20 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "10.5",
+    "type": "Tutorial Step - Empty Layer Manager",
+    "definition": {
+        "text": " This step will play a video in full screen mode.",
+        "updated": 1619022242256,
+        "icon": {
+            "name": "",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/adding-charts-empty-timeline.gif",
+            "updated": 1619022124661
+        }
+    ]
+}

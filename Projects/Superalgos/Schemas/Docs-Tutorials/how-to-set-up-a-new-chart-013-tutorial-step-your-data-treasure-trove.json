@@ -1,0 +1,25 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "13",
+    "type": "Tutorial Step - Your Data Treasure Trove",
+    "definition": {
+        "text": "The Data Storage node holds all the important data your bots work so hard to produce. Think of it like your own personal tresure chest full of data.",
+        "icon": {
+            "name": "data-storage",
+            "project": "Superalgos"
+        },
+        "updated": 1617373173279
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "All of the Data Products you will want to visualize in your charts are kept in the Data Storage node. Let’s start by getting some practice finding where the data we want is stored. Remember, we want to connect our chart to the Masters Data Mine. Accessing these products will let us visualize Indicators and other Market Data.",
+            "updated": 1619023429735
+        },
+        {
+            "style": "Note",
+            "text": "One great thing about Superalgos is that it uses consistent logic across the system. What that means for us now is that once you learn to hook a chart to one type of data you will know the basic steps to hook your charts to anything you want!",
+            "updated": 1617645915009
+        }
+    ]
+}

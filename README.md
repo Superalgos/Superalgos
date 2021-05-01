@@ -331,7 +331,7 @@ No problem, code or integrate libraries with your own version of any component a
 * Superalgos is easy to learn.
 * Superalgos is easy to debug.
 * Superalgos is well documented.
-* You have free online support via Telegram.
+* You have free online support via Telegram and Discord.
 
 ## Superalgos Saves You Money
 
@@ -363,7 +363,9 @@ No problem, code or integrate libraries with your own version of any component a
 
 # Support
 
-The Superalgos Community meets on several Telegram groups.
+We just opened a brand new [Discord server for Support and the Community](https://discord.gg/CGeKC6WQQb).
+
+We also meet on several Telegram groups, where it all started!
 
 > **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!**
 Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way. Our [Community Safetey Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.

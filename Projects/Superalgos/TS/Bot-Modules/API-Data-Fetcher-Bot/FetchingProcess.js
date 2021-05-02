@@ -79,8 +79,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         return
                     }
 
-                    let apiMAP = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
-                    if (apiMAP === undefined) {
+                    let apiMap = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
+                    if (apiMap === undefined) {
                         // TODO Error Handling
                         return
                     }
@@ -90,26 +90,26 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     let path = ""
                     let protocol = "https" // default value
 
-                    if (apiMAP.config.hostName === undefined || apiMAP.config.hostName === "") {
+                    if (apiMap.config.hostName === undefined || apiMap.config.hostName === "") {
                         // TODO Error Handling
                         return
                     } else {
-                        hostName = apiMAP.config.hostName
+                        hostName = apiMap.config.hostName
                     }
 
-                    if (apiMAP.config.portNumber !== undefined && apiMAP.config.portNumber !== "") {
-                        portNumber = ":" + apiMAP.config.portNumber
+                    if (apiMap.config.portNumber !== undefined && apiMap.config.portNumber !== "") {
+                        portNumber = ":" + apiMap.config.portNumber
                     }
 
-                    if (apiMAP.config.protocol !== undefined && apiMAP.config.protocol !== "") {
-                        protocol = apiMAP.config.protocol
+                    if (apiMap.config.protocol !== undefined && apiMap.config.protocol !== "") {
+                        protocol = apiMap.config.protocol
                     }
 
-                    if (apiMAP.config.path !== undefined && apiMAP.config.path !== "") {
-                        path = "/" + apiMAP.config.path
+                    if (apiMap.config.path !== undefined && apiMap.config.path !== "") {
+                        path = "/" + apiMap.config.path
                     }
 
-                    if (apiMAP.apiVersions.length === 0) {
+                    if (apiMap.apiVersions.length === 0) {
                         // TODO Error Handling
                         return
                     }
@@ -135,18 +135,21 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let existingFileContent                                             // This holds the data of the existing dataset file.
                         let queryString = ""                                                // This holds the query string to be sent at the API call.
                         let apiDataReceived                                                 // This hold the data received from the latest API call.
+                        let apiData                                                         // This holds the specific object containing the data to be stored inside the structure received by the API call.
                         let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
                         let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
                         let pageQueryString                                                 // This holds the node part of query sting that deals with page numbers 
+                        let recordPropertiesNodePathMap = new Map()                         // This holds the calculated nodePath for each record property, in order to help find the property value on the data received.
 
-                        getApiEndpoint()
+                        getApiEndpointAndSchema()
+                        calculateRecordPropertiesNodePathMap()
                         getEndpointQueryParameters()
                         await fetchAllPages()
                         await readDatasetFile()
                         appendToExistingDataset()
                         await saveDatasetFile()
 
-                        function getApiEndpoint() {
+                        function getApiEndpointAndSchema() {
                             /*
                             We will assume that each Dataset is built fetching data from a single endpointNode at the target API.                        
                             To get the endpointNode node, we will go through the references at the Record Definition. 
@@ -160,7 +163,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
                                         let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
                                         let endpointNodeFound = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
-
                                         /*
                                         Every Record Property with an apiResponseFieldReference must be on the path 
                                         to a certain enpoint.
@@ -181,6 +183,48 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         if (endpointNodeFound.id !== endpointNode.id) {
                                             // TODO Error Handling - we can not reference fields from different enpoints.
                                             return
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        function calculateRecordPropertiesNodePathMap() {
+                            /*
+                            Each record property references an API Response Field, which can be deep into the
+                            data structure received from the API call. What we need to do, is to find for each
+                            record proeprty the nodePath that will help us later retrieve the value of that 
+                            particular proeprty.
+                            
+                            To do so, we will have to recursivelly climb the API Map until reaching the API Response
+                            Schema node, which is the one from where we will get the root object of the response data
+                            structure.
+                            */
+                            for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                let recordProperty = productDefinition.record.properties[j]
+                                if (recordProperty.apiResponseFieldReference !== undefined) {
+                                    if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
+                                        let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
+                                        let nodePath = getPath(apiResponseField)
+                                        recordPropertiesNodePathMap.set(recordProperty.config.codeName, nodePath)
+
+                                        function getPath(node, path) {
+
+                                            if (node.parentNode === undefined || node.parentNode.type !== "API Response Field" || node.parentNode.config.fieldType === 'array') {
+                                                if (path === undefined) {
+                                                    path = 'recordReceived' + '.' + node.config.codeName
+                                                } else {
+                                                    path = 'recordReceived' + '.' + node.config.codeName + '.' + path
+                                                }
+                                                return path
+                                            } else {
+                                                if (path === undefined) {
+                                                    path = node.config.codeName
+                                                } else {
+                                                    path = node.config.codeName + '.' + path
+                                                }
+                                                return getPath(node.parentNode, path)
+                                            }
                                         }
                                     }
                                 }
@@ -220,6 +264,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 There is no paging mechanism at this Endpoint, so we will just make an
                                 Async call to the API Server 
                                 */
+                                await sleep(apiMap.config.millisecondsBetweenCalls)
                                 await fetchAPIData()
                                 dataReceivedArray = JSON.parse(apiDataReceived)
                             } else {
@@ -232,18 +277,20 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 that will mean that we have requested already the last page with data.
                                 */
                                 let initialPage = 1
-                                let finalPage = Number.MAX_SAFE_INTEGER
+                                let finalPage = 1 // Number.MAX_SAFE_INTEGER
                                 if (thisReport.file.lastPage !== undefined) {
                                     initialPage = thisReport.file.lastPage[endpointNode.config.codeName]
                                 }
 
-                                for (let page = initialPage; page < finalPage; page++) {
+                                for (let page = initialPage; page <= finalPage; page++) {
                                     if (queryString === "") {
                                         pageQueryString = "?" + pageNumberParameter.config.codeName + "=" + page
                                     } else {
                                         pageQueryString = "&" + pageNumberParameter.config.codeName + "=" + page
                                     }
                                     lastPage[endpointNode.config.codeName] = page
+
+                                    await sleep(apiMap.config.millisecondsBetweenCalls)
                                     let fetchResult = await fetchAPIData()
 
                                     switch (fetchResult) {
@@ -275,12 +322,17 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             Just stay at the current loop and try to fetch more pages.
                                             This is how we accumulate the data from multiple pages into a single array.
                                             */
-                                            let latestDataReceivedArray = JSON.parse(apiDataReceived)
-                                            dataReceivedArray = dataReceivedArray.concat(latestDataReceivedArray)
+                                            dataReceivedArray = dataReceivedArray.concat(apiData)
                                             break
                                         }
                                     }
                                 }
+                            }
+
+                            function sleep(ms) {
+                                return new Promise((resolve) => {
+                                    setTimeout(resolve, ms);
+                                });
                             }
                         }
 
@@ -316,7 +368,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let apiResponseSchemaNode
                                     let errorCodeReceived
 
-                                    getApiResponseSchema(response.responseCode)
+                                    getApiResponseSchema(response.statusCode)
 
                                     if (apiResponseSchemaNode === undefined) {
                                         // TODO Error Handling
@@ -332,80 +384,89 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         The API Response Schema we will depend on the response code received from the
                                         API server. Here we will locate the right Api Response Schema.
                                         */
-                                        for (let i = 0; i < endpointNode.apiQuueryResponses.apiQuueryResponses.length; i++) {
-                                            let apiQueryResponse = endpointNode.apiQuueryResponses.apiQuueryResponses[i]
+                                        for (let j = 0; j < apiMap.apiVersions.length; j++) {
+                                            let version = apiMap.apiVersions[j]
+                                            for (let k = 0; k < version.apiEndpoints.length; k++) {
+                                                let endpoint = version.apiEndpoints[k]
+                                                if (endpointNode.id === endpoint.id) {
+                                                    for (let i = 0; i < endpoint.apiQueryResponses.apiQueryResponses.length; i++) {
+                                                        let apiQueryResponse = endpoint.apiQueryResponses.apiQueryResponses[i]
 
-                                            /*
-                                            We will check that what we received is not an error code.
-                                            */
-                                            if (apiQueryResponse.config.isError === true) {
-                                                errorCodeReceived = true
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode);
+                                                        if (Number(apiQueryResponse.config.codeName) === responseCode) {
+                                                            apiResponseSchemaNode = apiQueryResponse.apiResponseSchema
+
+                                                            /*
+                                                            We will check that what we received is not an error code.
+                                                            */
+                                                            if (apiQueryResponse.config.isError === true) {
+                                                                errorCodeReceived = true
+                                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode);
+                                                            }
+                                                            return
+                                                        }
+                                                    }
+                                                }
                                             }
+                                        }
+                                    }
 
-                                            if (apiQueryResponse.config.codename === responseCode) {
-                                                apiResponseSchemaNode = apiQueryResponse
+                                    function onEnd() {
+                                        apiDataReceived = Buffer.concat(chunks).toString('utf8')
+                                        /*
+                                        If we received an errror code, we abort the processing at this point.
+                                        */
+                                        if (errorCodeReceived === true) {
+                                            resolve('ERROR_CODE_RECEIVED')
+                                            return
+                                        }
+                                        /*
+                                        Here we will validate that the overall format is what we are expecting.
+                                        */
+                                        switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
+                                            case 'object': {
+                                                /*
+                                                If we did not received an object, that probably means something is not 
+                                                good, and we got an HTML with the reason inside.
+                                                */
+                                                if (apiDataReceived.substring(0, 1) !== "{") {
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiDataReceived = " + apiDataReceived);
+                                                    resolve('UNEXPECTED_API_RESPONSE')
+                                                    return
+                                                }
+                                                break
+                                            }
+                                            case 'array': {
+                                                /*
+                                                If we did not received an array, that probably means something is not 
+                                                good, and we got an HTML with the reason inside.
+                                                */
+                                                if (apiDataReceived.substring(0, 1) !== "[") {
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiDataReceived = " + apiDataReceived);
+                                                    resolve('UNEXPECTED_API_RESPONSE')
+                                                    return
+                                                }
                                                 break
                                             }
                                         }
-                                    }
-                                }
-
-                                function onEnd() {
-                                    apiDataReceived = Buffer.concat(chunks).toString('utf8')
-                                    /*
-                                    If we received an errror code, we abort the processing at this point.
-                                    */
-                                    if (errorCodeReceived === true) {
-                                        resolve('ERROR_CODE_RECEIVED')
-                                        return
-                                    }
-                                    /*
-                                    Here we will validate that the overall format is what we are expecting.
-                                    */
-                                    switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
-                                        case 'object': {
-                                            /*
-                                            If we did not received an object, that probably means something is not 
-                                            good, and we got an HTML with the reason inside.
-                                            */
-                                            if (apiDataReceived.substring(0, 1) !== "{") {
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiDataReceived = " + apiDataReceived);
-                                                resolve('UNEXPECTED_API_RESPONSE')
-                                                return
-                                            }
-                                            break
+                                        /*
+                                        The actual data we need could be anywhere within the data structure received.
+                                        The exact place is configured at the apiResponseSchemaNode property nodePath.
+                                        We will eval the nodePath property (this assumes that the apiDataObject is defined)
+                                        */
+                                        let apiDataObject = JSON.parse(apiDataReceived)
+                                        apiData = eval(apiResponseSchemaNode.config.nodePath)
+                                        /*
+                                        We will expect the apiData to be an Array.  Depending if it has data or not we will return
+                                        NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
+                                        */
+                                        if (apiData.length === 0) {
+                                            resolve('NO_MORE_PAGES')
+                                        } else {
+                                            resolve('PAGE_FETCHED')
                                         }
-                                        case 'array': {
-                                            /*
-                                            If we did not received an array, that probably means something is not 
-                                            good, and we got an HTML with the reason inside.
-                                            */
-                                            if (apiDataReceived.substring(0, 1) !== "[") {
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiDataReceived = " + apiDataReceived);
-                                                resolve('UNEXPECTED_API_RESPONSE')
-                                                return
-                                            }
-                                            break
-                                        }
-                                    }
-                                    /*
-                                    The actual data we need could be anywhere within the data structure received.
-                                    The exact place is configured at the apiResponseSchemaNode property nodePath.
-                                    We will eval the nodePath property (this assumes that a apiDataReceived object is defined)
-                                    */
-                                    let apiData = eval(apiResponseSchemaNode.config.nodePath)
-                                    /*
-                                    We will expect the apiData to be an Array.  Depending if it has data or not we will return
-                                    NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
-                                    */
-                                    if (apiData === "[]") {
-                                        resolve('NO_MORE_PAGES')
-                                    } else {
-                                        resolve('PAGE_FETCHED')
                                     }
                                 }
                             }
@@ -443,10 +504,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         }
 
                         function appendToExistingDataset() {
-
-                            // we are going to append the curernt apiDataReceived to the existing file.
+                            /* 
+                            We are going to append the curernt apiDataReceived to the existing file.
+                            */
                             let existingFileArray = JSON.parse(existingFileContent)
-
                             /*
                             We will create a map with all the existing record primary keys, so as to use it
                             later to avoid appending records that already exists. The first step is to 
@@ -455,7 +516,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             */
                             let primaryKeys = []
                             let existingKeys = new Map()
-
                             /*
                             Setup the primaryKeys array.
                             */
@@ -465,41 +525,81 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     primaryKeys.push(recordProperty.config.codeName)
                                 }
                             }
-
                             /*
                             Setup the existingKeys map.
                             */
                             for (let i = 0; i < existingFileArray.length; i++) {
-                                let record = existingFileArray[i]
+                                let record = {
+                                    values: existingFileArray[i],
+                                    map: new Map()
+                                }
+                                /*
+                                Building the record map...
+                                */
+                                for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                    let recordProperty = productDefinition.record.properties[j]
+                                    record.map.set(recordProperty.config.codeName, record.values[j])
+                                }
+                                /*
+                                Building the current key...
+                                */
                                 let key = ""
                                 for (j = 0; j < primaryKeys.length; j++) {
-                                    let keyValue = record[primaryKeys[j]]
+                                    let keyValue = record.map.get(primaryKeys[j])
                                     key = key + '->' + keyValue
                                 }
                                 existingKeys.set(key, record)
                             }
-
                             /*
                             Scan the dataReceivedArray array and insert records into
                             the existingFileArray array only when they are not going to
                             duplicate a primary key.
                             */
                             for (let i = 0; i < dataReceivedArray.length; i++) {
-                                let record = dataReceivedArray[i]
+                                let record = getRecord(dataReceivedArray[i])
 
                                 let key = ""
                                 for (j = 0; j < primaryKeys.length; j++) {
-                                    let keyValue = record[primaryKeys[j]]
+                                    let keyValue = record.map.get(primaryKeys[j])
                                     key = key + '->' + keyValue
                                 }
                                 if (existingKeys.get(key) === undefined) {
-                                    existingFileArray.push(record)
-                                    existingKeys.set(key, record)
+                                    existingFileArray.push(record.values)
+                                    existingKeys.set(key, record.values)
                                 }
-
                             }
 
                             existingFileContent = JSON.stringify(existingFileArray)
+
+                            function getRecord(recordReceived) {
+                                /*
+                                The record to be stored is not directly the record received. The record
+                                structure depends on the list of record properties and the data fields each one is referencing.
+                                */
+                                let record = {
+                                    values: [],
+                                    headers: [],
+                                    map: new Map()
+                                }
+                                for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                    let recordProperty = productDefinition.record.properties[j]
+                                    if (recordProperty.apiResponseFieldReference !== undefined) {
+                                        if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
+                                            let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
+                                            /*
+                                            We will need to get the nodePath for this property, representing the path
+                                            to the value on the received data.
+                                            */
+                                            let nodePath = recordPropertiesNodePathMap.get(recordProperty.config.codeName)
+                                            let value = eval(nodePath)
+                                            record.values.push(value)
+                                            record.headers.push(recordProperty.config.codeName)
+                                            record.map.set(recordProperty.config.codeName, value)
+                                        }
+                                    }
+                                }
+                                return record
+                            }
                         }
 
                         async function saveDatasetFile() {

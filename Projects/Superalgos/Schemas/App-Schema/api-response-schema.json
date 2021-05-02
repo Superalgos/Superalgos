@@ -30,7 +30,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"nodePath\": \"apiDataReceived.data\"}"
+        "config": "{\"nodePath\": \"apiDataObject.data\"}"
     },
     "addLeftIcons": true,
     "level": 4,

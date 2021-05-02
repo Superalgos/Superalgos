@@ -2,7 +2,16 @@
     "type": "API Response Schema",
     "menuItems": [
         {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
             "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiResponseFields",
             "label": "Add API Response Field",
             "relatedUiObject": "API Response Field",
             "actionFunction": "payload.executeAction"
@@ -17,6 +26,12 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"nodePath\": \"apiDataObject.data\"}"
+    },
     "addLeftIcons": true,
     "level": 4,
     "attachingRules": {
@@ -26,7 +41,7 @@
     "childrenNodesProperties": [
         {
             "name": "apiResponseFields",
-            "type": "array",
+            "type": "node",
             "childType": "API Response Field",
             "autoAdd": false
         }

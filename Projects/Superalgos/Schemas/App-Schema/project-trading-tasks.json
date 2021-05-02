@@ -1,0 +1,71 @@
+{
+    "type": "Project Trading Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Exchange Trading Tasks",
+            "label": "Run All Exchange Trading Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Exchange Trading Tasks",
+            "label": "Stop All Exchange Trading Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Exchange Trading Tasks",
+            "relatedUiObject": "Exchange Trading Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Exchange Trading Tasks",
+            "label": "Add Missing Exchanges",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Exchange Trading Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "alternativeIcons": "Use Reference Parent Parent",
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Project Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
+    },
+    "propertyNameAtParent": "projectTradingTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "exchangeTradingTasks",
+            "type": "array",
+            "childType": "Exchange Trading Tasks",
+            "monitorChildrenRunning": true
+        }
+    ],
+    "icon": "bitcoin"
+}

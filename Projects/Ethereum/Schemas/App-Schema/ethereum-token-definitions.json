@@ -1,0 +1,46 @@
+{
+    "type": "Ethereum Token Definitions",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Ethereum Token Definitions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "erc-20TokenType",
+            "type": "node",
+            "childType": "ERC-20 Token Type"
+        },
+        {
+            "name": "erc-223TokenType",
+            "type": "node",
+            "childType": "ERC-223 Token Type"
+        },
+        {
+            "name": "erc-721TokenType",
+            "type": "node",
+            "childType": "ERC-721 Token Type"
+        },
+        {
+            "name": "erc-777TokenType",
+            "type": "node",
+            "childType": "ERC-777 Token Type"
+        }
+    ],
+    "icon": "ethereum"
+}

@@ -1,0 +1,42 @@
+{
+    "type": "Exchange Markets",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Market",
+            "relatedUiObject": "Market",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Markets",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Request Sent",
+            "relatedUiObject": "Market",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "propertyNameAtParent": "exchangeMarkets",
+    "childrenNodesProperties": [
+        {
+            "name": "markets",
+            "type": "array",
+            "childType": "Market"
+        }
+    ]
+}

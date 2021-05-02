@@ -1,0 +1,64 @@
+{
+    "type": "Strategy Manage Stage",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Current->"
+    },
+    "propertyNameAtParent": "strategyManageStage",
+    "childrenNodesProperties": [
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "exitType",
+            "type": "node",
+            "childType": "Exit Type",
+            "autoAdd": true
+        },
+        {
+            "name": "status",
+            "type": "node",
+            "childType": "Status",
+            "autoAdd": true
+        },
+        {
+            "name": "beginRate",
+            "type": "node",
+            "childType": "Begin Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "endRate",
+            "type": "node",
+            "childType": "End Rate",
+            "autoAdd": true
+        }
+    ]
+}

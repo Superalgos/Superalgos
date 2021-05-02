@@ -717,6 +717,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendTelegramTestMessage(action.node, action.callBackFunction)
                 }
                 break
+            case 'Send Discord Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
+                }
+                break
         }
     }
 }

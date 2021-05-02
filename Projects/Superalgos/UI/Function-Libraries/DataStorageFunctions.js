@@ -42,6 +42,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         */
         let mine = node.payload.referenceParent
         scanBotArray(mine.sensorBots)
+        scanBotArray(mine.apiDataFetcherBots)
         scanBotArray(mine.indicatorBots)
         scanBotArray(mine.tradingBots)
         scanBotArray(mine.learningBots)

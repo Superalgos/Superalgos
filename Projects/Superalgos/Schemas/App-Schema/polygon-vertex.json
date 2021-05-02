@@ -1,0 +1,27 @@
+{
+    "type": "Polygon Vertex",
+    "level": 4,
+    "propertyNameAtParent": "polygonVertexes",
+    "isReferenceChildren": true,
+    "referencingRules": {
+        "compatibleTypes": "->Point->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Polygon->"
+    },
+    "title": [
+        "Use Reference Parent"
+    ],
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

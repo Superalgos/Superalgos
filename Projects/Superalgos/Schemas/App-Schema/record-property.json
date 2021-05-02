@@ -1,0 +1,63 @@
+{
+    "type": "Record Property",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "recordFormula",
+            "label": "Add Formula",
+            "relatedUiObject": "Record Formula",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiResponseFieldReference",
+            "label": "Add Field Reference",
+            "relatedUiObject": "API Response Field Reference",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\",\n  \"isString\": false,\n  \"isCalculated\": false\n}"
+    },
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Record Definition->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "recordFormula",
+            "type": "node",
+            "childType": "Record Formula"
+        },
+        {
+            "name": "apiResponseFieldReference",
+            "type": "node",
+            "childType": "API Response Field Reference"
+        }
+    ],
+    "propertyNameAtParent": "properties"
+}

@@ -1,0 +1,140 @@
+{
+    "type": "Dense Layer",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dimensionalityUnits",
+            "label": "Add Dimensionality Units",
+            "relatedUiObject": "Dimensionality Units",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "activationFunction",
+            "label": "Add Activation Function",
+            "relatedUiObject": "Activation Function",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "kernel",
+            "label": "Add Kernel",
+            "relatedUiObject": "Kernel",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bias",
+            "label": "Add Bias",
+            "relatedUiObject": "Bias",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "batchSize",
+            "label": "Add Batch Size",
+            "relatedUiObject": "Batch Size",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dtype",
+            "label": "Add Dtype",
+            "relatedUiObject": "Dtype",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "trainable",
+            "label": "Add Trainable",
+            "relatedUiObject": "Trainable",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "weights",
+            "label": "Add Weights",
+            "relatedUiObject": "Weights",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Basic Layers->"
+    },
+    "propertyNameAtParent": "layer",
+    "childrenNodesProperties": [
+        {
+            "name": "dimensionalityUnits",
+            "type": "node",
+            "childType": "Dimensionality Units"
+        },
+        {
+            "name": "activationFunction",
+            "type": "node",
+            "childType": "Activation Function"
+        },
+        {
+            "name": "kernel",
+            "type": "node",
+            "childType": "Kernel"
+        },
+        {
+            "name": "bias",
+            "type": "node",
+            "childType": "Bias"
+        },
+        {
+            "name": "batchSize",
+            "type": "node",
+            "childType": "Batch Size"
+        },
+        {
+            "name": "dtype",
+            "type": "node",
+            "childType": "Dtype"
+        },
+        {
+            "name": "trainable",
+            "type": "node",
+            "childType": "Trainable"
+        },
+        {
+            "name": "weights",
+            "type": "node",
+            "childType": "Weights"
+        }
+    ],
+    "icon": "tensorflow"
+}

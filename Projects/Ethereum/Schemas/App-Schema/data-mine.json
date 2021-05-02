@@ -1,0 +1,46 @@
+{
+    "type": "Data Mine",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Blockchain Scanner Bot",
+            "relatedUiObject": "Blockchain Scanner Bot",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 0,
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "blockchainScannerBots",
+            "type": "array",
+            "childType": "Blockchain Scanner Bot"
+        }
+    ],
+    "icon": "ethereum"
+}

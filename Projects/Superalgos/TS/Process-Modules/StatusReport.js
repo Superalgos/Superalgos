@@ -133,6 +133,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }
@@ -184,6 +185,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }
@@ -235,6 +237,7 @@
                                         for (let m = 0; m < taskManager.tasks.length; m++) {
                                             let task = taskManager.tasks[m]
                                             if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
                                             for (let n = 0; n < task.bot.processes.length; n++) {
                                                 let process = task.bot.processes[n]
                                                 if (process.referenceParent === undefined) { continue }
@@ -317,7 +320,7 @@
             If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not the latest one, because it might contain
             transactioinal information related to the context of the operations the trading engine is doing.
 
-            On the contraty, if we are running a Sensor bot or an Indicator we might, if necesary, use a previous version of a Status Report since
+            On the contraty, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necesary, use a previous version of a Status Report since
             there will be no big impact, just some reprocessing.
             */
             if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {

@@ -1,0 +1,36 @@
+{
+    "type": "Self Learning",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "typeOfModel",
+            "label": "Add Artificial Neural Network",
+            "relatedUiObject": "Artificial Neural Network",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->TensorFlow Library->"
+    },
+    "propertyNameAtParent": "typeOfLearning",
+    "childrenNodesProperties": [
+        {
+            "name": "typeOfModel",
+            "type": "node",
+            "childType": "Artificial Neural Network"
+        }
+    ],
+    "icon": "tensorflow"
+}

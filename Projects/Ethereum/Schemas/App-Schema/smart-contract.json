@@ -1,0 +1,50 @@
+{
+    "type": "Smart Contract",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "solidityCode",
+            "label": "Add Solidity Code",
+            "relatedUiObject": "Solidity Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"address\": \"\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Token Definition->Ethereum Decentralized Application->"
+    },
+    "propertyNameAtParent": "smartContracts",
+    "addLeftIcons": true,
+    "level": 1,
+    "childrenNodesProperties": [
+        {
+            "name": "solidityCode",
+            "type": "node",
+            "childType": "Solidity Code"
+        }
+    ],
+    "icon": "ethereum"
+}

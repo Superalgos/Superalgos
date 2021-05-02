@@ -1,0 +1,81 @@
+{
+    "type": "Feature",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Learning Engine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Copy Node Path",
+            "label": "Copy Node Path",
+            "iconPathOn": "copy-path",
+            "iconPathOff": "copy-path",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Copy Node Value",
+            "label": "Copy Node Value",
+            "iconPathOn": "copy-value",
+            "iconPathOff": "copy-value",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Copy Node Type",
+            "label": "Copy Node Type",
+            "iconPathOn": "copy-type",
+            "iconPathOff": "copy-type",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"initialValue\": 0\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Features->"
+    },
+    "propertyNameAtParent": "features",
+    "childrenNodesProperties": [
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "featureValue",
+            "type": "node",
+            "childType": "Feature Value",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

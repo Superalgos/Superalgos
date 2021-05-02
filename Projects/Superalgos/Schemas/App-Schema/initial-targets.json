@@ -1,0 +1,46 @@
+{
+    "type": "Initial Targets",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Items",
+            "relatedUiObject": "Initial Targets",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Open Stage->Close Stage->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "targetRate",
+            "type": "node",
+            "childType": "Target Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "targetSizeInBaseAsset",
+            "type": "node",
+            "childType": "Target Size In Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "targetSizeInQuotedAsset",
+            "type": "node",
+            "childType": "Target Size In Quoted Asset",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "initialTargets"
+}

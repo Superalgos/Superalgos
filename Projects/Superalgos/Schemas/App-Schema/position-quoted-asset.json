@@ -1,0 +1,70 @@
+{
+    "type": "Position Quoted Asset",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Position->"
+    },
+    "propertyNameAtParent": "positionQuotedAsset",
+    "childrenNodesProperties": [
+        {
+            "name": "beginBalance",
+            "type": "node",
+            "childType": "Begin Balance",
+            "autoAdd": true
+        },
+        {
+            "name": "endBalance",
+            "type": "node",
+            "childType": "End Balance",
+            "autoAdd": true
+        },
+        {
+            "name": "entryTargetSize",
+            "type": "node",
+            "childType": "Entry Target Size",
+            "autoAdd": true
+        },
+        {
+            "name": "exitTargetSize",
+            "type": "node",
+            "childType": "Exit Target Size",
+            "autoAdd": true
+        },
+        {
+            "name": "profitLoss",
+            "type": "node",
+            "childType": "Profit Loss",
+            "autoAdd": true
+        },
+        {
+            "name": "ROI",
+            "type": "node",
+            "childType": "ROI",
+            "autoAdd": true
+        },
+        {
+            "name": "hitFail",
+            "type": "node",
+            "childType": "Hit Fail",
+            "autoAdd": true
+        }
+    ]
+}

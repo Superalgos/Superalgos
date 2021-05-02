@@ -1,0 +1,33 @@
+{
+    "type": "Slippage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"marketOrderRate\": 0.1,\n\"stopLoss\": 0.2,\n\"takeProfit\": 0.3\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Parameters->"
+    },
+    "propertyNameAtParent": "slippage"
+}

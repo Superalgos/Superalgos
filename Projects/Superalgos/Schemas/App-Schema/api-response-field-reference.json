@@ -1,0 +1,28 @@
+{
+    "type": "API Response Field Reference",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Record Property->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->API Response Field->"
+    },
+    "propertyNameAtParent": "apiResponseFieldReference",
+    "icon": "bitcoin"
+}

@@ -1,0 +1,51 @@
+{
+    "type": "User Account",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userAssets",
+            "label": "Add User Assets",
+            "relatedUiObject": "User Assets",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userKeys",
+            "label": "Add User Keys",
+            "relatedUiObject": "User Keys",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Accounts->"
+    },
+    "propertyNameAtParent": "userAccounts",
+    "childrenNodesProperties": [
+        {
+            "name": "userAssets",
+            "type": "node",
+            "childType": "User Assets",
+            "autoAdd": true
+        },
+        {
+            "name": "userKeys",
+            "type": "node",
+            "childType": "User Keys",
+            "autoAdd": true
+        }
+    ],
+    "isPersonalData": true
+}

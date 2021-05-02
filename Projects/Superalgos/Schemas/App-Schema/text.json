@@ -1,0 +1,78 @@
+{
+    "type": "Text",
+    "level": 3,
+    "propertyNameAtParent": "texts",
+    "attachingRules": {
+        "compatibleTypes": "->Shapes->"
+    },
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "textCondition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text Condition",
+            "relatedUiObject": "Text Condition"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "textPosition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text Position",
+            "relatedUiObject": "Text Position"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "textFormula",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text Formula",
+            "relatedUiObject": "Text Formula"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "textStyle",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text Style",
+            "relatedUiObject": "Text Style"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "childrenNodesProperties": [
+        {
+            "name": "textCondition",
+            "type": "node",
+            "childType": "Text Condition",
+            "autoAdd": true
+        },
+        {
+            "name": "textPosition",
+            "type": "node",
+            "childType": "Text Position",
+            "autoAdd": true
+        },
+        {
+            "name": "textFormula",
+            "type": "node",
+            "childType": "Text Formula",
+            "autoAdd": true
+        },
+        {
+            "name": "textStyle",
+            "type": "node",
+            "childType": "Text Style",
+            "autoAdd": true
+        }
+    ],
+    "addLeftIcons": true
+}

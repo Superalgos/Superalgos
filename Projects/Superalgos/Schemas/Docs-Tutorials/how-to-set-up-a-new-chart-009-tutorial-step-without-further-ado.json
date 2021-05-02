@@ -1,0 +1,42 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "9",
+    "type": "Tutorial Step - Without Further Ado",
+    "definition": {
+        "text": "I know I'm ready to add some charts. Are you? Let's add the foundational nodes we need to start our chart.",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1619016875911
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Enough chit-chat, let’s start adding some charts! ",
+            "updated": 1617799641215
+        },
+        {
+            "style": "Callout",
+            "text": "Hover over the Testing Environment Dashboard and click Add Time Machine. ",
+            "updated": 1617799706852
+        },
+        {
+            "style": "Text",
+            "text": "Make sure to name it something you will recognize. A good naming practice is to reference the Trading System and type of Trading Session that will be connected to the chart.  For us that would be: ",
+            "updated": 1617800245292
+        },
+        {
+            "style": "Json",
+            "text": "Lightning Strike Backtesting Session"
+        },
+        {
+            "style": "Text",
+            "text": " "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "22",
+    "type": "Tutorial Step - Connection Two",
+    "definition": {
+        "text": "We are almost there! Go drag your Time Machine back over here and make the last connection.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1619024620415
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Under the Session Reference node you will see the Trading Mine Products node we are after."
+        },
+        {
+            "style": "Callout",
+            "text": "Now create a reference between your new Layer Manager and the Trading Mind Products node.",
+            "updated": 1617886479339
+        },
+        {
+            "style": "Success",
+            "text": "If you hooked it up correctly, the name Masters should appear over the layer manager."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

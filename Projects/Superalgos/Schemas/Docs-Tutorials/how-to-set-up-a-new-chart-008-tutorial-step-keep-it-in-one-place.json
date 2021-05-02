@@ -1,0 +1,29 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "8",
+    "type": "Tutorial Step - Keep It in One Place",
+    "definition": {
+        "text": "Setting up a Time Machine will allow you to keep your data synchronized and accessible.",
+        "updated": 1617634554869,
+        "icon": {
+            "name": "time-machine",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Time Machine is all about synchronizing. Whether it’s matching up candles with volume indicators or seeing exactly when a buy order was placed by your Trading Strategy, the time machine is your best friend in the Charting Space.",
+            "updated": 1617635549811
+        },
+        {
+            "style": "Success",
+            "text": "One Time Machine in the Design Space will show up as one box, or set of Charts, in the Charting Space",
+            "updated": 1617634300917
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

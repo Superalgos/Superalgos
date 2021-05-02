@@ -8,18 +8,39 @@
             "name": "indicator-bot",
             "project": "Superalgos"
         },
-        "updated": 1616180582873
+        "updated": 1616180582873,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Se sei uno sviluppatore o hai una conoscenza, anche base, di JavaScript, puoi costruire i tuoi indicatori!",
+                "updated": 1619592159342
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This is a crucial feature of Superalgos, as trading intelligence can't emerge without the ability to analyze market data! Again, I'm not going to go through how to build indicators at this point, but I do wish to let you know that we've got you covered!",
-            "updated": 1616181744667
+            "updated": 1616181744667,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questa è una funzione chiave di Superalgos: una trading intelligence non può emergere senza capacità di analizzare dati di mercato! Non mi addentro su come costruire indicatori a questo punto, volevo solo ricordarti che potrai farlo!",
+                    "updated": 1619592280131
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "There is a comprehensive series of video tutorials explaining the entire process! Take a quick look at this page in the Docs!",
-            "updated": 1616181770763
+            "updated": 1616181770763,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "C'è una serie di video tutorial completa che spiega l'intero processo! Dai un'occhiata alla pagina sui Docs!",
+                    "updated": 1619592318550
+                }
+            ]
         }
     ]
 }

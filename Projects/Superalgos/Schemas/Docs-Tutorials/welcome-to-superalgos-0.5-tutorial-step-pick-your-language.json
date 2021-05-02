@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "1.5",
+    "type": "Tutorial Step - Pick Your Language",
+    "definition": {
+        "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome!",
+        "updated": 1619801502482,
+        "icon": {
+            "name": "en",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is how it works: the default language is English. If you choose any other language and there is a translation for the current page, then you get it in the selected language. Otherwise, you get it in English!",
+            "updated": 1619801342624
+        },
+        {
+            "style": "Callout",
+            "text": "Use the mouse wheel to scroll the page on the right downwards. Click on a flag to change the preferred language, if so you wish!",
+            "updated": 1619803411650
+        },
+        {
+            "style": "Note",
+            "text": "Only the Docs and tutorials may be translated, not the interface, nor titles!",
+            "updated": 1619804204225
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Naming Charts",
+    "definition": {
+        "text": "Naming nodes is important to make sure your workspace stays organized. Not to mention it makes it easier to know which chart you are looking at in the Charting Space!",
+        "updated": 1620009986762,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Make sure to name Dashboards with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and network name.  For us that would be:",
+            "updated": 1620009736665
+        },
+        {
+            "style": "Json",
+            "text": "Testing Environment My Computer"
+        },
+        {
+            "style": "Text",
+            "text": "When naming a Time Machine it is helpful to reference the Trading System and type of Trading Session that will be connected to the chart. For us that would be:"
+        },
+        {
+            "style": "Json",
+            "text": "Lightning Strike Backtesting Session"
+        }
+    ]
+}

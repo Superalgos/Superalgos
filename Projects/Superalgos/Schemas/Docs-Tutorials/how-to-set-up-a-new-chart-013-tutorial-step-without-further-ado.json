@@ -1,0 +1,42 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Without Further Ado",
+    "definition": {
+        "text": "I know I'm ready to customize some charts. Are you? Let's walk through how to add the foundational nodes we need to start our chart.",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1620008604043
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I have already set up the dashboard and time machine you will need, but let's talk through how you could add them yourself in the future.",
+            "updated": 1620008836878
+        },
+        {
+            "style": "List",
+            "text": "To add a Dashboard hover over the Project Dashboards node and click Add Dashboard.",
+            "updated": 1620008972751
+        },
+        {
+            "style": "List",
+            "text": "To add a Time Machine hover over your Dashboard and click Add Time Machine."
+        },
+        {
+            "style": "Note",
+            "text": "A time machine has three scales (Rate, Time, and Time Frame). These are necessary for a time machine to work correctly.",
+            "updated": 1620009225495
+        },
+        {
+            "style": "Text",
+            "text": " "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

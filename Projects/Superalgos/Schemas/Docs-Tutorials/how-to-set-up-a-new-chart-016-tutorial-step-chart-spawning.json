@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Chart Spawning",
+    "definition": {
+        "text": "One thing to keep in mind when adding Time Machines is that they will often spawn on top of other charts within the Charting Space.",
+        "updated": 1620045784065,
+        "icon": {
+            "name": "mouse-left-click",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's get a little practice organizing our charting space. Once you begin adding more and more time machines this will become increasingly important!",
+            "updated": 1620046313656
+        },
+        {
+            "style": "Callout",
+            "text": "Arranging the charts by dragging them side by side.",
+            "updated": 1620045937192
+        },
+        {
+            "style": "Success",
+            "text": "Remember, to move a chart hold Shift and drag with a left-click.",
+            "updated": 1620046117168
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

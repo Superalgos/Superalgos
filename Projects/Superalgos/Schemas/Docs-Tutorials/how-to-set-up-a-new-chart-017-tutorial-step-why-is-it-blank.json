@@ -18,13 +18,22 @@
         },
         {
             "style": "Callout",
-            "text": "Find the Layer Manager for the Timeline Chart you added within your Time Machine. Use your mouse wheel to scroll a few times.",
-            "updated": 1619020968459
+            "text": "Find the Layer Manager for the Timeline Chart you added. Use your mouse to scroll a few times.",
+            "updated": 1620046806923
         },
         {
             "style": "Text",
-            "text": "No matter how hard you scroll nothing happens does it? Don't worry, nothing is broken! We just haven’t hooked it up to any of your data. Let’s change that!",
-            "updated": 1619022736646
+            "text": "No matter how hard you scroll nothing happens does it? Don't worry, nothing is broken! We just haven’t hooked it up to any of your data. Let’s change that! ",
+            "updated": 1620046673656
+        },
+        {
+            "style": "Note",
+            "text": "A Layer Manager's name is inherited from its Timeline Chart. As you can see, your naming Matters!",
+            "updated": 1620047088154
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

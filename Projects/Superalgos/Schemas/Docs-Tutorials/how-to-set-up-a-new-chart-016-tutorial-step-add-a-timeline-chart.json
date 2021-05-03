@@ -18,13 +18,18 @@
         },
         {
             "style": "Text",
-            "text": "Just like with time machines, giving a helpful name to a Timeline Chart is important. A good naming practice is to name timeline charts after the Data Mine or Data Product with which it will be connected. Right now we will be adding Masters Data Mine data to this timeline chart. So a helpful name would be:",
-            "updated": 1619019217197
+            "text": "Giving a helpful name to a Timeline Chart is important. A good naming practice is to reference the Data Mine or Data Product with which it will be connected. Right now we will be adding Masters Data Mine data to this timeline chart. A helpful name would be:",
+            "updated": 1620045091728
         },
         {
             "style": "Json",
-            "text": "Masters Data Mine Layers",
-            "updated": 1619019237136
+            "text": "Masters Layers",
+            "updated": 1620044855601
+        },
+        {
+            "style": "Text",
+            "text": "Make sure your title is short enough to fit within the label box!",
+            "updated": 1620045214357
         },
         {
             "style": "Text",

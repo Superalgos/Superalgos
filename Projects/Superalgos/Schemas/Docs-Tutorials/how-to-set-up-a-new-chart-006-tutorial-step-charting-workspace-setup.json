@@ -13,22 +13,17 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You should see the Masters, Sparta, and Alpha data mine plugins. These give us access to a range of interesting indicators.",
-            "updated": 1619996975578
-        },
-        {
-            "style": "Note",
-            "text": "For this tutorial we will only be using the Masters Data Mine. My friends will teach you how to create charts using the other data mines later.",
-            "updated": 1619995403206
-        },
-        {
-            "style": "Text",
-            "text": "I also installed the Lighting Strike Trading System plugin. ",
-            "updated": 1619997010723
+            "text": "You should see the Masters, Sparta, and Alpha data mine plugins. These give us access to a range of interesting indicators. For this tutorial we will only be using the Masters Data Mine. My friends will teach you how to create charts using the other data mines later. I also installed the Lighting Strike Trading System plugin.",
+            "updated": 1620044502486
         },
         {
             "style": "Success",
             "text": "This is the same trading system you interacted with during the welcome tutorials."
+        },
+        {
+            "style": "Callout",
+            "text": "left-click to zoom back into the workspace.",
+            "updated": 1620049288666
         }
     ]
 }

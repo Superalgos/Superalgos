@@ -34,7 +34,8 @@
         },
         {
             "style": "List",
-            "text": "Topic or Tutorial name: The name given tu the Topic or Tutorial that you want to repaginate."
+            "text": "Topic or Tutorial name: The name given to the Topic or Tutorial that you want to repaginate.",
+            "updated": 1620006152656
         },
         {
             "style": "Title",

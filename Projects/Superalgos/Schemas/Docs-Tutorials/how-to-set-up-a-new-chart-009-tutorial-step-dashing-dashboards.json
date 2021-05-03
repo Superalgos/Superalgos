@@ -1,6 +1,6 @@
 {
     "tutorial": "How to Set up a New Chart",
-    "pageNumber": "6",
+    "pageNumber": 9,
     "type": "Tutorial Step - Dashing Dashboards",
     "definition": {
         "text": "The first node we will learn about today is the Dashboard. A Dashboard helps us stay organized.",
@@ -18,8 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "Expand the Charting Space node and take a look at the Dashboards underneath. What do you notice? ",
-            "updated": 1617798044669
+            "text": "Take a few minutes and look around this hierarchy.  What do you notice?",
+            "updated": 1620008481214
         },
         {
             "style": "Text",

@@ -1,10 +1,10 @@
 {
     "tutorial": "How to Set up a New Chart",
-    "pageNumber": "9.2",
+    "pageNumber": 15,
     "type": "Tutorial Step - I See a Chart!",
     "definition": {
-        "text": "Let's take a quick look at the Charting Space and check out our new Time Machine.  What do you see?",
-        "updated": 1619018861614,
+        "text": "Let's take a quick look at the Charting Space and check out our Time Machines. What do you see?",
+        "updated": 1620010111613,
         "icon": {
             "name": "chart-points",
             "project": "Superalgos"
@@ -13,12 +13,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You should see three Time Machines. ",
-            "updated": 1619018763898
+            "text": "You should see two Time Machines.",
+            "updated": 1620010122852
         },
         {
             "style": "Callout",
-            "text": "Read the titles and find the one you just added! "
+            "text": "Read the titles and find the one you have been looking at in the Design Space!",
+            "updated": 1620010147964
         },
         {
             "style": "Text",

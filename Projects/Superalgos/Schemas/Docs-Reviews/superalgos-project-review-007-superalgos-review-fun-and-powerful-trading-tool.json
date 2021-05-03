@@ -1,0 +1,26 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 7,
+    "type": "Superalgos Review - Fun and powerful trading tool!",
+    "definition": {
+        "text": "Superalgos is the perfect blend of an entry-level interface, with powerful tools for trading and analyzing data.",
+        "updated": 1619776163739
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "My first impression of superalgos was a bit mixed, but after going through the tutorials I warmed up to the software a lot. While the interface can be a bit difficult to navigate at times, this makes it a bit challenging and therefore fun. I am especially exciting to experiment with data mines and trading systems.",
+            "updated": 1619776228324
+        },
+        {
+            "style": "Text",
+            "text": "The community surrounding the project is one of the greatest attractions, as well as the fact that the software isn't being run through a third party website controlling the data. I look forward to being an active contributor and especially hope to be able to learn and contribute in the machine learning subject. Really excited that the new version is incorporating TensorFlow!",
+            "updated": 1619860799196
+        },
+        {
+            "style": "Text",
+            "text": "maxspecktor",
+            "updated": 1619860667407
+        }
+    ]
+}

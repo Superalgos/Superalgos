@@ -218,22 +218,36 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 # Docker Deployments
 
+Docker container images can be found at https://github.com/users/Superalgos/packages/container/package/superalgos
+
 If you wish to run Superalgos over docker platform, follow these steps.
 
 ## 1. Install Docker
 
 Follow the link to [install docker](https://docs.docker.com/engine/install/).
 
-## 2. Login and Run
+## 2. Run
+
+You will need to create local storage directories beforehand, by example with `mkdir Data-Storage Log-Files My-Workspaces`
 
 ```
-docker login ghcr.io --username your-github-username --password-stdin
-```
-```
-docker run -p 18041:18041 -p 34248 superalgos/superalgos
+docker run \
+  -d \
+  --rm \
+  --name superalgos \
+  -p 18041:18041 \
+  -p 34248:34248 \
+  -v $(pwd)/Data-Storage:/app/Data-Storage \
+  -v $(pwd)/Log-Files:/app/Log-Files \
+  -v $(pwd)/My-Workspaces:/app/My-Workspaces \
+  ghcr.io/superalgos/superalgos:latest
 ```
 
-Now you can access to the Superalgos UI.
+Now you can access to the Superalgos UI at http://127.0.0.1:34248
+
+To see console logs you can use `docker logs superalgos -f`
+
+When you're done just exec `docker kill superalgos`
 
 **Note:** This has not been extensively tested yet. If you run into troubles, please contact us at the [Superalgos Support Group](https://t.me/superalgossupport).
 
@@ -317,7 +331,7 @@ No problem, code or integrate libraries with your own version of any component a
 * Superalgos is easy to learn.
 * Superalgos is easy to debug.
 * Superalgos is well documented.
-* You have free online support via Telegram.
+* You have free online support via Telegram and Discord.
 
 ## Superalgos Saves You Money
 
@@ -349,7 +363,9 @@ No problem, code or integrate libraries with your own version of any component a
 
 # Support
 
-The Superalgos Community meets on several Telegram groups.
+We just opened a brand new [Discord server for Support and the Community](https://discord.gg/CGeKC6WQQb).
+
+We also meet on several Telegram groups, where it all started!
 
 > **BEWARE OF IMPERSONATORS — SCAMMERS ARE LURKING!**
 Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first. We will never ask you for API keys, coins, or cash. In fact, we will never ask you to trust us in any way. Our [Community Safetey Policy](https://superalgos.org/community-safety-policy.shtml) explains why. In short, we want to make it clear that if someone contacts you directly claiming to work with or for the project, it is a scam. Please report scammers in the Community group so that they may be banned, and to increase awareness of the problem, but also block them and report them to Telegram if the option is available.

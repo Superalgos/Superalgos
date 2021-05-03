@@ -8,18 +8,39 @@
             "name": "bullet-error",
             "project": "Superalgos"
         },
-        "updated": 1615978752612
+        "updated": 1615978752612,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ricordi che ho detto che i file plugin vengono ricreati ogni volta che ricarichi il Workspace? Questo ha delle conseguenze immediate...",
+                "updated": 1619590273553
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Warning",
             "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1615978808209
+            "updated": 1615978808209,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le gerarchie incluse come plugins non sono salvate a livello del workspace, quindi i cambiamenti che applichi ai loro oggetti non sono persistenti. Se vuoi modificare un plugin e mantenere i cambiamenti in futuro, devi clonarlo o fare il backup e lavorare sulla copia.",
+                    "updated": 1619590378028
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "I will go through some specific use cases in the next few steps!",
-            "updated": 1615978913703
+            "updated": 1615978913703,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nei prossimi step vedremo più in dettaglio quanto detto!",
+                    "updated": 1619590413453
+                }
+            ]
         }
     ]
 }

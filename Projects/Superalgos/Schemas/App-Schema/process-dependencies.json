@@ -1,0 +1,67 @@
+{
+    "type": "Process Dependencies",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Status Dependency",
+            "relatedUiObject": "Status Dependency",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Mine Dependencies",
+            "relatedUiObject": "Data Mine Data Dependencies",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Data Mine Dependencies",
+            "label": "Add All Data Mine Dependencies",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Data Mine Data Dependencies",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Dependency",
+            "relatedUiObject": "Data Dependency",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Process Definition->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "statusDependencies",
+            "type": "array",
+            "childType": "Status Dependency",
+            "autoAdd": true
+        },
+        {
+            "name": "dataDependencies",
+            "type": "array",
+            "childType": "Data Dependency",
+            "autoAdd": false
+        },
+        {
+            "name": "dataMineDataDependencies",
+            "type": "array",
+            "childType": "Data Mine Data Dependencies",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "processDependencies"
+}

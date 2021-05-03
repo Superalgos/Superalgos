@@ -1,0 +1,96 @@
+{
+    "type": "Trading Process Instance",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "session",
+            "label": "Add Backtesting Session",
+            "relatedUiObject": "Backtesting Session",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "session",
+            "label": "Add Live Trading Session",
+            "relatedUiObject": "Live Trading Session",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "session",
+            "label": "Add Forward Testing Session",
+            "relatedUiObject": "Forward Testing Session",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "session",
+            "label": "Add Paper Trading Session",
+            "relatedUiObject": "Paper Trading Session",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "executionStartedEvent",
+            "label": "Add Execution Started Event",
+            "relatedUiObject": "Execution Started Event",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent",
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Process Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Trading Bot Instance->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "session",
+            "type": "node",
+            "childType": "Backtesting Session"
+        },
+        {
+            "name": "session",
+            "type": "node",
+            "childType": "Paper Trading Session"
+        },
+        {
+            "name": "session",
+            "type": "node",
+            "childType": "Forward Testing Session"
+        },
+        {
+            "name": "session",
+            "type": "node",
+            "childType": "Live Trading Session"
+        },
+        {
+            "name": "executionStartedEvent",
+            "type": "node",
+            "childType": "Execution Started Event",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "processes"
+}

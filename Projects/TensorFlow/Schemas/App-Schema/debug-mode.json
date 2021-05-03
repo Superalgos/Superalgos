@@ -1,0 +1,22 @@
+{
+    "type": "Debug Mode",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Environment Flags->"
+    },
+    "propertyNameAtParent": "mode",
+    "childrenNodesProperties": [],
+    "icon": "tensorflow"
+}

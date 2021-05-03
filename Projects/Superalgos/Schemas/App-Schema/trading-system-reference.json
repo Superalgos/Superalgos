@@ -1,0 +1,26 @@
+{
+    "type": "Trading System Reference",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Trading System->"
+    },
+    "propertyNameAtParent": "tradingSystemReference"
+}

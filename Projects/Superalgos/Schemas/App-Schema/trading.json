@@ -1,0 +1,31 @@
+{
+    "type": "Trading",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Trading System",
+            "relatedUiObject": "Trading System",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Trading Engine",
+            "relatedUiObject": "Trading Engine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": false,
+    "level": 2,
+    "propertyNameAtParent": "mines"
+}

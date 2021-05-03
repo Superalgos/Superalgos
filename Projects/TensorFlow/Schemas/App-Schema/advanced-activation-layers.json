@@ -1,0 +1,101 @@
+{
+    "type": "Advanced Activation Layers",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Elu Layer",
+            "relatedUiObject": "Elu Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Leaky Relu Layer",
+            "relatedUiObject": "Leaky Relu Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Prelu Layer",
+            "relatedUiObject": "Prelu Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Relu Layer",
+            "relatedUiObject": "Relu Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Softmax Layer",
+            "relatedUiObject": "Softmax Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Thresholded Relu Layer",
+            "relatedUiObject": "Thresholded Relu Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Sequential layer->"
+    },
+    "propertyNameAtParent": "typeOfLayer",
+    "childrenNodesProperties": [
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Elu Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Leaky Relu Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Prelu Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Relu Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Softmax Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Thresholded Relu Layer"
+        }
+    ],
+    "icon": "tensorflow"
+}

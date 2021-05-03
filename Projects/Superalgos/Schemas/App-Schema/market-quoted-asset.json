@@ -1,0 +1,28 @@
+{
+    "type": "Market Quoted Asset",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Asset->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market->"
+    },
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "propertyNameAtParent": "quotedAsset"
+}

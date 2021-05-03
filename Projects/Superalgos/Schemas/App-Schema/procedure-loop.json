@@ -1,0 +1,36 @@
+{
+    "type": "Procedure Loop",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "procedureJavascriptCode",
+            "label": "Add Code",
+            "relatedUiObject": "Procedure Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Calculations Procedure->Data Building Procedure->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "procedureJavascriptCode",
+            "type": "node",
+            "childType": "Procedure Javascript Code",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "loop"
+}

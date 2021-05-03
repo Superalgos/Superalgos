@@ -545,7 +545,7 @@ function newConditionEditor() {
             let dataMine = rootNode
             let dataMineName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(dataMine.payload, 'codeName')
             selector[dataMineName] = {}
-            let bots = dataMine.sensorBots.concat(dataMine.indicatorBots)
+            let bots = dataMine.sensorBots.concat(dataMine.apiDataFetcherBots).concat(dataMine.indicatorBots)
             for (let j = 0; j < bots.length; j++) {
                 let bot = bots[j]
                 let botName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(bot.payload, 'codeName')

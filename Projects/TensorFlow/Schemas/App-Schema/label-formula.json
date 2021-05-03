@@ -1,0 +1,35 @@
+{
+    "type": "Label Formula",
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.formulaEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "formula": true
+    },
+    "initialValues": {
+        "code": ""
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Data Label->"
+    },
+    "propertyNameAtParent": "labelFormula",
+    "childrenNodesProperties": [],
+    "icon": "tensorflow"
+}

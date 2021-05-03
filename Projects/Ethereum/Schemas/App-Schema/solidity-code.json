@@ -1,0 +1,34 @@
+{
+    "type": "Solidity Code",
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.codeEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "ethereum",
+            "iconPathOff": "ethereum"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "code": true
+    },
+    "initialValues": {
+        "code": "// Type your smart contract code here."
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Smart Contract->"
+    },
+    "propertyNameAtParent": "solidityCode",
+    "addLeftIcons": true,
+    "level": 2,
+    "icon": "ethereum"
+}

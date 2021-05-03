@@ -1,0 +1,130 @@
+{
+    "type": "Trading Episode",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Current->"
+    },
+    "propertyNameAtParent": "tradingEpisode",
+    "childrenNodesProperties": [
+        {
+            "name": "serialNumber",
+            "type": "node",
+            "childType": "Serial Number",
+            "autoAdd": true
+        },
+        {
+            "name": "identifier",
+            "type": "node",
+            "childType": "Identifier",
+            "autoAdd": true
+        },
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "beginRate",
+            "type": "node",
+            "childType": "Begin Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "endRate",
+            "type": "node",
+            "childType": "End Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "status",
+            "type": "node",
+            "childType": "Status",
+            "autoAdd": true
+        },
+        {
+            "name": "exitType",
+            "type": "node",
+            "childType": "Exit Type",
+            "autoAdd": true
+        },
+        {
+            "name": "headOfTheMarket",
+            "type": "node",
+            "childType": "Head Of The Market",
+            "autoAdd": true
+        },
+        {
+            "name": "processDate",
+            "type": "node",
+            "childType": "Process Date",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeBaseAsset",
+            "type": "node",
+            "childType": "Episode Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeQuotedAsset",
+            "type": "node",
+            "childType": "Episode Quoted Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "tradingEpisodeCounters",
+            "type": "node",
+            "childType": "Trading Episode Counters",
+            "autoAdd": true
+        },
+        {
+            "name": "tradingEpisodeStatistics",
+            "type": "node",
+            "childType": "Trading Episode Statistics",
+            "autoAdd": true
+        },
+        {
+            "name": "distanceToTradingEvent",
+            "type": "node",
+            "childType": "Distance To Trading Event",
+            "autoAdd": true
+        },
+        {
+            "name": "candle",
+            "type": "node",
+            "childType": "Candle",
+            "autoAdd": true
+        },
+        {
+            "name": "cycle",
+            "type": "node",
+            "childType": "Cycle",
+            "autoAdd": true
+        }
+    ]
+}

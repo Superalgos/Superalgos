@@ -35,7 +35,7 @@
             } else {
                 /*
                 Here we will need to scan the PROJECTS SCHEMA in order to find the botModule 
-                defined for this Sensor Bot.
+                defined for this Bot.
                 */
                 let botModuleDefinition = TS.projects.superalgos.functionLibraries.taskFunctions.getBotModuleByName(
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule

@@ -1,0 +1,45 @@
+{
+    "type": "Signals Provider",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Send Webhook Test Message",
+            "label": "Send Test Message",
+            "workingLabel": "Sending Message",
+            "workDoneLabel": "Message Sent",
+            "workFailedLabel": "Message not Delived",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Signals Providers->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"webhookURL\": \"Webhook/New-Message/Trading-View/binance/BTC-USDT\",\n\"testMessage\": \"\" \n}"
+    },
+    "propertyNameAtParent": "signalsProviders",
+    "childrenNodesProperties": [],
+    "icon": "bitcoin"
+}

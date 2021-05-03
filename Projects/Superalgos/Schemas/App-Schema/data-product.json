@@ -1,0 +1,28 @@
+{
+    "type": "Data Product",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Product Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Data Products->Data Product Folder->Bot Products->Trading Session Reference->"
+    },
+    "propertyNameAtParent": "dataProducts",
+    "childrenNodesProperties": []
+}

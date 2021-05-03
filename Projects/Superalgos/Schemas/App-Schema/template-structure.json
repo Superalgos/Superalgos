@@ -1,0 +1,43 @@
+{
+    "type": "Template Structure",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "propertyNameAtParent": "templateStructure",
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Template Script->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "taskManagers",
+            "type": "node",
+            "childType": "Task Manager"
+        },
+        {
+            "name": "marketDataProducts",
+            "type": "node",
+            "childType": "Market Data Products"
+        },
+        {
+            "name": "tradingSessionReferences",
+            "type": "node",
+            "childType": "Trading Session Reference"
+        },
+        {
+            "name": "timeMachines",
+            "type": "node",
+            "childType": "Time Machine"
+        }
+    ]
+}

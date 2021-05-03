@@ -1,0 +1,33 @@
+{
+    "type": "Text Style",
+    "level": 4,
+    "propertyNameAtParent": "textStyle",
+    "attachingRules": {
+        "compatibleTypes": "->Text->Panel Data->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

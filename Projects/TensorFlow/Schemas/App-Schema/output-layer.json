@@ -1,0 +1,42 @@
+{
+    "type": "Output Layer",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "outputLabels",
+            "label": "Add Output Labels",
+            "relatedUiObject": "Output Labels",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Sequential layer->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Sequential Model->"
+    },
+    "propertyNameAtParent": "outputLayer",
+    "childrenNodesProperties": [
+        {
+            "name": "outputLabels",
+            "type": "node",
+            "childType": "Output Labels"
+        }
+    ],
+    "icon": "tensorflow"
+}

@@ -1,0 +1,21 @@
+{
+    "type": "ETH Balance",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Wallet Account->"
+    },
+    "propertyNameAtParent": "ethBalance",
+    "icon": "ethereum"
+}

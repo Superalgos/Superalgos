@@ -1,0 +1,57 @@
+{
+    "type": "Condition",
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.conditionEditor.activate",
+            "label": "Edit",
+            "relatedUiObject": "Condition"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "javascriptCode",
+            "label": "Add Code",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Fetch Code to Javascript Code",
+            "label": "Fetch from Javascript Code",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Push Code to Javascript Code",
+            "label": "Push to Javascript Code",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "editors": {
+        "condition": true
+    },
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Situation->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "javascriptCode",
+            "type": "node",
+            "childType": "Javascript Code",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "conditions"
+}

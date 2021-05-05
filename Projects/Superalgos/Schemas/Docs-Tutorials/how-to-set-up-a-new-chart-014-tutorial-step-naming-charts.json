@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Make sure to name Dashboards with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and network name.  For us that would be:",
-            "updated": 1620009736665
+            "text": "Make sure to name Dashboards with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and Network Node name. For us that would be:",
+            "updated": 1620208459743
         },
         {
             "style": "Json",

@@ -57,8 +57,8 @@
         },
         {
             "style": "Text",
-            "text": "Now, in terms of the base asset, your begin balance is 10,000 USDT and your end balance is 10,900 USDT (exchange fees are deducted from the balance). Also in terms of the quoted asset, your profit loss for the position is...",
-            "updated": 1611258484205
+            "text": "Now, in terms of the quoted asset, your begin balance is 10,000 USDT and your end balance is 10,900 USDT (exchange fees are deducted from the balance). Also in terms of the quoted asset, your profit loss for the position is...",
+            "updated": 1619116331161
         },
         {
             "style": "Json",

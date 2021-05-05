@@ -12,7 +12,7 @@ jobs:
     - id: repository
       uses: ASzc/change-string-case-action@v1
       with:
-        string: "${{ github.repository }}/${{ github.event.repository.name }}" 
+        string: "${{ github.repository }}"
     - uses: actions/checkout@v2
     - name: Preparation
       id: prep
@@ -20,8 +20,11 @@ jobs:
         REGISTRY="ghcr.io"
         IMAGE="${REGISTRY}/${{ steps.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }}"
-        if [[ $GITHUB_REF == ref/head/master ]]; then
+        if [[ $GITHUB_REF == refs/heads/master ]]; then
           TAGS="${TAGS},${IMAGE}:latest"
+        fi
+        if [[ $GITHUB_REF == refs/heads/develop ]]; then
+          TAGS="${TAGS},${IMAGE}:develop"
         fi
         echo ::set-output name=tags::${TAGS}
     - name: Login in to registry

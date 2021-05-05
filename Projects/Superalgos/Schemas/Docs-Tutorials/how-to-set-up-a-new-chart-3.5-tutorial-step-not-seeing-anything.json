@@ -1,0 +1,29 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": " 23.5",
+    "type": "Tutorial Step - Not Seeing Anything?",
+    "definition": {
+        "text": "Are you having trouble with the Trading Layers? It is important you know what you are looking for otherwise you might not find it.",
+        "updated": 1619024985292,
+        "icon": {
+            "name": "bot-data-dependencies",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "Remember to pay attention to the Time Frame and dates the session was run under. Otherwise you won’t see anything!",
+            "updated": 1617887429273
+        },
+        {
+            "style": "Success",
+            "text": "The Lightning Strike Backtesting Session was run on the one minute time frame from September 1 2020 to September 2 2020.",
+            "updated": 1617887385163
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

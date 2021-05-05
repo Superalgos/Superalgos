@@ -1,0 +1,20 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "5",
+    "type": "Tutorial Step - Your First Chart",
+    "definition": {
+        "text": "This tutorial will help you set up your first custom Chart. The foundational concepts you learn here will help you make the most out of Superalgo’s Charting Space.",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1619016455188
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In particular, we are going to hook up a Time Machine to the indicators of the Masters Data Mine. These indicators will be the core data we plot on our chart. For example, candles, bollinger bands, etc. We will also attach the Backtesting Session for the Lighting Strike Trading System. This will allow us to see the output from the trading system in our chart as well!",
+            "updated": 1619016520327
+        }
+    ]
+}

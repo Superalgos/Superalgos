@@ -1,0 +1,33 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "21",
+    "type": "Tutorial Step - Connection One",
+    "definition": {
+        "text": "Let's make the first connection. Go find your Time Machine and drag it back here.",
+        "icon": {
+            "name": "delink-node",
+            "project": "Superalgos"
+        },
+        "updated": 1617883855631
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first connection is between a Trading Session and the Time Machine we have been working on.  This reference tells our chart which Trading System and Session to listen for.",
+            "updated": 1617883945973
+        },
+        {
+            "style": "Callout",
+            "text": "Once you are back create a reference between your Time Machine and the Backtesting Session.  "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "These steps are the same for connecting to a Live Trading Session. The only difference is the Session will be found under the Production Trading Task hierarchy instead.",
+            "updated": 1617884102564
+        }
+    ]
+}

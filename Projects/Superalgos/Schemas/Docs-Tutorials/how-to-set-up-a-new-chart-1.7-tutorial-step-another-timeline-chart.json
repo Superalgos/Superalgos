@@ -1,0 +1,28 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "21.7",
+    "type": "Tutorial Step - Another Timeline Chart",
+    "definition": {
+        "text": "To connect with our Trading System we will need another Timeline Chart. Let's go ahead and add it!",
+        "updated": 1619024596906,
+        "icon": {
+            "name": "timeline-chart",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go find your Time Machine and add a new Timeline Chart."
+        },
+        {
+            "style": "Text",
+            "text": "Remember to name it for easy recognition. If we name it according to type of mine or data. A good name would be:",
+            "updated": 1617885817072
+        },
+        {
+            "style": "Json",
+            "text": "Trading System Layers"
+        }
+    ]
+}

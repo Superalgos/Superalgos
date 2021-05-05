@@ -1,0 +1,28 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "19",
+    "type": "Tutorial Step - Add the Layers",
+    "definition": {
+        "text": "This is an easy step to forget but so important. Add those layers so we can see the data in our chart!",
+        "updated": 1619024347856,
+        "icon": {
+            "name": "layer",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The last step is to hover over the Layer Manager and click Add All Mine Layers. ",
+            "updated": 1617850457047
+        },
+        {
+            "style": "Text",
+            "text": "This will automatically add references to all of the individual layers produced by the Data Mine."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": "24",
+    "type": "Tutorial Step - Easy as 1, 2, 3",
+    "definition": {
+        "text": "You did it! I knew you could. You have successfully added you first custom chart. I hope you had as much fun as I did!",
+        "icon": {
+            "name": "charting-space",
+            "project": "Superalgos"
+        },
+        "updated": 1619025041063
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Congratulations, your custom chart is now hooked up and working! You now know the basic steps of chart creation. You can repeat the same steps, adding more Timeline Charts, to connect any combination of data you want. Just a quick reminder, the three types of nodes you can connect a Timeline Chart’s Layer Manager to are:",
+            "updated": 1617886835178
+        },
+        {
+            "style": "List",
+            "text": "Data Mine Products – for Market Data and indicators.",
+            "updated": 1617453477817
+        },
+        {
+            "style": "List",
+            "text": "Trading Mine Products– for the results of a Trading System’s Backtesting Session or Live Trading Session.",
+            "updated": 1617453541079
+        },
+        {
+            "style": "List",
+            "text": "Learning Mine Products – for data output from learning algorithms. "
+        }
+    ]
+}

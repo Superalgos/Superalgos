@@ -157,7 +157,21 @@ then
 node run minMemo noBrowser
 ```
 
-## 2. Usage Notes
+## 2. Add a Desktop/Launcher Shortcut for Superalgos 
+
+**A.** For **Windows** Users
+
+Open a file browser and navigate to the Superalgos Directory.
+
+Under the folder titled `Launch Scripts` double-click the script `create-shortcut-windows.bat`. 
+
+You will see a shortcut added to your desktop. You can use it to launch Superalgos like any other program on your computer.
+
+**B.** For **Ubuntu** Users
+
+Script under development
+
+## 3. Usage Notes
 
 We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 

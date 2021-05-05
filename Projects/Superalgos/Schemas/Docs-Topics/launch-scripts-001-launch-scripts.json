@@ -1,0 +1,133 @@
+{
+    "topic": "Launch Scripts",
+    "pageNumber": "1",
+    "type": "Launch Scripts",
+    "definition": {
+        "text": "There are a number of scripts to help make lauching Superalgos easier and feel more native. The eventual goal is to make Superalgos feel like any other program installed on an operating system.",
+        "updated": 1620052836275
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The current solution is to use two sets of scripts:",
+            "updated": 1620051940824
+        },
+        {
+            "style": "List",
+            "text": "One set to execute node run and actually start Superalgos.",
+            "updated": 1620051973593
+        },
+        {
+            "style": "List",
+            "text": "The second to create and place shortcuts to these launch scripts for convenient use.",
+            "updated": 1620052849823
+        },
+        {
+            "style": "Text",
+            "text": "Due to the nature of scripts, there are different scripts for each type of operating system. The following page includes a description of each script and what it accomplishes.",
+            "updated": 1620052862888
+        },
+        {
+            "style": "Note",
+            "text": "All launch related scripts are held in the Lauch Scripts folder in the main Superalgos directory."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Basic Launch Scripts"
+        },
+        {
+            "style": "Text",
+            "text": "These scripts execute the node run command to start Superalgos. They can be run from command line calls or a file browser.",
+            "updated": 1620052707525
+        },
+        {
+            "style": "Subtitle",
+            "text": "Windows "
+        },
+        {
+            "style": "Json",
+            "text": "launch-windows.bat"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Linux"
+        },
+        {
+            "style": "Json",
+            "text": "launch-linux.sh"
+        },
+        {
+            "style": "Text",
+            "text": "This script uses the x-terminal-emulator command for maximum compatiblity across linux flavors."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Mac"
+        },
+        {
+            "style": "Important",
+            "text": "Collaborator needed.",
+            "updated": 1620052924921
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Desktop/Launcher Shortcut Scripts",
+            "updated": 1620052680945
+        },
+        {
+            "style": "Text",
+            "text": "These scripts automatically create and place shortcuts to the lauch scripts. They can be run from the command line or file browser.",
+            "updated": 1620052750606
+        },
+        {
+            "style": "Subtitle",
+            "text": "Windows"
+        },
+        {
+            "style": "Json",
+            "text": "create-shortcut-windows.bat",
+            "updated": 1620053219653
+        },
+        {
+            "style": "Text",
+            "text": "Currently this script only places a shortcut on the user's desktop. Revision in progress to also place shortcut in the start menu.",
+            "updated": 1620053366379
+        },
+        {
+            "style": "Subtitle",
+            "text": "Ubuntu",
+            "updated": 1620053330166
+        },
+        {
+            "style": "Json",
+            "text": "Script under development",
+            "updated": 1620053230467
+        },
+        {
+            "style": "Subtitle",
+            "text": "Mac"
+        },
+        {
+            "style": "Important",
+            "text": "Collaborator needed."
+        },
+        {
+            "style": "Title",
+            "text": "Uninstall Shortcut Scripts",
+            "updated": 1620053489270
+        },
+        {
+            "style": "Important",
+            "text": "No scripts started yet. Manual deletion required.",
+            "updated": 1620053525531
+        }
+    ]
+}

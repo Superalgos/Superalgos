@@ -13,22 +13,26 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I have already set up the dashboard and time machine you will need, but let's talk through how you could add them yourself in the future.",
-            "updated": 1620008836878
+            "text": "The first thing we need to do is add a fresh dashboard.",
+            "updated": 1620260120535
         },
         {
-            "style": "List",
-            "text": "To add a Dashboard hover over the Project Dashboards node and click Add Dashboard.",
-            "updated": 1620008972751
+            "style": "Callout",
+            "text": "Hover over the Project Dashboards node and click Add Dashboard."
         },
         {
-            "style": "List",
-            "text": "To add a Time Machine hover over your Dashboard and click Add Time Machine."
+            "style": "Text",
+            "text": "Make sure to name your new Dashboard with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and something distinctive about the charts you plan on adding. For us that would be:",
+            "updated": 1620260056355
         },
         {
-            "style": "Note",
-            "text": "A time machine has three scales (Rate, Time, and Time Frame). These are necessary for a time machine to work correctly.",
-            "updated": 1620009225495
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Json",
+            "text": "Testing Environment My Custom Chart",
+            "updated": 1620260022985
         },
         {
             "style": "Text",

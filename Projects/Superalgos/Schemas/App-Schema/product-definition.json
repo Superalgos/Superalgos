@@ -1,0 +1,88 @@
+{
+    "type": "Product Definition",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "record",
+            "label": "Add Record Definition",
+            "relatedUiObject": "Record Definition",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Dataset Definition",
+            "relatedUiObject": "Dataset Definition",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Items",
+            "relatedUiObject": "Calculations Procedure",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"Product-Name\", \n  \"singularVariableName\": \"productName\", \n  \"pluralVariableName\": \"productNames\"\n}"
+    },
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Plotter Module->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "datasets",
+            "type": "array",
+            "childType": "Dataset Definition",
+            "autoAdd": true
+        },
+        {
+            "name": "record",
+            "type": "node",
+            "childType": "Record Definition",
+            "autoAdd": true
+        },
+        {
+            "name": "calculations",
+            "type": "node",
+            "childType": "Calculations Procedure"
+        },
+        {
+            "name": "dataBuilding",
+            "type": "node",
+            "childType": "Data Building Procedure"
+        },
+        {
+            "name": "apiQueryParameters",
+            "type": "node",
+            "childType": "API Query Parameters",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "products"
+}

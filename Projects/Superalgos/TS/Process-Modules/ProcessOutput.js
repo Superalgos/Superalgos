@@ -31,6 +31,9 @@
                         botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                     }
                     if (botNode === undefined) { 
+                        botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
+                    }
+                    if (botNode === undefined) { 
                         botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                     }
 
@@ -120,6 +123,9 @@
                 }
                 if (botNode === undefined) { 
                     botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
+                }
+                if (botNode === undefined) { 
+                    botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
                 }
                 if (botNode === undefined) { 
                     botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')

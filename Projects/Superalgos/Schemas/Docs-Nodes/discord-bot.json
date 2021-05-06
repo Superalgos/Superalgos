@@ -1,0 +1,14 @@
+{
+    "type": "Discord Bot",
+    "definition": {
+        "text": "The Discord Bot node is used for defining the configuration for a Discord Bot. This bot allows Superalgos to send announcements to a Discord Channel.",
+        "updated": 1619546769461
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "In order to use the Discord Bot, you will need to create a new Webhook Integration in Discord. The only configuration that is required within Superalgos is the webhookURL.",
+            "updated": 1619546875758
+        }
+    ]
+}

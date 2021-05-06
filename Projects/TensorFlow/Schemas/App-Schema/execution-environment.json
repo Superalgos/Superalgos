@@ -1,0 +1,88 @@
+{
+    "type": "Execution Environment",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "backend",
+            "label": "Add WebGL Backend",
+            "relatedUiObject": "WebGL Backend",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "backend",
+            "label": "Add NodeJS Backend",
+            "relatedUiObject": "NodeJS Backend",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "backend",
+            "label": "Add WASM Backend",
+            "relatedUiObject": "WASM Backend",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "backend",
+            "label": "Add CPU Backend",
+            "relatedUiObject": "CPU Backend",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "environmentFlags",
+            "label": "Add Environment Flags",
+            "relatedUiObject": "Environment Flags",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->TensorFlow Library->"
+    },
+    "propertyNameAtParent": "executionEnvironment",
+    "childrenNodesProperties": [
+        {
+            "name": "backend",
+            "type": "node",
+            "childType": "WebGL Backend"
+        },
+        {
+            "name": "backend",
+            "type": "node",
+            "childType": "NodeJS Backend"
+        },
+        {
+            "name": "backend",
+            "type": "node",
+            "childType": "WASM Backend"
+        },
+        {
+            "name": "backend",
+            "type": "node",
+            "childType": "CPU Backend"
+        },
+        {
+            "name": "environmentFlags",
+            "type": "node",
+            "childType": "Environment Flags",
+            "autoAdd": true
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "type": "API Data Fetcher Bot Instance",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Process Instance",
+            "relatedUiObject": "API Data Fetcher Process Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"startDate\": \"2020-01-01\"\n}"
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Task->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processes",
+            "type": "array",
+            "childType": "API Data Fetcher Process Instance",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "bot",
+    "icon": "bitcoin"
+}

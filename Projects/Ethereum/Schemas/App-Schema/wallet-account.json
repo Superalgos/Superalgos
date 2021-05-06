@@ -1,0 +1,62 @@
+{
+    "type": "Wallet Account",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add ETH Balance",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "ethBalance",
+            "relatedUiObject": "ETH Balance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Token Balance",
+            "relatedUiObject": "Token Balance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"address\": \"\",  \n\"privateKey\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 0,
+    "attachingRules": {
+        "compatibleTypes": "->Ethereum Wallet->"
+    },
+    "propertyNameAtParent": "walletAccounts",
+    "childrenNodesProperties": [
+        {
+            "name": "ethBalance",
+            "type": "node",
+            "childType": "ETH Balance"
+        },
+        {
+            "name": "tokenBalances",
+            "type": "array",
+            "childType": "Token Balance"
+        }
+    ],
+    "icon": "ethereum",
+    "isPersonalData": true
+}

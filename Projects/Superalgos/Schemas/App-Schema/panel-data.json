@@ -1,0 +1,63 @@
+{
+    "type": "Panel Data",
+    "level": 4,
+    "propertyNameAtParent": "panelData",
+    "editors": {
+        "config": true
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Plotter Panel->"
+    },
+    "initialValues": {
+        "config": "{\n  \"valueDecimals\": 2\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "dataFormula",
+            "type": "node",
+            "childType": "Data Formula",
+            "autoAdd": true
+        },
+        {
+            "name": "textStyle",
+            "type": "node",
+            "childType": "Text Style",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dataFormula",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Data Formula",
+            "relatedUiObject": "Data Formula"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "textStyle",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text Style",
+            "relatedUiObject": "Text Style"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

@@ -1,0 +1,93 @@
+{
+    "type": "Limit Sell Order",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "orderRate",
+            "label": "Add Order Rate",
+            "relatedUiObject": "Order Rate",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "createOrderEvent",
+            "label": "Add Create Order Event",
+            "relatedUiObject": "Create Order Event",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "cancelOrderEvent",
+            "label": "Add Cancel Order Event",
+            "relatedUiObject": "Cancel Order Event",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "simulatedExchangeEvents",
+            "label": "Add Simulated Events",
+            "relatedUiObject": "Simulated Exchange Events",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Execution Algorithm->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Limit Order->"
+    },
+    "propertyNameAtParent": "limitSellOrders",
+    "childrenNodesProperties": [
+        {
+            "name": "orderRate",
+            "type": "node",
+            "childType": "Order Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "createOrderEvent",
+            "type": "node",
+            "childType": "Create Order Event",
+            "autoAdd": true
+        },
+        {
+            "name": "cancelOrderEvent",
+            "type": "node",
+            "childType": "Cancel Order Event"
+        },
+        {
+            "name": "simulatedExchangeEvents",
+            "type": "node",
+            "childType": "Simulated Exchange Events",
+            "autoAdd": true
+        }
+    ]
+}

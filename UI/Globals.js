@@ -1,12 +1,12 @@
 
-let canvas  
-let PROJECTS_ARRAY 
+let canvas
+let PROJECTS_ARRAY
 let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
 /* New Root object*/
 let UI = {
     projects: {}
-} 
+}
 
 /* User Interface Colors */
 const UI_COLOR = {
@@ -24,7 +24,39 @@ const UI_COLOR = {
     TITANIUM_YELLOW: "244,228,9",
     MANGANESE_PURPLE: "91,80,122",
     TURQUOISE: "74,207,217",
-    DARK_TURQUOISE: "2,149,170"
+    DARK_TURQUOISE: "2,149,170",
+    ORANGE_WEB: "252,163,17",
+    OXFORD_BLUE: "20,33,61",
+    BYZANTINE_PINK: "181,23,158",
+    TRUE_PURPLE: "114,9,183",
+    ULTRAMARINE_BLUE: "67,97,238",
+    OCEAN_GREEN: "116,198,157",
+    BOTTLE_GREEN: "45,106,79",
+    WINDSOR_TAN: "153,88,42",
+    CAMEL_TAN: "187,148,87",
+    PERSIAN_PLUM: "111,29,27",
+    APPLE_GREEN: "128,185,24",
+    MIDNIGHT_GREEN: "6,90,96",
+    RED_ORANGE: "255,72,0",
+    CARIBBEAN_GREEN: "59,206,172",
+    SILVER: "191,192,192",
+    NEON_GREEN: "15,252,31",
+    PINK: "255,77,78",
+    TENKAN_GREEN: "43,117,55",
+    TENKAN_ORANGE: "233,100,34",
+    SKY_BLUE: "133,206,255",
+    MDA_PURPLE: "126,71,255",
+    PERSIAN_GREEN: "27,153,139",
+    CYBER_GRAPE: "98,84,160",
+    TRUE_GREEN: "0,225,0",
+    TRUE_RED: "255,0,0",
+    TRUE_YELLOW: "255,255,0",
+    TRUE_BLUE: "0,0,255",
+    BROWN: "121,58,21",
+    JUNGLE_GREEN: "50,175,162",
+    LIGHT_PINK: "254,180,200",
+    JUNGLE_LIGHT: "165,223,210",
+    TRUE_ORANGE: "255,160,10"
 };
 
 /* User Interface Fonts */

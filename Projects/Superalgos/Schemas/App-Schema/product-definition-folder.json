@@ -1,0 +1,46 @@
+{
+    "type": "Product Definition Folder",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Product Definition",
+            "relatedUiObject": "Product Definition",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Product Definition Folder",
+            "relatedUiObject": "Product Definition Folder",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Bot->Learning Bot->Product Definition Folder->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "products",
+            "type": "array",
+            "childType": "Product Definition",
+            "autoAdd": false
+        },
+        {
+            "name": "productDefinitionFolders",
+            "type": "array",
+            "childType": "Product Definition Folder",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "productDefinitionFolders"
+}

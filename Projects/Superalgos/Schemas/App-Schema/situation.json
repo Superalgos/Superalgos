@@ -1,0 +1,47 @@
+{
+    "type": "Situation",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Condition",
+            "relatedUiObject": "Condition",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "conditions",
+            "type": "array",
+            "childType": "Condition",
+            "autoAdd": true
+        },
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula"
+        }
+    ],
+    "propertyNameAtParent": "situations"
+}

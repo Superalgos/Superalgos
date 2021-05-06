@@ -1,0 +1,52 @@
+{
+    "type": "Trading Last",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Engine->"
+    },
+    "propertyNameAtParent": "tradingLast",
+    "childrenNodesProperties": [
+        {
+            "name": "position",
+            "type": "node",
+            "childType": "Position",
+            "autoAdd": true
+        },
+        {
+            "name": "strategy",
+            "type": "node",
+            "childType": "Strategy",
+            "autoAdd": true
+        },
+        {
+            "name": "limitOrders",
+            "type": "node",
+            "childType": "Limit Order",
+            "autoAdd": true
+        },
+        {
+            "name": "marketOrders",
+            "type": "node",
+            "childType": "Market Order",
+            "autoAdd": true
+        }
+    ]
+}

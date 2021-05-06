@@ -1,0 +1,51 @@
+{
+    "type": "Exchange Trading Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Trading Products",
+            "relatedUiObject": "Market Trading Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Market Trading Products",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market Trading Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Project Trading Products->"
+    },
+    "propertyNameAtParent": "exchangeTradingProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "marketTradingProducts",
+            "type": "array",
+            "childType": "Market Trading Products",
+            "autoAdd": false
+        }
+    ]
+}

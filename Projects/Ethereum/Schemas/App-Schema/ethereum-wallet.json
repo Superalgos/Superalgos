@@ -1,0 +1,46 @@
+{
+    "type": "Ethereum Wallet",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Client Reference",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "networkClientReference",
+            "relatedUiObject": "Network Client Reference",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Create Wallet Account",
+            "actionProject": "Ethereum",
+            "label": "Add Wallet Account",
+            "relatedUiObject": "Wallet Account",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "networkClientReference",
+            "type": "node",
+            "childType": "Network Client Reference",
+            "autoAdd": true
+        },
+        {
+            "name": "walletAccounts",
+            "type": "array",
+            "childType": "Wallet Account"
+        }
+    ],
+    "icon": "ethereum"
+}

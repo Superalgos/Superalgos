@@ -1,0 +1,21 @@
+{
+    "type": "Nodes Highlights",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Plotter Module->"
+    },
+    "icon": "expand-structure-of-nodes",
+    "propertyNameAtParent": "nodesHighlights"
+}

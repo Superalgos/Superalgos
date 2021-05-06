@@ -23,8 +23,8 @@
         },
         {
             "style": "Text",
-            "text": "That’s right! There is one Dashboard set up for Backtesting and one set up for Live Trading. Dashboards are a convenient way to group charts according to type or any other criteria, for that matter.",
-            "updated": 1619405061897
+            "text": "That’s right! There is one Dashboard set up for Backtesting, one for Live Trading, and a third for Learning Tasks. Dashboards are a convenient way to group charts according to type or any other criteria, for that matter.",
+            "updated": 1620249369756
         },
         {
             "style": "Text",

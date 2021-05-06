@@ -1,6 +1,6 @@
 {
     "tutorial": "How to Set up a New Chart",
-    "pageNumber": 16,
+    "pageNumber": 15,
     "type": "Tutorial Step - Chart Spawning",
     "definition": {
         "text": "One thing to keep in mind when adding Time Machines is that they will often spawn on top of other charts within the Charting Space.",
@@ -13,13 +13,17 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's get a little practice organizing our charting space. Once you begin adding more and more time machines this will become increasingly important!",
-            "updated": 1620046313656
+            "text": "Let's take a look around the Charting Space and find the time machine you added!",
+            "updated": 1620264582796
         },
         {
             "style": "Callout",
-            "text": "Arranging the charts by dragging them side by side.",
-            "updated": 1620045937192
+            "text": "Move the time machines around and look for the title you added to your time machine in the Design Space.",
+            "updated": 1620264649926
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Success",

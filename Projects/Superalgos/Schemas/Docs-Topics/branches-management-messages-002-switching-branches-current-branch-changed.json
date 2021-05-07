@@ -9,12 +9,13 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "Also remeber that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
-            "updated": 1610543634663
+            "text": "Also remember that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
+            "updated": 1620418475606
         },
         {
             "style": "Success",
-            "text": "Even though you are standing in a different branch now, that does not mean that this branch is up-to-date with the latest changes made by other contributors. To update it, please run the App Update Command."
+            "text": "Even though you are standing in a different branch now, that does not mean that this branch is up-to-date with the latest changes made by other contributors. To update it, after restarting, please run the App Update Command, then restart again.",
+            "updated": 1620418564696
         },
         {
             "style": "Note",

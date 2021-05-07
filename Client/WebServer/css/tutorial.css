@@ -6,6 +6,7 @@ border: 2px solid;
 border-color: #1b998b;
 border-radius: 8px;
 background-color: #fdfdfd;
+-webkit-transition-duration: 1s;
 transition-duration: 1s;
 }
 
@@ -221,6 +222,7 @@ margin-left: auto;
 margin-right: auto;
 margin-bottom: 20px;
 width: 100%;
+-webkit-transition-duration: 1s;
 transition-duration: 1s;
 }
 

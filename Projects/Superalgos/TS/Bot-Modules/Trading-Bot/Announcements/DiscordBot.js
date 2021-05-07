@@ -19,7 +19,6 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
 
             const message = "Discord bot has started."
             thisObject.sendMessage(message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeDiscordBot -> Discord error -> err = " + err))
-
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[WARN] initialize -> err = " + err.stack);
         }
@@ -32,10 +31,10 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
     }
 
     function sendMessage(message) {
-        const https = require('https');
+        const https = require('https')
 
         try {
-            message = JSON.stringify(message);
+            message = JSON.stringify({content: message})
         } catch (err) {
             parentLogger.write(MODULE_NAME, "[WARN] announce -> Discord JSON message error -> err = " + err)
         }
@@ -43,7 +42,7 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
         return new Promise((resolve, reject) => {
             const requestOptions = {
                 method: 'POST',
-                header: { 'Content-Type': 'application/json' }
+                headers: { 'Content-Type': 'application/json' }
             }
 
             const req = https.request(thisObject.webhookURL, requestOptions, (res) => {

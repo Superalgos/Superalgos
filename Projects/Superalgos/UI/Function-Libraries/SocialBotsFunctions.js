@@ -82,11 +82,9 @@ function newSuperalgosFunctionLibrarySocialBotsFunctions() {
             return
         }
 
-        let params = {
-            text: "Test message from Superalgos!"
-        }
+        let message = "Test message from Superalgos!"
 
-        httpRequestJSON(JSON.stringify(params), webhookURL, onResponse)
+        httpRequestJSON(JSON.stringify({content: message}), webhookURL, onResponse)
 
         function onResponse(err) {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {

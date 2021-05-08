@@ -93,6 +93,12 @@ function newSuperalgosDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'DE\')"><img src="Images/Languages/DE.png" title="German" class="docs-footer-language'
+        if (languageCode === 'DE') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'CN\')"><img src="Images/Languages/CN.png" title="Simplified Chinese-Mandarin" class="docs-footer-language'
         if (languageCode === 'CN') { 
             HTML = HTML + '-selected'

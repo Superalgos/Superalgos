@@ -13,20 +13,22 @@
             {
                 "language": "IT",
                 "text": "Quando disattivi la proprietà Angle to Parent, il nodo è libero di posizionarsi a un qualsiasi angolo relativo a padre e fratelli!",
-                "updated": 1619460329020
+                "updated": 1619460329020,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Open the menu of the Trading Parameters node, select the option to cancel the Angle to Parent setting, and move the node in any direction!",
-            "updated": 1615474082667,
+            "text": "Enter the menu of the Trading Parameters node, select the option to cancel the Angle to Parent setting, and move the node in any direction!",
+            "updated": 1620493488221,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Apri il menù del nodo Trading Parameters, seleziona l'opzione per disattivare la proprietà Angle to Parent e sposta il nodo in una qualsiasi direzione.",
-                    "updated": 1619460372348
+                    "updated": 1619460372348,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Come vedi, il nodo rimane dove lo posizioni e la linea tratteggiata che lo connette al proprio padre diventa gialla.",
-                    "updated": 1619460424242
+                    "updated": 1619460424242,
+                    "style": "Note"
                 }
             ]
         }

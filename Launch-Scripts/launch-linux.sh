@@ -1,1 +1,1 @@
-x-terminal-emulator -e "bash -c 'cd .. && node run; $SHELL'"
+x-terminal-emulator -e "cd .. && node run && $SHELL"

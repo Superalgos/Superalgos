@@ -18,8 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
-            "updated": 1615572965552
+            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and double-click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
+            "updated": 1620449858056
         }
     ]
 }

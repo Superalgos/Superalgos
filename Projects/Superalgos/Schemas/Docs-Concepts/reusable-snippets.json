@@ -155,21 +155,23 @@
         },
         {
             "style": "Title",
-            "text": "Switch to the Develop Branch and Update Before You Start",
-            "updated": 1613811592905
+            "text": "Switch Branches and Update Before You Start",
+            "updated": 1620501837377
         },
         {
             "style": "Note",
-            "text": "All contributions must be submitted to the Develop branch. Make sure you update to the latest version in Develop and that everything you are submitting works properly in that version."
+            "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
+            "updated": 1620501903096
         },
         {
             "style": "Subtitle",
-            "text": "Switch to Develop",
-            "updated": 1613811609773
+            "text": "Switch Branches",
+            "updated": 1620501916113
         },
         {
             "style": "Text",
-            "text": "To switch to the develop branch:"
+            "text": "To switch to the plugins-docs or the develop branch:",
+            "updated": 1620501928162
         },
         {
             "style": "List",
@@ -177,11 +179,13 @@
         },
         {
             "style": "List",
-            "text": "Select Develop under the Contributions Branch title. "
+            "text": "Select Plugins-Docs or Develop under the Contributions Branch title.",
+            "updated": 1620501942290
         },
         {
             "style": "List",
-            "text": "Then select Develop under the Choose the Current Branch title. "
+            "text": "Then select Plugins-Docs or Develop under the Choose the Current Branch title.",
+            "updated": 1620501951286
         },
         {
             "style": "List",

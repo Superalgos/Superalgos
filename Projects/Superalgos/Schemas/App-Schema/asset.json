@@ -103,6 +103,10 @@
         {
             "codeName": "XRP",
             "iconName": "xrp"
+        },
+        {
+            "codeName": "DOGE",
+            "iconName": "dogecoin"
         }
     ]
 }

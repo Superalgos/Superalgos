@@ -30,13 +30,13 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "bots",
+            "name": "telegramBots",
             "type": "array",
             "childType": "Telegram Bot",
             "autoAdd": true
         },
         {
-            "name": "bots",
+            "name": "discordBots",
             "type": "array",
             "childType": "Discord Bot",
             "autoAdd": true

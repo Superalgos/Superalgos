@@ -32,10 +32,10 @@
         "config": "{\n\"webhookURL\": \"Paste the webhook url obtained from Discord > Channel Settings > Integrations > Webhooks > New Webhook\"\n}"
     },
     "addLeftIcons": true,
-    "level": 4,
+    "level": 3,
     "attachingRules": {
         "compatibleTypes": "->Social Bots->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "bots"
+    "propertyNameAtParent": "discordBots"
 }

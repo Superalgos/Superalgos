@@ -32,10 +32,10 @@
         "config": "{ \n\"botToken\": \"Paste the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Type or paste the chat or group id -a number with no quotes- where announcements are going to be sent to\"\n}"
     },
     "addLeftIcons": true,
-    "level": 4,
+    "level": 3,
     "attachingRules": {
         "compatibleTypes": "->Social Bots->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "bots"
+    "propertyNameAtParent": "telegramBots"
 }

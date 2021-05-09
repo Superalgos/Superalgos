@@ -23,7 +23,7 @@
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "announcementCondition",
-            "label": "Add Condition",
+            "label": "Add Announcement Condition",
             "relatedUiObject": "Announcement Condition",
             "actionFunction": "payload.executeAction"
         },

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   viewBox="0 0 533 533"
+   version="1.1"
+   sodipodi:docname="discord-bot.svg"
+   width="533"
+   height="533"
+   inkscape:export-filename="E:\Superalgos\Projects\Superalgos\Icons\discord-bot.png"
+   inkscape:export-xdpi="92.217636"
+   inkscape:export-ydpi="92.217636"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="0.62608413"
+     inkscape:cx="36.435065"
+     inkscape:cy="256.47149"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <style
+     id="style2">.st0{fill:#7289DA;}</style>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:inline">
+    <rect
+       style="display:inline;fill:#f5f5f5;stroke:#4acfd9"
+       id="rect867"
+       width="397.71014"
+       height="292.293"
+       x="77.465599"
+       y="87.049004"
+       inkscape:export-filename="E:\Superalgos\Projects\Superalgos\Icons\rect867.png"
+       inkscape:export-xdpi="92.217636"
+       inkscape:export-ydpi="92.217636" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Layer 1"
+     style="display:inline">
+    <path
+       class="st0"
+       d="m 218.26349,223.59351 c -15.19048,0 -27.18298,13.325 -27.18298,29.5815 0,16.2565 12.259,29.5815 27.18298,29.5815 15.1905,0 27.183,-13.325 27.183,-29.5815 0.2665,-16.2565 -11.9925,-29.5815 -27.183,-29.5815 z m 97.27251,0 c -15.1905,0 -27.183,13.325 -27.183,29.5815 0,16.2565 12.259,29.5815 27.183,29.5815 15.1905,0 27.183,-13.325 27.183,-29.5815 0,-16.2565 -11.9925,-29.5815 -27.183,-29.5815 z"
+       id="path4"
+       style="fill:#7289da;stroke-width:2.665" />
+    <path
+       class="st0"
+       d="M 445.055,0 H 87.945004 C 57.830503,0 33.3125,24.518 33.3125,54.898998 V 415.20702 c 0,30.381 24.518003,54.899 54.632504,54.899 H 390.156 l -14.1245,-49.3025 34.112,31.7135 32.2465,29.848 57.2975,50.635 V 54.898998 C 499.6875,24.518 475.1695,0 445.055,0 Z M 342.186,348.04901 c 0,0 -9.594,-11.4595 -17.589,-21.5865 34.9115,-9.8605 48.2365,-31.7135 48.2365,-31.7135 -10.9265,7.1955 -21.32,12.259 -30.6475,15.7235 -13.325,5.5965 -26.117,9.3275 -38.6425,11.4595 -25.584,4.797 -49.036,3.4645 -69.02351,-0.2665 -15.1905,-2.9315 -28.24898,-7.1955 -39.17548,-11.4595 -6.1295,-2.3985 -12.792,-5.33 -19.4545,-9.061 -0.7995,-0.533 -1.599,-0.7995 -2.3985,-1.3325 -0.533,-0.2665 -0.7995,-0.533 -1.066,-0.7995 -4.797,-2.665 -7.462,-4.5305 -7.462,-4.5305 0,0 12.792,21.32 46.6375,31.447 -7.995,10.127 -17.8555,22.1195 -17.8555,22.1195 -58.89651,-1.8655 -81.28251,-40.508 -81.28251,-40.508 0,-85.813 38.37601,-155.36951 38.37601,-155.36951 38.376,-28.782 74.88648,-27.9825 74.88648,-27.9825 l 2.665,3.198 c -47.96998,13.858 -70.08948,34.9115 -70.08948,34.9115 0,0 5.863,-3.198 15.7235,-7.7285 28.5155,-12.5255 51.16798,-15.99 60.49548,-16.7895 1.599,-0.2665 2.9315,-0.533 4.5305,-0.533 16.25651,-2.132 34.64501,-2.665 53.83301,-0.533 25.3175,2.9315 52.5005,10.3935 80.2165,25.584 0,0 -21.0535,-19.9875 -66.3585,-33.8455 l 3.731,-4.264 c 0,0 36.5105,-0.7995 74.8865,27.9825 0,0 38.376,69.55651 38.376,155.36951 0,0 -22.6525,38.6425 -81.549,40.508 z"
+       id="path6"
+       style="fill:#7289da;stroke-width:2.665" />
+  </g>
+</svg>

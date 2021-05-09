@@ -8,21 +8,49 @@
             "name": "share-entity",
             "project": "Superalgos"
         },
-        "updated": 1617037759268
+        "updated": 1617037759268,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Le Shares sono come i Backups, ma dal file vengono rimossi i dati personali e sensibili!",
+                "updated": 1619546242891
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Get used to share Shares! This good practice will help you avoid dangerous mistakes in the future!",
-            "updated": 1617037960260
+            "updated": 1617037960260,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Abituati al loro utilizzo! È una buona pratica per evitare possibili errori pericolosi in futuro!",
+                    "updated": 1619546289258
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Read the page about Shares for more info!"
+            "text": "Read the page about Shares for more info!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Leggi la pagina sulle Shares per maggiori info!",
+                    "updated": 1619546300806
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Whenever you wish to share your work, never share your Workspace files or Backups. Those files may contain sensitive information such as your Exchange Account Key. Instead, share your Shares!"
+            "text": "Whenever you wish to share your work, never share your Workspace files or Backups. Those files may contain sensitive information such as your Exchange Account Key. Instead, share your Shares!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando vuoi condividere il tuo lavoro, non condividere mai i tuoi Workspace o Backups. Questi file possono contenere informazioni sensibili, come la tua Exchange Account Key. Piuttosto, condividi le tue Shares!",
+                    "updated": 1619546375019
+                }
+            ]
         }
     ]
 }

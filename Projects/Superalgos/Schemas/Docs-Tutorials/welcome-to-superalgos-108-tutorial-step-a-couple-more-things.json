@@ -3,8 +3,8 @@
     "pageNumber": 108,
     "type": "Tutorial Step - A Couple More Things!",
     "definition": {
-        "text": "There's a couple more things I want to tell you about before I let you go! Bear with me!",
-        "updated": 1611582494702,
+        "text": "There're a couple more things I want to tell you about before I let you go! Bear with me!",
+        "updated": 1619810326034,
         "icon": {
             "name": "strategy-counters",
             "project": "Superalgos"
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Mancano ancora un paio di cose prima che ci salutiamo! Coraggio!",
-                "updated": 1618073095923
+                "updated": 1618073095923,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ti dò un'introduzione rapida di ciò su cui stiamo lavorando per la prossima versione. Ho menzionato algoritmi di Machine Learning, ma c'è di più! Riguarda l'integrazione con dei progetti crypto!",
-                    "updated": 1618073169920
+                    "updated": 1618073169920,
+                    "style": "List"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Volevo anche dirti che, se apprezzi ciò che stiamo facendo, ci puoi aiutare! Decine di migliaia di ore e duro lavoro sono state impiegte per costruire Superalgos così come lo vedi ora. Spero che vorrai contribuire anche solo con qualche minuto, e sarò felice di farti vedere da dove iniziare!",
-                    "updated": 1618073272368
+                    "updated": 1618073272368,
+                    "style": "List"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Coraggio, ti faccio vedere!",
-                    "updated": 1618073296750
+                    "updated": 1618073296750,
+                    "style": "Success"
                 }
             ]
         }

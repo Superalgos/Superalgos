@@ -8,32 +8,74 @@
             "name": "clone-entity",
             "project": "Superalgos"
         },
-        "updated": 1615839114130
+        "updated": 1615839114130,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I Clones (cloni) si differenziano dai backup dal fatto che sono progettati per replicare strutture di dati in modo che la copia sia uguale all'originale.",
+                "updated": 1619545781267
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Read this page carefully!",
-            "updated": 1615839024514
+            "updated": 1615839024514,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Leggi attentamente questa pagina!",
+                    "updated": 1619545792048
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In summary:",
-            "updated": 1615839074979
+            "updated": 1615839074979,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In sintesi:",
+                    "updated": 1619545801000
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Clones behave in the same way whether the original is present upon restoration or not.",
-            "updated": 1615839267941
+            "updated": 1615839267941,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il comportamento dei cloni <b>non</b> varia in base alla presenza o meno dell'originale al momento del ripristino.",
+                    "updated": 1619546165377
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Incoming references are always discarded."
+            "text": "Incoming references are always discarded.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Le references in ingresso vengono sempre perse.",
+                    "updated": 1619545955251
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Feel free to take the time to test the Clones feature on your own! We'll move on to other topics without further due!",
-            "updated": 1615884678255
+            "updated": 1615884678255,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi pure del tempo per testare la funzionalità dei cloni! Poi ci muoveremo ad altri argomenti!",
+                    "updated": 1619546030194
+                }
+            ]
         }
     ]
 }

@@ -29,7 +29,8 @@
         },
         {
             "style": "Note",
-            "text": "All launch related scripts are held in the Lauch Scripts folder in the main Superalgos directory."
+            "text": "All launch related scripts are held in the Lauch-Scripts folder in the main Superalgos directory.",
+            "updated": 1620504577923
         },
         {
             "style": "Text",
@@ -84,8 +85,8 @@
         },
         {
             "style": "Text",
-            "text": "These scripts automatically create and place shortcuts to the lauch scripts. They can be run from the command line or file browser.",
-            "updated": 1620052750606
+            "text": "These scripts automatically create and place shortcuts to the launch scripts. They can be run from the command line or file browser.",
+            "updated": 1620504518909
         },
         {
             "style": "Subtitle",
@@ -108,8 +109,79 @@
         },
         {
             "style": "Json",
-            "text": "Script under development",
-            "updated": 1620053230467
+            "text": "create-shortcut-ubuntu.sh",
+            "updated": 1620504490683
+        },
+        {
+            "style": "Text",
+            "text": "This script places shortcuts within the user's launcher and desktop. Shortcuts are placed in the following locations:",
+            "updated": 1620504828523
+        },
+        {
+            "style": "List",
+            "text": "~/Desktop/Superalgos.desktop"
+        },
+        {
+            "style": "List",
+            "text": "~/.local/share/applications/Superalgos.desktop"
+        },
+        {
+            "style": "Note",
+            "text": "After running create-shortcut-ubuntu.sh the launcher shortcut will work out of the box. There are a few additional steps to set up the desktop shortcut. The following section will walk you through these steps.",
+            "updated": 1620505700097
+        },
+        {
+            "style": "Text",
+            "text": "First, desktop icons need to be enabled within the Tweaks app.",
+            "updated": 1620505123531
+        },
+        {
+            "style": "List",
+            "text": "Check if Tweaks is installed.",
+            "updated": 1620505145330
+        },
+        {
+            "style": "List",
+            "text": "If not go to Ubuntu Software.",
+            "updated": 1620505149642
+        },
+        {
+            "style": "List",
+            "text": "Install Tweaks.",
+            "updated": 1620505153965
+        },
+        {
+            "style": "List",
+            "text": "Open Tweaks.",
+            "updated": 1620505158082
+        },
+        {
+            "style": "List",
+            "text": "Under extensions turn on Desktop Icons"
+        },
+        {
+            "style": "Gif",
+            "text": " GIFs/Superalgos/Docs/launch-scripts/enable-ubuntu-shortcut.gif"
+        },
+        {
+            "style": "Success",
+            "text": "If you do not see the desktop shortcut appear right away you may need to restart your computer.",
+            "updated": 1620505754854
+        },
+        {
+            "style": "Text",
+            "text": "Finally, you will need to enable the desktop shortcut.",
+            "updated": 1620505790748
+        },
+        {
+            "style": "List",
+            "text": "Right click Superalgos.desktop and select Allow Launching.",
+            "updated": 1620505813768
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/launch-scripts/allow-launching.gif",
+            "updated": 1620505894840
         },
         {
             "style": "Subtitle",
@@ -128,6 +200,23 @@
             "style": "Important",
             "text": "No scripts started yet. Manual deletion required.",
             "updated": 1620053525531
+        },
+        {
+            "style": "Title",
+            "text": "Manually Unistall Shortcuts",
+            "updated": 1620506058024
+        },
+        {
+            "style": "Subtitle",
+            "text": "Ubuntu"
+        },
+        {
+            "style": "Text",
+            "text": "Open a terminal and run the following command:"
+        },
+        {
+            "style": "Javascript",
+            "text": "rm ~/Desktop/Superalgos.desktop && rm ~/.local/share/applications/Superalgos.desktop"
         }
     ]
 }

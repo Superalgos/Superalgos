@@ -2,7 +2,7 @@
 
 All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
-> **IMPORTANT:** Minimalist hardware —both virtual and physical— is better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GIU to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave minimalist hardware for when you are ready to start trading live.
+> **IMPORTANT:** Minimalist hardware —both virtual and physical— is better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave minimalist hardware for when you are ready to start trading live.
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -144,17 +144,47 @@ node run minMemo noBrowser
 
 ## 2. Add a Desktop/Launcher Shortcut for Superalgos 
 
-**A.** For **Windows** Users
+There are a number of scripts available to help make lauching Superalgos easier and feel more native. To use these scripts, follow the steps for your operating system.
+
+## For **Windows** Users
 
 Open a file browser and navigate to the Superalgos Directory.
 
-Under the folder titled `Launch Scripts` double-click the script `create-shortcut-windows.bat`. 
+Under the folder titled `Launch-Scripts` double-click the script `create-shortcut-windows.bat`. 
 
 You will see a shortcut added to your desktop. You can use it to launch Superalgos like any other program on your computer.
 
-**B.** For **Ubuntu** Users
+## For **Ubuntu** Users
 
-Script under development
+Open a terminal and run the following commands:
+```
+cd Superalgos/Launch-Scripts
+```
+```
+bash create-shortcut-ubuntu.sh
+```
+
+After running these commands there will be two shortcuts added. One to your launcher and one to your desktop.  The launcher shortcut will work out of the box. The desktop shortcut, however, requires a few additional steps to set up.The following section will walk you through these steps.
+
+**A.** Enable Desktop Shortcut
+
+First, desktop icons need to be enabled within the Tweaks app.
+* Check if Tweaks is installed.
+* If not go to Ubuntu Software.
+* Install Tweaks.
+* Open Tweaks.
+* Under extensions turn on Desktop Icons
+
+![enable-ubuntu-shortcut](https://user-images.githubusercontent.com/55707292/117553927-f0780300-b019-11eb-9e36-46b509653283.gif)
+
+**TIP:** If you do not see the desktop shortcut appear right away you may need to restart your computer.
+
+Finally, you will need to enable the desktop shortcut.
+* Right click Superalgos.desktop and select Allow Launching.
+
+![allow-launching](https://user-images.githubusercontent.com/55707292/117553933-fcfc5b80-b019-11eb-872c-4fad81b184d2.gif)
+
+Now both shortcuts will launch Superalgos like any other program on your computer.
 
 ## 3. Usage Notes
 
@@ -206,6 +236,19 @@ journalctl -u superalgos -f
 # Uninstall
 
 Superalgos writes nothing outside of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder.
+
+If you have installed shortcuts for Superalgos you can remove them as follows:
+
+## For **Windows** Users
+
+Right-click desktop shortcut and select delete.
+
+## For **Ubuntu** Users
+
+Open a terminal and run the following command:
+```
+rm ~/Desktop/Superalgos.desktop && rm ~/.local/share/applications/Superalgos.desktop
+```
 
 # Welcome Tutorial
 

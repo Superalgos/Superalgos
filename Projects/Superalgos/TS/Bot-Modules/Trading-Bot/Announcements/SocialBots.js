@@ -21,7 +21,7 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                         socialBot.botInstance.initialize(config.botToken, config.chatId)
                     } else if (socialBot.type === "Discord Bot"){
                         let config = socialBot.config
-                        socialBot.botInstance = TS.projects.superalgos.botModules.discordBot.newSuperalgosBotModulesTelegramBot(processIndex)
+                        socialBot.botInstance = TS.projects.superalgos.botModules.discordBot.newSuperalgosBotModulesDiscordBot(processIndex)
                         socialBot.botInstance.initialize(config.webhookURL)
                     }
                 }

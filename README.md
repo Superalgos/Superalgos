@@ -1,4 +1,4 @@
-# Superalgos Beta 9 - Getting Started Guide
+# Superalgos Beta 10 - Getting Started Guide
 
 All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
@@ -107,30 +107,15 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 **C.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
 
-## 4. Migrating from Superalgos Beta 8
+## 4. Migrating from Superalgos Beta 9
 
 ### Refactorings 
 
-In order to migrate your own workspaces to Beta 9, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
+In order to migrate your own workspaces to Beta 10, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
 
 | Find | Replace With |
 | :---: | :---: |
-| Current | Trading Current |
-| current | tradingCurrent |
-| Last | Trading Last |
-| last | tradingLast |
-| Episode | Trading Episode |
-| episode | tradingEpisode |
-| Episode Counters | Trading Episode Counters |
-| episodeCounters | tradingEpisodeCounters |
-| Episode Statistics | Trading Episode Statistics |
-| episodeStatistics | tradingEpisodeStatistics |
-| Distance To Event | Distance To Trading Event |
-| distanceToEvent | distanceToTradingEvent |
-
-### Renaming of Exchange Folders
-
-In Beta 9, the `exchange id` is used at the code and folder names instead of the exchange name. To migrate to Beta 9 users running on case sensitive Operating Systems (like Linux) must rename their Data-Storage Exchange folders using the Id of the exchange (in the case of Binance, it's the same name, but with lower-case b: binance). If you are using a different exchange, look at its node configuration and use the value at the property `codeName` to name the folder.
+| There are currently no refactorings to be made. |  |
 
 # Usage
 
@@ -157,7 +142,21 @@ then
 node run minMemo noBrowser
 ```
 
-## 2. Usage Notes
+## 2. Add a Desktop/Launcher Shortcut for Superalgos 
+
+**A.** For **Windows** Users
+
+Open a file browser and navigate to the Superalgos Directory.
+
+Under the folder titled `Launch Scripts` double-click the script `create-shortcut-windows.bat`. 
+
+You will see a shortcut added to your desktop. You can use it to launch Superalgos like any other program on your computer.
+
+**B.** For **Ubuntu** Users
+
+Script under development
+
+## 3. Usage Notes
 
 We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 

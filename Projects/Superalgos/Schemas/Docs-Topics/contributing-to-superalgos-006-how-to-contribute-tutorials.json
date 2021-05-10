@@ -29,8 +29,8 @@
         },
         {
             "style": "Success",
-            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers.",
-            "updated": 1617712109958
+            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers. ",
+            "updated": 1620645983606
         },
         {
             "style": "Title",
@@ -118,8 +118,26 @@
         },
         {
             "style": "Title",
-            "text": "Consistent Use of Space and Styles",
-            "updated": 1617904223037
+            "text": "Use Precise Language",
+            "updated": 1620645613169
+        },
+        {
+            "style": "Text",
+            "text": "The ultimate goal of tutorials is to provide users with a hands-on learning experience covering topics in detail. In general terms, we know that a tutorial is good — or has reached a mature state — when users ask no questions about it in the Support Group.",
+            "updated": 1620645730740
+        },
+        {
+            "style": "Text",
+            "text": "Be precise and unequivocal with language. Read your writing over and over in search of phrases that may not be easily understood, or that may be interpreted in different ways. Improve the sentences to make them as clear as possible. Remember, the less clear your writing is, the more questions we have in the Support Group.",
+            "updated": 1620645812565
+        },
+        {
+            "style": "Success",
+            "text": "Be prepared to iterate over and over until the tutorial stabilizes. That will happen when there are no more questions about the topic in the Support Group!"
+        },
+        {
+            "style": "Title",
+            "text": "Consistent Use of Space and Styles"
         },
         {
             "style": "Text",
@@ -329,6 +347,11 @@
             "style": "List",
             "text": "Do not set two consecutive paragraphs with the same style. The only exception is for bullet lists. Even the Docs Text Style is not formated to look good as consecutive paragraphs in the context of a tutorial (there is no padding between paragraphs).",
             "updated": 1617723650896
+        },
+        {
+            "style": "List",
+            "text": "Leave at least one line empty before the buttons at the bottom of the tutorial window. Otherwise, in other browsers, the content may overflow the window.",
+            "updated": 1620646218773
         },
         {
             "style": "Title",

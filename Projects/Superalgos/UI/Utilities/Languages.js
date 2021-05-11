@@ -28,6 +28,10 @@ function newSuperalgosUtilitiesLanguages() {
                 languageLabel = 'German'
                 break
             }
+            case 'FR': {
+                languageLabel = 'French'
+                break
+            }
             case 'CN': {
                 languageLabel = 'Simplified Chinese-Mandarin'
                 break

@@ -722,6 +722,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendDiscordTestMessage(action.node, action.callBackFunction)
                 }
                 break
+            case 'Send Slack Test Message':
+                {
+                    UI.projects.superalgos.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
+                }
+                break
         }
     }
 }

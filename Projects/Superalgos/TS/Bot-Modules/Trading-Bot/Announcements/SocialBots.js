@@ -24,6 +24,10 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                             let config = socialBot.config
                             socialBot.botInstance = TS.projects.superalgos.botModules.discordBot.newSuperalgosBotModulesDiscordBot(processIndex)
                             socialBot.botInstance.initialize(config)
+                        } else if (socialBot.type === "Slack Bot") {
+                            let config = socialBot.config
+                            socialBot.botInstance = TS.projects.superalgos.botModules.slackBot.newSuperalgosBotModulesSlackBot(processIndex)
+                            socialBot.botInstance.initialize(config)
                         }
                     }
                 }
@@ -38,7 +42,7 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                                 try {
                                     if (socialBot.type === "Telegram Bot") {
                                         socialBot.botInstance.telegramAPI.sendMessage(socialBot.botInstance.chatId, text).catch(err => TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Telegram API error -> err = " + err))
-                                    } else if (socialBot.type === "Discord Bot") {
+                                    } else if (socialBot.type === "Discord Bot" ||socialBot.type === "Slack Bot" ) {
                                         socialBot.botInstance.sendMessage(text).catch(err => TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> initializeSocialBots -> announce -> Discord Bot error -> err = " + err))
                                     }
                                 } catch (err) {
@@ -61,7 +65,7 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop] !== undefined) {
                     for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop].length; i++) {
                         let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop][i]
-                        if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot") {
+                        if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot") {
                             socialBot.botInstance.finalize()
                         }
                     }
@@ -77,7 +81,7 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                     if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop] !== undefined) {
                         for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop].length; i++) {
                             let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop][i]
-                            if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot") {
+                            if (socialBot.type === "Telegram Bot" || socialBot.type === "Discord Bot" || socialBot.type === "Slack Bot") {
                                 socialBot.botInstance.sendMessage(message)
                             }
                         }

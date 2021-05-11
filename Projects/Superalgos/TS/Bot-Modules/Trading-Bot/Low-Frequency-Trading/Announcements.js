@@ -21,6 +21,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
         sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
         let taskParameters = {
+            exchange: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
             market: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                 '/' +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
@@ -86,7 +87,6 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                         tradingSystem.addError([announcement.announcementFormula.id, err.message, docs])
                     }
                     if (errorMessage == undefined) { text = formulaValue }
-
                 }
 
                 if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {

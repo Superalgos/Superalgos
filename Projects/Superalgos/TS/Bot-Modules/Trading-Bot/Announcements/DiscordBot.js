@@ -13,21 +13,21 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
 
     return thisObject
 
-    function initialize(webhookURL,format) {
+    function initialize(config) {
         /* Discord Bot Initialization */
         
         try {
-            thisObject.webhookURL = webhookURL
+            thisObject.webhookURL = config.webhookURL
             thisObject.taskParameters = {
                 exchange: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
                 market: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
                     '/' +
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
             }
-            if (format === undefined) {
+            if (config.format === undefined) {
                 thisObject.format = "%{MESSAGE}"
             } else {
-                thisObject.format = format
+                thisObject.format = config.format
             }
         } catch (err) {
             logError("initialize -> err = " + err.stack);

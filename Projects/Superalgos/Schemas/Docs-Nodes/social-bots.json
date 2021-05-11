@@ -8,7 +8,7 @@
         },
         {
             "style": "Note",
-            "text": "At present Superalgos only supports Telegram and Discord messaging applications.",
+            "text": "At present Superalgos only supports Telegram, Discord, and Slack messaging applications.",
             "updated": 1619547181067
         }
     ],

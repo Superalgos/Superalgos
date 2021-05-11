@@ -153,7 +153,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->' +
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
             'Exchange Account Asset->Asset->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)

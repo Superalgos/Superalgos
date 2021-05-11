@@ -6,9 +6,53 @@
     },
     "paragraphs": [
         {
-            "style": "Link",
+            "style": "Text",
             "text": "In order to use the Discord Bot, you will need to create a new Webhook Integration in Discord. The only configuration that is required within Superalgos is the webhookURL.",
             "updated": 1619546875758
+        },
+        {
+            "style": "Text",
+            "text": "Parameters:"
+        },
+        {
+            "style": "Text",
+            "text": "- webhookURL - required - obtained from Integrations > Webhooks in the channel settings."
+        },
+        {
+            "style": "Text",
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
+        },
+        {
+            "style": "Text",
+            "text": "Recognized Format Variables:"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MESSAGE}` the text being sent"
+        },
+        {
+            "style": "Text",
+            "text": "An example format is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"%{EXCHANGE} %{MARKET}: %{MESSAGE}\""
+        },
+        {
+            "style": "Text",
+            "text": "Which results in a final message in Discord that looks like:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"Binance BTC/USDT: Backtesting Session 'Lightning Strike' is starting.\""
         }
     ]
 }

@@ -152,7 +152,7 @@ Open a file browser and navigate to the Superalgos Directory.
 
 Under the folder titled `Launch-Scripts` double-click the script `create-shortcut-windows.bat`. 
 
-You will see a shortcut added to your desktop. You can use it to launch Superalgos like any other program on your computer.
+After running this script there will be two shortcuts added.  One to your start menu and one to your desktop. You can now lauch Superalgos from any of these shortcuts, or search `Superalgos` in the start menu search bar.
 
 ## For **Ubuntu** Users
 
@@ -164,7 +164,7 @@ cd Superalgos/Launch-Scripts
 bash create-shortcut-ubuntu.sh
 ```
 
-After running these commands there will be two shortcuts added. One to your launcher and one to your desktop.  The launcher shortcut will work out of the box. The desktop shortcut, however, requires a few additional steps to set up.The following section will walk you through these steps.
+After running these commands there will be two shortcuts added. One to your launcher and one to your desktop. The launcher shortcut will work out of the box. The desktop shortcut, however, requires a few additional steps to set up. The following section will walk you through these steps.
 
 **A.** Enable Desktop Shortcut
 
@@ -241,7 +241,9 @@ If you have installed shortcuts for Superalgos you can remove them as follows:
 
 ## For **Windows** Users
 
-Right-click desktop shortcut and select delete.
+Open a file browser and navigate to the Superalgos directory.
+
+Under the folder titled `Launch-Scripts` double-click the script `uninstall-shortcut-windows.bat`. 
 
 ## For **Ubuntu** Users
 

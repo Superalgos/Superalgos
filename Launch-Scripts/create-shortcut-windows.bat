@@ -9,4 +9,4 @@ set PWS=powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfil
 %PWS% -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut(%STARTMENU%); $S.TargetPath = %Target%; $S.IconLocation = %ICON%; $S.Save()"
 
 REM Keep terminal open for debug
-cmd /k echo "keep open"
+REM cmd /k echo "keep open"

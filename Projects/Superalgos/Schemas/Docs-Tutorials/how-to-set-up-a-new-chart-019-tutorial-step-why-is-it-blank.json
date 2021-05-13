@@ -28,8 +28,8 @@
         },
         {
             "style": "Note",
-            "text": "A Layer Manager's name is inherited from its Timeline Chart. As you can see, your naming Matters!",
-            "updated": 1620047088154
+            "text": "A Layer Manager inherits the name from its Timeline Chart. That's why a short name was best!",
+            "updated": 1620555102768
         },
         {
             "style": "Text",

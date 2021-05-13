@@ -134,16 +134,19 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         let endpointNode                                                    // This holds the Endpoint Node at the API Map 
                         let existingFileContent                                             // This holds the data of the existing dataset file.
                         let queryString = ""                                                // This holds the query string to be sent at the API call.
+                        let pathString = ""                                                 // This holds the path string to be sent at the API call.
                         let apiDataReceived                                                 // This hold the data received from the latest API call.
                         let apiData                                                         // This holds the specific object containing the data to be stored inside the structure received by the API call.
                         let dataReceivedArray = []                                          // This hold the cumulative data received from all calls to the API (multiple pages of data).
+                        let dataReceivedObject                                              // This hold a single data object when there is no pagination.
                         let pageNumberParameter                                             // This holds the node that represents a Page Number parameter.
-                        let pageQueryString                                                 // This holds the node part of query sting that deals with page numbers 
+                        let pageQueryString = ""                                            // This holds the node part of query sting that deals with page numbers 
                         let recordPropertiesNodePathMap = new Map()                         // This holds the calculated nodePath for each record property, in order to help find the property value on the data received.
 
                         getApiEndpointAndSchema()
                         calculateRecordPropertiesNodePathMap()
                         getEndpointQueryParameters()
+                        getEndpointPathParameters()
                         await fetchAllPages()
                         await readDatasetFile()
                         appendToExistingDataset()
@@ -233,7 +236,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                         function getEndpointQueryParameters() {
                             /*
-                            Parameters to tue query of the API are all optional. Here we will see if
+                            Parameters to the query of the API are all optional. Here we will see if
                             we need to place the API call with Parameters...
                             */
                             let separator = ""
@@ -257,6 +260,36 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             }
                         }
 
+                        function getEndpointPathParameters() {
+                            /*
+                            Parameters to the path of the API are all optional. Here we will see if
+                            we need to place the API call with Parameters...
+                            */
+                            let separator = ""
+                            if (productDefinition.apiPathParameters !== undefined) {
+                                pathString = '/'
+                                for (j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
+                                    let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
+
+                                    let parameterValue = apiPathParameter.config.codeName // This is the default value
+                                    if (apiPathParameter.config.replaceBy !== undefined) {
+                                        switch (apiPathParameter.config.replaceBy) {
+                                            case '@BaseAsset': {
+                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+                                                break
+                                            }
+                                            case '@QuotedAsset': {
+                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                                                break
+                                            }
+                                        }
+                                    }
+                                    pathString = pathString + separator + parameterValue
+                                    separator = "/"
+                                }
+                            }
+                        }
+
                         async function fetchAllPages() {
 
                             if (pageNumberParameter === undefined) {
@@ -266,7 +299,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 */
                                 await sleep(apiMap.config.millisecondsBetweenCalls)
                                 await fetchAPIData()
-                                dataReceivedArray = JSON.parse(apiDataReceived)
+                                dataReceivedObject = apiData
                             } else {
                                 /*
                                 There is a paging mechanism at this Endpoint, so we will iterate through all
@@ -349,6 +382,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     path +
                                     '/' + endpointNode.parentNode.config.codeName +
                                     '/' + endpointNode.config.codeName +
+                                    pathString +
                                     queryString +
                                     pageQueryString
 
@@ -368,10 +402,20 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let apiResponseSchemaNode
                                     let errorCodeReceived
 
+                                    /*
+                                    At this point we have received the first http reponse from the API server, 
+                                    and from it we can extract the status code, which is the html code of the 
+                                    response of our request.
+                                    
+                                    With that code we can get the API Response Schema, which will tell us how 
+                                    to extract data from the response.
+                                    */
                                     getApiResponseSchema(response.statusCode)
 
                                     if (apiResponseSchemaNode === undefined) {
                                         // TODO Error Handling
+                                        console.log('The response code ' + response.statusCode + ' received is not associated with any API Response Schema.')
+                                        errorCodeReceived = true
                                         return
                                     }
 
@@ -551,22 +595,34 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 existingKeys.set(key, record)
                             }
                             /*
-                            Scan the dataReceivedArray array and insert records into
-                            the existingFileArray array only when they are not going to
-                            duplicate a primary key.
+                            If we received an array of data then we will try to append it to the current file.
                             */
-                            for (let i = 0; i < dataReceivedArray.length; i++) {
-                                let record = getRecord(dataReceivedArray[i])
+                            if (dataReceivedArray.length > 0) {
+                                /*
+                                Scan the dataReceivedArray array and insert records into
+                                the existingFileArray array only when they are not going to
+                                duplicate a primary key.
+                                */
+                                for (let i = 0; i < dataReceivedArray.length; i++) {
+                                    let record = getRecord(dataReceivedArray[i])
 
-                                let key = ""
-                                for (j = 0; j < primaryKeys.length; j++) {
-                                    let keyValue = record.map.get(primaryKeys[j])
-                                    key = key + '->' + keyValue
+                                    let key = ""
+                                    for (j = 0; j < primaryKeys.length; j++) {
+                                        let keyValue = record.map.get(primaryKeys[j])
+                                        key = key + '->' + keyValue
+                                    }
+                                    if (existingKeys.get(key) === undefined) {
+                                        existingFileArray.push(record.values)
+                                        existingKeys.set(key, record.values)
+                                    }
                                 }
-                                if (existingKeys.get(key) === undefined) {
-                                    existingFileArray.push(record.values)
-                                    existingKeys.set(key, record.values)
-                                }
+                            }
+                            /*
+                            If we received a data object then we will try to add it to the current existing file.
+                            */
+                            if (dataReceivedObject !== undefined) {
+                                let record = getRecord(dataReceivedObject)
+                                existingFileArray.push(record.values)
                             }
 
                             existingFileContent = JSON.stringify(existingFileArray)
@@ -592,6 +648,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             */
                                             let nodePath = recordPropertiesNodePathMap.get(recordProperty.config.codeName)
                                             let value = eval(nodePath)
+
+                                            /*
+                                            Check that we do not accept values that will break the JSON format of the file.
+                                            */
+                                            if (isNaN(value)) { value = 0 }
+                                            if (value === null || value === undefined) { value = 0 }
                                             record.values.push(value)
                                             record.headers.push(recordProperty.config.codeName)
                                             record.map.set(recordProperty.config.codeName, value)

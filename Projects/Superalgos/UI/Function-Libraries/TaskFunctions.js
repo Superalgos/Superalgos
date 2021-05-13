@@ -128,7 +128,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
-            'Output Dataset->Dataset Definition->Product Definition->API Query Parameters->API Query Parameter->' +
+            'Output Dataset->Dataset Definition->Product Definition->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->' +
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
@@ -156,7 +156,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Data Mine->Trading Mine->Learning Mine->' +
             'API Map Reference->' +
-            'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Query Responses->API Query Response->API Response Schema->' +
+            'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
             'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
         let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)

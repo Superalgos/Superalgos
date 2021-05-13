@@ -444,7 +444,7 @@ function newSuperalgosFloatingSpace() {
     function syncStylePhysics() {
         if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceStyle === undefined) { return }
         let configStyle
@@ -496,7 +496,7 @@ function newSuperalgosFloatingSpace() {
     function syncSettingsPhysics() {
         if (UI.projects.superalgos.spaces.designSpace === undefined) { return }
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Design Space')
+        let designSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceSettings === undefined) { return }
         let configSettings

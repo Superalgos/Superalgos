@@ -19,7 +19,8 @@ function newWorkspace() {
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
-        getHierarchyHeadsByType: getHierarchyHeadsByType,
+        getHierarchyHeadByNodeType: getHierarchyHeadByNodeType,
+        getHierarchyHeadsByNodeType: getHierarchyHeadsByNodeType, 
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
         getNodeByShortcutKey: getNodeByShortcutKey,
         getNodeById: getNodeById,
@@ -512,7 +513,7 @@ function newWorkspace() {
         }
     }
 
-    function getHierarchyHeadsByType(nodeType) {
+    function getHierarchyHeadByNodeType(nodeType) {
         let hierarchyHeads = getHierarchyHeads()
         if (hierarchyHeads === undefined) { return }
         for (let i = 0; i < hierarchyHeads.length; i++) {
@@ -521,6 +522,19 @@ function newWorkspace() {
                 return hierarchyHead
             }
         }
+    }
+
+    function getHierarchyHeadsByNodeType(nodeType) {
+        let hierarchyHeads = getHierarchyHeads()
+        let resultArray = []
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.type === nodeType) {
+                resultArray.push(hierarchyHead)
+            }
+        }
+        return resultArray
     }
 
     function replaceWorkspaceByLoadingOne(project, name) {

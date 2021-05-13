@@ -268,7 +268,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             let separator = ""
                             if (productDefinition.apiPathParameters !== undefined) {
                                 pathString = '/'
-                                for (j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
+                                for (let j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
                                     let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
 
                                     let parameterValue = apiPathParameter.config.codeName // This is the default value

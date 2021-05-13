@@ -9,7 +9,7 @@
         "code": "// Type you code"
     },
     "attachingRules": {
-        "compatibleTypes": "->Condition->"
+        "compatibleTypes": "->Condition->User Defined Code->"
     },
     "menuItems": [
         {

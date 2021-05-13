@@ -1,0 +1,55 @@
+{
+    "type": "User Defined Code",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "propertyToCheckFor": "javascriptCode",
+            "label": "Add Code",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        },
+                {
+                    "action": "Copy Node Path",
+                    "label": "Copy Node Path",
+                    "iconPathOn": "copy-path",
+                    "iconPathOff": "copy-path",
+                    "actionFunction": "payload.executeAction"
+                }
+    ],
+    "addLeftIcons": true,
+    "initialValues": {
+        "config": "{ \n  \"runWhenEnteringStage\": false, \n \"runWhenExitingStage\": false, \n \"runWhileAtStage\": false, \n \"WhileAtStage_whenToRun\": \"first|last\" \n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trigger Stage->Open Stage->Manage Stage->Close Stage->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "javascriptCode",
+            "type": "array",
+            "childType": "Javascript Code",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "userDefinedCode"
+}

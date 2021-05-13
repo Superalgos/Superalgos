@@ -2,9 +2,7 @@
 
 Superalgos is not just another open-source project. We are an open community devised, nurtured, and incentivized with the project's native Superalgos (SA) token to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
- The Superalgos software is the ultimate market research and trading automation platform. Superalgos is contributor-centric, built by contributors, for contributors. It is also free and open-source. 
-
-> Can't wait to start contributing? No need to wait! You may start by giving a star to this repository!
+ Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. Can't wait to start contributing? No need to wait! You may start by giving a star to this repository!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -28,9 +26,7 @@ Node JS is an open-source server environment required to run Superalgos.
 
 **b.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
 
-**c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. 
-
-> That's it! You can continue with step 2 (Git Installation).
+**c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
 <hr>
 

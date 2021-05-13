@@ -3,8 +3,8 @@
     "pageNumber": 16,
     "type": "Tutorial Step - Chart Spawning",
     "definition": {
-        "text": "One thing to keep in mind when adding Time Machines is that they will often spawn on top of other charts within the Charting Space.",
-        "updated": 1620045784065,
+        "text": "One thing to keep in mind when adding Time Machines is that they may spawn on top of other charts within the Charting Space.",
+        "updated": 1620554644805,
         "icon": {
             "name": "mouse-left-click",
             "project": "Superalgos"
@@ -18,8 +18,8 @@
         },
         {
             "style": "Callout",
-            "text": "Move the time machines around and look for the title you added to your time machine in the Design Space.",
-            "updated": 1620264649926
+            "text": "If necessary, move the time machines around and look for the title you added to your time machine in the Design Space.",
+            "updated": 1620554665332
         },
         {
             "style": "Text",

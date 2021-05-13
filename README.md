@@ -22,11 +22,11 @@ If you don't have it yet, download and install Node.js.
 
 Node JS is an open-source server environment required to run Superalgos.
 
-**a.** Go to the Node JS [download page](https://nodejs.org/en/download/).
+**A.** Go to the Node JS [download page](https://nodejs.org/en/download/).
 
-**b.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
+**B.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
 
-**c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
+**C.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
 <hr>
 
@@ -59,11 +59,11 @@ Download and install Git.
 
 Git is an open-source distributed version control system required to download and stay up to date with Superalgos.
 
-**a.** Go to the Git [download page](https://git-scm.com/downloads).
+**A.** Go to the Git [download page](https://git-scm.com/downloads).
 
-**b.** Download the version for your Operating System.
+**B.** Download the version for your Operating System.
 
-**c.** Run the installer with the default configuration — just click Next until Git is fully installed.
+**C.** Run the installer with the default configuration — just click Next until Git is fully installed.
 
 **IMPORTANT:** The latest version of Git is required to handle the authentication with GitHub.com.
 
@@ -84,9 +84,9 @@ sudo apt-get install git
 
 Use Chrome, or Safari on Mac. These are the only tested browsers.
 
-**a.** Go to the Chrome [download page](https://www.google.com/chrome/).
+**A.** Go to the Chrome [download page](https://www.google.com/chrome/).
 
-**b.** Run the installer.
+**B.** Run the installer.
 
 Before you begin, it is recommended that you set up Chrome/Safari as your default browser.
 

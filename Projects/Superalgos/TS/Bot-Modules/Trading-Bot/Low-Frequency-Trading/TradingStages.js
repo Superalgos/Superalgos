@@ -169,6 +169,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkTriggerOff() {
             if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
+                checkUserDefinedCode('Trigger Stage', 'Running', 'first');
 
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
@@ -246,6 +247,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
+                            } else {
+                                checkUserDefinedCode('Trigger Stage', 'Running', 'last');
                             }
                         }
                     }
@@ -299,7 +302,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage)
                 initializeStageTargetSize()
 
-                /* From here on, the stage is officialy Open */
+                /* From here on, the stage is officially Open */
                 changeStageStatus('Open Stage', 'Open')
             }
         }
@@ -311,6 +314,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 While the Open Stage is Open, we do our regular stuff: place orders and check 
                 what happened to the orders already placed.
                 */
+                checkUserDefinedCode('Open Stage', 'Running', 'first');
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyOpenStage
                 let executionNode = tradingSystemStage.openExecution
@@ -324,6 +328,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     tradingEngineStage
                 )
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Open Stage')
+
+                /* User Defined Code if runWhileAtStage==true */
+                if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
+                  checkUserDefinedCode('Open Stage', 'Running', 'last');
+                }
             }
         }
 
@@ -410,7 +419,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
-                
+
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
                 Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
@@ -431,6 +440,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         function runWhenStatusIsOpen() {
             /* Open Status Procedure */
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+                checkUserDefinedCode('Manage Stage', 'Running', 'first');
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
 
@@ -450,6 +460,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 /* Checking if Stop or Take Profit were hit */
                 checkStopLossOrTakeProfitWasHit()
+
+                /* If User Defined Code exists check for runWhileAtStage */
+                if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+                  checkUserDefinedCode('Manage Stage', 'Running', 'last');
+                }
             }
 
             function calculateStopLoss() {
@@ -846,6 +861,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 /*
                 This will happen as long as the Close Stage is Open.
                 */
+                checkUserDefinedCode('Close Stage', 'Running', 'first');
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
                 let executionNode = tradingSystemStage.closeExecution
@@ -859,6 +875,10 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 )
 
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
+                /* If User Defined Code exists check for runWhileAtStage */
+                if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
+                  checkUserDefinedCode('Close Stage', 'Running', 'last');
+                }
             }
         }
 
@@ -1122,9 +1142,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
         if (stage.status.value === 'Open') {
             openStage(stage)
+            checkUserDefinedCode(stageName, 'Open')
         }
         if (stage.status.value === 'Closed') {
             closeStage(stage)
+            checkUserDefinedCode(stageName, 'Closed')
         }
 
         /*
@@ -1227,5 +1249,58 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
         throw 'Error Already Recorded'
+    }
+
+    /* checkUserDefinedCode(): Checks if User Defined Code exists and processes if applicable. */
+    function checkUserDefinedCode(stage, status, when) {
+      let tradingSystemStage = getTradingSystemStage(stage);
+
+      if (tradingSystemStage.userDefinedCode !== undefined) {
+        if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.WhileAtStage_whenToRun) { return; }
+
+        switch(status) {
+          case 'Open' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhenEnteringStage) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+          case 'Running' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage &&
+                tradingSystemStage.userDefinedCode.config.WhileAtStage_whenToRun === when) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+          case 'Closed' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhenExitingStage) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+        }
+      }
+    }
+
+    /* getTradingSystemStage(): takes stage name returns stage object. */
+    function getTradingSystemStage(stage) {
+      switch(stage) {
+        case 'Trigger Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage;
+          break;
+        }
+        case 'Open Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage;
+          break;
+        }
+        case 'Manage Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage;
+          break
+        }
+        case 'Close Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage;
+          break;
+        }
+      }
     }
 }

@@ -51,6 +51,12 @@
             "name": "announcements",
             "type": "array",
             "childType": "Announcement"
+        },
+        {
+            "name": "userDefinedCode",
+            "type": "node",
+            "childType": "User Defined Code",
+            "autoAdd": false
         }
     ],
     "propertyNameAtParent": "triggerStage"

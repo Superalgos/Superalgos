@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As you may remember from Install a New Market Tutorial, installing a market sets up everything you need for a basic Superalgos workspace. This includes automatically setting up a Backtesting Session, Live Trading Session, and charts for each Trading System present in the workspace.",
-            "updated": 1620005481411
+            "text": "The Install a New Market Tutorial taught you that installing a market sets up everything you need for a basic Superalgos workspace. This includes automatically setting up a Backtesting Session, a Live Trading Session, and charts for each Trading System present in the workspace.",
+            "updated": 1620553824986
         },
         {
             "style": "Success",

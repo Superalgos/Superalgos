@@ -3,8 +3,8 @@
     "pageNumber": 14,
     "type": "Tutorial Step - Add a Time Machine",
     "definition": {
-        "text": "Look at you go! You are making great progress. Now lets get that Time Machine added!",
-        "updated": 1620260972485,
+        "text": "Look at you! You are making great progress. Now lets get that Time Machine added!",
+        "updated": 1620554388969,
         "icon": {
             "name": "chart-points",
             "project": "Superalgos"
@@ -27,8 +27,8 @@
         },
         {
             "style": "Text",
-            "text": "Other helpful information you can use to label your charts can include the exchange, market pair, and network node associated with the information shown in the chart.",
-            "updated": 1620261780042
+            "text": "Other helpful information you can use to label your charts can include the exchange, market pair, and network node associated with the information featured.",
+            "updated": 1620554455184
         },
         {
             "style": "Text",

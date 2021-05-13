@@ -125,6 +125,12 @@
             "type": "node",
             "childType": "Cycle",
             "autoAdd": true
+        },
+        {
+            "name": "userVariables",
+            "type": "node",
+            "childType": "User Variables",
+            "autoAdd": false
         }
     ]
 }

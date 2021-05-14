@@ -215,7 +215,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
 
                                 -1 because we need the previous closed element
                                 */
-                                if (end - timeFrame * 4 < initialDatetime - 1) { continue }
+                                if (end + timeFrame * 4 < initialDatetime - 1) { continue }
                                 if (begin > finalDatetime) { continue }
                                 result.push(dataRecord)
                             }

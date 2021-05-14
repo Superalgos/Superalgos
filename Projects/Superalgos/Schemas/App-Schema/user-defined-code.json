@@ -23,18 +23,11 @@
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity"
-        },
-                {
-                    "action": "Copy Node Path",
-                    "label": "Copy Node Path",
-                    "iconPathOn": "copy-path",
-                    "iconPathOff": "copy-path",
-                    "actionFunction": "payload.executeAction"
-                }
+        }
     ],
     "addLeftIcons": true,
     "initialValues": {
-        "config": "{ \n  \"runWhenEnteringStage\": false, \n \"runWhenExitingStage\": false, \n \"runWhileAtStage\": false, \n \"WhileAtStage_whenToRun\": \"first|last\" \n}"
+        "config": "{ \n  \"runWhenEnteringStage\": false, \n \"runWhenExitingStage\": false, \n \"runWhileAtStage\": false, \n \"whileAtStageWhenToRun\": \"first|last\" \n}"
     },
     "editors": {
         "config": true

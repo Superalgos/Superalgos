@@ -1256,7 +1256,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
       let tradingSystemStage = getTradingSystemStage(stage);
 
       if (tradingSystemStage.userDefinedCode !== undefined) {
-        if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.WhileAtStage_whenToRun) { return; }
+        if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
 
         switch(status) {
           case 'Open' : {
@@ -1266,8 +1266,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             break;
           }
           case 'Running' : {
-            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage &&
-                tradingSystemStage.userDefinedCode.config.WhileAtStage_whenToRun === when) {
+            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
               tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
             }
             break;

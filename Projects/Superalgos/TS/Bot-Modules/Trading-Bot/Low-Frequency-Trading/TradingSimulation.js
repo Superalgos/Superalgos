@@ -302,7 +302,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
                         /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                        heartBeatDate = new Date(Math.trunc(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        heartBeatDate = new Date(Math.trunc(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value / TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                         let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
@@ -374,7 +374,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                     dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
-                    /* Finding the Current Element on Market Files */
+                    /* Finding the Current Element on Daily Files */
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                         for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
                             let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]

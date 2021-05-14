@@ -1266,8 +1266,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             break;
           }
           case 'Running' : {
-            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage &&
-                tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun === when) {
+            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
               tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
             }
             break;

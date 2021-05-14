@@ -1,0 +1,14 @@
+{
+    "type": "API Data Fetcher Bot",
+    "definition": {
+        "text": "It is a type of bot that can fetch data from any API on the internet as long as it is provided with a API Map at runtime.",
+        "updated": 1621022644745
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "An API Data Fetcher Bots is similar to a Sensor Bot, except that the second extracts data from exchanges, while the first one can do it from any reachable API, including exchanges.",
+            "updated": 1621022763112
+        }
+    ]
+}

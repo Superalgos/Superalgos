@@ -1,0 +1,23 @@
+{
+    "type": "API Query Parameter",
+    "definition": {
+        "text": "This node represent a single query string parameter.",
+        "updated": 1621022326307
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Configuration",
+            "updated": 1621022390398
+        },
+        {
+            "style": "List",
+            "text": "codeName: This must match with the name of the query parameter defined at the API docs."
+        },
+        {
+            "style": "List",
+            "text": "value: It is the value to be used at this parameter. The API Map can define the value, that would be considered a default value. The same parameter defined at the Data Mine will have the actual value to be used replacing the default.",
+            "updated": 1621022463369
+        }
+    ]
+}

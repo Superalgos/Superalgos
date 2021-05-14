@@ -1,0 +1,39 @@
+{
+    "type": "API Map",
+    "definition": {
+        "text": "An API Map represents the mapping of an API so that is can be consumed by bots within Superalgos. API Maps are created by users and shared as Plugins so that any other community member can use them with their bots. ",
+        "updated": 1621016177698
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The way to create an API Map is to read the API's documentation and for each command and their responses, generate the node structure that represents it.",
+            "updated": 1621016234649
+        },
+        {
+            "style": "Subtitle",
+            "text": "Configuration"
+        },
+        {
+            "style": "List",
+            "text": "protocol: the protocol to be used to access the API. For now either http or https."
+        },
+        {
+            "style": "List",
+            "text": "portNumber: the port at which the API server is listening."
+        },
+        {
+            "style": "List",
+            "text": "hostName: the domain name or IP address of the API server."
+        },
+        {
+            "style": "List",
+            "text": "path: the URL path to where the API is located within the remote server.",
+            "updated": 1621016495461
+        },
+        {
+            "style": "List",
+            "text": "millisecondsBetweenCalls: [Optional] the number of milliseconds to wait before calling the remote host. This is particuary usefull if there is pagination, so that there is a delay before requesting each page."
+        }
+    ]
+}

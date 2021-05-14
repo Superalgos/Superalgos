@@ -1,0 +1,14 @@
+{
+    "type": "API Query Parameters",
+    "definition": {
+        "text": "Is a query string, that is a part of a uniform resource locator (URL) that assigns values to specified parameters. The query parameters commonly includes fields added to the base URL.",
+        "updated": 1621022301794
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When found at the API Map will define the default values for each parameter. When found at the Data Mine will define the actual values to be used, these would replace the defaults.",
+            "updated": 1621022566230
+        }
+    ]
+}

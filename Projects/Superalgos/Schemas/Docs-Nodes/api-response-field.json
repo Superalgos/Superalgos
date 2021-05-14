@@ -1,0 +1,24 @@
+{
+    "type": "API Response Field",
+    "definition": {
+        "text": "The API responds with a JSON object. Each property of the object is mapped as node of this type. This node can have children of the same type allowing users to map a complex data structure.",
+        "updated": 1621021740145
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Configuration",
+            "updated": 1621021763335
+        },
+        {
+            "style": "List",
+            "text": "codeName: The codeName needs to be the exact name of the property at the response JSON object holding the value. For the first object, since it is a special case, we usually use the codeName of rootObject.",
+            "updated": 1621021843683
+        },
+        {
+            "style": "List",
+            "text": "fieldType: This property declares if the data is number, a string an object or an array, those are the 4 possible values.",
+            "updated": 1621022104672
+        }
+    ]
+}

@@ -1,26 +1,40 @@
 # Superalgos Beta 10 - Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
+Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) token</a> to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
-> **IMPORTANT:** Minimalist hardware —both virtual and physical— is better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave minimalist hardware for when you are ready to start trading live.
+Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
+# Getting Started Guide
+
+All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
+
+> **IMPORTANT:** Remote installations and minimalist hardware —both virtual and physical— are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GIU to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
+
+
+
 # Pre-Requisites
 
-## 1. Node JS
+## 1. Node JS Installation
 
 If you don't have it yet, download and install Node.js.
 
 Node JS is an open-source server environment required to run Superalgos.
 
-**a.** Go to the Node JS [download page](https://nodejs.org/en/download/).
+**A.** Go to the Node JS [download page](https://nodejs.org/en/download/).
 
-**b.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
+**B.** Download your system’s installer. Select *LTS Recommended for Most Users* and click the big Windows or macOS Installer button. If you are on Linux, the installer is listed further down the page.
 
-**c.** Run the installer with the default configuration — just click Next until Node.JS is fully installed.
+**C.** Run the installer with the default configuration — just click Next until Node.JS is fully installed. That's it! You can continue with step 2 (Git Installation).
 
-**NOTE FOR RASPBERRY PI USERS:** You may install Node.JS just like you would on any other machine as per the above instructions. As an alternative, you may also try the following from the SSH Terminal. **NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
+<hr>
+
+**NODE JS INSTALLATION FOR RASPBERRY PI USERS**
+
+You may install Node.JS just like you would on any other machine as per the above instructions. As an alternative, you may also try the following from the SSH Terminal.
+
+**NOTE:** It is best to use the most current and updated version of the FULL PiOS image.
 
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
@@ -37,35 +51,42 @@ you may also type the following to verify the Node.js installation and version.
 ```
 node -v
 ```
+<hr>
 
-## 2. Git
+## 2. Git Installation
 
 Download and install Git.
 
 Git is an open-source distributed version control system required to download and stay up to date with Superalgos.
 
-**a.** Go to the Git [download page](https://git-scm.com/downloads).
+**A.** Go to the Git [download page](https://git-scm.com/downloads).
 
-**b.** Download the version for your Operating System.
+**B.** Download the version for your Operating System.
 
-**c.** Run the installer with the default configuration — just click Next until Git is fully installed.
+**C.** Run the installer with the default configuration — just click Next until Git is fully installed.
 
 **IMPORTANT:** The latest version of Git is required to handle the authentication with GitHub.com.
 
 **NOTE FOR MAC USERS:** Depending on your setup, installing Git may be optional. The native XCode Command Line Developer Tools seems to work well. If you do install Git, we have tested Tim Harper's binary installer successfully.
 
-**NOTE FOR RASPBERRY PI USERS:** Just like with Node.JS, you may follow the above instructions to install Git, or us the SSH Terminal command. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
+<hr>
+
+**GIT INSTALLATION FOR RASPBERRY PI USERS**
+
+Just like with Node.JS, you may follow the above instructions to install Git, or use the SSH Terminal command. The most recent version of PiOS has Git already installed, so this may give you an error. The error will not affect your installation.
 ```
 sudo apt-get install git
 ```
+
+<hr>
 
 ## 3. Google Chrome or Safari
 
 Use Chrome, or Safari on Mac. These are the only tested browsers.
 
-**a.** Go to the Chrome [download page](https://www.google.com/chrome/).
+**A.** Go to the Chrome [download page](https://www.google.com/chrome/).
 
-**b.** Run the installer.
+**B.** Run the installer.
 
 Before you begin, it is recommended that you set up Chrome/Safari as your default browser.
 
@@ -109,7 +130,7 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 ## 4. Migrating from Superalgos Beta 9
 
-### Refactorings 
+### Refactorings
 
 In order to migrate your own workspaces to Beta 10, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
 
@@ -142,7 +163,7 @@ then
 node run minMemo noBrowser
 ```
 
-## 2. Add a Desktop/Launcher Shortcut for Superalgos 
+## 2. Add a Desktop/Launcher Shortcut for Superalgos
 
 There are a number of scripts available to help make lauching Superalgos easier and feel more native. To use these scripts, follow the steps for your operating system.
 
@@ -150,7 +171,7 @@ There are a number of scripts available to help make lauching Superalgos easier 
 
 Open a file browser and navigate to the Superalgos Directory.
 
-Under the folder titled `Launch-Scripts` double-click the script `create-shortcut-windows.bat`. 
+Under the folder titled `Launch-Scripts` double-click the script `create-shortcut-windows.bat`.
 
 After running this script there will be two shortcuts added.  One to your start menu and one to your desktop. You can now lauch Superalgos from any of these shortcuts, or search `Superalgos` in the start menu search bar.
 
@@ -191,7 +212,7 @@ Now both shortcuts will launch Superalgos like any other program on your compute
 We are testing the UI on Google Chrome and Safari on macOS only. It may work on other browsers as well &mdash; or not. If you are running on a different browser and ever need support, make sure you mention that fact upfront, or even better, try on Chrome/Safari first.
 
  **TIP:** If your computer has 8 GB of RAM or less, use ```node run minMemo``` to run the system with minimal RAM requirements.
- 
+
 # Running Superalgos on a Headless Linux Server as a Daemon
 
 If you’re running Superalgos on a headless linux server like a Raspberry Pi, you might want to run it as a daemon so it isn’t attached to your current login session. The easiest, most standard way to go about this is probably using `systemd`. Most linux distributions use it as default init system/service manager.
@@ -243,7 +264,7 @@ If you have installed shortcuts for Superalgos you can remove them as follows:
 
 Open a file browser and navigate to the Superalgos directory.
 
-Under the folder titled `Launch-Scripts` double-click the script `uninstall-shortcut-windows.bat`. 
+Under the folder titled `Launch-Scripts` double-click the script `uninstall-shortcut-windows.bat`.
 
 ## For **Ubuntu** Users
 

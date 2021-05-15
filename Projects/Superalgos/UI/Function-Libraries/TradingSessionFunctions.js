@@ -147,7 +147,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
-            'User Variables->User Defined Variable->'
+            'User Defined Variables->User Defined Variable->'
 
         let tradingEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

@@ -1,5 +1,5 @@
 {
-    "type": "User Variables",
+    "type": "User Defined Variables",
     "menuItems": [
         {
             "action": "Add UI Object",
@@ -22,7 +22,7 @@
     "attachingRules": {
         "compatibleTypes": "->Trading Episode->"
     },
-    "propertyNameAtParent": "userVariables",
+    "propertyNameAtParent": "userDefinedVariables",
     "childrenNodesProperties": [
         {
             "name": "userDefinedVariable",

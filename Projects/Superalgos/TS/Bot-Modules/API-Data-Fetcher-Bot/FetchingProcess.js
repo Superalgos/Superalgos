@@ -651,12 +651,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             2) It was calculated automatically.
                                             */
 
-                                            let nodePath = recordProperty.config.nodePath 
-                                            
+                                            let nodePath = recordProperty.config.nodePath
+
                                             if (nodePath === undefined) {
                                                 nodePath = recordPropertiesNodePathMap.get(recordProperty.config.codeName)
                                             }
-  
+
                                             let value = eval(nodePath)
 
                                             if (recordProperty.config.isDate === true) {
@@ -666,7 +666,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             /*
                                             Check that we do not accept values that will break the JSON format of the file.
                                             */
-                                            if (isNaN(value)) { value = 0 }
+                                            if (recordProperty.config.isString !== true && recordProperty.config.isBoolean !== true) {
+                                                /*
+                                                At this point Dates have been converted to numbers, so if the Record Property is not a string
+                                                then it must be a number.
+                                                */
+                                                if (isNaN(value)) { value = 0 }
+                                            }
+                                            
                                             if (value === null || value === undefined) { value = 0 }
                                             record.values.push(value)
                                             record.headers.push(recordProperty.config.codeName)

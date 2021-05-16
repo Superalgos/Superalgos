@@ -75,8 +75,18 @@
             "text": "Data collections of different products may begin and end at different points in time. For example, it takes 20 candles to build the first bollingerBands object of the Bollinger Bands indicator, or 200 candles to build the first popularSMAs object of the SMA indicator. Therefore, the record in i position in the array of one product may not correspond to the same period of time of the record in the same position of a different product."
         },
         {
+            "style": "Subtitle",
+            "text": "getElement Function"
+        },
+        {
             "style": "Text",
-            "text": "To overcome that hurdle, the getElement function, which takes two parameters, may be used:"
+            "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is whitin the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
+            "updated": 1621105823745
+        },
+        {
+            "style": "Text",
+            "text": "The getElement function, which takes two parameters, may be used:",
+            "updated": 1621105837484
         },
         {
             "style": "List",
@@ -96,8 +106,27 @@
         },
         {
             "style": "Javascript",
-            "text": "let candle = record.current                                      // Calling \"Candles\"\nlet basicCandle = getElement ('basicCandles', candle)            // Calling \"Basic Candles\"",
-            "updated": 1611430980056
+            "text": "let candle = record.current // Calling \"Candles\"\nlet basicCandle = getElement ('basicCandles', candle) // Calling \"Basic Candles\"",
+            "updated": 1621105552115
+        },
+        {
+            "style": "Subtitle",
+            "text": "getTimestampElement Function",
+            "updated": 1621105629181
+        },
+        {
+            "style": "Text",
+            "text": "Indicators might have parameters that influences it's calculations. These parameters are defined at the Product Definition config, and their values are set at the Process Instance config. Parameters are extracted at the Procedure Initialization Code. In order to facilitate this extraction we will create an object here that will be accesed from the Procedure Initialization with all parameters and their defined values.",
+            "updated": 1621105691314
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Javascript",
+            "text": "let currentAssetMetrics = getTimestampElement('assetMetrics', record.current)",
+            "updated": 1621105716567
         },
         {
             "style": "Title",

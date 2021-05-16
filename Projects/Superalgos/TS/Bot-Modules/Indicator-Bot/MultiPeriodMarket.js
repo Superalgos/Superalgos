@@ -75,7 +75,17 @@
 
                         function getFile() {
                             let fileName = "Data.json";
-                            let filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel;
+                            let filePath 
+                            
+                            /*
+                            For datasets that are not dependent on a Time Frame we will build the file path without the timeFrameLabel
+                            */
+                            if (dependency.referenceParent.config.codeName === "Single-File") {
+                                filePath= dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName
+                            } else {
+                                filePath= dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel
+                            }
+
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)
 
                             function onFileReceived(err, text) {

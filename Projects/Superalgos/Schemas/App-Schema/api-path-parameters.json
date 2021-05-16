@@ -1,0 +1,35 @@
+{
+    "type": "API Path Parameters",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add API Path Parameter",
+            "relatedUiObject": "API Path Parameter",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->API Endpoint->Product Definition->"
+    },
+    "propertyNameAtParent": "apiPathParameters",
+    "childrenNodesProperties": [
+        {
+            "name": "apiPathParameters",
+            "type": "array",
+            "childType": "API Path Parameter",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

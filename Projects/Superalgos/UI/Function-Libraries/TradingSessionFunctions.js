@@ -107,7 +107,8 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +
-            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
+            'User Defined Code->Javascript Code->'
 
         let tradingSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -145,7 +146,8 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
-            'Index->Situation Name->Formula->Periods->'
+            'Index->Situation Name->Formula->Periods->' +
+            'User Defined Variables->User Defined Variable->'
 
         let tradingEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -153,7 +155,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->Discord Bot->' +
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
             'Exchange Account Asset->Asset->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)

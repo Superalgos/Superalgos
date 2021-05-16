@@ -209,7 +209,13 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                                 let dataRecord = dataFile[i]
                                 let begin = dataRecord[beginIndex]
                                 let end = dataRecord[endIndex]
-                                if (end + timeFrame < initialDatetime - 1) { continue } // /1 because we need the previous closed element
+                                /*
+                                We will allow 4 objects before the initial datetime in order to allow formulas with 4 .previous
+                                not to be undefined.
+
+                                -1 because we need the previous closed element
+                                */
+                                if (end + timeFrame * 4 < initialDatetime - 1) { continue }
                                 if (begin > finalDatetime) { continue }
                                 result.push(dataRecord)
                             }

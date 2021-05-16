@@ -4,6 +4,8 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
 
     let thisObject = {
         webhookURL: undefined,
+        taskParameters: undefined,
+        format: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
@@ -11,32 +13,38 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
 
     return thisObject
 
-    function initialize(webhookURL) {
+    function initialize(config) {
         /* Discord Bot Initialization */
         
         try {
-            thisObject.webhookURL = webhookURL
-
-            const message = "Discord bot has started."
-            thisObject.sendMessage(message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] initializeDiscordBot -> Discord error -> err = " + err))
+            thisObject.webhookURL = config.webhookURL
+            thisObject.taskParameters = {
+                exchange: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
+                market: TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
+                    '/' +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+            }
+            if (config.format === undefined) {
+                thisObject.format = "%{MESSAGE}"
+            } else {
+                thisObject.format = config.format
+            }
         } catch (err) {
-            parentLogger.write(MODULE_NAME, "[WARN] initialize -> err = " + err.stack);
+            logError("initialize -> err = " + err.stack);
         }
 
     }
 
-    function finalize() {
-        const message = "Discord bot has stopped."
-        thisObject.sendMessage(message).catch(err => parentLogger.write(MODULE_NAME, "[WARN] finalize -> Discord error -> err = " + err))
-    }
+    function finalize() {}
 
     function sendMessage(message) {
         const https = require('https')
 
         try {
+            message = formatMessage(message)
             message = JSON.stringify({content: message})
         } catch (err) {
-            parentLogger.write(MODULE_NAME, "[WARN] announce -> Discord JSON message error -> err = " + err)
+            logError("announce -> Discord JSON message error -> err = " + err)
         }
 
         return new Promise((resolve, reject) => {
@@ -53,7 +61,7 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
 
             req.on('error', (err) => {
                 reject(err)
-                parentLogger.write(MODULE_NAME, "[WARN] announce -> Discord request error -> err = " + err)
+                logWarn("announce -> Discord request error -> err = " + err)
             })
 
             req.write(message)
@@ -61,4 +69,19 @@ exports.newSuperalgosBotModulesDiscordBot = function (processIndex) {
         })
     }
 
+    function formatMessage(message) {
+        formattedMessage = thisObject.format
+        formattedMessage = formattedMessage.replace('%{EXCHANGE}', thisObject.taskParameters.exchange)
+        formattedMessage = formattedMessage.replace('%{MARKET}', thisObject.taskParameters.market)
+        formattedMessage = formattedMessage.replace('%{MESSAGE}', message)
+        return formattedMessage
+    }
+
+    function logWarn(message) {
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[WARN] ' + message)
+    }
+
+    function logError(message) {
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] ' + message)
+    }
 }

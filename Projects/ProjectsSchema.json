@@ -683,6 +683,13 @@
                     "folderName": "Trading-Bot/Announcements"
                 },
                 {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSuperalgosBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
                     "name": "Trading Process",
                     "propertyName": "tradingProcess",
                     "functionName": "newSuperalgosBotModulesTradingProcess",

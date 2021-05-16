@@ -1,0 +1,13 @@
+{
+    "type": "API Version",
+    "definition": {
+        "text": "An API might have different versions. This node is used for specifying the version that it's children are defining. At the codeName property we expect the version string as needed on the URL when calling the API Server.",
+        "updated": 1621016746266
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

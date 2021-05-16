@@ -99,8 +99,8 @@
         },
         {
             "style": "Text",
-            "text": "Currently this script only places a shortcut on the user's desktop. Revision in progress to also place shortcut in the start menu.",
-            "updated": 1620053366379
+            "text": "This script places shortcuts within the user's start menu and desktop. The start menu shortcut is also searchable using the start menu search bar.",
+            "updated": 1620789169171
         },
         {
             "style": "Subtitle",
@@ -193,18 +193,27 @@
         },
         {
             "style": "Title",
-            "text": "Uninstall Shortcut Scripts",
-            "updated": 1620053489270
+            "text": "Uninstall Shortcuts",
+            "updated": 1620789208012
         },
         {
-            "style": "Important",
-            "text": "No scripts started yet. Manual deletion required.",
-            "updated": 1620053525531
+            "style": "Subtitle",
+            "text": "Windows",
+            "updated": 1620789368194
         },
         {
-            "style": "Title",
-            "text": "Manually Unistall Shortcuts",
-            "updated": 1620506058024
+            "style": "Text",
+            "text": "Open a file browser and navigate to the Superalgos directory."
+        },
+        {
+            "style": "Text",
+            "text": "Under the folder titled Launch-Scripts double-click the script:",
+            "updated": 1620789459938
+        },
+        {
+            "style": "Json",
+            "text": "uninstall-shortcut-windows.bat",
+            "updated": 1620789508304
         },
         {
             "style": "Subtitle",

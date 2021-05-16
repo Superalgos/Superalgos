@@ -1,0 +1,18 @@
+{
+    "type": "API Response Field Reference",
+    "definition": {
+        "text": "This node allow users to reference an API Data Field from a Record Property. In other words it allows to link each piece of data the user wants to be saved locally to the field at the API Map that will hold the data at runtime.",
+        "updated": 1621022976968
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Once created, you need to reference an API Data Field.",
+            "updated": 1621023087914
+        },
+        {
+            "style": "Important",
+            "text": "All references originating at the same Record Definition must be to API Data Field s living at the same API Endpoint."
+        }
+    ]
+}

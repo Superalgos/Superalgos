@@ -14,6 +14,12 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Slack Bot",
+            "relatedUiObject": "Slack Bot",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -39,6 +45,12 @@
             "name": "discordBots",
             "type": "array",
             "childType": "Discord Bot",
+            "autoAdd": true
+        },
+        {
+            "name": "slackBots",
+            "type": "array",
+            "childType": "Slack Bot",
             "autoAdd": true
         }
     ],

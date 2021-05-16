@@ -13,7 +13,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         finalize: finalize
     }
 
-    /* 
+    /*
     These 3 are the main data structures available to users
     when writing conditions and formulas.
     */
@@ -74,6 +74,10 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             evalNode(startingNode, 'Formulas', descendentOfNodeType)
         }
 
+        tradingSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
+          evalNode(startingNode, 'User Codes', descendentOfNodeType);
+        }
+
         tradingSystem.addError = function (errorDataArray) {
             /*
             This function adds to the array of error info a rate.
@@ -87,7 +91,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
         tradingSystem.addWarning = function (warningDataArray) {
             /*
-            This function adds to the array of warning info a rate. 
+            This function adds to the array of warning info a rate.
             This rate will later help plotting the warning at the
             charts.
             */
@@ -98,7 +102,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
         tradingSystem.addInfo = function (infoDataArray) {
             /*
-            This function adds to the array of warning info a rate. 
+            This function adds to the array of warning info a rate.
             This rate will later help plotting the warning at the
             charts.
             */
@@ -108,9 +112,9 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
         }
 
         function isItInside(elementWithTimestamp, elementWithBeginEnd) {
-            /* 
-            The function is to allow in Conditions and Formulas to easily 
-            know when an element with timestamp (like the ones of 
+            /*
+            The function is to allow in Conditions and Formulas to easily
+            know when an element with timestamp (like the ones of
             single files) are inside the time range
             of an element with a time range, like a candle.
             */
@@ -167,8 +171,8 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
     }
 
     function updateChart(pChart, pExchange, pMarket) {
-        /* 
-        We need these 3 data structures  to be a local objects 
+        /*
+        We need these 3 data structures  to be a local objects
         accessible while evaluating conditions and formulas.
         */
         chart = pChart
@@ -216,7 +220,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             tradingStagesModuleObject.cycleBasedStatistics()
 
         } catch (err) {
-            /* 
+            /*
             If an error ocurred during execution, it was alreeady logged and
             included at the errors array. That means we need to do nothing here,
             just prevent the execution to be halted for not handling exceptions.
@@ -256,6 +260,15 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                     evalFormula(node)
                 }
             }
+        }
+
+        /* Here we check if there is a User Defined-Javascript Code to be evaluated: */
+        if (node.type === 'Javascript Code' && evaluating === 'User Codes') {
+          if (node.code !== undefined) {
+            if (isDescendent === true) {
+              evalJSCode(node);
+            }
+          }
         }
 
         /* Now we go down through all this node children */
@@ -395,5 +408,31 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
     }
-}
 
+    function evalJSCode(node) {
+      let value
+      let errorMessage
+      let docs
+
+      try {
+        value = eval(node.code);
+
+      } catch (err) {
+        value = 0
+        errorMessage = err.message
+        docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Error - Evaluating User Code Error',
+            placeholder: {}
+        }
+        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
+      }
+
+      if (errorMessage !== undefined) {
+          tradingSystem.addError([node.id, errorMessage, docs])
+          TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+          return
+      }
+    }
+}

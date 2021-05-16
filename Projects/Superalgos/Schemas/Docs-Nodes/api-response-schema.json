@@ -1,0 +1,18 @@
+{
+    "type": "API Response Schema",
+    "definition": {
+        "text": "This node represents the mapping of the JSON response of the API into a data structure built by API Response Field nodes.",
+        "updated": 1621021486718
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Configuration",
+            "updated": 1621021492973
+        },
+        {
+            "style": "List",
+            "text": "nodePath: the response from the server might include some header type of data and the actual data requested. Since the response is a JSON object, then the actual data might be located somewhere within the structure of that object. This property allows you to declare the path to the actual data requested, so as to jump the header-like information."
+        }
+    ]
+}

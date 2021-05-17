@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "In questo step, lancerai il comando per creare una pagina di recensione! Potrai poi editarla!",
-                "updated": 1619635348623
+                "updated": 1619635348623,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "La sintassi dei comandi è informale: ti piacerà! Leggi e segui le istruzioni sotto:",
-                    "updated": 1619635406184
+                    "updated": 1619635406184,
+                    "style": "Text"
                 }
             ]
         },
@@ -43,7 +45,8 @@
                 {
                     "language": "IT",
                     "text": "PRIMO: copia il comando sopra",
-                    "updated": 1619635420152
+                    "updated": 1619635420152,
+                    "style": "List"
                 }
             ]
         },
@@ -55,7 +58,8 @@
                 {
                     "language": "IT",
                     "text": "SECONDO: incolla in un editor di testo",
-                    "updated": 1619635433451
+                    "updated": 1619635433451,
+                    "style": "List"
                 }
             ]
         },
@@ -67,19 +71,21 @@
                 {
                     "language": "IT",
                     "text": "TERZO: sostituisci \"Your Review Title\" con un titolo. I titoli delle review devono essere unici!",
-                    "updated": 1619635474439
+                    "updated": 1619635474439,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "FOURTH: Paste the updated command on the search/command box and click Enter.",
-            "updated": 1610736916242,
+            "text": "FOURTH: Paste the updated command on the search/command box and press Enter.",
+            "updated": 1621288831104,
             "translations": [
                 {
                     "language": "IT",
                     "text": "QUARTO: incolla il nuovo comando sulla barra di ricerca/comando e premi Enter.",
-                    "updated": 1619635504400
+                    "updated": 1619635504400,
+                    "style": "List"
                 }
             ]
         }

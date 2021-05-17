@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Molti utenti scelgono di lanciare le branches da cartelle separate. È una buona soluzione per i contributors più attivi!",
-                "updated": 1619634353624
+                "updated": 1619634353624,
+                "style": "Definition"
             }
         ]
     },
@@ -26,19 +27,21 @@
                 {
                     "language": "IT",
                     "text": "Potresti avere due cloni del tuo fork che girano su cartelle diverse, ognuna su un diverso branch.",
-                    "updated": 1619634392400
+                    "updated": 1619634392400,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Two instances of Superalogs running from different folders are completely independent. They run distinct workspaces and output unique data.",
-            "updated": 1617018971209,
+            "text": "Two instances of Superalgos running from different folders are completely independent. They run distinct workspaces and output unique data.",
+            "updated": 1621286961563,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Due istanze di Superalgos eseguite da cartelle diverse sono completamente indipendenti. Contengono workspace separati e output diversi.",
-                    "updated": 1619634452638
+                    "updated": 1619634452638,
+                    "style": "Note"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Questo setup ti permette di utilizzare la versione stabile contemporaneamente alla versione di un altro branch a cui vuoi contribuire, o su cui fai test! Ma non potrai lanciare due istanze separate insieme, a meno che non cambi le porte. Non parleremo di questo per ora!",
-                    "updated": 1619634623463
+                    "updated": 1619634623463,
+                    "style": "Success"
                 }
             ]
         }

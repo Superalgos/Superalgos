@@ -200,6 +200,26 @@
             "updated": 1610910739376
         },
         {
+            "style": "Subtitle",
+            "text": "Linux and iOS",
+            "updated": 1621085154588
+        },
+        {
+            "style": "Success",
+            "text": "Input your personal authentication token (PAT) in place of your password and hit enter.  ",
+            "updated": 1621085095513
+        },
+        {
+            "style": "Text",
+            "text": "If you don't want to keep entering in your token then you can have git cach your credentials:",
+            "updated": 1621085196186
+        },
+        {
+            "style": "Link",
+            "text": "How to Cache your Git Credentials->docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git",
+            "updated": 1621085386878
+        },
+        {
             "style": "Text",
             "text": ""
         },

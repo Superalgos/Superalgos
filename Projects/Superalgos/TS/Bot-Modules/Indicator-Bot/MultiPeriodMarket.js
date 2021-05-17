@@ -1,5 +1,9 @@
 ﻿exports.newSuperalgosBotModulesMultiPeriodMarket = function (processIndex) {
-    const MODULE_NAME = "Multi Period Market";
+    const MODULE_NAME = "Multi Period Market"
+    /*
+    This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
+    It also assumes that the data dependencias are in Market Files, one file for each Time Frame.
+    */
     thisObject = {
         initialize: initialize,
         finalize: finalize,
@@ -75,15 +79,15 @@
 
                         function getFile() {
                             let fileName = "Data.json";
-                            let filePath 
-                            
+                            let filePath
+
                             /*
                             For datasets that are not dependent on a Time Frame we will build the file path without the timeFrameLabel
                             */
                             if (dependency.referenceParent.config.codeName === "Single-File") {
-                                filePath= dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName
+                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName
                             } else {
-                                filePath= dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel
+                                filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel
                             }
 
                             datasetModule.getTextFile(filePath, fileName, onFileReceived)
@@ -225,10 +229,10 @@
                 let currentDateString = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME.getUTCDate(), 2)
                 let currentDate = new Date(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME)
                 TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(
-                    processIndex, 
-                    currentDateString, 
+                    processIndex,
+                    currentDateString,
                     TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(currentDate, currentDate, currentDate)
-                    )
+                )
             }
         }
         catch (err) {

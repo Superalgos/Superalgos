@@ -38,11 +38,11 @@
             function buildBands() {
                 try {
                     let n
-                    periodsLoop()
-                    function periodsLoop() {
+                    timeframesLoop()
+                    function timeframesLoop() {
                         try {
                             /*
-                            We will iterate through all posible periods.
+                            We will iterate through all posible time frames.
                             */
                             n = 0   // loop Variable representing each possible period as defined at the periods array.
                             loopBody()
@@ -50,7 +50,7 @@
                         catch (err) {
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.stack);
+                                "[ERROR] start -> buildBands -> timeframesLoop -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }

@@ -31,15 +31,16 @@
     }
     /*
     This process is going to do the following:
-    Read the candles and volumes from Exchange Raw Data and produce a file for each day and for each period with candles and volumes.
+    Read the candles and volumes from Exchange Raw Data and produce a 
+    file for each day and for each period with candles and volumes.
     */
     function start(callBackFunction) {
         try {
             /* Context Variables */
             let contextVariables = {
-                lastCandleFile: undefined,          // Datetime of the last file files successfully produced by this process.
-                firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
-                maxCandleFile: undefined            // Datetime of the last file available to be used as an input of this process.
+                datetimeLastProducedFile: undefined,                        // Datetime of the last file files successfully produced by this process.
+                datetimeBeginingOfMarketFile: undefined,                    // Datetime of the first trade file in the whole market history.
+                datetimeLastAvailableDependencyFile: undefined              // Datetime of the last file available to be used as an input of this process.
             };
 
             getContextVariables();
@@ -87,7 +88,7 @@
                         return
                     }
 
-                    contextVariables.firstTradeFile = new Date(
+                    contextVariables.datetimeBeginingOfMarketFile = new Date(
                         thisReport.beginingOfMarket.year + "-" +
                         thisReport.beginingOfMarket.month + "-" +
                         thisReport.beginingOfMarket.days + " " +
@@ -130,7 +131,7 @@
                         return
                     }
 
-                    contextVariables.maxCandleFile = new Date(
+                    contextVariables.datetimeLastAvailableDependencyFile = new Date(
                         thisReport.lastFile.year + "-" +
                         thisReport.lastFile.month + "-" +
                         thisReport.lastFile.days + " " + "00:00" +
@@ -164,30 +165,32 @@
                             "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey)
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
-                        if (beginingOfMarket.valueOf() !== contextVariables.firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
 
-                            beginingOfMarket = new Date(contextVariables.firstTradeFile.getUTCFullYear() + "-" + (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" + contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
-                            contextVariables.lastCandleFile = new Date(
-                                contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                                (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                                contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                            beginingOfMarket = new Date(contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" + (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" + contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                            contextVariables.datetimeLastProducedFile = new Date(
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                                (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                                 TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
-                            contextVariables.lastCandleFile = new Date(
-                                contextVariables.lastCandleFile.valueOf() -
+                            contextVariables.datetimeLastProducedFile = new Date(
+                                contextVariables.datetimeLastProducedFile.valueOf() -
                                 TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
                             buildCandles()
                             return
                         }
 
-                        contextVariables.lastCandleFile = new Date(thisReport.lastFile);
+                        contextVariables.datetimeLastProducedFile = new Date(thisReport.lastFile);
                         /*
-                        Here we assume that the last day written might contain incomplete information. This actually happens every time the head of the market is reached.
-                        For that reason we go back one day, the partial information is discarded and added again with whatever new info is available.
+                        Here we assume that the last day written might contain incomplete information. 
+                        This actually happens every time the head of the market is reached.
+                        For that reason we go back one day, the partial information is discarded 
+                        and added again with whatever new info is available.
                         */
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
                         buildCandles()
                         return
 
@@ -196,16 +199,16 @@
                             "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
 
                         beginingOfMarket = new Date(
-                            contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                            (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                            contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                            (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                             TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
-                        contextVariables.lastCandleFile = new Date(
-                            contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                            (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                            contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                        contextVariables.datetimeLastProducedFile = new Date(
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                            (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                             TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
                         buildCandles()
                         return
@@ -227,7 +230,7 @@
 
             function buildCandles() {
                 try {
-                    let fromDate = new Date(contextVariables.lastCandleFile.valueOf())
+                    let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
                     let lastDate = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date())
                     let outputCandles
                     let outputVolumes
@@ -235,25 +238,25 @@
                     advanceTime()
 
                     function advanceTime() {
-                        contextVariables.lastCandleFile = new Date(contextVariables.lastCandleFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + ".")
+                            "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                         /* Validation that we are not going past the head of the market. */
-                        if (contextVariables.lastCandleFile.valueOf() > contextVariables.maxCandleFile.valueOf()) {
+                        if (contextVariables.datetimeLastProducedFile.valueOf() > contextVariables.datetimeLastAvailableDependencyFile.valueOf()) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.lastCandleFile.getUTCFullYear() + "/" + (contextVariables.lastCandleFile.getUTCMonth() + 1) + "/" + contextVariables.lastCandleFile.getUTCDate() + ".")
+                                "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE) // Here is where we finish processing and wait for the platform to run this module again.
                             return
                         }
                         /*  Telling the world we are alive and doing well */
                         let currentDateString =
-                            contextVariables.lastCandleFile.getUTCFullYear() + '-' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '-' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2)
-                        let currentDate = new Date(contextVariables.lastCandleFile)
+                            contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
+                        let currentDate = new Date(contextVariables.datetimeLastProducedFile)
                         let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
 
@@ -272,12 +275,12 @@
                             outputCandles.push(emptyArray1)
                             outputVolumes.push(emptyArray2)
                         }
-                        periodsLoop();
+                        timeframesLoop();
                     }
 
-                    function periodsLoop() {
+                    function timeframesLoop() {
                         /*
-                        We will iterate through all posible periods.
+                        We will iterate through all posible time frames.
                         */
                         let n = 0   // loop Variable representing each possible period as defined at the periods array.
                         loopBody();
@@ -290,9 +293,9 @@
 
                             function nextCandleFile() {
                                 let dateForPath =
-                                    contextVariables.lastCandleFile.getUTCFullYear() + '/' +
-                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' +
-                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2)
+                                    contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
                                 let fileName = "Data.json"
 
                                 let filePathRoot =
@@ -310,7 +313,7 @@
                                 fileStorage.getTextFile(filePath, onFileReceived)
 
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> getting file at dateForPath = " + dateForPath)
+                                    "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> getting file at dateForPath = " + dateForPath)
 
                                 function onFileReceived(err, text) {
                                     try {
@@ -322,9 +325,9 @@
 
                                             } catch (err) {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return;
                                             }
@@ -333,15 +336,15 @@
                                             if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
 
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.stack)
+                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + err.stack)
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return
 
                                             } else {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.stack)
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.stack)
                                                 callBackFunction(err);
                                                 return
                                             }
@@ -351,7 +354,7 @@
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
 
                                         let totalOutputCandles = inputFilePeriod / outputPeriod;
-                                        let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
+                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
 
                                         for (let i = 0; i < totalOutputCandles; i++) {
 
@@ -407,7 +410,7 @@
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
+                                            "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
@@ -415,7 +418,7 @@
 
                             function nextVolumeFile() {
                                 try {
-                                    let dateForPath = contextVariables.lastCandleFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2);
+                                    let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
                                     let fileName = "Data.json"
                                     let filePathRoot =
                                         'Project/' +
@@ -436,7 +439,7 @@
                                     fileStorage.getTextFile(filePath, onFileReceived);
 
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
+                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
 
                                     function onFileReceived(err, text) {
                                         let volumesFile
@@ -446,15 +449,15 @@
                                                 volumesFile = JSON.parse(text);
                                             } catch (err) {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return
                                             }
                                         } else {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.stack)
+                                                "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.stack)
                                             callBackFunction(err)
                                             return
                                         }
@@ -462,7 +465,7 @@
                                         const inputVolumesPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
                                         let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = contextVariables.lastCandleFile.valueOf();
+                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
 
                                         for (let i = 0; i < totalOutputVolumes; i++) {
                                             let outputVolume = {
@@ -501,7 +504,7 @@
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildCandles -> periodsLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
+                                        "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -521,7 +524,7 @@
                                         callBack(err)
                                         return
                                     }
-                                    writeStatusReport(contextVariables.lastCandleFile, advanceTime);
+                                    writeStatusReport(contextVariables.datetimeLastProducedFile, advanceTime);
                                 }
                             }
                         }
@@ -558,9 +561,9 @@
 
                         let fileName = 'Data.json';
                         let dateForPath =
-                            contextVariables.lastCandleFile.getUTCFullYear() + '/' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2)
+                            contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
                         let filePath =
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                             "/Output/" +
@@ -606,9 +609,9 @@
 
                         let fileName = 'Data.json';
                         let dateForPath =
-                            contextVariables.lastCandleFile.getUTCFullYear() + '/' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCMonth() + 1, 2) + '/' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.lastCandleFile.getUTCDate(), 2)
+                            contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
                         let filePath =
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                             "/Output/" +
@@ -648,7 +651,7 @@
 
             function writeDataRanges(callBack) {
                 try {
-                    writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, CANDLES_FOLDER_NAME, onCandlesDataRangeWritten);
+                    writeDataRange(contextVariables.datetimeBeginingOfMarketFile, contextVariables.datetimeLastProducedFile, CANDLES_FOLDER_NAME, onCandlesDataRangeWritten);
 
                     function onCandlesDataRangeWritten(err) {
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -658,7 +661,7 @@
                             return
                         }
 
-                        writeDataRange(contextVariables.firstTradeFile, contextVariables.lastCandleFile, VOLUMES_FOLDER_NAME, onVolumeDataRangeWritten);
+                        writeDataRange(contextVariables.datetimeBeginingOfMarketFile, contextVariables.datetimeLastProducedFile, VOLUMES_FOLDER_NAME, onVolumeDataRangeWritten);
 
                         function onVolumeDataRangeWritten(err) {
                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

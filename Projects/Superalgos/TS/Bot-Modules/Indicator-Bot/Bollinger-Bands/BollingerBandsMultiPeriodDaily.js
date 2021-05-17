@@ -40,7 +40,7 @@
             /* Context Variables */
             let contextVariables = {
                 lastBandFile: undefined,          // Datetime of the last file files successfully produced by this process.
-                firstTradeFile: undefined,          // Datetime of the first trade file in the whole market history.
+                datetimeBeginingOfMarketFile: undefined,          // Datetime of the first trade file in the whole market history.
                 maxBandFile: undefined            // Datetime of the last file available to be used as an input of this process.
             };
 
@@ -95,7 +95,7 @@
                         return;
                     }
 
-                    contextVariables.firstTradeFile = new Date(
+                    contextVariables.datetimeBeginingOfMarketFile = new Date(
                         thisReport.beginingOfMarket.year + "-" +
                         thisReport.beginingOfMarket.month + "-" +
                         thisReport.beginingOfMarket.days + " " +
@@ -169,19 +169,19 @@
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket);
 
-                        if (beginingOfMarket.valueOf() !== contextVariables.firstTradeFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
 
                             beginingOfMarket = new Date(
-                                contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                                (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                                contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                                (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                                 TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                             contextVariables.lastBandFile = new Date(
-                                contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                                (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                                contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                                (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                                contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                                 TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                             contextVariables.lastBandFile = new Date(
                                 contextVariables.lastBandFile.valueOf() +
@@ -215,18 +215,18 @@
                         go one day further in time, so that the previous day does fine a file at the begining of the market.
                         */
                         contextVariables.lastBandFile = new Date(
-                            contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                            (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                            contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                            (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                             TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                         contextVariables.lastBandFile = new Date(
                             contextVariables.lastBandFile.valueOf() +
                             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                         beginingOfMarket = new Date(
-                            contextVariables.firstTradeFile.getUTCFullYear() + "-" +
-                            (contextVariables.firstTradeFile.getUTCMonth() + 1) + "-" +
-                            contextVariables.firstTradeFile.getUTCDate() + " " + "00:00" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
+                            (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
+                            contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
                             TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -298,7 +298,7 @@
                             if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage);
                             }
-                            periodsLoop();
+                            timeframesLoop();
 
                         } catch (err) {
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -308,7 +308,7 @@
                         }
                     }
 
-                    function periodsLoop() {
+                    function timeframesLoop() {
 
                         try {
                             /*
@@ -320,7 +320,7 @@
                         } catch (err) {
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> buildBands -> periodsLoop -> err = " + err.stack);
+                                "[ERROR] start -> buildBands -> timeframesLoop -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -365,11 +365,11 @@
                                         } catch (err) {
                                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getPreviousDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
@@ -378,7 +378,7 @@
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getPreviousDayFile -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getPreviousDayFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -413,11 +413,11 @@
                                                 buildBands();
                                             } else {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
+                                                    "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> err = " + err.stack);
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
+                                                    "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> filePath = " + filePath);
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
+                                                    "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getProcessDayFile -> onCurrentDayFileReceived -> market = " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '_' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName);
 
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return
@@ -428,7 +428,7 @@
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> getProcessDayFile -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> getProcessDayFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -472,7 +472,7 @@
                                         } catch (err) {
                                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> addCandlesToSingleArray -> err = " + err.stack);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> buildBands -> addCandlesToSingleArray -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                             return;
                                         }
@@ -481,7 +481,7 @@
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> buildBands -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> buildBands -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     return;
                                 }
@@ -571,7 +571,7 @@
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> calculateBands -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> calculateBands -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                                     return
                                 }
@@ -633,14 +633,14 @@
 
                                         } catch (err) {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> onFileCreated -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> writeBandBandsFile -> writeBandsFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -702,14 +702,14 @@
                                             controlLoop()
                                         } catch (err) {
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
+                                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> writeBandBandsFile -> writePBFile -> onFileCreated -> err = " + err.stack);
                                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                         }
                                     }
                                 } catch (err) {
                                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> writeBandBandsFile -> writePBFile -> err = " + err.stack);
+                                        "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> writeBandBandsFile -> writePBFile -> err = " + err.stack);
                                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
@@ -717,7 +717,7 @@
                         } catch (err) {
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> buildBands -> periodsLoop -> loopBody -> err = " + err.stack);
+                                "[ERROR] start -> buildBands -> timeframesLoop -> loopBody -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -744,7 +744,7 @@
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> onWritten -> err = " + err.stack);
+                                            "[ERROR] start -> buildBands -> timeframesLoop -> controlLoop -> onWritten -> err = " + err.stack);
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
@@ -752,7 +752,7 @@
                         } catch (err) {
                             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> buildBands -> periodsLoop -> controlLoop -> err = " + err.stack);
+                                "[ERROR] start -> buildBands -> timeframesLoop -> controlLoop -> err = " + err.stack);
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         }
                     }
@@ -768,7 +768,7 @@
 
             function writeDataRanges(callBack) {
                 try {
-                    writeDataRange(contextVariables.firstTradeFile, processDate, BOLLINGER_BANDS_FOLDER_NAME, onBandsBandsDataRangeWritten);
+                    writeDataRange(contextVariables.datetimeBeginingOfMarketFile, processDate, BOLLINGER_BANDS_FOLDER_NAME, onBandsBandsDataRangeWritten);
 
                     function onBandsBandsDataRangeWritten(err) {
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
@@ -778,7 +778,7 @@
                             return
                         }
 
-                        writeDataRange(contextVariables.firstTradeFile, processDate, PERCENTAGE_BANDWIDTH_FOLDER_NAME, onPercentageBandwidthDataRangeWritten);
+                        writeDataRange(contextVariables.datetimeBeginingOfMarketFile, processDate, PERCENTAGE_BANDWIDTH_FOLDER_NAME, onPercentageBandwidthDataRangeWritten);
 
                         function onPercentageBandwidthDataRangeWritten(err) {
                             if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

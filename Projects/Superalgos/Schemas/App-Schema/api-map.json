@@ -28,7 +28,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"protocol\": \"https\",\"portNumber\":\"\"\"portNumber\":\"\",\"hostName\": \"\",\"path\": \"\"}"
+        "config": "{\"protocol\": \"https\",\"portNumber\":\"\",\"hostName\": \"\",\"path\": \"\"}"
     },
     "isTitleAllwaysVisible": true,
     "isHierarchyHead": true,

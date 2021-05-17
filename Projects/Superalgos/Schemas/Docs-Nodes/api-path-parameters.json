@@ -1,0 +1,14 @@
+{
+    "type": "API Path Parameters",
+    "definition": {
+        "text": "Path parameters are the type of parameters that are embedded as part of an URL path. They could be fixed string of texts or they could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
+        "updated": 1621018106262
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When found at an API Map they define the default values for each parameter, whicle when found at a Data Mine, they define the actual values to be used, which overrides the defaults.",
+            "updated": 1621022867854
+        }
+    ]
+}

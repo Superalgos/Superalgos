@@ -36,7 +36,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->User Variables->"
+        "compatibleTypes": "->User Defined Variables->"
     },
     "propertyNameAtParent": "userDefinedVariable",
     "editors": {

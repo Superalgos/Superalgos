@@ -127,9 +127,9 @@
             "autoAdd": true
         },
         {
-            "name": "userVariables",
+            "name": "userDefinedVariables",
             "type": "node",
-            "childType": "User Variables",
+            "childType": "User Defined Variables",
             "autoAdd": false
         }
     ]

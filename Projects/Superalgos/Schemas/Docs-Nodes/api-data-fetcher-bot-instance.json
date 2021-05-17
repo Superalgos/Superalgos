@@ -1,0 +1,13 @@
+{
+    "type": "API Data Fetcher Bot Instance",
+    "definition": {
+        "text": "This node represents an instance of an API Data Fetcher Bot. ",
+        "updated": 1621023247380
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

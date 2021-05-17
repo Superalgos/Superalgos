@@ -1,0 +1,13 @@
+{
+    "type": "API Endpoint",
+    "definition": {
+        "text": "Endpoints are important aspects of interacting with server-side web APIs, as they specify where resources lie that can be accessed by third party software. Usually the access is via a URI to which HTTP requests are posted, and from which the response is thus expected.",
+        "updated": 1621017376741
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

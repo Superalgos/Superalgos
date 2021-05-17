@@ -1,0 +1,23 @@
+{
+    "type": "API Path Parameter",
+    "definition": {
+        "text": "Path parameter is the type of parameters that is embedded as part of an URL path. It could be fixed string of text or it could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
+        "updated": 1621018173339
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Configuration",
+            "updated": 1621018220723
+        },
+        {
+            "style": "Text",
+            "text": "Important Properties"
+        },
+        {
+            "style": "List",
+            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter. The possible values are: @BaseAsset and @QuotedAsset",
+            "updated": 1621018303336
+        }
+    ]
+}

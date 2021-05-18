@@ -2,8 +2,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
     /*
         This process is going to do the following:
     
-        Read the elements (candles, volumens, bolllinger bands, news, asset metrics, etc.) from a
-        One-Min dataset (a dataset that is organized with elements spanning one min, like one min candles,
+        Read the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        One-Min dataset (a dataset that is organized with elements spanning one min, like one min elements,
         or elements with a timestamp captured approximatelly one minute from each other), and the dataset itself
         organized in Daily Files.
         
@@ -19,7 +19,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         2. Then it will append to these arrays the new information it gets from the data dependency.
     
         3. It knows from it's status report which was the last DAY it processed. Since that day might not have been 
-        full of that (maybe it was at the head of the market). The process will have to be carefull not to append candles 
+        full of that (maybe it was at the head of the market). The process will have to be carefull not to append elements 
         that are already there. To take care of that, it will discard all elements of the last processed day, 
         and then it will process that full day again adding all the elements found at the current run.
     */
@@ -206,7 +206,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 contextVariables.datetimeLastProducedFile.valueOf() -
                                 TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
-                            buildCandles()
+                            buildOutput()
                             return
                         }
 
@@ -240,7 +240,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             contextVariables.datetimeLastProducedFile.valueOf() -
                             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
 
-                        buildCandles()
+                        buildOutput()
                         return
                     }
 
@@ -269,7 +269,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 try {
                     let n = 0   // loop Variable representing each possible period as defined at the periods array.
 
-                    let allPreviousCandles = [] // Each item of this array is an array of candles for a certain time frame
+                    let allPreviousElements = [] // Each item of this array is an array of elements for a certain time frame
 
                     loopBody()
 
@@ -278,7 +278,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame)
 
-                        let previousCandles
+                        let previousElements
 
                         getCandles()
 
@@ -298,13 +298,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
 
                             function onFileReceived(err, text) {
-                                let candlesFile
+                                let dailyFile
 
                                 if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     try {
-                                        candlesFile = JSON.parse(text);
-                                        previousCandles = candlesFile;
-                                        allPreviousCandles.push(previousCandles);
+                                        dailyFile = JSON.parse(text);
+                                        previousElements = dailyFile;
+                                        allPreviousElements.push(previousElements);
 
                                         controlLoop();
 
@@ -333,7 +333,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                             loopBody()
                         } else {
-                            buildCandles(allPreviousCandles);
+                            buildOutput(allPreviousElements);
                         }
                     }
                 }
@@ -345,7 +345,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
             }
 
-            function buildCandles(allPreviousCandles) {
+            function buildOutput(allPreviousElements) {
 
                 try {
                     let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
@@ -353,12 +353,12 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     /*
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
                     */
-                    let outputCandles = [];
+                    let outputElements = [];
 
                     for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
                         const emptyArray1 = [];
                         const emptyArray2 = [];
-                        outputCandles.push(emptyArray1);
+                        outputElements.push(emptyArray1);
                     }
 
                     advanceTime()
@@ -373,13 +373,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                            "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                         /* Validation that we are not going past the head of the market. */
                         if (contextVariables.datetimeLastProducedFile.valueOf() > contextVariables.datetimeLastAvailableDependencyFile.valueOf()) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                                "[INFO] start -> buildOutput -> advanceTime -> Head of the market found @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
                             return
@@ -409,10 +409,10 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         loopBody()
 
                         function loopBody() {
-                            let previousCandles // This is an array with all the elements already existing for a certain time frame.
+                            let previousElements // This is an array with all the elements already existing for a certain time frame.
 
-                            if (allPreviousCandles !== undefined) {
-                                previousCandles = allPreviousCandles[n];
+                            if (allPreviousElements !== undefined) {
+                                previousElements = allPreviousElements[n];
                             }
 
                             const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
@@ -420,36 +420,36 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
-                            add all its candles to our in memory arrays. 
+                            add all its elements to our in memory arrays. 
                             
-                            At the first iteration of this loop, we will add the candles that we are carrying
+                            At the first iteration of this loop, we will add the elements that we are carrying
                             from our previous run, the ones we already have in-memory. 
 
                             You can see below how we discard the elements that
                             belong to the first day we are processing at this run, 
                             that it is exactly the same as the last day processed the previous
-                            run. By discarding these candles, we are ready to run after that standard 
-                            function that will just add ALL the candles found each day at Exchange Raw Data.
+                            run. By discarding these elements, we are ready to run after that standard 
+                            function that will just add ALL the elements found each day at Exchange Raw Data.
                             */
-                            if (previousCandles !== undefined && previousCandles.length !== 0) {
-                                for (let i = 0; i < previousCandles.length; i++) {
-                                    let candle = {
-                                        open: previousCandles[i][2],
-                                        close: previousCandles[i][3],
-                                        min: previousCandles[i][0],
-                                        max: previousCandles[i][1],
-                                        begin: previousCandles[i][4],
-                                        end: previousCandles[i][5]
+                            if (previousElements !== undefined && previousElements.length !== 0) {
+                                for (let i = 0; i < previousElements.length; i++) {
+                                    let element = {
+                                        open: previousElements[i][2],
+                                        close: previousElements[i][3],
+                                        min: previousElements[i][0],
+                                        max: previousElements[i][1],
+                                        begin: previousElements[i][4],
+                                        end: previousElements[i][5]
                                     }
 
-                                    if (candle.end < contextVariables.datetimeLastProducedFile.valueOf()) {
-                                        outputCandles[n].push(candle);
+                                    if (element.end < contextVariables.datetimeLastProducedFile.valueOf()) {
+                                        outputElements[n].push(element);
                                     } else {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> Candle # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
+                                            "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> Element # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
                                     }
                                 }
-                                allPreviousCandles[n] = [] // erasing these so as not to duplicate them.
+                                allPreviousElements[n] = [] // erasing these so as not to duplicate them.
                             }
                             /*
                             From here on is where every iteration of the loop fully runs. Here is where we 
@@ -458,9 +458,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             many days needed and it should only stop when it reaches
                             the head of the market.
                             */
-                            nextCandleFile();
+                            nextDailyFile();
 
-                            function nextCandleFile() {
+                            function nextDailyFile() {
                                 let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
                                 let fileName = "Data.json"
 
@@ -478,20 +478,20 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 fileStorage.getTextFile(filePath, onFileReceived);
 
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
+                                    "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> getting file at dateForPath = " + dateForPath);
 
                                 function onFileReceived(err, text) {
                                     try {
-                                        let candlesFile
+                                        let dailyFile
 
                                         if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                             try {
-                                                candlesFile = JSON.parse(text);
+                                                dailyFile = JSON.parse(text);
                                             } catch (err) {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return
                                             }
@@ -500,31 +500,31 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
 
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err));
+                                                    "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err));
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return
 
                                             } else {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.stack);
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Error Received -> err = " + err.stack);
                                                 callBackFunction(err)
                                                 return
                                             }
                                         }
 
-                                        const inputCandlesPerdiod = 60 * 1000;              // 1 min
+                                        const inputElementPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-                                        let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
+                                        let totaloutputElements = inputFilePeriod / outputPeriod; // this should be 2 in this case.
                                         let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Exchange Raw Data, into candles of each timeFrame
+                                        The algorithm that follows is going to agregate elements of 1 min timeFrame read from Exchange Raw Data, into elements of each timeFrame
                                         that Candles Volumes generates. For market files those timePediods goes from 1h to 24hs.
                                         */
-                                        for (let i = 0; i < totalOutputCandles; i++) {
+                                        for (let i = 0; i < totaloutputElements; i++) {
 
-                                            let outputCandle = {
+                                            let outputElement = {
                                                 open: 0,
                                                 close: 0,
                                                 min: 0,
@@ -533,48 +533,48 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 end: 0
                                             };
 
-                                            let saveCandle = false;
-                                            outputCandle.begin = beginingOutputTime + i * outputPeriod;
-                                            outputCandle.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
+                                            let saveElement = false;
+                                            outputElement.begin = beginingOutputTime + i * outputPeriod;
+                                            outputElement.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
 
-                                            for (let j = 0; j < candlesFile.length; j++) {
-                                                let candle = {
-                                                    open: candlesFile[j][2],
-                                                    close: candlesFile[j][3],
-                                                    min: candlesFile[j][0],
-                                                    max: candlesFile[j][1],
-                                                    begin: candlesFile[j][4],
-                                                    end: candlesFile[j][5]
+                                            for (let j = 0; j < dailyFile.length; j++) {
+                                                let element = {
+                                                    open: dailyFile[j][2],
+                                                    close: dailyFile[j][3],
+                                                    min: dailyFile[j][0],
+                                                    max: dailyFile[j][1],
+                                                    begin: dailyFile[j][4],
+                                                    end: dailyFile[j][5]
                                                 }
-                                                /* Here we discard all the candles out of range.  */
-                                                if (candle.begin >= outputCandle.begin && candle.end <= outputCandle.end) {
+                                                /* Here we discard all the elements out of range.  */
+                                                if (element.begin >= outputElement.begin && element.end <= outputElement.end) {
 
-                                                    if (saveCandle === false) { // this will set the value only once.
-                                                        outputCandle.open = candle.open;
-                                                        outputCandle.min = candle.min;
-                                                        outputCandle.max = candle.max;
+                                                    if (saveElement === false) { // this will set the value only once.
+                                                        outputElement.open = element.open;
+                                                        outputElement.min = element.min;
+                                                        outputElement.max = element.max;
                                                     }
 
-                                                    saveCandle = true;
-                                                    outputCandle.close = candle.close;      // only the last one will be saved
-                                                    if (candle.min < outputCandle.min) {
-                                                        outputCandle.min = candle.min;
+                                                    saveElement = true;
+                                                    outputElement.close = element.close;      // only the last one will be saved
+                                                    if (element.min < outputElement.min) {
+                                                        outputElement.min = element.min;
                                                     }
-                                                    if (candle.max > outputCandle.max) {
-                                                        outputCandle.max = candle.max;
+                                                    if (element.max > outputElement.max) {
+                                                        outputElement.max = element.max;
                                                     }
                                                 }
                                             }
-                                            if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
-                                                outputCandles[n].push(outputCandle);
+                                            if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.
+                                                outputElements[n].push(outputElement);
                                             }
                                         }
-                                        writeFile(outputCandles[n], timeFrame, controlLoop);
+                                        writeFile(outputElements[n], timeFrame, controlLoop);
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
+                                            "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> err = " + err.stack);
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
                                 }
@@ -584,7 +584,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         function controlLoop() {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildCandles -> timeframesLoop -> controlLoop -> Entering function.")
+                                "[INFO] start -> buildOutput -> timeframesLoop -> controlLoop -> Entering function.")
                             n++
                             if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                                 loopBody()
@@ -596,12 +596,12 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
                 catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> buildCandles -> err = " + err.stack);
+                        "[ERROR] start -> buildOutput -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }
 
-            function writeFile(candles, timeFrame, callBack) {
+            function writeFile(elements, timeFrame, callBack) {
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> writeFile -> Entering function.")
@@ -611,15 +611,15 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 try {
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> writeFile -> writeCandles -> Entering function.")
+                        "[INFO] start -> writeFile -> Entering function.")
 
                     let separator = ""
                     let fileRecordCounter = 0
                     let fileContent = ""
 
-                    for (let i = 0; i < candles.length; i++) {
-                        let candle = candles[i];
-                        fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
+                    for (let i = 0; i < elements.length; i++) {
+                        let element = elements[i];
+                        fileContent = fileContent + separator + '[' + elements[i].min + "," + elements[i].max + "," + elements[i].open + "," + elements[i].close + "," + elements[i].begin + "," + elements[i].end + "]";
                         if (separator === "") { separator = ","; }
                         fileRecordCounter++
                     }
@@ -637,21 +637,21 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> writeFile -> writeCandles -> creating file at filePath = " + filePath);
+                        "[INFO] start -> writeFile -> creating file at filePath = " + filePath);
 
                     function onFileCreated(err) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFile -> writeCandles -> onFileCreated -> Entering function.")
+                            "[INFO] start -> writeFile -> onFileCreated -> Entering function.")
 
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> writeFile -> writeCandles -> onFileCreated -> err = " + err.stack)
+                                "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack)
                             callBackFunction(err)
                             return
                         }
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> writeFile -> writeCandles -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
+                            "[WARN] start -> writeFile -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
                         callBack()
                     }
 

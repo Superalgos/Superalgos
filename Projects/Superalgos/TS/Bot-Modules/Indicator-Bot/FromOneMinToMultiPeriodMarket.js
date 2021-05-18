@@ -589,7 +589,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             /*
                                             Initialize the outputElement object. 
                                             */
-                                            let outputElement = {}
+                                            let outputElement = {}                  // This will be the object that we will eventually save.
+                                            let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
 
                                             for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
                                                 let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
@@ -649,9 +650,15 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 }
 
                                                 function aggregateElements() {
+
                                                     aggregationMethodFirst()
-                                                    saveElement = true
                                                     aggregationMethodLast()
+                                                    aggregationMethodMin()
+                                                    aggregationMethodMax()
+                                                    aggregationMethodSum()
+                                                    aggregationMethodAvg()
+
+                                                    saveElement = true
 
                                                     function aggregationMethodFirst() {
                                                         /*
@@ -667,7 +674,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                             }
                                                         }
                                                     }
-
 
                                                     function aggregationMethodLast() {
                                                         /* 
@@ -685,25 +691,69 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                         }
                                                     }
 
+                                                    function aggregationMethodMin() {
+                                                        /* 
+                                                        This is the MIN type of aggregation.
 
-
-                                                    /* Here we process the MIN type of aggregation */
-                                                    if (element.min < outputElement.min) {
-                                                        outputElement.min = element.min
+                                                        Note that to be able to calculate the minimum, we will be assigning to all properties the first 
+                                                        element values, so as to have a baseline from where to compare later on.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Min' || saveElement === false) {
+                                                                if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
                                                     }
 
-                                                    /* Here we process the MAX type of aggregation */
-                                                    if (element.max > outputElement.max) {
-                                                        outputElement.max = element.max
+                                                    function aggregationMethodMax() {
+                                                        /* 
+                                                        This is the MAX type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Max') {
+                                                                if (record.map.get(property.config.codeName) > outputElement[property.config.codeName]) {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
                                                     }
 
-                                                    /* Here we process the SUM type of aggregation */
+                                                    function aggregationMethodSum() {
+                                                        /* 
+                                                        This is the SUM type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Sum') {
+                                                                outputElement[property.config.codeName] = outputElement[property.config.codeName] + record.map.get(property.config.codeName)
+                                                            }
+                                                        }
+                                                    }
 
+                                                    function aggregationMethodAvg() {
+                                                        /* 
+                                                        This is the AVG type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Average') {
 
-                                                    /* Here we process the AVG type of agregation */
+                                                                if (outputElementAverage[property.config.codeName] === undefined) {
+                                                                    outputElementAverage[property.config.codeName].sum = 0
+                                                                    outputElementAverage[property.config.codeName].count = 0
+                                                                }
 
+                                                                outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
+                                                                outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
 
-
+                                                                outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                                                            }
+                                                        }
+                                                    }                                                    
                                                 }
                                             }
                                             if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.

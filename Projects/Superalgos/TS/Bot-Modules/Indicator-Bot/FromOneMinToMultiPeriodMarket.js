@@ -26,8 +26,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
     const MODULE_NAME = "From One Min To Multi Period Market"
     const DEPENDENCY_FOLDER_NAME = "Candles"
     const DEPENDENCY_ONE_MIN = "One-Min"
-    const VOLUMES_FOLDER_NAME = "Volumes"
-    const VOLUMES_ONE_MIN = "One-Min"
 
     let thisObject = {
         initialize: initialize,
@@ -272,7 +270,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     let n = 0   // loop Variable representing each possible period as defined at the periods array.
 
                     let allPreviousCandles = [] // Each item of this array is an array of candles for a certain time frame
-                    let allPreviousVolumes = [] // Each item of this array is an array of volumes for a certain time frame
 
                     loopBody()
 
@@ -282,7 +279,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame)
 
                         let previousCandles
-                        let previousVolumes
 
                         getCandles()
 
@@ -308,7 +304,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     try {
                                         candlesFile = JSON.parse(text);
                                         previousCandles = candlesFile;
-                                        getVolumes();
+                                        allPreviousCandles.push(previousCandles);
+
+                                        controlLoop();
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -328,53 +326,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 }
                             }
                         }
-
-                        function getVolumes() {
-                            let fileName = 'Data.json';
-                            let filePath =
-                                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
-                                "/Output/" +
-                                VOLUMES_FOLDER_NAME + "/" +
-                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                                timeFrame;
-                            filePath += '/' + fileName
-
-                            fileStorage.getTextFile(filePath, onFileReceived);
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
-
-                            function onFileReceived(err, text) {
-                                let volumesFile
-
-                                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                    try {
-                                        volumesFile = JSON.parse(text);
-                                        previousVolumes = volumesFile;
-                                        allPreviousCandles.push(previousCandles);
-                                        allPreviousVolumes.push(previousVolumes);
-
-                                        controlLoop();
-
-                                    } catch (err) {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> fileName = " + fileName);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> filePath = " + filePath);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                                    }
-                                } else {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(err);
-                                }
-                            }
-                        }
-
                     }
 
                     function controlLoop() {
@@ -382,7 +333,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                             loopBody()
                         } else {
-                            buildCandles(allPreviousCandles, allPreviousVolumes);
+                            buildCandles(allPreviousCandles);
                         }
                     }
                 }
@@ -394,7 +345,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
             }
 
-            function buildCandles(allPreviousCandles, allPreviousVolumes) {
+            function buildCandles(allPreviousCandles) {
 
                 try {
                     let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
@@ -403,13 +354,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
                     */
                     let outputCandles = [];
-                    let outputVolumes = [];
 
                     for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
                         const emptyArray1 = [];
                         const emptyArray2 = [];
                         outputCandles.push(emptyArray1);
-                        outputVolumes.push(emptyArray2);
                     }
 
                     advanceTime()
@@ -461,11 +410,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         function loopBody() {
                             let previousCandles // This is an array with all the elements already existing for a certain time frame.
-                            let previousVolumes
 
                             if (allPreviousCandles !== undefined) {
                                 previousCandles = allPreviousCandles[n];
-                                previousVolumes = allPreviousVolumes[n];
                             }
 
                             const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
@@ -503,28 +450,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     }
                                 }
                                 allPreviousCandles[n] = [] // erasing these so as not to duplicate them.
-                            }
-
-                            if (previousVolumes !== undefined && previousVolumes.length !== 0) {
-
-                                for (let i = 0; i < previousVolumes.length; i++) {
-                                    let volume = {
-                                        begin: previousVolumes[i][2],
-                                        end: previousVolumes[i][3],
-                                        buy: previousVolumes[i][0],
-                                        sell: previousVolumes[i][1]
-                                    }
-
-                                    if (volume.end < contextVariables.datetimeLastProducedFile.valueOf()) {
-
-                                        outputVolumes[n].push(volume);
-
-                                    } else {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> Volume # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
-                                    }
-                                }
-                                allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
                             }
                             /*
                             From here on is where every iteration of the loop fully runs. Here is where we 
@@ -644,7 +569,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 outputCandles[n].push(outputCandle);
                                             }
                                         }
-                                        nextVolumeFile();
+                                        writeFile(outputCandles[n], timeFrame, controlLoop);
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -652,106 +577,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                     }
-                                }
-                            }
-
-                            function nextVolumeFile() {
-                                try {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> Entering function.")
-
-                                    let dateForPath =
-                                        contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
-                                        TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
-                                    let fileName = "Data.json"
-
-                                    let filePathRoot =
-                                        'Project/' +
-                                        TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                        "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                    let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
-                                    filePath += '/' + fileName
-                                    fileStorage.getTextFile(filePath, onFileReceived);
-
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
-
-                                    function onFileReceived(err, text) {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function.")
-
-                                        let volumesFile
-                                        if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                            try {
-                                                volumesFile = JSON.parse(text);
-
-                                            } catch (err) {
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                                                return;
-                                            }
-                                        } else {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.stack);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-                                        const inputVolumesPerdiod = 60 * 1000;              // 1 min
-                                        const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-
-                                        let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
-
-                                        for (let i = 0; i < totalOutputVolumes; i++) {
-                                            let outputVolume = {
-                                                buy: 0,
-                                                sell: 0,
-                                                begin: 0,
-                                                end: 0
-                                            }
-
-                                            let saveVolume = false;
-                                            outputVolume.begin = beginingOutputTime + i * outputPeriod;
-                                            outputVolume.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
-
-                                            for (let j = 0; j < volumesFile.length; j++) {
-                                                let volume = {
-                                                    buy: volumesFile[j][0],
-                                                    sell: volumesFile[j][1],
-                                                    begin: volumesFile[j][2],
-                                                    end: volumesFile[j][3]
-                                                }
-
-                                                /* Here we discard all the Volumes out of range.  */
-                                                if (volume.begin >= outputVolume.begin && volume.end <= outputVolume.end) {
-
-                                                    saveVolume = true;
-
-                                                    outputVolume.buy = outputVolume.buy + volume.buy;
-                                                    outputVolume.sell = outputVolume.sell + volume.sell;
-                                                }
-                                            }
-
-                                            if (saveVolume === true) {
-                                                outputVolumes[n].push(outputVolume);
-                                            }
-                                        }
-
-                                        writeFiles(outputCandles[n], outputVolumes[n], timeFrame, controlLoop);
-                                    }
-                                } catch (err) {
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
@@ -776,106 +601,65 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
             }
 
-            function writeFiles(candles, volumes, timeFrame, callBack) {
+            function writeFile(candles, timeFrame, callBack) {
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[INFO] start -> writeFiles -> Entering function.")
+                    "[INFO] start -> writeFile -> Entering function.")
                 /*
-                Here we will write the contents of the Candles and Volumens files.
+                Here we will write the contents of the file to disk.
                 */
                 try {
-                    writeCandles()
 
-                    function writeCandles() {
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[INFO] start -> writeFile -> writeCandles -> Entering function.")
 
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeCandles -> Entering function.")
+                    let separator = ""
+                    let fileRecordCounter = 0
+                    let fileContent = ""
 
-                        let separator = ""
-                        let fileRecordCounter = 0
-                        let fileContent = ""
-
-                        for (let i = 0; i < candles.length; i++) {
-                            let candle = candles[i];
-                            fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
-                            if (separator === "") { separator = ","; }
-                            fileRecordCounter++
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
-                            "/Output/" +
-                            DEPENDENCY_FOLDER_NAME + "/" +
-                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                            timeFrame
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
-
-                        function onFileCreated(err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function.")
-
-                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack)
-                                callBackFunction(err)
-                                return
-                            }
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
-                            writeVolumes()
-                        }
+                    for (let i = 0; i < candles.length; i++) {
+                        let candle = candles[i];
+                        fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
+                        if (separator === "") { separator = ","; }
+                        fileRecordCounter++
                     }
 
-                    function writeVolumes() {
-                        let separator = "";
-                        let fileRecordCounter = 0;
-                        let fileContent = "";
+                    fileContent = "[" + fileContent + "]";
 
-                        for (let i = 0; i < volumes.length; i++) {
-                            let candle = volumes[i];
-                            fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
-                            if (separator === "") { separator = ","; }
-                            fileRecordCounter++
+                    let fileName = 'Data.json';
+                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                        "/Output/" +
+                        DEPENDENCY_FOLDER_NAME + "/" +
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
+                        timeFrame
+                    filePath += '/' + fileName
+
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
+
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[INFO] start -> writeFile -> writeCandles -> creating file at filePath = " + filePath);
+
+                    function onFileCreated(err) {
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            "[INFO] start -> writeFile -> writeCandles -> onFileCreated -> Entering function.")
+
+                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> writeFile -> writeCandles -> onFileCreated -> err = " + err.stack)
+                            callBackFunction(err)
+                            return
                         }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
-
-                        function onFileCreated(err) {
-                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
-
-                            callBack()
-                        }
+                            "[WARN] start -> writeFile -> writeCandles -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
+                        callBack()
                     }
+
                 }
                 catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> writeFiles -> err = " + err.stack);
+                        "[ERROR] start -> writeFile -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }

@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryLearningSessionFunctions() {
-    thisObject = {
+    let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession

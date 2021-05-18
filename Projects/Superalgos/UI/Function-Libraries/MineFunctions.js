@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryMineFunctions() {
-    thisObject = {
+    let thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 
         addAllDataMineDataDependencies: addAllDataMineDataDependencies

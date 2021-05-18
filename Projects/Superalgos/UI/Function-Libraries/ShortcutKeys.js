@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryShortcutKeys() {
-    thisObject = {
+    let thisObject = {
         getNodeByShortcutKey: getNodeByShortcutKey
     }
     return thisObject

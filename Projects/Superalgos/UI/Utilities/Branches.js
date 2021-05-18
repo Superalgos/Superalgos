@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesBranches() {
-    thisObject = {
+    let thisObject = {
         nodeBranchToArray: nodeBranchToArray,
         findInBranch: findInBranch
     }

@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryTaskFunctions() {
-    thisObject = {
+    let thisObject = {
         syncronizeTaskWithBackEnd: syncronizeTaskWithBackEnd,
 
         runTask: runTask,

@@ -1,8 +1,31 @@
-﻿exports.newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket = function (processIndex) {
-
-    const MODULE_NAME = "Candles Volumes Multi Period Market"
-    const CANDLES_FOLDER_NAME = "Candles"
-    const CANDLES_ONE_MIN = "One-Min"
+exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (processIndex) {
+    /*
+        This process is going to do the following:
+    
+        Read the elements (candles, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        One-Min dataset (a dataset that is organized with elements spanning one min, like one min candles,
+        or elements with a timestamp captured approximatelly one minute from each other), and the dataset itself
+        organized in Daily Files.
+        
+        It is going to output a Market Files dataset for every Market Time Frame, aggregating the 
+        input information into elements with a begin and end property. 
+        
+        Everytime this process run, is be able to resume its job and process everything pending until 
+        reaching the head of the market. To achieve that it will follow this strategy:
+    
+        1. First it will read the last file written by this same process, and load all the information into 
+        in-memory arrays. 
+        
+        2. Then it will append to these arrays the new information it gets from the data dependency.
+    
+        3. It knows from it's status report which was the last DAY it processed. Since that day might not have been 
+        full of that (maybe it was at the head of the market). The process will have to be carefull not to append candles 
+        that are already there. To take care of that, it will discard all elements of the last processed day, 
+        and then it will process that full day again adding all the elements found at the current run.
+    */
+    const MODULE_NAME = "From One Min To Multi Period Market"
+    const DEPENDENCY_FOLDER_NAME = "Candles"
+    const DEPENDENCY_ONE_MIN = "One-Min"
     const VOLUMES_FOLDER_NAME = "Volumes"
     const VOLUMES_ONE_MIN = "One-Min"
 
@@ -28,28 +51,6 @@
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
-
-    /*
-        This process is going to do the following:
-    
-        Read the candles and volumes from Exchange Raw Data and produce a single Index File 
-        for Market Period. But this is the situation:
-    
-        Exchange Raw Data has a dataset organized with daily files with candles of 1 min. 
-        Candles Volumes is writting in this process a single file for each timeFrame for the whole market.
-        Everytime this process run, must be able to resume its job and process everything pending until 
-        reaching the head of the market. So the tactic to do this is the
-        following:
-    
-        1. First we need to read the last file written by this process, and load all the information into 
-        in-memory arrays. We will then append to this arrays the new information we will get from Exchange Raw Data.
-    
-        2. We know from our status report which was the last DAY we processed from Exchange Raw Data, 
-        but we must be carefull, because that day might  not have been completed yet, if the
-        last loop found the head of the market. That means that we have to be carefull not to append candles 
-        that are already there. To simplify what we do is to discard all candles of the last processed day, 
-        and then we can process that full day again adding all the candles.
-    */
 
     function start(callBackFunction) {
 
@@ -290,7 +291,7 @@
                             let filePath =
                                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                 "/Output/" +
-                                CANDLES_FOLDER_NAME + "/" +
+                                DEPENDENCY_FOLDER_NAME + "/" +
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                                 timeFrame;
                             filePath += '/' + fileName
@@ -546,7 +547,7 @@
                                     "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + CANDLES_ONE_MIN + '/' + dateForPath;
+                                let filePath = filePathRoot + "/Output/" + DEPENDENCY_FOLDER_NAME + '/' + DEPENDENCY_ONE_MIN + '/' + dateForPath;
                                 filePath += '/' + fileName
 
                                 fileStorage.getTextFile(filePath, onFileReceived);
@@ -806,7 +807,7 @@
                         let fileName = 'Data.json';
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                             "/Output/" +
-                            CANDLES_FOLDER_NAME + "/" +
+                            DEPENDENCY_FOLDER_NAME + "/" +
                             TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                             timeFrame
                         filePath += '/' + fileName

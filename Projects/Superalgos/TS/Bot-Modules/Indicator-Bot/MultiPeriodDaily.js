@@ -4,7 +4,7 @@
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.
     It also assumes that the data dependencias are in Daily Files, one file for each Time Frame.
     */
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         finalize: finalize,
         start: start

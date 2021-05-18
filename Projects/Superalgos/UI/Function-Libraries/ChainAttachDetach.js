@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryChainAttachDetach() {
-    thisObject = {
+    let thisObject = {
         chainDetachNode: chainDetachNode,
         chainAttachNode: chainAttachNode
     }

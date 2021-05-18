@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibrarySocialBotsFunctions() {
-    thisObject = {
+    let thisObject = {
         sendTelegramTestMessage: sendTelegramTestMessage,
         sendDiscordTestMessage: sendDiscordTestMessage,
         sendSlackTestMessage: sendSlackTestMessage

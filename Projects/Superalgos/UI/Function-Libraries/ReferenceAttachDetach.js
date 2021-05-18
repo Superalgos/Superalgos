@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryAttachDetach() {
-    thisObject = {
+    let thisObject = {
         referenceDetachNode: referenceDetachNode,
         referenceAttachNode: referenceAttachNode
     }

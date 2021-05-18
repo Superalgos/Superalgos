@@ -5,7 +5,7 @@
     const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
     const OHLCVS_FOLDER_NAME = "OHLCVs/One-Min";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };

@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesDocs() {
-    thisObject = {
+    let thisObject = {
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
         getTextBasedOnLanguage: getTextBasedOnLanguage,

@@ -6,7 +6,7 @@
     const VOLUMES_FOLDER_NAME = "Volumes";
     const VOLUMES_ONE_MIN = "One-Min";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     }

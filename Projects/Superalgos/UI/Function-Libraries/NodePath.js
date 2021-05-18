@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryNodePath() {
-    thisObject = {
+    let thisObject = {
         getNodePath: getNodePath
     }
 

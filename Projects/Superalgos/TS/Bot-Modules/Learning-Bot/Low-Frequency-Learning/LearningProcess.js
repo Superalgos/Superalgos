@@ -5,7 +5,7 @@
     */
     const MODULE_NAME = "Learning Process"
 
-    thisObject = {
+    let thisObject = {
         start: start
     }
 

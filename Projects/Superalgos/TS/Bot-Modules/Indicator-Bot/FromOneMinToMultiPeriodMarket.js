@@ -37,7 +37,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
     let statusDependencies
     let dataDependenciesModule
     let beginingOfMarket
-    let dataDependencyNode 
+    let dataDependencyNode
     let outputDatasetNode
 
     return thisObject;
@@ -407,9 +407,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     let outputElements = [];
 
                     for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
-                        const emptyArray1 = [];
-                        const emptyArray2 = [];
-                        outputElements.push(emptyArray1);
+                        const emptyArray = []
+                        outputElements.push(emptyArray)
                     }
 
                     advanceTime()
@@ -421,18 +420,27 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         date and then adding again all the elements found right now at that date and then
                         from there into the future.
                         */
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                            "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " +
+                            contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
+                            (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
+                            contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                         /* Validation that we are not going past the head of the market. */
                         if (contextVariables.datetimeLastProducedFile.valueOf() > contextVariables.datetimeLastAvailableDependencyFile.valueOf()) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildOutput -> advanceTime -> Head of the market found @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                                "[INFO] start -> buildOutput -> advanceTime -> Head of the market found @ " +
+                                contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
+                                (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
+                                contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
-                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
+                            /*
+                            Here is where we finish processing and wait for the bot to run this module again.
+                            */
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                             return
                         }
 
@@ -446,7 +454,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
 
                         if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
                         }
                         timeframesLoop()
                     }
@@ -466,8 +474,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 previousElements = allPreviousElements[n];
                             }
 
-                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
+                            const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
@@ -484,13 +492,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             */
                             if (previousElements !== undefined && previousElements.length !== 0) {
                                 for (let i = 0; i < previousElements.length; i++) {
-                                    let element = {
-                                        open: previousElements[i][2],
-                                        close: previousElements[i][3],
-                                        min: previousElements[i][0],
-                                        max: previousElements[i][1],
-                                        begin: previousElements[i][4],
-                                        end: previousElements[i][5]
+                                    let element = {}
+
+                                    for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                        element[property.config.codeName] = record[j]
                                     }
 
                                     if (element.end < contextVariables.datetimeLastProducedFile.valueOf()) {
@@ -503,8 +509,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 allPreviousElements[n] = [] // erasing these so as not to duplicate them.
                             }
                             /*
-                            From here on is where every iteration of the loop fully runs. Here is where we 
-                            read Exchange Raw Data's files and add their content to whatever
+                            From here on is where every iteration of the loop fully runs. 
+                            Here is where we read Data Depnedency's files and add their content to whatever
                             we already have in our arrays in-memory. In this way the process will run as 
                             many days needed and it should only stop when it reaches
                             the head of the market.
@@ -512,7 +518,10 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             nextDailyFile();
 
                             function nextDailyFile() {
-                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+
                                 let fileName = "Data.json"
 
                                 let filePathRoot =
@@ -520,9 +529,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                    "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
+                                    dataDependencyNode.referenceParent.parentNode.config.codeName + '/' +
+                                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+
                                 let filePath = filePathRoot + "/Output/" + dataDependencyNode.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
                                 filePath += '/' + fileName
 
@@ -565,55 +576,134 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             }
                                         }
 
-                                        const inputElementPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-                                        let totaloutputElements = inputFilePeriod / outputPeriod; // this should be 2 in this case.
+                                        let totalOutputElements = inputFilePeriod / timeFrameLabel; // this should be 2 in this case.
                                         let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
                                         /*
-                                        The algorithm that follows is going to agregate elements of 1 min timeFrame read from Exchange Raw Data, into elements of each timeFrame
-                                        that Candles Volumes generates. For market files those timePediods goes from 1h to 24hs.
+                                        The algorithm that follows is going to agregate elements of 1 min timeFrame 
+                                        read from Data Dependency File, into elements of each timeFrame. 
                                         */
-                                        for (let i = 0; i < totaloutputElements; i++) {
+                                        for (let i = 0; i < totalOutputElements; i++) {
 
-                                            let outputElement = {
-                                                open: 0,
-                                                close: 0,
-                                                min: 0,
-                                                max: 0,
-                                                begin: 0,
-                                                end: 0
-                                            };
+                                            let saveElement = false
+                                            /*
+                                            Initialize the outputElement object. 
+                                            */
+                                            let outputElement = {}
 
-                                            let saveElement = false;
-                                            outputElement.begin = beginingOutputTime + i * outputPeriod;
-                                            outputElement.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
+                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+
+                                                if (property.config.isString === true || property.config.isDate === true) {
+                                                    outputElement[property.config.codeName] = ""            // Default Value
+                                                } else {
+                                                    outputElement[property.config.codeName] = 0             // Default Value
+                                                }
+                                                if (property.config.isBoolean === true) {
+                                                    outputElement[property.config.codeName] = false         // Default Value
+                                                }
+                                            }
+
+                                            /*
+                                            Setting the begin and end for this element.
+                                            */
+                                            outputElement.begin = beginingOutputTime + i * timeFrameLabel;
+                                            outputElement.end = beginingOutputTime + (i + 1) * timeFrameLabel - 1;
 
                                             for (let j = 0; j < dailyFile.length; j++) {
-                                                let element = {
-                                                    open: dailyFile[j][2],
-                                                    close: dailyFile[j][3],
-                                                    min: dailyFile[j][0],
-                                                    max: dailyFile[j][1],
-                                                    begin: dailyFile[j][4],
-                                                    end: dailyFile[j][5]
+                                                let element = {}
+                                                let record = {}
+
+                                                record.values = dailyFile[j]
+                                                record.map = new Map()
+
+                                                /*
+                                                Set up the Data Dependency Record Map and Data Dependency Element Object
+                                                */
+                                                for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
+                                                    let property = outputDatasetNode.referenceParent.parentNode.record.properties[k]
+                                                    record.map.set(property.config.codeName, record.values[k])
+                                                    element[property.config.codeName] = record.values[k]
                                                 }
-                                                /* Here we discard all the elements out of range.  */
-                                                if (element.begin >= outputElement.begin && element.end <= outputElement.end) {
+                                                /* 
+                                                Here we discard all the elements out of range based on the begin and end properties of
+                                                the Data Dependency element. 
+                                                */
+                                                if (
+                                                    element.begin !== undefined &&
+                                                    element.end !== undefined &&
+                                                    element.begin >= outputElement.begin &&
+                                                    element.end <= outputElement.end) {
+                                                    aggregateElements()
+                                                }
 
-                                                    if (saveElement === false) { // this will set the value only once.
-                                                        outputElement.open = element.open;
-                                                        outputElement.min = element.min;
-                                                        outputElement.max = element.max;
+                                                /* 
+                                                Here we discard all the elements out of range based on the timestamp propertiy of
+                                                the Data Dependency element. 
+                                                */
+                                                if (
+                                                    element.timestamp !== undefined &&
+                                                    element.timestamp >= outputElement.begin &&
+                                                    element.timestamp <= outputElement.end) {
+                                                    aggregateElements()
+                                                }
+
+                                                function aggregateElements() {
+                                                    aggregationMethodFirst()
+                                                    saveElement = true
+                                                    aggregationMethodLast()
+
+                                                    function aggregationMethodFirst() {
+                                                        /*
+                                                        Here we process the FIRST type of aggregation.
+                                                        */
+                                                        if (saveElement === false) {
+
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'First') {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
                                                     }
 
-                                                    saveElement = true;
-                                                    outputElement.close = element.close;      // only the last one will be saved
+
+                                                    function aggregationMethodLast() {
+                                                        /* 
+                                                        This is the LAST type of aggregation.
+        
+                                                        Everything that follows will be set for each element overiding the previous
+                                                        ones, so only the last values will survive. 
+                                                        */
+
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Last') {
+                                                                outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                            }
+                                                        }
+                                                    }
+
+
+
+                                                    /* Here we process the MIN type of aggregation */
                                                     if (element.min < outputElement.min) {
-                                                        outputElement.min = element.min;
+                                                        outputElement.min = element.min
                                                     }
+
+                                                    /* Here we process the MAX type of aggregation */
                                                     if (element.max > outputElement.max) {
-                                                        outputElement.max = element.max;
+                                                        outputElement.max = element.max
                                                     }
+
+                                                    /* Here we process the SUM type of aggregation */
+
+
+                                                    /* Here we process the AVG type of agregation */
+
+
+
                                                 }
                                             }
                                             if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.

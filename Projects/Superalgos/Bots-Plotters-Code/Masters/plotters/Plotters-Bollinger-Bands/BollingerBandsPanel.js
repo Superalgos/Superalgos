@@ -1,7 +1,7 @@
 ﻿
 function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel() {
 
-    var thisObject = {
+    let thisObject = {
         fitFunction: undefined,
         onRecordChange: onRecordChange,
         container: undefined,

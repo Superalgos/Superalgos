@@ -4,7 +4,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
     const MODULE_NAME = "Check Webhooks";
     const FOLDER_NAME = "External-Signals";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };

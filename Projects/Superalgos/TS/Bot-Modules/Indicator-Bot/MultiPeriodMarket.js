@@ -4,7 +4,7 @@
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
     It also assumes that the data dependencias are in Market Files, one file for each Time Frame.
     */
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         finalize: finalize,
         start: start

@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesLanguages() {
-    thisObject = {
+    let thisObject = {
         getLaguageLabel: getLaguageLabel
     }
 

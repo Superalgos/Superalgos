@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesNodeConfig() {
-    thisObject = {
+    let thisObject = {
         savePropertyAtNodeConfig: savePropertyAtNodeConfig,
         loadPropertyFromNodeConfig: loadPropertyFromNodeConfig
     }

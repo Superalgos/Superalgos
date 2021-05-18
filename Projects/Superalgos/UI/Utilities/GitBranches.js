@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesGitBranches() {
-    thisObject = {
+    let thisObject = {
         getBranchLabel: getBranchLabel
     }
 

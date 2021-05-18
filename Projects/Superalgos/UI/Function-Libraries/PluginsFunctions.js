@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryPluginsFunctions() {
-    thisObject = {
+    let thisObject = {
         pluginMissingProjects: pluginMissingProjects,
         pluginMissingDataMines: pluginMissingDataMines,
         pluginMissingTradingMines: pluginMissingTradingMines,

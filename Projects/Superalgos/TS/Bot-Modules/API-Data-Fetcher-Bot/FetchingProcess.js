@@ -3,7 +3,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
     const MODULE_NAME = "Fetching Process";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };

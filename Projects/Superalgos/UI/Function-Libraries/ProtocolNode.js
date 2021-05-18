@@ -4,7 +4,7 @@ function newSuperalgosFunctionLibraryProtocolNode() {
     const logger = newWebDebugLog()
 
 
-    thisObject = {
+    let thisObject = {
         getProtocolNode: getProtocolNode
     }
     return thisObject

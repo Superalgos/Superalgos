@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryDataStorageFunctions() {
-    thisObject = {
+    let thisObject = {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,

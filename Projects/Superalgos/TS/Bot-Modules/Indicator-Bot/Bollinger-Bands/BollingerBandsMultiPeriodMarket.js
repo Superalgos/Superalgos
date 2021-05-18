@@ -5,7 +5,7 @@
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands"
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth"
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     }

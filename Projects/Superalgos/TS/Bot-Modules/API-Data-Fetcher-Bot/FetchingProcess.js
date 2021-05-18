@@ -130,6 +130,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         if (outputDataset.referenceParent.parentNode === undefined) {
                             continue
                         }
+                        let dataset = outputDataset.referenceParent                        // This holds the dataset that is currently being processed.
                         let productDefinition = outputDataset.referenceParent.parentNode    // This is the Product Definition Node related to the current Output Dataset.
                         let endpointNode                                                    // This holds the Endpoint Node at the API Map 
                         let existingFileContent                                             // This holds the data of the existing dataset file.
@@ -149,9 +150,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         getEndpointQueryParameters()
                         getEndpointPathParameters()
                         await fetchAllPages()
-                        await readDatasetFile()
-                        appendToExistingDataset()
-                        await saveDatasetFile()
+                        await saveDataReceived()
 
                         function getApiEndpointAndSchema() {
                             /*
@@ -520,113 +519,238 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             return promise
                         }
 
-                        async function readDatasetFile() {
+                        async function saveDataReceived() {
                             /*
-                            If this process already ran before, then we are going to load the data stored so as to append
-                            information to it later.
+                            We have 2 ways of saving data coming from an API. As a Single-File and
+                            as One Minute Daily Files. Which one we are going to use depends on the way
+                            the dataset is configured. 
                             */
-                            if (thisReport.file.lastRun !== undefined) {
+                            switch (dataset.config.codeName) {
+                                case 'Single-File': {
+                                    await saveSingleFile()
+                                    break
+                                }
+                                case 'One-Min': {
+                                    await saveOneMinFile()
+                                    break
+                                }
+                                default: {
+                                    // TODO ERROR HANDLING. Unrecognized dataset codeName found.
+                                }
+                            }
+
+                            async function saveSingleFile() {
+                                /*
+                                When dealing with Single-File type of datasets, we need to append the data to the already
+                                existing data, that is located in a single file. For that reason, we will first read that single file,
+                                then append data to it, and finally save it to disk.
+                                */
+                                await readDatasetFile("")
+                                appendToExistingDataset()
+                                await saveDatasetFile("")
+
+                                function appendToExistingDataset() {
+                                    /* 
+                                    We are going to append the curernt apiResponseReceivedText to the existing file.
+                                    */
+                                    let existingFileArray = JSON.parse(existingFileContent)
+                                    /*
+                                    We will create a map with all the existing record primary keys, so as to use it
+                                    later to avoid appending records that already exists. The first step is to 
+                                    build an array with the primary keys of the file. After that we will populate 
+                                    the existingKeys map.
+                                    */
+                                    let primaryKeys = []
+                                    let existingKeys = new Map()
+                                    /*
+                                    Setup the primaryKeys array.
+                                    */
+                                    for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                        let recordProperty = productDefinition.record.properties[j]
+                                        if (recordProperty.config.primaryKey === true) {
+                                            primaryKeys.push(recordProperty.config.codeName)
+                                        }
+                                    }
+                                    /*
+                                    Setup the existingKeys map.
+                                    */
+                                    for (let i = 0; i < existingFileArray.length; i++) {
+                                        let record = {
+                                            values: existingFileArray[i],
+                                            map: new Map()
+                                        }
+                                        /*
+                                        Building the record map...
+                                        */
+                                        for (let j = 0; j < productDefinition.record.properties.length; j++) {
+                                            let recordProperty = productDefinition.record.properties[j]
+                                            record.map.set(recordProperty.config.codeName, record.values[j])
+                                        }
+                                        /*
+                                        Building the current key...
+                                        */
+                                        let key = ""
+                                        for (j = 0; j < primaryKeys.length; j++) {
+                                            let keyValue = record.map.get(primaryKeys[j])
+                                            key = key + '->' + keyValue
+                                        }
+                                        existingKeys.set(key, record)
+                                    }
+                                    /*
+                                    If we received an array of data then we will try to append it to the current file.
+                                    */
+                                    if (dataReceivedArray.length > 0) {
+                                        /*
+                                        Scan the dataReceivedArray array and insert records into
+                                        the existingFileArray array only when they are not going to
+                                        duplicate a primary key.
+                                        */
+                                        for (let i = 0; i < dataReceivedArray.length; i++) {
+                                            let record = getRecord(dataReceivedArray[i])
+
+                                            let key = ""
+                                            for (j = 0; j < primaryKeys.length; j++) {
+                                                let keyValue = record.map.get(primaryKeys[j])
+                                                key = key + '->' + keyValue
+                                            }
+                                            if (existingKeys.get(key) === undefined) {
+                                                existingFileArray.push(record.values)
+                                                existingKeys.set(key, record.values)
+                                            }
+                                        }
+                                    }
+                                    /*
+                                    If we received a data object then we will try to add it to the current existing file.
+                                    */
+                                    if (dataReceivedObject !== undefined) {
+                                        let record = getRecord(dataReceivedObject)
+                                        existingFileArray.push(record.values)
+                                    }
+
+                                    existingFileContent = JSON.stringify(existingFileArray)
+                                }
+                            }
+
+                            async function saveOneMinFile() {
+                                /*
+                                When dealing with One-Min type of datasets, we need to append the data to the already
+                                existing data, distributed among Daily Files. For that reason, we will first read the 
+                                dataset file of the day where the fetched data timestamp belongs to, then append data to it, 
+                                and finally save it to disk.
+                                */
+                                let timestamp = getTimestamp()
+                                let file = { date: new Date(timestamp) }
+                                file.year = file.date.getUTCFullYear()
+                                file.month = file.date.getUTCMonth() + 1
+                                file.day = file.date.getUTCDate()
+                                let dateForPath = file.year + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(file.day, 2)
+
+                                await readDatasetFile("/" + dateForPath)
+                                appendToExistingDataset()
+                                await saveDatasetFile("/" + dateForPath)
+
+                                function appendToExistingDataset() {
+                                    /* 
+                                    We are going to append the curernt apiResponseReceivedText to the existing file.
+                                    */
+                                    let existingFileArray = JSON.parse(existingFileContent)
+                                    /*
+                                    If we received a data object then we will try to add it to the current existing file.
+                                    */
+                                    if (dataReceivedObject !== undefined) {
+                                        let record = getRecord(dataReceivedObject)
+                                        /*
+                                        We will check that the current timestamp is not already at the existing file,
+                                        and if it is not there, we will add it at the end of the file.
+                                        */
+                                        /* Get the Timestamp Header Index */
+                                        let timestampHeaderIndex
+                                        for (let i = 0; i < record.headers.length; i++) {
+                                            let header = record.headers[i]
+                                            if (header === 'timestamp') {
+                                                timestampHeaderIndex = i
+                                                break
+                                            }
+                                        }
+                                        /* See if a record with the same timestamp is at the file.*/
+                                        let timestampWasFoundInFile = false
+                                        for (let i = 0; i < existingFileArray.length; i++) {
+                                            let fileRecord = existingFileArray[i]
+                                            let fileRecordTimestamp = fileRecord[timestampHeaderIndex]
+                                            if (fileRecordTimestamp === timestamp) {
+                                                timestampWasFoundInFile = true
+                                                break
+                                            }
+                                        }
+                                        if (timestampWasFoundInFile === false) {
+                                            existingFileArray.push(record.values)
+                                        }
+                                    }
+                                    existingFileContent = JSON.stringify(existingFileArray)
+                                }
+
+                                function getTimestamp() {
+                                    /*
+                                    The timestamp is data that comes in the API response. Here we will extract the timestamp
+                                    and return it. 
+                                    */
+                                    let record = getRecord(dataReceivedObject)
+                                    let timestamp = record.map.get('timestamp')
+
+                                    if (timestamp === undefined) {
+                                        // TODO ERROR HANDLER : There must be a Record Property with codeName 'timestamp' defined.
+                                        throw 'ERROR'
+                                    }
+
+                                    return timestamp
+                                }
+                            }
+
+                            async function readDatasetFile(extraFilePath) {
+                                /*
+                                If this process already ran before, then we are going to load the data stored so as to append
+                                information to it later.
+                                */
+                                if (thisReport.file.lastRun !== undefined) {
+
+                                    let fileName = 'Data.json'
+                                    let filePath =
+                                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                        "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + extraFilePath
+                                    let response = await fileStorage.asyncGetTextFile(filePath + '/' + fileName)
+                                    let text = response.text
+
+                                    if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                            "[ERROR] start -> startProcess -> readDatasetFile -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                        throw (response.err)
+                                    } else {
+                                        existingFileContent = text
+                                    }
+
+                                } else {
+                                    /*
+                                    If there is no status report, we assume there is no previous file or that if there is we will override it.
+                                    */
+                                    existingFileContent = "[]"
+                                }
+                            }
+
+                            async function saveDatasetFile(extraFilePath) {
 
                                 let fileName = 'Data.json'
-                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName
-                                let response = await fileStorage.asyncGetTextFile(filePath + '/' + fileName)
-                                let text = response.text
+                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                    "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + extraFilePath
+                                let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
 
                                 if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> startProcess -> readDatasetFile -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                        "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
                                     throw (response.err)
-                                } else {
-                                    existingFileContent = text
-                                }
-
-                            } else {
-                                /*
-                                If there is no status report, we assume there is no previous file or that if there is we will override it.
-                                */
-                                existingFileContent = "[]"
-                            }
-                        }
-
-                        function appendToExistingDataset() {
-                            /* 
-                            We are going to append the curernt apiResponseReceivedText to the existing file.
-                            */
-                            let existingFileArray = JSON.parse(existingFileContent)
-                            /*
-                            We will create a map with all the existing record primary keys, so as to use it
-                            later to avoid appending records that already exists. The first step is to 
-                            build an array with the primary keys of the file. After that we will populate 
-                            the existingKeys map.
-                            */
-                            let primaryKeys = []
-                            let existingKeys = new Map()
-                            /*
-                            Setup the primaryKeys array.
-                            */
-                            for (let j = 0; j < productDefinition.record.properties.length; j++) {
-                                let recordProperty = productDefinition.record.properties[j]
-                                if (recordProperty.config.primaryKey === true) {
-                                    primaryKeys.push(recordProperty.config.codeName)
                                 }
                             }
-                            /*
-                            Setup the existingKeys map.
-                            */
-                            for (let i = 0; i < existingFileArray.length; i++) {
-                                let record = {
-                                    values: existingFileArray[i],
-                                    map: new Map()
-                                }
-                                /*
-                                Building the record map...
-                                */
-                                for (let j = 0; j < productDefinition.record.properties.length; j++) {
-                                    let recordProperty = productDefinition.record.properties[j]
-                                    record.map.set(recordProperty.config.codeName, record.values[j])
-                                }
-                                /*
-                                Building the current key...
-                                */
-                                let key = ""
-                                for (j = 0; j < primaryKeys.length; j++) {
-                                    let keyValue = record.map.get(primaryKeys[j])
-                                    key = key + '->' + keyValue
-                                }
-                                existingKeys.set(key, record)
-                            }
-                            /*
-                            If we received an array of data then we will try to append it to the current file.
-                            */
-                            if (dataReceivedArray.length > 0) {
-                                /*
-                                Scan the dataReceivedArray array and insert records into
-                                the existingFileArray array only when they are not going to
-                                duplicate a primary key.
-                                */
-                                for (let i = 0; i < dataReceivedArray.length; i++) {
-                                    let record = getRecord(dataReceivedArray[i])
-
-                                    let key = ""
-                                    for (j = 0; j < primaryKeys.length; j++) {
-                                        let keyValue = record.map.get(primaryKeys[j])
-                                        key = key + '->' + keyValue
-                                    }
-                                    if (existingKeys.get(key) === undefined) {
-                                        existingFileArray.push(record.values)
-                                        existingKeys.set(key, record.values)
-                                    }
-                                }
-                            }
-                            /*
-                            If we received a data object then we will try to add it to the current existing file.
-                            */
-                            if (dataReceivedObject !== undefined) {
-                                let record = getRecord(dataReceivedObject)
-                                existingFileArray.push(record.values)
-                            }
-
-                            existingFileContent = JSON.stringify(existingFileArray)
 
                             function getRecord(recordReceived) {
                                 /*
@@ -673,7 +797,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                                 */
                                                 if (isNaN(value)) { value = 0 }
                                             }
-                                            
+
                                             if (value === null || value === undefined) { value = 0 }
                                             record.values.push(value)
                                             record.headers.push(recordProperty.config.codeName)
@@ -682,19 +806,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     }
                                 }
                                 return record
-                            }
-                        }
-
-                        async function saveDatasetFile() {
-
-                            let fileName = 'Data.json'
-                            let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName
-                            let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
-
-                            if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
-                                throw (response.err)
                             }
                         }
                     }

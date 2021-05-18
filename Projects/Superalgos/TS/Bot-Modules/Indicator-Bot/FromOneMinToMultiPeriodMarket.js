@@ -29,25 +29,31 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
     let thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     }
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-    let statusDependencies;
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
+
+    let statusDependencies
+    let dataDependenciesModule
     let beginingOfMarket
 
     return thisObject;
 
-    function initialize(pStatusDependencies, callBackFunction) {
-        try {
-            statusDependencies = pStatusDependencies;
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-        } catch (err) {
-            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-        }
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+
+        statusDependencies = pStatusDependencies
+        dataDependenciesModule = pDataDependencies
+
+        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+    }
+
+    function finalize() {
+        fileStorage = undefined
+        statusDependencies = undefined
+        dataDependenciesModule = undefined
+        thisObject = undefined
     }
 
     function start(callBackFunction) {
@@ -69,7 +75,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     let statusReport;
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
-
                     reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)

@@ -21,8 +21,8 @@
 
     function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
 
-        statusDependencies = pStatusDependencies;
-        dataDependenciesModule = pDataDependencies;
+        statusDependencies = pStatusDependencies
+        dataDependenciesModule = pDataDependencies
 
         indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)

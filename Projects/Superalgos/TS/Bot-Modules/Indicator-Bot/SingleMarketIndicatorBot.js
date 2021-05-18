@@ -285,6 +285,16 @@
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
+                                                case 'From-One-Min-To-Multi-Period-Market': {
+                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket(processIndex);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
+                                                case 'From-One-Min-To-Multi-Period-Daily': {
+                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily(processIndex);
+                                                    intitializeProcessFramework();
+                                                    break;
+                                                }
                                                 default: {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                         "[ERROR] run -> loop -> initializeDataDependencies -> onInizialized -> Process Framework not Supported.");

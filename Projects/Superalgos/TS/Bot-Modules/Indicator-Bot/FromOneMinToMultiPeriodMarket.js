@@ -24,8 +24,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         and then it will process that full day again adding all the elements found at the current run.
     */
     const MODULE_NAME = "From One Min To Multi Period Market"
-    const DEPENDENCY_FOLDER_NAME = "Candles"
-    const DEPENDENCY_ONE_MIN = "One-Min"
+    const ONE_MIN_DATASET_TYPE = "One-Min"
 
     let thisObject = {
         initialize: initialize,
@@ -38,6 +37,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
     let statusDependencies
     let dataDependenciesModule
     let beginingOfMarket
+    let dataDependencyNode 
+    let outputDatasetNode
 
     return thisObject;
 
@@ -45,6 +46,38 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
         statusDependencies = pStatusDependencies
         dataDependenciesModule = pDataDependencies
+        /*
+        This Framework have a few contraints that we are going to check right here.
+        One of them is the fact that it can only accept one data dependency. The 
+        reason why is because the purpose of this framwork is to produce a transformation
+        between one dataset type (One-Min) to another dataset type (Multi-Period-Market).
+        To do that it can only handle one dependency and it will only produce one output.
+
+        If the user has defined more than one data dependency or more than one output, we
+        are going to stop right here so that the user gets the message that this framework
+        is not to merge information and splitted into multiple outputs.
+        */
+        if (dataDependenciesModule.curatedDependencyNodeArray.length > 0) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            return
+        } else {
+            dataDependencyNode = dataDependenciesModule.curatedDependencyNodeArray[0]
+        }
+
+        let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
+        )
+
+        if (outputDatasets.length > 0) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            return
+        } else {
+            outputDatasetNode = outputDatasets[0]
+        }
 
         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
     }
@@ -54,6 +87,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         statusDependencies = undefined
         dataDependenciesModule = undefined
         thisObject = undefined
+        dataDependencyNode = undefined
+        outputDatasetNode = undefined
     }
 
     function start(callBackFunction) {
@@ -284,9 +319,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 in arrays and keep them in memory.
                 */
                 try {
-                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
-
-                    let allPreviousElements = [] // Each item of this array is an array of elements for a certain time frame
+                    let n = 0                       // loop Variable representing each possible time frame as defined at the time frames array.
+                    let allPreviousElements = []    // Each item of this array is an array of elements for a certain time frame
 
                     loopBody()
 
@@ -297,14 +331,14 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         let previousElements
 
-                        getCandles()
+                        readExistingFile()
 
-                        function getCandles() {
+                        function readExistingFile() {
                             let fileName = 'Data.json';
                             let filePath =
                                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                 "/Output/" +
-                                DEPENDENCY_FOLDER_NAME + "/" +
+                                outputDatasetNode.referenceParent.parentNode.config.codeName + "/" + // Product Name
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                                 timeFrame;
                             filePath += '/' + fileName
@@ -312,7 +346,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             fileStorage.getTextFile(filePath, onFileReceived);
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> loadExistingFiles -> loopBody -> getCandles -> getting file.");
+                                "[INFO] start -> loadExistingFiles -> loopBody -> readExistingFile -> getting file.");
 
                             function onFileReceived(err, text) {
                                 let dailyFile
@@ -323,22 +357,22 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                         previousElements = dailyFile;
                                         allPreviousElements.push(previousElements);
 
-                                        controlLoop();
+                                        controlLoop()
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> fileName = " + fileName);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> fileName = " + fileName);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> filePath = " + filePath);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = " + filePath);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
+                                        "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(err);
                                 }
                             }
@@ -489,7 +523,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                let filePath = filePathRoot + "/Output/" + DEPENDENCY_FOLDER_NAME + '/' + DEPENDENCY_ONE_MIN + '/' + dateForPath;
+                                let filePath = filePathRoot + "/Output/" + dataDependencyNode.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
                                 filePath += '/' + fileName
 
                                 fileStorage.getTextFile(filePath, onFileReceived);
@@ -646,7 +680,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     let fileName = 'Data.json';
                     let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                         "/Output/" +
-                        DEPENDENCY_FOLDER_NAME + "/" +
+                        outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                         timeFrame
                     filePath += '/' + fileName

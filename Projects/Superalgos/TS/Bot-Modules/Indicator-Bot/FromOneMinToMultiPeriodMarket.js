@@ -70,124 +70,132 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
             function getContextVariables() {
                 try {
-                    let thisReport;
-                    let reportKey;
-                    let statusReport;
+                    let thisReport
+                    let reportKey
+                    let statusReport
 
-                    /* We look first for Exchange Raw Data in order to get when the market starts. */
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                    detectWhereTheMarketBegins()
+                    detectWhereTheMarketBegins()
+                    getOwnStatusReport()
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                    function detectWhereTheMarketBegins() {
+                        /* 
+                        We look first for Status Report that will tell us when the market starts. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Market Starting Point');
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
-                    }
-
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.beginingOfMarket === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
-
-                        let customOK = {
-                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency does not exist."
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            return
                         }
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK)
-                        return
-                    }
 
-                    contextVariables.datetimeBeginingOfMarketFile = new Date(
-                        thisReport.beginingOfMarket.year + "-" +
-                        thisReport.beginingOfMarket.month + "-" +
-                        thisReport.beginingOfMarket.days + " " +
-                        thisReport.beginingOfMarket.hours + ":" +
-                        thisReport.beginingOfMarket.minutes +
-                        TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
-
-                    /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
-
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.lastFile === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-
-                        let customOK = {
-                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency not ready."
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            return
                         }
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
+
+                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                        if (thisReport.beginingOfMarket === undefined) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+
+                            let customOK = {
+                                result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency does not exist."
+                            }
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK)
+                            return
+                        }
+
+                        contextVariables.datetimeBeginingOfMarketFile = new Date(
+                            thisReport.beginingOfMarket.year + "-" +
+                            thisReport.beginingOfMarket.month + "-" +
+                            thisReport.beginingOfMarket.days + " " +
+                            thisReport.beginingOfMarket.hours + ":" +
+                            thisReport.beginingOfMarket.minutes +
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     }
 
-                    contextVariables.datetimeLastAvailableDependencyFile = new Date(
-                        thisReport.lastFile.year + "-" +
-                        thisReport.lastFile.month + "-" +
-                        thisReport.lastFile.days + " " + "00:00" +
-                        TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                    function detectWhereTheMarketBegins() {
+                        /* 
+                        Second, we get the report from Exchange Raw Data, to know when the marted ends. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Market Ending Point')
 
-                    /* Finally we get our own Status Report. */
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            return;
+                        }
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            return;
+                        }
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
+                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+
+                        if (thisReport.lastFile === undefined) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+
+                            let customOK = {
+                                result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency not ready."
+                            }
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                            callBackFunction(customOK);
+                            return;
+                        }
+
+                        contextVariables.datetimeLastAvailableDependencyFile = new Date(
+                            thisReport.lastFile.year + "-" +
+                            thisReport.lastFile.month + "-" +
+                            thisReport.lastFile.days + " " + "00:00" +
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     }
 
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                        return
-                    }
+                    function getOwnStatusReport() {
+                        /* 
+                        Finally we get our own Status Report. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            return
+                        }
+
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                            return
+                        }
+
+                        thisReport = statusDependencies.statusReports.get(reportKey).file
+                    }
 
                     if (thisReport.lastFile !== undefined) {
+                        /*
+                        We get in here when the report already exists, meaning that this process
+                        has succesfully ran before at least once.
+                        */
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey);
 
@@ -225,9 +233,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         */
                         contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
 
-                        findPreviousContent()
+                        loadExistingFiles()
                         return
                     } else {
+                        /*
+                        We get in here when the report does not exist, meaning that this process
+                        has never ran succesfully before at least once.
+                        */
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
 
@@ -265,7 +277,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
             }
 
-            function findPreviousContent() {
+            function loadExistingFiles() {
                 /*
                 This is where we read the current files we have produced at previous runs 
                 of this same process. We just read all the content and organize it
@@ -281,7 +293,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     function loopBody() {
                         let timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame)
+                            "[INFO] start -> loadExistingFiles -> loopBody -> timeFrame = " + timeFrame)
 
                         let previousElements
 
@@ -300,7 +312,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             fileStorage.getTextFile(filePath, onFileReceived);
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
+                                "[INFO] start -> loadExistingFiles -> loopBody -> getCandles -> getting file.");
 
                             function onFileReceived(err, text) {
                                 let dailyFile
@@ -315,18 +327,18 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> fileName = " + fileName);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> fileName = " + fileName);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> filePath = " + filePath);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> filePath = " + filePath);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
+                                        "[ERROR] start -> loadExistingFiles -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                     callBackFunction(err);
                                 }
                             }
@@ -345,7 +357,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> findPreviousContent -> err = " + err.stack);
+                        "[ERROR] start -> loadExistingFiles -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
             }

@@ -1,5 +1,9 @@
 ﻿exports.newSuperalgosBotModulesIndicatorOutput = function (processIndex) {
-    const MODULE_NAME = "Indicator Bot";
+    /*
+    This module coordinates the actions to be taken to generate an indicator output.
+    It is used from both Multi-Period-Market and Multi-Period-Daily frameworks.
+    */
+    const MODULE_NAME = "Indicator Output";
 
     let thisObject = {
         initialize: initialize,
@@ -20,13 +24,20 @@
 
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, 
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] initialize -> err = " + err.stack);
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
 
-    function start(dataFiles, timeFrame, timeFrameLabel, currentDay, interExecutionMemory, callBackFunction) {
+    function start(
+        dataFiles,
+        timeFrame,
+        timeFrameLabel,
+        currentDay,
+        interExecutionMemory,
+        callBackFunction
+    ) {
 
         try {
 
@@ -43,13 +54,13 @@
             /* The first phase here is about checking that we have everything we need at the definition level. */
             let dataDependencies = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency'
-                )
+            )
 
             if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateDataDependencies(processIndex, dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray (
+            let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
-                )
+            )
             if (TS.projects.superalgos.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }
 
             /* The second phase is about transforming the inputs into a format that can be used to apply the user defined code. */
@@ -82,7 +93,7 @@
                 }
 
                 /* Build the data */
-                jsonData = TS.projects.superalgos.functionLibraries.singleMarketFunctions.dataBuildingProcedure(processIndex, 
+                jsonData = TS.projects.superalgos.functionLibraries.singleMarketFunctions.dataBuildingProcedure(processIndex,
                     products,
                     mainDependency,
                     recordDefinition,

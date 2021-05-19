@@ -10,4 +10,4 @@ Projects/Superalgos/Icons/Thumbs.db
 !create-shortcut-windows.bat
 !uninstall-shortcut-windows.bat
 *.exe
-
+node_modules

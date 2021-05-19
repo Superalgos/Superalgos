@@ -2,8 +2,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
     /*
         This process is going to do the following:
     
-        Read the elements (candles, volumens, bolllinger bands, news, asset metrics, etc.) from a
-        One-Min dataset (a dataset that is organized with elements spanning one min, like one min candles,
+        Read the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        One-Min dataset (a dataset that is organized with elements spanning one min, like one min elements,
         or elements with a timestamp captured approximatelly one minute from each other), and the dataset itself
         organized in Daily Files.
         
@@ -19,37 +19,76 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         2. Then it will append to these arrays the new information it gets from the data dependency.
     
         3. It knows from it's status report which was the last DAY it processed. Since that day might not have been 
-        full of that (maybe it was at the head of the market). The process will have to be carefull not to append candles 
+        full of that (maybe it was at the head of the market). The process will have to be carefull not to append elements 
         that are already there. To take care of that, it will discard all elements of the last processed day, 
         and then it will process that full day again adding all the elements found at the current run.
     */
     const MODULE_NAME = "From One Min To Multi Period Market"
-    const DEPENDENCY_FOLDER_NAME = "Candles"
-    const DEPENDENCY_ONE_MIN = "One-Min"
-    const VOLUMES_FOLDER_NAME = "Volumes"
-    const VOLUMES_ONE_MIN = "One-Min"
+    const ONE_MIN_DATASET_TYPE = "One-Min"
 
     let thisObject = {
         initialize: initialize,
+        finalize: finalize,
         start: start
     }
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
-    let statusDependencies;
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
+
+    let statusDependencies
+    let dataDependenciesModule
     let beginingOfMarket
+    let dataDependencyNode
+    let outputDatasetNode
 
     return thisObject;
 
-    function initialize(pStatusDependencies, callBackFunction) {
-        try {
-            statusDependencies = pStatusDependencies;
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
-        } catch (err) {
-            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+
+        statusDependencies = pStatusDependencies
+        dataDependenciesModule = pDataDependencies
+        /*
+        This Framework have a few contraints that we are going to check right here.
+        One of them is the fact that it can only accept one data dependency. The 
+        reason why is because the purpose of this framwork is to produce a transformation
+        between one dataset type (One-Min) to another dataset type (Multi-Period-Market).
+        To do that it can only handle one dependency and it will only produce one output.
+
+        If the user has defined more than one data dependency or more than one output, we
+        are going to stop right here so that the user gets the message that this framework
+        is not to merge information and splitted into multiple outputs.
+        */
+        if (dataDependenciesModule.curatedDependencyNodeArray.length > 0) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            return
+        } else {
+            dataDependencyNode = dataDependenciesModule.curatedDependencyNodeArray[0]
         }
+
+        let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
+            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
+        )
+
+        if (outputDatasets.length > 0) {
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            return
+        } else {
+            outputDatasetNode = outputDatasets[0]
+        }
+
+        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
+    }
+
+    function finalize() {
+        fileStorage = undefined
+        statusDependencies = undefined
+        dataDependenciesModule = undefined
+        thisObject = undefined
+        dataDependencyNode = undefined
+        outputDatasetNode = undefined
     }
 
     function start(callBackFunction) {
@@ -62,319 +101,275 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 datetimeLastAvailableDependencyFile: undefined              // Datetime of the last file available to be used as an input of this process.
             };
 
-            getContextVariables();
+            getContextVariables()
 
             function getContextVariables() {
                 try {
-                    let thisReport;
-                    let reportKey;
-                    let statusReport;
+                    let thisReport
+                    let statusReport
 
-                    /* We look first for Exchange Raw Data in order to get when the market starts. */
+                    detectWhereTheMarketBegins()
+                    detectWhereTheMarketEnds()
+                    getOwnStatusReport()
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                    function detectWhereTheMarketBegins() {
+                        /* 
+                        We look first for Status Report that will tell us when the market starts. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Market Starting Point')
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
-
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
-                    }
-
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.beginingOfMarket === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
-
-                        let customOK = {
-                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency does not exist."
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Status Report does not exist. Retrying Later. ")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                            return
                         }
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK)
-                        return
-                    }
 
-                    contextVariables.datetimeBeginingOfMarketFile = new Date(
-                        thisReport.beginingOfMarket.year + "-" +
-                        thisReport.beginingOfMarket.month + "-" +
-                        thisReport.beginingOfMarket.days + " " +
-                        thisReport.beginingOfMarket.hours + ":" +
-                        thisReport.beginingOfMarket.minutes +
-                        TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
-
-                    /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
-
-                    statusReport = statusDependencies.statusReports.get(reportKey);
-
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return;
-                    }
-
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
-
-                    if (thisReport.lastFile === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-
-                        let customOK = {
-                            result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
-                            message: "Dependency not ready."
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> detectWhereTheMarketBegins-> Can not continue because dependecy Status Report is corrupt. ")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                            return
                         }
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
-                        callBackFunction(customOK);
-                        return;
+
+                        thisReport = statusReport.file
+
+                        if (thisReport.beginingOfMarket === undefined) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. " )
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[HINT] start -> getContextVariables -> detectWhereTheMarketBegins-> It is too early too run this process since the trade history of the market is not there yet.")
+
+                            let customOK = {
+                                result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency does not exist."
+                            }
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> customOK = " + customOK.message)
+                            callBackFunction(customOK)
+                            return
+                        }
+
+                        contextVariables.datetimeBeginingOfMarketFile = new Date(
+                            thisReport.beginingOfMarket.year + "-" +
+                            thisReport.beginingOfMarket.month + "-" +
+                            thisReport.beginingOfMarket.days + " " +
+                            thisReport.beginingOfMarket.hours + ":" +
+                            thisReport.beginingOfMarket.minutes +
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     }
 
-                    contextVariables.datetimeLastAvailableDependencyFile = new Date(
-                        thisReport.lastFile.year + "-" +
-                        thisReport.lastFile.month + "-" +
-                        thisReport.lastFile.days + " " + "00:00" +
-                        TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                    function detectWhereTheMarketEnds() {
+                        /* 
+                        Second, we get the report from Exchange Raw Data, to know when the marted ends. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Market Ending Point')
 
-                    /* Finally we get our own Status Report. */
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Status Report does not exist. Retrying Later. ")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                            return;
+                        }
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> detectWhereTheMarketEnds-> Can not continue because dependecy Status Report is corrupt. ")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                            return;
+                        }
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                        return
+                        thisReport = statusReport.file
+
+                        if (thisReport.lastFile === undefined) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File." )
+
+                            let customOK = {
+                                result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
+                                message: "Dependency not ready."
+                            }
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> customOK = " + customOK.message)
+                            callBackFunction(customOK)
+                            return;
+                        }
+
+                        contextVariables.datetimeLastAvailableDependencyFile = new Date(
+                            thisReport.lastFile.year + "-" +
+                            thisReport.lastFile.month + "-" +
+                            thisReport.lastFile.days + " " + "00:00" +
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     }
 
-                    if (statusReport.status === "Status Report is corrupt.") {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                        return
-                    }
+                    function getOwnStatusReport() {
+                        /* 
+                        Finally we get our own Status Report. 
+                        */
+                        statusReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                            return
+                        }
+
+                        if (statusReport.status === "Status Report is corrupt.") {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+                            return
+                        }
+
+                        thisReport = statusReport.file
+                    }
 
                     if (thisReport.lastFile !== undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey);
+                        /*
+                        We get in here when the report already exists, meaning that this process
+                        has succesfully ran before at least once.
+                        */
 
-                        beginingOfMarket = new Date(thisReport.beginingOfMarket);
+                        beginingOfMarket = new Date(thisReport.beginingOfMarket)
 
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+                                "[INFO] start -> getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated." )
 
                             beginingOfMarket = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                                 (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                                TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                                TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                             contextVariables.datetimeLastProducedFile = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                                 (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                                TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                                TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                             contextVariables.datetimeLastProducedFile = new Date(
                                 contextVariables.datetimeLastProducedFile.valueOf() -
-                                TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+                                TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
-                            buildCandles()
+                            buildOutput()
                             return
                         }
 
-                        contextVariables.datetimeLastProducedFile = new Date(thisReport.lastFile);
-
+                        contextVariables.datetimeLastProducedFile = new Date(thisReport.lastFile)
                         /*
                         Here we assume that the last day written might contain incomplete information. 
                         This actually happens every time the head of the market is reached.
                         For that reason we go back one day, the partial information is discarded and 
                         added again with whatever new info is available.
                         */
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
-                        findPreviousContent()
+                        loadExistingFiles()
                         return
                     } else {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
-
+                        /*
+                        We get in here when the report does not exist, meaning that this process
+                        has never ran succesfully before at least once.
+                        */
                         beginingOfMarket = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                         contextVariables.datetimeLastProducedFile = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
                             contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" +
-                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                         contextVariables.datetimeLastProducedFile = new Date(
                             contextVariables.datetimeLastProducedFile.valueOf() -
-                            TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well.
+                            TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
-                        buildCandles()
+                        buildOutput()
                         return
                     }
 
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                        "[ERROR] start -> getContextVariables -> getOwnStatusReport-> err = " + err.stack)
                     if (err.message === "Cannot read property 'file' of undefined") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys))
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.")
                     }
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
-            function findPreviousContent() {
+            function loadExistingFiles() {
                 /*
                 This is where we read the current files we have produced at previous runs 
                 of this same process. We just read all the content and organize it
                 in arrays and keep them in memory.
                 */
                 try {
-                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
-
-                    let allPreviousCandles = [] // Each item of this array is an array of candles for a certain time frame
-                    let allPreviousVolumes = [] // Each item of this array is an array of volumes for a certain time frame
+                    let n = 0                       // loop Variable representing each possible time frame as defined at the time frames array.
+                    let allPreviousElements = []    // Each item of this array is an array of elements for a certain time frame
 
                     loopBody()
 
                     function loopBody() {
                         let timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame)
+                            "[INFO] start -> loadExistingFiles -> loopBody -> timeFrame = " + timeFrame)
 
-                        let previousCandles
-                        let previousVolumes
+                        let previousElements
 
-                        getCandles()
+                        readExistingFile()
 
-                        function getCandles() {
+                        function readExistingFile() {
                             let fileName = 'Data.json';
                             let filePath =
                                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                 "/Output/" +
-                                DEPENDENCY_FOLDER_NAME + "/" +
+                                outputDatasetNode.referenceParent.parentNode.config.codeName + "/" + // Product Name
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                                 timeFrame;
                             filePath += '/' + fileName
 
-                            fileStorage.getTextFile(filePath, onFileReceived);
+                            fileStorage.getTextFile(filePath, onFileReceived)
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> findPreviousContent -> loopBody -> getCandles -> getting file.");
+                                "[INFO] start -> loadExistingFiles -> loopBody -> readExistingFile -> getting file.")
 
                             function onFileReceived(err, text) {
-                                let candlesFile
+                                let dailyFile
 
                                 if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     try {
-                                        candlesFile = JSON.parse(text);
-                                        previousCandles = candlesFile;
-                                        getVolumes();
+                                        dailyFile = JSON.parse(text)
+                                        previousElements = dailyFile;
+                                        allPreviousElements.push(previousElements)
+
+                                        controlLoop()
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> fileName = " + fileName);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> fileName = " + fileName)
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> filePath = " + filePath);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = " + filePath)
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack)
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     }
                                 } else {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(err);
+                                        "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack)
+                                    callBackFunction(err)
                                 }
                             }
                         }
-
-                        function getVolumes() {
-                            let fileName = 'Data.json';
-                            let filePath =
-                                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
-                                "/Output/" +
-                                VOLUMES_FOLDER_NAME + "/" +
-                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                                timeFrame;
-                            filePath += '/' + fileName
-
-                            fileStorage.getTextFile(filePath, onFileReceived);
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> findPreviousContent -> loopBody -> getVolumes -> getting file.");
-
-                            function onFileReceived(err, text) {
-                                let volumesFile
-
-                                if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                    try {
-                                        volumesFile = JSON.parse(text);
-                                        previousVolumes = volumesFile;
-                                        allPreviousCandles.push(previousCandles);
-                                        allPreviousVolumes.push(previousVolumes);
-
-                                        controlLoop();
-
-                                    } catch (err) {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> fileName = " + fileName);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> filePath = " + filePath);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                                    }
-                                } else {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(err);
-                                }
-                            }
-                        }
-
                     }
 
                     function controlLoop() {
@@ -382,19 +377,19 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                             loopBody()
                         } else {
-                            buildCandles(allPreviousCandles, allPreviousVolumes);
+                            buildOutput(allPreviousElements)
                         }
                     }
                 }
                 catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> findPreviousContent -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        "[ERROR] start -> loadExistingFiles -> err = " + err.stack)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
-            function buildCandles(allPreviousCandles, allPreviousVolumes) {
+            function buildOutput(allPreviousElements) {
 
                 try {
                     let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
@@ -402,14 +397,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     /*
                     Firstly we prepere the arrays that will accumulate all the information for each output file.
                     */
-                    let outputCandles = [];
-                    let outputVolumes = [];
+                    let outputElements = [];
 
                     for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
-                        const emptyArray1 = [];
-                        const emptyArray2 = [];
-                        outputCandles.push(emptyArray1);
-                        outputVolumes.push(emptyArray2);
+                        const emptyArray = []
+                        outputElements.push(emptyArray)
                     }
 
                     advanceTime()
@@ -421,18 +413,27 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         date and then adding again all the elements found right now at that date and then
                         from there into the future.
                         */
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS);
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> buildCandles -> advanceTime -> New processing time @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                            "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " +
+                            contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
+                            (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
+                            contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
                         /* Validation that we are not going past the head of the market. */
                         if (contextVariables.datetimeLastProducedFile.valueOf() > contextVariables.datetimeLastAvailableDependencyFile.valueOf()) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildCandles -> advanceTime -> Head of the market found @ " + contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" + (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" + contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
+                                "[INFO] start -> buildOutput -> advanceTime -> Head of the market found @ " +
+                                contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
+                                (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
+                                contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
 
-                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE); // Here is where we finish processing and wait for the platform to run this module again.
+                            /*
+                            Here is where we finish processing and wait for the bot to run this module again.
+                            */
+                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                             return
                         }
 
@@ -440,13 +441,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         let currentDateString =
                             contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
                             TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
-                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
                         let currentDate = new Date(contextVariables.datetimeLastProducedFile)
                         let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
 
                         if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage);
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
                         }
                         timeframesLoop()
                     }
@@ -460,83 +461,60 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         loopBody()
 
                         function loopBody() {
-                            let previousCandles // This is an array with all the elements already existing for a certain time frame.
-                            let previousVolumes
+                            let previousElements // This is an array with all the elements already existing for a certain time frame.
 
-                            if (allPreviousCandles !== undefined) {
-                                previousCandles = allPreviousCandles[n];
-                                previousVolumes = allPreviousVolumes[n];
+                            if (allPreviousElements !== undefined) {
+                                previousElements = allPreviousElements[n];
                             }
 
-                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
+                            const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
-                            add all its candles to our in memory arrays. 
+                            add all its elements to our in memory arrays. 
                             
-                            At the first iteration of this loop, we will add the candles that we are carrying
+                            At the first iteration of this loop, we will add the elements that we are carrying
                             from our previous run, the ones we already have in-memory. 
 
                             You can see below how we discard the elements that
                             belong to the first day we are processing at this run, 
                             that it is exactly the same as the last day processed the previous
-                            run. By discarding these candles, we are ready to run after that standard 
-                            function that will just add ALL the candles found each day at Exchange Raw Data.
+                            run. By discarding these elements, we are ready to run after that standard 
+                            function that will just add ALL the elements found each day at Exchange Raw Data.
                             */
-                            if (previousCandles !== undefined && previousCandles.length !== 0) {
-                                for (let i = 0; i < previousCandles.length; i++) {
-                                    let candle = {
-                                        open: previousCandles[i][2],
-                                        close: previousCandles[i][3],
-                                        min: previousCandles[i][0],
-                                        max: previousCandles[i][1],
-                                        begin: previousCandles[i][4],
-                                        end: previousCandles[i][5]
+                            if (previousElements !== undefined && previousElements.length !== 0) {
+                                for (let i = 0; i < previousElements.length; i++) {
+                                    let element = {}
+
+                                    for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                        element[property.config.codeName] = record[j]
                                     }
 
-                                    if (candle.end < contextVariables.datetimeLastProducedFile.valueOf()) {
-                                        outputCandles[n].push(candle);
+                                    if (element.end < contextVariables.datetimeLastProducedFile.valueOf()) {
+                                        outputElements[n].push(element)
                                     } else {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> Candle # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
+                                            "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> Element # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
                                     }
                                 }
-                                allPreviousCandles[n] = [] // erasing these so as not to duplicate them.
-                            }
-
-                            if (previousVolumes !== undefined && previousVolumes.length !== 0) {
-
-                                for (let i = 0; i < previousVolumes.length; i++) {
-                                    let volume = {
-                                        begin: previousVolumes[i][2],
-                                        end: previousVolumes[i][3],
-                                        buy: previousVolumes[i][0],
-                                        sell: previousVolumes[i][1]
-                                    }
-
-                                    if (volume.end < contextVariables.datetimeLastProducedFile.valueOf()) {
-
-                                        outputVolumes[n].push(volume);
-
-                                    } else {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> Volume # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
-                                    }
-                                }
-                                allPreviousVolumes[n] = []; // erasing these so as not to duplicate them.
+                                allPreviousElements[n] = [] // erasing these so as not to duplicate them.
                             }
                             /*
-                            From here on is where every iteration of the loop fully runs. Here is where we 
-                            read Exchange Raw Data's files and add their content to whatever
+                            From here on is where every iteration of the loop fully runs. 
+                            Here is where we read Data Depnedency's files and add their content to whatever
                             we already have in our arrays in-memory. In this way the process will run as 
                             many days needed and it should only stop when it reaches
                             the head of the market.
                             */
-                            nextCandleFile();
+                            nextDailyFile()
 
-                            function nextCandleFile() {
-                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
+                            function nextDailyFile() {
+                                let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
+                                    TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
+
                                 let fileName = "Data.json"
 
                                 let filePathRoot =
@@ -544,30 +522,32 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                    "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
+                                    dataDependencyNode.referenceParent.parentNode.config.codeName + '/' +
+                                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                let filePath = filePathRoot + "/Output/" + DEPENDENCY_FOLDER_NAME + '/' + DEPENDENCY_ONE_MIN + '/' + dateForPath;
+
+                                let filePath = filePathRoot + "/Output/" + dataDependencyNode.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
                                 filePath += '/' + fileName
 
-                                fileStorage.getTextFile(filePath, onFileReceived);
+                                fileStorage.getTextFile(filePath, onFileReceived)
 
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> getting file at dateForPath = " + dateForPath);
+                                    "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> getting file at dateForPath = " + dateForPath)
 
                                 function onFileReceived(err, text) {
                                     try {
-                                        let candlesFile
+                                        let dailyFile
 
                                         if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                             try {
-                                                candlesFile = JSON.parse(text);
+                                                dailyFile = JSON.parse(text)
                                             } catch (err) {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return
                                             }
                                         } else {
@@ -575,183 +555,212 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
 
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err));
+                                                    "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err))
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                                                    "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                                 return
 
                                             } else {
                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Received -> err = " + err.stack);
+                                                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> Error Received -> err = " + err.stack)
                                                 callBackFunction(err)
                                                 return
                                             }
                                         }
 
-                                        const inputCandlesPerdiod = 60 * 1000;              // 1 min
                                         const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-                                        let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
+                                        let totalOutputElements = inputFilePeriod / timeFrameLabel; // this should be 2 in this case.
+                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf()
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Exchange Raw Data, into candles of each timeFrame
-                                        that Candles Volumes generates. For market files those timePediods goes from 1h to 24hs.
+                                        The algorithm that follows is going to agregate elements of 1 min timeFrame 
+                                        read from Data Dependency File, into elements of each timeFrame. 
                                         */
-                                        for (let i = 0; i < totalOutputCandles; i++) {
+                                        for (let i = 0; i < totalOutputElements; i++) {
 
-                                            let outputCandle = {
-                                                open: 0,
-                                                close: 0,
-                                                min: 0,
-                                                max: 0,
-                                                begin: 0,
-                                                end: 0
-                                            };
+                                            let saveElement = false
+                                            /*
+                                            Initialize the outputElement object. 
+                                            */
+                                            let outputElement = {}                  // This will be the object that we will eventually save.
+                                            let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
 
-                                            let saveCandle = false;
-                                            outputCandle.begin = beginingOutputTime + i * outputPeriod;
-                                            outputCandle.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
+                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
 
-                                            for (let j = 0; j < candlesFile.length; j++) {
-                                                let candle = {
-                                                    open: candlesFile[j][2],
-                                                    close: candlesFile[j][3],
-                                                    min: candlesFile[j][0],
-                                                    max: candlesFile[j][1],
-                                                    begin: candlesFile[j][4],
-                                                    end: candlesFile[j][5]
+                                                if (property.config.isString === true || property.config.isDate === true) {
+                                                    outputElement[property.config.codeName] = ""            // Default Value
+                                                } else {
+                                                    outputElement[property.config.codeName] = 0             // Default Value
                                                 }
-                                                /* Here we discard all the candles out of range.  */
-                                                if (candle.begin >= outputCandle.begin && candle.end <= outputCandle.end) {
-
-                                                    if (saveCandle === false) { // this will set the value only once.
-                                                        outputCandle.open = candle.open;
-                                                        outputCandle.min = candle.min;
-                                                        outputCandle.max = candle.max;
-                                                    }
-
-                                                    saveCandle = true;
-                                                    outputCandle.close = candle.close;      // only the last one will be saved
-                                                    if (candle.min < outputCandle.min) {
-                                                        outputCandle.min = candle.min;
-                                                    }
-                                                    if (candle.max > outputCandle.max) {
-                                                        outputCandle.max = candle.max;
-                                                    }
+                                                if (property.config.isBoolean === true) {
+                                                    outputElement[property.config.codeName] = false         // Default Value
                                                 }
                                             }
-                                            if (saveCandle === true) {      // then we have a valid candle, otherwise it means there were no candles to fill this one in its time range.
-                                                outputCandles[n].push(outputCandle);
+
+                                            /*
+                                            Setting the begin and end for this element.
+                                            */
+                                            outputElement.begin = beginingOutputTime + i * timeFrameLabel;
+                                            outputElement.end = beginingOutputTime + (i + 1) * timeFrameLabel - 1;
+
+                                            for (let j = 0; j < dailyFile.length; j++) {
+                                                let element = {}
+                                                let record = {}
+
+                                                record.values = dailyFile[j]
+                                                record.map = new Map()
+
+                                                /*
+                                                Set up the Data Dependency Record Map and Data Dependency Element Object
+                                                */
+                                                for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
+                                                    let property = outputDatasetNode.referenceParent.parentNode.record.properties[k]
+                                                    record.map.set(property.config.codeName, record.values[k])
+                                                    element[property.config.codeName] = record.values[k]
+                                                }
+                                                /* 
+                                                Here we discard all the elements out of range based on the begin and end properties of
+                                                the Data Dependency element. 
+                                                */
+                                                if (
+                                                    element.begin !== undefined &&
+                                                    element.end !== undefined &&
+                                                    element.begin >= outputElement.begin &&
+                                                    element.end <= outputElement.end) {
+                                                    aggregateElements()
+                                                }
+
+                                                /* 
+                                                Here we discard all the elements out of range based on the timestamp propertiy of
+                                                the Data Dependency element. 
+                                                */
+                                                if (
+                                                    element.timestamp !== undefined &&
+                                                    element.timestamp >= outputElement.begin &&
+                                                    element.timestamp <= outputElement.end) {
+                                                    aggregateElements()
+                                                }
+
+                                                function aggregateElements() {
+
+                                                    aggregationMethodFirst()
+                                                    aggregationMethodLast()
+                                                    aggregationMethodMin()
+                                                    aggregationMethodMax()
+                                                    aggregationMethodSum()
+                                                    aggregationMethodAvg()
+
+                                                    saveElement = true
+
+                                                    function aggregationMethodFirst() {
+                                                        /*
+                                                        Here we process the FIRST type of aggregation.
+                                                        */
+                                                        if (saveElement === false) {
+
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'First') {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    function aggregationMethodLast() {
+                                                        /* 
+                                                        This is the LAST type of aggregation.
+        
+                                                        Everything that follows will be set for each element overiding the previous
+                                                        ones, so only the last values will survive. 
+                                                        */
+
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Last') {
+                                                                outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                            }
+                                                        }
+                                                    }
+
+                                                    function aggregationMethodMin() {
+                                                        /* 
+                                                        This is the MIN type of aggregation.
+
+                                                        Note that to be able to calculate the minimum, we will be assigning to all properties the first 
+                                                        element values, so as to have a baseline from where to compare later on.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Min' || saveElement === false) {
+                                                                if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    function aggregationMethodMax() {
+                                                        /* 
+                                                        This is the MAX type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Max') {
+                                                                if (record.map.get(property.config.codeName) > outputElement[property.config.codeName]) {
+                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+
+                                                    function aggregationMethodSum() {
+                                                        /* 
+                                                        This is the SUM type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Sum') {
+                                                                outputElement[property.config.codeName] = outputElement[property.config.codeName] + record.map.get(property.config.codeName)
+                                                            }
+                                                        }
+                                                    }
+
+                                                    function aggregationMethodAvg() {
+                                                        /* 
+                                                        This is the AVG type of aggregation.
+                                                        */
+                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                            if (property.config.aggregationMethod === 'Average') {
+
+                                                                if (outputElementAverage[property.config.codeName] === undefined) {
+                                                                    outputElementAverage[property.config.codeName].sum = 0
+                                                                    outputElementAverage[property.config.codeName].count = 0
+                                                                }
+
+                                                                outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
+                                                                outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
+
+                                                                outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
+                                                            }
+                                                        }
+                                                    }                                                    
+                                                }
+                                            }
+                                            if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.
+                                                outputElements[n].push(outputElement)
                                             }
                                         }
-                                        nextVolumeFile();
+                                        writeFile(outputElements[n], timeFrame, controlLoop)
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> err = " + err.stack);
-                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                                            "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDailyFile -> onFileReceived -> err = " + err.stack)
+                                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                                     }
-                                }
-                            }
-
-                            function nextVolumeFile() {
-                                try {
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> Entering function.")
-
-                                    let dateForPath =
-                                        contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
-                                        TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
-                                        TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2);
-                                    let fileName = "Data.json"
-
-                                    let filePathRoot =
-                                        'Project/' +
-                                        TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                        "Exchange-Raw-Data" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
-                                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                    let filePath = filePathRoot + "/Output/" + VOLUMES_FOLDER_NAME + '/' + VOLUMES_ONE_MIN + '/' + dateForPath;
-                                    filePath += '/' + fileName
-                                    fileStorage.getTextFile(filePath, onFileReceived);
-
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> getting file at dateForPath = " + dateForPath);
-
-                                    function onFileReceived(err, text) {
-                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Entering function.")
-
-                                        let volumesFile
-                                        if (err.result === TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                            try {
-                                                volumesFile = JSON.parse(text);
-
-                                            } catch (err) {
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
-                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
-                                                return;
-                                            }
-                                        } else {
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Received -> err = " + err.stack);
-                                            callBackFunction(err);
-                                            return;
-                                        }
-                                        const inputVolumesPerdiod = 60 * 1000;              // 1 min
-                                        const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-
-                                        let totalOutputVolumes = inputFilePeriod / outputPeriod; // this should be 2 in this case.
-                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
-
-                                        for (let i = 0; i < totalOutputVolumes; i++) {
-                                            let outputVolume = {
-                                                buy: 0,
-                                                sell: 0,
-                                                begin: 0,
-                                                end: 0
-                                            }
-
-                                            let saveVolume = false;
-                                            outputVolume.begin = beginingOutputTime + i * outputPeriod;
-                                            outputVolume.end = beginingOutputTime + (i + 1) * outputPeriod - 1;
-
-                                            for (let j = 0; j < volumesFile.length; j++) {
-                                                let volume = {
-                                                    buy: volumesFile[j][0],
-                                                    sell: volumesFile[j][1],
-                                                    begin: volumesFile[j][2],
-                                                    end: volumesFile[j][3]
-                                                }
-
-                                                /* Here we discard all the Volumes out of range.  */
-                                                if (volume.begin >= outputVolume.begin && volume.end <= outputVolume.end) {
-
-                                                    saveVolume = true;
-
-                                                    outputVolume.buy = outputVolume.buy + volume.buy;
-                                                    outputVolume.sell = outputVolume.sell + volume.sell;
-                                                }
-                                            }
-
-                                            if (saveVolume === true) {
-                                                outputVolumes[n].push(outputVolume);
-                                            }
-                                        }
-
-                                        writeFiles(outputCandles[n], outputVolumes[n], timeFrame, controlLoop);
-                                    }
-                                } catch (err) {
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> err = " + err.stack);
-                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                                 }
                             }
                         }
@@ -759,124 +768,83 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         function controlLoop() {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildCandles -> timeframesLoop -> controlLoop -> Entering function.")
+                                "[INFO] start -> buildOutput -> timeframesLoop -> controlLoop -> Entering function.")
                             n++
                             if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                                 loopBody()
                             } else {
-                                writeStatusReport(contextVariables.datetimeLastProducedFile, advanceTime);
+                                writeStatusReport(contextVariables.datetimeLastProducedFile, advanceTime)
                             }
                         }
                     }
                 }
                 catch (err) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> buildCandles -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        "[ERROR] start -> buildOutput -> err = " + err.stack)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
-            function writeFiles(candles, volumes, timeFrame, callBack) {
+            function writeFile(elements, timeFrame, callBack) {
 
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[INFO] start -> writeFiles -> Entering function.")
+                    "[INFO] start -> writeFile -> Entering function.")
                 /*
-                Here we will write the contents of the Candles and Volumens files.
+                Here we will write the contents of the file to disk.
                 */
                 try {
-                    writeCandles()
 
-                    function writeCandles() {
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[INFO] start -> writeFile -> Entering function.")
 
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeCandles -> Entering function.")
+                    let separator = ""
+                    let fileRecordCounter = 0
+                    let fileContent = ""
 
-                        let separator = ""
-                        let fileRecordCounter = 0
-                        let fileContent = ""
-
-                        for (let i = 0; i < candles.length; i++) {
-                            let candle = candles[i];
-                            fileContent = fileContent + separator + '[' + candles[i].min + "," + candles[i].max + "," + candles[i].open + "," + candles[i].close + "," + candles[i].begin + "," + candles[i].end + "]";
-                            if (separator === "") { separator = ","; }
-                            fileRecordCounter++
-                        }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
-                            "/Output/" +
-                            DEPENDENCY_FOLDER_NAME + "/" +
-                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                            timeFrame
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
-
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeCandles -> creating file at filePath = " + filePath);
-
-                        function onFileCreated(err) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> writeFiles -> writeCandles -> onFileCreated -> Entering function.")
-
-                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> writeFiles -> writeCandles -> onFileCreated -> err = " + err.stack)
-                                callBackFunction(err)
-                                return
-                            }
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> writeFiles -> writeCandles -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
-                            writeVolumes()
-                        }
+                    for (let i = 0; i < elements.length; i++) {
+                        let element = elements[i]
+                        fileContent = fileContent + separator + '[' + element.min + "," + element.max + "," + element.open + "," + element.close + "," + element.begin + "," + element.end + "]"
+                        if (separator === "") { separator = ","; }
+                        fileRecordCounter++
                     }
 
-                    function writeVolumes() {
-                        let separator = "";
-                        let fileRecordCounter = 0;
-                        let fileContent = "";
+                    fileContent = "[" + fileContent + "]";
 
-                        for (let i = 0; i < volumes.length; i++) {
-                            let candle = volumes[i];
-                            fileContent = fileContent + separator + '[' + volumes[i].buy + "," + volumes[i].sell + "," + volumes[i].begin + "," + volumes[i].end + "]";
-                            if (separator === "") { separator = ","; }
-                            fileRecordCounter++
+                    let fileName = 'Data.json';
+                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                        "/Output/" +
+                        outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
+                        timeFrame
+                    filePath += '/' + fileName
+
+                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                        "[INFO] start -> writeFile -> creating file at filePath = " + filePath)
+
+                    function onFileCreated(err) {
+                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            "[INFO] start -> writeFile -> onFileCreated -> Entering function.")
+
+                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack)
+                            callBackFunction(err)
+                            return
                         }
-
-                        fileContent = "[" + fileContent + "]";
-
-                        let fileName = 'Data.json';
-                        let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + VOLUMES_FOLDER_NAME + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" + timeFrame;
-                        filePath += '/' + fileName
-
-                        fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated);
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFiles -> writeVolumes -> creating file at filePath = " + filePath);
-
-                        function onFileCreated(err) {
-                            if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[ERROR] start -> writeFiles -> writeVolumes -> onFileCreated -> err = " + err.stack);
-                                callBackFunction(err);
-                                return;
-                            }
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> writeFiles -> writeVolumes -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName);
-
-                            callBack()
-                        }
+                            "[WARN] start -> writeFile -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
+                        callBack()
                     }
+
                 }
                 catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> writeFiles -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        "[ERROR] start -> writeFile -> err = " + err.stack)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -885,8 +853,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
 
                 try {
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
-                    let thisReport = statusDependencies.statusReports.get(reportKey)
+                    let thisReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME
                     thisReport.file.lastFile = lastFileDate
@@ -896,7 +863,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> writeStatusReport -> err = " + err.stack);
+                        "[ERROR] start -> writeStatusReport -> err = " + err.stack)
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
@@ -904,7 +871,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] start -> err = " + err.stack);
+                "[ERROR] start -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }

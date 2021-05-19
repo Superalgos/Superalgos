@@ -514,7 +514,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                    dataDependencyNode.referenceParent.parentNode.config.codeName + '/' +
+                                    dataDependencyNode.referenceParent.parentNode.parentNode.config.codeName + '/' +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
@@ -579,7 +579,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 */
                                                 let outputElement = {}                  // This will be the object that we will eventually save.
                                                 let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
-
                                                 /*
                                                 Set the output element the default values for each of it's properties.
                                                 */
@@ -607,12 +606,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                                                     record.values = dailyFile[j]
                                                     record.map = new Map()
-
                                                     /*
                                                     Set up the Data Dependency Record Map and Data Dependency Element Object
                                                     */
                                                     for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
-                                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[k]
+                                                        let property = dataDependencyNode.referenceParent.parentNode.record.properties[k]
                                                         record.map.set(property.config.codeName, record.values[k])
                                                         element[property.config.codeName] = record.values[k]
                                                     }
@@ -627,7 +625,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                         element.end <= outputElement.end) {
                                                         aggregateElements()
                                                     }
-
                                                     /* 
                                                     Here we discard all the elements out of range based on the timestamp propertiy of
                                                     the Data Dependency element. 
@@ -672,7 +669,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                             Everything that follows will be set for each element overiding the previous
                                                             ones, so only the last values will survive. 
                                                             */
-
                                                             for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
                                                                 let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
                                                                 if (property.config.aggregationMethod === 'Last') {
@@ -733,6 +729,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                                 if (property.config.aggregationMethod === 'Average') {
 
                                                                     if (outputElementAverage[property.config.codeName] === undefined) {
+                                                                        outputElementAverage[property.config.codeName] = {}
                                                                         outputElementAverage[property.config.codeName].sum = 0
                                                                         outputElementAverage[property.config.codeName].count = 0
                                                                     }
@@ -754,9 +751,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                         }
 
                                         function writeFile(elements, TIME_FRAME_LABEL, callBack) {
-
-                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[INFO] start -> writeFile -> Entering function.")
                                             /*
                                             Here we will write the contents of the file to disk.
                                             */

@@ -106,47 +106,46 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
             function getContextVariables() {
                 try {
                     let thisReport
-                    let reportKey
                     let statusReport
 
                     detectWhereTheMarketBegins()
-                    detectWhereTheMarketBegins()
+                    detectWhereTheMarketEnds()
                     getOwnStatusReport()
 
                     function detectWhereTheMarketBegins() {
                         /* 
                         We look first for Status Report that will tell us when the market starts. 
                         */
-                        statusReport = statusDependencies.reportsByMainUtility.get('Market Starting Point');
+                        statusReport = statusDependencies.reportsByMainUtility.get('Market Starting Point')
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Status Report does not exist. Retrying Later. ");
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                             return
                         }
 
                         if (statusReport.status === "Status Report is corrupt.") {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                                "[ERROR] start -> getContextVariables -> detectWhereTheMarketBegins-> Can not continue because dependecy Status Report is corrupt. ");
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                             return
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file
 
                         if (thisReport.beginingOfMarket === undefined) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. " + );
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
+                                "[HINT] start -> getContextVariables -> detectWhereTheMarketBegins-> It is too early too run this process since the trade history of the market is not there yet.");
 
                             let customOK = {
                                 result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                                 message: "Dependency does not exist."
                             }
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> customOK = " + customOK.message);
                             callBackFunction(customOK)
                             return
                         }
@@ -160,7 +159,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
                     }
 
-                    function detectWhereTheMarketBegins() {
+                    function detectWhereTheMarketEnds() {
                         /* 
                         Second, we get the report from Exchange Raw Data, to know when the marted ends. 
                         */
@@ -168,30 +167,30 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Status Report does not exist. Retrying Later. ");
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
 
                         if (statusReport.status === "Status Report is corrupt.") {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                                "[ERROR] start -> getContextVariables -> detectWhereTheMarketEnds-> Can not continue because dependecy Status Report is corrupt. ");
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                             return;
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file;
+                        thisReport = statusReport.file
 
                         if (thisReport.lastFile === undefined) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File." );
 
                             let customOK = {
                                 result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                                 message: "Dependency not ready."
                             }
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> customOK = " + customOK.message);
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> customOK = " + customOK.message);
                             callBackFunction(customOK);
                             return;
                         }
@@ -223,7 +222,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             return
                         }
 
-                        thisReport = statusDependencies.statusReports.get(reportKey).file
+                        thisReport = statusReport.file
                     }
 
                     if (thisReport.lastFile !== undefined) {
@@ -231,14 +230,12 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         We get in here when the report already exists, meaning that this process
                         has succesfully ran before at least once.
                         */
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey);
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket);
 
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
+                                "[INFO] start -> getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated." );
 
                             beginingOfMarket = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
@@ -259,7 +256,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         }
 
                         contextVariables.datetimeLastProducedFile = new Date(thisReport.lastFile);
-
                         /*
                         Here we assume that the last day written might contain incomplete information. 
                         This actually happens every time the head of the market is reached.
@@ -275,9 +271,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         We get in here when the report does not exist, meaning that this process
                         has never ran succesfully before at least once.
                         */
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
-
                         beginingOfMarket = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
@@ -299,14 +292,14 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                        "[ERROR] start -> getContextVariables -> getOwnStatusReport-> err = " + err.stack);
                     if (err.message === "Cannot read property 'file' of undefined") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
+                            "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.");
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 }
@@ -809,8 +802,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     let fileContent = ""
 
                     for (let i = 0; i < elements.length; i++) {
-                        let element = elements[i];
-                        fileContent = fileContent + separator + '[' + elements[i].min + "," + elements[i].max + "," + elements[i].open + "," + elements[i].close + "," + elements[i].begin + "," + elements[i].end + "]";
+                        let element = elements[i]
+                        fileContent = fileContent + separator + '[' + element.min + "," + element.max + "," + element.open + "," + element.close + "," + element.begin + "," + element.end + "]"
                         if (separator === "") { separator = ","; }
                         fileRecordCounter++
                     }
@@ -860,8 +853,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
 
                 try {
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
-                    let thisReport = statusDependencies.statusReports.get(reportKey)
+                    let thisReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME
                     thisReport.file.lastFile = lastFileDate

@@ -21,7 +21,7 @@ console.log('');
 
 let dir;
 for (dir in nodeModulesDirs) {
-    // Loop through directories and run node ci in a child process shell.
+    // Loop through directories and run npm ci in a child process shell.
     let command = "echo Results of install at "+ nodeModulesDirs[dir] + " & npm ci";
     exec( command,
         {

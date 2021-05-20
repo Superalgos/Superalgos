@@ -18,8 +18,8 @@
         },
         {
             "style": "Note",
-            "text": " This change does not affet other nodes running Superalgos. The only one affected is the one you are connecting to with the UI.",
-            "updated": 1610543958104
+            "text": "This change does not affet other nodes running Superalgos. The only one affected is the one you are connecting to the UI.",
+            "updated": 1621288204638
         }
     ]
 }

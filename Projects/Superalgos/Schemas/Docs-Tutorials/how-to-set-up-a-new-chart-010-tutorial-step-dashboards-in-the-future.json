@@ -1,0 +1,25 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Dashboards in the Future",
+    "definition": {
+        "text": "The future holds more in store. But it is still a work in progress!",
+        "updated": 1619016709723,
+        "icon": {
+            "name": "under-construction",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Eventually Dashboards will be used to bring multiple Time Machines together in useful configurations within the Charting Space. Think of multiple charts configured in intricate side by side displays! But for right now, they help us stay organized.",
+            "updated": 1620554034465
+        },
+        {
+            "style": "Important",
+            "text": "Superalgos is a community project. If you are a developer that would like to see this feature come to life, you can help make it happen!",
+            "updated": 1617799444931
+        }
+    ]
+}

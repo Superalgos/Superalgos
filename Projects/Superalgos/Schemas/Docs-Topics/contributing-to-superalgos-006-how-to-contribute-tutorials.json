@@ -29,8 +29,8 @@
         },
         {
             "style": "Success",
-            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers.",
-            "updated": 1617712109958
+            "text": "When you build a tutorial for Superalgos, you become the maintainer of the tutorial. It is your responsibility to keep the tutorial up to date with the system, and to implement the feedback users may share! Your tutorial must become the ultimate resource to learn the topics it covers. ",
+            "updated": 1620645983606
         },
         {
             "style": "Title",
@@ -118,8 +118,26 @@
         },
         {
             "style": "Title",
-            "text": "Consistent Use of Space and Styles",
-            "updated": 1617904223037
+            "text": "Use Precise Language",
+            "updated": 1620645613169
+        },
+        {
+            "style": "Text",
+            "text": "The ultimate goal of tutorials is to provide users with a hands-on learning experience covering topics in detail. In general terms, we know that a tutorial is good — or has reached a mature state — when users ask no questions about it in the Support Group.",
+            "updated": 1620645730740
+        },
+        {
+            "style": "Text",
+            "text": "Be precise and unequivocal with language. Read your writing over and over in search of phrases that may not be easily understood, or that may be interpreted in different ways. Improve the sentences to make them as clear as possible. Remember, the less clear your writing is, the more questions we have in the Support Group.",
+            "updated": 1620645812565
+        },
+        {
+            "style": "Success",
+            "text": "Be prepared to iterate over and over until the tutorial stabilizes. That will happen when there are no more questions about the topic in the Support Group!"
+        },
+        {
+            "style": "Title",
+            "text": "Consistent Use of Space and Styles"
         },
         {
             "style": "Text",
@@ -331,6 +349,11 @@
             "updated": 1617723650896
         },
         {
+            "style": "List",
+            "text": "Leave at least one line empty before the buttons at the bottom of the tutorial window. Otherwise, in other browsers, the content may overflow the window.",
+            "updated": 1620646218773
+        },
+        {
             "style": "Title",
             "text": "Titles"
         },
@@ -400,6 +423,39 @@
             "style": "Important",
             "text": "Always use a grammar and spell-checker to make sure your tutorial is as correct as it may be!",
             "updated": 1617734220351
+        },
+        {
+            "style": "Title",
+            "text": "The First Few Steps",
+            "updated": 1620198004607
+        },
+        {
+            "style": "List",
+            "text": "Tutorials should start with a welcome message, and a clear explanation of what the tutorial is about, including a brief description of what the user will do while following the tutorial, and what lessons will be learned. No need to compress everything into a single step... two and even three steps are fine.",
+            "updated": 1620198631200
+        },
+        {
+            "style": "List",
+            "text": "You should also take the time to explain what's featured in the Workspace. The idea is that users should get familiar with the workspace as soon as possible, to understand how it may differ from other workspaces they may have encountered earlier. You can mention which mines you will use, clarify if they are added as plugins or not, which trading systems, and so on. You may skip the mandatory hierarchies, like Network or Trading Engine.",
+            "updated": 1620198644147
+        },
+        {
+            "style": "List",
+            "text": "If you installed any markets, created custom charts, a particular setup of tasks in the Network hierarchy, or any specific data structure that is not present in the default market installation, make sure you explain what you did and why. It may be confusing for users to find things and not know how they got there.",
+            "updated": 1620198654823
+        },
+        {
+            "style": "Title",
+            "text": "The Last Few Steps"
+        },
+        {
+            "style": "List",
+            "text": "If there are more tutorials in the series, make sure you leave users right by the next one, inviting them to keep going."
+        },
+        {
+            "style": "List",
+            "text": "If the remaining tutorials in the series are not ready yet, then use the last few steps to describe what else will be covered in the series and ask users to stay tuned.",
+            "updated": 1620198840899
         },
         {
             "style": "Text",

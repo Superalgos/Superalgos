@@ -1,0 +1,15 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 12,
+    "type": "Superalgos Review - elcoder's Superalgos Review",
+    "definition": {
+        "text": "\nI've just started using Superalgos and so far I'm blown away. The way the design is structured and the fact that everything is visualized makes it very intuitive and easier to grasp than comparable systems that are lacking in these areas. On top of that, this makes every structure (trading strategy, data mining, backtesting, etc...) highly configurable without the need for programming experience. \n\nLike I said, I'm very new to this project and for the short time I've used it I am falling in love with it. After delving into the first 3 tutorials it becomes quite obviouse that the potencial for both the Superalgos project and its'users are through the roof.\n\nelCoderCP4H",
+        "updated": 1620862380685
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

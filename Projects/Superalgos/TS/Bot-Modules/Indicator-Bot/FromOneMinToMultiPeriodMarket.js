@@ -782,7 +782,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                                     "/Output/" +
                                                     outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
-                                                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
+                                                    outputDatasetNode.referenceParent.config.codeName + "/" +
                                                     TIME_FRAME_LABEL
                                                 filePath += '/' + fileName
 

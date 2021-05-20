@@ -20,7 +20,6 @@ console.log('');
 
 
 let dir;
-let ifError;
 for (dir in nodeModulesDirs) {
     // Loop through directories and run node ci in a child process shell.
     let command = "echo Results of install at "+ nodeModulesDirs[dir] + " & npm ci";
@@ -34,21 +33,9 @@ for (dir in nodeModulesDirs) {
                 console.log("There was an error installing some dependencies error: ");
                 console.log('');
                 console.log( error );
-                ifError = true;
                 return;
             }
             console.log('');
             console.log( stdout );
         });
-    
-    // Print closing message
-    if (dir == nodeModulesDirs.length) {
-        if ( ifError = true ) {
-            console.log('');
-            console.log("Installation of node dependencies finished with errors.  See error messages above.")
-        } else {
-            console.log('');
-            console.log("Node dependencies installed successfully!")
-        }
-    }
 };

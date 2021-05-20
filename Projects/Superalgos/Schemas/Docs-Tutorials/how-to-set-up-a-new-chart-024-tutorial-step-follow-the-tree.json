@@ -18,17 +18,17 @@
         },
         {
             "style": "Text",
-            "text": "Did you find it? Keep going farther down the hierarchy until you see them!",
-            "updated": 1620555757952
+            "text": "Did you find it? Keep going farther down the hierarchy until you see them! You should see three data mine products nodes. One for each Data Mine installed within this Workspace.",
+            "updated": 1621522552567
         },
         {
             "style": "Text",
             "text": ""
         },
         {
-            "style": "Important",
-            "text": "You should see three data mine products nodes. One for each Data Mine install within this Workspace.",
-            "updated": 1617849622065
+            "style": "Note",
+            "text": "These data structures were automatically installed during the market install process.",
+            "updated": 1621522497281
         }
     ]
 }

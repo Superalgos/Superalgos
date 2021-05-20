@@ -455,6 +455,12 @@
                     "fileName": "DataDependenciesFunctions.js"
                 },
                 {
+                    "name": "Data Aggregation Functions",
+                    "propertyName": "dataAggregationFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesDataAggregationFunctions",
+                    "fileName": "DataAggregationFunctions.js"
+                },
+                {
                     "name": "Process Files Functions",
                     "propertyName": "processFilesFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",

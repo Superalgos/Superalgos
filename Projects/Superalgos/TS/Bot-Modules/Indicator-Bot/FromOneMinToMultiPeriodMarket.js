@@ -57,7 +57,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         are going to stop right here so that the user gets the message that this framework
         is not to merge information and splitted into multiple outputs.
         */
-        if (dataDependenciesModule.curatedDependencyNodeArray.length > 0) {
+        if (dataDependenciesModule.curatedDependencyNodeArray.length !== 1) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
@@ -70,7 +70,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
         )
 
-        if (outputDatasets.length > 0) {
+        if (outputDatasets.length !== 1) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
@@ -99,7 +99,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 datetimeLastProducedFile: undefined,                        // Datetime of the last file files successfully produced by this process.
                 datetimeBeginingOfMarketFile: undefined,                    // Datetime of the first trade file in the whole market history.
                 datetimeLastAvailableDependencyFile: undefined              // Datetime of the last file available to be used as an input of this process.
-            };
+            }
 
             getContextVariables()
 
@@ -136,7 +136,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         if (thisReport.beginingOfMarket === undefined) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. " )
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. ")
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[HINT] start -> getContextVariables -> detectWhereTheMarketBegins-> It is too early too run this process since the trade history of the market is not there yet.")
 
@@ -150,13 +150,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             return
                         }
 
-                        contextVariables.datetimeBeginingOfMarketFile = new Date(
-                            thisReport.beginingOfMarket.year + "-" +
-                            thisReport.beginingOfMarket.month + "-" +
-                            thisReport.beginingOfMarket.days + " " +
-                            thisReport.beginingOfMarket.hours + ":" +
-                            thisReport.beginingOfMarket.minutes +
-                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
+                        contextVariables.datetimeBeginingOfMarketFile = new Date(thisReport.beginingOfMarket)
                     }
 
                     function detectWhereTheMarketEnds() {
@@ -183,7 +177,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         if (thisReport.lastFile === undefined) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File." )
+                                "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File.")
 
                             let customOK = {
                                 result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
@@ -195,11 +189,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             return;
                         }
 
-                        contextVariables.datetimeLastAvailableDependencyFile = new Date(
-                            thisReport.lastFile.year + "-" +
-                            thisReport.lastFile.month + "-" +
-                            thisReport.lastFile.days + " " + "00:00" +
-                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
+                        contextVariables.datetimeLastAvailableDependencyFile = new Date(thisReport.lastFile)
+
                     }
 
                     function getOwnStatusReport() {
@@ -235,7 +226,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated." )
+                                "[INFO] start -> getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated.")
 
                             beginingOfMarket = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
@@ -312,15 +303,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 in arrays and keep them in memory.
                 */
                 try {
-                    let n = 0                       // loop Variable representing each possible time frame as defined at the time frames array.
-                    let allPreviousElements = []    // Each item of this array is an array of elements for a certain time frame
+                    let timeFrameArrayIndex = 0                         // loop Variable representing each possible time frame as defined at the time frames array.
+                    let allPreviousElements = []                        // Each item of this array is an array of elements for a certain time frame
 
                     loopBody()
 
                     function loopBody() {
-                        let timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> loadExistingFiles -> loopBody -> timeFrame = " + timeFrame)
+                        const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][1];
 
                         let previousElements
 
@@ -333,13 +322,10 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 "/Output/" +
                                 outputDatasetNode.referenceParent.parentNode.config.codeName + "/" + // Product Name
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                                timeFrame;
+                                TIME_FRAME_LABEL;
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived)
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> loadExistingFiles -> loopBody -> readExistingFile -> getting file.")
 
                             function onFileReceived(err, text) {
                                 let dailyFile
@@ -373,8 +359,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     }
 
                     function controlLoop() {
-                        n++
-                        if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                        timeFrameArrayIndex++
+                        if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                             loopBody()
                         } else {
                             buildOutput(allPreviousElements)
@@ -399,7 +385,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     */
                     let outputElements = [];
 
-                    for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
+                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; timeFrameArrayIndex++) {
                         const emptyArray = []
                         outputElements.push(emptyArray)
                     }
@@ -413,7 +399,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         date and then adding again all the elements found right now at that date and then
                         from there into the future.
                         */
-                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() + TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                        contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() +
+                            TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " +
@@ -456,7 +443,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         /*
                         We will iterate through all posible time frames.
                         */
-                        let n = 0   // loop Variable representing each possible period as defined at the periods array.
+                        let timeFrameArrayIndex = 0   // loop Variable representing each possible period as defined at the periods array.
 
                         loopBody()
 
@@ -464,11 +451,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             let previousElements // This is an array with all the elements already existing for a certain time frame.
 
                             if (allPreviousElements !== undefined) {
-                                previousElements = allPreviousElements[n];
+                                previousElements = allPreviousElements[timeFrameArrayIndex];
                             }
 
-                            const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                            const TIME_FRAME_VALUE = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][0]
+                            const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
@@ -493,13 +480,13 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     }
 
                                     if (element.end < contextVariables.datetimeLastProducedFile.valueOf()) {
-                                        outputElements[n].push(element)
+                                        outputElements[timeFrameArrayIndex].push(element)
                                     } else {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> Element # " + i + " @ " + timeFrame + " discarded for closing past the current process time.")
+                                            "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> Element # " + i + " @ " + TIME_FRAME_LABEL + " discarded for closing past the current process time.")
                                     }
                                 }
-                                allPreviousElements[n] = [] // erasing these so as not to duplicate them.
+                                allPreviousElements[timeFrameArrayIndex] = [] // erasing these so as not to duplicate them.
                             }
                             /*
                             From here on is where every iteration of the loop fully runs. 
@@ -522,7 +509,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-                                    dataDependencyNode.referenceParent.parentNode.config.codeName + '/' +
+                                    dataDependencyNode.referenceParent.parentNode.parentNode.config.codeName + '/' +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
@@ -568,192 +555,263 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                 return
                                             }
                                         }
+                                        aggregateFileContent()
 
-                                        const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
-                                        let totalOutputElements = inputFilePeriod / timeFrameLabel; // this should be 2 in this case.
-                                        let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf()
-                                        /*
-                                        The algorithm that follows is going to agregate elements of 1 min timeFrame 
-                                        read from Data Dependency File, into elements of each timeFrame. 
-                                        */
-                                        for (let i = 0; i < totalOutputElements; i++) {
+                                        function aggregateFileContent() {
 
-                                            let saveElement = false
+                                            const inputFilePeriod = 24 * 60 * 60 * 1000;        // 24 hs
+                                            let totalOutputElements = inputFilePeriod / TIME_FRAME_VALUE; // this should be 2 in this case.
+                                            let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf()
                                             /*
-                                            Initialize the outputElement object. 
+                                            The algorithm that follows is going to agregate elements of 1 min timeFrame 
+                                            read from Data Dependency File, into elements of each timeFrame. 
                                             */
-                                            let outputElement = {}                  // This will be the object that we will eventually save.
-                                            let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
+                                            for (let i = 0; i < totalOutputElements; i++) {
 
-                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-
-                                                if (property.config.isString === true || property.config.isDate === true) {
-                                                    outputElement[property.config.codeName] = ""            // Default Value
-                                                } else {
-                                                    outputElement[property.config.codeName] = 0             // Default Value
-                                                }
-                                                if (property.config.isBoolean === true) {
-                                                    outputElement[property.config.codeName] = false         // Default Value
-                                                }
-                                            }
-
-                                            /*
-                                            Setting the begin and end for this element.
-                                            */
-                                            outputElement.begin = beginingOutputTime + i * timeFrameLabel;
-                                            outputElement.end = beginingOutputTime + (i + 1) * timeFrameLabel - 1;
-
-                                            for (let j = 0; j < dailyFile.length; j++) {
-                                                let element = {}
-                                                let record = {}
-
-                                                record.values = dailyFile[j]
-                                                record.map = new Map()
-
+                                                let saveElement = false
                                                 /*
-                                                Set up the Data Dependency Record Map and Data Dependency Element Object
+                                                Initialize the outputElement object. 
                                                 */
-                                                for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
-                                                    let property = outputDatasetNode.referenceParent.parentNode.record.properties[k]
-                                                    record.map.set(property.config.codeName, record.values[k])
-                                                    element[property.config.codeName] = record.values[k]
-                                                }
-                                                /* 
-                                                Here we discard all the elements out of range based on the begin and end properties of
-                                                the Data Dependency element. 
+                                                let outputElement = {}                  // This will be the object that we will eventually save.
+                                                let outputElementAverage = {}           // We will use this object to help us aggregate values by calculating an average.
+                                                /*
+                                                Set the output element the default values for each of it's properties.
                                                 */
-                                                if (
-                                                    element.begin !== undefined &&
-                                                    element.end !== undefined &&
-                                                    element.begin >= outputElement.begin &&
-                                                    element.end <= outputElement.end) {
-                                                    aggregateElements()
-                                                }
+                                                for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                    let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
 
-                                                /* 
-                                                Here we discard all the elements out of range based on the timestamp propertiy of
-                                                the Data Dependency element. 
+                                                    if (property.config.isString === true || property.config.isDate === true) {
+                                                        outputElement[property.config.codeName] = ""            // Default Value
+                                                    } else {
+                                                        outputElement[property.config.codeName] = 0             // Default Value
+                                                    }
+                                                    if (property.config.isBoolean === true) {
+                                                        outputElement[property.config.codeName] = false         // Default Value
+                                                    }
+                                                }
+                                                /*
+                                                Setting the begin and end for this element.
                                                 */
-                                                if (
-                                                    element.timestamp !== undefined &&
-                                                    element.timestamp >= outputElement.begin &&
-                                                    element.timestamp <= outputElement.end) {
-                                                    aggregateElements()
-                                                }
+                                                outputElement.begin = beginingOutputTime + i * TIME_FRAME_VALUE;
+                                                outputElement.end = beginingOutputTime + (i + 1) * TIME_FRAME_VALUE - 1;
 
-                                                function aggregateElements() {
+                                                for (let j = 0; j < dailyFile.length; j++) {
+                                                    let element = {}
+                                                    let record = {}
 
-                                                    aggregationMethodFirst()
-                                                    aggregationMethodLast()
-                                                    aggregationMethodMin()
-                                                    aggregationMethodMax()
-                                                    aggregationMethodSum()
-                                                    aggregationMethodAvg()
+                                                    record.values = dailyFile[j]
+                                                    record.map = new Map()
+                                                    /*
+                                                    Set up the Data Dependency Record Map and Data Dependency Element Object
+                                                    */
+                                                    for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
+                                                        let property = dataDependencyNode.referenceParent.parentNode.record.properties[k]
+                                                        record.map.set(property.config.codeName, record.values[k])
+                                                        element[property.config.codeName] = record.values[k]
+                                                    }
+                                                    /* 
+                                                    Here we discard all the elements out of range based on the begin and end properties of
+                                                    the Data Dependency element. 
+                                                    */
+                                                    if (
+                                                        element.begin !== undefined &&
+                                                        element.end !== undefined &&
+                                                        element.begin >= outputElement.begin &&
+                                                        element.end <= outputElement.end) {
+                                                        aggregateElements()
+                                                    }
+                                                    /* 
+                                                    Here we discard all the elements out of range based on the timestamp propertiy of
+                                                    the Data Dependency element. 
+                                                    */
+                                                    if (
+                                                        element.timestamp !== undefined &&
+                                                        element.timestamp >= outputElement.begin &&
+                                                        element.timestamp <= outputElement.end) {
+                                                        aggregateElements()
+                                                    }
 
-                                                    saveElement = true
+                                                    function aggregateElements() {
 
-                                                    function aggregationMethodFirst() {
-                                                        /*
-                                                        Here we process the FIRST type of aggregation.
-                                                        */
-                                                        if (saveElement === false) {
+                                                        aggregationMethodFirst()
+                                                        aggregationMethodLast()
+                                                        aggregationMethodMin()
+                                                        aggregationMethodMax()
+                                                        aggregationMethodSum()
+                                                        aggregationMethodAvg()
 
+                                                        saveElement = true
+
+                                                        function aggregationMethodFirst() {
+                                                            /*
+                                                            Here we process the FIRST type of aggregation.
+                                                            */
+                                                            if (saveElement === false) {
+
+                                                                for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                    let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                    if (property.config.aggregationMethod === 'First') {
+                                                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        function aggregationMethodLast() {
+                                                            /* 
+                                                            This is the LAST type of aggregation.
+            
+                                                            Everything that follows will be set for each element overiding the previous
+                                                            ones, so only the last values will survive. 
+                                                            */
                                                             for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
                                                                 let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                                if (property.config.aggregationMethod === 'First') {
+                                                                if (property.config.aggregationMethod === 'Last') {
                                                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                                                                 }
                                                             }
                                                         }
-                                                    }
 
-                                                    function aggregationMethodLast() {
-                                                        /* 
-                                                        This is the LAST type of aggregation.
-        
-                                                        Everything that follows will be set for each element overiding the previous
-                                                        ones, so only the last values will survive. 
-                                                        */
-
-                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                            if (property.config.aggregationMethod === 'Last') {
-                                                                outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                        function aggregationMethodMin() {
+                                                            /* 
+                                                            This is the MIN type of aggregation.
+    
+                                                            Note that to be able to calculate the minimum, we will be assigning to all properties the first 
+                                                            element values, so as to have a baseline from where to compare later on.
+                                                            */
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'Min' || saveElement === false) {
+                                                                    if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                    }
+                                                                }
                                                             }
                                                         }
-                                                    }
 
-                                                    function aggregationMethodMin() {
-                                                        /* 
-                                                        This is the MIN type of aggregation.
+                                                        function aggregationMethodMax() {
+                                                            /* 
+                                                            This is the MAX type of aggregation.
+                                                            */
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'Max') {
+                                                                    if (record.map.get(property.config.codeName) > outputElement[property.config.codeName]) {
+                                                                        outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
 
-                                                        Note that to be able to calculate the minimum, we will be assigning to all properties the first 
-                                                        element values, so as to have a baseline from where to compare later on.
-                                                        */
-                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                            if (property.config.aggregationMethod === 'Min' || saveElement === false) {
-                                                                if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
-                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                                        function aggregationMethodSum() {
+                                                            /* 
+                                                            This is the SUM type of aggregation.
+                                                            */
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'Sum') {
+                                                                    outputElement[property.config.codeName] = outputElement[property.config.codeName] + record.map.get(property.config.codeName)
+                                                                }
+                                                            }
+                                                        }
+
+                                                        function aggregationMethodAvg() {
+                                                            /* 
+                                                            This is the AVG type of aggregation.
+                                                            */
+                                                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                                if (property.config.aggregationMethod === 'Average') {
+
+                                                                    if (outputElementAverage[property.config.codeName] === undefined) {
+                                                                        outputElementAverage[property.config.codeName] = {}
+                                                                        outputElementAverage[property.config.codeName].sum = 0
+                                                                        outputElementAverage[property.config.codeName].count = 0
+                                                                    }
+
+                                                                    outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
+                                                                    outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
+
+                                                                    outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
                                                                 }
                                                             }
                                                         }
                                                     }
-
-                                                    function aggregationMethodMax() {
-                                                        /* 
-                                                        This is the MAX type of aggregation.
-                                                        */
-                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                            if (property.config.aggregationMethod === 'Max') {
-                                                                if (record.map.get(property.config.codeName) > outputElement[property.config.codeName]) {
-                                                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-
-                                                    function aggregationMethodSum() {
-                                                        /* 
-                                                        This is the SUM type of aggregation.
-                                                        */
-                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                            if (property.config.aggregationMethod === 'Sum') {
-                                                                outputElement[property.config.codeName] = outputElement[property.config.codeName] + record.map.get(property.config.codeName)
-                                                            }
-                                                        }
-                                                    }
-
-                                                    function aggregationMethodAvg() {
-                                                        /* 
-                                                        This is the AVG type of aggregation.
-                                                        */
-                                                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
-                                                            if (property.config.aggregationMethod === 'Average') {
-
-                                                                if (outputElementAverage[property.config.codeName] === undefined) {
-                                                                    outputElementAverage[property.config.codeName].sum = 0
-                                                                    outputElementAverage[property.config.codeName].count = 0
-                                                                }
-
-                                                                outputElementAverage[property.config.codeName].sum = outputElementAverage[property.config.codeName].sum + record.map.get(property.config.codeName)
-                                                                outputElementAverage[property.config.codeName].count = outputElementAverage[property.config.codeName].count + 1
-
-                                                                outputElement[property.config.codeName] = outputElementAverage[property.config.codeName].sum / outputElementAverage[property.config.codeName].count
-                                                            }
-                                                        }
-                                                    }                                                    
+                                                }
+                                                if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.
+                                                    outputElements[timeFrameArrayIndex].push(outputElement)
                                                 }
                                             }
-                                            if (saveElement === true) {      // then we have a valid element, otherwise it means there were no elements to fill this one in its time range.
-                                                outputElements[n].push(outputElement)
+                                            writeFile(outputElements[timeFrameArrayIndex], TIME_FRAME_LABEL, controlLoop)
+                                        }
+
+                                        function writeFile(elements, TIME_FRAME_LABEL, callBack) {
+                                            /*
+                                            Here we will write the contents of the file to disk.
+                                            */
+                                            try {
+                                                let separator = ""
+                                                let fileRecordCounter = 0
+                                                let fileContent = ""
+
+                                                for (let i = 0; i < elements.length; i++) {
+                                                    let element = elements[i]
+
+                                                    fileContent = fileContent + separator + '['
+                                                    let propertySeparator = ""
+
+                                                    for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                        if (property.config.isString === true) {
+                                                            fileContent = fileContent + propertySeparator + '"' + element[property.config.codeName] + '"'
+                                                        } else {
+                                                            fileContent = fileContent + propertySeparator + element[property.config.codeName]
+                                                        }
+                                                        propertySeparator = ","
+                                                    }
+
+                                                    fileContent = fileContent + "]"
+
+                                                    separator = ","
+                                                    fileRecordCounter++
+                                                }
+
+                                                fileContent = "[" + fileContent + "]"
+
+                                                let fileName = 'Data.json';
+                                                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+                                                    "/Output/" +
+                                                    outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
+                                                    outputDatasetNode.referenceParent.config.codeName + "/" +
+                                                    TIME_FRAME_LABEL
+                                                filePath += '/' + fileName
+
+                                                fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
+
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                    "[INFO] start -> writeFile -> creating file at filePath = " + filePath)
+
+                                                function onFileCreated(err) {
+                                                    if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
+                                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                            "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack)
+                                                        callBackFunction(err)
+                                                        return
+                                                    }
+
+                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                        "[WARN] start -> writeFile -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
+                                                    callBack()
+                                                }
+
+                                            }
+                                            catch (err) {
+                                                TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                    "[ERROR] start -> writeFile -> err = " + err.stack)
+                                                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                                             }
                                         }
-                                        writeFile(outputElements[n], timeFrame, controlLoop)
 
                                     } catch (err) {
                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -766,11 +824,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         }
 
                         function controlLoop() {
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildOutput -> timeframesLoop -> controlLoop -> Entering function.")
-                            n++
-                            if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                            timeFrameArrayIndex++
+                            if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                                 loopBody()
                             } else {
                                 writeStatusReport(contextVariables.datetimeLastProducedFile, advanceTime)
@@ -785,73 +840,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 }
             }
 
-            function writeFile(elements, timeFrame, callBack) {
-
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[INFO] start -> writeFile -> Entering function.")
-                /*
-                Here we will write the contents of the file to disk.
-                */
-                try {
-
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> writeFile -> Entering function.")
-
-                    let separator = ""
-                    let fileRecordCounter = 0
-                    let fileContent = ""
-
-                    for (let i = 0; i < elements.length; i++) {
-                        let element = elements[i]
-                        fileContent = fileContent + separator + '[' + element.min + "," + element.max + "," + element.open + "," + element.close + "," + element.begin + "," + element.end + "]"
-                        if (separator === "") { separator = ","; }
-                        fileRecordCounter++
-                    }
-
-                    fileContent = "[" + fileContent + "]";
-
-                    let fileName = 'Data.json';
-                    let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
-                        "/Output/" +
-                        outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
-                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
-                        timeFrame
-                    filePath += '/' + fileName
-
-                    fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated)
-
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> writeFile -> creating file at filePath = " + filePath)
-
-                    function onFileCreated(err) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> writeFile -> onFileCreated -> Entering function.")
-
-                        if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack)
-                            callBackFunction(err)
-                            return
-                        }
-
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> writeFile -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
-                        callBack()
-                    }
-
-                }
-                catch (err) {
-                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> writeFile -> err = " + err.stack)
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
-                }
-            }
-
             function writeStatusReport(lastFileDate, callBack) {
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
-
                 try {
                     let thisReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 

@@ -640,6 +640,20 @@
                     "folderName": "Indicator-Bot"
                 },
                 {
+                    "name": "From One Min To Multi Period Market",
+                    "propertyName": "fromOneMinToMultiPeriodMarket",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodMarket",
+                    "fileName": "FromOneMinToMultiPeriodMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Period Daily",
+                    "propertyName": "fromOneMinToMultiPeriodDaily",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodMarket",
+                    "fileName": "FromOneMinToMultiPeriodDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
                     "name": "Indicator Output",
                     "propertyName": "indicatorOutput",
                     "functionName": "newSuperalgosBotModulesIndicatorOutput",

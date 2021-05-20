@@ -286,12 +286,12 @@
                                                     break;
                                                 }
                                                 case 'From-One-Min-To-Multi-Period-Market': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket(processIndex);
+                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
                                                 case 'From-One-Min-To-Multi-Period-Daily': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily(processIndex);
+                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiPeriodDaily.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

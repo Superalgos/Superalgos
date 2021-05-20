@@ -1,4 +1,4 @@
-exports.newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily = function (processIndex) {
+exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (processIndex) {
 
     const MODULE_NAME = "Candles Volumes Multi Period Daily";
     const CANDLES_FOLDER_NAME = "Candles";

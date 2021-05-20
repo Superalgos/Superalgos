@@ -310,8 +310,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                     function loopBody() {
                         const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][1];
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> loadExistingFiles -> loopBody -> TIME_FRAME_LABEL = " + TIME_FRAME_LABEL)
 
                         let previousElements
 
@@ -328,9 +326,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             filePath += '/' + fileName
 
                             fileStorage.getTextFile(filePath, onFileReceived)
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> loadExistingFiles -> loopBody -> readExistingFile -> getting file.")
 
                             function onFileReceived(err, text) {
                                 let dailyFile
@@ -755,22 +750,33 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             Here we will write the contents of the file to disk.
                                             */
                                             try {
-
-                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[INFO] start -> writeFile -> Entering function.")
-
                                                 let separator = ""
                                                 let fileRecordCounter = 0
                                                 let fileContent = ""
 
                                                 for (let i = 0; i < elements.length; i++) {
                                                     let element = elements[i]
-                                                    fileContent = fileContent + separator + '[' + element.min + "," + element.max + "," + element.open + "," + element.close + "," + element.begin + "," + element.end + "]"
-                                                    if (separator === "") { separator = ","; }
+
+                                                    fileContent = fileContent + separator + '['
+                                                    let propertySeparator = ""
+
+                                                    for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
+                                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                                        if (property.config.isString === true) {
+                                                            fileContent = fileContent + propertySeparator + '"' + element[property.config.codeName] + '"'
+                                                        } else {
+                                                            fileContent = fileContent + propertySeparator + element[property.config.codeName]
+                                                        }
+                                                        propertySeparator = ","
+                                                    }
+
+                                                    fileContent = fileContent + "]"
+
+                                                    separator = ","
                                                     fileRecordCounter++
                                                 }
 
-                                                fileContent = "[" + fileContent + "]";
+                                                fileContent = "[" + fileContent + "]"
 
                                                 let fileName = 'Data.json';
                                                 let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
@@ -786,9 +792,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                                     "[INFO] start -> writeFile -> creating file at filePath = " + filePath)
 
                                                 function onFileCreated(err) {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[INFO] start -> writeFile -> onFileCreated -> Entering function.")
-
                                                     if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                             "[ERROR] start -> writeFile -> onFileCreated -> err = " + err.stack)
@@ -821,9 +824,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                         }
 
                         function controlLoop() {
-
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> buildOutput -> timeframesLoop -> controlLoop -> Entering function.")
                             timeFrameArrayIndex++
                             if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                                 loopBody()
@@ -841,9 +841,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
             }
 
             function writeStatusReport(lastFileDate, callBack) {
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
-
                 try {
                     let thisReport = statusDependencies.reportsByMainUtility.get('Self Reference')
 

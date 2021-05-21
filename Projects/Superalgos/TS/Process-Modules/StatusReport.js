@@ -382,8 +382,9 @@
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     /*
-                    It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
-                    is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
+                    It might happen that the file content is corrupt. We will consider this as a temporary situation, 
+                    since sometimes the file is being updated at the moment of the read. The bot can not run without a 
+                    valid Status Report but we can request the platform to retry later.
                     */
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
                         MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
@@ -419,7 +420,10 @@
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" +
                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
 
-            if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
+            /*
+            Context is a special case where the report is created by the Context.js module itself.
+            */
+            if (ownerId !== botId && statusDependencyNode.process !== "Context") {
 
                 let customErr = {
                     result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,

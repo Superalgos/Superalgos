@@ -56,6 +56,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
+                    contextVariables.beginingOfMarket = thisReport.file.beginingOfMarket
 
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -650,8 +651,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                                 /* We will need to save this at the Status Report */
                                 contextVariables.lastFile = file.date
-
-                                await readDatasetFile("/" + dateForPath)
+                                /*
+                                For One-Min type of datasets, since they are saved as Daily Files, there is no need
+                                to read the already existing content to append to it. In this case is enought to 
+                                set the existing content to an empty array.
+                                */
+                                existingFileContent = "[]"
                                 appendToExistingDataset()
                                 await saveDatasetFile("/" + dateForPath)
 
@@ -833,7 +838,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     thisReport.file = {
                         lastRun: (new Date()).toISOString(),
                         lastPage: lastPage,
-                        lastFile: contextVariables.lastFile.toISOString()
+                        lastFile: contextVariables.lastFile.toISOString(),
+                        beginingOfMarket: contextVariables.beginingOfMarket
                     }
 
                     if (thisReport.file.beginingOfMarket === undefined) {

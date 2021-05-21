@@ -13,11 +13,13 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY . .
-RUN groupadd -r superalgos \
-    && useradd --no-log-init -m -r -g superalgos superalgos \
+RUN mkdir -p Data-Storage Log-Files My-Workspaces \
+    && groupadd superalgos \
+    && useradd --no-log-init -m -g superalgos superalgos \
     && chown -R superalgos:superalgos /app
 USER superalgos
 RUN node setup
 EXPOSE 34248
 EXPOSE 18041
+VOLUME ["Data-Storage", "Log-Files", "My-Workspaces"]
 ENTRYPOINT ["node", "run", "noBrowser"]

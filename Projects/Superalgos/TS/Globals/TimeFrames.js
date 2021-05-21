@@ -1,15 +1,15 @@
 exports.newSuperalgosGlobalsTimeFrames = function () {
 
     let thisObject = {
-        marketFilesPeriods: marketFilesPeriods,
-        dailyFilePeriods: dailyFilePeriods
+        marketTimeFramesArray: marketTimeFramesArray,
+        dailyTimeFramesArray: dailyTimeFramesArray
     }
 
     return thisObject
 
-    function marketFilesPeriods() {
+    function marketTimeFramesArray() {
 
-        let marketFilesPeriods =
+        let marketTimeFramesArray =
             '[' +
             '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
             '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
@@ -20,12 +20,12 @@ exports.newSuperalgosGlobalsTimeFrames = function () {
             '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
             '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']'
 
-        return JSON.parse(marketFilesPeriods)
+        return JSON.parse(marketTimeFramesArray)
     }
 
-    function dailyFilePeriods() {
+    function dailyTimeFramesArray() {
 
-        let dailyFilePeriods =
+        let dailyTimeFramesArray =
             '[' +
             '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
             '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
@@ -39,6 +39,6 @@ exports.newSuperalgosGlobalsTimeFrames = function () {
             '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
             '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']'
 
-        return JSON.parse(dailyFilePeriods)
+        return JSON.parse(dailyTimeFramesArray)
     }
 }

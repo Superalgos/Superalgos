@@ -129,7 +129,7 @@ const UI_PANEL = {
 };
 
 
-let marketFilesPeriods =
+let marketTimeFramesArray =
     '[' +
     '[' + 24 * 60 * 60 * 1000 + ',' + '"24-hs"' + ']' + ',' +
     '[' + 12 * 60 * 60 * 1000 + ',' + '"12-hs"' + ']' + ',' +
@@ -140,9 +140,9 @@ let marketFilesPeriods =
     '[' + 2 * 60 * 60 * 1000 + ',' + '"02-hs"' + ']' + ',' +
     '[' + 1 * 60 * 60 * 1000 + ',' + '"01-hs"' + ']' + ']';
 
-marketFilesPeriods = JSON.parse(marketFilesPeriods);
+marketTimeFramesArray = JSON.parse(marketTimeFramesArray);
 
-let dailyFilePeriods =
+let dailyTimeFramesArray =
     '[' +
     '[' + 45 * 60 * 1000 + ',' + '"45-min"' + ']' + ',' +
     '[' + 40 * 60 * 1000 + ',' + '"40-min"' + ']' + ',' +
@@ -156,7 +156,7 @@ let dailyFilePeriods =
     '[' + 02 * 60 * 1000 + ',' + '"02-min"' + ']' + ',' +
     '[' + 01 * 60 * 1000 + ',' + '"01-min"' + ']' + ']';
 
-dailyFilePeriods = JSON.parse(dailyFilePeriods);
+dailyTimeFramesArray = JSON.parse(dailyTimeFramesArray);
 
 let SHOW_ANIMATION_PERFORMACE = false;
 let MENU_ITEM_ON_FOCUS

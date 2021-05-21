@@ -276,7 +276,7 @@
                     loopBody()
 
                     function loopBody() {
-                        let timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
+                        let timeFrame = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1];
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> findPreviousContent -> loopBody -> timeFrame = " + timeFrame)
 
@@ -378,7 +378,7 @@
 
                     function controlLoop() {
                         n++
-                        if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                        if (n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                             loopBody()
                         } else {
                             buildCandles(allPreviousCandles, allPreviousVolumes);
@@ -404,7 +404,7 @@
                     let outputCandles = [];
                     let outputVolumes = [];
 
-                    for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
+                    for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; n++) {
                         const emptyArray1 = [];
                         const emptyArray2 = [];
                         outputCandles.push(emptyArray1);
@@ -467,8 +467,8 @@
                                 previousVolumes = allPreviousVolumes[n];
                             }
 
-                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
+                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][0];
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1];
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
@@ -760,7 +760,7 @@
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> buildCandles -> timeframesLoop -> controlLoop -> Entering function.")
                             n++
-                            if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 writeStatusReport(contextVariables.datetimeLastProducedFile, advanceTime);

@@ -81,7 +81,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                     */
                     let outputElements = []
 
-                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; timeFrameArrayIndex++) {
+                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; timeFrameArrayIndex++) {
                         const emptyArray = []
                         outputElements.push(emptyArray)
                     }
@@ -108,8 +108,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
 
                         function loopBody() {
 
-                            const TIME_FRAME_VALUE = TS.projects.superalgos.globals.timeFrames.dailyFilesPeriods()[timeFrameArrayIndex][0]
-                            const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.dailyFilesPeriods()[timeFrameArrayIndex][1]
+                            const TIME_FRAME_VALUE = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[timeFrameArrayIndex][0]
+                            const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[timeFrameArrayIndex][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
@@ -206,7 +206,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
 
                         function controlLoop() {
                             timeFrameArrayIndex++
-                            if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                            if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 TS.projects.superalgos.functionLibraries.dataAggregationFunctions.writeStatusReport(

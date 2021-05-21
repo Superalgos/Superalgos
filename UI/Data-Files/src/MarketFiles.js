@@ -148,9 +148,9 @@ function newMarketFiles() {
 
       function getMarketFiles() {
         /* Now we will get the market files */
-        for (let i = 0; i < marketFilesPeriods.length; i++) {
-          let periodTime = marketFilesPeriods[i][0]
-          let periodName = marketFilesPeriods[i][1]
+        for (let i = 0; i < marketTimeFramesArray.length; i++) {
+          let periodTime = marketTimeFramesArray[i][0]
+          let periodName = marketTimeFramesArray[i][1]
 
           if (dataset.config.validTimeFrames.includes(periodName) === false) {
             filesNotLoaded++
@@ -176,7 +176,7 @@ function newMarketFiles() {
                 filesNotLoaded++
               }
 
-              if (filesLoaded + filesNotLoaded === marketFilesPeriods.length) {
+              if (filesLoaded + filesNotLoaded === marketTimeFramesArray.length) {
                 let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
                 let callerId = key + '-' + periodName + newUniqueId()
                 eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
@@ -209,9 +209,9 @@ function newMarketFiles() {
 
       /* Now we will get the market files */
 
-      for (let i = 0; i < marketFilesPeriods.length; i++) {
-        let periodTime = marketFilesPeriods[i][0]
-        let periodName = marketFilesPeriods[i][1]
+      for (let i = 0; i < marketTimeFramesArray.length; i++) {
+        let periodTime = marketTimeFramesArray[i][0]
+        let periodName = marketTimeFramesArray[i][1]
 
         if (dataset.config.validTimeFrames.includes(periodName) !== true) { continue }
         if (message.event !== undefined) {
@@ -245,7 +245,7 @@ function newMarketFiles() {
   }
 
   function getExpectedFiles() {
-    return marketFilesPeriods.length
+    return marketTimeFramesArray.length
   }
 
   function getFilesLoaded() {

@@ -92,7 +92,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     loopBody()
 
                     function loopBody() {
-                        const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][1];
+                        const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[timeFrameArrayIndex][1];
 
                         let previousElements
 
@@ -143,7 +143,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                     function controlLoop() {
                         timeFrameArrayIndex++
-                        if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                        if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                             loopBody()
                         } else {
                             buildOutput(allPreviousElements)
@@ -168,7 +168,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     */
                     let outputElements = []
 
-                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; timeFrameArrayIndex++) {
+                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; timeFrameArrayIndex++) {
                         const emptyArray = []
                         outputElements.push(emptyArray)
                     }
@@ -200,8 +200,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 previousElements = allPreviousElements[timeFrameArrayIndex];
                             }
 
-                            const TIME_FRAME_VALUE = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][0]
-                            const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[timeFrameArrayIndex][1]
+                            const TIME_FRAME_VALUE = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[timeFrameArrayIndex][0]
+                            const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[timeFrameArrayIndex][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
                             at each pass, we will read one of Exchange Raw Data's daily files and
@@ -311,7 +311,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                         function controlLoop() {
                             timeFrameArrayIndex++
-                            if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                            if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 TS.projects.superalgos.functionLibraries.dataAggregationFunctions.writeStatusReport(

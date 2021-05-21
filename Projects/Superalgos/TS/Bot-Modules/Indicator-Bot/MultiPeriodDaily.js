@@ -208,7 +208,7 @@
                         */
                         bootstrappingTheProcess = true
 
-                        for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; i++) {
+                        for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; i++) {
                             let emptyObject = {};
                             interExecutionMemoryArray.push(emptyObject)
                         }
@@ -298,8 +298,8 @@
 
                 function timeFramesLoopBody() {
 
-                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
-                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
@@ -486,7 +486,7 @@
 
                 function timeFramesControlLoop() {
                     n++
-                    if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
+                    if (n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                         timeFramesLoopBody()
                     } else {
                         n = 0;
@@ -567,8 +567,8 @@
             function writeTimeFramesFile(productCodeName, callBack) {
 
                 let timeFramesArray = []
-                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; n++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {

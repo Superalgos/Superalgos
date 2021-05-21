@@ -55,8 +55,8 @@
 
             function getContextVariables() {
                 try {
-                    let thisReport;
-                    let statusReport;
+                    let thisReport
+                    let statusReport
                     /*
                     We look first for the bot who knows the begining of the market in order to get when the market starts.
                     */

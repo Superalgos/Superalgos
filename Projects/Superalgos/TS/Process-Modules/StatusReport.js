@@ -2,13 +2,14 @@
 
     /*
 
-    A Status Report is a file that every bot reads at the begining of its execution and saves after it finishes its job.
-    The purpose of the file is to record checkpoint information of what was the last thing done by the bot and helpfull enough to start the next execution.
+    A Status Report is a file that every bot reads at the begining of its execution 
+    and saves after it finishes its job. The purpose of the file is to record checkpoint information 
+    of what was the last thing done by the bot and helpfull enough to start the next execution.
     It usually does not include business related context data.
 
     */
 
-    const MODULE_NAME = "Status Report";
+    const MODULE_NAME = "Status Report"
 
     let thisObject = {
         networkNode: undefined,
@@ -20,26 +21,20 @@
         save: save,
         asyncSave: asyncSave,
         status: undefined
-    };
+    }
 
-    let statusDependencyNode;
-
-    /* Utilities needed. */
-
-    
+    let statusDependencyNode
 
     /* Storage account to be used here. */
 
-    
     let fileStorage
-
     let sessionPath = ''
 
-    return thisObject;
+    return thisObject
 
     function initialize(pStatusDependencyNode, callBackFunction) {
         try {
-            statusDependencyNode = pStatusDependencyNode;
+            statusDependencyNode = pStatusDependencyNode
 
             /* Some very basic validations that we have all the information needed. */
             if (statusDependencyNode.referenceParent === undefined) {
@@ -79,8 +74,12 @@
 
             function validationFailed(errorInNode, errorMessage) {
                 let nodeString = JSON.stringify(errorInNode)
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString)
-                TS.projects.superalgos.functionLibraries.processFunctions.processError(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, errorInNode, errorMessage)
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                    MODULE_NAME, "[ERROR] initialize -> " + errorMessage + ' -> nodeString = ' + nodeString
+                )
+                TS.projects.superalgos.functionLibraries.processFunctions.processError(
+                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY, errorInNode, errorMessage
+                )
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
 
@@ -119,7 +118,7 @@
                     if (branch === undefined) { return }
                     for (let z = 0; z < branch.projectDataTasks.length; z++) {
                         let projectDataTasks = branch.projectDataTasks[z]
-                        if (projectDataTasks.exchangeDataTasks === undefined) {continue} 
+                        if (projectDataTasks.exchangeDataTasks === undefined) { continue }
                         for (let j = 0; j < projectDataTasks.exchangeDataTasks.length; j++) {
                             let exchangeTasks = projectDataTasks.exchangeDataTasks[j]
                             for (let p = 0; p < exchangeTasks.marketDataTasks.length; p++) {
@@ -273,18 +272,23 @@
                 }
             }
 
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.");
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot)
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process)
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] initialize -> Initialization Failed because we could not find where the data of this status report is located within the network. Check the logs for more info.")
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] initialize -> bot = " + statusDependencyNode.bot)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] initialize -> process = " + statusDependencyNode.process)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] initialize -> bottype = " + statusDependencyNode.bottype)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] initialize -> dataMine = " + statusDependencyNode.dataMine)
 
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
 
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> err = " + err.stack)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
@@ -299,15 +303,26 @@
 
         try {
 
-            let fileName = "Status.Report.json";
-            let filePath;
+            let fileName = "Status.Report.json"
+            let filePath
 
             let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
-            let botId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
+            let botId =
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
 
             if (ownerId !== botId) {
+                let filePathRoot =
+                    'Project/' +
+                    statusDependencyNode.project + "/" +
+                    statusDependencyNode.mineType + "/" +
+                    statusDependencyNode.dataMine + "/" +
+                    statusDependencyNode.bot + '/' +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-                let filePathRoot = 'Project/' + statusDependencyNode.project + "/" + statusDependencyNode.mineType + "/" + statusDependencyNode.dataMine + "/" + statusDependencyNode.bot + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                 filePath = filePathRoot + "/Reports/" + sessionPath + statusDependencyNode.process
             } else {
                 filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
@@ -317,11 +332,12 @@
 
             let canUserPrevious
             /*
-            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not the latest one, because it might contain
-            transactioinal information related to the context of the operations the trading engine is doing.
+            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not 
+            the latest one, because it might contain transactioinal information related to the context of the 
+            operations the trading engine is doing.
 
-            On the contraty, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necesary, use a previous version of a Status Report since
-            there will be no big impact, just some reprocessing.
+            On the contraty, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necesary, 
+            use a previous version of a Status Report since there will be no big impact, just some reprocessing.
             */
             if (TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {
                 canUserPrevious = false
@@ -329,36 +345,39 @@
                 canUserPrevious = true
             }
 
-            fileStorage.getTextFile(filePath, onFileReceived, undefined, canUserPrevious);
+            fileStorage.getTextFile(filePath, onFileReceived, undefined, canUserPrevious)
 
             function onFileReceived(err, text) {
 
                 if (err.result === TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result && (err.message === 'Folder does not exist.' || err.message === 'File does not exist.')
                     || err.code === "The specified key does not exist.") {
 
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] load -> onFileReceived -> err = " + err.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[WARN] load -> onFileReceived -> err = " + err.message)
 
                     /* In this case we can assume that this is the first execution ever of this bot.*/
 
-                    thisObject.file = JSON.parse('{}');
+                    thisObject.file = JSON.parse('{}')
 
                     let customOK = {
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                         message: "Status Report was never created."
-                    };
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
-                    callBackFunction(customOK);
-                    return;
+                    }
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[WARN] load -> onFileReceived -> customOK = " + customOK.message)
+                    callBackFunction(customOK)
+                    return
                 }
 
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
-                    callBackFunction(err);
-                    return;
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[ERROR] load -> onFileReceived -> err = " + err.message)
+                    callBackFunction(err)
+                    return
                 }
 
                 try {
-                    thisObject.file = JSON.parse(text);
+                    thisObject.file = JSON.parse(text)
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -366,23 +385,26 @@
                     It might happen that the file content is corrupt. We will consider this as a temporary situation, since sometimes the file
                     is being updated at the moment of the read. The bot can not run without a valid Status Report but we can request the platform to retry later.
                     */
-
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[ERROR] load -> onFileReceived -> Error Parsing the Status report. -> Err = " + err.message)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[WARN] load -> onFileReceived -> Error Parsing the Status report. -> text = " + text)
 
                     let customFail = {
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                         message: "Status Report is corrupt."
-                    };
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
-                    callBackFunction(customFail);
-                    return;
+                    }
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[WARN] load -> onFileReceived -> customFail = " + customFail.message)
+                    callBackFunction(customFail)
+                    return
                 }
             }
 
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] load -> err = " + err.stack)
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] load -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
@@ -392,30 +414,35 @@
         try {
 
             let ownerId = statusDependencyNode.dataMine + "-" + statusDependencyNode.bot + "-" + statusDependencyNode.process
-            let botId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
+            let botId =
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" +
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
 
             if (ownerId !== botId && statusDependencyNode.process !== "Context") { // Context is a special case where the report is created by the Context.js module itself.
 
                 let customErr = {
                     result: TS.projects.superalgos.globals.standardResponses.CUSTOM_FAIL_RESPONSE.result,
                     message: "Only bots owners of a Status Report can save them."
-                };
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
+                }
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                    MODULE_NAME, "[ERROR] save -> customErr = " + customErr.message)
                 callBackFunction(customErr)
-                return;
+                return
             }
 
             let fileName = "Status.Report.json"
             let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
 
             filePath += '/' + fileName
-            let fileContent = JSON.stringify(thisObject.file);
+            let fileContent = JSON.stringify(thisObject.file)
 
             fileStorage.createTextFile(filePath, fileContent + '\n', onFileCreated, true)
 
             function onFileCreated(err) {
                 if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
+                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                        MODULE_NAME, "[ERROR] save -> onFileCreated -> err = " + err.stack)
                     callBackFunction(err)
                     return
                 }
@@ -423,24 +450,25 @@
                 /* All good, lets emit the event that means data has been updated. */
 
                 let processOutput = TS.projects.superalgos.processModules.processOutput.newSuperalgosProcessModulesProcessOutput(processIndex)
-                processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction);
+                processOutput.raiseEvents(thisObject.file.lastFile, thisObject.file.timeFrames, callBackFunction)
                 return
             }
 
         }
         catch (err) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] save -> err = " + err.stack)
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(
+                MODULE_NAME, "[ERROR] save -> err = " + err.stack)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
     async function asyncSave() {
 
-        let fileName = "Status.Report.json";
+        let fileName = "Status.Report.json"
         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Reports/" + sessionPath + statusDependencyNode.process
 
         filePath += '/' + fileName
-        let fileContent = JSON.stringify(thisObject.file);
+        let fileContent = JSON.stringify(thisObject.file)
 
         let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n', true)
 

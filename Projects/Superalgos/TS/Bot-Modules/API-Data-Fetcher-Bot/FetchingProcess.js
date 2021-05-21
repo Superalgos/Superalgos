@@ -56,6 +56,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
+                    contextVariables.beginingOfMarket = thisReport.file.beginingOfMarket
 
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -837,7 +838,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     thisReport.file = {
                         lastRun: (new Date()).toISOString(),
                         lastPage: lastPage,
-                        lastFile: contextVariables.lastFile.toISOString()
+                        lastFile: contextVariables.lastFile.toISOString(),
+                        beginingOfMarket: contextVariables.beginingOfMarket
                     }
 
                     if (thisReport.file.beginingOfMarket === undefined) {

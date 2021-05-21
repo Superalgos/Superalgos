@@ -185,7 +185,6 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 We get in here when the report already exists, meaning that this process
                 has succesfully ran before at least once.
                 */
-
                 contextVariables.beginingOfMarket = new Date(thisReport.beginingOfMarket)
 
                 if (contextVariables.beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market

@@ -52,8 +52,8 @@
                 }
 
                 function timeFramesLoopBody() {
-                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
-                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
@@ -138,7 +138,7 @@
 
                 function timeFramesControlLoop() {
                     n++;
-                    if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                    if (n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                         timeFramesLoopBody()
                     } else {
                         writeTimeFramesFiles(onTimeFrameFilesWritten)
@@ -173,8 +173,8 @@
             function writeTimeFramesFile(productCodeName, callBack) {
 
                 let timeFramesArray = []
-                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; n++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {

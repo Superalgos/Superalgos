@@ -118,16 +118,16 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                 /*
                 We will iterate through all posible timeFrames.
                 */
-                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; n++) {
-                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
-                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; n++) {
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1]
 
                     dataFiles = new Map()
 
                     /* Current Time Frame detection */
                     if (userDefinedTimeFrame === timeFrameLabel) {
-                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0]
-                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][0]
+                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1]
                     }
 
                     /* Loop across the list of curated dependencies */
@@ -223,7 +223,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         }
                     }
 
-                    let mapKey = currentExchange + '-' + currentMarket + '-' + TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1]
+                    let mapKey = currentExchange + '-' + currentMarket + '-' + TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1]
                     multiTimeFrameDataFiles.set(mapKey, dataFiles)
                 }
             }
@@ -257,8 +257,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                 /*
                 We will iterate through all posible timeFrames.
                 */
-                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
-                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; n++) {
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.validtimeFrames !== undefined) {
                         let validPeriod = false
@@ -272,8 +272,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                     }
 
                     if (userDefinedTimeFrame === timeFrameLabel) {
-                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
-                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                        currentTimeFrame.value = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][0]
+                        currentTimeFrame.label = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
                     }
 
                     dataFiles = new Map()
@@ -350,7 +350,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                             return JSON.parse(response.text)
                         }
                     }
-                    let mapKey = currentExchange + '-' + currentMarket + '-' + TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                    let mapKey = currentExchange + '-' + currentMarket + '-' + TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
                     multiTimeFrameDataFiles.set(mapKey, dataFiles)
                 }
 
@@ -420,8 +420,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                 let quotedAsset = splittedMarket[1]
 
                 /* Market Files */
-                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
+                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; j++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[j][1]
                     let dataFiles = multiTimeFrameDataFiles.get(currentExchange + '-' + currentMarket + '-' + timeFrameLabel)
                     let products = {}
 
@@ -434,8 +434,8 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                 }
 
                 /* Daily Files */
-                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; j++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[j][1]
                     let dataFiles = multiTimeFrameDataFiles.get(currentExchange + '-' + currentMarket + '-' + timeFrameLabel)
                     let products = {}
 

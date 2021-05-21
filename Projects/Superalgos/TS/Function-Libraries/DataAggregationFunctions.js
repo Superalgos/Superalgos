@@ -63,8 +63,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
     function getContextVariables(
         statusDependenciesModule,
         contextVariables,
-        loadExistingFiles,
-        buildOutput,
+        callbackNotFirstRun,
+        callbackFirstRun,
         processIndex,
         callBackFunction
     ) {
@@ -205,7 +205,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         contextVariables.datetimeLastProducedFile.valueOf() -
                         TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
-                    buildOutput()
+                    callbackFirstRun()
                     return
                 }
 
@@ -218,7 +218,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 */
                 contextVariables.datetimeLastProducedFile = new Date(contextVariables.datetimeLastProducedFile.valueOf() - TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
-                loadExistingFiles()
+                callbackNotFirstRun()
                 return
             } else {
                 /*
@@ -239,7 +239,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                     contextVariables.datetimeLastProducedFile.valueOf() -
                     TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well.
 
-                buildOutput()
+                callbackFirstRun()
                 return
             }
 

@@ -192,6 +192,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     }
                                 }
                             }
+
+                            if (endpointNode === undefined) {
+                                // TODO ERROR HANDLING.
+                                console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
+                                throw("Cant continue")
+                            }
                         }
 
                         function calculateRecordPropertiesNodePathMap() {

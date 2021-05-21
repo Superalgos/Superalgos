@@ -57,8 +57,8 @@
 
                     function loopBody() {
                         try {
-                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][0];
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[n][1];
+                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][0];
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[n][1];
 
                             nextCandleFile()
 
@@ -372,7 +372,7 @@
                     function controlLoop() {
                         try {
                             n++
-                            if (n < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 writeStatusReport(callBackFunction)

@@ -128,7 +128,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
         await writeTimeFramesFiles()
         await writeDataRanges()
 
-        if (currentTimeFrame.value > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
+        if (currentTimeFrame.value > TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[0][0]) {
             await writeMarketStatusReport()
         } else {
             await writeDailyStatusReport()

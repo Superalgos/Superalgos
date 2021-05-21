@@ -655,7 +655,7 @@
                 {
                     "name": "From One Min To Multi Period Daily",
                     "propertyName": "fromOneMinToMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodMarket",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodDaily",
                     "fileName": "FromOneMinToMultiPeriodDaily.js",
                     "folderName": "Indicator-Bot"
                 },

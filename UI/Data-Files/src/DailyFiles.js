@@ -150,9 +150,9 @@ function newDailyFiles() {
       function createFileCursors() {
         try {
           /* Now we will get the daily files */
-          for (let i = 0; i < dailyFilePeriods.length; i++) {
-            let periodTime = dailyFilePeriods[i][0]
-            let periodName = dailyFilePeriods[i][1]
+          for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+            let periodTime = dailyTimeFramesArray[i][0]
+            let periodName = dailyTimeFramesArray[i][1]
 
             if (pDataset.config.validTimeFrames.includes(periodName) === false) {
               continue
@@ -198,9 +198,9 @@ function newDailyFiles() {
 
       function loadThemAll() {
         try {
-          for (let i = 0; i < dailyFilePeriods.length; i++) {
-            let periodTime = dailyFilePeriods[i][0]
-            let periodName = dailyFilePeriods[i][1]
+          for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+            let periodTime = dailyTimeFramesArray[i][0]
+            let periodName = dailyTimeFramesArray[i][1]
 
             if (pDataset.config.validTimeFrames.includes(periodName) === true) {
               let fileCursor = fileCursors.get(periodTime)

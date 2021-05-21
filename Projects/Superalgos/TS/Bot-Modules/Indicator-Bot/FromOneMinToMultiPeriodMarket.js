@@ -1,9 +1,11 @@
 exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (processIndex) {
     /*
-        This process is going to do the following:
+        This module is about converting a One-Min Daily typeo of data set into a Multi Period Market type.
+
+        The process to do so involves:
     
-        Read the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
-        One-Min dataset (a dataset that is organized with elements spanning one min, like one min begin-end-elements,
+        Reading the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        One-Min Dataset (a dataset that is organized with elements spanning one min, like one min begin-end-elements,
         or elements with a timestamp captured approximatelly one minute from each other)
         organized in Daily Files.
         
@@ -18,10 +20,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         
         2. Then it will append to these arrays the new information it gets from the data dependency file.
     
-        3. It knows from it's status report which was the last DAY it processed. Since that day might not have been 
-        completed (maybe it was at the head of the market). The process will have to be carefull not to append elements 
-        that are already belonging to the first day to process. To take care of that, it will discard all elements 
-        of the last processed day, and then it will process that full day again adding all the elements found at the current run.
+        3. The already saved elements belonging to the start processing day will be discarded and replaced by the
+        dependency elements of the same day, potentially completing missing elements.         
     */
     const MODULE_NAME = "From One Min To Multi Period Market"
 
@@ -259,17 +259,17 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
                                 writeOutputFile(outputElements[timeFrameArrayIndex], TIME_FRAME_LABEL, controlLoop)
 
-                                function writeOutputFile(outputElements, TIME_FRAME_LABEL, callBack) {
+                                function writeOutputFile(outputElementsCurrentTimeFrame, TIME_FRAME_LABEL, callBack) {
                                     /*
                                     Here we will write the contents of the file to disk.
                                     */
                                     try {
                                         let fileContent = TS.projects.superalgos.functionLibraries.dataAggregationFunctions.generateOutputFileContent(
                                             node,
-                                            outputElements
+                                            outputElementsCurrentTimeFrame
                                         )
 
-                                        let fileName = 'Data.json';
+                                        let fileName = 'Data.json'
                                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                             "/Output/" +
                                             node.outputDataset.referenceParent.parentNode.config.codeName + "/" +

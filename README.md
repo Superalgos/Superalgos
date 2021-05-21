@@ -39,18 +39,22 @@ You may install Node.JS just like you would on any other machine as per the abov
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 ```
-followed by
+Followed by:
 ```
 sudo apt-get install -y nodejs
 ```
-It is recommended to install the Node Package Manager
+It is also required to install the Node Package Manager for dependancy management.
 ```
 sudo apt install npm
 ```
-you may also type the following to verify the Node.js installation and version.
+You may also type the following to verify the Node.js and NPM installation and version.
 ```
 node -v
 ```
+```
+npm -v 
+```
+
 <hr>
 
 ## 2. Git Installation
@@ -118,17 +122,48 @@ git clone https://github.com/John/Superalgos
 
 This creates the `Superalgos` folder in the current directory, which contains the whole installation.
 
+## 3. Install Node Dependencies
+
+**A.** After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies.
+
+**B.** In the same command prompt or terminal you just used, type the following command:
+
+```
+node setup
+```
+
+Then wait until you are able to type within the terminal again.
+
+This command will install and configure all additional dependencies needed by Superalgos.
+
+Congratulations your installation is complete!
+
 > **The Usage section below explains how to run the app.**
 
-## 3. Installation Notes
+## 4. Installation Notes
 
 **A.** You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! [Free-riding is not cool](https://en.wikipedia.org/wiki/Free-rider_problem), particularly on free, open-source, Community-driven projects.
 
 **B.** The software includes an in-app self-update command / feature. It will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly, particularly if you choose to run the software in the ```develop``` branch (you may switch branches from within the app).
 
-**C.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
+**C.** It is a good idea to perodically run the `node setup` command to keep the underlying dependencies for your Superalgos installation up to date.
 
-## 4. Migrating from Superalgos Beta 9
+**D.** Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
+
+## 5. Migrating from Superalgos Beta 9
+
+### Changes in Dependency Managment
+
+**IMPORTANT:**  Superalgos no longer contains the node dependencies needed to run within this repository. After you have finished running `app.update`, in order to finish upgrading to Beta 10 you will need to run the new setup command. 
+
+**A.** Open a terminal or command prompt and navigate to your Superalgos directory.
+
+**B.** Enter the following command:
+```
+node setup
+```
+
+ Then wait until you are able to type within the terminal again.  
 
 ### Refactorings
 

@@ -81,7 +81,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                     */
                     let outputElements = []
 
-                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; timeFrameArrayIndex++) {
+                    for (let timeFrameArrayIndex = 0; timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; timeFrameArrayIndex++) {
                         const emptyArray = []
                         outputElements.push(emptyArray)
                     }

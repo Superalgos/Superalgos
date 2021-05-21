@@ -12,17 +12,18 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         getContextVariables: getContextVariables,
         advanceTime: advanceTime,
         nextDependencyDailyFile: nextDependencyDailyFile,
-        generateOutputFileContent: generateOutputFileContent, 
+        generateOutputFileContent: generateOutputFileContent,
         aggregateFileContent: aggregateFileContent,
         writeStatusReport: writeStatusReport
     }
     return thisObject
 
     function checkForKnownConstraints(
-        dataDependenciesModule, 
+        dataDependenciesModule,
+        node,
         processIndex,
         callBackFunction
-        ) {
+    ) {
         /*
         This Framework have a few contraints that we are going to check right here.
         One of them is the fact that it can only accept one data dependency. The 
@@ -36,11 +37,11 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         */
         if (dataDependenciesModule.curatedDependencyNodeArray.length !== 1) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length)
+                "[ERROR] checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             return
         } else {
-            dataDependencyNode = dataDependenciesModule.curatedDependencyNodeArray[0]
+            node.dataDependency = dataDependenciesModule.curatedDependencyNodeArray[0]
         }
 
         let outputDatasets = TS.projects.superalgos.utilities.nodeFunctions.nodeBranchToArray(
@@ -49,21 +50,22 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
         if (outputDatasets.length !== 1) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length)
+                "[ERROR] checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             return
         } else {
-            outputDatasetNode = outputDatasets[0]
+            node.outputDataset = outputDatasets[0]
         }
 
         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
     }
 
     function getContextVariables(
+        statusDependenciesModule,
         contextVariables,
         loadExistingFiles,
         buildOutput,
-        advanceTime,
+        processIndex,
         callBackFunction
     ) {
         try {
@@ -82,14 +84,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Status Report does not exist. Retrying Later. ")
+                        "[WARN] getContextVariables -> detectWhereTheMarketBegins-> Status Report does not exist. Retrying Later. ")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> detectWhereTheMarketBegins-> Can not continue because dependecy Status Report is corrupt. ")
+                        "[ERROR] getContextVariables -> detectWhereTheMarketBegins-> Can not continue because dependecy Status Report is corrupt. ")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
@@ -98,16 +100,16 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (thisReport.beginingOfMarket === undefined) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. ")
+                        "[WARN] getContextVariables -> detectWhereTheMarketBegins-> Undefined Last File. ")
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[HINT] start -> getContextVariables -> detectWhereTheMarketBegins-> It is too early too run this process since the trade history of the market is not there yet.")
+                        "[HINT] getContextVariables -> detectWhereTheMarketBegins-> It is too early too run this process since the trade history of the market is not there yet.")
 
                     let customOK = {
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                         message: "Dependency does not exist."
                     }
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketBegins-> customOK = " + customOK.message)
+                        "[WARN] getContextVariables -> detectWhereTheMarketBegins-> customOK = " + customOK.message)
                     callBackFunction(customOK)
                     return
                 }
@@ -123,14 +125,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Status Report does not exist. Retrying Later. ")
+                        "[WARN] getContextVariables -> detectWhereTheMarketEnds-> Status Report does not exist. Retrying Later. ")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> detectWhereTheMarketEnds-> Can not continue because dependecy Status Report is corrupt. ")
+                        "[ERROR] getContextVariables -> detectWhereTheMarketEnds-> Can not continue because dependecy Status Report is corrupt. ")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
@@ -139,14 +141,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (thisReport.lastFile === undefined) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File.")
+                        "[WARN] getContextVariables -> detectWhereTheMarketEnds-> Undefined Last File.")
 
                     let customOK = {
                         result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                         message: "Dependency not ready."
                     }
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> detectWhereTheMarketEnds-> customOK = " + customOK.message)
+                        "[WARN] getContextVariables -> detectWhereTheMarketEnds-> customOK = " + customOK.message)
                     callBackFunction(customOK)
                     return
                 }
@@ -163,14 +165,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ")
+                        "[WARN] getContextVariables -> Status Report does not exist. Retrying Later. ")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                     return
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
+                        "[ERROR] getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                     return
                 }
@@ -188,7 +190,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
                 if (contextVariables.beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated.")
+                        "[INFO] getContextVariables -> getOwnStatusReport-> Reset Mechanism for Begining of the Market Activated.")
 
                     contextVariables.beginingOfMarket = new Date(
                         contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
@@ -245,20 +247,22 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] start -> getContextVariables -> getOwnStatusReport-> err = " + err.stack)
+                "[ERROR] getContextVariables -> getOwnStatusReport-> err = " + err.stack)
             if (err.message === "Cannot read property 'file' of undefined") {
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] start -> getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys))
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys))
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] start -> getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.")
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.")
             }
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
     function advanceTime(
+        fromDate,
+        lastDate,
         contextVariables,
         nextFunctionToCall,
         processIndex,
@@ -274,7 +278,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-            "[INFO] start -> buildOutput -> advanceTime -> New processing time @ " +
+            "[INFO] advanceTime -> New processing time @ " +
             contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
             (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
             contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
@@ -283,7 +287,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         if (contextVariables.datetimeLastProducedFile.valueOf() > contextVariables.datetimeLastAvailableDependencyFile.valueOf()) {
 
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[INFO] start -> buildOutput -> advanceTime -> Head of the market found @ " +
+                "[INFO] advanceTime -> Head of the market found @ " +
                 contextVariables.datetimeLastProducedFile.getUTCFullYear() + "/" +
                 (contextVariables.datetimeLastProducedFile.getUTCMonth() + 1) + "/" +
                 contextVariables.datetimeLastProducedFile.getUTCDate() + ".")
@@ -312,8 +316,9 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
     function nextDependencyDailyFile(
         contextVariables,
-        dataDependencyNode,
+        node,
         aggregateAndWriteOutputFile,
+        fileStorage,
         processIndex,
         callBackFunction
     ) {
@@ -323,6 +328,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         many days needed and it should only stop when it reaches
         the head of the market.
         */
+        const ONE_MIN_DATASET_TYPE = "One-Min"
+
         let dateForPath = contextVariables.datetimeLastProducedFile.getUTCFullYear() + '/' +
             TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '/' +
             TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
@@ -334,18 +341,18 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             TS.projects.superalgos.globals.taskConstants.PROJECT_DEFINITION_NODE.config.codeName + "/" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.type.replace(' ', '-') + "/" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "/" +
-            dataDependencyNode.referenceParent.parentNode.parentNode.config.codeName + '/' +
+            node.dataDependency.referenceParent.parentNode.parentNode.config.codeName + '/' +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
             TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
 
-        let filePath = filePathRoot + "/Output/" + dataDependencyNode.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
+        let filePath = filePathRoot + "/Output/" + node.dataDependency.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
         filePath += '/' + fileName
 
         fileStorage.getTextFile(filePath, onFileReceived)
 
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-            "[INFO] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> getting file at dateForPath = " + dateForPath)
+            "[INFO] nextDependencyDailyFile -> getting file at dateForPath = " + dateForPath)
 
         function onFileReceived(err, text) {
             try {
@@ -356,24 +363,24 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         dependencyDailyFile = JSON.parse(text)
                     } catch (err) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                            "[ERROR] nextDependencyDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                            "[ERROR] nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
                 } else {
                     if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err))
+                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err))
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
 
                     } else {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> Error Received -> err = " + err.stack)
+                            "[ERROR] nextDependencyDailyFile -> onFileReceived -> Error Received -> err = " + err.stack)
                         callBackFunction(err)
                         return
                     }
@@ -383,18 +390,17 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             } catch (err) {
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[ERROR] start -> buildOutput -> timeframesLoop -> loopBody -> nextDependencyDailyFile -> onFileReceived -> err = " + err.stack)
+                    "[ERROR] nextDependencyDailyFile -> onFileReceived -> err = " + err.stack)
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
         }
     }
 
     function generateOutputFileContent(
-        outputDatasetNode,
+        node,
         outputElements
     ) {
         let separator = ""
-        let fileRecordCounter = 0
         let fileContent = ""
 
         for (let i = 0; i < outputElements.length; i++) {
@@ -403,8 +409,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             fileContent = fileContent + separator + '['
             let propertySeparator = ""
 
-            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+            for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                 if (property.config.isString === true) {
                     fileContent = fileContent + propertySeparator + '"' + element[property.config.codeName] + '"'
                 } else {
@@ -416,7 +422,6 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             fileContent = fileContent + "]"
 
             separator = ","
-            fileRecordCounter++
         }
 
         fileContent = "[" + fileContent + "]"
@@ -424,8 +429,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
     }
 
     function aggregateFileContent(
-        outputDatasetNode,
-        dataDependencyNode,
+        node,
+        contextVariables,
         dependencyDailyFile,
         outputElementsArray,
         TIME_FRAME_VALUE
@@ -449,8 +454,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             /*
             Set the output element the default values for each of it's properties.
             */
-            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+            for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
 
                 if (property.config.isString === true || property.config.isDate === true) {
                     outputElement[property.config.codeName] = ""            // Default Value
@@ -486,8 +491,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 /*
                 Set up the Data Dependency Record Map and Data Dependency Element Object
                 */
-                for (let k = 0; k < dataDependencyNode.referenceParent.parentNode.record.properties.length; k++) {
-                    let property = dataDependencyNode.referenceParent.parentNode.record.properties[k]
+                for (let k = 0; k < node.dataDependency.referenceParent.parentNode.record.properties.length; k++) {
+                    let property = node.dataDependency.referenceParent.parentNode.record.properties[k]
                     record.map.set(property.config.codeName, record.values[k])
                     element[property.config.codeName] = record.values[k]
                 }
@@ -530,8 +535,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         */
                         if (saveElement === false) {
 
-                            for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                            for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                                let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                                 if (property.config.aggregationMethod === 'First') {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                                 }
@@ -546,8 +551,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         Everything that follows will be set for each element overiding the previous
                         ones, so only the last values will survive. 
                         */
-                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Last') {
                                 outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                             }
@@ -561,8 +566,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         Note that to be able to calculate the minimum, we will be assigning to all properties the first 
                         element values, so as to have a baseline from where to compare later on.
                         */
-                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Min' || saveElement === false) {
                                 if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
@@ -575,8 +580,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         /* 
                         This is the MAX type of aggregation.
                         */
-                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Max') {
                                 if (record.map.get(property.config.codeName) > outputElement[property.config.codeName]) {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
@@ -589,8 +594,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         /* 
                         This is the SUM type of aggregation.
                         */
-                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Sum') {
                                 outputElement[property.config.codeName] = outputElement[property.config.codeName] + record.map.get(property.config.codeName)
                             }
@@ -601,8 +606,8 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         /* 
                         This is the AVG type of aggregation.
                         */
-                        for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                            let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                        for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                            let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Average') {
 
                                 if (outputElementAverage[property.config.codeName] === undefined) {
@@ -628,11 +633,12 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
 
     function writeStatusReport(
         statusDependenciesModule,
-        lastFileDate, 
+        contextVariables,
+        lastFileDate,
         callBack,
         processIndex,
         callBackFunction
-        ) {
+    ) {
         try {
             let thisReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
@@ -644,7 +650,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] start -> writeStatusReport -> err = " + err.stack)
+                "[ERROR] writeStatusReport -> err = " + err.stack)
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }

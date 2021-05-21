@@ -24,7 +24,6 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         of the last processed day, and then it will process that full day again adding all the elements found at the current run.
     */
     const MODULE_NAME = "From One Min To Multi Period Market"
-    const ONE_MIN_DATASET_TYPE = "One-Min"
 
     let thisObject = {
         initialize: initialize,
@@ -36,8 +35,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
     let statusDependenciesModule
     let dataDependenciesModule
-    let dataDependencyNode
-    let outputDatasetNode
+    let node = {}               // Usefull nodes for this module will be stored here.
 
     return thisObject;
 
@@ -45,8 +43,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pDataDependencies
-        TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.checkForKnownConstraints(
+        TS.projects.superalgos.functionLibraries.dataAggregationFunctions.checkForKnownConstraints(
             dataDependenciesModule,
+            node,
             processIndex,
             callBackFunction
         )
@@ -57,8 +56,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
         statusDependenciesModule = undefined
         dataDependenciesModule = undefined
         thisObject = undefined
-        dataDependencyNode = undefined
-        outputDatasetNode = undefined
+        node = undefined
     }
 
     function start(callBackFunction) {
@@ -72,7 +70,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 beginingOfMarket: undefined                                 // Datetime of the begining of the market.
             }
 
-            TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.getContextVariables(
+            TS.projects.superalgos.functionLibraries.dataAggregationFunctions.getContextVariables(
+                statusDependenciesModule,
                 contextVariables,
                 loadExistingFiles,
                 buildOutput,
@@ -104,7 +103,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             let filePath =
                                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                 "/Output/" +
-                                outputDatasetNode.referenceParent.parentNode.config.codeName + "/" + // Product Name
+                                node.outputDataset.referenceParent.parentNode.config.codeName + "/" + // Product Name
                                 TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
                                 TIME_FRAME_LABEL;
                             filePath += '/' + fileName
@@ -176,7 +175,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     moveToNextDay()
 
                     function moveToNextDay() {
-                        TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.advanceTime(
+                        TS.projects.superalgos.functionLibraries.dataAggregationFunctions.advanceTime(
+                            fromDate,
+                            lastDate,
                             contextVariables,
                             timeframesLoop,
                             processIndex,
@@ -219,8 +220,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 for (let i = 0; i < previousElements.length; i++) {
                                     let element = {}
 
-                                    for (let j = 0; j < outputDatasetNode.referenceParent.parentNode.record.properties.length; j++) {
-                                        let property = outputDatasetNode.referenceParent.parentNode.record.properties[j]
+                                    for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
+                                        let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                                         element[property.config.codeName] = record[j]
                                     }
 
@@ -234,10 +235,11 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 allPreviousElements[timeFrameArrayIndex] = [] // erasing these so as not to duplicate them.
                             }
 
-                            TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.nextDependencyDailyFile(
+                            TS.projects.superalgos.functionLibraries.dataAggregationFunctions.nextDependencyDailyFile(
                                 contextVariables,
-                                dataDependencyNode,
+                                node,
                                 aggregateAndWriteOutputFile,
+                                fileStorage,
                                 processIndex,
                                 callBackFunction
                             )
@@ -247,9 +249,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 Here we call the function that will aggregate all the information 
                                 at the dependency file into standarized begin-end-elements. 
                                 */
-                                TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.aggregateFileContent(
-                                    outputDatasetNode,
-                                    dataDependencyNode,
+                                TS.projects.superalgos.functionLibraries.dataAggregationFunctions.aggregateFileContent(
+                                    node,
+                                    contextVariables,
                                     dependencyDailyFile,
                                     outputElements[timeFrameArrayIndex],
                                     TIME_FRAME_VALUE
@@ -262,16 +264,16 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     Here we will write the contents of the file to disk.
                                     */
                                     try {
-                                        let fileContent = TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.generateOutputFileContent(
-                                            outputDatasetNode,
+                                        let fileContent = TS.projects.superalgos.functionLibraries.dataAggregationFunctions.generateOutputFileContent(
+                                            node,
                                             outputElements
                                         )
 
                                         let fileName = 'Data.json';
                                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                             "/Output/" +
-                                            outputDatasetNode.referenceParent.parentNode.config.codeName + "/" +
-                                            outputDatasetNode.referenceParent.config.codeName + "/" +
+                                            node.outputDataset.referenceParent.parentNode.config.codeName + "/" +
+                                            node.outputDataset.referenceParent.config.codeName + "/" +
                                             TIME_FRAME_LABEL
                                         filePath += '/' + fileName
 
@@ -289,7 +291,10 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                             }
 
                                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                "[WARN] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " + fileRecordCounter + " records inserted into " + filePath + "/" + fileName)
+                                                "[WARN] start -> writeOutputFile -> onFileCreated ->  Finished with File @ " +
+                                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "_" +
+                                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName + ", " +
+                                                " filePath = " + filePath + "/" + fileName)
                                             callBack()
                                         }
 
@@ -309,8 +314,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length) {
                                 loopBody()
                             } else {
-                                TS.projects.superalgos.functionLibraries.TS.projects.superalgos.functionLibraries.dataAggregationFunctions.writeStatusReport(
+                                TS.projects.superalgos.functionLibraries.dataAggregationFunctions.writeStatusReport(
                                     statusDependenciesModule,
+                                    contextVariables,
                                     contextVariables.datetimeLastProducedFile,
                                     moveToNextDay,
                                     processIndex,

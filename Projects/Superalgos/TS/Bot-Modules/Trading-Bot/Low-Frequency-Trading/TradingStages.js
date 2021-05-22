@@ -1255,7 +1255,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
     function checkUserDefinedCode(stage, status, when) {
       let tradingSystemStage = getTradingSystemStage(stage);
 
-      if (tradingSystemStage.userDefinedCode !== undefined) {
+      if (tradingSystemStage !== undefined &&
+          tradingSystemStage.userDefinedCode !== undefined) {
         if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
 
         switch(status) {

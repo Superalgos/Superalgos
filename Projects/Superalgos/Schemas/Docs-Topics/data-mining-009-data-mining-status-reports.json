@@ -1,0 +1,37 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "9",
+    "type": "Data Mining - Status Reports",
+    "definition": {
+        "text": "Status Reports are files produced by each Bot's processes with some key information that the Bot needs to save in order to remember the next time is run.",
+        "updated": 1621716668465
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Most Bots in superalgos are run by the Task Server and they implement a Main Loop. At each loop execution, bots do their job and at the end they go to sleep. How much time they sleep and other details are configured at the Bot's process. ",
+            "updated": 1621717056723
+        },
+        {
+            "style": "Text",
+            "text": "Before going to sleep all the memory is flushed from all information related to the bot, so that machine resources are freed for other bots in the same machine to use. There is some info Bot's need to remember between every execution of the Main Loop, and between executions of the Task itself. That info is stored in a JSON / text file called the Status Report."
+        },
+        {
+            "style": "Text",
+            "text": "The name Status was used since the information stored is often the status of the Bot's process. Here is an example of a simple Status Report file."
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"lastExecution\":\"2021-05-21T22:08:09.278Z\",\n\"lastFile\":\"2021-05-21T00:00:00.000Z\",\n\"beginingOfMarket\":\"Wed, 01 Jan 2020 00:00:00 GMT\"\n}",
+            "updated": 1621717169974
+        },
+        {
+            "style": "Note",
+            "text": "Status Report files also might include a data structure called Inter Execution Memory. Status information is kind of standard for all types of bots. Inter Execution Memory on the other hand depends on each Bot type and what is actually processing."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

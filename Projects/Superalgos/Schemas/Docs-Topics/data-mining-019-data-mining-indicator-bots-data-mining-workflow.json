@@ -1,7 +1,7 @@
 {
-    "topic": "Data Mines",
-    "pageNumber": "6",
-    "type": "Indicator Bots - Data Mining Workflow",
+    "topic": "Data Mining",
+    "pageNumber": "19",
+    "type": "Data Mining - Indicator Bots - Data Mining Workflow",
     "definition": {
         "text": "When running on a data mining operation, indicators follow a cycle designed to fulfill their purpose: to process data others have produced and make the result available for others to consume.",
         "updated": 1611427674749

@@ -1,7 +1,7 @@
 {
-    "topic": "Data Mines",
-    "pageNumber": "9",
-    "type": "Plotters - Plotter Panel",
+    "topic": "Data Mining - Data Mines",
+    "pageNumber": "22",
+    "type": "Data Mining - Plotters - Plotter Panel",
     "definition": {
         "text": "A plotter panel allows building panels with numerical representations of data.",
         "updated": 1611432021846

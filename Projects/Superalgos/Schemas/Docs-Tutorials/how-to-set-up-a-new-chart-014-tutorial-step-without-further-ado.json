@@ -1,0 +1,46 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Without Further Ado",
+    "definition": {
+        "text": "I know I'm ready to customize some charts. Are you? Let's walk through how to add the foundational nodes we need to start our chart.",
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        },
+        "updated": 1620008604043
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first thing we need to do is add a fresh dashboard.",
+            "updated": 1620260120535
+        },
+        {
+            "style": "Callout",
+            "text": "Hover over the Project Dashboards node and click Add Dashboard."
+        },
+        {
+            "style": "Text",
+            "text": "Make sure to name your new Dashboard with something you will recognize. A good naming practice is to reference the type of environment (live trading, backtesting, etc.) and something distinctive about the charts you plan on adding. For us that would be:",
+            "updated": 1620260056355
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Json",
+            "text": "Testing Environment My Custom Chart",
+            "updated": 1620260022985
+        },
+        {
+            "style": "Text",
+            "text": " "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

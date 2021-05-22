@@ -1,0 +1,56 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "10",
+    "type": "Data Mining - Status Dependencies",
+    "definition": {
+        "text": "Status Dependencies is a type of relationship between Bots. Sometimes bots don't depend on the Datasets produced by other bots, but they depend directly on the status of other bots.",
+        "updated": 1621717479906
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A good way to undestand why Status Dependencies are needed is with an example:",
+            "updated": 1621717585017
+        },
+        {
+            "style": "Text",
+            "text": "The Indicator Bot Bollinger-Bands depends on Candles-Volumes Dataset in order to calculate the Bollinger Bands, but it depend's on Exchange Raw Data Sensor Bot in order to know where the market begins, which is the date of the first piece of data. That information is part of the Status information that Exchange Raw Data Sensor Bot keeps at it's Satus Report.",
+            "updated": 1621717669486
+        },
+        {
+            "style": "Text",
+            "text": "Bots that produce Raw Data usually do not depend on any other Bot's status and they are usually the root of a dependency tree or graph. Any Bot might have zero to many status dependencies. For each Status Dependency, the Bot's process at runtime will load the Status Report file of the dependent Bot and let extract from there the information it needs.",
+            "updated": 1621718085593
+        },
+        {
+            "style": "Title",
+            "text": "Classification by Utility",
+            "updated": 1621718216510
+        },
+        {
+            "style": "Text",
+            "text": "Status Dependency can be classified by their utility. This make it easier for processes to handle them in code. There are currently three different utilities:"
+        },
+        {
+            "style": "List",
+            "text": "Self Reference: this is used to load it's own Status Report to extract data from it or modify it."
+        },
+        {
+            "style": "List",
+            "text": "Market Ending Point: this means that the referenced Status Report is to be used to extract the information of where the market ends, meaning which date the market ends."
+        },
+        {
+            "style": "List",
+            "text": "Market Starting Point: this means that the referenced Status Report is to be used to extract the information of where the market begins.",
+            "updated": 1621718175842
+        },
+        {
+            "style": "Important",
+            "text": "A Bot's process is not allowed to update the Status Report belonging to other Bots."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

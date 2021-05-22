@@ -1,0 +1,36 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "8",
+    "type": "Data Mining - Data Dependencies",
+    "definition": {
+        "text": "Indicator Bots have data dependencies. That means that they have as their input a Dataset created by other Bot. ",
+        "updated": 1621715782447
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You can also think about data dependencies as a type of relationship between bots. Bots producing raw data (Sensor Bot and API Data Fetcher Bot) don't have them, since their job is to extract data from an external source. At the same time they are the root of a tree or graph of data dependencies relationships.",
+            "updated": 1621715986533
+        },
+        {
+            "style": "Text",
+            "text": "The data dependencias are in fact at the Process Definition level. Each process might have their own set of data dependencies. "
+        },
+        {
+            "style": "Note",
+            "text": "It is possible for a single Bot's process to have more than one Data Dependency, from the same Bot or from different Bot's. That is particulary usefull to aggregate data from many datasets into another one. The dependent datasets could belong to Bots at the same Data Mine or at bots at other Data Mines. From the deployment point of view, the dependant datasets could be physically located at the same machine, or at multiple different machines."
+        },
+        {
+            "style": "Text",
+            "text": "The first declared dependency is called the Main Dependency and has a special meaning. The process of the Bot is going to iterate the Dataset of the Main Dependency to produce the output Dataset. All other data dependencies will be used to extract data from."
+        },
+        {
+            "style": "Text",
+            "text": "When a Bot has a Data Dependency of a dataset produced by a Bot defined in a different Data Mine, then both Data Mines must be present at the Workspace where the Bot is going to be lauched at."
+        },
+        {
+            "style": "Text",
+            "text": "The Masters Data Mine is the most referenced Data Mine because is the one that defines the Candles-Volumes Indicator Bot, that produces the most used information for trading systems: Candles."
+        }
+    ]
+}

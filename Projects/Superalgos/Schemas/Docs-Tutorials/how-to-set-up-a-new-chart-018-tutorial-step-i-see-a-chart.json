@@ -1,0 +1,34 @@
+{
+    "tutorial": "How to Set up a New Chart",
+    "pageNumber": 18,
+    "type": "Tutorial Step - I See a Chart!",
+    "definition": {
+        "text": "Did you find the Time Machine you added? Don't forget to move around the Charting Space, I know it's here!",
+        "updated": 1620264964599,
+        "icon": {
+            "name": "chart-points",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You should see three charts within the Charting Space.",
+            "updated": 1620264097333
+        },
+        {
+            "style": "Callout",
+            "text": "Read the titles and find the one you added!",
+            "updated": 1620264144764
+        },
+        {
+            "style": "Text",
+            "text": "If you zoom in there's not much to look at yet. But that's okay. We are on our way to your very own custom chart. Woohoo! Let's keep going and add some data to your new Time Machine.",
+            "updated": 1620264752831
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

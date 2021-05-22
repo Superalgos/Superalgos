@@ -1,0 +1,25 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "11",
+    "type": "Data Mining - Deployments",
+    "definition": {
+        "text": "Data Minign Bots can be deployed into one or many machines at the same time and they will automatically find the way too coordinate their actions.",
+        "updated": 1621718512909
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Once you are done defining your data mining Bots, you can move the Tasks that execute them to other Network Nodes and some other node structures at the Network hierarchy and the bot's will still run even from different machines on the network.",
+            "updated": 1621719049976
+        },
+        {
+            "style": "Text",
+            "text": "On one hand, the definitions at the Data Mine already contain the 3 types of relationships between Bots. Execution, Data Dependency and Status Dependency. On the other hand, the network hierarchy contains all the information needed to guess where the dependent bots are running (looking at the Tasks it can know at which machine in the network) and where the Datasets are in the network (looking at the Data Storage section).",
+            "updated": 1621719258047
+        },
+        {
+            "style": "Text",
+            "text": "Everytime a Task is executed, the whole Network hierarchy, together with the bot's definitions at Data Mines are sent to the Task Server which will help the bot to load the datasets defined as Data Depencies, the Status Reports defined as Status Dependencies and wait for the Bot's defined at the Execution Dependencies, no matter where all those resources are within the physical network. "
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "3",
+    "type": "Data Mining - Dataset Types",
+    "definition": {
+        "text": "Superalgos organizes data in datasets. These datasets are standarized across the system in different types.",
+        "updated": 1621695716288
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the complete list of Dataset types currently suported by the system:",
+            "updated": 1621711476824
+        },
+        {
+            "style": "List",
+            "text": "Single File: As the name suggest, this Dataset contains only one file with all the data in there. It is not frequently used. So far is the Dataset type where data comming from Webhooks is stored at. It is stored in this way because it assumed that not a lot of data will come through this pipe, only signals produced by external systems. Webhooks feature is expected to evolve in the future maniging the incoming data in another type of Dataset. This Dataset type can be plotted and it's data consumed from withing trading strategies.",
+            "updated": 1621696354757
+        },
+        {
+            "style": "List",
+            "text": "One-Min Daily: This Dataset type organizes data in one file per day, and as the name suggest, expects the data itself to belong to time periods of one minute. This type of Dataset can not be plotted or it's data consumed from trading strategies.",
+            "updated": 1621696328584
+        },
+        {
+            "style": "List",
+            "text": "Multi Period Daily: This Dataset type organizes data in one file per day for each Time Frame ranging from 1 minute to 45 minuntes. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
+            "updated": 1621696475925
+        },
+        {
+            "style": "List",
+            "text": "Multi Period Market: This Dataset type organizes data in only one file each Time Frame ranging from 1 hour to 24 hours. That means that the whole market history will be stored in one single file for each time frame. For example candles of 1 hour for a certain market, will be stored in a single file. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
+            "updated": 1621696582451
+        }
+    ]
+}

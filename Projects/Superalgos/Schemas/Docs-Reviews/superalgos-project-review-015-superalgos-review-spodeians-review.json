@@ -1,0 +1,54 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 15,
+    "type": "Superalgos Review - Spodeian's Review",
+    "definition": {
+        "text": "A sophisticated program for making \"Low Frequency\" Trades. With some understandable hiccups and a world of potential.",
+        "updated": 1621419973729
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While writing this, the content of my review delted itself, it may of been due to some conflict with grammarly, but I'm not entirely sure, the small editing window and lack of ability to adjsut the size of said editing window only would of made preventing this more difficult.",
+            "updated": 1621420539827
+        },
+        {
+            "style": "Text",
+            "text": "This field originally began by telling me to left click instead of right click which caused some confusion, which isn't as annoying as the apparent lack of ability to stylise my text in the same way that the original text was, if there is a way it isn't explained.",
+            "updated": 1621419051154
+        },
+        {
+            "style": "Text",
+            "text": "A bigger issue is that any key bindings are shared with google chromes (one of the suggested browsers) and the lack of ability to easily change keybindings from within the UI.",
+            "updated": 1621419837438
+        },
+        {
+            "style": "Text",
+            "text": "One way that this could be dealt with is by using something like ElectronJS to standardise how it is opened for all users, not including headless sessions. The keybinding shared with google chrome is (I think)'Ctrl+Shift+A'.",
+            "updated": 1621419238632
+        },
+        {
+            "style": "Text",
+            "text": "Another issue I've just discovered is my lack of control of how many spaces there are inbetween grammar characters.",
+            "updated": 1621419243750
+        },
+        {
+            "style": "Text",
+            "text": "Lastly I am so far quite impressed with the abillities of Superalgos, however I would be excited to see that at some point the functionality required to support more exchanges is added, even if their data isn't avialble in 1-minute candlesticks for example or they use API that does not comply to CCXT, and I'm not sure yet if this is viable with the current build of Superalgos, but consolidating data from multiple exchanges for use with one cryptocurrency and having seperate computers dedicated to data mining and trading within one network would be an important step.",
+            "updated": 1621419831746
+        },
+        {
+            "style": "Text",
+            "text": "Something that would be incredible to see and would be much easier (but still difficult) with the addition of AI tools would be the ability to feed in arbitrary data (such as segments of news or non-crypto financial data) along with their time-periods and have this also be able to be parsed and used in your trading systems.",
+            "updated": 1621419936338
+        },
+        {
+            "style": "Text",
+            "text": "Ultimately, what this system can do already, is great, what it may be able to do with some nuturing however could be amazing, and I hope that even with my meagre ability I am able to adress some of the issues I have listed above."
+        },
+        {
+            "style": "Text",
+            "text": "Spodeian"
+        }
+    ]
+}

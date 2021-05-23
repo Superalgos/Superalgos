@@ -19,11 +19,6 @@
         {
             "style": "Success",
             "text": "This is the same trading system you interacted with during the welcome tutorials."
-        },
-        {
-            "style": "Callout",
-            "text": "Left-click to zoom back into the workspace.",
-            "updated": 1620553577819
         }
     ]
 }

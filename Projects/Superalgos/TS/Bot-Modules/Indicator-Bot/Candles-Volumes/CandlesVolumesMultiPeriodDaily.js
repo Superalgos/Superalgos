@@ -269,7 +269,7 @@
                         outputCandles = []
                         outputVolumes = []
 
-                        for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
+                        for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; n++) {
                             const emptyArray1 = []
                             const emptyArray2 = []
                             outputCandles.push(emptyArray1)
@@ -286,8 +286,8 @@
                         loopBody();
 
                         function loopBody() {
-                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                            const outputPeriod = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][0]
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                             nextCandleFile();
 
@@ -512,7 +512,7 @@
 
                         function controlLoop() {
                             n++;
-                            if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 writeDataRanges(onWritten);

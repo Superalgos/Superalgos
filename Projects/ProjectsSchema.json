@@ -455,6 +455,12 @@
                     "fileName": "DataDependenciesFunctions.js"
                 },
                 {
+                    "name": "Data Aggregation Functions",
+                    "propertyName": "dataAggregationFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesDataAggregationFunctions",
+                    "fileName": "DataAggregationFunctions.js"
+                },
+                {
                     "name": "Process Files Functions",
                     "propertyName": "processFilesFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
@@ -637,6 +643,20 @@
                     "propertyName": "multiPeriodDaily",
                     "functionName": "newSuperalgosBotModulesMultiPeriodDaily",
                     "fileName": "MultiPeriodDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Period Market",
+                    "propertyName": "fromOneMinToMultiPeriodMarket",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodMarket",
+                    "fileName": "FromOneMinToMultiPeriodMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Period Daily",
+                    "propertyName": "fromOneMinToMultiPeriodDaily",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodDaily",
+                    "fileName": "FromOneMinToMultiPeriodDaily.js",
                     "folderName": "Indicator-Bot"
                 },
                 {

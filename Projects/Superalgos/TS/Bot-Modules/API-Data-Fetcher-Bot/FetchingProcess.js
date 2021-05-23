@@ -35,6 +35,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             let thisReport          // This holds the status report.
             let processNode         // This hold the node Process Definition
             let lastPage = {}       // This holds the last page fetched for each endpoint
+            let contextVariables = {}
 
             getContextVariables()
             startProcess()
@@ -55,6 +56,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
+                    contextVariables.beginingOfMarket = thisReport.file.beginingOfMarket
 
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
@@ -189,6 +191,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         }
                                     }
                                 }
+                            }
+
+                            if (endpointNode === undefined) {
+                                // TODO ERROR HANDLING.
+                                console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
+                                throw("Cant continue")
                             }
                         }
 
@@ -647,7 +655,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     TS.projects.superalgos.utilities.miscellaneousFunctions.pad(file.month, 2) + '/' +
                                     TS.projects.superalgos.utilities.miscellaneousFunctions.pad(file.day, 2)
 
-                                await readDatasetFile("/" + dateForPath)
+                                /* We will need to save this at the Status Report */
+                                contextVariables.lastFile = file.date
+                                /*
+                                For One-Min type of datasets, since they are saved as Daily Files, there is no need
+                                to read the already existing content to append to it. In this case is enought to 
+                                set the existing content to an empty array.
+                                */
+                                existingFileContent = "[]"
                                 appendToExistingDataset()
                                 await saveDatasetFile("/" + dateForPath)
 
@@ -828,9 +843,16 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 try {
                     thisReport.file = {
                         lastRun: (new Date()).toISOString(),
-                        lastPage: lastPage
-                    };
-                    thisReport.save(onSaved);
+                        lastPage: lastPage,
+                        lastFile: contextVariables.lastFile.toISOString(),
+                        beginingOfMarket: contextVariables.beginingOfMarket
+                    }
+
+                    if (thisReport.file.beginingOfMarket === undefined) {
+                        thisReport.file.beginingOfMarket = (new Date()).toISOString()
+                    }
+
+                    thisReport.save(onSaved)
 
                     function onSaved(err) {
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {

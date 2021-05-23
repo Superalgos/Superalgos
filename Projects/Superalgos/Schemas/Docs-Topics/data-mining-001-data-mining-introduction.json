@@ -1,0 +1,40 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "1",
+    "type": "Data Mining - Introduction",
+    "definition": {
+        "text": "Data Mining in Superalgos means extracting data from external sources, procesing that data in order to have it ready for consumption by trading strategies.",
+        "updated": 1621694013759
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos offers a set of Data Mining tools. With those, users can fetch data from external sources, process them into more elaborate datasets, plot them at the charts and ultimately consume the data within their trading strategies.",
+            "updated": 1621694036120
+        },
+        {
+            "style": "Title",
+            "text": "The Bit Picture"
+        },
+        {
+            "style": "Text",
+            "text": "All of the data inside the Superalgos system has an origin somewhere at the Internet, outisde of the system. There are currently to ways to bring data into the system:",
+            "updated": 1621705240818
+        },
+        {
+            "style": "List",
+            "text": "By coding an Algorithm: with this method dev users can extract data from any source at all. The way to do it is to implement a new process into the already existing Sensor Bot. This ype of bot is just for that, to allow users to write code to extract data from different places outside of the system when they can not do it by the second method listed below. An example of such algorithms is the Historic-OHLCVs which uses the CCXT open source library to extract one minute candles from any exchange supported by that library.",
+            "updated": 1621705279013
+        },
+        {
+            "style": "List",
+            "text": "Without coding an Algorithm: (available since Beta 10) via the API Data Fetcher Bot, this method involves designing an API Map which is later feeded to an API Data Fetcher Bot at run time so that it can fetch data from APIs without needing the user to write a single line of code at all.",
+            "updated": 1621705316432
+        },
+        {
+            "style": "Text",
+            "text": "Once the data is in the system, it is then processed for different reasons by Indicator Bot s. Some of the processed data might be plotted, and some might be consumed from a Trading Strategy.",
+            "updated": 1621691628626
+        }
+    ]
+}

@@ -207,8 +207,8 @@ function newFileCursor() {
 
       let positionA
 
-      for (let i = 0; i < dailyFilePeriods.length; i++) {
-        let period = dailyFilePeriods[i]
+      for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+        let period = dailyTimeFramesArray[i]
 
         if (period[0] === pTimeFrame) {
           positionA = i

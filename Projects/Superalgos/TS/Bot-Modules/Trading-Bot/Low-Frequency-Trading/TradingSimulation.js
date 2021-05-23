@@ -376,8 +376,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                     /* Finding the Current Element on Daily Files */
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
-                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
-                            let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; j++) {
+                            let mapKey = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[j][1]
                             let propertyName = 'at' + mapKey.replace('-', '')
                             let thisChart = chart[propertyName]
 
@@ -399,8 +399,8 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                     }
 
                     /* Finding the Current Element on Market Files */
-                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
-                        let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
+                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; j++) {
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
                         let thisChart = chart[propertyName]
 

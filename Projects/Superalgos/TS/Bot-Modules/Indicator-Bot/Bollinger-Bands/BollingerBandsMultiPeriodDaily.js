@@ -328,7 +328,7 @@
                     function loopBody() {
 
                         try {
-                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1];
+                            const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1];
 
                             let candles = [];                   // Here we will put all the candles of the 2 files read.
 
@@ -725,7 +725,7 @@
                     function controlLoop() {
                         try {
                             n++
-                            if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
+                            if (n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                                 loopBody()
                             } else {
                                 n = 0

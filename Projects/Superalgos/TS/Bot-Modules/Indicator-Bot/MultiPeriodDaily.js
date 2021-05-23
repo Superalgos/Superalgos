@@ -55,8 +55,8 @@
 
             function getContextVariables() {
                 try {
-                    let thisReport;
-                    let statusReport;
+                    let thisReport
+                    let statusReport
                     /*
                     We look first for the bot who knows the begining of the market in order to get when the market starts.
                     */
@@ -93,15 +93,22 @@
                         callBackFunction(customOK)
                         return
                     }
-
-                    contextVariables.dateBeginOfMarket = new Date(
-                        thisReport.beginingOfMarket.year + "-" +
-                        thisReport.beginingOfMarket.month + "-" +
-                        thisReport.beginingOfMarket.days + " " +
-                        thisReport.beginingOfMarket.hours + ":" +
-                        thisReport.beginingOfMarket.minutes +
-                        TS.projects.superalgos.globals.timeConstants.GMT_SECONDS
-                    )
+                    /*
+                    There are Legacy modules that records this date at the Status Report in a legacy
+                    format. For those cases we have the following if... 
+                    */
+                    if (thisReport.beginingOfMarket.year !== undefined) {
+                        contextVariables.dateBeginOfMarket = new Date(
+                            thisReport.beginingOfMarket.year + "-" +
+                            thisReport.beginingOfMarket.month + "-" +
+                            thisReport.beginingOfMarket.days + " " +
+                            thisReport.beginingOfMarket.hours + ":" +
+                            thisReport.beginingOfMarket.minutes +
+                            TS.projects.superalgos.globals.timeConstants.GMT_SECONDS
+                        )
+                    } else { // This is the standard way.
+                        contextVariables.dateBeginOfMarket = new Date(thisReport.beginingOfMarket)
+                    }
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
@@ -121,7 +128,7 @@
                         return
                     }
 
-                    thisReport = statusReport.file;
+                    thisReport = statusReport.file
 
                     if (thisReport.lastFile === undefined) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -208,7 +215,7 @@
                         */
                         bootstrappingTheProcess = true
 
-                        for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; i++) {
+                        for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; i++) {
                             let emptyObject = {};
                             interExecutionMemoryArray.push(emptyObject)
                         }
@@ -298,8 +305,8 @@
 
                 function timeFramesLoopBody() {
 
-                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][0]
-                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                    const timeFrame = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][0]
+                    const timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {
@@ -486,7 +493,7 @@
 
                 function timeFramesControlLoop() {
                     n++
-                    if (n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length) {
+                    if (n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                         timeFramesLoopBody()
                     } else {
                         n = 0;
@@ -567,8 +574,8 @@
             function writeTimeFramesFile(productCodeName, callBack) {
 
                 let timeFramesArray = []
-                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; n++) {
-                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[n][1]
+                for (let n = 0; n < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; n++) {
+                    let timeFrameLabel = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[n][1]
 
                     /* Check Time Frames Filter */
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {

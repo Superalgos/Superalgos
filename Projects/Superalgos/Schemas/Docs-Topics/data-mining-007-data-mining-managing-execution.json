@@ -1,0 +1,55 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "7",
+    "type": "Data Mining - Managing Execution",
+    "definition": {
+        "text": "Bots can execute at their own pace or they could wait for other bots to finish executing in order to start. ",
+        "updated": 1621710031525
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Usually when a bot produces raw data, it executes itself based on the configuration of it's Process Definition node. These bots are usually the root of an execution tree formed by all the bots that will process and reprocess the raw data into more and more elaborate datasets.",
+            "updated": 1621710144112
+        },
+        {
+            "style": "Text",
+            "text": "There are two types of execution managment."
+        },
+        {
+            "style": "List",
+            "text": "Standalone Bots: These bots are the root of the Bot Execution Tree. They don't depend on any other bot to run. They usually run on a pre-defined schedulle, in most cases every one minute.",
+            "updated": 1621710324631
+        },
+        {
+            "style": "List",
+            "text": "Execution Dependent Bots: These bots are the branches of the Bot Execution Tree and they need to wait for another Bot to finish it's execution in order for it to start.",
+            "updated": 1621710352983
+        },
+        {
+            "style": "Text",
+            "text": "This is an example of how to configure a bot to be a Standalone Bot from the execution point of view. As you can see in the example below, the normalWaitTime property has a non zero value, in this case 60 seconds.",
+            "updated": 1621710692139
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical maket data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
+            "updated": 1621710641664
+        },
+        {
+            "style": "Text",
+            "text": "This is how to configure the Process Definition of a Bot that it's execution depends on other Bot. Here the normalWaitTime has a value of zero, which will force the boot to inmediatelly run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
+            "updated": 1621710760133
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Period-Market\"\n    }\n}",
+            "updated": 1621710596317
+        },
+        {
+            "style": "Success",
+            "text": "In this case users must also define which bot to wait for. To do this they stablish a reference from the Execution Started Event node of the Bot that needs to wait, to the Execution Finished Event of the Bot they are waiting for to finish.",
+            "updated": 1621710539966
+        }
+    ]
+}

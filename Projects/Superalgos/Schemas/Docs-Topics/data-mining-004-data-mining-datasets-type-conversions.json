@@ -1,0 +1,89 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": "4",
+    "type": "Data Mining - Datasets Type Conversions",
+    "definition": {
+        "text": "Processes fetching data from the Internet are optimized for accesing a wide range of APIs available out there. The Dataset Type they use to store raw data is usually not the best one for data consumption within the system. For that reason Dataset Type conversions needs to be done.",
+        "updated": 1621701280910
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The type of conversion currently implemented into the system are: ",
+            "updated": 1621698757715
+        },
+        {
+            "style": "List",
+            "text": "From One-Min-Daily Dataset to Multi-Period-Daily.",
+            "updated": 1621701316752
+        },
+        {
+            "style": "List",
+            "text": "From One-Min-Daily Dataset to Multi-Period-Market.",
+            "updated": 1621701322738
+        },
+        {
+            "style": "Subtitle",
+            "text": "How to convert from one Dataset type to another"
+        },
+        {
+            "style": "Text",
+            "text": "There are two ways to convert from one Dataset type to another. ",
+            "updated": 1621699409527
+        },
+        {
+            "style": "List",
+            "text": "Custom Code: Users can write code to handle the conversion in cases the standard converter is not available for the type of conversion needed.",
+            "updated": 1621711355058
+        },
+        {
+            "style": "List",
+            "text": "Standard Converter: Use a standard converter to do the job. Currently there is only one Standard Converter and it works converting from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. ",
+            "updated": 1621711423050
+        },
+        {
+            "style": "Subtitle",
+            "text": "Custom Code Exmaple",
+            "updated": 1621699475475
+        },
+        {
+            "style": "Text",
+            "text": "The Candles-Volumes indicator at the Master Data Mine converts One-Min candles and volumes into candles and volumes of 2 min, 3 min, 4 up to 24hs. To do this it runs a custom made algorithm that aggregates that information provided by the Exchange Raw Data Sensor Bot.",
+            "updated": 1621699141131
+        },
+        {
+            "style": "Note",
+            "text": "The reason this was implemented as custom code is because when it was needed there was no standard converter implemented and still this was not migrated to the currently existing one."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Standard Converter Example",
+            "updated": 1621701438440
+        },
+        {
+            "style": "Text",
+            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine uses a Standard Converter from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. To use the conferter, the bot's Process Definition nodes need to have at their config the framework of this converter.",
+            "updated": 1621711379111
+        },
+        {
+            "style": "Text",
+            "text": "To convert to Multi-Period-Daily, set the framework name like in this example:",
+            "updated": 1621701835162
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Period-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Daily\"\n    }\n}",
+            "updated": 1621701781838
+        },
+        {
+            "style": "Text",
+            "text": "To convert to Multi-Period-Market, set the framework name like in this example:",
+            "updated": 1621701845744
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Market\"\n    }\n}",
+            "updated": 1621701757557
+        }
+    ]
+}

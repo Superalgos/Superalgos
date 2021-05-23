@@ -47,7 +47,7 @@ It is also required to install the Node Package Manager for dependancy managemen
 ```
 sudo apt install npm
 ```
-You may also type the following to verify the Node.js and NPM installation and version.
+You may also type the following to verify Node.js and NPM installation and version.
 ```
 node -v
 ```
@@ -134,11 +134,25 @@ node setup
 
 Then wait until you are able to type within the terminal again.
 
-This command will install and configure all additional dependencies needed by Superalgos.
+This command will install and configure all additional dependencies needed by Superalgos. It will also install desktop and start menu shortcuts.
+
+**NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename your main directory before running `node setup`.
 
 Congratulations your installation is complete!
 
 > **The Usage section below explains how to run the app.**
+
+<hr>
+
+**DEPENDENCY INSTALLATION FOR RASPBERRY PI USERS**
+
+As noted above, running `node setup` installs GUI shortcuts by default.  To suppress this behavior in headless installations, add the `noShortcuts` flag as follows:
+
+```
+node setup noShortcuts
+```
+
+<hr>
 
 ## 4. Installation Notes
 
@@ -162,8 +176,14 @@ Congratulations your installation is complete!
 ```
 node setup
 ```
+Then wait until you are able to type within the terminal again.  
 
- Then wait until you are able to type within the terminal again.  
+**NOTE FOR USERS RUNNING IN HEADLESS ENVIRONMENT:**  You will need to add the `noShortcuts` flag while running `node setup` to suppress installing GUI shortcuts.  To do this type:
+
+```
+node setup noShortcuts
+```
+
 
 ### Refactorings
 
@@ -198,31 +218,13 @@ then
 node run minMemo noBrowser
 ```
 
-## 2. Add a Desktop/Launcher Shortcut for Superalgos
+In addition, you may use any of the automatically installed desktop and start menu shortcuts to launch Superalgos.
 
-There are a number of scripts available to help make lauching Superalgos easier and feel more native. To use these scripts, follow the steps for your operating system.
+**NOTE:** Shortcuts are not currently supported on Mac. Collaborators are needed to finish this feature.
 
-## For **Windows** Users
+**B.** Enable Desktop Shortcut on Ubuntu
 
-Open a file browser and navigate to the Superalgos Directory.
-
-Under the folder titled `Launch-Scripts` double-click the script `create-shortcut-windows.bat`.
-
-After running this script there will be two shortcuts added.  One to your start menu and one to your desktop. You can now lauch Superalgos from any of these shortcuts, or search `Superalgos` in the start menu search bar.
-
-## For **Ubuntu** Users
-
-Open a terminal and run the following commands:
-```
-cd Superalgos/Launch-Scripts
-```
-```
-bash create-shortcut-ubuntu.sh
-```
-
-After running these commands there will be two shortcuts added. One to your launcher and one to your desktop. The launcher shortcut will work out of the box. The desktop shortcut, however, requires a few additional steps to set up. The following section will walk you through these steps.
-
-**A.** Enable Desktop Shortcut
+The majority of shortcuts that are automatically installed will work out of the box. Desktop shortcuts on Ubuntu, however, require a few additional steps to set up.
 
 First, desktop icons need to be enabled within the Tweaks app.
 * Check if Tweaks is installed.
@@ -240,7 +242,7 @@ Finally, you will need to enable the desktop shortcut.
 
 ![allow-launching](https://user-images.githubusercontent.com/55707292/117553933-fcfc5b80-b019-11eb-872c-4fad81b184d2.gif)
 
-Now both shortcuts will launch Superalgos like any other program on your computer.
+Now both launcher and desktop shortcuts will launch Superalgos like any other program on your computer.
 
 ## 3. Usage Notes
 
@@ -291,22 +293,15 @@ journalctl -u superalgos -f
 
 # Uninstall
 
-Superalgos writes nothing outside of the ```Superalgos``` folder. To completely uninstall the software, just delete the folder.
+Superalgos writes nothing outside of the ```Superalgos``` folder other than shortcut files. To uninstall the software, follow these steps:
 
-If you have installed shortcuts for Superalgos you can remove them as follows:
-
-## For **Windows** Users
-
-Open a file browser and navigate to the Superalgos directory.
-
-Under the folder titled `Launch-Scripts` double-click the script `uninstall-shortcut-windows.bat`.
-
-## For **Ubuntu** Users
-
-Open a terminal and run the following command:
+Open a terminal or command prompt and navigate to your main Superalgos directory and type the following command:
 ```
-rm ~/Desktop/Superalgos.desktop && rm ~/.local/share/applications/Superalgos.desktop
+node uninstall
 ```
+This will remove any shortcut files that have been installed. 
+
+Then simply delete the `Superalgos` folder. There will be nothing left on your computor.
 
 # Welcome Tutorial
 

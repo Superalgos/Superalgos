@@ -5,6 +5,7 @@ const { exec } = require("child_process");
 // Handle adding shortcuts
 if (process.argv.includes("noShortcuts")) {
     // Cancel running script if flag provided
+    console.log('');
     console.log('noShortcuts ................................................... Setting up without shortcuts.')
 
 } else {

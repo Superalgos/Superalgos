@@ -5,7 +5,7 @@ const { exec } = require("child_process");
 const os       = require("os"); 
 
 // Get the name of the main directory
-let cwd = process.cwd();
+let cwd = __dirname;
 let dirs = cwd.split(path.sep);
 let name = dirs[dirs.length - 2];
 
@@ -49,22 +49,17 @@ if (os.platform() == "win32") {
     let version = os.version();
     if (version.includes("Ubuntu")) {
         // Paths and Icon for Ubuntu shortcuts
-        let icon = path.join( process.cwd(),"..", "/Projects/Superalgos/Icons/superalgos.png");
-        let shortcutPaths = [
-            path.join( os.homedir(), "Desktop/" ),
-            path.join( os.homedir(), "local/share/applications/" )
-        ]
+        let icon = path.join( __dirname,"..", "/Projects/Superalgos/Icons/superalgos.png");
 
         // Create .desktop shortcut file
-        console.log("still working on linux", icon, shortcutPaths)
         fs.writeFileSync( `${name}.desktop`, 
             `[Desktop Entry]
             Type=Application
             Encoding=UTF-8
             Name=${name}
             Comment=Launch Shortcut for Superalgos 
-            Path=${process.cwd()}
-            Exec=gnome-terminal -e ${process.cwd()}/launch-linux.sh
+            Path=${__dirname}
+            Exec=gnome-terminal -e ${__dirname}/launch-linux.sh
             Terminal=true
             Icon=${icon}
             Categories=Application;`,

@@ -1,7 +1,7 @@
 {
     "topic": "TS LF Trading Bot Errors",
     "pageNumber": 53,
-    "type": "TS LF Trading Bot Error - Annoucement Condition Evaluation Error",
+    "type": "TS LF Trading Bot Error - Announcement Condition Evaluation Error",
     "definition": {
         "text": "While evaluation an Announcement Condition code, the system encountered an error at the code you provided for that condition. ",
         "updated": 1611733294584

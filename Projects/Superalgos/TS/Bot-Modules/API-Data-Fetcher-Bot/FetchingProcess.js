@@ -15,6 +15,23 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
     function initialize(pStatusDependencies, callBackFunction) {
         try {
+
+            const message = 'Announcement Condition Evaluation Error'
+            let err = {
+                message: message
+            }
+            let docs = {
+                project: 'Superalgos',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - ' + message,
+                placeholder: {}
+            }
+             
+            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, undefined, undefined, undefined, undefined, undefined)
+            err.docs = docs
+            err.node = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex] 
+
+            throw (err)
             statusDependencies = pStatusDependencies;
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
@@ -196,7 +213,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             if (endpointNode === undefined) {
                                 // TODO ERROR HANDLING.
                                 console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
-                                throw("Cant continue")
+                                throw ("Cant continue")
                             }
                         }
 

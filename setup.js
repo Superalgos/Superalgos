@@ -2,6 +2,24 @@ const path = require("path");
 const process = require("process");
 const { exec } = require("child_process");
 
+// Handle adding shortcuts
+if (process.argv.includes("noShortcuts")) {
+    // Cancel running script if flag provided
+    console.log('noShortcuts ................................................... Setting up without shortcuts.')
+
+} else {
+    // Run create-shortcuts script
+    try {
+        const { fork } = require('child_process')
+        fork('./Launch-Scripts/create-shortcut.js')
+    } catch (err) {
+        console.log('')
+        console.log(err)
+        console.log('')
+
+    }
+}
+
 // Create Operating System compatable paths to each node_modules directory.
 let nodeModulesDirs = [
     path.join( process.cwd(), "Client"),

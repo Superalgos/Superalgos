@@ -1,6 +1,5 @@
 const path     = require("path");
 const fs       = require("fs");
-const process  = require("process");
 const { exec } = require("child_process");
 const os       = require("os"); 
 
@@ -12,11 +11,11 @@ let name = dirs[dirs.length - 2];
 // Windows Shortcuts
 if (os.platform() == "win32") {
     // Paths and Icon for Windows shortcuts
-    let target = path.join( process.cwd(), "launch-windows.bat");
-    let icon = path.join( process.cwd(), "superalgos.ico");
+    let target = path.join( __dirname, "launch-windows.bat");
+    let icon = path.join( __dirname, "superalgos.ico");
     let shortcutPaths = [
         path.join( os.homedir(), "Desktop", `${name}.lnk`),
-        path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "Superalgos.lnk")
+        path.join( os.homedir(), "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", `${name}.lnk`)
     ]
 
     // Place Shortcuts using powershell

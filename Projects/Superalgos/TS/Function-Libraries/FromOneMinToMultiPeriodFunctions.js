@@ -1,11 +1,11 @@
-exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
+exports.newSuperalgosFunctionLibrariesFromOneMinToMultiPeriodFunctions = function () {
     /*
     This module contains the functions to aggregate data into elements with
     begin and end properties. It is used by both the One Min to Market
     and One Min to Daily frameworks as a common place to haave functions
     used at both of them.
     */
-    const MODULE_NAME = "Data Aggregation Functions"
+    const MODULE_NAME = "From One Min To Multi Period Functions"
 
     let thisObject = {
         checkForKnownConstraints: checkForKnownConstraints,
@@ -36,10 +36,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         is not to merge information and splitted into multiple outputs.
         */
         if (dataDependenciesModule.curatedDependencyNodeArray.length !== 1) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length)
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
-            return
+            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                processIndex,
+                MODULE_NAME,
+                'Dataset Type Standard Converter',
+                { errorDetails: "checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Data Dependency. Found = " + dataDependenciesModule.curatedDependencyNodeArray.length },
+                'Only One Data Dependency Expected',
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies
+            )
         } else {
             node.dataDependency = dataDependenciesModule.curatedDependencyNodeArray[0]
         }
@@ -49,10 +53,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
         )
 
         if (outputDatasets.length !== 1) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length)
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
-            return
+            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                processIndex,
+                MODULE_NAME,
+                'Dataset Type Standard Converter',
+                { errorDetails: "checkForKnownConstraints -> Validation Check Not Passed -> Expecting only one Output Dataset. Found = " + outputDatasets.length },
+                'Only One Output Dataset Expected',
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput
+            )
         } else {
             node.outputDataset = outputDatasets[0]
         }
@@ -90,10 +98,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] getContextVariables -> detectWhereTheMarketBegins-> Can not continue because dependecy Status Report is corrupt. ")
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                    return
+                    TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                        processIndex,
+                        MODULE_NAME,
+                        'Dataset Type Standard Converter',
+                        { errorDetails: "getContextVariables -> detectWhereTheMarketBegins -> Can not continue because dependecy Status Report is corrupt. " },
+                        'Status Report Is Corrupt',
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput
+                    )
                 }
 
                 thisReport = statusReport.file
@@ -131,10 +143,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] getContextVariables -> detectWhereTheMarketEnds-> Can not continue because dependecy Status Report is corrupt. ")
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                    return
+                    TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                        processIndex,
+                        MODULE_NAME,
+                        'Dataset Type Standard Converter',
+                        { errorDetails: "getContextVariables -> detectWhereTheMarketEnds -> Can not continue because dependecy Status Report is corrupt. " },
+                        'Status Report Is Corrupt',
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput
+                    )
                 }
 
                 thisReport = statusReport.file
@@ -171,10 +187,14 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                 }
 
                 if (statusReport.status === "Status Report is corrupt.") {
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
-                    return
+                    TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                        processIndex,
+                        MODULE_NAME,
+                        'Dataset Type Standard Converter',
+                        { errorDetails: "getContextVariables -> getOwnStatusReport -> Can not continue because dependecy Status Report is corrupt. " },
+                        'Status Report Is Corrupt',
+                        TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput
+                    )
                 }
 
                 thisReport = statusReport.file
@@ -244,18 +264,22 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
             }
 
         } catch (err) {
-            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] getContextVariables -> getOwnStatusReport-> err = " + err.stack)
+
             if (err.message === "Cannot read property 'file' of undefined") {
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys))
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so.")
+                err.errorDetails = [
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Check the bot configuration to see if all of its statusDependencies declarations are correct. ",
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys),
+                    "[HINT] getContextVariables -> getOwnStatusReport-> Dependencies loaded -> Double check that you are not running a process that only can be run at noTime mode at a certain month when it is not prepared to do so."
+                ]
             }
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
+            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                processIndex,
+                MODULE_NAME,
+                'Dataset Type Standard Converter',
+                err,
+                'Get Context Variables Failed',
+                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput
+            )
         }
     }
 
@@ -362,9 +386,9 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                         dependencyDailyFile = JSON.parse(text)
                     } catch (err) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] nextDependencyDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
+                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack)
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -546,7 +570,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                     function aggregationMethodLast() {
                         /* 
                         This is the LAST type of aggregation.
-
+ 
                         Everything that follows will be set for each element overiding the previous
                         ones, so only the last values will survive. 
                         */
@@ -561,7 +585,7 @@ exports.newSuperalgosFunctionLibrariesDataAggregationFunctions = function () {
                     function aggregationMethodMin() {
                         /* 
                         This is the MIN type of aggregation.
-
+ 
                         Note that to be able to calculate the minimum, we will be assigning to all properties the first 
                         element values, so as to have a baseline from where to compare later on.
                         */

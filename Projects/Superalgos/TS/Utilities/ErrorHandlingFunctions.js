@@ -10,7 +10,9 @@ exports.newSuperalgosUtilitiesErrorHandlingFunctions = function () {
     This function helps Bots to integrate their error handling to the In-App-Docs.
     */
     function throwHandledException(
-        source,             // The Bot Type where the handled exception occured. This will be part of the Doc's page name.
+        processIndex,       // The index of the process where the exception happened.
+        MODULE_NAME,        // The name of the module where the exception happened.
+        source,             // A user understandable source of the exception. This will be part of the Doc's page name.
         err,                // The Error object available, if any.
         message,            // The Message, which will be part of the Docs page name.
         node                // The closest node related to the exception.
@@ -45,6 +47,14 @@ exports.newSuperalgosUtilitiesErrorHandlingFunctions = function () {
         */
         err.docs = docs
         err.node = node
+        /*
+        Users will not always be watching the console when an execption happens, for that 
+        reason we will send it also to the Debug Logs.
+        */
+        let errorDetails = err.errorDetails
+        if (errorDetails === undefined) { errorDetails = "No error details availabe."}
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            "[ERROR] " + errorDetails)
 
         throw (err)
     }

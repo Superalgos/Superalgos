@@ -455,10 +455,10 @@
                     "fileName": "DataDependenciesFunctions.js"
                 },
                 {
-                    "name": "Data Aggregation Functions",
-                    "propertyName": "dataAggregationFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesDataAggregationFunctions",
-                    "fileName": "DataAggregationFunctions.js"
+                    "name": "From One Min To Multi Period Functions",
+                    "propertyName": "fromOneMinToMultiPeriodFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesFromOneMinToMultiPeriodFunctions",
+                    "fileName": "FromOneMinToMultiPeriodFunctions.js"
                 },
                 {
                     "name": "Process Files Functions",

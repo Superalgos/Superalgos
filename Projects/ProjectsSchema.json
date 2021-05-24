@@ -497,6 +497,12 @@
                     "propertyName": "docsFunctions",
                     "functionName": "newSuperalgosUtilitiesDocsFunctions",
                     "fileName": "DocsFunctions.js"
+                },
+                {
+                    "name": "Error Handling Functions",
+                    "propertyName": "errorHandlingFunctions",
+                    "functionName": "newSuperalgosUtilitiesErrorHandlingFunctions",
+                    "fileName": "ErrorHandlingFunctions.js"
                 }
             ],
             "taskModules": [

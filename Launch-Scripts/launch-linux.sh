@@ -1,1 +1,0 @@
-x-terminal-emulator -e "cd .. && node run && $SHELL"

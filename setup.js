@@ -2,6 +2,25 @@ const path = require("path");
 const process = require("process");
 const { exec } = require("child_process");
 
+// Handle adding shortcuts
+if (process.argv.includes("noShortcuts")) {
+    // Cancel running script if flag provided
+    console.log('');
+    console.log('noShortcuts ................................................... Setting up without shortcuts.')
+
+} else {
+    // Run create-shortcuts script
+    try {
+        const { fork } = require('child_process')
+        fork('./Launch-Scripts/create-shortcut.js')
+    } catch (err) {
+        console.log('')
+        console.log(err)
+        console.log('')
+
+    }
+}
+
 // Create Operating System compatable paths to each node_modules directory.
 let nodeModulesDirs = [
     path.join( process.cwd(), "Client"),
@@ -18,14 +37,12 @@ console.log('');
 console.log(nodeModulesDirs);
 console.log('');
 
-
-let dir;
-for (dir in nodeModulesDirs) {
+for (let dir of nodeModulesDirs) {
     // Loop through directories and run npm ci in a child process shell.
-    let command = "echo Results of install at "+ nodeModulesDirs[dir] + " & npm ci";
+    let command = "echo Results of install at "+ dir + " & npm ci";
     exec( command,
         {
-            cwd: nodeModulesDirs[dir] 
+            cwd: dir 
         },
         function ( error, stdout ){
             if (error) {

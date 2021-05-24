@@ -456,7 +456,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         throwHandledException(
                                             { resposeCodeReceived: response.statusCode, detais: 'The response code ' + response.statusCode + ' received is not associated with any API Query Response node.' },
                                             'Unexpected API Response Code',
-                                            apiResponseSchemaNode
+                                            endpointNode
                                         )
                                     }
 

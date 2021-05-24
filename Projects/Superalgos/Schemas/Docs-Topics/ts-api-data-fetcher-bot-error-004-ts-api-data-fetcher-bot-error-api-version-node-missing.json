@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "4",
+    "type": "TS API Data Fetcher Bot Error - API Version Node Missing",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "There is a child node of type API Version of the current node that is missing. Add this child node in order for the API Data Fetcher Bot to be able to run properly.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "API Version Node Missing",
             "updated": 1621860374194
         },
         {

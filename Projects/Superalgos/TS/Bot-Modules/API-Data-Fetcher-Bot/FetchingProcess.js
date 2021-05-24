@@ -99,8 +99,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     let protocol = "https" // default value
 
                     if (apiMap.config.hostName === undefined || apiMap.config.hostName === "") {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            {missingProperty: "hostName"},
+                            'Config Property Missing',
+                            apiMap
+                        )
                     } else {
                         hostName = apiMap.config.hostName
                     }
@@ -118,12 +121,18 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     if (apiMap.apiVersions.length === 0) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'API Version Node Missing',
+                            apiMap
+                        )
                     }
                     if (processNode.processOutput === undefined) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'Process Output Node Missing',
+                            processNode
+                        )
                     }
                     /*
                     Process Output Datasets determine which Datasets are going to be built by 
@@ -179,8 +188,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         to a certain enpoint.
                                         */
                                         if (endpointNodeFound === undefined) {
-                                            // TODO Error Handling
-                                            return
+                                            throwHandledException(
+                                                undefined,
+                                                'API Response Field Not Descendant From Endpoint',
+                                                apiResponseField
+                                            )
                                         }
 
                                         if (endpointNode === undefined) {
@@ -192,17 +204,30 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         Here we check all enpoints are actually the same endpoiht.
                                         */
                                         if (endpointNodeFound.id !== endpointNode.id) {
-                                            // TODO Error Handling - we can not reference fields from different enpoints.
-                                            return
+                                            /*
+                                            We can not reference fields from different enpoints.
+                                            */
+                                            throwHandledException(
+                                                undefined,
+                                                'More Than Two Endpoints Detected',
+                                                apiResponseField
+                                            )
                                         }
                                     }
                                 }
                             }
 
                             if (endpointNode === undefined) {
-                                // TODO ERROR HANDLING.
-                                console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
-                                throw ("Cant continue")
+                                /*
+                                API Endpoint counld not be found. Check that the at least one Record Property 
+                                has an API Response Field Reference child, and that this one is referencing an 
+                                API Response Field.
+                                */
+                                throwHandledException(
+                                    undefined,
+                                    'API Endpoint Not Found',
+                                    productDefinition.record
+                                )
                             }
                         }
 
@@ -427,10 +452,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     getApiResponseSchema(response.statusCode)
 
                                     if (apiResponseSchemaNode === undefined) {
-                                        // TODO Error Handling
-                                        console.log('The response code ' + response.statusCode + ' received is not associated with any API Response Schema.')
                                         errorCodeReceived = true
-                                        return
+                                        throwHandledException(
+                                            { resposeCodeReceived: response.statusCode, detais: 'The response code ' + response.statusCode + ' received is not associated with any API Query Response node.' },
+                                            'Unexpected API Response Code',
+                                            endpointNode
+                                        )
                                     }
 
                                     function onDataArrived(chunk) {
@@ -549,7 +576,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     break
                                 }
                                 default: {
-                                    // TODO ERROR HANDLING. Unrecognized dataset codeName found.
+                                    throwHandledException(
+                                        { datasetType: dataset.config.codeName},
+                                        'Unsupported Dataset Type',
+                                        dataset
+                                    )
                                 }
                             }
 
@@ -721,8 +752,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let timestamp = record.map.get('timestamp')
 
                                     if (timestamp === undefined) {
-                                        // TODO ERROR HANDLER : There must be a Record Property with codeName 'timestamp' defined.
-                                        throw 'ERROR'
+                                        /*
+                                        There must be a Record Property with codeName 'timestamp' defined.
+                                        */
+                                        throwHandledException(
+                                            undefined,
+                                            'Timestamp Record Property Missing',
+                                            productDefinition.record
+                                        )
                                     }
 
                                     return timestamp

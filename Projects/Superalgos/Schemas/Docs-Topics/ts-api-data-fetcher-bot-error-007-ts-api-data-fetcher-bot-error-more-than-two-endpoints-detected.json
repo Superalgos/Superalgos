@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "7",
+    "type": "TS API Data Fetcher Bot Error - More Than Two Endpoints Detected",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "Each process of the API Data Fetcher Bot is expected to fetch data from a single API Endpoint. The Bot detected that you configured the Record Properties referencing API Data Fields nodes that belongs to different API Endpoints. This is not supported and the API Data Fetcher bot will not proceed until you reference a set of API Response Fields that are descendants / belongs to a single API Endpoint.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "More Than Two Endpoints Detected",
             "updated": 1621860374194
         },
         {

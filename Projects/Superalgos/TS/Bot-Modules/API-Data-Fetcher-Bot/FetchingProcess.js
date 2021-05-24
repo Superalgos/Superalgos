@@ -15,23 +15,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
     function initialize(pStatusDependencies, callBackFunction) {
         try {
-
-            const message = 'Announcement Condition Evaluation Error'
-            let err = {
-                message: message
-            }
-            let docs = {
-                project: 'Superalgos',
-                category: 'Topic',
-                type: 'TS LF Trading Bot Error - ' + message,
-                placeholder: {}
-            }
-             
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, undefined, undefined, undefined, undefined, undefined)
-            err.docs = docs
-            err.node = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex] 
-
-            throw (err)
             statusDependencies = pStatusDependencies;
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
         } catch (err) {
@@ -94,14 +77,20 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'API Map Reference Node Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
+                        )
                     }
 
                     let apiMap = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
                     if (apiMap === undefined) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'Reference Parent Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference
+                        )
                     }
 
                     let hostName
@@ -894,4 +883,41 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
-};
+    function throwHandledException(
+        err,
+        message,
+        node
+    ) {
+        if (err === undefined) {
+            err = {
+                message: message
+            }
+        }
+        /*
+        This is what the Docs Space will get.
+        */
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS API Data Fetcher Bot Error - ' + message,
+            placeholder: {}
+        }
+        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(
+            docs,
+            err,
+            node.name,
+            node.code,
+            node.config,
+            node.value,
+            err
+        )
+        /*
+        This will be needed for the process level error handling. Must be added
+        here after the buildPlaceholder function call.
+        */
+        err.docs = docs
+        err.node = node
+
+        throw (err)
+    }
+}

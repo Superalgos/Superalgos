@@ -63,7 +63,14 @@
 
     function initialize(pStatusDependencies, callBackFunction) {
         let exchangeClass
+        /*
+        This is what we are going to do hereL
+        
+        1. Parameters set by SA user at the Crypto Exchange node are extracted. There might be parameters for each supported method at the CCXT library.
+        2. The CCXT class for the configured exchange is instantiated, with whatever options where configured.
 
+        This gives the SA user a lot of control over the underlaying CCXT gateway to exchanges.
+        */
         try {
             statusDependencies = pStatusDependencies;
 

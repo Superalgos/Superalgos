@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "10",
+    "type": "TS API Data Fetcher Bot Error - Unsupported Dataset Type",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "We have 2 ways of saving data coming from an API. As a Single-File and as One Minute Daily Files. Which one we are going to use depends on the way the dataset is configured. The config property codeName defines the dataset type for that dataset. The 2 supported dataset types that the API Data Fetcher Bot knows are Single-File and One-Min. Use one of those in order to fix this issue. Find below which dataset type the Bot found at runtime.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "Unsupported Dataset Type",
             "updated": 1621860374194
         },
         {

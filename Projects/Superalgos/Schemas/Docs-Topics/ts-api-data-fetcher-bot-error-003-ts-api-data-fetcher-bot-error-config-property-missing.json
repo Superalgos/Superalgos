@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "3",
+    "type": "TS API Data Fetcher Bot Error - Config Property Missing",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "There is a required property at the config of this no that is missing. Add this property in order for the API Data Fetcher Bot to be able to run properly. Check the details below to learn specifically which one is the missing property.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "Config Property Missing",
             "updated": 1621860374194
         },
         {

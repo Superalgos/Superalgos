@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "11",
+    "type": "TS API Data Fetcher Bot Error - Timestamp Record Property Missing",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "The API Data Fetcher Bot expects that one of the Repord Property nodes is defined with a config property codeName as a timestamp. This is a special value and concept. This means that the Record Property will hold the timestamp value returned by the API, but at the same time it assures the Bot that the information will be well organized by time. To solve this issue simply make sure that you have a Timestamp Record Property that ultimately references the Timestamp API Response Field holding the actual timestamp of the information returned by the API server.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "Timestamp Record Property Missing",
             "updated": 1621860374194
         },
         {

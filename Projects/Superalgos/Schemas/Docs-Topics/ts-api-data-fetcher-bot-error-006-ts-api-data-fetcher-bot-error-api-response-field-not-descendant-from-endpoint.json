@@ -1,15 +1,15 @@
 {
     "topic": "TS API Data Fetcher Bot Error",
-    "pageNumber": "2",
-    "type": "TS API Data Fetcher Bot Error - Reference Parent Missing",
+    "pageNumber": "6",
+    "type": "TS API Data Fetcher Bot Error - API Response Field Not Descendant From Endpoint",
     "definition": {
-        "text": "The node where this error occured needs to have a Reference Parent. Establish a reference from this node and this error will not happen again.",
+        "text": "Every API Response Field Node needs to descend from an API Endpoint node. Check this node's parent node, and it's parent, and continue until you find the API Endpoint. Find the place where the chain is broken and fix it in order for the API Data Fetcher Bot to be able to preccedd.",
         "updated": 1621860822884
     },
     "paragraphs": [
         {
             "style": "Error",
-            "text": "Reference Parent Missing",
+            "text": "API Response Field Not Descendant From Endpoint",
             "updated": 1621860374194
         },
         {

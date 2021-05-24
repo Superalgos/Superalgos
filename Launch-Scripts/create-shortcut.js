@@ -19,16 +19,15 @@ if (os.platform() == "win32") {
     ]
 
     // Place Shortcuts using powershell
-    let dir;
-    for (dir in shortcutPaths) {
-        let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${shortcutPaths[dir]}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`;
+    for (let dir of shortcutPaths) {
+        let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`;
      
         exec( command,
             {
                 shell: "powershell.exe",
                 execArgv: "-ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command"
             },
-            function ( error, stdout ){
+            function ( error, stdout){
                 if (error) {
                     console.log('');
                     console.log("There was an error installing a shortcut: ");
@@ -38,6 +37,8 @@ if (os.platform() == "win32") {
                 } else {
                     console.log('');
                     console.log("Shortcut added successfully!");
+                    console.log('');
+                    console.log(stdout);
                 }
         });
     };

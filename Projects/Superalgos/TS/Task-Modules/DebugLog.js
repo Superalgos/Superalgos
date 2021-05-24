@@ -50,20 +50,20 @@ exports.newSuperalgosTaskModulesDebugLog = function (processIndex) {
             " " +
             strPad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName, 20) +
             " " +
-            strPad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 40) +
+            strPad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName, 30) +
             " " +
             strPad(TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName, 40) +
             loopType +
             strPad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).MAIN_LOOP_COUNTER, 8) +
             " " +
-            strPad(date, 30) +
+            strPad(date, 28) +
             " " +
-            strPad(percentage, 10)
+            strPad(percentage, 8)
         )
     }
 
     function newMainLoop() {
-        logLoop('', '', "          Main Loop # ")
+        logLoop('', '', "       Main Loop # ")
     }
 
     function newInternalLoop(date, percentage) {
@@ -76,7 +76,7 @@ exports.newSuperalgosTaskModulesDebugLog = function (processIndex) {
         if (date === undefined) { date = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME }
         date = date.getUTCFullYear() + '-' + strPad(date.getUTCMonth() + 1, 2, "0") + '-' + strPad(date.getUTCDate(), 2, "0");
 
-        logLoop(date, percentage, "      Internal Loop # ")
+        logLoop(date, percentage, "   Internal Loop # ")
 
         persist();
     }

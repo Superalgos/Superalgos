@@ -77,14 +77,20 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'API Map Reference Node Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
+                        )
                     }
 
                     let apiMap = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
                     if (apiMap === undefined) {
-                        // TODO Error Handling
-                        return
+                        throwHandledException(
+                            undefined,
+                            'Reference Parent Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference
+                        )
                     }
 
                     let hostName
@@ -196,7 +202,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             if (endpointNode === undefined) {
                                 // TODO ERROR HANDLING.
                                 console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
-                                throw("Cant continue")
+                                throw ("Cant continue")
                             }
                         }
 
@@ -877,4 +883,41 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
-};
+    function throwHandledException(
+        err,
+        message,
+        node
+    ) {
+        if (err === undefined) {
+            err = {
+                message: message
+            }
+        }
+        /*
+        This is what the Docs Space will get.
+        */
+        let docs = {
+            project: 'Superalgos',
+            category: 'Topic',
+            type: 'TS API Data Fetcher Bot Error - ' + message,
+            placeholder: {}
+        }
+        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(
+            docs,
+            err,
+            node.name,
+            node.code,
+            node.config,
+            node.value,
+            err
+        )
+        /*
+        This will be needed for the process level error handling. Must be added
+        here after the buildPlaceholder function call.
+        */
+        err.docs = docs
+        err.node = node
+
+        throw (err)
+    }
+}

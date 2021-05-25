@@ -1,1 +1,0 @@
-cmd_Release/tfjs_binding.node := ln -f "Release/obj.target/tfjs_binding.node" "Release/tfjs_binding.node" 2>/dev/null || (rm -rf "Release/tfjs_binding.node" && cp -af "Release/obj.target/tfjs_binding.node" "Release/tfjs_binding.node")

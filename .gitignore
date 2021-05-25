@@ -8,6 +8,6 @@ Projects/Superalgos/Icons/Thumbs.db
 *.bat
 !launch-windows.bat
 !create-shortcut-windows.bat
-!uninstall-shortcut-windows.bat
 *.exe
 node_modules
+!Projects/TensorFlow/TS/Bot-Modules/Learning-Bot/Low-Frequency-Learning/node_modules

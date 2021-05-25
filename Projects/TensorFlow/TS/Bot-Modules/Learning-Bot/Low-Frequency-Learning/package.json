@@ -7,19 +7,6 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^3.0.0",
-    "@tensorflow/tfjs-backend-cpu": "^3.0.0",
-    "@tensorflow/tfjs-backend-webgl": "^3.0.0",
-    "@tensorflow/tfjs-converter": "^3.0.0",
-    "@tensorflow/tfjs-core": "^3.0.0",
-    "@tensorflow/tfjs-data": "^3.0.0",
-    "@tensorflow/tfjs-layers": "^3.0.0",
-    "@tensorflow/tfjs-node": "^3.0.0",
-    "@types/node": "^14.14.28",
-    "@types/node-fetch": "^2.5.8",
-    "@types/offscreencanvas": "^2019.3.0",
-    "@types/seedrandom": "^2.4.27",
-    "@types/webgl-ext": "^0.0.30",
-    "@types/webgl2": "^0.0.5"
+    "@tensorflow/tfjs": "^3.6.0"
   }
 }

@@ -24,6 +24,7 @@ function newListItem() {
     thisObject.container.frame.height = SIDE_PANEL_WIDTH * 0.40
 
     let prefix = "User "
+    let label 
     let name
     let project
     let type
@@ -49,10 +50,11 @@ function newListItem() {
         name = pName
         project = pProject
         type = pType
+        label = name
 
         let splittedName = name.split('→')
         if (splittedName.length === 2) {
-            name = splittedName[1]
+            label = splittedName[1]
             prefix = splittedName[0]
         }
 
@@ -115,8 +117,9 @@ function newListItem() {
 
         UI.projects.superalgos.utilities.drawPrint.roundedCornersBackground(params)
 
-        UI.projects.superalgos.utilities.drawPrint.drawLabel(name, 1 / 2, 2.5 / 10, -5, 0, 15, thisObject.container, labelColor)
+        UI.projects.superalgos.utilities.drawPrint.drawLabel(label, 1 / 2, 2.5 / 10, -5, 0, 15, thisObject.container, labelColor)
         UI.projects.superalgos.utilities.drawPrint.drawLabel(prefix + type, 1 / 2, 8.5 / 10, -5, 0, 15, thisObject.container, labelColor)
         UI.projects.superalgos.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, 0, 0, 50, thisObject.container)
     }
 }
+

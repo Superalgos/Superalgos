@@ -8,7 +8,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
         start: start
     };
 
-    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex);
+    let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
     let statusDependencies
 
     return thisObject;
@@ -16,19 +16,19 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
     function initialize(pStatusDependencies, callBackFunction) {
         try {
             statusDependencies = pStatusDependencies;
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] initialize -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                "[ERROR] initialize -> err = " + err.stack)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
     function start(callBackFunction) {
         try {
             if (TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true) {
-                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                 return
             }
 
@@ -50,8 +50,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return;
                     }
 
@@ -61,14 +61,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> getContextVariables -> err = " + err.stack);
+                        "[ERROR] start -> getContextVariables -> err = " + err.stack)
                     if (err.message === "Cannot read property 'file' of undefined") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ");
+                            "[HINT] start -> getContextVariables -> Check the bot Status Dependencies. ")
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
+                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys))
                     }
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -77,14 +77,26 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     processNode = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
-                        // TODO Error Handling
-                        return
+                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                            processIndex, 
+                            MODULE_NAME,
+                            'API Data Fetcher Bot',
+                            undefined,
+                            'API Map Reference Node Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex]
+                        )
                     }
 
                     let apiMap = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
                     if (apiMap === undefined) {
-                        // TODO Error Handling
-                        return
+                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                            processIndex, 
+                            MODULE_NAME,
+                            'API Data Fetcher Bot',
+                            undefined,
+                            'Reference Parent Missing',
+                            TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference
+                        )
                     }
 
                     let hostName
@@ -93,8 +105,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     let protocol = "https" // default value
 
                     if (apiMap.config.hostName === undefined || apiMap.config.hostName === "") {
-                        // TODO Error Handling
-                        return
+                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                            processIndex, 
+                            MODULE_NAME,
+                            'API Data Fetcher Bot',
+                            { missingProperty: "hostName" },
+                            'Config Property Missing',
+                            apiMap
+                        )
                     } else {
                         hostName = apiMap.config.hostName
                     }
@@ -112,12 +130,24 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     if (apiMap.apiVersions.length === 0) {
-                        // TODO Error Handling
-                        return
+                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                            processIndex, 
+                            MODULE_NAME,
+                            'API Data Fetcher Bot',
+                            undefined,
+                            'API Version Node Missing',
+                            apiMap
+                        )
                     }
                     if (processNode.processOutput === undefined) {
-                        // TODO Error Handling
-                        return
+                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                            processIndex, 
+                            MODULE_NAME,
+                            'API Data Fetcher Bot',
+                            undefined,
+                            'Process Output Node Missing',
+                            processNode
+                        )
                     }
                     /*
                     Process Output Datasets determine which Datasets are going to be built by 
@@ -173,8 +203,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         to a certain enpoint.
                                         */
                                         if (endpointNodeFound === undefined) {
-                                            // TODO Error Handling
-                                            return
+                                            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                                processIndex, 
+                                                MODULE_NAME,
+                                                'API Data Fetcher Bot',
+                                                undefined,
+                                                'API Response Field Not Descendant From Endpoint',
+                                                apiResponseField
+                                            )
                                         }
 
                                         if (endpointNode === undefined) {
@@ -186,17 +222,36 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         Here we check all enpoints are actually the same endpoiht.
                                         */
                                         if (endpointNodeFound.id !== endpointNode.id) {
-                                            // TODO Error Handling - we can not reference fields from different enpoints.
-                                            return
+                                            /*
+                                            We can not reference fields from different enpoints.
+                                            */
+                                            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                                processIndex, 
+                                                MODULE_NAME,
+                                                'API Data Fetcher Bot',
+                                                undefined,
+                                                'More Than Two Endpoints Detected',
+                                                apiResponseField
+                                            )
                                         }
                                     }
                                 }
                             }
 
                             if (endpointNode === undefined) {
-                                // TODO ERROR HANDLING.
-                                console.log("API Endpoint counld not be found. Check that the at least one Record Property has an API Response Field Reference child, and that this one is referencing an API Response Field.")
-                                throw("Cant continue")
+                                /*
+                                API Endpoint counld not be found. Check that the at least one Record Property 
+                                has an API Response Field Reference child, and that this one is referencing an 
+                                API Response Field.
+                                */
+                                TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                    processIndex, 
+                                    MODULE_NAME,
+                                    'API Data Fetcher Bot',
+                                    undefined,
+                                    'API Endpoint Not Found',
+                                    productDefinition.record
+                                )
                             }
                         }
 
@@ -372,8 +427,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                             function sleep(ms) {
                                 return new Promise((resolve) => {
-                                    setTimeout(resolve, ms);
-                                });
+                                    setTimeout(resolve, ms)
+                                })
                             }
                         }
 
@@ -383,7 +438,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 Now that we have the endpointNode, the parameters and all the information 
                                 needed to place the call to the API.
                                 */
-                                let httpClient = require('https');
+                                let httpClient = require('https')
                                 let url = protocol + '://' +
                                     hostName +
                                     portNumber +
@@ -421,10 +476,15 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     getApiResponseSchema(response.statusCode)
 
                                     if (apiResponseSchemaNode === undefined) {
-                                        // TODO Error Handling
-                                        console.log('The response code ' + response.statusCode + ' received is not associated with any API Response Schema.')
                                         errorCodeReceived = true
-                                        return
+                                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                            processIndex, 
+                                            MODULE_NAME,
+                                            'API Data Fetcher Bot',
+                                            { resposeCodeReceived: response.statusCode, detais: 'The response code ' + response.statusCode + ' received is not associated with any API Query Response node.' },
+                                            'Unexpected API Response Code',
+                                            endpointNode
+                                        )
                                     }
 
                                     function onDataArrived(chunk) {
@@ -453,7 +513,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                                             if (apiQueryResponse.config.isError === true) {
                                                                 errorCodeReceived = true
                                                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode);
+                                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode)
                                                             }
                                                             return
                                                         }
@@ -483,7 +543,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                                 */
                                                 if (apiResponseReceivedText.substring(0, 1) !== "{") {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText);
+                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText)
                                                     resolve('UNEXPECTED_API_RESPONSE')
                                                     return
                                                 }
@@ -496,7 +556,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                                 */
                                                 if (apiResponseReceivedText.substring(0, 1) !== "[") {
                                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText);
+                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText)
                                                     resolve('UNEXPECTED_API_RESPONSE')
                                                     return
                                                 }
@@ -543,7 +603,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     break
                                 }
                                 default: {
-                                    // TODO ERROR HANDLING. Unrecognized dataset codeName found.
+                                    TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                        processIndex, 
+                                        MODULE_NAME,
+                                        'API Data Fetcher Bot',
+                                        { datasetType: dataset.config.codeName },
+                                        'Unsupported Dataset Type',
+                                        dataset
+                                    )
                                 }
                             }
 
@@ -715,8 +782,17 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let timestamp = record.map.get('timestamp')
 
                                     if (timestamp === undefined) {
-                                        // TODO ERROR HANDLER : There must be a Record Property with codeName 'timestamp' defined.
-                                        throw 'ERROR'
+                                        /*
+                                        There must be a Record Property with codeName 'timestamp' defined.
+                                        */
+                                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                            processIndex, 
+                                            MODULE_NAME,
+                                            'API Data Fetcher Bot',
+                                            undefined,
+                                            'Timestamp Record Property Missing',
+                                            productDefinition.record
+                                        )
                                     }
 
                                     return timestamp
@@ -739,7 +815,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                                     if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> startProcess -> readDatasetFile -> Could read file. ->  filePath = " + filePath + "/" + fileName);
+                                            "[ERROR] start -> startProcess -> readDatasetFile -> Could read file. ->  filePath = " + filePath + "/" + fileName)
                                         throw (response.err)
                                     } else {
                                         existingFileContent = text
@@ -758,11 +834,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 let fileName = 'Data.json'
                                 let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                     "/Output/" + productDefinition.config.codeName + "/" + outputDataset.referenceParent.config.codeName + extraFilePath
-                                let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n');
+                                let response = await fileStorage.asyncCreateTextFile(filePath + '/' + fileName, existingFileContent + '\n')
 
                                 if (response.err !== undefined && response.err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName);
+                                        "[ERROR] start -> startProcess -> saveDatasetFile -> Could not save file. ->  filePath = " + filePath + "/" + fileName)
                                     throw (response.err)
                                 }
                             }
@@ -834,8 +910,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> startProcess -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        "[ERROR] start -> startProcess -> err = " + err.stack)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
 
@@ -857,24 +933,24 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     function onSaved(err) {
                         if (err.result !== TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack);
-                            callBackFunction(err);
+                                "[ERROR] start -> writeStatusReport -> onSaved -> err = " + err.stack)
+                            callBackFunction(err)
                             return;
                         }
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
+                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
                     }
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] start -> writeStatusReport -> err = " + err.stack);
-                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                        "[ERROR] start -> writeStatusReport -> err = " + err.stack)
+                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
             }
         } catch (err) {
             TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                "[ERROR] start -> err = " + err.stack);
-            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
+                "[ERROR] start -> err = " + err.stack)
+            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
-};
+}

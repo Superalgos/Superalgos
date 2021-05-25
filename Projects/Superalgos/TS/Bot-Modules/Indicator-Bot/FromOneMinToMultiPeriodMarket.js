@@ -43,7 +43,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
 
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pDataDependencies
-        TS.projects.superalgos.functionLibraries.dataAggregationFunctions.checkForKnownConstraints(
+        TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.checkForKnownConstraints(
             dataDependenciesModule,
             node,
             processIndex,
@@ -70,7 +70,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                 beginingOfMarket: undefined                                 // Datetime of the begining of the market.
             }
 
-            TS.projects.superalgos.functionLibraries.dataAggregationFunctions.getContextVariables(
+            TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.getContextVariables(
                 statusDependenciesModule,
                 contextVariables,
                 loadExistingFiles,
@@ -175,7 +175,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                     moveToNextDay()
 
                     function moveToNextDay() {
-                        TS.projects.superalgos.functionLibraries.dataAggregationFunctions.advanceTime(
+                        TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.advanceTime(
                             fromDate,
                             lastDate,
                             contextVariables,
@@ -235,7 +235,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 allPreviousElements[timeFrameArrayIndex] = [] // erasing these so as not to duplicate them.
                             }
 
-                            TS.projects.superalgos.functionLibraries.dataAggregationFunctions.nextDependencyDailyFile(
+                            TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.nextDependencyDailyFile(
                                 contextVariables,
                                 node,
                                 aggregateAndWriteOutputFile,
@@ -249,7 +249,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                 Here we call the function that will aggregate all the information 
                                 at the dependency file into standarized begin-end-elements. 
                                 */
-                                TS.projects.superalgos.functionLibraries.dataAggregationFunctions.aggregateFileContent(
+                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.aggregateFileContent(
                                     node,
                                     contextVariables,
                                     dependencyDailyFile,
@@ -264,7 +264,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                                     Here we will write the contents of the file to disk.
                                     */
                                     try {
-                                        let fileContent = TS.projects.superalgos.functionLibraries.dataAggregationFunctions.generateOutputFileContent(
+                                        let fileContent = TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.generateOutputFileContent(
                                             node,
                                             outputElementsCurrentTimeFrame
                                         )
@@ -314,7 +314,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket = function (process
                             if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length) {
                                 loopBody()
                             } else {
-                                TS.projects.superalgos.functionLibraries.dataAggregationFunctions.writeStatusReport(
+                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.writeStatusReport(
                                     statusDependenciesModule,
                                     contextVariables,
                                     contextVariables.datetimeLastProducedFile,

@@ -3,8 +3,8 @@
     "pageNumber": "7",
     "type": "Data Mining - Managing Execution",
     "definition": {
-        "text": "Bots can execute at their own pace or they could wait for other bots to finish executing in order to start. ",
-        "updated": 1621710031525
+        "text": "Bots can execute at their own pace or they can wait for other bots to finish executing in order for them to start.",
+        "updated": 1621903220369
     },
     "paragraphs": [
         {
@@ -38,8 +38,8 @@
         },
         {
             "style": "Text",
-            "text": "This is how to configure the Process Definition of a Bot that it's execution depends on other Bot. Here the normalWaitTime has a value of zero, which will force the boot to inmediatelly run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
-            "updated": 1621710760133
+            "text": "This is how to configure the Process Definition of a Bot that it's execution depends on other Bot. Here the normalWaitTime has a value of zero, which will force the Bot to inmediatelly run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
+            "updated": 1621903624630
         },
         {
             "style": "Json",
@@ -50,6 +50,11 @@
             "style": "Success",
             "text": "In this case users must also define which bot to wait for. To do this they stablish a reference from the Execution Started Event node of the Bot that needs to wait, to the Execution Finished Event of the Bot they are waiting for to finish.",
             "updated": 1621710539966
+        },
+        {
+            "style": "Note",
+            "text": "From the deployment point of view, the dependant bots can be physically located at the same machine, or at multiple different machines. Superalgos handles the syncronization across multiples machines.",
+            "updated": 1621903914878
         }
     ]
 }

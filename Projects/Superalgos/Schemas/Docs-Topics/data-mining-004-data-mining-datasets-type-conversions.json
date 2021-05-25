@@ -62,8 +62,8 @@
         },
         {
             "style": "Text",
-            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine uses a Standard Converter from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. To use the conferter, the bot's Process Definition nodes need to have at their config the framework of this converter.",
-            "updated": 1621711379111
+            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine uses a Standard Converter from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. To use the converter, the bot's Process Definition nodes need to have at their config the framework of this converter.",
+            "updated": 1621901387602
         },
         {
             "style": "Text",
@@ -82,8 +82,13 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Market\"\n    }\n}",
-            "updated": 1621701757557
+            "text": " {\n    \"codeName\": \"From-One-Min-To-Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Market\"\n    }\n}",
+            "updated": 1621901499029
+        },
+        {
+            "style": "Success",
+            "text": "You will need the standar converter everytime you use the API Data Fetcher Bot to extract data from some Inernet API. The bot will usually save the data in a One-Min-Daily Dataset Type, and you will need to setup and Indicator Bot with two processes, in order to convert the One-Min-Daily Dataset Type into a Multi-PeriodDaily and a Multi-Period-Market Dataset Type. ",
+            "updated": 1621901677409
         }
     ]
 }

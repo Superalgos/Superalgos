@@ -3,18 +3,19 @@
     "pageNumber": "9",
     "type": "Data Mining - Status Reports",
     "definition": {
-        "text": "Status Reports are files produced by each Bot's processes with some key information that the Bot needs to save in order to remember the next time is run.",
-        "updated": 1621716668465
+        "text": "Status Reports are files produced by each Bot's processes with some key information that the Bot needs to save in order to remember it the next time is run.",
+        "updated": 1621904046327
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Most Bots in superalgos are run by the Task Server and they implement a Main Loop. At each loop execution, bots do their job and at the end they go to sleep. How much time they sleep and other details are configured at the Bot's process. ",
-            "updated": 1621717056723
+            "text": "Most Bots in Superalgos are run by the Task Server and they implement a Main Loop. At each loop execution, bots do their job and at the end they go to sleep. How much time they sleep and other details are configured at the Bot's Process Definition.",
+            "updated": 1621904131214
         },
         {
             "style": "Text",
-            "text": "Before going to sleep all the memory is flushed from all information related to the bot, so that machine resources are freed for other bots in the same machine to use. There is some info Bot's need to remember between every execution of the Main Loop, and between executions of the Task itself. That info is stored in a JSON / text file called the Status Report."
+            "text": "Before going to sleep, all the memory is flushed from all information related to the Bot, so that hardware resources are freed for other bots in the same machine to use. There is some info Bots need to remember between every execution of the Main Loop, and between executions of the Task itself. That info is stored in a JSON / text file called the Status Report.",
+            "updated": 1621904194069
         },
         {
             "style": "Text",
@@ -27,7 +28,8 @@
         },
         {
             "style": "Note",
-            "text": "Status Report files also might include a data structure called Inter Execution Memory. Status information is kind of standard for all types of bots. Inter Execution Memory on the other hand depends on each Bot type and what is actually processing."
+            "text": "Status Report files also might include a data structure called Inter Execution Memory. Status information is kind of standard for all types of bots. Inter Execution Memory on the other hand, depends on each Bot type and what is actually processing.",
+            "updated": 1621904260686
         },
         {
             "style": "Text",

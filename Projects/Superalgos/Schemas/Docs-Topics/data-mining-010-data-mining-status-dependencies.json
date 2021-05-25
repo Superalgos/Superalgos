@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "10",
+    "pageNumber": 10,
     "type": "Data Mining - Status Dependencies",
     "definition": {
         "text": "Status Dependencies is a type of relationship between Bots. Sometimes bots don't depend on the Datasets produced by other bots, but they depend directly on the status of other bots.",

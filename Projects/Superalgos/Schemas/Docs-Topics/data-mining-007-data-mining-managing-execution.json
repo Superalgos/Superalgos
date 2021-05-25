@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "7",
+    "pageNumber": 7,
     "type": "Data Mining - Managing Execution",
     "definition": {
         "text": "Bots can execute at their own pace or they can wait for other bots to finish executing in order for them to start.",

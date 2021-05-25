@@ -1,0 +1,256 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": 14,
+    "type": "Data Mining - Fetching Data From APIs",
+    "definition": {
+        "text": "Superalgos allow it's users to fetch data from any API on the Internet without needing to write code to do it. Instead, users design an API Map, which is a set of definitions of how a Bot can access a certain API and how to interpret the API Server responses. With this API Maps, a API Data Fetcher Bot can be configured to extract data from any API Server and stored inside the system as Raw Data that later can processed and consumed by other Bots.",
+        "updated": 1621906349521
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Main Workflow",
+            "updated": 1621951016327
+        },
+        {
+            "style": "Title",
+            "text": "How to fetch data from an API?",
+            "updated": 1621951311144
+        },
+        {
+            "style": "Text",
+            "text": "The main workflow to pull this out is quite straight forward and it does not require coding at all. Follow this guide and you will be using data from any source at the Internet from your trading strategies in no time."
+        },
+        {
+            "style": "List",
+            "text": "1. Choose an API: Current version is limited to public APIs only. Secured APIs comming soon. "
+        },
+        {
+            "style": "List",
+            "text": "2. Design an API Map: Read the APIs online documentation and identify the Endpoints that returns the data you would like to fetch. Carefully map those Endpoints defining the parameters the API Server expects at each call, and also how the API Server response is formatted."
+        },
+        {
+            "style": "List",
+            "text": "3. Setup an API Data Fetcher Bot: Create a Data Mine for this API and create there an API Data Fetcher Bot. From that Bot's Record Properties you will need to reference the fields returned by the API Server defined at the API Map, defining in this way which fields from each response you are going to save to disk. You might also need to define query or path parameters here. "
+        },
+        {
+            "style": "List",
+            "text": "4. Setup an Indicator Bot for Dataset Type Conversion: The Raw Data saved to disk needs to be organized for consumption. You will need to setup an Indicator Bot that will do a Dataset Type Conversion from Raw Data to a standard Dataset Type. This process will do data aggregation in order to generate the elements with a fixed time range for every Time Frame possible. ",
+            "updated": 1621973482403
+        },
+        {
+            "style": "List",
+            "text": "5. Setup Indicator Bots: Once the data is converted, you can extract from it specific Datasets defining a set of indicators you can build from that data. These Indicators can be just a reorganization of the data, with some adjustments on the names of fields and splitting the data in different indicators, or it can also include some data processing / transformations if you wish (this would require some coding)."
+        },
+        {
+            "style": "List",
+            "text": "6. Setup Plotters: These last indicators can have their plotters if you wish."
+        },
+        {
+            "style": "List",
+            "text": "7. Consume Data from Trading Strategies: These indicators can be consumed from your trading strategies."
+        },
+        {
+            "style": "Success",
+            "text": "There is a Workspace called API Data Fetcher Bot Demo with a simple working example of the previous steps you can take as reference."
+        },
+        {
+            "style": "Block",
+            "text": "Data Aggregation"
+        },
+        {
+            "style": "Title",
+            "text": "How does data aggregation works?"
+        },
+        {
+            "style": "Text",
+            "text": "When Raw Data is fetched from the Internet, it needs to be converted into a Dataset Type either of Multi-Period-Daily and Multi-Period-Market types. Usually Raw Data is a timestamped dataset with a timesStamp field or it has a begin and end properties if they are fragmented in time slots of one minute.",
+            "updated": 1621973202254
+        },
+        {
+            "style": "Text",
+            "text": "From there the conversion process needs to generate elements with time slots of 2 min, 3 min, 4 min, 5 min, 10, min, ... up to 24hs. To achieve this, each field needs to be aggregated in a certain way."
+        },
+        {
+            "style": "Text",
+            "text": "At the Bot where this conversion happens, the Record Property nodes needs to have a config property agregattionMode that defines how this is going to be handled. Here is a list of the supported aggregated methods that can be used during this conversion procedure.",
+            "updated": 1621973294298
+        },
+        {
+            "style": "List",
+            "text": "First: This means that the fisrt value found within the time range being processed, will define the value of the Record Property."
+        },
+        {
+            "style": "List",
+            "text": "Last: This means that from all values found at the current time range, the last will be selected for the final value of the Record Property node being evaluated."
+        },
+        {
+            "style": "List",
+            "text": "Min: This means that the mathematical minimun value from all values found in the time range will be used as the value for the Record Proeprty."
+        },
+        {
+            "style": "List",
+            "text": "Max: This means that the mathematical maximun value from all values found in the time range will be used as the value for the Record Proeprty."
+        },
+        {
+            "style": "List",
+            "text": "Sum: This means that the sum of all values found in the time range will be used as the value for the Record Proeprty."
+        },
+        {
+            "style": "List",
+            "text": "Avg: This means that the average of all values found in the time range will be used as the value for the Record Proeprty."
+        },
+        {
+            "style": "Block",
+            "text": "Step By Step"
+        },
+        {
+            "style": "Title",
+            "text": "Step by step guite to fetch data from an API"
+        },
+        {
+            "style": "Text",
+            "text": "This is a detailed guide on how to setup a data mining operation fetching data from an Internet API.",
+            "updated": 1621975839421
+        },
+        {
+            "style": "List",
+            "text": "Step #1: Open the API Data Fetcher Bot Demo Plugin Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
+            "updated": 1621976539133
+        },
+        {
+            "style": "List",
+            "text": "Step #2: Open a second UI (this will prevent the previous one to save the changes, but you don't need to do that). You will use the first UI to check from time to time how nodes are configured there, and the second UI to build your own data mining operation from scratch. The rest of the staps you will do it at the second UI.",
+            "updated": 1621976658929
+        },
+        {
+            "style": "List",
+            "text": "Step #3: Select an API from the Internet with data that might be usefull at your Trading Strategy.",
+            "updated": 1621976668506
+        },
+        {
+            "style": "List",
+            "text": "Step #4: Read the API's documentation, indentify the endpoints, what parameters they require and what data they will provide you.",
+            "updated": 1621976675920
+        },
+        {
+            "style": "List",
+            "text": "Step #5: At Superalgos, get a clean workspace, without plugins pre-installed.",
+            "updated": 1621976682833
+        },
+        {
+            "style": "List",
+            "text": "Step #6: Create an API Map node, and start mapping the documented API by adding children to it.",
+            "updated": 1621976688595
+        },
+        {
+            "style": "List",
+            "text": "Step #7: For each node you add, read the node's doc page. This will save you time trying to guess how all this works.",
+            "updated": 1621976694068
+        },
+        {
+            "style": "List",
+            "text": "Step #8: Define one API Endpoint first, once you have the first one working, go for the rest of the enpoints available.",
+            "updated": 1621976699911
+        },
+        {
+            "style": "List",
+            "text": "Step #9: Define the query or path parameters and the the responses. Find at each node's help the details on how to do it right.",
+            "updated": 1621976710636
+        },
+        {
+            "style": "List",
+            "text": "Step #10: Create a Trading System with an empty Strategy. This will allow the Install New Market procedure to create trading tasks referencing this Trading System.",
+            "updated": 1621976716866
+        },
+        {
+            "style": "List",
+            "text": "Step #11: Create a new Data Mine woth the name of the company that host the API.",
+            "updated": 1621976722023
+        },
+        {
+            "style": "List",
+            "text": "Step #12: Create at that Data Mine and a API Data Fetcher Bot. Configure the Bot's nodes following the example at the UI #1.",
+            "updated": 1621976915804
+        },
+        {
+            "style": "List",
+            "text": "Step #13: Install a new market. This procedure is going to setup many things for you. It will detect the API Map, and the Data Mine you created and will create appropiate Tasks to run your API Fertcher Bot.",
+            "updated": 1621976960858
+        },
+        {
+            "style": "List",
+            "text": "Step #14: Pay attention to the nodePath property at the API Response Schema node of the API Map. Check the node's docs page for details."
+        },
+        {
+            "style": "List",
+            "text": "Step #15: Define at your API Data Fetcher Bot Product Definition Record Properties the fields that you would like to save from the API Server response. You don't need to save everything, only what makes sense to you."
+        },
+        {
+            "style": "List",
+            "text": "Step #16: Establish a reference from each Record Property child API Response Field Reference node to a node at the API Map of type API Response Field. Do it carefully for every Record Property."
+        },
+        {
+            "style": "List",
+            "text": "Step #17: Pay attention to the special case of the needed timeStamp Record Property, specially because it might be pointing to the header of the API response. Read the docs of the API Response Field Reference node to set up the nodePath property if necesary."
+        },
+        {
+            "style": "List",
+            "text": "Step #18: Setup an your Data Mine an Indicator Bot and configure their Process Definition nodes to be of the framework that converts from One-Min-Daily to Multi-Period-Daily and Multi-Perio-Market types of Datasets. See how it was done at the UI #1.",
+            "updated": 1621977642805
+        },
+        {
+            "style": "List",
+            "text": "Step #19: At this Dataset Type Converter Indicator Bot, defined the Record Property nodes based on the information you would lile to convert from Raw Data. Add a begin and end Record Property even if it does not exist at the Raw Data. "
+        },
+        {
+            "style": "List",
+            "text": "Step #20: Configure at each Record Proeprty the aggregationMode property. Check the docs of that node for details."
+        },
+        {
+            "style": "List",
+            "text": "Step #21: If you wish you can create multiple other Indicator Bots to cut the dataset in different groups of Record Properties."
+        },
+        {
+            "style": "List",
+            "text": "Step #22: Setup a Plotter at your new Data Mine, and reference it from the Product Definition of the latest Indicator Bot created."
+        },
+        {
+            "style": "List",
+            "text": "Step #23: Now you are ready to run the Task where the Data Fetcher Bot Process Instance is defined. "
+        },
+        {
+            "style": "List",
+            "text": "Step #24: If something did not work, check the workspace map to see if there is a node with an error. Locate the node, click on the error and see the error's page at the doc. Try to understand what is wrong, fix it and try again."
+        },
+        {
+            "style": "List",
+            "text": "Step #25: Iterate through step #24 until everything is working. Re read node's documentations until you get the details of what it explains there. Reread this guide or this whole Topic from the start, until the concepts explained sinks in. "
+        },
+        {
+            "style": "List",
+            "text": "Step #26: If after digesting the docs, and following all this advice you stil can not put it to work, go to the Telegram Support group and ask for help."
+        },
+        {
+            "style": "List",
+            "text": "Step #27: Once all is running well, set up your Trading Stragegy in a way that allows you to test if you have acces to the prcessed data, the one provided by the latest Indicator Bots created."
+        },
+        {
+            "style": "List",
+            "text": "Step #29: Once the data is correctly consumed by your Trading Strategy iterate throug this guide by adding another API Endpoint to the API Map. You will need for that a new API Fetcher Bot.",
+            "updated": 1621978484377
+        },
+        {
+            "style": "List",
+            "text": "Step #30: Once you have sucessfully mapped the whole API and you have all the needed API Data Fetcher, Indicator Bots and Plotters tested, you are ready to share your API Map and Data Mine with the community as plugins, and get in exchange SA tokens for your contribution. "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "15",
+    "pageNumber": 16,
     "type": "Data Mining - Data Mine Hierarchy",
     "definition": {
         "text": "Data mines enable the processing of data by consuming datasets others have produced, performing calculations, and outputting a new value-added data product that others may consume.",

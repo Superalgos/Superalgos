@@ -31,7 +31,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n  \"codeName\": \"Multi-Period-Market|Daily\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Period-Market|Daily\" \n  }\n}"
+        "config": "{ \n  \"codeName\": \"Multi-Period-Market|Multi-Period-Market|From-One-Min-To-Multi-Period-Daily|From-One-Min-To-Multi-Period-Market\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Period-Market|Multi-Period-Market|From-One-Min-To-Multi-Period-Daily|From-One-Min-To-Multi-Period-Market\" \n  }\n}"
     },
     "level": 1,
     "attachingRules": {

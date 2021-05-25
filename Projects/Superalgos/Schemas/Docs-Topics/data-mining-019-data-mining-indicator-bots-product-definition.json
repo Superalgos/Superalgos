@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "18",
+    "pageNumber": 19,
     "type": "Data Mining - Indicator Bots - Product Definition",
     "definition": {
         "text": "The product definition is the compilation of configurations, references, and JavaScript code that make up the data product.",

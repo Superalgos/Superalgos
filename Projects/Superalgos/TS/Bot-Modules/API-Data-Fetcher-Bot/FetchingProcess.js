@@ -78,7 +78,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference === undefined) {
                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                            processIndex, 
+                            processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
                             undefined,
@@ -90,7 +90,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     let apiMap = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].apiMapReference.referenceParent
                     if (apiMap === undefined) {
                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                            processIndex, 
+                            processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
                             undefined,
@@ -106,7 +106,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     if (apiMap.config.hostName === undefined || apiMap.config.hostName === "") {
                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                            processIndex, 
+                            processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
                             { missingProperty: "hostName" },
@@ -131,7 +131,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                     if (apiMap.apiVersions.length === 0) {
                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                            processIndex, 
+                            processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
                             undefined,
@@ -141,7 +141,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     }
                     if (processNode.processOutput === undefined) {
                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                            processIndex, 
+                            processIndex,
                             MODULE_NAME,
                             'API Data Fetcher Bot',
                             undefined,
@@ -204,7 +204,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         */
                                         if (endpointNodeFound === undefined) {
                                             TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                                processIndex, 
+                                                processIndex,
                                                 MODULE_NAME,
                                                 'API Data Fetcher Bot',
                                                 undefined,
@@ -226,7 +226,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             We can not reference fields from different enpoints.
                                             */
                                             TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                                processIndex, 
+                                                processIndex,
                                                 MODULE_NAME,
                                                 'API Data Fetcher Bot',
                                                 undefined,
@@ -245,7 +245,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 API Response Field.
                                 */
                                 TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                    processIndex, 
+                                    processIndex,
                                     MODULE_NAME,
                                     'API Data Fetcher Bot',
                                     undefined,
@@ -478,7 +478,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     if (apiResponseSchemaNode === undefined) {
                                         errorCodeReceived = true
                                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                            processIndex, 
+                                            processIndex,
                                             MODULE_NAME,
                                             'API Data Fetcher Bot',
                                             { resposeCodeReceived: response.statusCode, detais: 'The response code ' + response.statusCode + ' received is not associated with any API Query Response node.' },
@@ -604,7 +604,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 }
                                 default: {
                                     TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                        processIndex, 
+                                        processIndex,
                                         MODULE_NAME,
                                         'API Data Fetcher Bot',
                                         { datasetType: dataset.config.codeName },
@@ -786,7 +786,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         There must be a Record Property with codeName 'timestamp' defined.
                                         */
                                         TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                            processIndex, 
+                                            processIndex,
                                             MODULE_NAME,
                                             'API Data Fetcher Bot',
                                             undefined,
@@ -866,8 +866,8 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             2) It was calculated automatically.
                                             */
 
-                                            let nodePath 
-                                            if (recordProperty.apiResponseFieldReference !== undefined && recordProperty.apiResponseFieldReference.config.nodePath !=="") {
+                                            let nodePath
+                                            if (recordProperty.apiResponseFieldReference.config.nodePath !== "") {
                                                 nodePath = recordProperty.apiResponseFieldReference.config.nodePath
                                             }
 

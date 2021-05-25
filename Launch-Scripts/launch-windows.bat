@@ -1,3 +1,3 @@
-cd %~dp0
+cd /d %~dp0
 cd ..
 cmd /k "node run"

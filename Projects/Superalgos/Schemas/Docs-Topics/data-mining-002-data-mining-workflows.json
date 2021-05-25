@@ -36,8 +36,8 @@
         },
         {
             "style": "Note",
-            "text": "Both of these 2 workflows start by producing Raw Data that has to be digested by Indicator Bots.",
-            "updated": 1621698358246
+            "text": "The data just arrived from an external source is considered Raw Data. Both of these 2 workflows produce Raw Data that has to be digested by Indicator Bots.",
+            "updated": 1621900437233
         },
         {
             "style": "Subtitle",
@@ -50,8 +50,8 @@
         },
         {
             "style": "List",
-            "text": "Standarize Datasets: They are used for standarization of raw data extracted from the internet by Sensor Bot s or API Data Fetcher Bot s. Once data is standarized, it can be run through other Indicator Bot s that will extract the juice out of them. Once standarized data can also be plotted and consumed from trading strategies. By standarizing we are specifically referring to transforming the data into a Dataset type that can be used for Plotting, to feed Learning Bots and Trading Bots. These Dataset types are Multi-Period-Daily and Milti-Period-Market. ",
-            "updated": 1621705567513
+            "text": "Standarize Datasets: They are used for standarization of raw data extracted from the internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standarized, it can be run through other Indicator Bot s that will extract the juice out of them. Once standarized, data can also be plotted and consumed from trading strategies. By standarizing we are specifically referring to transforming the data into a Dataset type that can be used for Plotting, to feed Learning Bots and Trading Bots. These Dataset types are Multi-Period-Daily and Milti-Period-Market.",
+            "updated": 1621900536868
         },
         {
             "style": "List",
@@ -60,13 +60,13 @@
         },
         {
             "style": "Subtitle",
-            "text": "Indicators -> Plotters (for users)",
-            "updated": 1621698262190
+            "text": "Indicators -> Plotters",
+            "updated": 1621900608845
         },
         {
             "style": "Text",
-            "text": "Plotters are intended for users, not for bots. Plotters will render at the charts information of a Dataset based on the plotter's definition. Plotters can only read data from certain Dataset types, you will learn which ones later at this Topic.",
-            "updated": 1621697151527
+            "text": "Plotters are tools for users, not for bots. Plotters will render at the charts information of a Dataset based on the plotter's definition. Plotters can only read data from certain Dataset types, you will learn which ones later at this Topic.",
+            "updated": 1621900619194
         },
         {
             "style": "Text",
@@ -88,8 +88,8 @@
         },
         {
             "style": "Text",
-            "text": "Trading bots are the final consumer of data, which they use to take trading decisions based on their definitions. The ultimate purpose of the whole Data Mining operation is to digest data so that is is easily accesible for trading strategies.",
-            "updated": 1621696940017
+            "text": "Trading bots are the ultimate consumer of data, which they use to take trading decisions based on their definitions. The ultimate purpose of the whole Data Mining operation is to digest data so that is is easily accesible for trading strategies.",
+            "updated": 1621900703336
         }
     ]
 }

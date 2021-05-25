@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When running custom code, users have full control of the process and there is no limit on what it can be done in terms of data manipulations. The trade off is that the user must be a developer.",
-            "updated": 1621702329009
+            "text": "When running custom code, users have full control of the process and there is no limit on what it can be done in terms of data manipulation. The trade off is that the user must be a developer.",
+            "updated": 1621902338195
         },
         {
             "style": "Text",
@@ -31,11 +31,13 @@
         },
         {
             "style": "List",
-            "text": "Custom Code: This means the Indicator will use custom made code to handle all data transformations. "
+            "text": "Custom Code: This means the Indicator Bot will use custom made code to handle all data transformations.",
+            "updated": 1621902418790
         },
         {
             "style": "List",
-            "text": "UI-Defined: This means that the indictor will base it's behaviour on the definitioins defined at the UI including the code snippets provided by the user."
+            "text": "UI-Defined: This means that the Indictor Bot will base it's behaviour on the definitioins at the UI including the code snippets provided by the user.",
+            "updated": 1621902442579
         },
         {
             "style": "Title",
@@ -65,8 +67,8 @@
         },
         {
             "style": "Text",
-            "text": "The way to implement a Custom Code Indicator is to set up at the config of the Process Definition that there is custom code for this process. Specifically, you need to add the botModule property to the config. This is how it looks like.",
-            "updated": 1621703510791
+            "text": "The way to implement a Custom Code Indicator tell the Bot at the config of the Process Definition that there is custom code for this process. Specifically, you need to add the botModule property to the config. This is how it looks like.",
+            "updated": 1621902538119
         },
         {
             "style": "Json",
@@ -75,8 +77,8 @@
         },
         {
             "style": "Text",
-            "text": "Then you will need to locate the Project Schema file for the project your bot belongs to. Inside of that file you will need to add some definitions in order for the system to be able to laod your new module at runtime and later execute it once users run your bot implemented in this way.",
-            "updated": 1621703616902
+            "text": "Then you will need to locate the Project Schema File for the project your bot belongs to. Inside of that file you will need to add some definitions in order for the system to be able to laod your new module at runtime and later execute it once users run your bot implemented in this way.",
+            "updated": 1621902552523
         },
         {
             "style": "Text",
@@ -84,7 +86,8 @@
         },
         {
             "style": "Text",
-            "text": "The definition to be added there should be something like this:"
+            "text": "The definition to be added there should look something like this:",
+            "updated": 1621902599128
         },
         {
             "style": "Json",
@@ -93,8 +96,8 @@
         },
         {
             "style": "Text",
-            "text": "After that you will need to add a new Javascript module with your code. ",
-            "updated": 1621704019288
+            "text": "After that you will need to add to the codebase a new Javascript module with your code.",
+            "updated": 1621902622372
         },
         {
             "style": "Title",
@@ -127,13 +130,13 @@
         },
         {
             "style": "List",
-            "text": "Multi-Period-Daily: It is used to process data currently available at a Dataset of type Multi-Period-Daily and produce an output of a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1621703225204
+            "text": "Multi-Period-Daily: It is used to process data currently available at a Dataset of type Multi-Period-Daily and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "updated": 1621902697553
         },
         {
             "style": "List",
-            "text": "Multi-Period-Market: It is used to process data currently available at a Dataset of type Multi-Period-Market and produce an output of a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1621703273921
+            "text": "Multi-Period-Market: It is used to process data currently available at a Dataset of type Multi-Period-Market and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "updated": 1621902733616
         },
         {
             "style": "Subtitle",

@@ -26,7 +26,8 @@
         },
         {
             "style": "Text",
-            "text": "When a Bot has a Data Dependency of a dataset produced by a Bot defined in a different Data Mine, then both Data Mines must be present at the Workspace where the Bot is going to be lauched at."
+            "text": "When a Bot has a Data Dependency of a dataset produced by a Bot defined at a different Data Mine, then both Data Mines must be present at the Workspace where the Bot is going to be lauched at.",
+            "updated": 1621903950116
         },
         {
             "style": "Text",

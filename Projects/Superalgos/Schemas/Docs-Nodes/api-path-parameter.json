@@ -16,8 +16,16 @@
         },
         {
             "style": "List",
-            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter. The possible values are: @BaseAsset and @QuotedAsset",
-            "updated": 1621018303336
+            "text": "codeName: here you must write the exact string that is going to be used to form the URL path. ",
+            "updated": 1621950838675
+        },
+        {
+            "style": "List",
+            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter. The possible values are: @BaseAsset and @QuotedAsset"
+        },
+        {
+            "style": "Important",
+            "text": "The replacedBy property is the way users have to send some contextual values to the API Server like for example the Base Asset or Quoted Asset of the Defautl Market."
         }
     ]
 }

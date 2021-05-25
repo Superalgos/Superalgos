@@ -6,8 +6,18 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "style": "Note",
+            "text": "We expect every API to have at leat one version.",
+            "updated": 1621951647515
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
+            "updated": 1621951484955
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

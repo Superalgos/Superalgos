@@ -16,7 +16,8 @@
         },
         {
             "style": "Success",
-            "text": "If you wish to be able to react to other error codes, you should also have more of this nodes with the codeName of each of the status you want to cover."
+            "text": "If you wish to be able to react to other error codes, you should also have more of these nodes with the codeName of each of the status you want to cover. If the API Data Fetcher Bot receives a response code that has not been defined, it will stop there the processing.",
+            "updated": 1621952346052
         }
     ]
 }

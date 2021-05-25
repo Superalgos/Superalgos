@@ -19,8 +19,8 @@
         },
         {
             "style": "Text",
-            "text": "Bots that produce Raw Data usually do not depend on any other Bot's status and they are usually the root of a dependency tree or graph. Any Bot might have zero to many status dependencies. For each Status Dependency, the Bot's process at runtime will load the Status Report file of the dependent Bot and let extract from there the information it needs.",
-            "updated": 1621718085593
+            "text": "Bots that produce Raw Data usually do not depend on any other Bot's status and they are usually the root of a dependency tree or graph. Any Bot can have from zero to many status dependencies. For each Status Dependency, the Bot's process at runtime will load the Status Report file of the dependent Bot and will extract from there the information it needs.",
+            "updated": 1621904417277
         },
         {
             "style": "Title",
@@ -29,7 +29,8 @@
         },
         {
             "style": "Text",
-            "text": "Status Dependency can be classified by their utility. This make it easier for processes to handle them in code. There are currently three different utilities:"
+            "text": "A Status Dependency can be classified by it's utility. This make it easier for processes to handle them in code. There are currently three different utilities:",
+            "updated": 1621904453267
         },
         {
             "style": "List",

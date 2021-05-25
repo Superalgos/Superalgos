@@ -6,8 +6,22 @@
     },
     "paragraphs": [
         {
+            "style": "Subtitle",
+            "text": "How to use this node?",
+            "updated": 1621949863470
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Read the docs of the API you are trying to map, and indentigy the commands that it support (endpoints)."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Data Mining - Fetching Data From APIs->Main Workflow",
+            "updated": 1621951345309
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "5",
+    "pageNumber": 5,
     "type": "Data Mining - Indicator Frameworks",
     "definition": {
         "text": "Indicator Bots are ready to run custom code, or run code provided by a framework in order to do their job.",

@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "1",
+    "pageNumber": 1,
     "type": "Data Mining - Introduction",
     "definition": {
         "text": "Data Mining in Superalgos means extracting data from external sources and procesing that data in order to have it ready for consumption by trading strategies.",

@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "2",
+    "pageNumber": 2,
     "type": "Data Mining - Workflows",
     "definition": {
         "text": "Superalgos enable users to setup powerful data mining operations. At this page we will learn the workflows involved.",

@@ -866,7 +866,10 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             2) It was calculated automatically.
                                             */
 
-                                            let nodePath = recordProperty.config.nodePath
+                                            let nodePath 
+                                            if (recordProperty.apiResponseFieldReference !== undefined && recordProperty.apiResponseFieldReference.config.nodePath !=="") {
+                                                nodePath = recordProperty.apiResponseFieldReference.config.nodePath
+                                            }
 
                                             if (nodePath === undefined) {
                                                 nodePath = recordPropertiesNodePathMap.get(recordProperty.config.codeName)

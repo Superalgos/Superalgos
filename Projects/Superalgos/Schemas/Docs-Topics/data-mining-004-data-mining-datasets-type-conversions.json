@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "4",
+    "pageNumber": 4,
     "type": "Data Mining - Datasets Type Conversions",
     "definition": {
         "text": "Processes fetching data from the Internet are optimized for accesing a wide range of APIs available out there. The Dataset Type they use to store raw data is usually not the best one for data consumption within the system. For that reason Dataset Type conversions needs to be done.",

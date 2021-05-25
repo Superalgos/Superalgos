@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "13",
+    "pageNumber": 13,
     "type": "Data Mining - Plotting",
     "definition": {
         "text": "Each product might have one Plotter Module associated with it. This Plotter Module has all the definitions needed to interpret the Product's datasets and render the information at the charts.",

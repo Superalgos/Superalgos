@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "23",
+    "pageNumber": 23,
     "type": "Data Mining - Plotters - Shapes",
     "definition": {
         "text": "Shapes define coordinate points to use as vertex for polygons, which are assigned styles.",

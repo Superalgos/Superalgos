@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "12",
+    "pageNumber": 12,
     "type": "Data Mining - Products",
     "definition": {
         "text": "All Datasets of any type of bot within the Superalgos system are considered products of the Bot that produced them. Why products? Because users will be able to sell hese datasets in the form of subscriptions once the Superalgos Network is implemented.",

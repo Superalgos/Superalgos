@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "16",
+    "pageNumber": 17,
     "type": "Data Mining - Indicator Bots",
     "definition": {
         "text": "Indicator bots enable the processing of data by consuming datasets others have produced, performing calculations, and outputting a new value-added data product that others may consume.",

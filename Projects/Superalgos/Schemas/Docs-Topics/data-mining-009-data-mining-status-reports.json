@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "9",
+    "pageNumber": 9,
     "type": "Data Mining - Status Reports",
     "definition": {
         "text": "Status Reports are files produced by each Bot's processes with some key information that the Bot needs to save in order to remember it the next time is run.",

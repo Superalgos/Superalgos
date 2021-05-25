@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "8",
+    "pageNumber": 8,
     "type": "Data Mining - Data Dependencies",
     "definition": {
         "text": "Indicator Bots have data dependencies. That means that they have as their input a Dataset created by other Bot. ",

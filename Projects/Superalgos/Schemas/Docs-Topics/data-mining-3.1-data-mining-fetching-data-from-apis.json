@@ -3,8 +3,8 @@
     "pageNumber": "13.1",
     "type": "Data Mining - Fetching Data From APIs",
     "definition": {
-        "text": "Superalgos allow it's user to fetch data from any API on the Internet without needing to write code to do it. Instead, users design an API Map, which is a set of definitions of how a Bot can access a certain API and how to interpret the API Server responses. With this API Maps, a API Data Fetcher Bot can be configured to extract data from any API Server and stored inside the system as Raw Data that later can processed and consumed by other Bots.",
-        "updated": 1621905787119
+        "text": "Superalgos allow it's users to fetch data from any API on the Internet without needing to write code to do it. Instead, users design an API Map, which is a set of definitions of how a Bot can access a certain API and how to interpret the API Server responses. With this API Maps, a API Data Fetcher Bot can be configured to extract data from any API Server and stored inside the system as Raw Data that later can processed and consumed by other Bots.",
+        "updated": 1621906349521
     },
     "paragraphs": [
         {

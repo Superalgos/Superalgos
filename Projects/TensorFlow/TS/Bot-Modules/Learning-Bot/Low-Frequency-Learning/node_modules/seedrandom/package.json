@@ -1,0 +1,59 @@
+{
+  "name": "seedrandom",
+  "version": "2.4.3",
+  "description": "Seeded random number generator for Javascript.",
+  "main": "index.js",
+  "keywords": [
+    "seed",
+    "random",
+    "crypto"
+  ],
+  "scripts": {
+    "test": "grunt travis"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidbau/seedrandom.git"
+  },
+  "author": "David Bau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidbau/seedrandom/issues"
+  },
+  "homepage": "http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html",
+  "config": {
+    "blanket": {
+      "pattern": [
+        "seedrandom.js",
+        "lib/alea.js",
+        "lib/xor128.js",
+        "lib/xorwow.js",
+        "lib/xorshift7.js",
+        "lib/tychei.js",
+        "lib/xor4096.js"
+      ]
+    }
+  },
+  "browser": {
+    "crypto": false
+  },
+  "devDependencies": {
+    "blanket": "latest",
+    "grunt": "latest",
+    "grunt-bowercopy": "latest",
+    "grunt-browserify": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-qunit": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-mocha-cov": "latest",
+    "grunt-release": "latest",
+    "phantomjs-prebuilt": "latest",
+    "proxyquire": "latest",
+    "requirejs": "latest"
+  }
+
+,"_resolved": "https://registry.npmjs.org/seedrandom/-/seedrandom-2.4.3.tgz"
+,"_integrity": "sha1-JDhQTa0zkXMUv/GKxNeU8W1qrsw="
+,"_from": "seedrandom@2.4.3"
+}

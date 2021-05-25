@@ -7,8 +7,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When found at the API Map will define the default values for each parameter. When found at the Data Mine will define the actual values to be used, these would replace the defaults.",
-            "updated": 1621022566230
+            "text": "In other words, Query Parameters are the parameters sent at any URL after the question mark ?",
+            "updated": 1621954104568
+        },
+        {
+            "style": "Text",
+            "text": "Query Parameters in general do not need to be defined in any specific orders, so feel free to add children for this node in whatever order you like."
+        },
+        {
+            "style": "Success",
+            "text": "When found at the API Map will define the default values for each parameter. When found at the Data Mine will define the actual values to be used, these would replace the defaults."
         }
     ]
 }

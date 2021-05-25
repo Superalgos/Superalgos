@@ -27,8 +27,7 @@ let nodeModulesDirs = [
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Sensor-Bot", "Exchange-Raw-Data"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Trading-Bot", "Announcements"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Trading-Bot", "Low-Frequency-Trading", "APIs"),
-    path.join( process.cwd(), "Projects", "Superalgos", "TS", "Task-Modules"),
-    path.join( process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")
+    path.join( process.cwd(), "Projects", "Superalgos", "TS", "Task-Modules")
 ];
 
 console.log('');

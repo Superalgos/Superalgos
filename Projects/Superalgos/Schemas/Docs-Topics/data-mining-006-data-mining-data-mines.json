@@ -51,7 +51,8 @@
         },
         {
             "style": "Text",
-            "text": "Data Mines might depend of other Data Mines if any of their bots depend on bots belonging to other Data Mines. You will learn further down this Topic how a bot can depend on other bots in detail. In a nutshell, they can depend in two ways:"
+            "text": "Data Mines might depend of other Data Mines if any of their bots depend on bots belonging to other Data Mines. You will learn further down this Topic how a bot can depend on other bots in detail. In a nutshell, they can depend in 3 ways. They can have a:",
+            "updated": 1621903084681
         },
         {
             "style": "List",
@@ -68,8 +69,8 @@
         },
         {
             "style": "Note",
-            "text": "When a Data Mine depends on another Data Mine, both need to be present at the Workspace where the Task involving the execution of the Bot is.",
-            "updated": 1621709928655
+            "text": "When a Data Mine depends on another Data Mine, both need to be present at the Workspace where the Task defining the execution of the Bot is located.",
+            "updated": 1621903174117
         }
     ]
 }

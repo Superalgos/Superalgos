@@ -1,0 +1,13 @@
+{
+    "type": "User Defined Code",
+    "definition": {
+        "text": "You can use this node to inject your own executable code into the the Trading System. The exact moment when this code will be run depends on its config properties. From your code you can access the Trading Engine, read and modify it's values, modifying the standar behaviour of the Trading Bot.",
+        "updated": 1621988586103
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

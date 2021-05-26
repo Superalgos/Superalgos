@@ -1,5 +1,5 @@
 {
-    "tutorial": "Contribute to Superalgos!",
+    "tutorial": "Beyond the Basics",
     "pageNumber": 19,
     "type": "Tutorial Step - Don't Forget to Sign!",
     "definition": {
@@ -32,7 +32,7 @@
         },
         {
             "style": "Note",
-            "text": "Contributions are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\" style=\"color:blue;\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
+            "text": "Contributions earn you <a href=\"https://superalgos.org/token-overview.shtml\" target=\"_blank\" style=\"color:blue;\">Superalgos (SA) Tokens</a> and are subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\" style=\"color:blue;\">Apache Licence 2.0</a>. In short, Contributors provide an express grant of copyright/patent rights.",
             "updated": 1610963383947,
             "translations": [
                 {

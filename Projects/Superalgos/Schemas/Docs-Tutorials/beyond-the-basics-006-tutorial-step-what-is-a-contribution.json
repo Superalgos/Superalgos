@@ -1,5 +1,5 @@
 {
-    "tutorial": "Contribute to Superalgos!",
+    "tutorial": "Beyond the Basics",
     "pageNumber": 6,
     "type": "Tutorial Step - What is a Contribution?",
     "definition": {
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Il progetto avrà successo se riusciremo a promuovere una collaborazione globale: sono importanti contributi di ogni tipo!",
-                "updated": 1619632436237
+                "updated": 1619632436237,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Qualunque cosa aggiunga valore al progetto è gradita!",
-                    "updated": 1619632572571
+                    "updated": 1619632572571,
+                    "style": "Success"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Correggere errori e dead link, o migliorare i Docs.",
-                    "updated": 1619632631173
+                    "updated": 1619632631173,
+                    "style": "List"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Tradurre una pagina nella tua lingua madre.",
-                    "updated": 1619632643304
+                    "updated": 1619632643304,
+                    "style": "List"
                 }
             ]
         },
@@ -61,7 +65,8 @@
                 {
                     "language": "IT",
                     "text": "Fare il design delle icone, migliorare la UX/UI.",
-                    "updated": 1619632670924
+                    "updated": 1619632670924,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +78,8 @@
                 {
                     "language": "IT",
                     "text": "Produrre contenuto come tutorial in-app o video.",
-                    "updated": 1619632686983
+                    "updated": 1619632686983,
+                    "style": "List"
                 }
             ]
         },
@@ -85,7 +91,8 @@
                 {
                     "language": "IT",
                     "text": "Recensire Superalgos nei vari blog e social",
-                    "updated": 1619632764021
+                    "updated": 1619632764021,
+                    "style": "List"
                 }
             ]
         },
@@ -97,19 +104,21 @@
                 {
                     "language": "IT",
                     "text": "Condividere un Data Mine o un Trading System!",
-                    "updated": 1619632784995
+                    "updated": 1619632784995,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Testing, removing bugs, integrating crypto-projects, and contributing to the Code Base.",
-            "updated": 1610716390346,
+            "text": "Testing, removing bugs, integrating crypto-projects, and contributing to the codebase.",
+            "updated": 1622026157502,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Testare, debuggare, integrare progetti crypto e contribuire alla codebase.",
-                    "updated": 1619632810073
+                    "updated": 1619632810073,
+                    "style": "List"
                 }
             ]
         }

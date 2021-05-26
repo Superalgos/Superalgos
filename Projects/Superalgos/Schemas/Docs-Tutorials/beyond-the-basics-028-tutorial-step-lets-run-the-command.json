@@ -1,5 +1,5 @@
 {
-    "tutorial": "Contribute to Superalgos!",
+    "tutorial": "Beyond the Basics",
     "pageNumber": 28,
     "type": "Tutorial Step - Let's Run the Command!",
     "definition": {
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Copia il comando sotto, incollalo nella barra e premi Enter!",
-                "updated": 1619637655966
+                "updated": 1619637655966,
+                "style": "Definition"
             }
         ]
     },
@@ -25,13 +26,14 @@
         },
         {
             "style": "Important",
-            "text": "On Windows, a GitHub sign in dialog pops-up offering to authenticate with your token or password. Either should work! Remember that the latest version of Git is required! If you have issues with the latest version, restarting the PC may help. On Mac, it is the Terminal that asks for credentials. If you enabled two-factor authentication on GitHub, use the token even if asked for the password!",
-            "updated": 1611084396818,
+            "text": "On Windows, a GitHub sign in dialog pops-up offering to authenticate with your token or password. Either should work! Remember that the latest version of Git is required! If you have issues with the latest version, restarting the PC may help. On Mac and Linux, it is the Terminal that asks for credentials. If you enabled two-factor authentication on GitHub, use the token even if asked for the password!",
+            "updated": 1622028555839,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Su Windows, un pop-up ti richiede l'autenticazione via token o password. Dovrebbe funzionare in entrambi i modi! Ricorda che è richiesta l'ultima versione di Git. Se hai problemi con quella, riavviare il pc può aiutare. Sul Mac, il Terminale potrebbe chiederti le credenziali. Se hai attivato l'autenticazione a due fattori su Github, usa il token anche se ti viene chiesta la password!",
-                    "updated": 1619637781318
+                    "updated": 1619637781318,
+                    "style": "Important"
                 }
             ]
         }

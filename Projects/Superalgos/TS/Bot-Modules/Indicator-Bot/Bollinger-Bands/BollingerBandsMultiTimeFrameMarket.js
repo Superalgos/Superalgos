@@ -10,14 +10,14 @@
         start: start
     }
 
-    let statusDependencies
+    let statusDependenciesModule
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
     return thisObject
 
-    function initialize(pStatusDependencies, callBackFunction) {
+    function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            statusDependencies = pStatusDependencies;
+            statusDependenciesModule = pStatusDependenciesModule;
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE);
 
         } catch (err) {
@@ -396,8 +396,7 @@
 
             function writeStatusReport(callBack) {
                 try {
-                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Time-Frame-Market"
-                    let thisReport = statusDependencies.statusReports.get(reportKey);
+                    let thisReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;
                     thisReport.save(callBack);

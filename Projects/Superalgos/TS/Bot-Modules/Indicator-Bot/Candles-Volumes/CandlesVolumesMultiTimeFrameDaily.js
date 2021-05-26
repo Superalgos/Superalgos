@@ -67,7 +67,8 @@
                         return;
                     }
 
-                    thisReport = statusReport.file;
+                    thisReport = statusReport.file
+
                     if (thisReport.beginingOfMarket === undefined) {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
@@ -108,6 +109,7 @@
                     }
 
                     thisReport = statusReport.file
+
                     if (thisReport.lastFile === undefined) {
                         let customOK = {
                             result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
@@ -143,6 +145,7 @@
                     }
 
                     thisReport = statusReport.file
+                    
                     if (thisReport.lastFile !== undefined) {
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market

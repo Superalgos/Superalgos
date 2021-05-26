@@ -1,5 +1,5 @@
 {
-    "tutorial": "Contribute to Superalgos!",
+    "tutorial": "Beyond the Basics",
     "pageNumber": 12,
     "type": "Tutorial Step - Let's Switch Already!",
     "definition": {
@@ -73,12 +73,12 @@
         },
         {
             "style": "List",
-            "text": "Find the Contribute to Superalgos Tutorial in the bottom-right corner of the workspace and select Resume on the menu! If Resume doesn't work, find the Welcome Back! step under the Branches Topic and click Play on the menu!",
+            "text": "Find the Beyond the Basics Tutorial in the bottom-right corner of the workspace and select Resume on the menu! If Resume doesn't work, find the Welcome Back! step under the Branches Topic and click Play on the menu!",
             "updated": 1617036301673,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Cerca il Contribute to Superalgos Tutorial nell'angolo in basso a destra del Workspace e premi Resume! Se non funziona, cerca lo step \"Welcome Back!\" sotto il Branches Topic e premi Play sul menù!",
+                    "text": "Cerca il Beyond the Basics Tutorial nell'angolo in basso a destra del Workspace e premi Resume! Se non funziona, cerca lo step \"Welcome Back!\" sotto il Branches Topic e premi Play sul menù!",
                     "updated": 1619634936378,
                     "style": "List"
                 }

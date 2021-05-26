@@ -1,5 +1,5 @@
 {
-    "tutorial": "Contribute to Superalgos!",
+    "tutorial": "Beyond the Basics",
     "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Perchè il comando app.contribute funzioni, dovrai autenticarti a due livelli differenti. Concentriamoci prima su GitHub.com!",
-                "updated": 1619641609528
+                "updated": 1619641609528,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Devi autenticarti su GitHub.com perchè il Client possa creare la Pull Request a tuo nome. Per fare ciò, devi creare un Personal Access Token su GitHub.com:",
-                    "updated": 1619641662760
+                    "updated": 1619641662760,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,13 +39,14 @@
         },
         {
             "style": "Callout",
-            "text": "Click the link and follow the instructions below! Check the clip on the next step for clarity...",
-            "updated": 1610812678018,
+            "text": "Click the link and follow the instructions! Make sure you give the token the repo and workflow scopes. Check the clip on the next step for clarity...",
+            "updated": 1622028428181,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Clicca il link e segui le istruzioni sotto! Guarda il video al prossimo step per più dettagli...",
-                    "updated": 1619641789005
+                    "updated": 1619641789005,
+                    "style": "Callout"
                 }
             ]
         },
@@ -55,7 +58,8 @@
                 {
                     "language": "IT",
                     "text": "Ti consiglio di chiamare il tuo token come Superalgos per poterlo riconoscere in seguito. Assicurati di mettere il flag sulla repo checkbox per definire lo scope del token.",
-                    "updated": 1619641853159
+                    "updated": 1619641853159,
+                    "style": "Text"
                 }
             ]
         }

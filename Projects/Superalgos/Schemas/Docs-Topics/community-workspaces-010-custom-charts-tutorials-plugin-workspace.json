@@ -1,0 +1,28 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": 10,
+    "type": "Custom Charts Tutorials Plugin Workspace",
+    "definition": {
+        "text": "This workspace will walk you through everything you need to know about setting up custom charts within your Design Space. The tutorials aim to offer step by step guidance taking you from charting beginner to charting expert.",
+        "updated": 1621990685106
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials"
+        },
+        {
+            "style": "List",
+            "text": "Setting Up a New Chart Tutorial",
+            "updated": 1621990804177
+        },
+        {
+            "style": "Title",
+            "text": "Brought to you by"
+        },
+        {
+            "style": "List",
+            "text": "@harrellbm"
+        }
+    ]
+}

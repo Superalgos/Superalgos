@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersBollingerBandsBollingerBandsBollingerBandsPanel() {
+function newBollingerPlottersBollingerBandsBollingerBandsBollingerBandsPanel() {
 
     let thisObject = {
         fitFunction: undefined,

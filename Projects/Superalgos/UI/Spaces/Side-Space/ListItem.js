@@ -93,7 +93,7 @@ function newListItem() {
         if (prefix === "User ") {
             backgroundColor = UI_COLOR.BLACK
         } else {
-            backgroundColor = UI_COLOR.RUSTED_RED
+            backgroundColor = UI_COLOR.GREY
         }
 
         const RED_LINE_HIGHT = 4

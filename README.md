@@ -124,6 +124,8 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 ## 3. Install Node Dependencies
 
+**IMPORTANT:** Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+
 **A.** After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies.
 
 **B.** In the same command prompt or terminal you just used, type the following command:

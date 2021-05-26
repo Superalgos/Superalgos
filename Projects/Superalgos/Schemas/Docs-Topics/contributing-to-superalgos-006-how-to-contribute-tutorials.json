@@ -455,8 +455,12 @@
         },
         {
             "style": "Text",
-            "text": "The very first page of a tutorial is a page that briefly describes what the tutorial is about, using the Summary field. The page must have the same name as the tutorial, as the summary you enter will serve as a tooltip when the tutorial is mentioned across the Docs.",
-            "updated": 1621875056722
+            "text": "The very first page of a tutorial is a page that briefly describes what the tutorial is about, using the Summary field. The page must have the same name as the tutorial and end with the word `Tutorial`, as the summary you enter will serve as a tooltip when the tutorial is mentioned across the Docs.",
+            "updated": 1621877951283
+        },
+        {
+            "style": "Callout",
+            "text": "For example, the first page of the Welcome to Superalgos! tutorial is Welcome to Superalgos Tutorial."
         },
         {
             "style": "Text",

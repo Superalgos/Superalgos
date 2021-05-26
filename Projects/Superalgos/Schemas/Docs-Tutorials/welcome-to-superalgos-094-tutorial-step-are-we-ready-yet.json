@@ -7,12 +7,12 @@
             "project": "Superalgos",
             "name": "indicator-process-instance"
         },
-        "text": "Resistances and Supports Multi-Period-Daily to the left is the last of the processes to finish.",
+        "text": "Resistances and Supports Multi-Time-Frame-Daily to the left is the last of the processes to finish.",
         "updated": 1610643083669,
         "translations": [
             {
                 "language": "IT",
-                "text": "Resistances and Supports Multi-Period-Daily a sinistra è l'ultimo processo a terminare.",
+                "text": "Resistances and Supports Multi-Time-Frame-Daily a sinistra è l'ultimo processo a terminare.",
                 "updated": 1618071215837
             }
         ]

@@ -43,7 +43,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Period-Market\"\n    }\n}",
+            "text": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Time-Frame-Market\"\n    }\n}",
             "updated": 1621710596317
         },
         {

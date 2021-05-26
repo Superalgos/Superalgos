@@ -72,7 +72,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"Multi-Period-Market\",\n    \"description\": \"Produces different files with multi-period candles and volumes for entire markets.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Candles Volumes Multi Period Market\"\n}",
+            "text": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"description\": \"Produces different files with Multi-Time-Frame candles and volumes for entire markets.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Candles Volumes Multi Time Frame Market\"\n}",
             "updated": 1621703524616
         },
         {
@@ -91,7 +91,7 @@
         },
         {
             "style": "Json",
-            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Period Market\",\n                    \"propertyName\": \"candlesVolumesMultiPeriodMarket\",\n                    \"functionName\": \"newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket\",\n                    \"fileName\": \"CandlesVolumesMultiPeriodMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
+            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Time Frame Market\",\n                    \"propertyName\": \"candlesVolumesMultiTimeFrameMarket\",\n                    \"functionName\": \"newSuperalgosBotModulesCandlesVolumesMultiTimeFrameMarket\",\n                    \"fileName\": \"CandlesVolumesMultiTimeFrameMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
             "updated": 1621703869144
         },
         {
@@ -120,22 +120,22 @@
         },
         {
             "style": "List",
-            "text": "From-One-Min-To-Multi-Period-Daily:  It is used to convert one Dataset from type One-Min-Daily to Multi-Period-Daily.",
+            "text": "From-One-Min-To-Multi-Time-Frame-Daily:  It is used to convert one Dataset from type One-Min-Daily to Multi-Time-Frame-Daily.",
             "updated": 1621703039301
         },
         {
             "style": "List",
-            "text": "From-One-Min-To-Multi-Period-Market: It is used to convert one Dataset from type One-Min-Daily to Multi-Period-Market.",
+            "text": "From-One-Min-To-Multi-Time-Frame-Market: It is used to convert one Dataset from type One-Min-Daily to Multi-Time-Frame-Market.",
             "updated": 1621703053342
         },
         {
             "style": "List",
-            "text": "Multi-Period-Daily: It is used to process data currently available at a Dataset of type Multi-Period-Daily and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "text": "Multi-Time-Frame-Daily: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Daily and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
             "updated": 1621902697553
         },
         {
             "style": "List",
-            "text": "Multi-Period-Market: It is used to process data currently available at a Dataset of type Multi-Period-Market and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "text": "Multi-Time-Frame-Market: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Market and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
             "updated": 1621902733616
         },
         {
@@ -149,20 +149,20 @@
         },
         {
             "style": "Text",
-            "text": "In this example, the process will use the From-One-Min-To-Multi-Period-Daily framwork."
+            "text": "In this example, the process will use the From-One-Min-To-Multi-Time-Frame-Daily framwork."
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Period-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Daily\"\n    }\n}",
+            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Time-Frame-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Time-Frame-Daily\"\n    }\n}",
             "updated": 1621704295681
         },
         {
             "style": "Text",
-            "text": "In this other example, the process will use the Multi-Period-Market framwork."
+            "text": "In this other example, the process will use the Multi-Time-Frame-Market framwork."
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Period-Market\"\n    }\n}",
+            "text": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Time-Frame-Market\"\n    }\n}",
             "updated": 1621704273628
         }
     ]

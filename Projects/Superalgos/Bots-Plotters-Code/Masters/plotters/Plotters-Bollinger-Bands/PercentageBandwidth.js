@@ -108,7 +108,7 @@
             recalculateScaleY();
             recalculateScaleX();
 
-            /* Now we set the right files according to current Period. */
+            /* Now we set the right files according to current Time Frame. */
 
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);

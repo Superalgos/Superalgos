@@ -114,7 +114,7 @@
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            /* Now we set the right files according to current Period. */
+            /* Now we set the right files according to current Time Frame. */
 
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
@@ -628,7 +628,7 @@
                             rightBodyHeight: bandPoint3.y - bandPoint4.y,
                             topDelta: bandPoint3.y - bandPoint2.y,
                             bottomDelta: bandPoint4.y - bandPoint1.y,
-                            period: timeFrame,
+                            timeFrame: timeFrame,
                             innerBand: band
                         };
 

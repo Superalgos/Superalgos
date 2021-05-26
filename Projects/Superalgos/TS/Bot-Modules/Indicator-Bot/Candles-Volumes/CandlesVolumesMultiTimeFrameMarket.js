@@ -1,6 +1,6 @@
-﻿exports.newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket = function (processIndex) {
+﻿exports.newSuperalgosBotModulesCandlesVolumesMultiTimeFrameMarket = function (processIndex) {
 
-    const MODULE_NAME = "Candles Volumes Multi Period Market"
+    const MODULE_NAME = "Candles Volumes Multi Time Frame Market"
     const CANDLES_FOLDER_NAME = "Candles"
     const CANDLES_ONE_MIN = "One-Min"
     const VOLUMES_FOLDER_NAME = "Volumes"
@@ -161,7 +161,7 @@
                         TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
 
                     /* Finally we get our own Status Report. */
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Market"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
 
@@ -268,7 +268,7 @@
                 in arrays and keep them in memory.
                 */
                 try {
-                    let n = 0   // loop Variable representing each possible period as defined at the periods array.
+                    let n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
                     let allPreviousCandles = [] // Each item of this array is an array of candles for a certain time frame
                     let allPreviousVolumes = [] // Each item of this array is an array of volumes for a certain time frame
@@ -454,7 +454,7 @@
                         /*
                         We will iterate through all posible time frames.
                         */
-                        let n = 0   // loop Variable representing each possible period as defined at the periods array.
+                        let n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
                         loopBody()
 
@@ -884,7 +884,7 @@
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
 
                 try {
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Market"
+                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Market"
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME

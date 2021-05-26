@@ -1,6 +1,6 @@
-﻿exports.newSuperalgosBotModulesBollingerBandsMultiPeriodDaily = function (processIndex) {
+﻿exports.newSuperalgosBotModulesBollingerBandsMultiTimeFrameDaily = function (processIndex) {
 
-    const MODULE_NAME = "Bollinger Bands Multi Period Daily"
+    const MODULE_NAME = "Bollinger Bands Multi Time Frame Daily"
     const CANDLES_FOLDER_NAME = "Candles"
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands"
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth"
@@ -104,7 +104,7 @@
                         TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
 
                     /* Second, we get the report from Candles Volumes, to know when the marted ends. */
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily"
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Daily"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
 
@@ -143,7 +143,7 @@
                     contextVariables.maxBandFile = new Date(thisReport.lastFile.valueOf());
 
                     /* Finally we get our own Status Report. */
-                    reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily"
+                    reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Time-Frame-Daily"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
 
@@ -314,7 +314,7 @@
                             /*
                             We will iterate through all posible timeFrames
                             */
-                            n = 0   // loop Variable representing each possible period as defined at the periods array.
+                            n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
                             loopBody();
 
                         } catch (err) {
@@ -352,7 +352,7 @@
                                         "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Time-Frame-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
@@ -398,7 +398,7 @@
                                         "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Period-Daily" + "/" + timeFrame + "/" + dateForPath;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + '/' + "Multi-Time-Frame-Daily" + "/" + timeFrame + "/" + dateForPath;
                                     filePath += '/' + fileName
 
                                     fileStorage.getTextFile(filePath, onCurrentDayFileReceived);
@@ -841,7 +841,7 @@
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
                 try {
-                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Daily"
+                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Time-Frame-Daily"
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;

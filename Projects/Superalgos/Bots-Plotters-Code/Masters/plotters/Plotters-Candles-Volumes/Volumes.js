@@ -111,7 +111,7 @@
 
             scaleFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            /* Now we set the right files according to current Period. */
+            /* Now we set the right files according to current Time Frame. */
 
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
@@ -703,7 +703,7 @@
                             let currentVolume = {
                                 buyInfo: buyInfo,
                                 sellInfo: sellInfo,
-                                period: timeFrame,
+                                timeFrame: timeFrame,
                                 innerVolumeBar: volume
                             };
 

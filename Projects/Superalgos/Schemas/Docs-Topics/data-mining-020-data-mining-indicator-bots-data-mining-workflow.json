@@ -26,7 +26,7 @@
         },
         {
             "style": "Text",
-            "text": "For example, the following fragment features three records in the 24-hours Multi-Period-Market Bollinger Bands Data.json file:"
+            "text": "For example, the following fragment features three records in the 24-hours Multi-Time-Frame-Market Bollinger Bands Data.json file:"
         },
         {
             "style": "Json",

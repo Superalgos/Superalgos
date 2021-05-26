@@ -1,6 +1,6 @@
-﻿exports.newSuperalgosBotModulesBollingerBandsMultiPeriodMarket = function (processIndex) {
+﻿exports.newSuperalgosBotModulesBollingerBandsMultiTimeFrameMarket = function (processIndex) {
 
-    const MODULE_NAME = "Bollinger Bands Multi Period Market"
+    const MODULE_NAME = "Bollinger Bands Multi Time Frame Market"
     const CANDLES_FOLDER_NAME = "Candles"
     const BOLLINGER_BANDS_FOLDER_NAME = "Bollinger-Bands"
     const PERCENTAGE_BANDWIDTH_FOLDER_NAME = "Percentage-Bandwidth"
@@ -44,7 +44,7 @@
                             /*
                             We will iterate through all posible time frames.
                             */
-                            n = 0   // loop Variable representing each possible period as defined at the periods array.
+                            n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
                             loopBody()
                         }
                         catch (err) {
@@ -73,7 +73,7 @@
                                         "Candles-Volumes" + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" +
                                         TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Period-Market" + "/" + timeFrame;
+                                    let filePath = filePathRoot + "/Output/" + CANDLES_FOLDER_NAME + "/" + "Multi-Time-Frame-Market" + "/" + timeFrame;
                                     filePath += '/' + fileName
 
                                     fileStorage.getTextFile(filePath, onFileReceived);
@@ -241,7 +241,7 @@
                                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                                         "/Output/" +
                                                         BOLLINGER_BANDS_FOLDER_NAME + "/" +
-                                                        "Multi-Period-Market" + "/" +
+                                                        "Multi-Time-Frame-Market" + "/" +
                                                         timeFrame
                                                     filePath += '/' + fileName
 
@@ -308,7 +308,7 @@
                                                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                                         "/Output/" +
                                                         PERCENTAGE_BANDWIDTH_FOLDER_NAME + "/" +
-                                                        "Multi-Period-Market" + "/" +
+                                                        "Multi-Time-Frame-Market" + "/" +
                                                         timeFrame;
                                                     filePath += '/' + fileName
 
@@ -396,7 +396,7 @@
 
             function writeStatusReport(callBack) {
                 try {
-                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Period-Market"
+                    let reportKey = "Masters" + "-" + "Bollinger-Bands" + "-" + "Multi-Time-Frame-Market"
                     let thisReport = statusDependencies.statusReports.get(reportKey);
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;

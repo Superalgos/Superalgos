@@ -24,17 +24,17 @@
         },
         {
             "style": "List",
-            "text": "Multi-Period-Daily: This Dataset type organizes data in one file per day for each Time Frame ranging from 1 minute to 45 minuntes. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
+            "text": "Multi-Time-Frame-Daily: This Dataset type organizes data in one file per day for each Time Frame ranging from 1 minute to 45 minuntes. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
             "updated": 1621901061453
         },
         {
             "style": "List",
-            "text": "Multi-Period-Market: This Dataset type organizes data in only one file for each Time Frame ranging from 1 hour to 24 hours. That means that the whole market history will be stored in one single file for each time frame. For example candles of 1 hour for a certain market, will be stored in a single file. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
+            "text": "Multi-Time-Frame-Market: This Dataset type organizes data in only one file for each Time Frame ranging from 1 hour to 24 hours. That means that the whole market history will be stored in one single file for each time frame. For example candles of 1 hour for a certain market, will be stored in a single file. The data of this type of Dataset can be plotted and can be consumed by trading strategies.",
             "updated": 1621901050963
         },
         {
             "style": "Note",
-            "text": "By far, the most popular Dataset Types are Multi-Period-Daily and Multi-Period-Market. "
+            "text": "By far, the most popular Dataset Types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market. "
         }
     ]
 }

@@ -135,7 +135,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
-                        if (dependency.referenceParent.config.codeName !== "Multi-Period-Market") {
+                        if (dependency.referenceParent.config.codeName !== "Multi-Time-Frame-Market") {
                             continue
                         }
 
@@ -189,7 +189,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                             /* 
                             Here we will discard all the records in a file that are outside of the current time range.
                             We will include the las element previous to the begining of the time range. This is needed
-                            because during the simulation, the current period is not the open one, but the previous to 
+                            because during the simulation, the current Time Frame is not the open one, but the previous to 
                             the open, and if we do not include the previous to the initial datetime there will be no 
                             current objects at the begining of the simulation for many time frames. 
                             */
@@ -286,7 +286,7 @@ exports.newSuperalgosFunctionLibrariesDataDependenciesFunctions = function () {
                         let dependency = dataDependenciesModule.curatedDependencyNodeArray[dependencyIndex]
                         let datasetModule = dataDependenciesModule.dataSetsModulesArray[dependencyIndex]
 
-                        if (dependency.referenceParent.config.codeName !== "Multi-Period-Daily") {
+                        if (dependency.referenceParent.config.codeName !== "Multi-Time-Frame-Daily") {
                             continue
                         }
 

@@ -22,7 +22,7 @@
         },
         {
             "style": "Json",
-            "text": "Data Storage > [Exchange] > [Market] > Masters-Trading > Low-Frequency > Output > [Session] > Concept > Multi-Period-[Daily/Market] > Time Frame"
+            "text": "Data Storage > [Exchange] > [Market] > Masters-Trading > Low-Frequency > Output > [Session] > Concept > Multi-Time-Frame-[Daily/Market] > Time Frame"
         }
     ]
 }

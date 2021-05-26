@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "The trading process instance must reference the Multi-Period process definition of the Jason trading bot in the Masters data mine."
+            "text": "The trading process instance must reference the Multi-Time-Frame process definition of the Jason trading bot in the Masters data mine."
         },
         {
             "style": "Block",

@@ -50,7 +50,7 @@
         },
         {
             "style": "List",
-            "text": "Standarize Datasets: They are used for standarization of raw data extracted from the internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standarized, it can be run through other Indicator Bot s that will extract the juice out of them. Once standarized, data can also be plotted and consumed from trading strategies. By standarizing we are specifically referring to transforming the data into a Dataset type that can be used for Plotting, to feed Learning Bots and Trading Bots. These Dataset types are Multi-Period-Daily and Milti-Period-Market.",
+            "text": "Standarize Datasets: They are used for standarization of raw data extracted from the internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standarized, it can be run through other Indicator Bot s that will extract the juice out of them. Once standarized, data can also be plotted and consumed from trading strategies. By standarizing we are specifically referring to transforming the data into a Dataset type that can be used for Plotting, to feed Learning Bots and Trading Bots. These Dataset types are Multi-Time-Frame-Daily and Milti-Period-Market.",
             "updated": 1621900536868
         },
         {

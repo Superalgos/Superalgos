@@ -231,7 +231,7 @@ const LAYER_STATUS = {
 
 let spawnPosition // this is used in several places.
 
-/* Here we list the valid Time Periods: */
+/* Here we list the valid Time Frames: */
 
 const PERIOD_24_HS = "24-hs";
 const PERIOD_12_HS = "12-hs";

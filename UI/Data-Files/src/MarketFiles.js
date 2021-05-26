@@ -30,7 +30,7 @@ function newMarketFiles() {
   let session
   let dataset
   let product
-  let periodName
+  let timeFrameLabel
 
   thisObject.eventHandler = newEventHandler()
 
@@ -60,7 +60,7 @@ function newMarketFiles() {
       session = undefined
       dataset = undefined
       product = undefined
-      periodName = undefined
+      timeFrameLabel = undefined
       eventsServerClient = undefined
 
       finalized = true
@@ -150,21 +150,21 @@ function newMarketFiles() {
         /* Now we will get the market files */
         for (let i = 0; i < marketTimeFramesArray.length; i++) {
           let periodTime = marketTimeFramesArray[i][0]
-          let periodName = marketTimeFramesArray[i][1]
+          let timeFrameLabel = marketTimeFramesArray[i][1]
 
-          if (dataset.config.validTimeFrames.includes(periodName) === false) {
+          if (dataset.config.validTimeFrames.includes(timeFrameLabel) === false) {
             filesNotLoaded++
             continue
           }
           if (timeFrames !== undefined) {
-            if (timeFrames.includes(periodName) === false) {
+            if (timeFrames.includes(timeFrameLabel) === false) {
               filesNotLoaded++
               continue
             }
           }
 
           filesExpected++
-          fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
+          fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, timeFrameLabel, undefined, undefined, undefined, undefined, onFileReceived)
 
           function onFileReceived(err, file) {
             try {
@@ -178,7 +178,7 @@ function newMarketFiles() {
 
               if (filesLoaded + filesNotLoaded === marketTimeFramesArray.length) {
                 let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
-                let callerId = key + '-' + periodName + newUniqueId()
+                let callerId = key + '-' + timeFrameLabel + newUniqueId()
                 eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponse, updateFiles)
 
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, thisObject)
@@ -211,15 +211,15 @@ function newMarketFiles() {
 
       for (let i = 0; i < marketTimeFramesArray.length; i++) {
         let periodTime = marketTimeFramesArray[i][0]
-        let periodName = marketTimeFramesArray[i][1]
+        let timeFrameLabel = marketTimeFramesArray[i][1]
 
-        if (dataset.config.validTimeFrames.includes(periodName) !== true) { continue }
+        if (dataset.config.validTimeFrames.includes(timeFrameLabel) !== true) { continue }
         if (message.event !== undefined) {
           if (message.event.timeFrames !== undefined) {
-            if (message.event.timeFrames.includes(periodName) !== true) { continue }
+            if (message.event.timeFrames.includes(timeFrameLabel) !== true) { continue }
           }
         }
-        fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, undefined, undefined, undefined, undefined, onFileReceived)
+        fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, timeFrameLabel, undefined, undefined, undefined, undefined, onFileReceived)
 
         function onFileReceived(err, file) {
           try {

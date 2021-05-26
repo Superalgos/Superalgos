@@ -1,6 +1,6 @@
-exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processIndex) {
+exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
     /*
-        This module is about converting a One-Min Daily typeo of data set into a Multi Period Daily type.
+        This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Daily type.
 
         The process to do so involves:
     
@@ -15,7 +15,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
         Everytime this process runs, it will be able to resume its job and process everything pending until 
         reaching the head of the market.         
     */
-    const MODULE_NAME = "From One Min To Multi Period Daily"
+    const MODULE_NAME = "From One Min To Multi Time Frame Daily"
 
     let thisObject = {
         initialize: initialize,
@@ -35,7 +35,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
 
         statusDependenciesModule = pStatusDependencies
         dataDependenciesModule = pDataDependencies
-        TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.checkForKnownConstraints(
+        TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.checkForKnownConstraints(
             dataDependenciesModule,
             node,
             processIndex,
@@ -62,7 +62,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                 beginingOfMarket: undefined                                 // Datetime of the begining of the market.
             }
 
-            TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.getContextVariables(
+            TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.getContextVariables(
                 statusDependenciesModule,
                 contextVariables,
                 buildOutput,
@@ -88,7 +88,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                     moveToNextDay()
 
                     function moveToNextDay() {
-                        TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.advanceTime(
+                        TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.advanceTime(
                             fromDate,
                             lastDate,
                             contextVariables,
@@ -102,7 +102,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                         /*
                         We will iterate through all posible time frames.
                         */
-                        let timeFrameArrayIndex = 0   // loop Variable representing each possible period as defined at the periods array.
+                        let timeFrameArrayIndex = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
                         loopBody()
 
@@ -115,7 +115,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                             at each pass, we will read one of Exchange Raw Data's daily files and
                             add all its elements to our in memory arrays. 
                             */
-                            TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.nextDependencyDailyFile(
+                            TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.nextDependencyDailyFile(
                                 contextVariables,
                                 node,
                                 aggregateAndWriteOutputFile,
@@ -129,7 +129,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                                 Here we call the function that will aggregate all the information 
                                 at the dependency file into standarized begin-end-elements. 
                                 */
-                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.aggregateFileContent(
+                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.aggregateFileContent(
                                     node,
                                     contextVariables,
                                     dependencyDailyFile,
@@ -144,7 +144,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                                     Here we will write the contents of the file to disk.
                                     */
                                     try {
-                                        let fileContent = TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.generateOutputFileContent(
+                                        let fileContent = TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.generateOutputFileContent(
                                             node,
                                             outputElementsCurrentTimeFrame
                                         )
@@ -209,7 +209,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily = function (processI
                             if (timeFrameArrayIndex < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length) {
                                 loopBody()
                             } else {
-                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiPeriodFunctions.writeStatusReport(
+                                TS.projects.superalgos.functionLibraries.fromOneMinToMultiTimeFrameFunctions.writeStatusReport(
                                     statusDependenciesModule,
                                     contextVariables,
                                     contextVariables.datetimeLastProducedFile,

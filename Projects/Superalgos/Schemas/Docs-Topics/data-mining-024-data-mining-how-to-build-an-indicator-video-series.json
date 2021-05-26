@@ -29,7 +29,7 @@
         },
         {
             "style": "Text",
-            "text": "Setting up the multi-period-market and multi-period-daily process definitions, status and data dependencies, execution events, and dataset definitions for the main product.",
+            "text": "Setting up the Multi-Time-Frame-Market and Multi-Time-Frame-Daily process definitions, status and data dependencies, execution events, and dataset definitions for the main product.",
             "updated": 1611434720860
         },
         {

@@ -31,7 +31,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n  \"codeName\": \"Multi-Period-Market|Multi-Period-Market|From-One-Min-To-Multi-Period-Daily|From-One-Min-To-Multi-Period-Market\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Period-Market|Multi-Period-Market|From-One-Min-To-Multi-Period-Daily|From-One-Min-To-Multi-Period-Market\" \n  }\n}"
+        "config": "{ \n  \"codeName\": \"Multi-Time-Frame-Market|Multi-Time-Frame-Market|From-One-Min-To-Multi-Time-Frame-Daily|From-One-Min-To-Multi-Time-Frame-Market\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Time-Frame-Market|Multi-Time-Frame-Market|From-One-Min-To-Multi-Time-Frame-Daily|From-One-Min-To-Multi-Time-Frame-Market\" \n  }\n}"
     },
     "level": 1,
     "attachingRules": {

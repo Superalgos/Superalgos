@@ -1,6 +1,6 @@
-﻿exports.newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily = function (processIndex) {
+﻿exports.newSuperalgosBotModulesCandlesVolumesMultiTimeFrameDaily = function (processIndex) {
 
-    const MODULE_NAME = "Candles Volumes Multi Period Daily";
+    const MODULE_NAME = "Candles Volumes Multi Time Frame Daily";
     const CANDLES_FOLDER_NAME = "Candles";
     const CANDLES_ONE_MIN = "One-Min";
     const VOLUMES_FOLDER_NAME = "Volumes";
@@ -139,7 +139,7 @@
 
                     /* Finally we get our own Status Report. */
 
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily"
+                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Daily"
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
 
@@ -282,7 +282,7 @@
                         /*
                         We will iterate through all posible time frames.
                         */
-                        let n = 0   // loop Variable representing each possible period as defined at the periods array.
+                        let n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
                         loopBody();
 
                         function loopBody() {
@@ -736,7 +736,7 @@
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
                 try {
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Period-Daily"
+                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Daily"
                     let thisReport = statusDependencies.statusReports.get(reportKey)
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;

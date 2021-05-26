@@ -103,7 +103,7 @@
 
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS);  // This file is the one processed faster. 
 
-            /* Now we set the right files according to current Period. */
+            /* Now we set the right files according to current Time Frame. */
 
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
@@ -745,7 +745,7 @@
                         stickHeight: candle.stickPoint4.y - candle.stickPoint2.y,
                         stickWidth: candle.stickPoint2.x - candle.stickPoint1.x,
                         stickStart: candle.candlePoint2.y - candle.stickPoint2.y,
-                        period: timeFrame,
+                        timeFrame: timeFrame,
                         innerCandle: candle
                     };
                     thisObject.container.eventHandler.raiseEvent("Current Record Changed", currentCandle);

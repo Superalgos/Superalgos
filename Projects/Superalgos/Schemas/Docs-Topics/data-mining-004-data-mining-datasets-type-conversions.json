@@ -14,12 +14,12 @@
         },
         {
             "style": "List",
-            "text": "From One-Min-Daily Dataset to Multi-Period-Daily.",
+            "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Daily.",
             "updated": 1621701316752
         },
         {
             "style": "List",
-            "text": "From One-Min-Daily Dataset to Multi-Period-Market.",
+            "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Market.",
             "updated": 1621701322738
         },
         {
@@ -38,7 +38,7 @@
         },
         {
             "style": "List",
-            "text": "Standard Converter: Use a standard converter to do the job. Currently there is only one Standard Converter and it works converting from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. ",
+            "text": "Standard Converter: Use a standard converter to do the job. Currently there is only one Standard Converter and it works converting from One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset types. ",
             "updated": 1621711423050
         },
         {
@@ -62,32 +62,32 @@
         },
         {
             "style": "Text",
-            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine uses a Standard Converter from One-Min-Daily Dataset type to Multi-Period-Daily and Multi-Period-Market Dataset types. To use the converter, the bot's Process Definition nodes need to have at their config the framework of this converter.",
+            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine uses a Standard Converter from One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset types. To use the converter, the bot's Process Definition nodes need to have at their config the framework of this converter.",
             "updated": 1621901387602
         },
         {
             "style": "Text",
-            "text": "To convert to Multi-Period-Daily, set the framework name like in this example:",
+            "text": "To convert to Multi-Time-Frame-Daily, set the framework name like in this example:",
             "updated": 1621701835162
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Period-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Daily\"\n    }\n}",
+            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Time-Frame-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Time-Frame-Daily\"\n    }\n}",
             "updated": 1621701781838
         },
         {
             "style": "Text",
-            "text": "To convert to Multi-Period-Market, set the framework name like in this example:",
+            "text": "To convert to Multi-Time-Frame-Market, set the framework name like in this example:",
             "updated": 1621701845744
         },
         {
             "style": "Json",
-            "text": " {\n    \"codeName\": \"From-One-Min-To-Multi-Period-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Period-Market\"\n    }\n}",
+            "text": " {\n    \"codeName\": \"From-One-Min-To-Multi-Time-Frame-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Time-Frame-Market\"\n    }\n}",
             "updated": 1621901499029
         },
         {
             "style": "Success",
-            "text": "You will need the standar converter everytime you use the API Data Fetcher Bot to extract data from some Inernet API. The bot will usually save the data in a One-Min-Daily Dataset Type, and you will need to setup and Indicator Bot with two processes, in order to convert the One-Min-Daily Dataset Type into a Multi-PeriodDaily and a Multi-Period-Market Dataset Type. ",
+            "text": "You will need the standar converter everytime you use the API Data Fetcher Bot to extract data from some Inernet API. The bot will usually save the data in a One-Min-Daily Dataset Type, and you will need to setup and Indicator Bot with two processes, in order to convert the One-Min-Daily Dataset Type into a Multi-Time-FrameDaily and a Multi-Time-Frame-Market Dataset Type. ",
             "updated": 1621901677409
         }
     ]

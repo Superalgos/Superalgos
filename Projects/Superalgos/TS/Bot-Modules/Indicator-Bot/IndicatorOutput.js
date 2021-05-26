@@ -1,7 +1,7 @@
 ﻿exports.newSuperalgosBotModulesIndicatorOutput = function (processIndex) {
     /*
     This module coordinates the actions to be taken to generate an indicator output.
-    It is used from both Multi-Period-Market and Multi-Period-Daily frameworks.
+    It is used from both Multi-Time-Frame-Market and Multi-Time-Frame-Daily frameworks.
     */
     const MODULE_NAME = "Indicator Output";
 

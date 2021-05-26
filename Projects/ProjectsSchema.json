@@ -455,10 +455,10 @@
                     "fileName": "DataDependenciesFunctions.js"
                 },
                 {
-                    "name": "From One Min To Multi Period Functions",
-                    "propertyName": "fromOneMinToMultiPeriodFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesFromOneMinToMultiPeriodFunctions",
-                    "fileName": "FromOneMinToMultiPeriodFunctions.js"
+                    "name": "From One Min To Multi Time Frame Functions",
+                    "propertyName": "fromOneMinToMultiTimeFrameFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions",
+                    "fileName": "FromOneMinToMultiTimeFrameFunctions.js"
                 },
                 {
                     "name": "Process Files Functions",
@@ -610,59 +610,59 @@
                     "botType": "Indicator Bot"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Daily",
-                    "propertyName": "candlesVolumesMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily",
-                    "fileName": "CandlesVolumesMultiPeriodDaily.js",
+                    "name": "Candles Volumes Multi Time Frame Daily",
+                    "propertyName": "candlesVolumesMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiTimeFrameDaily",
+                    "fileName": "CandlesVolumesMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Market",
-                    "propertyName": "candlesVolumesMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket",
-                    "fileName": "CandlesVolumesMultiPeriodMarket.js",
+                    "name": "Candles Volumes Multi Time Frame Market",
+                    "propertyName": "candlesVolumesMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiTimeFrameMarket",
+                    "fileName": "CandlesVolumesMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Daily",
-                    "propertyName": "bollingerBandsMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodDaily",
-                    "fileName": "BollingerBandsMultiPeriodDaily.js",
+                    "name": "Bollinger Bands Multi Time Frame Daily",
+                    "propertyName": "bollingerBandsMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiTimeFrameDaily",
+                    "fileName": "BollingerBandsMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Market",
-                    "propertyName": "bollingerBandsMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodMarket",
-                    "fileName": "BollingerBandsMultiPeriodMarket.js",
+                    "name": "Bollinger Bands Multi Time Frame Market",
+                    "propertyName": "bollingerBandsMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiTimeFrameMarket",
+                    "fileName": "BollingerBandsMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Period Market",
-                    "propertyName": "multiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodMarket",
-                    "fileName": "MultiPeriodMarket.js",
+                    "name": "Multi Time Frame Market",
+                    "propertyName": "multiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Period Daily",
-                    "propertyName": "multiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodDaily",
-                    "fileName": "MultiPeriodDaily.js",
+                    "name": "Multi Time Frame Daily",
+                    "propertyName": "multiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "From One Min To Multi Period Market",
-                    "propertyName": "fromOneMinToMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodMarket",
-                    "fileName": "FromOneMinToMultiPeriodMarket.js",
+                    "name": "From One Min To Multi Time Frame Market",
+                    "propertyName": "fromOneMinToMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket",
+                    "fileName": "FromOneMinToMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "From One Min To Multi Period Daily",
-                    "propertyName": "fromOneMinToMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiPeriodDaily",
-                    "fileName": "FromOneMinToMultiPeriodDaily.js",
+                    "name": "From One Min To Multi Time Frame Daily",
+                    "propertyName": "fromOneMinToMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiTimeFrameDaily",
+                    "fileName": "FromOneMinToMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
                 {

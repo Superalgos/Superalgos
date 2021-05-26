@@ -1,5 +1,5 @@
-﻿exports.newSuperalgosBotModulesMultiPeriodDaily = function (processIndex) {
-    const MODULE_NAME = "Multi Period Daily"
+﻿exports.newSuperalgosBotModulesMultiTimeFrameDaily = function (processIndex) {
+    const MODULE_NAME = "Multi Time Frame Daily"
     /*
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.
     It also assumes that the data dependencias are in Daily Files, one file for each Time Frame.
@@ -342,7 +342,7 @@
                         if (dependency === undefined) {
 
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> You need to add at least one Data Dependency to the process Multi Period Daily. Aborting process.")
+                                "[ERROR] start -> processTimeFrames -> timeFramesLoopBody -> dependencyLoopBody -> You need to add at least one Data Dependency to the process Multi Time Frame Daily. Aborting process.")
                             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                             return
                         }
@@ -363,7 +363,7 @@
                                 TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCMonth() + 1, 2) + '/' +
                                 TS.projects.superalgos.utilities.miscellaneousFunctions.pad(previousDay.getUTCDate(), 2)
                             let filePath
-                            if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
+                            if (dependency.referenceParent.config.codeName === "Multi-Time-Frame-Daily") {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                             } else {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
@@ -415,7 +415,7 @@
                                 TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCMonth() + 1, 2) + '/' +
                                 TS.projects.superalgos.utilities.miscellaneousFunctions.pad(TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.getUTCDate(), 2)
                             let filePath
-                            if (dependency.referenceParent.config.codeName === "Multi-Period-Daily") {
+                            if (dependency.referenceParent.config.codeName === "Multi-Time-Frame-Daily") {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + timeFrameLabel + "/" + dateForPath;
                             } else {
                                 filePath = dependency.referenceParent.parentNode.config.codeName + '/' + dependency.referenceParent.config.codeName + "/" + dateForPath;
@@ -611,7 +611,7 @@
 
             function writeStatusReport(lastFileDate, callBack) {
                 let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
-                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Period-Daily"
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Time-Frame-Daily"
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastFile = lastFileDate;

@@ -1,5 +1,5 @@
-﻿exports.newSuperalgosBotModulesMultiPeriodMarket = function (processIndex) {
-    const MODULE_NAME = "Multi Period Market"
+﻿exports.newSuperalgosBotModulesMultiTimeFrameMarket = function (processIndex) {
+    const MODULE_NAME = "Multi Time Frame Market"
     /*
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
     It also assumes that the data dependencias are in Market Files, one file for each Time Frame.
@@ -210,7 +210,7 @@
 
             function writeStatusReport(callBack) {
                 let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
-                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Period-Market"
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Time-Frame-Market"
                 let thisReport = statusDependencies.statusReports.get(reportKey)
 
                 thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;

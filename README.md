@@ -180,6 +180,25 @@ node setup
 ```
 Then wait until you are able to type within the terminal again.  
 
+### Refactoring
+
+The following refactoring have beed done over the codebase and all plugins of all types. For your workspaces to be ported you will need to refactor the contents of My Workspaces folder and any plugins of your own too.
+
+Multi-Period -> Multi-Time-Frame
+Multi Period -> Multi Time Frame
+MultiPeriod -> MultiTimeFrame
+multiPeriod -> multiTimeFrame
+@Period -> @TimeFrame
+periodName -> timeFrameLabel
+Muti-Period-Market -> Multi-Time-Frame-Market
+
+Your refactoring needs to include Folder Names. You will find several folders to rename at the Data-Storage folder structure. Because of the changes derived from splitting the Master Data Mine into several different Data Mines, you will probably need to reprocess all your indicators.
+
+An easy way to deal with all this is to:
+
+1. Delete the Log-Files folder
+2. At Data Storage, delete all except Masters / Exchange Raw Data and Masters / Candles Volumes. This will prevent you from downloading all data again and building all candles agains, which is the most time consuming process. The rest of the indicators you can process them again.
+
 **NOTE FOR USERS RUNNING IN HEADLESS ENVIRONMENT:**  You will need to add the `noShortcuts` flag while running `node setup` to suppress installing GUI shortcuts.  To do this type:
 
 ```

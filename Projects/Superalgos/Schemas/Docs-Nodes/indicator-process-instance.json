@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "Indicator bot instances usually require two indicator process instances. One of them references the indicator's multi-period-market process definition and the second references the multi-period-daily process definition."
+            "text": "Indicator bot instances usually require two indicator process instances. One of them references the indicator's Multi-Time-Frame-Market process definition and the second references the Multi-Time-Frame-Daily process definition."
         },
         {
             "style": "Text",

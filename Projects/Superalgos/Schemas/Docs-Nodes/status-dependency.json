@@ -23,12 +23,12 @@
         },
         {
             "style": "List",
-            "text": "The market starting point is a status dependency existing on Multi-Period-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Period-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).",
+            "text": "The market starting point is a status dependency existing on Multi-Time-Frame-Daily processes so that the process establishing the reference learns the datetime of the start of the market. Usually, the reference is established with the sensor's Historic-OHLCVs process status report. Multi-Time-Frame-Market processes do not have this type of status dependency as the date of the start of the market is implied in their dataset (a single file with all market data).",
             "updated": 1609787724948
         },
         {
             "style": "List",
-            "text": "The market ending point is a status dependency existing both in Multi-Period-Market and Multi-Period-Daily processes so that the process establishing the reference knows the datetime of the end of the market.",
+            "text": "The market ending point is a status dependency existing both in Multi-Time-Frame-Market and Multi-Time-Frame-Daily processes so that the process establishing the reference knows the datetime of the end of the market.",
             "updated": 1609787745299
         },
         {

@@ -64,7 +64,7 @@
         },
         {
             "style": "Text",
-            "text": "When Raw Data is fetched from the Internet, it needs to be converted into a Dataset Type either of Multi-Period-Daily and Multi-Period-Market types. Usually Raw Data is a timestamped dataset with a timesStamp field or it has a begin and end properties if they are fragmented in time slots of one minute.",
+            "text": "When Raw Data is fetched from the Internet, it needs to be converted into a Dataset Type either of Multi-Time-Frame-Daily and Multi-Time-Frame-Market types. Usually Raw Data is a timestamped dataset with a timesStamp field or it has a begin and end properties if they are fragmented in time slots of one minute.",
             "updated": 1621973202254
         },
         {
@@ -196,7 +196,7 @@
         },
         {
             "style": "List",
-            "text": "Step #18: Setup an your Data Mine an Indicator Bot and configure their Process Definition nodes to be of the framework that converts from One-Min-Daily to Multi-Period-Daily and Multi-Perio-Market types of Datasets. See how it was done at the UI #1.",
+            "text": "Step #18: Setup an your Data Mine an Indicator Bot and configure their Process Definition nodes to be of the framework that converts from One-Min-Daily to Multi-Time-Frame-Daily and Multi-Perio-Market types of Datasets. See how it was done at the UI #1.",
             "updated": 1621977642805
         },
         {

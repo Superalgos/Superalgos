@@ -385,7 +385,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                             for (let k = 0; k < dataDependencies.length; k++) {
                                 let dataDependencyNode = dataDependencies[k]
-                                if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
+                                if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Time-Frame-Daily') { continue }
                                 let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                                 let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                                 if (thisChart[pluralVariableName] !== undefined) {
@@ -408,7 +408,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k]
-                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
+                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Time-Frame-Market') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                             if (thisChart[pluralVariableName] !== undefined) {

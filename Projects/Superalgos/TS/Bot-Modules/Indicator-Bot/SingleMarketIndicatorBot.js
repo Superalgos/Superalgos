@@ -275,23 +275,23 @@
                                             }
 
                                             switch (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.framework.name) {
-                                                case 'Multi-Period-Market': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodMarket.newSuperalgosBotModulesMultiPeriodMarket(processIndex);
+                                                case 'Multi-Time-Frame-Market': {
+                                                    processFramework = TS.projects.superalgos.botModules.multiTimeFrameMarket.newSuperalgosBotModulesMultiTimeFrameMarket(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
-                                                case 'Multi-Period-Daily': {
-                                                    processFramework = TS.projects.superalgos.botModules.multiPeriodDaily.newSuperalgosBotModulesMultiPeriodDaily(processIndex);
+                                                case 'Multi-Time-Frame-Daily': {
+                                                    processFramework = TS.projects.superalgos.botModules.multiTimeFrameDaily.newSuperalgosBotModulesMultiTimeFrameDaily(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
-                                                case 'From-One-Min-To-Multi-Period-Market': {
-                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiPeriodMarket.newSuperalgosBotModulesFromOneMinToMultiPeriodMarket(processIndex);
+                                                case 'From-One-Min-To-Multi-Time-Frame-Market': {
+                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiTimeFrameMarket.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }
-                                                case 'From-One-Min-To-Multi-Period-Daily': {
-                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiPeriodDaily.newSuperalgosBotModulesFromOneMinToMultiPeriodDaily(processIndex);
+                                                case 'From-One-Min-To-Multi-Time-Frame-Daily': {
+                                                    processFramework = TS.projects.superalgos.botModules.fromOneMinToMultiTimeFrameDaily.newSuperalgosBotModulesFromOneMinToMultiTimeFrameDaily(processIndex);
                                                     intitializeProcessFramework();
                                                     break;
                                                 }

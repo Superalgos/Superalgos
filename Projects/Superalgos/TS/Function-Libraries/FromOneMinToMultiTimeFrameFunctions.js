@@ -1,11 +1,11 @@
-exports.newSuperalgosFunctionLibrariesFromOneMinToMultiPeriodFunctions = function () {
+exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = function () {
     /*
     This module contains the functions to aggregate data into elements with
     begin and end properties. It is used by both the One Min to Market
     and One Min to Daily frameworks as a common place to haave functions
     used at both of them.
     */
-    const MODULE_NAME = "From One Min To Multi Period Functions"
+    const MODULE_NAME = "From One Min To Multi Time Frame Functions"
 
     let thisObject = {
         checkForKnownConstraints: checkForKnownConstraints,
@@ -28,7 +28,7 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiPeriodFunctions = functio
         This Framework have a few contraints that we are going to check right here.
         One of them is the fact that it can only accept one data dependency. The 
         reason why is because the purpose of this framwork is to produce a transformation
-        between one dataset type (One-Min) to another dataset type (Multi-Period-Market).
+        between one dataset type (One-Min) to another dataset type (Multi-Time-Frame-Market).
         To do that it can only handle one dependency and it will only produce one output.
 
         If the user has defined more than one data dependency or more than one output, we

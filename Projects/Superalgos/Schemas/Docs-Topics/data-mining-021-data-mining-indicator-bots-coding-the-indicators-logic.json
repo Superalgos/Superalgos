@@ -143,7 +143,7 @@
         },
         {
             "style": "Title",
-            "text": "Multi-Period-Daily"
+            "text": "Multi-Time-Frame-Daily"
         },
         {
             "style": "Text",
@@ -160,7 +160,7 @@
         },
         {
             "style": "Javascript",
-            "text": "/* Loop Code. */\n\nlet candle = record.current // Our main dependency is candles \nvariable.last200.push(candle.close) // Add the current close value to the last 200 array.\n\nif (variable.last200.length > 200) { // Store data in the variable object to overcome the limitations in multi-period-daily.\n    variable.last200.splice(0, 1) // Remove the first element of the array to keep it at a maximun of 200 elements.\n}\n\nvariable.sma20 = calculateSMA(20)\nvariable.sma50 = calculateSMA(50)\nvariable.sma100 = calculateSMA(100)\nvariable.sma200 = calculateSMA(200)\n\nfunction calculateSMA(periods) {  // Having a function saves us from duplicating code.\n    /* We check we have enough values to make the calculation */\n    if (variable.last200.length < periods) { return 0 } // If we dont, we define the value is zero.\n\n    let sum = 0 // Initialize sum variable. \n    for (let i = variable.last200.length - periods; i < variable.last200.length; i++) { // Iterate through the last periods\n        sum = sum + variable.last200[i]\n    }\n    let sma = sum / periods\n    return sma\n}",
+            "text": "/* Loop Code. */\n\nlet candle = record.current // Our main dependency is candles \nvariable.last200.push(candle.close) // Add the current close value to the last 200 array.\n\nif (variable.last200.length > 200) { // Store data in the variable object to overcome the limitations in Multi-Time-Frame-Daily.\n    variable.last200.splice(0, 1) // Remove the first element of the array to keep it at a maximun of 200 elements.\n}\n\nvariable.sma20 = calculateSMA(20)\nvariable.sma50 = calculateSMA(50)\nvariable.sma100 = calculateSMA(100)\nvariable.sma200 = calculateSMA(200)\n\nfunction calculateSMA(periods) {  // Having a function saves us from duplicating code.\n    /* We check we have enough values to make the calculation */\n    if (variable.last200.length < periods) { return 0 } // If we dont, we define the value is zero.\n\n    let sum = 0 // Initialize sum variable. \n    for (let i = variable.last200.length - periods; i < variable.last200.length; i++) { // Iterate through the last periods\n        sum = sum + variable.last200[i]\n    }\n    let sma = sum / periods\n    return sma\n}",
             "updated": 1611431047895
         },
         {

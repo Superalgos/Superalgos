@@ -2,6 +2,13 @@
     "type": "API Response Field Reference",
     "menuItems": [
         {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -11,6 +18,12 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"nodePath\": \"\"}"
+    },
     "title": [
         "Use Reference Parent"
     ],

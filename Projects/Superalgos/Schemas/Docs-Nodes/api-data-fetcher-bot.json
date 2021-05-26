@@ -7,8 +7,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "An API Data Fetcher Bots is similar to a Sensor Bot, except that the second extracts data from exchanges, while the first one can do it from any reachable API, including exchanges.",
-            "updated": 1621022763112
+            "text": "An API Data Fetcher Bots is similar to a Sensor Bot, except that the second need dev users to code an algo for extracting the data, while the first one can do it without coding, just using an API Map.",
+            "updated": 1621969800744
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Data Mining - Fetching Data From APIs->Main Workflow"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

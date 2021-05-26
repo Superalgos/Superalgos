@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "6",
+    "pageNumber": 6,
     "type": "Data Mining - Data Mines",
     "definition": {
         "text": "Data Mines are user created packages of definitions. These definitions usually include Sensor Bot, Indicator Bot and Plotter definitions. The Data Mines shipped with Superalgos are packages contributed by users of the software.",

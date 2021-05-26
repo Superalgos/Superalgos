@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "11",
+    "pageNumber": 11,
     "type": "Data Mining - Deployments",
     "definition": {
         "text": "Data Minign Bots can be deployed into one or many machines at the same time and they will automatically find the way too coordinate their actions.",

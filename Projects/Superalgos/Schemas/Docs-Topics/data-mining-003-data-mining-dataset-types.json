@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": "3",
+    "pageNumber": 3,
     "type": "Data Mining - Dataset Types",
     "definition": {
         "text": "Superalgos organizes data in datasets. These datasets are standarized across the system in different types.",

@@ -126,7 +126,7 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                     return
                 }
 
-                contextVariables.datetimeBeginingOfMarketFile = new Date(thisReport.beginingOfMarket)
+                contextVariables.datetimeBeginingOfMarketFile = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date(thisReport.beginingOfMarket)) 
             }
 
             function detectWhereTheMarketEnds() {

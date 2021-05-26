@@ -184,13 +184,13 @@ Then wait until you are able to type within the terminal again.
 
 The following refactoring have beed done over the codebase and all plugins of all types. For your workspaces to be ported you will need to refactor the contents of My Workspaces folder and any plugins of your own too.
 
-Multi-Period -> Multi-Time-Frame
-Multi Period -> Multi Time Frame
-MultiPeriod -> MultiTimeFrame
-multiPeriod -> multiTimeFrame
-@Period -> @TimeFrame
-periodName -> timeFrameLabel
-Muti-Period-Market -> Multi-Time-Frame-Market
+1. Multi-Period -> Multi-Time-Frame
+2. Multi Period -> Multi Time Frame
+3. MultiPeriod -> MultiTimeFrame
+4. multiPeriod -> multiTimeFrame
+5. @Period -> @TimeFrame
+6. periodName -> timeFrameLabel
+7. Muti-Period-Market -> Multi-Time-Frame-Market
 
 Your refactoring needs to include Folder Names. You will find several folders to rename at the Data-Storage folder structure. Because of the changes derived from splitting the Master Data Mine into several different Data Mines, you will probably need to reprocess all your indicators.
 

@@ -12,14 +12,14 @@
     }
 
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
-    let statusDependencies;
+    let statusDependenciesModule
     let beginingOfMarket
 
     return thisObject;
 
-    function initialize(pStatusDependencies, callBackFunction) {
+    function initialize(pStatusDependenciesModule, callBackFunction) {
         try {
-            statusDependencies = pStatusDependencies
+            statusDependenciesModule = pStatusDependenciesModule
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
         } catch (err) {
@@ -47,16 +47,12 @@
 
             function getContextVariables() {
                 try {
-                    let thisReport;
-                    let reportKey;
-                    let statusReport;
+                    let thisReport
+                    let statusReport
 
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Starting Point')
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -71,10 +67,8 @@
                         return;
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file;
                     if (thisReport.beginingOfMarket === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[HINT] start -> getContextVariables -> It is too early too run this process since the trade history of the market is not there yet.");
 
@@ -97,11 +91,8 @@
                         TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
 
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Ending Point')
 
-                    statusReport = statusDependencies.statusReports.get(reportKey);
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
@@ -116,11 +107,8 @@
                         return
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file
+                    thisReport = statusReport.file
                     if (thisReport.lastFile === undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] start -> getContextVariables -> Undefined Last File. -> reportKey = " + reportKey);
-
                         let customOK = {
                             result: TS.projects.superalgos.globals.standardResponses.CUSTOM_OK_RESPONSE.result,
                             message: "Dependency not ready."
@@ -138,12 +126,7 @@
                         TS.projects.superalgos.globals.timeConstants.GMT_SECONDS)
 
                     /* Finally we get our own Status Report. */
-
-                    reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Daily"
-                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
-
-                    statusReport = statusDependencies.statusReports.get(reportKey)
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -159,15 +142,10 @@
                         return
                     }
 
-                    thisReport = statusDependencies.statusReports.get(reportKey).file;
+                    thisReport = statusReport.file
                     if (thisReport.lastFile !== undefined) {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running not for the very first time. -> reportKey = " + reportKey)
-
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
                         if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
-                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated. -> reportKey = " + reportKey);
 
                             beginingOfMarket = new Date(contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" + (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" + contextVariables.datetimeBeginingOfMarketFile.getUTCDate() + " " + "00:00" + TS.projects.superalgos.globals.timeConstants.GMT_SECONDS);
                             contextVariables.datetimeLastProducedFile = new Date(
@@ -195,9 +173,6 @@
                         return
 
                     } else {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[INFO] start -> getContextVariables -> Process Running for the very first time. -> reportKey = " + reportKey);
-
                         beginingOfMarket = new Date(
                             contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
                             (contextVariables.datetimeBeginingOfMarketFile.getUTCMonth() + 1) + "-" +
@@ -220,9 +195,9 @@
                         "[ERROR] start -> getContextVariables -> err = " + err.stack)
                     if (err.message === "Cannot read property 'file' of undefined") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ");
+                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependenciesModule declarations are correct. ");
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys))
+                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys))
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
@@ -736,8 +711,7 @@
                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> writeStatusReport -> lastFileDate = " + lastFileDate)
                 try {
-                    let reportKey = "Masters" + "-" + "Candles-Volumes" + "-" + "Multi-Time-Frame-Daily"
-                    let thisReport = statusDependencies.statusReports.get(reportKey)
+                    let thisReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
                     thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;
                     thisReport.file.lastFile = lastFileDate;

@@ -148,7 +148,7 @@ Congratulations your installation is complete!
 
 **DEPENDENCY INSTALLATION FOR RASPBERRY PI USERS**
 
-As noted above, running `node setup` installs GUI shortcuts by default.  To suppress this behavior in headless installations, add the `noShortcuts` flag as follows:
+As noted above, running `node setup` installs GUI shortcuts by default. To suppress this behavior in headless installations, add the `noShortcuts` flag as follows:
 
 ```
 node setup noShortcuts
@@ -170,34 +170,21 @@ node setup noShortcuts
 
 ### Changes in Dependency Managment
 
-**IMPORTANT:**  Superalgos no longer contains the node dependencies needed to run within this repository. After you have finished running `app.update`, in order to finish upgrading to Beta 10 you will need to run the new setup command. 
+**IMPORTANT:**  Superalgos no longer contains the node dependencies needed to run within this repository. Follow these steps to make sure your installation updates correctly.
 
-**A.** Open a terminal or command prompt and navigate to your Superalgos directory.
+**A.** Check to make sure you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above. 
 
-**B.** Enter the following command:
+**B.** Launch your old Superalgos instance and run `app.update` to gather the Beta 10 update. 
+
+**C.** Then close the UI and shutdown the Client.
+
+**D.** Open a fresh terminal or command prompt and navigate to your Superalgos directory.
+
+**E.** Enter the following command:
 ```
 node setup
 ```
 Then wait until you are able to type within the terminal again.  
-
-### Refactoring
-
-The following refactoring have beed done over the codebase and all plugins of all types. For your workspaces to be ported you will need to refactor the contents of My Workspaces folder and any plugins of your own too.
-
-1. Multi-Period -> Multi-Time-Frame
-2. Multi Period -> Multi Time Frame
-3. MultiPeriod -> MultiTimeFrame
-4. multiPeriod -> multiTimeFrame
-5. @Period -> @TimeFrame
-6. periodName -> timeFrameLabel
-7. Muti-Period-Market -> Multi-Time-Frame-Market
-
-Your refactoring needs to include Folder Names. You will find several folders to rename at the Data-Storage folder structure. Because of the changes derived from splitting the Master Data Mine into several different Data Mines, you will probably need to reprocess all your indicators.
-
-An easy way to deal with all this is to:
-
-1. Delete the Log-Files folder
-2. At Data Storage, delete all except Masters / Exchange Raw Data and Masters / Candles Volumes. This will prevent you from downloading all data again and building all candles agains, which is the most time consuming process. The rest of the indicators you can process them again.
 
 **NOTE FOR USERS RUNNING IN HEADLESS ENVIRONMENT:**  You will need to add the `noShortcuts` flag while running `node setup` to suppress installing GUI shortcuts.  To do this type:
 
@@ -205,14 +192,26 @@ An easy way to deal with all this is to:
 node setup noShortcuts
 ```
 
+### Refactoring
 
-### Refactorings
+In order to migrate your workspaces to Beta 10, you will need to open My-Workspaces folder with an IDE like VS Code and do some refactorings. The following refactoring has been done over the codebase and all plugins of every type. For your workspaces to be ported, you will need to refactor the contents of your My-Workspaces folder and any plugins of your own as well.
 
-In order to migrate your own workspaces to Beta 10, you will need to open My Workspaces folder with an IDE like VS Code and do some refactorings. This is what you need to find and replace:
+| Find               | Replace With            |
+| :----------------: | :---------------------: |
+| Multi-Period       | Multi-Time-Frame        |
+| Multi Period       | Multi Time Frame        |
+| MultiPeriod        | MultiTimeFrame          |
+| multiPeriod        | multiTimeFrame          |
+| @Period            | @TimeFrame              |
+| periodName         | timeFrameLabel          |
+| Muti-Period-Market | Multi-Time-Frame-Market |
 
-| Find | Replace With |
-| :---: | :---: |
-| There are currently no refactorings to be made. |  |
+Your refactoring needs to include Folder Names. You will find several folders to rename at the Data-Storage folder structure. Because of the changes derived from splitting the Master Data Mine into several different Data Mines, you will probably need to reprocess all your indicators.
+
+An easy way to deal with all this is to:
+
+1. Delete the Log-Files folder.
+2. At Data Storage, delete all except Masters / Exchange Raw Data and Masters / Candles Volumes. This will prevent you from downloading all data again and building all candles agains, which is the most time consuming process. The rest of the indicators you can then reprocess.
 
 # Usage
 

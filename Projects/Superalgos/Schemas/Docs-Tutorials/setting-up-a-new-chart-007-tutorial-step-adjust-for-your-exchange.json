@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This workspace was built using binance.us. If that is your exchange go ahead and skip this step. However, if your data is stored on binance.com you will need to make one quick adjustment.",
-            "updated": 1621521898886
+            "text": "This workspace was built using binance.com. If that is your exchange, go ahead and skip this step. However, if your data is stored on binance.us you will need to make one quick adjustment.",
+            "updated": 1621990018790
         },
         {
             "style": "Callout",
@@ -23,11 +23,13 @@
         },
         {
             "style": "List",
-            "text": "Open the configuration and change the codeName to binance. Move the mouse pointer out of the configuration bubble and it will close and save automatically."
+            "text": "Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
+            "updated": 1621989973014
         },
         {
             "style": "List",
-            "text": "Edit the label of the node to read Binance."
+            "text": "Edit the label of the node to read Binanceus.",
+            "updated": 1621989996443
         }
     ]
 }

@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Dataset List",
+            "updated": 1622052318412
+        },
+        {
             "style": "Text",
-            "text": "This is the complete list of Dataset types currently suported by the system:",
-            "updated": 1621711476824
+            "text": "This is the complete list of Dataset types currently suported by the system:"
         },
         {
             "style": "List",

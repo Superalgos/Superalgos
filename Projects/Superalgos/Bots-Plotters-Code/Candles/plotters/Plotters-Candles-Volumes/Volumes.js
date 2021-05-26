@@ -1,4 +1,4 @@
-﻿function newMastersPlottersCandlesVolumesVolumes() {
+﻿function newCandlesPlottersCandlesVolumesVolumes() {
 
     const MODULE_NAME = "Volumes Plotter";
     const ERROR_LOG = true;

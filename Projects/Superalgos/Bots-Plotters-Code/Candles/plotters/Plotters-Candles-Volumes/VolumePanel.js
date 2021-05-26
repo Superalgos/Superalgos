@@ -1,5 +1,5 @@
 ﻿
-function newMastersPlottersCandlesVolumesVolumesVolumePanel() {
+function newCandlesPlottersCandlesVolumesVolumesVolumePanel() {
 
     let thisObject = {
         fitFunction: undefined,

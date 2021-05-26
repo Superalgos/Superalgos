@@ -138,7 +138,7 @@ Then wait until you are able to type within the terminal again.
 
 This command will install and configure all additional dependencies needed by Superalgos. It will also install desktop and start menu shortcuts.
 
-**NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename your main directory before running `node setup`.
+**NOTE FOR USERS INSTALLING MULTIPLE INSTANCES OF SUPERALGOS ON THE SAME MACHINE:** In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
 Congratulations your installation is complete!
 

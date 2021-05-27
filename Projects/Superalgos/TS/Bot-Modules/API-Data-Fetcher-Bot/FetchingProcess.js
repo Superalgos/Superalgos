@@ -181,8 +181,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         calculateRecordPropertiesNodePathMap()
                         getEndpointQueryParameters()
                         getEndpointPathParameters()
-                        await fetchAllPages()
-                        await saveDataReceived()
+
+                        if (await fetchAllPages() !== 'RETRYING') {
+                            await saveDataReceived()
+                        } else {
+                            return
+                        }
 
                         function getApiEndpointAndSchema() {
                             /*
@@ -361,8 +365,21 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 Async call to the API Server 
                                 */
                                 await sleep(apiMap.config.millisecondsBetweenCalls)
-                                await fetchAPIData()
-                                dataReceivedObject = apiData
+                                let fetchResult = await fetchAPIData()
+
+                                if (fetchResult === 'NO_CONNECTION') {
+                                    /*
+                                    When there is not Internet Connection or the server can not be reached
+                                    we will return requesting a retry later.
+                                    */
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                    return 'RETRYING'
+                                } else {
+                                    dataReceivedObject = apiData
+                                }
+
                             } else {
                                 /*
                                 There is a paging mechanism at this Endpoint, so we will iterate through all
@@ -390,6 +407,16 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let fetchResult = await fetchAPIData()
 
                                     switch (fetchResult) {
+                                        case 'NO_CONNECTION': {
+                                            /*
+                                            When there is not Internet Connection or the server can not be reached
+                                            we will return requesting a retry later.
+                                            */
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                            return 'RETRYING'
+                                        }
                                         case 'UNEXPECTED_API_RESPONSE': {
                                             /*
                                             Any unexpected response will abort this loop and allow the process to continue,
@@ -455,12 +482,9 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[INFO] start -> startProcess -> fetchAPIData -> httpClient.get ->  url = " + url)
 
-                                httpClient.get(url, onResponse)
+                                httpClient.get(url, (response) => {
 
-                                function onResponse(response) {
                                     const chunks = []
-                                    response.on('data', onDataArrived)
-                                    response.on('end', onEnd)
 
                                     let apiResponseSchemaNode
                                     let errorCodeReceived
@@ -485,10 +509,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             'Unexpected API Response Code',
                                             endpointNode
                                         )
-                                    }
-
-                                    function onDataArrived(chunk) {
-                                        chunks.push(chunk)
                                     }
 
                                     function getApiResponseSchema(responseCode) {
@@ -523,7 +543,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         }
                                     }
 
-                                    function onEnd() {
+                                    response.on('data', (chunk) => {
+                                        chunks.push(chunk)
+                                    });
+
+                                    response.on('end', (d) => {
                                         apiResponseReceivedText = Buffer.concat(chunks).toString('utf8')
                                         /*
                                         If we received an errror code, we abort the processing at this point.
@@ -579,8 +603,18 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         } else {
                                             resolve('PAGE_FETCHED')
                                         }
-                                    }
-                                }
+                                    });
+
+                                }).on('error', (err) => {
+                                    console.error(err);
+                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> httpClient.get -> err = " + err.stack)
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> httpClient.get -> Connection to the API Server Failed. Maybe there is no Internet connection. Retrying later.  ")
+                                    resolve('NO_CONNECTION')
+                                });
+
                             }
                             )
 

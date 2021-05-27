@@ -281,7 +281,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define an Open Stage, because the Open Stage is optional.
-                Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
+                Here we are going to see if that is the case and if it is, we will immediately consider 
                 the Open Stage as closed.
                 */
                 if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage === undefined) {
@@ -427,7 +427,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 */
                 if (manageStage === undefined) {
                     changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
-                    changeStageStatus('Close Stage', 'Opening')
+                    if (tradingEngine.tradingCurrent.strategyOpenStage.status.value !== 'Open' && tradingEngine.tradingCurrent.strategyOpenStage.status.value !== 'Opening') {
+                        changeStageStatus('Close Stage', 'Opening');
+                    }
                     return
                 }
 
@@ -955,9 +957,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
     function exitPositionValidation() {
         /* 
-        Exit Position Validation: we need al the previous stages to be either closed 
-        or at their initial default value. The last is becasue after Closed objects are 
-        initialized to their defualts.  
+        Exit Position Validation: we need all the previous stages to be either closed 
+        or at their initial default value. The last is because after Closed objects are 
+        initialized to their defaults.
         */
         if (tradingEngine.tradingCurrent.position.status.value !== 'Open' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
         if (tradingEngine.tradingCurrent.position.status.value !== 'Close' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
@@ -1145,8 +1147,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             checkUserDefinedCode(stageName, 'Open')
         }
         if (stage.status.value === 'Closed') {
-            closeStage(stage)
             checkUserDefinedCode(stageName, 'Closed')
+            closeStage(stage, stageName)
         }
 
         /*
@@ -1167,10 +1169,22 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             stage.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
 
-        function closeStage(stage) {
+        function closeStage(stage, stageName) {
             /* Recording the closing at the Trading Engine Data Structure */
             stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
             stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+            if (stageName === 'Open Stage') {
+                if (tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Open' &&
+                    tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Open') {
+                    changeStageStatus('Close Stage', 'Opening');
+                }
+            }
+            if (stageName === 'Close Stage') {
+                if (tradingEngine.tradingCurrent.position.status.value === 'Open') {
+                    tradingPositionModuleObject.closingPosition('Close Stage Closed')
+                    /* NOTE:TODO: Announcement May need added Here */
+                }
+            }
         }
     }
 

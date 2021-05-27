@@ -126,7 +126,7 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                     return
                 }
 
-                contextVariables.datetimeBeginingOfMarketFile = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date(thisReport.beginingOfMarket)) 
+                contextVariables.datetimeBeginingOfMarketFile = TS.projects.superalgos.utilities.dateTimeFunctions.removeTime(new Date(thisReport.beginingOfMarket))
             }
 
             function detectWhereTheMarketEnds() {
@@ -318,22 +318,28 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
             /*
             Here is where we finish processing and wait for the bot to run this module again.
             */
+            doHeartBeat()
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
             return
         }
 
-        /*  Telling the world we are alive and doing well */
-        let currentDateString =
-            contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
-            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
-            TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
-        let currentDate = new Date(contextVariables.datetimeLastProducedFile)
-        let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
-        TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
+        doHeartBeat()
+        
+        function doHeartBeat() {
+            /*  Telling the world we are alive and doing well */
+            let currentDateString =
+                contextVariables.datetimeLastProducedFile.getUTCFullYear() + '-' +
+                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCMonth() + 1, 2) + '-' +
+                TS.projects.superalgos.utilities.miscellaneousFunctions.pad(contextVariables.datetimeLastProducedFile.getUTCDate(), 2)
+            let currentDate = new Date(contextVariables.datetimeLastProducedFile)
+            let percentage = TS.projects.superalgos.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
+            TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, currentDateString, percentage)
 
-        if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
-            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
+            if (TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
+            }
         }
+
         nextFunctionToCall()
     }
 
@@ -372,10 +378,10 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
         let filePath = filePathRoot + "/Output/" + node.dataDependency.referenceParent.parentNode.config.codeName + '/' + ONE_MIN_DATASET_TYPE + '/' + dateForPath;
         filePath += '/' + fileName
 
-        fileStorage.getTextFile(filePath, onFileReceived)
-
         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
             "[INFO] nextDependencyDailyFile -> getting file at dateForPath = " + dateForPath)
+
+        fileStorage.getTextFile(filePath, onFileReceived, true) // Not Retry flag set to true, because we expect some days not to have files if the process was not ran.
 
         function onFileReceived(err, text) {
             try {
@@ -394,13 +400,13 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                     }
                 } else {
                     if (err.message === 'File does not exist.' || err.code === 'The specified key does not exist.') {
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err))
-                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[WARN] nextDependencyDailyFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
-                        callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
-                        return
-
+                        /*
+                        When a Dependency Daily File does not exist, we will asume that the process
+                        of fetching data was not ran at that day and that day was skipped. In such a situation
+                        we will produce an empty array so that this process can continue without getting stuck
+                        at this date where a file is missing.
+                        */
+                        dependencyDailyFile = JSON.parse("[]")
                     } else {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[ERROR] nextDependencyDailyFile -> onFileReceived -> Error Received -> err = " + err.stack)

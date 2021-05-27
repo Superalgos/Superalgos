@@ -103,8 +103,8 @@ exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                             let filePath =
                                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
                                 "/Output/" +
-                                node.outputDataset.referenceParent.parentNode.config.codeName + "/" + // Product Name
-                                TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName + "/" +
+                                node.outputDataset.referenceParent.parentNode.config.codeName + "/" +   // Product codeName
+                                node.outputDataset.referenceParent.config.codeName + "/" +             // Dataset codeName
                                 TIME_FRAME_LABEL;
                             filePath += '/' + fileName
 
@@ -135,6 +135,9 @@ exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                                 } else {
                                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                         "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack)
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> filePath = " + filePath)
+                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                                     callBackFunction(err)
                                 }
                             }
@@ -172,6 +175,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                         const emptyArray = []
                         outputElements.push(emptyArray)
                     }
+
                     moveToNextDay()
 
                     function moveToNextDay() {
@@ -204,7 +208,7 @@ exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                             const TIME_FRAME_LABEL = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[timeFrameArrayIndex][1]
                             /*
                             Here we are inside a Loop that is going to advance 1 day at the time, 
-                            at each pass, we will read one of Exchange Raw Data's daily files and
+                            at each pass, we will read one of Raw Data's daily files and
                             add all its elements to our in memory arrays. 
                             
                             At the first iteration of this loop, we will add the elements that we are carrying
@@ -214,11 +218,12 @@ exports.newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                             belong to the first day we are processing at this run, 
                             that it is exactly the same as the last day processed the previous
                             run. By discarding these elements, we are ready to run after that standard 
-                            function that will just add ALL the elements found each day at Exchange Raw Data.
+                            function that will just add ALL the elements found each day at Raw Data.
                             */
                             if (previousElements !== undefined && previousElements.length !== 0) {
                                 for (let i = 0; i < previousElements.length; i++) {
                                     let element = {}
+                                    let record = previousElements[i]
 
                                     for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                                         let property = node.outputDataset.referenceParent.parentNode.record.properties[j]

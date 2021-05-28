@@ -22,7 +22,8 @@
         },
         {
             "style": "Text",
-            "text": "Data Mines are created by power users and contributed to the project (the ones shipping with the software). Users might create Data Mines for their personal use and never share them. If they share them, they received SA tokens for that, and also for mantaining them to adapt them to every new release, if necesary."
+            "text": "Data Mines are created by power users and contributed to the project (the ones shipping with the software). Users might create Data Mines for their personal use and never share them. If they share them, they receive SA tokens for that, and also for mantaining them to adapt them to every new release, if necesary.",
+            "updated": 1622188509380
         },
         {
             "style": "Title",

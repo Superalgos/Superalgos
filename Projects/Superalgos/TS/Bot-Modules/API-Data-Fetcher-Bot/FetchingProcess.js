@@ -305,23 +305,49 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             /*
                             Parameters to the query of the API are all optional. Here we will see if
                             we need to place the API call with Parameters...
+
+                            The Parameters defined at the API Map will be the default values that 
+                            can be overwritten by the ones at the Data Mine.
+
+                            We will create parametersMap to handle this.
                             */
-                            let separator = ""
+                            let parametersMap = new Map()
+                            if (endpointNode.apiQueryParameters !== undefined) {
+                                for (let i = 0; i < endpointNode.apiQueryParameters.apiQueryParameters.length; i++) {
+                                    apiQueryParameter = endpointNode.apiQueryParameters.apiQueryParameters[i]
+                                    addParameterToMap(apiQueryParameter)
+                                }
+                            }
+                            /*
+                            The parameters defined at the Data Mine will overwrite whatever is at the API Map
+                            */
                             if (productDefinition.apiQueryParameters !== undefined) {
-                                queryString = '?'
                                 for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
                                     let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
+                                    addParameterToMap(apiQueryParameter)
+                                }
+                            }
 
-                                    /*
-                                    There is a special parameter which has a flag to indicate is a Page Number.
-                                    This will be treated differently since we will need to iterate to get each possible page.
-                                    The page number will no be added here to the query string.
-                                    */
-                                    if (apiQueryParameter.config.isPageNumber === true) {
-                                        pageNumberParameter = apiQueryParameter
-                                    } else {
-                                        queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
-                                        separator = "&"
+                            let separator = ""
+                            queryString = '?'
+                            parametersMap.forEach(addParameterToQueryString)
+
+                            function addParameterToQueryString(value, key, map) {
+                                queryString = queryString + separator + key + '=' + value
+                                separator = "&"
+                            }
+
+                            function addParameterToMap(apiQueryParameter) {
+                                /*
+                                There is a special parameter which has a flag to indicate is a Page Number.
+                                This will be treated differently since we will need to iterate to get each possible page.
+                                The page number will no be added here to the query string.
+                                */
+                                if (apiQueryParameter.config.isPageNumber === true) {
+                                    pageNumberParameter = apiQueryParameter
+                                } else {
+                                    if (apiQueryParameter.config.codeName !== undefined && apiQueryParameter.config.value !== undefined) {
+                                        parametersMap.set(apiQueryParameter.config.codeName, apiQueryParameter.config.value)
                                     }
                                 }
                             }
@@ -331,29 +357,55 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             /*
                             Parameters to the path of the API are all optional. Here we will see if
                             we need to place the API call with Parameters...
-                            */
-                            let separator = ""
-                            if (productDefinition.apiPathParameters !== undefined) {
-                                pathString = '/'
-                                for (let j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
-                                    let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
+                            The Parameters defined at the API Map will be the default values that 
+                            can be overwritten by the ones at the Data Mine.
 
-                                    let parameterValue = apiPathParameter.config.codeName // This is the default value
-                                    if (apiPathParameter.config.replaceBy !== undefined) {
-                                        switch (apiPathParameter.config.replaceBy) {
-                                            case '@BaseAsset': {
-                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
-                                                break
-                                            }
-                                            case '@QuotedAsset': {
-                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                                break
-                                            }
+                            We will create parametersMap to handle this.
+                            */
+                            let parametersMap = new Map()
+                            if (endpointNode.apiPathParameters !== undefined) {
+                                for (let i = 0; i < endpointNode.apiPathParameters.apiPathParameters.length; i++) {
+                                    apiPathParameter = endpointNode.apiPathParameters.apiPathParameters[i]
+                                    addParameterToMap(apiPathParameter)
+                                }
+                            }
+                            /*
+                            The parameters defined at the Data Mine will overwrite whatever is at the API Map
+                            */
+                            if (productDefinition.apiPathParameters !== undefined) {
+                                for (j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
+                                    let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
+                                    addParameterToMap(apiPathParameter)
+                                }
+                            }
+
+                            function addParameterToMap(apiPathParameter) {
+                                if (apiPathParameter.config.codeName !== undefined) {
+                                    parametersMap.set(apiPathParameter.config.codeName, apiPathParameter)
+                                }
+                            }
+
+                            let separator = ""
+                            pathString = '/'
+                            parametersMap.forEach(addParameterToPath)
+
+                            function addParameterToPath(value, key, map) {
+                                let apiPathParameter = value
+                                let parameterValue = key // This is the default value
+                                if (apiPathParameter.config.replaceBy !== undefined) {
+                                    switch (apiPathParameter.config.replaceBy) {
+                                        case '@BaseAsset': {
+                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+                                            break
+                                        }
+                                        case '@QuotedAsset': {
+                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                                            break
                                         }
                                     }
-                                    pathString = pathString + separator + parameterValue
-                                    separator = "/"
                                 }
+                                pathString = pathString + separator + parameterValue
+                                separator = "/"
                             }
                         }
 

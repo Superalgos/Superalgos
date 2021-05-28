@@ -181,8 +181,12 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                         calculateRecordPropertiesNodePathMap()
                         getEndpointQueryParameters()
                         getEndpointPathParameters()
-                        await fetchAllPages()
-                        await saveDataReceived()
+
+                        if (await fetchAllPages() !== 'RETRYING') {
+                            await saveDataReceived()
+                        } else {
+                            return
+                        }
 
                         function getApiEndpointAndSchema() {
                             /*
@@ -301,23 +305,49 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             /*
                             Parameters to the query of the API are all optional. Here we will see if
                             we need to place the API call with Parameters...
-                            */
-                            let separator = ""
-                            if (productDefinition.apiQueryParameters !== undefined) {
-                                queryString = '?'
-                                for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
-                                    let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
 
-                                    /*
-                                    There is a special parameter which has a flag to indicate is a Page Number.
-                                    This will be treated differently since we will need to iterate to get each possible page.
-                                    The page number will no be added here to the query string.
-                                    */
-                                    if (apiQueryParameter.config.isPageNumber === true) {
-                                        pageNumberParameter = apiQueryParameter
-                                    } else {
-                                        queryString = queryString + separator + apiQueryParameter.config.codeName + '=' + apiQueryParameter.config.value
-                                        separator = "&"
+                            The Parameters defined at the API Map will be the default values that 
+                            can be overwritten by the ones at the Data Mine.
+
+                            We will create parametersMap to handle this.
+                            */
+                            let parametersMap = new Map()
+                            if (endpointNode.apiQueryParameters !== undefined) {
+                                for (let i = 0; i < endpointNode.apiQueryParameters.apiQueryParameters.length; i++) {
+                                    let apiQueryParameter = endpointNode.apiQueryParameters.apiQueryParameters[i]
+                                    addParameterToMap(apiQueryParameter)
+                                }
+                            }
+                            /*
+                            The parameters defined at the Data Mine will overwrite whatever is at the API Map
+                            */
+                            if (productDefinition.apiQueryParameters !== undefined) {
+                                for (let j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
+                                    let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
+                                    addParameterToMap(apiQueryParameter)
+                                }
+                            }
+
+                            let separator = ""
+                            queryString = '?'
+                            parametersMap.forEach(addParameterToQueryString)
+
+                            function addParameterToQueryString(value, key, map) {
+                                queryString = queryString + separator + key + '=' + value
+                                separator = "&"
+                            }
+
+                            function addParameterToMap(apiQueryParameter) {
+                                /*
+                                There is a special parameter which has a flag to indicate is a Page Number.
+                                This will be treated differently since we will need to iterate to get each possible page.
+                                The page number will no be added here to the query string.
+                                */
+                                if (apiQueryParameter.config.isPageNumber === true) {
+                                    pageNumberParameter = apiQueryParameter
+                                } else {
+                                    if (apiQueryParameter.config.codeName !== undefined && apiQueryParameter.config.value !== undefined) {
+                                        parametersMap.set(apiQueryParameter.config.codeName, apiQueryParameter.config.value)
                                     }
                                 }
                             }
@@ -327,29 +357,55 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             /*
                             Parameters to the path of the API are all optional. Here we will see if
                             we need to place the API call with Parameters...
+                            The Parameters defined at the API Map will be the default values that 
+                            can be overwritten by the ones at the Data Mine.
+
+                            We will create parametersMap to handle this.
                             */
-                            let separator = ""
+                            let parametersMap = new Map()
+                            if (endpointNode.apiPathParameters !== undefined) {
+                                for (let i = 0; i < endpointNode.apiPathParameters.apiPathParameters.length; i++) {
+                                    let apiPathParameter = endpointNode.apiPathParameters.apiPathParameters[i]
+                                    addParameterToMap(apiPathParameter)
+                                }
+                            }
+                            /*
+                            The parameters defined at the Data Mine will overwrite whatever is at the API Map
+                            */
                             if (productDefinition.apiPathParameters !== undefined) {
-                                pathString = '/'
                                 for (let j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
                                     let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
+                                    addParameterToMap(apiPathParameter)
+                                }
+                            }
 
-                                    let parameterValue = apiPathParameter.config.codeName // This is the default value
-                                    if (apiPathParameter.config.replaceBy !== undefined) {
-                                        switch (apiPathParameter.config.replaceBy) {
-                                            case '@BaseAsset': {
-                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
-                                                break
-                                            }
-                                            case '@QuotedAsset': {
-                                                parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                                break
-                                            }
+                            function addParameterToMap(apiPathParameter) {
+                                if (apiPathParameter.config.codeName !== undefined) {
+                                    parametersMap.set(apiPathParameter.config.codeName, apiPathParameter)
+                                }
+                            }
+
+                            let separator = ""
+                            pathString = '/'
+                            parametersMap.forEach(addParameterToPath)
+
+                            function addParameterToPath(value, key, map) {
+                                let apiPathParameter = value
+                                let parameterValue = key // This is the default value
+                                if (apiPathParameter.config.replaceBy !== undefined) {
+                                    switch (apiPathParameter.config.replaceBy) {
+                                        case '@BaseAsset': {
+                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+                                            break
+                                        }
+                                        case '@QuotedAsset': {
+                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                                            break
                                         }
                                     }
-                                    pathString = pathString + separator + parameterValue
-                                    separator = "/"
                                 }
+                                pathString = pathString + separator + parameterValue
+                                separator = "/"
                             }
                         }
 
@@ -361,8 +417,21 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 Async call to the API Server 
                                 */
                                 await sleep(apiMap.config.millisecondsBetweenCalls)
-                                await fetchAPIData()
-                                dataReceivedObject = apiData
+                                let fetchResult = await fetchAPIData()
+
+                                if (fetchResult === 'NO_CONNECTION') {
+                                    /*
+                                    When there is not Internet Connection or the server can not be reached
+                                    we will return requesting a retry later.
+                                    */
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                    callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                    return 'RETRYING'
+                                } else {
+                                    dataReceivedObject = apiData
+                                }
+
                             } else {
                                 /*
                                 There is a paging mechanism at this Endpoint, so we will iterate through all
@@ -390,6 +459,16 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                     let fetchResult = await fetchAPIData()
 
                                     switch (fetchResult) {
+                                        case 'NO_CONNECTION': {
+                                            /*
+                                            When there is not Internet Connection or the server can not be reached
+                                            we will return requesting a retry later.
+                                            */
+                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                "[WARN] start -> fetchAllPages -> Server not found or no Internet Connection. Requesting a Retry. ")
+                                            callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
+                                            return 'RETRYING'
+                                        }
                                         case 'UNEXPECTED_API_RESPONSE': {
                                             /*
                                             Any unexpected response will abort this loop and allow the process to continue,
@@ -455,12 +534,9 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                     "[INFO] start -> startProcess -> fetchAPIData -> httpClient.get ->  url = " + url)
 
-                                httpClient.get(url, onResponse)
+                                httpClient.get(url, (response) => {
 
-                                function onResponse(response) {
                                     const chunks = []
-                                    response.on('data', onDataArrived)
-                                    response.on('end', onEnd)
 
                                     let apiResponseSchemaNode
                                     let errorCodeReceived
@@ -485,10 +561,6 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             'Unexpected API Response Code',
                                             endpointNode
                                         )
-                                    }
-
-                                    function onDataArrived(chunk) {
-                                        chunks.push(chunk)
                                     }
 
                                     function getApiResponseSchema(responseCode) {
@@ -523,7 +595,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         }
                                     }
 
-                                    function onEnd() {
+                                    response.on('data', (chunk) => {
+                                        chunks.push(chunk)
+                                    });
+
+                                    response.on('end', (d) => {
                                         apiResponseReceivedText = Buffer.concat(chunks).toString('utf8')
                                         /*
                                         If we received an errror code, we abort the processing at this point.
@@ -579,8 +655,18 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         } else {
                                             resolve('PAGE_FETCHED')
                                         }
-                                    }
-                                }
+                                    });
+
+                                }).on('error', (err) => {
+                                    console.error(err);
+                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> httpClient.get -> err = " + err.stack)
+                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                        "[ERROR] start -> httpClient.get -> Connection to the API Server Failed. Maybe there is no Internet connection. Retrying later.  ")
+                                    resolve('NO_CONNECTION')
+                                });
+
                             }
                             )
 

@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Data Mining - Dataset Types",
     "definition": {
-        "text": "Superalgos organizes data in datasets. These datasets are standardized across the system in different types.",
-        "updated": 1622190798240
+        "text": "Superalgos organizes data into datasets. These datasets are standardized across the system using different type definitions.",
+        "updated": 1622204454559
     },
     "paragraphs": [
         {
@@ -19,8 +19,13 @@
         },
         {
             "style": "List",
-            "text": "Single-File: As the name suggest, this Dataset contains only one file with all the data in there. It is not frequently used. So far is the Dataset type where data coming from Webhooks is stored at. It is stored in this way because it is assumed that not a lot of data will come through this pipe, only signals produced by external systems. Webhooks feature is expected to evolve in the future managing the incoming data in another type of Dataset. This Dataset type can be plotted and its data consumed by and within Trading Strategies. The API Data Fetcher Bot also can save Raw Data in this type of dataset, if needed.",
-            "updated": 1622190927687
+            "text": "Single-File: As the name suggests, this Dataset consists of only one file containing all the data. This Dataset type can be plotted and its data consumed by and within Trading Strategies. The API Data Fetcher Bot can also save Raw Data in this type of dataset, if needed.",
+            "updated": 1622204763019
+        },
+        {
+            "style": "Note",
+            "text": "The Single-File Dataset type is not frequently used. Currently, it is the Dataset type used to store data coming from Webhooks. It is stored in this way because it is assumed that not a lot of data will come through this pipe, only signals produced by external systems. The Webhooks feature is expected to evolve in the future managing the incoming data in another type of Dataset.",
+            "updated": 1622204852370
         },
         {
             "style": "List",
@@ -38,7 +43,7 @@
             "updated": 1622191087786
         },
         {
-            "style": "Note",
+            "style": "Success",
             "text": "By far, the most popular Dataset Types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market. "
         }
     ]

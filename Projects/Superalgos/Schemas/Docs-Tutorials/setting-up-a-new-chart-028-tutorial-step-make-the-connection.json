@@ -13,12 +13,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Out of the three Data Mine Products nodes available, we are going to link our chart to the Masters Data Mine.",
+            "text": "Out of the three Data Mine Products nodes available, we are going to link our chart to the Candles Data Mine.",
             "updated": 1620047769383
         },
         {
             "style": "Callout",
-            "text": "Find the Layer Manager under the Timeline Chart you added earlier. Then establish a reference from it to the Masters Data Mine Products node.",
+            "text": "Find the Layer Manager under the Timeline Chart you added earlier. Then establish a reference from it to the Candles Data Mine Products node.",
             "updated": 1620556116868
         },
         {

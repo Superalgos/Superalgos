@@ -683,6 +683,11 @@ function newSuperalgosActionSwitch() {
                     UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingTutorials(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Plugin API Maps':
+                {
+                    UI.projects.superalgos.functionLibraries.pluginsFunctions.pluginMissingApiMaps(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Workspace Projects':
                 {
                     UI.projects.superalgos.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)

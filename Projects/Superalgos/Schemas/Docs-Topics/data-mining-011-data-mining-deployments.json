@@ -3,19 +3,19 @@
     "pageNumber": 11,
     "type": "Data Mining - Deployments",
     "definition": {
-        "text": "Data Minign Bots can be deployed into one or many machines at the same time and they will automatically find the way too coordinate their actions.",
-        "updated": 1621718512909
+        "text": "Data Mining Bots can be deployed into one or many machines at the same time and they will automatically find the way too coordinate their actions.",
+        "updated": 1622225530181
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Once you are done defining your data mining Bots, you can move the Tasks that execute them to other Network Nodes and some other node structures at the Network hierarchy and the bot's will still run even from different machines on the network.",
-            "updated": 1621719049976
+            "text": "Once you are done defining your data mining Bots, you can move the Tasks that execute them to other Network Nodes and some other node structures within the Network hierarchy. The bot's will still run even from different machines on the network.",
+            "updated": 1622226742772
         },
         {
             "style": "Title",
-            "text": "How does Superalgos know how to coordinate Bots?",
-            "updated": 1621904714762
+            "text": "How Does Superalgos Know How  to Coordinate Bots?",
+            "updated": 1622226151968
         },
         {
             "style": "Text",
@@ -24,26 +24,28 @@
         },
         {
             "style": "List",
-            "text": "In Data Mines: The definitions at the Data Mine contain the 3 types of relationships between Bots. Execution, Data Dependency and Status Dependency. "
+            "text": "In Data Mines: The definitions at the Data Mine contain the 3 types of relationships between Bots: Execution Dependency, Data Dependency and Status Dependency.",
+            "updated": 1622226774180
         },
         {
             "style": "List",
-            "text": "At the Network: The Network hierarchy contains all the information needed to know where the dependent bots are running (looking at the Tasks we can know at which machine in the network) and where the Datasets are in the network (looking at the Data Storage section)."
+            "text": "At the Network: The Network hierarchy contains all the information needed to know where the dependent bots are running. Looking at the Tasks on the network node, we can know which bots are running on a particular machine in the network. Looking at the Data Storage hierarchy, we can know where Datasets are being storied in the network.",
+            "updated": 1622226083877
         },
         {
             "style": "Title",
-            "text": "How does a Bot know where are it's dependencies running?",
-            "updated": 1621904824161
+            "text": "How Does a Bot Know Where Its Dependencies are Running?",
+            "updated": 1622226168096
         },
         {
             "style": "Text",
-            "text": "Everytime a Task is executed, the whole Network hierarchy, together with the bot's definitions at Data Mines are sent to the Task Server. This includes not only the Bot to be ran definitions,  but also all the definitions of the dependent bots. ",
-            "updated": 1621904939603
+            "text": "Everytime a Task is executed, the whole Network hierarchy, together with the bot definitions at the Data Mines are sent to the Task Server. This includes not only the running Bot's definition, but also all the definitions of the dependent bots.",
+            "updated": 1622226410465
         },
         {
             "style": "Success",
-            "text": "At runtime, Superalgos will provide the Bot with the Datasets defined at Data Depencies, the Status Reports defined as Status Dependencies and if necesary, it iwll help the Bot wait for the Bot defined as an Execution Dependency, no matter where all those resources are within the physical network.",
-            "updated": 1621905102590
+            "text": "At runtime, Superalgos will provide the Bot with the Datasets defined at Data Depencies, the Status Reports defined as Status Dependencies, and if necessary, it will help the Bot wait for the Bot defined as an Execution Dependency, no matter where all those resources are within the physical network.",
+            "updated": 1622226870002
         }
     ]
 }

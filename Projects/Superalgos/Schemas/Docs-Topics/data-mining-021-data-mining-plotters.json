@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": 22,
+    "pageNumber": 21,
     "type": "Data Mining - Plotters",
     "definition": {
         "text": "Plotters read data products created by bots and map certain coordinate points to use them as vertices for polygons, which are assigned styles to create graphic representations of the underlying data.",

@@ -3,19 +3,19 @@
     "pageNumber": 2,
     "type": "Data Mining - Workflows",
     "definition": {
-        "text": "Superalgos enable users to setup powerful data mining operations. At this page we will learn the workflows involved.",
-        "updated": 1621694789923
+        "text": "Superalgos enables users to setup powerful data mining operations. This page will introduce the workflows that are involved in data mining.",
+        "updated": 1622201830789
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In general data flows from the Internet into the Superalgos system. Inside of it, it is processed and reprocessed and finally consumed by trading strategies.",
-            "updated": 1622189344287
+            "text": "In general, data flows from the Internet into the Superalgos system. Once inside, it is then processed and reprocessed and finally consumed by trading strategies.",
+            "updated": 1622201876819
         },
         {
-            "style": "Text",
-            "text": "As more users jump in and create more assets that they share with the community, the data mining capabilities of the system expands.",
-            "updated": 1622189375502
+            "style": "Note",
+            "text": "As more users jump in to contribute and create more assets that they share with the community, the data mining capabilities of the system will expand.",
+            "updated": 1622201931367
         },
         {
             "style": "Title",
@@ -27,18 +27,22 @@
         },
         {
             "style": "List",
-            "text": "Sensor Bot Workflow: Data arrives into the system through a Sensor Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it. Why? Because the data arrives in a format that is not standarized to be consumed from trading strategies or plotted at the charts just yet (except for Webhooks that records data in Single-File Dataset type and can be consumed by plotters and trading strategies).",
-            "updated": 1622189468973
+            "text": "Sensor Bot Workflow: Data arrives into the system through a Sensor Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it. ",
+            "updated": 1622202312743
+        },
+        {
+            "style": "Success",
+            "text": "Why? Because the data arrives in a format that is not standardized to be consumed by trading strategies or plotted at the charts just yet (except for Webhooks that record data in the Single-File Dataset type which can be consumed by plotters and trading strategies)."
         },
         {
             "style": "List",
-            "text": "API Data Fetcher Bot Workflow: Data arrives into the system through a API Data Fetcher Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it.",
-            "updated": 1621695610873
+            "text": "API Data Fetcher Bot Workflow: Data arrives into the system through an API Data Fetcher Bot. In this main workflow, the resulting dataset serves as an input for an Indicator Bot that will further process it.",
+            "updated": 1622202181798
         },
         {
             "style": "Note",
-            "text": "The data just arrived from an external source is considered Raw Data. Both of these 2 workflows produce Raw Data that has to be digested by Indicator Bots.",
-            "updated": 1621900437233
+            "text": "The data arriving from an external source is considered Raw Data. Both of these 2 workflows produce Raw Data that has to be digested by Indicator Bots.",
+            "updated": 1622202291043
         },
         {
             "style": "Subtitle",
@@ -51,13 +55,13 @@
         },
         {
             "style": "List",
-            "text": "Standardize Datasets: They are used for standardization of raw data extracted from the Internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standardized, it can be run through other Indicator Bots that will extract the juice out of them. Once standardized, data can also be plotted and consumed by Trading Strategies. By standardizing we are specifically referring to transforming the data into a Dataset type that can be used for Plotting, to feed Learning Bots and Trading Bots. These Dataset types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market.",
-            "updated": 1622190462143
+            "text": "Standardize Datasets: They are used for standardization of raw data extracted from the Internet by a Sensor Bot or an API Data Fetcher Bot. Once data is standardized, it can be run through other Indicator Bots that will extract the juice out of them. Once standardized, data can also be plotted and consumed by Trading Strategies. By standardizing, we are specifically referring to transforming the data into a Dataset type that can be used for plotting charts, or feeding Learning and Trading Bots. These Dataset types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market.",
+            "updated": 1622203207179
         },
         {
             "style": "List",
-            "text": "Process Data: This means processing the data in any way which make sense for users. Many of this processing end up calculating standard indicators, others calculate non-standard stuff, maybe just user's ideas of what could be useful to extract from a certain dataset. The system is open and allows users to do just that, play with the data transforming it in any way they wish.",
-            "updated": 1622190245827
+            "text": "Process Data: This means processing the data in any way that makes sense for users. Many users use Indicator Bots to calculate standard indicators, others calculate non-standard stuff, even ideas of what could be useful to extract from a certain dataset can be implemented. The system is open and allows users to do just that, play with the data by transforming it in any way they wish.",
+            "updated": 1622203469938
         },
         {
             "style": "Subtitle",
@@ -66,12 +70,12 @@
         },
         {
             "style": "Text",
-            "text": "Plotters are tools for users, not for bots. Plotters will render at the charts informations of a Dataset based on the plotter's definitions. Plotters can only read data from certain Dataset types, you will learn which ones later at this Topic.",
-            "updated": 1622190504661
+            "text": "Plotters are tools for users, not for bots. Plotters will render the information of a Dataset at the charts based on the plotter's definition. This allows users to visually discover patterns in datasets and generate ideas. These ideas can then help the user decide how to process the data further or feed the data to a Learning Bot or a Trading Bot.",
+            "updated": 1622203827359
         },
         {
-            "style": "Text",
-            "text": "Plotters are used by users to visually discover patterns in datasets and generate ideas, which can be on the side of how to process the data further or how to consume the data from a Learning Bot or a Trading Bot."
+            "style": "Important",
+            "text": "Plotters can only read data from certain Dataset types, you will learn which ones later on in this Topic."
         },
         {
             "style": "Subtitle",
@@ -80,7 +84,8 @@
         },
         {
             "style": "Text",
-            "text": "Learning Bots have access to data mined, and they use it to train their AI Models. Those AI Models once trained, can be used by trading strategies to request predictions and act upon them."
+            "text": "Learning Bots have access to mined data which they use to train their AI Models. Once trained, these AI Models can be used by trading strategies to request predictions and act upon them.",
+            "updated": 1622204001242
         },
         {
             "style": "Subtitle",
@@ -89,8 +94,8 @@
         },
         {
             "style": "Text",
-            "text": "Trading bots are the ultimate consumer of data, which they use to take trading decisions based on their definitions. The ultimate purpose of the whole Data Mining operation is to digest data so that it is easily accessible for trading strategies.",
-            "updated": 1622190585840
+            "text": "Trading bots are the ultimate consumer of data. They use the data they receive to make trading decisions based on their definitions. The ultimate purpose of the whole Data Mining operation is to digest data so that it is easily accessible for trading strategies.",
+            "updated": 1622204325508
         }
     ]
 }

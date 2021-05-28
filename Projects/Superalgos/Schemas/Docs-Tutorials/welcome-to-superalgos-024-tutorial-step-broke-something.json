@@ -24,14 +24,15 @@
             {
                 "language": "ES",
                 "text": "Si alguna vez rompes algo -como borrar un nodo por error o cambiar la configuración- y no sabes cómo afrontar el resultado...",
-                "updated": 1618438157553
+                "updated": 1618438157553,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "... there is an easy way to start over with a brand new workspace!",
+            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace!",
             "translations": [
                 {
                     "language": "IT",
@@ -48,13 +49,15 @@
                 {
                     "language": "ES",
                     "text": "Hay una manera facil de empezar con un espacio de trabajo como nuevo",
-                    "updated": 1618438101054
+                    "updated": 1618438101054,
+                    "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1622196973760
         },
         {
             "style": "Text",
-            "text": "All you need to do is pull the tab on the left-hand side of the screen and click on the Getting-Started plugin workspace.",
+            "text": "All you need to do is pull the tab on the left-hand side of the screen, scroll and find the Getting Started Tutorials plugin workspace and click it!",
             "translations": [
                 {
                     "language": "IT",
@@ -71,13 +74,15 @@
                 {
                     "language": "ES",
                     "text": "Todo lo que tienes que hacer es tirar de la pestaña de la izquierda de la pantalla y hacer clic en Getting-Started plugin workspace.",
-                    "updated": 1618438234984
+                    "updated": 1618438234984,
+                    "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1622193846331
         },
         {
             "style": "Success",
-            "text": "A brand new Getting Started workspace will load and I will show up again, fresh from the start!",
+            "text": "The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
             "translations": [
                 {
                     "language": "IT",
@@ -94,9 +99,11 @@
                 {
                     "language": "ES",
                     "text": "Se cargará un nuevo espacio de trabajo de \"Getting Started\" y apareceré de nuevo, fresco desde el principio!",
-                    "updated": 1618438286128
+                    "updated": 1618438286128,
+                    "style": "Success"
                 }
-            ]
+            ],
+            "updated": 1622193879709
         }
     ]
 }

@@ -1112,7 +1112,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let fs = require('fs')
 
                     try {
-                        let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started.json'
+                        let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started-Tutorials.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)

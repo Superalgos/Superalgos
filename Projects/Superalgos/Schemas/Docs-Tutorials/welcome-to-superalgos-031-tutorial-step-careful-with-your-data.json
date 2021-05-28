@@ -70,8 +70,8 @@
         },
         {
             "style": "List",
-            "text": "When all tasks stop may you close the console app.",
-            "updated": 1616416111891,
+            "text": "When all tasks stop you may close the console app or stop the process with Ctrl + Key-C.",
+            "updated": 1622197535990,
             "translations": [
                 {
                     "language": "ID",

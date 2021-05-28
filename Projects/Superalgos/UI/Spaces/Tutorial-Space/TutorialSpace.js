@@ -171,10 +171,10 @@ function newSuperalgosTutorialSpace() {
             ) {
                 if (config.toggleMapView.view === "On") {
                     UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
-                } else 
-                if (config.toggleMapView.view === "Off") {
-                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
-                }
+                } else
+                    if (config.toggleMapView.view === "Off") {
+                        UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                    }
             }
         }
         function checkViewportZoom() {
@@ -779,7 +779,20 @@ function newSuperalgosTutorialSpace() {
         resetAfterButtonPressed()
         checkForceFocus()
         if (navigationStack.length > 1) {
-            let previousNode = navigationStack[navigationStack.length - 2]
+            let tutorial = {
+                status: undefined
+            }
+            let previousNode
+            /* 
+            Reseet the Status of Current and Previous Node
+            so that RESUME goes to the right node.
+            */
+            UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+            previousNode = navigationStack[navigationStack.length - 3]
+            if (previousNode !== undefined) {
+                UI.projects.superalgos.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
+            }
+            previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
                 case 'Tutorial': {
                     currentNode = previousNode
@@ -825,7 +838,7 @@ function newSuperalgosTutorialSpace() {
         resetDocumentation()
         resetRepositionAtTimeMachine()
         resetPositionAtNode()
-        resetTimeMachineKeyPressed() 
+        resetTimeMachineKeyPressed()
         resetKeyPressed()
         resetSlider()
         changeNodeConfig()
@@ -907,7 +920,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -922,7 +935,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         navigationStack = []
         node.payload.uiObject.isPlaying = true
@@ -1045,7 +1058,6 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
-
         function findNextNode(node) {
             if (node.tutorialSteps !== undefined) {
                 for (let i = 0; i < node.tutorialSteps.length; i++) {
@@ -1064,11 +1076,11 @@ function newSuperalgosTutorialSpace() {
                                 status: undefined
                             }
                             UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
+                            currentNode = tutorialStep
+                            currentStatus = 'Playing Step'
+                            navigationStack.push(currentNode)
                             if (tutorial.status !== 'Done') {
-                                currentNode = tutorialStep
-                                currentStatus = 'Playing Step'
                                 advanced = true
-                                navigationStack.push(currentNode)
                                 findTutorialNode(currentNode)
                                 return
                             }
@@ -1100,11 +1112,11 @@ function newSuperalgosTutorialSpace() {
                             status: undefined
                         }
                         UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        navigationStack.push(currentNode)
                         if (tutorial.status !== 'Done') {
-                            currentNode = tutorialTopic
-                            currentStatus = 'Playing Topic'
                             advanced = true
-                            navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
                         }
@@ -1139,11 +1151,11 @@ function newSuperalgosTutorialSpace() {
                             status: undefined
                         }
                         UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        navigationStack.push(currentNode)
                         if (tutorial.status !== 'Done') {
-                            currentNode = tutorialTopic
-                            currentStatus = 'Playing Topic'
                             advanced = true
-                            navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
                         }
@@ -1215,7 +1227,7 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.controlDocs !== undefined) {
             if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
-            } 
+            }
             if (nodeConfig.controlDocs.searchPage === true) {
                 UI.projects.superalgos.spaces.docsSpace.searchPage()
             }

@@ -26,8 +26,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To keep things simple for newcomers, there are only two charts in this Getting Started Workspace. Advanced users monitor charts from multiple exchanges and multiple markets.",
-            "updated": 1616416713126,
+            "text": "To keep things simple for newcomers, there are only two charts in this Getting Started Tutorials workspace. Advanced users monitor charts from multiple exchanges and multiple markets.",
+            "updated": 1622198114561,
             "translations": [
                 {
                     "language": "IT",
@@ -45,7 +45,7 @@
         },
         {
             "style": "Callout",
-            "text": "To move around the charting space, click and drag using your mouse. <br/><br/>The keyboard combination is Shift plus the arrow keys ↑ ← → ↓",
+            "text": "To move around the Viewport, click and drag on the blank area using your mouse. <br/><br/>The keyboard combination is Shift plus the arrow keys ↑ ← → ↓",
             "translations": [
                 {
                     "language": "IT",
@@ -59,7 +59,8 @@
                     "updated": 1616935011038,
                     "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1622198195729
         }
     ]
 }

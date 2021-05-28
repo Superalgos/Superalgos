@@ -25,6 +25,7 @@ if (process.argv.includes("noShortcuts")) {
 let nodeModulesDirs = [
     path.join( process.cwd(), "Client"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Sensor-Bot", "Exchange-Raw-Data"),
+    path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "API-Data-Fetcher-Bot"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Trading-Bot", "Announcements"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Bot-Modules", "Trading-Bot", "Low-Frequency-Trading", "APIs"),
     path.join( process.cwd(), "Projects", "Superalgos", "TS", "Task-Modules"),

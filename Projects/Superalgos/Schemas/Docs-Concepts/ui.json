@@ -1,8 +1,8 @@
 {
     "type": "UI",
     "definition": {
-        "text": "UI is an abbreviation for User Interface (user interface), which refers to the operation screen and operation method of the software. In Superalgos the UI is a Web App that runs at an Internet Browser.",
-        "updated": 1610911735769
+        "text": "UI is an abbreviation for User Interface, which refers to the operation screen and operation method of the software. In Superalgos the UI is a Web App that runs on an Internet Browser.",
+        "updated": 1622192912866
     },
     "paragraphs": [
         {

@@ -7,7 +7,7 @@
             "project": "Superalgos",
             "name": "workspace"
         },
-        "text": "Yes! Some of them are plugins shipping with the system and some are your own!",
+        "text": "Most are Plugin Workspaces shipping with the system! There should be one User Workspace at the end of the list too!",
         "translations": [
             {
                 "language": "IT",
@@ -24,15 +24,17 @@
             {
                 "language": "ES",
                 "text": "Sí. Algunos de ellos son plugins que vienen con el sistema y otros son los tuyos propios! ",
-                "updated": 1618438936999
+                "updated": 1618438936999,
+                "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1622193005692
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As soon as you start using the system, the workspace is saved every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
-            "updated": 1610614718976,
+            "text": "As soon as you launched the UI for the first time, the Getting Started Tutorials Plugin Workspace was loaded. The Workspace was saved as a new User Workspace after 60 seconds in the My-Workspaces folder.",
+            "updated": 1622193268470,
             "translations": [
                 {
                     "language": "IT",
@@ -49,36 +51,19 @@
                 {
                     "language": "ES",
                     "text": "Tan pronto como empiezas a usar el sistema, el workspace es guardado cada minuto. También se guarda antes de cerrar el navegador o la pestaña del navegador, y puedes guardarlo manualmente utilizando las teclas Ctrl + Shift + Key-S",
-                    "updated": 1618439054191
+                    "updated": 1618439054191,
+                    "style": "Text"
                 }
             ]
         },
         {
-            "style": "Callout",
-            "text": "When a plugin workspace is modified in any way, a copy is stored in your My-Workspaces folder.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Quando un plugin workspace viene modificato in qualunque modo, una copia viene salvata su disco nella tua cartella My-Workspaces.",
-                    "updated": 1614791526653,
-                    "style": "Callout"
-                },
-                {
-                    "language": "ID",
-                    "text": "Saat workspace plugin dimodifikasi dalam cara apapun, salinan akan tersimpan di folder My-Workspaces.",
-                    "updated": 1616770626561,
-                    "style": "Callout"
-                },
-                {
-                    "language": "ES",
-                    "text": "Cuando un plugin workspace se modifica de alguna manera, se almacena una copia en la carpeta  My-Workspaces.",
-                    "updated": 1618439039856
-                }
-            ]
+            "style": "Success",
+            "text": "The Workspace is saved automatically every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
+            "updated": 1622193961757
         },
         {
             "style": "Important",
-            "text": "Plugin files may not be modified from within the system!",
+            "text": "Changes is Plugins Workspaces don't persist in the plugin. They do in the User Workspace",
             "translations": [
                 {
                     "language": "IT",
@@ -95,9 +80,11 @@
                 {
                     "language": "ES",
                     "text": "Los archivos de los plugins no pueden ser modificados desde el sistema!",
-                    "updated": 1618439194749
+                    "updated": 1618439194749,
+                    "style": "Important"
                 }
-            ]
+            ],
+            "updated": 1622193520113
         }
     ]
 }

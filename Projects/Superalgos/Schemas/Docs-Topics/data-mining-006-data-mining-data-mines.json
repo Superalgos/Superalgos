@@ -9,21 +9,23 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is important to undestand that a Data Mine is a package of definitions. When users run a Bot, they do it inside a Task and they need to reference a Process Definition exisiting at one Data Mine. When the bot is launched inside the Task, it receives at that moment all the information regarding the Task that is being used to launch the bot, but at the same time it receives all the information regarding the the Bot's definitions at the Data Mine.",
-            "updated": 1621709219036
+            "text": "It is important to undestand that a Data Mine is a package of definitions. When users run a Bot, they do it inside a Task. This task needs to know how to run the bot. In order to find this out, the bot within the task must have a reference to a Process Definition exisiting at a Data Mine. When the bot is launched inside the task, at that moment, it receives all the information regarding the task that is being used to launch the bot, while at the same time it also receives the information regarding the Bot's definition from the Data Mine.",
+            "updated": 1622213888931
         },
         {
-            "style": "Text",
-            "text": "With all that information the Bot is able to do it's job."
+            "style": "Important",
+            "text": "Using both sides of this information (Task data and Bot definition) the Bot is able to do it's job.",
+            "updated": 1622213831832
         },
         {
             "style": "Title",
-            "text": "Who creates them?"
+            "text": "Who Creates Data Mines?",
+            "updated": 1622213931643
         },
         {
             "style": "Text",
-            "text": "Data Mines are created by power users and contributed to the project (the ones shipping with the software). Users might create Data Mines for their personal use and never share them. If they share them, they receive SA tokens for that, and also for mantaining them to adapt them to every new release, if necesary.",
-            "updated": 1622188509380
+            "text": "Data Mines are created by power users and contributed to the project (the ones shipping with the software). Users might create Data Mines for their personal use and never share them. However, if they share them, they receive SA tokens for that, and also for adapting and mantaining them, if necessary, for each new release.",
+            "updated": 1622214117754
         },
         {
             "style": "Title",
@@ -35,7 +37,8 @@
         },
         {
             "style": "List",
-            "text": "Sensor Bots: used to fetch data from some source at the Internet by coding a specialized algorithm for that."
+            "text": "Sensor Bots: used to fetch data from some Internet source by coding a specialized algorithm.",
+            "updated": 1622214170520
         },
         {
             "style": "List",
@@ -52,8 +55,8 @@
         },
         {
             "style": "Text",
-            "text": "Data Mines might depend of other Data Mines if any of their bots depend on bots belonging to other Data Mines. You will learn further down this Topic how a bot can depend on other bots in detail. In a nutshell, they can depend in 3 ways. They can have a:",
-            "updated": 1621903084681
+            "text": "Data Mines might depend on other Data Mines. What this means is the bots within a Data Mine may depend on bots belonging to other Data Mines. Further on in this Topic, you will learn more about how a bot can depend on other bots in detail. In a nutshell, they can depend in 3 ways. They can have a:",
+            "updated": 1622214335992
         },
         {
             "style": "List",
@@ -61,7 +64,13 @@
         },
         {
             "style": "List",
-            "text": "Status Dependency: This means that a Bot uses the status of another Bot as parameters for it's own process. The most common use case is when a Bot needs for instance the date where a market starts or ends. This information is automatically fetched from the Status Report of the bot that produces the raw data and knows which data is the oldest and the newest all the time."
+            "text": "Status Dependency: This means that a Bot uses the status of another Bot as parameters for it's own processing.",
+            "updated": 1622214428120
+        },
+        {
+            "style": "Success",
+            "text": "The most common use case is when a Bot needs the date on which a market starts or ends. This information is automatically fetched from the Status Report of the bot that produces the raw data because it knows which data is the oldest and the newest at all times.",
+            "updated": 1622214512428
         },
         {
             "style": "List",
@@ -69,9 +78,9 @@
             "updated": 1621709849717
         },
         {
-            "style": "Note",
-            "text": "When a Data Mine depends on another Data Mine, both need to be present at the Workspace where the Task defining the execution of the Bot is located.",
-            "updated": 1621903174117
+            "style": "Important",
+            "text": "When a Data Mine depends on another Data Mine, both need to be present at the Workspace where the Task executing the Bot is located.",
+            "updated": 1622214646178
         }
     ]
 }

@@ -3,35 +3,48 @@
     "pageNumber": 8,
     "type": "Data Mining - Data Dependencies",
     "definition": {
-        "text": "Indicator Bots have data dependencies. That means that they have as their input a Dataset created by other Bot. ",
-        "updated": 1621715782447
+        "text": "Indicator Bots have data dependencies. This means that they receive their input as Datasets created by other Bots.",
+        "updated": 1622216765574
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "You can also think about data dependencies as a type of relationship between bots. Bots producing raw data (Sensor Bot and API Data Fetcher Bot) don't have them, since their job is to extract data from an external source. At the same time they are the root of a tree or graph of data dependencies relationships.",
-            "updated": 1621715986533
+            "style": "Title",
+            "text": "Data Dependency Tree",
+            "updated": 1622219215680
         },
         {
             "style": "Text",
-            "text": "The data dependencias are in fact at the Process Definition level. Each process might have their own set of data dependencies. "
+            "text": "You can think about data dependencies as a type of relationship between bots. Bots producing raw data (Sensor Bot and API Data Fetcher Bot) don't have them, since their job is to extract data from an external source. At the same time, they are also the root of the data dependancy tree of relationships. This tree is very similar to the execution tree but instead of describing how bots run, it describes how bots send and receive Data Products.",
+            "updated": 1622217397887
+        },
+        {
+            "style": "Title",
+            "text": "Defining Data Dependencies",
+            "updated": 1622217419549
+        },
+        {
+            "style": "Text",
+            "text": "The definition of data dependencias is held at the Process Definition level. Each process might have its own set of data dependencies. This means that a single bot may have many varying dependencies depending on the number of Process Definitions it contains."
         },
         {
             "style": "Note",
-            "text": "It is possible for a single Bot's process to have more than one Data Dependency, from the same Bot or from different Bot's. That is particulary usefull to aggregate data from many datasets into another one. The dependent datasets could belong to Bots at the same Data Mine or at bots at other Data Mines. From the deployment point of view, the dependant datasets could be physically located at the same machine, or at multiple different machines."
+            "text": "In addtion to this, it is possible for a single Bot's process to have more than one Data Dependency (from the same Bot or from different Bots). That is particulary useful to aggregate data from many datasets into another one. The dependent datasets could belong to Bots at the same Data Mine or at bots at other Data Mines.",
+            "updated": 1622217595798
         },
         {
             "style": "Text",
-            "text": "The first declared dependency is called the Main Dependency and has a special meaning. The process of the Bot is going to iterate the Dataset of the Main Dependency to produce the output Dataset. All other data dependencies will be used to extract data from."
+            "text": "The first declared dependency is called the Main Dependency and has a special meaning. It is used by the process of the Bot to iterate. What this means is that the process will loop over the Dataset of the Main Dependency to produce the output Dataset. All the other data dependencies will be used each iteration to extract additional data.",
+            "updated": 1622218002546
+        },
+        {
+            "style": "Success",
+            "text": "As with bot execution, the dependant datasets can be physically located on the same machine, or at multiple different machines. However, when a Bot has a Data Dependency of a dataset produced by a Bot defined at a different Data Mine, both Data Mines must be present at the Workspace where the Bot is going to be launched.",
+            "updated": 1622218098435
         },
         {
             "style": "Text",
-            "text": "When a Bot has a Data Dependency of a dataset produced by a Bot defined at a different Data Mine, then both Data Mines must be present at the Workspace where the Bot is going to be lauched at.",
-            "updated": 1621903950116
-        },
-        {
-            "style": "Text",
-            "text": "The Masters Data Mine is the most referenced Data Mine because is the one that defines the Candles-Volumes Indicator Bot, that produces the most used information for trading systems: Candles."
+            "text": "The Candles Data Mine is the most referenced Data Mine because it defines the Candles-Volumes Indicator Bot, that produces the most used information for trading systems: Candles.",
+            "updated": 1622218178970
         }
     ]
 }

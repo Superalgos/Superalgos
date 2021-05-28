@@ -3,43 +3,77 @@
     "pageNumber": 7,
     "type": "Data Mining - Managing Execution",
     "definition": {
-        "text": "Bots can execute at their own pace or they can wait for other bots to finish executing in order for them to start.",
-        "updated": 1621903220369
+        "text": "Bots can execute at their own pace or they can wait for other bots to finish executing before starting.",
+        "updated": 1622214711890
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Usually when a bot produces raw data, it executes itself based on the configuration of it's Process Definition node. These bots are usually the root of an execution tree formed by all the bots that will process and reprocess the raw data into more and more elaborate datasets.",
-            "updated": 1621710144112
+            "style": "Title",
+            "text": "Bot Execution Tree",
+            "updated": 1622215214005
         },
         {
             "style": "Text",
-            "text": "There are two types of execution managment."
+            "text": "A helpful way to think about managing bot execution is to think of the image of a tree. The roots support the trunk which supports the branches. In the same way, Superalgos uses many bots to process data each relying on the output of the last to form a tree. As data is passed through the tree the raw data is processed and reprocessed to build more and more elaborate datasets.",
+            "updated": 1622215593975
+        },
+        {
+            "style": "Title",
+            "text": "Types of Execution Managment"
+        },
+        {
+            "style": "Text",
+            "text": "There are two types of execution managment:"
         },
         {
             "style": "List",
-            "text": "Standalone Bots: These bots are the root of the Bot Execution Tree. They don't depend on any other bot to run. They usually run on a pre-defined schedulle, in most cases every one minute.",
-            "updated": 1621710324631
+            "text": "Standalone Bots: These bots are the root of the Bot Execution Tree. They don't depend on any other bot to run but use the configuration of it's Process Definition node to run on a pre-defined schedule (in most cases every one minute).",
+            "updated": 1622215038717
+        },
+        {
+            "style": "Note",
+            "text": "Usually when a bot produces raw data, it operates as a standalone bot. ",
+            "updated": 1622215509477
         },
         {
             "style": "List",
-            "text": "Execution Dependent Bots: These bots are the branches of the Bot Execution Tree and they need to wait for another Bot to finish it's execution in order for it to start.",
-            "updated": 1621710352983
+            "text": "Execution Dependent Bots: These bots are the branches of the Bot Execution Tree. They need to wait for other Bots to finish their execution in order to start.",
+            "updated": 1622215195801
+        },
+        {
+            "style": "Title",
+            "text": "Configuring a Standalone Bot",
+            "updated": 1622215700788
         },
         {
             "style": "Text",
-            "text": "This is an example of how to configure a bot to be a Standalone Bot from the execution point of view. As you can see in the example below, the normalWaitTime property has a non zero value, in this case 60 seconds.",
-            "updated": 1621710692139
+            "text": "This is an example of how to configure a bot to execute as a Standalone Bot. Within the Process Definition of a Bot, the normalWaitTime property has a non zero value, in this case 60 seconds.",
+            "updated": 1622215895631
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical maket data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
-            "updated": 1621710641664
+            "text": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical market data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
+            "updated": 1622215784605
+        },
+        {
+            "style": "Title",
+            "text": "Configuring an Execution Dependent Bot",
+            "updated": 1622215826932
         },
         {
             "style": "Text",
-            "text": "This is how to configure the Process Definition of a Bot that it's execution depends on other Bot. Here the normalWaitTime has a value of zero, which will force the Bot to inmediatelly run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
-            "updated": 1621903624630
+            "text": "In order to configure a bot to execute as an Execution Dependent Bot two things need to be in place. ",
+            "updated": 1622216289412
+        },
+        {
+            "style": "List",
+            "text": "First, the bot's definition will need to have an Execution Started Event defined. After this, the Execution Started Event will need to have a reference to the Execution Finished Event of the Bot on which it is waiting.",
+            "updated": 1622216544766
+        },
+        {
+            "style": "List",
+            "text": "Second, the Bot's Process Definition will need a zero in the normalWaitTime property. This will force the Bot to immediately run the next loop, but since there is an Execution Started Event defined, that will make it wait until the referenced Bot finishes.",
+            "updated": 1622216345546
         },
         {
             "style": "Json",
@@ -47,14 +81,9 @@
             "updated": 1621710596317
         },
         {
-            "style": "Success",
-            "text": "In this case users must also define which bot to wait for. To do this they stablish a reference from the Execution Started Event node of the Bot that needs to wait, to the Execution Finished Event of the Bot they are waiting for to finish.",
-            "updated": 1621710539966
-        },
-        {
             "style": "Note",
-            "text": "From the deployment point of view, the dependant bots can be physically located at the same machine, or at multiple different machines. Superalgos handles the syncronization across multiples machines.",
-            "updated": 1621903914878
+            "text": "From a deployment point of view, the dependant bots can be physically located on the same machine, or on multiple different machines. Superalgos handles syncronization across multiples machines.",
+            "updated": 1622216626010
         }
     ]
 }

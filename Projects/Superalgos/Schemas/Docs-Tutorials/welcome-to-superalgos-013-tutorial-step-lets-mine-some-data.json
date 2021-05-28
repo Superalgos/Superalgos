@@ -7,8 +7,8 @@
             "project": "Superalgos",
             "name": "run"
         },
-        "text": "Open the Data Tasks node menu and find the Run All Project Data Tasks button on the top-right corner...",
-        "updated": 1611076262685,
+        "text": "Access the Data Tasks node menu and find the \"Run all project data tasks\" button on the top-right corner...",
+        "updated": 1622189956451,
         "translations": [
             {
                 "language": "IT",
@@ -25,15 +25,16 @@
             {
                 "language": "ES",
                 "text": "Abra el menú del nodo Data Tasks y busque el botón Run All Project Data Tasks en la esquina superior derecha...",
-                "updated": 1618434308521
+                "updated": 1618434308521,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click the Run All Project Data Tasks button!",
-            "updated": 1611076332667,
+            "text": "Click the \"Run all project data tasks\" button! Confirm the request by clicking the button a second time.",
+            "updated": 1622190007548,
             "translations": [
                 {
                     "language": "IT",
@@ -50,13 +51,14 @@
                 {
                     "language": "ES",
                     "text": "Haz click en el botón Run All Project Data Tasks!",
-                    "updated": 1618434334439
+                    "updated": 1618434334439,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Confirm the request by clicking the button a second time. In about 30 seconds, you should see a status notice below the Data Mining node indicating that 1 out of 1 Exchange Data Tasks node is running.",
+            "text": "In about 30 seconds, you should see a status notice below the Data Tasks node indicating that 1 out of 1 Exchange Data Tasks node is running.",
             "translations": [
                 {
                     "language": "IT",
@@ -73,9 +75,11 @@
                 {
                     "language": "ES",
                     "text": "Confirme la solicitud haciendo clic en el botón por segunda vez. En unos 30 segundos, debería ver un aviso de estado bajo el nodo Data Mining que indica que se está ejecutando 1 out of 1 Exchange Data Tasks.",
-                    "updated": 1618434426749
+                    "updated": 1618434426749,
+                    "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1622190035816
         },
         {
             "style": "Note",
@@ -96,7 +100,8 @@
                 {
                     "language": "ES",
                     "text": "Tu aplicación de consola, deberia mostrar algo similar a lo que aparece en el video, a continuación",
-                    "updated": 1618434455552
+                    "updated": 1618434455552,
+                    "style": "Note"
                 }
             ]
         }

@@ -7,14 +7,16 @@
             "project": "Superalgos",
             "name": "under-construction"
         },
-        "text": "Please, do not be surprised to find an under construction sign here and there...",
+        "text": "Don't be surprised if you find an under construction sign here and there...",
         "translations": [
             {
                 "language": "IT",
                 "text": "Non sorprenderti se trovi segnali di \"lavori in corso\" qua e là...",
-                "updated": 1618059716381
+                "updated": 1618059716381,
+                "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1622200773527
     },
     "paragraphs": [
         {
@@ -24,7 +26,8 @@
                 {
                     "language": "IT",
                     "text": "Come detto prima, Superalgos è in continua evoluzione e gli sviluppi per la versione successiva potrebbero essere occasionalmente implementati nella versione corrente, per risolvere problemi o apportare piccole migliorie.",
-                    "updated": 1618059772511
+                    "updated": 1618059772511,
+                    "style": "Text"
                 }
             ]
         },
@@ -35,7 +38,8 @@
                 {
                     "language": "IT",
                     "text": "Se vuoi scoprire cosa bolle in pentola per la prossima release di Superalgos, unisciti al canale Telegram Superalgos Develop.",
-                    "updated": 1618059823365
+                    "updated": 1618059823365,
+                    "style": "Callout"
                 }
             ]
         }

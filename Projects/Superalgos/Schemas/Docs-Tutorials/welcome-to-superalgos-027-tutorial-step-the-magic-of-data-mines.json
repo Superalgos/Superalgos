@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Disetiap market, operasi diorganisasi melalui Data Mine. Superlagos berkerjasama dengan beberapa data mine open-source, dan setiap darinya memiliki banyak indicator.",
-                "updated": 1616771187052
+                "updated": 1616771187052,
+                "style": "Definition"
             }
         ]
     },
@@ -36,13 +37,14 @@
                 {
                     "language": "ID",
                     "text": "Pikirkan data mine sebagai plugin yang developer akan buat untuk memperpanjang kapasitas  analisis data dari sistem. Indicator Bot akan memproses data, indikator lain akan membuatnya, sehingga menambah nilai dan menghasilkan analisis yang lebih dalam dan lebih kaya.",
-                    "updated": 1616771335447
+                    "updated": 1616771335447,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "If you have a basic understanding  of JavaScript, you may create indicators too!",
+            "text": "If you have a basic understanding of JavaScript, you may create indicators too! If you contribute a Data Mine, you earn Superalgos (SA) Tokens!",
             "translations": [
                 {
                     "language": "IT",
@@ -53,9 +55,11 @@
                 {
                     "language": "ID",
                     "text": "Jika kamu memiliki pemahaman dasar tentang JavaScript, kamu juga dapat membuat indikator!",
-                    "updated": 1616771371122
+                    "updated": 1616771371122,
+                    "style": "Callout"
                 }
-            ]
+            ],
+            "updated": 1622196189467
         },
         {
             "style": "Text",
@@ -70,7 +74,8 @@
                 {
                     "language": "ID",
                     "text": "Tapi aku terlalu terburu-buru berbicara tentang membangun data mine pada saat ini! Ayo kembali ke jalurnya!",
-                    "updated": 1616771422206
+                    "updated": 1616771422206,
+                    "style": "Text"
                 }
             ]
         }

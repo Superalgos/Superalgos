@@ -386,10 +386,11 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             }
 
                             let separator = ""
-                            pathString = '/'
+
                             parametersMap.forEach(addParameterToPath)
 
                             function addParameterToPath(value, key, map) {
+                                if (pathString === "") { pathString = '/' }
                                 let apiPathParameter = value
                                 let parameterValue = key // This is the default value
                                 if (apiPathParameter.config.replaceBy !== undefined) {
@@ -517,7 +518,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 Now that we have the endpointNode, the parameters and all the information 
                                 needed to place the call to the API.
                                 */
-                                let httpClient = require('https')
+                                const fetch = require('node-fetch')
                                 let url = protocol + '://' +
                                     hostName +
                                     portNumber +
@@ -532,140 +533,192 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 This is how we call the API.
                                 */
                                 TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                    "[INFO] start -> startProcess -> fetchAPIData -> httpClient.get ->  url = " + url)
+                                    "[INFO] start -> startProcess -> fetchAPIData -> url = " + url)
 
-                                httpClient.get(url, (response) => {
+                                fetch(url)
+                                    .then((response) => {
 
-                                    const chunks = []
+                                        let apiResponseSchemaNode
+                                        let errorCodeReceived
 
-                                    let apiResponseSchemaNode
-                                    let errorCodeReceived
-
-                                    /*
-                                    At this point we have received the first http reponse from the API server, 
-                                    and from it we can extract the status code, which is the html code of the 
-                                    response of our request.
-                                    
-                                    With that code we can get the API Response Schema, which will tell us how 
-                                    to extract data from the response.
-                                    */
-                                    getApiResponseSchema(response.statusCode)
-
-                                    if (apiResponseSchemaNode === undefined) {
-                                        errorCodeReceived = true
-                                        TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
-                                            processIndex,
-                                            MODULE_NAME,
-                                            'API Data Fetcher Bot',
-                                            { resposeCodeReceived: response.statusCode, detais: 'The response code ' + response.statusCode + ' received is not associated with any API Query Response node.' },
-                                            'Unexpected API Response Code',
-                                            endpointNode
-                                        )
-                                    }
-
-                                    function getApiResponseSchema(responseCode) {
                                         /*
-                                        The API Response Schema we will depend on the response code received from the
-                                        API server. Here we will locate the right Api Response Schema.
+                                        At this point we have received the first http reponse from the API server, 
+                                        and from it we can extract the status code, which is the html code of the 
+                                        response of our request.
+                                        
+                                        With that code we can get the API Response Schema, which will tell us how 
+                                        to extract data from the response.
                                         */
-                                        for (let j = 0; j < apiMap.apiVersions.length; j++) {
-                                            let version = apiMap.apiVersions[j]
-                                            for (let k = 0; k < version.apiEndpoints.length; k++) {
-                                                let endpoint = version.apiEndpoints[k]
-                                                if (endpointNode.id === endpoint.id) {
-                                                    for (let i = 0; i < endpoint.apiQueryResponses.apiQueryResponses.length; i++) {
-                                                        let apiQueryResponse = endpoint.apiQueryResponses.apiQueryResponses[i]
+                                        getApiResponseSchema(response.status)
 
-                                                        if (Number(apiQueryResponse.config.codeName) === responseCode) {
-                                                            apiResponseSchemaNode = apiQueryResponse.apiResponseSchema
+                                        if (apiResponseSchemaNode === undefined) {
+                                            errorCodeReceived = true
+                                            TS.projects.superalgos.utilities.errorHandlingFunctions.throwHandledException(
+                                                processIndex,
+                                                MODULE_NAME,
+                                                'API Data Fetcher Bot',
+                                                { resposeCodeReceived: response.status, errorDetails: 'Calling the URL ' + url + '. The response code ' + response.status + ' received is not associated with any API Query Response node.' },
+                                                'Unexpected API Response Code',
+                                                endpointNode
+                                            )
+                                        } else {
+                                            getResponseBody()
+                                        }
 
-                                                            /*
-                                                            We will check that what we received is not an error code.
-                                                            */
-                                                            if (apiQueryResponse.config.isError === true) {
-                                                                errorCodeReceived = true
-                                                                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                                    "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode)
+                                        function getApiResponseSchema(responseCode) {
+                                            /*
+                                            The API Response Schema we will depend on the response code received from the
+                                            API server. Here we will locate the right Api Response Schema.
+                                            */
+                                            for (let j = 0; j < apiMap.apiVersions.length; j++) {
+                                                let version = apiMap.apiVersions[j]
+                                                for (let k = 0; k < version.apiEndpoints.length; k++) {
+                                                    let endpoint = version.apiEndpoints[k]
+                                                    if (endpointNode.id === endpoint.id) {
+                                                        for (let i = 0; i < endpoint.apiQueryResponses.apiQueryResponses.length; i++) {
+                                                            let apiQueryResponse = endpoint.apiQueryResponses.apiQueryResponses[i]
+
+                                                            if (Number(apiQueryResponse.config.codeName) === responseCode) {
+                                                                apiResponseSchemaNode = apiQueryResponse.apiResponseSchema
+
+                                                                /*
+                                                                We will check that what we received is not an error code.
+                                                                */
+                                                                if (apiQueryResponse.config.isError === true) {
+                                                                    errorCodeReceived = true
+                                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> getApiResponseSchema -> API Response is an Error ->  responseCode = " + responseCode)
+                                                                }
+                                                                return
                                                             }
-                                                            return
                                                         }
                                                     }
                                                 }
                                             }
                                         }
-                                    }
 
-                                    response.on('data', (chunk) => {
-                                        chunks.push(chunk)
-                                    });
-
-                                    response.on('end', (d) => {
-                                        apiResponseReceivedText = Buffer.concat(chunks).toString('utf8')
-                                        /*
-                                        If we received an errror code, we abort the processing at this point.
-                                        */
-                                        if (errorCodeReceived === true) {
-                                            resolve('ERROR_CODE_RECEIVED')
-                                            return
-                                        }
-                                        /*
-                                        Here we will validate that the overall format is what we are expecting.
-                                        */
-                                        switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
-                                            case 'object': {
+                                        function getResponseBody() {
+                                            response.text().then(body => {
+                                                apiResponseReceivedText = body
                                                 /*
-                                                If we did not received an object, that probably means something is not 
-                                                good, and we got an HTML with the reason inside.
+                                                If we received an errror code, we abort the processing at this point.
                                                 */
-                                                if (apiResponseReceivedText.substring(0, 1) !== "{") {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText)
-                                                    resolve('UNEXPECTED_API_RESPONSE')
+                                                if (errorCodeReceived === true) {
+                                                    resolve('ERROR_CODE_RECEIVED')
                                                     return
                                                 }
-                                                break
-                                            }
-                                            case 'array': {
                                                 /*
-                                                If we did not received an array, that probably means something is not 
-                                                good, and we got an HTML with the reason inside.
+                                                Here we will validate that the overall format is what we are expecting.
                                                 */
-                                                if (apiResponseReceivedText.substring(0, 1) !== "[") {
-                                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                        "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText)
-                                                    resolve('UNEXPECTED_API_RESPONSE')
+                                                switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
+                                                    case 'object': {
+                                                        /*
+                                                        If we did not received an object, that probably means something is not 
+                                                        good, and we got an HTML with the reason inside.
+                                                        */
+                                                        if (apiResponseReceivedText.substring(0, 1) !== "{") {
+                                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText)
+                                                            resolve('UNEXPECTED_API_RESPONSE')
+                                                            return
+                                                        }
+                                                        break
+                                                    }
+                                                    case 'array': {
+                                                        /*
+                                                        If we did not received an array, that probably means something is not 
+                                                        good, and we got an HTML with the reason inside.
+                                                        */
+                                                        if (apiResponseReceivedText.substring(0, 1) !== "[") {
+                                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText)
+                                                            resolve('UNEXPECTED_API_RESPONSE')
+                                                            return
+                                                        }
+                                                        break
+                                                    }
+                                                }
+                                                /*
+                                                The actual data we need could be anywhere within the data structure received.
+                                                The exact place is configured at the apiResponseSchemaNode property nodePath.
+                                                We will eval the nodePath property (this assumes that the apiResponseReceivedObject is defined)
+                                                */
+                                                apiResponseReceivedObject = JSON.parse(apiResponseReceivedText)
+                                                apiData = eval(apiResponseSchemaNode.config.nodePath)
+                                                /*
+                                                We will expect the apiData to be an Array.  Depending if it has data or not we will return
+                                                NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
+                                                */
+                                                if (apiData.length === 0) {
+                                                    resolve('NO_MORE_PAGES')
+                                                } else {
+                                                    resolve('PAGE_FETCHED')
+                                                }  
+                                                /*
+                                                If we received an errror code, we abort the processing at this point.
+                                                */
+                                                if (errorCodeReceived === true) {
+                                                    resolve('ERROR_CODE_RECEIVED')
                                                     return
                                                 }
-                                                break
-                                            }
+                                                /*
+                                                Here we will validate that the overall format is what we are expecting.
+                                                */
+                                                switch (apiResponseSchemaNode.apiResponseFields.config.fieldType) {
+                                                    case 'object': {
+                                                        /*
+                                                        If we did not received an object, that probably means something is not 
+                                                        good, and we got an HTML with the reason inside.
+                                                        */
+                                                        if (apiResponseReceivedText.substring(0, 1) !== "{") {
+                                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an JSON Object. ->  apiResponseReceivedText = " + apiResponseReceivedText)
+                                                            resolve('UNEXPECTED_API_RESPONSE')
+                                                            return
+                                                        }
+                                                        break
+                                                    }
+                                                    case 'array': {
+                                                        /*
+                                                        If we did not received an array, that probably means something is not 
+                                                        good, and we got an HTML with the reason inside.
+                                                        */
+                                                        if (apiResponseReceivedText.substring(0, 1) !== "[") {
+                                                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                                                "[WARN] start -> startProcess -> fetchAllPages -> fetchAPIData -> onResponse -> onEnd -> Unexpected Response. Not an Array with Data. ->  apiResponseReceivedText = " + apiResponseReceivedText)
+                                                            resolve('UNEXPECTED_API_RESPONSE')
+                                                            return
+                                                        }
+                                                        break
+                                                    }
+                                                }
+                                                /*
+                                                The actual data we need could be anywhere within the data structure received.
+                                                The exact place is configured at the apiResponseSchemaNode property nodePath.
+                                                We will eval the nodePath property (this assumes that the apiResponseReceivedObject is defined)
+                                                */
+                                                apiResponseReceivedObject = JSON.parse(apiResponseReceivedText)
+                                                apiData = eval(apiResponseSchemaNode.config.nodePath)
+                                                /*
+                                                We will expect the apiData to be an Array.  Depending if it has data or not we will return
+                                                NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
+                                                */
+                                                if (apiData.length === 0) {
+                                                    resolve('NO_MORE_PAGES')
+                                                } else {
+                                                    resolve('PAGE_FETCHED')
+                                                }
+                                            })
                                         }
-                                        /*
-                                        The actual data we need could be anywhere within the data structure received.
-                                        The exact place is configured at the apiResponseSchemaNode property nodePath.
-                                        We will eval the nodePath property (this assumes that the apiResponseReceivedObject is defined)
-                                        */
-                                        apiResponseReceivedObject = JSON.parse(apiResponseReceivedText)
-                                        apiData = eval(apiResponseSchemaNode.config.nodePath)
-                                        /*
-                                        We will expect the apiData to be an Array.  Depending if it has data or not we will return
-                                        NO_MORE_PAGES or PAGE_FETCHED so that pagination procedure knows when to stop.
-                                        */
-                                        if (apiData.length === 0) {
-                                            resolve('NO_MORE_PAGES')
-                                        } else {
-                                            resolve('PAGE_FETCHED')
-                                        }
-                                    });
-
-                                }).on('error', (err) => {
-                                    console.error(err);
-                                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> httpClient.get -> err = " + err.stack)
-                                    TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                        "[ERROR] start -> httpClient.get -> Connection to the API Server Failed. Maybe there is no Internet connection. Retrying later.  ")
-                                    resolve('NO_CONNECTION')
-                                });
+                                    })
+                                    .catch(err => {
+                                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                            "[ERROR] start -> fetch -> err = " + err.stack)
+                                        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                            "[ERROR] start -> fetch -> Connection to the API Server Failed. Maybe there is no Internet connection. Retrying later.  ")
+                                        resolve('NO_CONNECTION')
+                                    })
 
                             }
                             )
@@ -947,7 +1000,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                             /*
                                             We will need to get the nodePath for this property, representing the path
                                             to the value on the received data. There are 2 ways to get this nodePath.
-
+    
                                             1) It is explicitly declared at the node. If this exists then we will use it.
                                             2) It was calculated automatically.
                                             */
@@ -1009,8 +1062,14 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                     thisReport.file = {
                         lastRun: (new Date()).toISOString(),
                         lastPage: lastPage,
-                        lastFile: contextVariables.lastFile.toISOString(),
                         beginingOfMarket: contextVariables.beginingOfMarket
+                    }
+
+                    /*
+                     For Single-File Datasets there is no lastFile defined. 
+                    */
+                    if (contextVariables.lastFile !== undefined) {
+                        thisReport.file.lastFile = contextVariables.lastFile.toISOString()
                     }
 
                     if (thisReport.file.beginingOfMarket === undefined) {

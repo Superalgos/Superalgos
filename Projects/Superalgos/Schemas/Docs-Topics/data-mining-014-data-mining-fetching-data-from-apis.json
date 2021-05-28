@@ -77,8 +77,8 @@
         },
         {
             "style": "Text",
-            "text": "At the Bot where this conversion happens, the Record Property nodes needs to have an agregattionMode config property that defines how this is going to be handled. Here is a list of the supported aggregation methods that can be used during this conversion procedure:",
-            "updated": 1622231250739
+            "text": "At the Bot where this conversion happens, the Record Property nodes needs to have an aggregationMethod config property that defines how this is going to be handled. Here is a list of the supported aggregation methods that can be used during this conversion procedure:",
+            "updated": 1622235156415
         },
         {
             "style": "List",
@@ -210,8 +210,8 @@
         },
         {
             "style": "List",
-            "text": "Step #20: Configure the aggregationMode property for each Record Property. Check the docs of that node for details.",
-            "updated": 1622233036019
+            "text": "Step #20: Configure the aggregationMethod property for each Record Property. Check the docs of that node for details.",
+            "updated": 1622235178187
         },
         {
             "style": "List",

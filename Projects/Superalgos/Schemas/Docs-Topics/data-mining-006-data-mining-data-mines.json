@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "How Bots Use Data Mines",
+            "updated": 1622228000451
+        },
+        {
             "style": "Text",
-            "text": "It is important to undestand that a Data Mine is a package of definitions. When users run a Bot, they do it inside a Task. This task needs to know how to run the bot. In order to find this out, the bot within the task must have a reference to a Process Definition exisiting at a Data Mine. When the bot is launched inside the task, at that moment, it receives all the information regarding the task that is being used to launch the bot, while at the same time it also receives the information regarding the Bot's definition from the Data Mine.",
-            "updated": 1622213888931
+            "text": "It is important to undestand that a Data Mine is a package of definitions. When users run a Bot, they do it inside a Task. This task needs to know how to run the bot. In order to find this out, the bot within the task must have a reference to a Process Definition exisiting at a Data Mine. When the bot is launched inside the task, at that moment, it receives all the information regarding the task that is being used to launch the bot, while at the same time it also receives the information regarding the Bot's definition from the Data Mine."
         },
         {
             "style": "Important",

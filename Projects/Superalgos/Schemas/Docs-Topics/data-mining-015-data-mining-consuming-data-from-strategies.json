@@ -3,13 +3,14 @@
     "pageNumber": 15,
     "type": "Data Mining - Consuming Data From Strategies",
     "definition": {
-        "text": "Traing Bots can have as Data Dependencies datasets from any Indicator Bots. This allows Trading Strategies to act upon the data processed by Indicator Bots.",
-        "updated": 1621721963137
+        "text": "Trading Bots can have Data Dependencies from any Indicator Bot that puts out data products. This allows Trading Strategies to act upon the data processed by Indicator Bots.",
+        "updated": 1622234087314
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "This is the heart and soul of the data mining process allowing users to create trading bots that act upon sophisticated data and data analysis logic.",
+            "updated": 1622234159617
         }
     ]
 }

@@ -8,9 +8,13 @@
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "Types of Dataset Conversions",
+            "updated": 1622227863425
+        },
+        {
             "style": "Text",
-            "text": "The type of conversions currently implemented within the system are:",
-            "updated": 1622205237120
+            "text": "The type of conversions currently implemented within the system are:"
         },
         {
             "style": "List",

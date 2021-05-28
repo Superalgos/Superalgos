@@ -13,9 +13,13 @@
             "updated": 1622052318412
         },
         {
+            "style": "Title",
+            "text": "Dataset Types",
+            "updated": 1622227827875
+        },
+        {
             "style": "Text",
-            "text": "This is the complete list of Dataset types currently supported by the system:",
-            "updated": 1622190817372
+            "text": "This is the complete list of Dataset types currently supported by the system:"
         },
         {
             "style": "List",

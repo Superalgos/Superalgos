@@ -18,7 +18,8 @@
             {
                 "language": "ID",
                 "text": "Aku akan mempercepat gerakmu dalam berkeliling dan menelusuri charting space dengan cepat... Mari coba slider duluan!",
-                "updated": 1616932890422
+                "updated": 1616932890422,
+                "style": "Definition"
             }
         ]
     },
@@ -36,12 +37,13 @@
                 {
                     "language": "ID",
                     "text": "Click disana dan drag kebawah untuk menutup design space dan membuka charting space. Lakukan sebaliknya untuk bertukar posisi. Dari keyboard gunakan Ctrl + Shift + ↓. Coba juga ↑ ← →",
-                    "updated": 1616932984437
+                    "updated": 1616932984437,
+                    "style": "Callout"
                 }
             ]
         },
         {
-            "style": "Note",
+            "style": "Success",
             "text": "Unless you need both spaces to be partially open, it's always a good idea to fully close either of them to save computing resources in your machine.",
             "translations": [
                 {
@@ -53,7 +55,8 @@
                 {
                     "language": "ID",
                     "text": "Kecuali jika kamu memerlukan kedua ruang untuk dibuka sebagian, sebaiknya tutup salah satunya untuk menghemat sumber daya komputasi di Perangkat-mu.",
-                    "updated": 1616933049943
+                    "updated": 1616933049943,
+                    "style": "Note"
                 }
             ]
         }

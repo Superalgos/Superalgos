@@ -83,7 +83,7 @@
         },
         {
             "style": "Callout",
-            "text": "If all processes are up to date, then select Stop All Tasks in the Masters Task Manager. If not, wait a bit longer!",
+            "text": "When all processes are up to date, select \"Stop All Tasks\" in the Market Data Tasks node. Notice that we can stop the tasks from a different node than the one we used to start them!",
             "translations": [
                 {
                     "language": "IT",
@@ -98,7 +98,7 @@
                     "style": "Callout"
                 }
             ],
-            "updated": 1616415772977
+            "updated": 1622197433719
         }
     ]
 }

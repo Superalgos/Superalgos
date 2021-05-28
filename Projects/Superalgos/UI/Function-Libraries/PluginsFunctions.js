@@ -8,7 +8,8 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         pluginMissingLearningMines: pluginMissingLearningMines,
         pluginMissingLearningSystems: pluginMissingLearningSystems,
         pluginMissingLearningEngines: pluginMissingLearningEngines,
-        pluginMissingTutorials: pluginMissingTutorials
+        pluginMissingTutorials: pluginMissingTutorials,
+        pluginMissingApiMaps: pluginMissingApiMaps
     }
     return thisObject
 
@@ -192,6 +193,22 @@ function newSuperalgosFunctionLibraryPluginsFunctions() {
         }
 
         getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            addPluginFileIfNeeded(node, fileNames)
+        }
+    }
+
+    function pluginMissingApiMaps(node, rootNodes) {
+        let projectName = getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        getPluginFileNames(projectName, 'API-Maps', onNamesArrived)
 
         function onNamesArrived(fileNames) {
             addPluginFileIfNeeded(node, fileNames)

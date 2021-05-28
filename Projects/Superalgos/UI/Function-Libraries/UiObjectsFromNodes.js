@@ -94,6 +94,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTutorials.pluginFiles, 'Tutorials')
                         }
+                        if (project.pluginApiMaps !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginApiMaps.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginApiMaps.pluginFiles, 'API-Maps')
+                        }
                     }
                 }
             }

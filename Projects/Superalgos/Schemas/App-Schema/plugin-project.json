@@ -84,6 +84,12 @@
             "type": "node",
             "childType": "Plugin Tutorials",
             "autoAdd": false
+        },
+        {
+            "name": "pluginApiMaps",
+            "type": "node",
+            "childType": "Plugin API Maps",
+            "autoAdd": false
         }
     ],
     "alternativeIcons": [

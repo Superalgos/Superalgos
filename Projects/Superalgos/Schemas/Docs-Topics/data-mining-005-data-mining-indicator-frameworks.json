@@ -19,7 +19,8 @@
         },
         {
             "style": "Note",
-            "text": "You don't need to be a developer to write these code snipets, most of the time are very simple javascript code."
+            "text": "You don't need to be a developer to write these code snippets, most of the time are very simple javascript code.",
+            "updated": 1622195430462
         },
         {
             "style": "Text",
@@ -36,8 +37,8 @@
         },
         {
             "style": "List",
-            "text": "UI-Defined: This means that the Indictor Bot will base it's behaviour on the definitioins at the UI including the code snippets provided by the user.",
-            "updated": 1621902442579
+            "text": "UI-Defined: This means that the Indictor Bot will base its behaviour on the definitions at the UI including the code snippets provided by the user.",
+            "updated": 1622195507610
         },
         {
             "style": "Title",
@@ -54,11 +55,13 @@
         },
         {
             "style": "List",
-            "text": "Candles-Volumes: Located at the Master Data Mine."
+            "text": "Candles-Volumes: Located at the Candles Data Mine",
+            "updated": 1622195776057
         },
         {
             "style": "List",
-            "text": "Bollinger-Bands: Also localted at the Master Data Mine."
+            "text": "Bollinger-Bands: Located at the Bollinger Data Mine",
+            "updated": 1622195696142
         },
         {
             "style": "Subtitle",
@@ -77,12 +80,13 @@
         },
         {
             "style": "Text",
-            "text": "Then you will need to locate the Project Schema File for the project your bot belongs to. Inside of that file you will need to add some definitions in order for the system to be able to laod your new module at runtime and later execute it once users run your bot implemented in this way.",
-            "updated": 1621902552523
+            "text": "Then you will need to locate the Project Schema File for the project your bot belongs to. Inside of that file you will need to add some definitions in order for the system to be able to load your new module at runtime and later execute it once users run your bot implemented in this way.",
+            "updated": 1622195849390
         },
         {
             "style": "Text",
-            "text": "Most likely your new Bot will be added to the Superalgos project, so you shold find the Projects Schema file inside the Projects/Superalgos folder."
+            "text": "Most likely your new Bot will be added to the Superalgos project, so you should find the Project Schema File inside the Projects folder.",
+            "updated": 1622196885148
         },
         {
             "style": "Text",
@@ -130,13 +134,13 @@
         },
         {
             "style": "List",
-            "text": "Multi-Time-Frame-Daily: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Daily and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1621902697553
+            "text": "Multi-Time-Frame-Daily: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Daily and produces as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "updated": 1622197436293
         },
         {
             "style": "List",
-            "text": "Multi-Time-Frame-Market: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Market and produce as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1621902733616
+            "text": "Multi-Time-Frame-Market: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Market and produces as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
+            "updated": 1622197449190
         },
         {
             "style": "Subtitle",
@@ -149,7 +153,8 @@
         },
         {
             "style": "Text",
-            "text": "In this example, the process will use the From-One-Min-To-Multi-Time-Frame-Daily framwork."
+            "text": "In this example, the process will use the From-One-Min-To-Multi-Time-Frame-Daily framework.",
+            "updated": 1622197494708
         },
         {
             "style": "Json",
@@ -158,7 +163,8 @@
         },
         {
             "style": "Text",
-            "text": "In this other example, the process will use the Multi-Time-Frame-Market framwork."
+            "text": "In this other example, the process will use the Multi-Time-Frame-Market framework.",
+            "updated": 1622197516426
         },
         {
             "style": "Json",

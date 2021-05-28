@@ -14,7 +14,8 @@
         },
         {
             "style": "Title",
-            "text": "The Bit Picture"
+            "text": "The Big Picture",
+            "updated": 1622188702833
         },
         {
             "style": "Text",
@@ -38,8 +39,8 @@
         },
         {
             "style": "Text",
-            "text": "Once the data is in the system, it is then processed for different reasons by Indicator Bot s. Some of the processed data might be plotted, some might feed machile learning bots, and some might be consumed from a Trading Strategy.",
-            "updated": 1621900199919
+            "text": "Once the data is in the system, it is then processed for different reasons by Indicator Bots. Some of the processed data might be plotted, some might feed machine learning bots, and some might be consumed by a Trading Strategy.",
+            "updated": 1622189233205
         }
     ]
 }

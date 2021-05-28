@@ -178,7 +178,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value = phase
     }
 
-    function initialTargets(tradingSystemStageNode, tradingEngineStageNode) {
+    function initialTargets(tradingSystemStageNode, tradingEngineStageNode, stageName) {
 
         if (tradingSystemStageNode.initialTargets === undefined) {
             const message = 'Initial Targets Node Missing'
@@ -194,7 +194,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         }
 
         setTargetRate()
-        setTargetSize()
+        return setTargetSize(stageName)
 
         function setTargetRate() {
             if (tradingSystemStageNode.initialTargets.targetRate === undefined) {
@@ -262,7 +262,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
             }
         }
 
-        function setTargetSize() {
+        function setTargetSize(stageName) {
             /* Basic Validation */
             if (
                 tradingSystemStageNode.initialTargets.targetSizeInBaseAsset !== undefined &&
@@ -298,6 +298,9 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                     }
                     if (value === 0) {
+                        if (stageName === 'Close Stage') {
+                            return false;
+                        }
                         const message = 'Target Size Value Zero'
 
                         let docs = {

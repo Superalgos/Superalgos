@@ -266,7 +266,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkIfWeNeedToAbortTheStage() {
             /* Abort Open Stage Check */
-            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' && tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' &&
+                (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening' || tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') ){
                 /* 
                 if the Close stage is opened while the open stage is still open that means that
                 we need to stop placing orders, check what happened to the orders already placed,
@@ -768,7 +769,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     or our Take Profit were hit. 
                     */
 
-                    /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+                    /* Stop Loss condition: Here we verify if the Stop Loss was hit or not. */
                     if (
                         (
                             tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
@@ -840,7 +841,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 /* Exit Position size and rate */
                 tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
-                tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage)
+                if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage, 'Close Stage') === false) {
+                    //console.log("No Close-Stage Target Asset to Trade: Strategy Closing.");
+                }
 
                 initializeStageTargetSize()
                 changeStageStatus('Close Stage', 'Open')
@@ -1173,6 +1176,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             /* Recording the closing at the Trading Engine Data Structure */
             stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
             stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+            
             if (stageName === 'Open Stage') {
                 if (tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Open' &&
                     tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Open') {

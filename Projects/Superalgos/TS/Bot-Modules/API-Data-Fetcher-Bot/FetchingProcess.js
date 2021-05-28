@@ -314,7 +314,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             let parametersMap = new Map()
                             if (endpointNode.apiQueryParameters !== undefined) {
                                 for (let i = 0; i < endpointNode.apiQueryParameters.apiQueryParameters.length; i++) {
-                                    apiQueryParameter = endpointNode.apiQueryParameters.apiQueryParameters[i]
+                                    let apiQueryParameter = endpointNode.apiQueryParameters.apiQueryParameters[i]
                                     addParameterToMap(apiQueryParameter)
                                 }
                             }
@@ -322,7 +322,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             The parameters defined at the Data Mine will overwrite whatever is at the API Map
                             */
                             if (productDefinition.apiQueryParameters !== undefined) {
-                                for (j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
+                                for (let j = 0; j < productDefinition.apiQueryParameters.apiQueryParameters.length; j++) {
                                     let apiQueryParameter = productDefinition.apiQueryParameters.apiQueryParameters[j]
                                     addParameterToMap(apiQueryParameter)
                                 }
@@ -365,7 +365,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             let parametersMap = new Map()
                             if (endpointNode.apiPathParameters !== undefined) {
                                 for (let i = 0; i < endpointNode.apiPathParameters.apiPathParameters.length; i++) {
-                                    apiPathParameter = endpointNode.apiPathParameters.apiPathParameters[i]
+                                    let apiPathParameter = endpointNode.apiPathParameters.apiPathParameters[i]
                                     addParameterToMap(apiPathParameter)
                                 }
                             }
@@ -373,7 +373,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                             The parameters defined at the Data Mine will overwrite whatever is at the API Map
                             */
                             if (productDefinition.apiPathParameters !== undefined) {
-                                for (j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
+                                for (let j = 0; j < productDefinition.apiPathParameters.apiPathParameters.length; j++) {
                                     let apiPathParameter = productDefinition.apiPathParameters.apiPathParameters[j]
                                     addParameterToMap(apiPathParameter)
                                 }

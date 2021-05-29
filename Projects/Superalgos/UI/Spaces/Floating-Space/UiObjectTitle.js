@@ -106,7 +106,7 @@ function newUiObjectTitle() {
                 switch (titleReference) {
                     case 'Use Parent': {
                         let nodeToUse = thisObject.payload.parentNode
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                         }
@@ -114,7 +114,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                         }
@@ -122,7 +122,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Type': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
                         }
@@ -130,7 +130,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Grandparent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.referenceParent
                             if (nodeToUse !== undefined) {
                                 thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
@@ -141,9 +141,9 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Parent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
-                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                                 thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                 thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                             }
@@ -152,11 +152,11 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Parent Parent': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                             nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
-                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                                 nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
-                                if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
+                                if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
                                     thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
                                     thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
                                 }
@@ -333,8 +333,8 @@ function newUiObjectTitle() {
 
                     if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === true) {
                         labelPoint = UI.projects.superalgos.spaces.floatingSpace.transformPointToMap(labelPoint)
-                        labelPoint.x = labelPoint.x -  getTextWidth(label) / 2,
-                        labelPoint.y = labelPoint.y - 35
+                        labelPoint.x = labelPoint.x - getTextWidth(label) / 2,
+                            labelPoint.y = labelPoint.y - 35
 
                         let schemaDocument = getSchemaDocument(thisObject.payload.node)
                         if (schemaDocument !== undefined) {
@@ -352,19 +352,19 @@ function newUiObjectTitle() {
                         return
                     }
 
-                    /* Split the line into Phrases */    
-                    const FRAME_WIDTH = (label.length + 2) / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2 
-                    label = thisObject.payload.title               
+                    /* Split the line into Phrases */
+                    const FRAME_WIDTH = (label.length + 2) / 2 * thisObject.payload.floatingObject.currentFontSize * FONT_ASPECT_RATIO * 1.2 * 2
+                    label = thisObject.payload.title
                     let phrases = splitTextIntoPhrases(label, 2)
                     let lineSeparator = thisObject.payload.floatingObject.currentFontSize * 1.2
-                    
+
                     for (let i = 0; i < phrases.length; i++) {
                         let phrase = phrases[i]
                         let point = {
-                            x: labelPoint.x - getTextWidth(phrase) / 2  + FRAME_WIDTH / 2, 
+                            x: labelPoint.x - getTextWidth(phrase) / 2 + FRAME_WIDTH / 2,
                             y: labelPoint.y - lineSeparator * (phrases.length - 1 - i)
                         }
-                         
+
                         if (UI.projects.superalgos.spaces.floatingSpace.inMapMode === false) {
                             printMessage(phrase, point)
                         }

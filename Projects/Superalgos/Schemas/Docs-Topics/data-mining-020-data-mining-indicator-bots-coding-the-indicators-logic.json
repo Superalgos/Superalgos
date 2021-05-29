@@ -1,6 +1,6 @@
 {
     "topic": "Data Mining",
-    "pageNumber": 21,
+    "pageNumber": 20,
     "type": "Data Mining - Indicator Bots - Coding the Indicator's Logic",
     "definition": {
         "text": "Learn how to use data dependencies, the variable object, and how to deal with indicators with irregular periods.",

@@ -9,7 +9,7 @@
         "compatibleTypes": "->Plotter Panel->"
     },
     "initialValues": {
-        "config": "{\n  \"valueDecimals\": 2\n}"
+        "config": "{\n  \"valueDecimals\": 10\n}"
     },
     "childrenNodesProperties": [
         {

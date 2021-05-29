@@ -6,7 +6,7 @@ global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
     if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
+        console.log("The Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
@@ -129,19 +129,19 @@ try {
     console.log('')
     console.log("You are running Superalgos Beta 10")
     console.log('')
-    console.log("What's new? The following was implemented here:")
+    console.log("What's new? The following has been implemented here:")
     console.log('')
     console.log('Market Data Structure ....................................... This allows any strategy to use data from markets different from the one it is running at.')
     console.log('Exchange Data Structure ..................................... This allows any strategy to use data from exchanges and markets different from the one it is running at.')
     console.log('Tensor Flow Integration ..................................... This allows the creation and training of ML models that later can be used for predictions.')
     console.log('SA Token .................................................... This allows the project to compensate contributors that add value to it.')    
     console.log('')
-    console.log("What's next? At the development pipeline we have:")
+    console.log("What's next? In the development pipeline, we have:")
     console.log('')
     console.log('Contribution Management ..................................... This will allow us to manage contributions at scale, and distribute the SA token more efficiently at each release.')
-    console.log('Infraestructure to sensor any API  .......................... This will allow us to fetch data from any API, turn it into indicators and plot it.')
+    console.log('Infrastructure to sensor any API ............................ This will allow us to fetch data from any API, turn it into indicators and plot it.')
     console.log('Usage of ML Predictions at Trading Systems .................. This will enable a new kind of Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
-    console.log('Ethereum Integration ........................................ This will allow mining data from an Ethereum network node, create indicators with it, an use it on strategies.')
+    console.log('Ethereum Integration ........................................ This will allow the mining of data from an Ethereum network node, creation of indicators, and use on strategies.')
 
     console.log('')
 

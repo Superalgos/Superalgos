@@ -1,7 +1,7 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 7,
-    "type": "Tutorial Step - Mary Go Round",
+    "type": "Tutorial Step - Merry Go Round",
     "definition": {
         "text": "By default, nodes are locked to a rotational symmetry around their parent node. The symmetry may span 360 degrees or less, depending on the setting!",
         "updated": 1615316869620,
@@ -20,7 +20,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When you click on the Angle to Parent node button, you cycle among five different settings: 360, 180, 90, and 45 degrees, plus the option to dissable the rotational symmetry.",
+            "text": "When you click on the Angle to Parent node button, you cycle among five different settings: 360, 180, 90, and 45 degrees, plus the option to disable the rotational symmetry.",
             "updated": 1615459469714,
             "translations": [
                 {

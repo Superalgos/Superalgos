@@ -3,7 +3,7 @@
     "pageNumber": 16,
     "type": "Tutorial Step - Shall We Improve This?",
     "definition": {
-        "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not clear or predictable.",
+        "text": "If you experiment with this feature, you will notice that the behavior of each of the settings is not always clear or predictable.",
         "updated": 1615492937986,
         "icon": {
             "name": "set-node-arrangement-to-concave",

@@ -44,7 +44,7 @@
         },
         {
             "style": "Success",
-            "text": "When there are several nodes that may accept the connection, each candidate displays a grey ring indicating their readiness to take the attachment. Only the candidate closer to the node to be attached is highlighted in orange.",
+            "text": "When there are several nodes that may accept the connection, each candidate displays a grey ring indicating their readiness to take the attachment. Only the candidate closest to the node to be attached is highlighted in orange.",
             "updated": 1615582903959,
             "translations": [
                 {

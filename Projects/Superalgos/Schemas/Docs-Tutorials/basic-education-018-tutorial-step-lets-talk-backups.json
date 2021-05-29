@@ -3,7 +3,7 @@
     "pageNumber": 18,
     "type": "Tutorial Step - Let's Talk Backups",
     "definition": {
-        "text": "Backups are very powerful, and there are multiple use cases! When you click on the backup button, the node and its offspring are saved on a JSON file!",
+        "text": "Backups are very powerful, and there are multiple use cases! When you click on the backup button, the node and its offspring are saved to a JSON file!",
         "updated": 1615546227075,
         "icon": {
             "name": "backup-entity",

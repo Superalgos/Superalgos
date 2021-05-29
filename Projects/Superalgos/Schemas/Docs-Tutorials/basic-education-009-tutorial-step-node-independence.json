@@ -1,7 +1,7 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 9,
-    "type": "Tutorial Step - Node's Independence",
+    "type": "Tutorial Step - Node Independence",
     "definition": {
         "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
         "updated": 1615319889017,

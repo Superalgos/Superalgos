@@ -1,0 +1,68 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Editing Crash Course",
+    "definition": {
+        "text": "I'll give you a few pointers on how to edit the page! Right-click on a paragraph to get the styles menu. The pencil starts edit mode...",
+        "icon": {
+            "name": "docs-action-edit-paragraph",
+            "project": "Superalgos"
+        },
+        "updated": 1616880288897,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ti mostro come modificare una pagina! Un click col tasto destro su un parametro apre il menù stili, e la matita avvia la modalità edit...",
+                "updated": 1619636869245
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "This is an H1... H2 is smaller!",
+            "updated": 1616880079733
+        },
+        {
+            "style": "List",
+            "text": "Ab|: creates bullet lists like this one!",
+            "updated": 1616880058110,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ab|: crea elenchi puntati come questo!",
+                    "updated": 1619636137132
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The fourth column features notes (like this one), along with tips, important, and warning boxes.",
+            "updated": 1616880610556,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La quarta colonna contiene box per le note (come questa), i consigli, gli avvisi e i messaggi importanti.",
+                    "updated": 1619636222095
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "Use JS to add code === \"styled by prism!\"",
+            "updated": 1616880323719
+        },
+        {
+            "style": "Text",
+            "text": "Abc| turns the paragraph back to plain text. That should be enough to make your review look great! I'll explain the rest of the menu at a later time!",
+            "updated": 1616880538943,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Abc| trasforma il paragrafo in testo normale. Dovrebbe essere abbastanza per la tua recensione! Ti spiegherò il resto più avanti!",
+                    "updated": 1619636897153
+                }
+            ]
+        }
+    ]
+}

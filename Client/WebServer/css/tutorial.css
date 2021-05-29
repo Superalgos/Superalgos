@@ -8,6 +8,7 @@ border-radius: 8px;
 background-color: #fdfdfd;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;
+caret-color: transparent;
 }
 
 .tutorial-summary {
@@ -224,6 +225,7 @@ margin-bottom: 20px;
 width: 100%;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;
+caret-color: transparent;
 }
 
 .tutorial-buttonsTable {

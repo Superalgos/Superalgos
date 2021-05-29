@@ -1,0 +1,23 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 16,
+    "type": "Superalgos Review - 111's Review",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It has extremely cool and intuitive GUI. However, there is a severe lack of tooltips in the main dashboard. Newcomers have to either second guess the meaning of the symbols, or go back to the tutorial/console just to double check if they remember the functionalities of each buttons correctly.",
+            "updated": 1622213049425
+        },
+        {
+            "style": "Text",
+            "text": "The in-app documentation seems to be hosted together with the application itself, which unfortuantely does not allow users to use the <- and -> buttons in our native chrome browser to go back to the previous and next documentation page. Although there is an alternative back and next button provided, it is still quite clunky to use as of Beta 9."
+        },
+        {
+            "style": "Text",
+            "text": "That being said, it seems to show great potential and I look forward to designing trading bots with this tool."
+        }
+    ]
+}

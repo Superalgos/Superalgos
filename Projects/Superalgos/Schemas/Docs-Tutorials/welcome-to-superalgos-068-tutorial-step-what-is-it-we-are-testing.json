@@ -37,7 +37,7 @@
         },
         {
             "style": "Note",
-            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy <i>per se</i>.",
+            "text": "Let's not discuss the merits of the trading idea but rather the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy <i>per se</i>.",
             "updated": 1622201574916,
             "translations": [
                 {

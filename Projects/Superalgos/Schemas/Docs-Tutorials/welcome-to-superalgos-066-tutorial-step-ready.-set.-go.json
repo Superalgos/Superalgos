@@ -45,7 +45,7 @@
         },
         {
             "style": "Note",
-            "text": "When the Backtesting Session indicates it finished processing, stop the Task and click Next.",
+            "text": "When the Backtesting Session indicates it's finished processing, stop the Task and click Next.",
             "translations": [
                 {
                     "language": "IT",

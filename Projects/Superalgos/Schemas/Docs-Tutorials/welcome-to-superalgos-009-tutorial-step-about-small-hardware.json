@@ -33,7 +33,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The core idea behind running the client in small physical or virtual hardware is to maximize cost efficiency in production deployments. In such contexts, the UI is used to a minimum.",
+            "text": "The core idea behind running the client on small physical or virtual hardware is to maximize cost efficiency in production deployments. In such contexts, the UI is used to a minimum.",
             "updated": 1610616659750,
             "translations": [
                 {
@@ -58,7 +58,7 @@
         },
         {
             "style": "Success",
-            "text": "We highly recommend learning Superalgos while running in a full-size machine. If you notice your small hardware is too slow during this tutorial, consider installing in regular hardware until you learn system, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
+            "text": "We highly recommend learning Superalgos while running on a full-size machine. If you notice your small hardware is too slow during this tutorial, consider installing on regular hardware until you learn system, build your first strategies, and are ready to deploy. Otherwise, it may be frustrating.",
             "updated": 1616411164854,
             "translations": [
                 {

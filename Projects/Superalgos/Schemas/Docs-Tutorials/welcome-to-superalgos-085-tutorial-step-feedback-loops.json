@@ -30,7 +30,7 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading Engine layers manager on the charts (the second counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space.",
+            "text": "Go to the Trading Engine layer manager on the charts (the second counting from the left). Scroll down and turn on the Limit Buy Orders layer. Now swipe the mouse pointer over a few of the buy orders and check the effect on the nodes on the design space.",
             "translations": [
                 {
                     "language": "IT",

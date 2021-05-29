@@ -32,7 +32,7 @@
         },
         {
             "style": "Callout",
-            "text": "To open a layers manager, scroll the wheel of the mouse on its header. Use the wheel of the mouse to scroll through its content too!",
+            "text": "To open a layer manager, scroll the wheel of the mouse on its header. Use the wheel of the mouse to scroll through its content too!",
             "translations": [
                 {
                     "language": "IT",

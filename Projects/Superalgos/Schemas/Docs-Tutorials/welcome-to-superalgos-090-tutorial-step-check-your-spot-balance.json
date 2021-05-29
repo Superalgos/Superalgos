@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Prima di lanciare la Live Trading Session, assicurati di avere abbastanza USDT nel tuo wallet spot sull'exchange.",
-                "updated": 1618070262891
+                "updated": 1618070262891,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +25,8 @@
                 {
                     "language": "IT",
                     "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione!",
-                    "updated": 1618070327486
+                    "updated": 1618070327486,
+                    "style": "Callout"
                 }
             ]
         },
@@ -35,19 +37,21 @@
                 {
                     "language": "IT",
                     "text": "Il Trading Bot inserirà un limit order del valore di initialBalance, e lo cancellerà il minuto successivo se non viene evaso, come spiegato prima.",
-                    "updated": 1618070448288
+                    "updated": 1618070448288,
+                    "style": "Important"
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Keep going even if you are not ready to trade. You'll learn a few more tricks before we finish.",
-            "updated": 1616431994687,
+            "text": "Keep going even if you are not ready to trade! It's important because there are more things to learn in the tutorial!",
+            "updated": 1622232501088,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Continua il tutorial anche se non sei pronto al live trading. Imparerai altri trucchi utili prima della fine.",
-                    "updated": 1618070434600
+                    "updated": 1618070434600,
+                    "style": "Note"
                 }
             ]
         }

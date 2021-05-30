@@ -31,8 +31,8 @@
         },
         {
             "style": "Note",
-            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4H TF. A classic!",
-            "updated": 1614242374513
+            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4H TF, a classic!",
+            "updated": 1622385652232
         },
         {
             "style": "Text",

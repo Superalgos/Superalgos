@@ -13,6 +13,10 @@
             "updated": 1611678265942
         },
         {
+            "style": "Important",
+            "text": "Since the release of this strategy, the structure of the BTC-USDT market changed dramatically, rendering this Trading System unusable. The issue is that the system implements rigid volatility filters. The current environment shows much higher volatility than in the past, preventing the strategies from trading. At this point, you may use this system as a demo only, backtesting ranges before 2021. If you wish to experiment and revise this system, you may try removing the volatility filters and implementing new ones, if desired."
+        },
+        {
             "style": "Text",
             "text": "The trading system conforms to the Superalgos Trading Protocol, therefore, it may function as a fully automated trading system. People not interested in trading automation may still obtain the strategy’s rules (situations, conditions, and formulas) from the design space and use the set of rules as they see fit."
         },

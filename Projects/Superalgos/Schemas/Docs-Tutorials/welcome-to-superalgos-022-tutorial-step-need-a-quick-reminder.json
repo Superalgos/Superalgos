@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "En este punto, probablemente esté  saturando tu hipocampo! Pero no te preocupes... ¡puedes volver a cualquier paso anterior!",
-                "updated": 1618436677513
+                "updated": 1618436677513,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "Si alguna vez necesitas un recordatorio sobre estos temas...",
-                    "updated": 1618436771239
+                    "updated": 1618436771239,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,14 +73,15 @@
                 {
                     "language": "ES",
                     "text": "Busque el Tutorial Topic y reprodúzcalo! Puede encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
-                    "updated": 1618436934915
+                    "updated": 1618436934915,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Need a Quick Reminder? Find the step under the Tutorials & Help topic below. Then click Stop, and restart by clicking Play on the said Tutorial Step!",
-            "updated": 1611076850328,
+            "text": "\"Need a Quick Reminder?\" Find this step under the \"Tutorials & Help\" topic below. Then click Stop, and restart by clicking Play on the said Tutorial Step!",
+            "updated": 1622192045886,
             "translations": [
                 {
                     "language": "IT",
@@ -95,7 +98,8 @@
                 {
                     "language": "ES",
                     "text": "Necesitas refrescar tu memoria? Busque el paso en el tema de Tutorials & Help. A continuación, haga clic en Stop y reinicie haciendo clic en Play en dicho paso del tutorial.",
-                    "updated": 1618437112467
+                    "updated": 1618437112467,
+                    "style": "Callout"
                 }
             ]
         }

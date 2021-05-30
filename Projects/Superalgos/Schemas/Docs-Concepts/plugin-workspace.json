@@ -1,8 +1,8 @@
 {
     "type": "Plugin Workspace",
     "definition": {
-        "text": "This refers to a Workspace created by a user, contributed to the project as a plugin and distributed with the whole software package. Plugin workspaces are useful to give access to users to ready to run strategies, demos, tutorials or areas of the system under development.",
-        "updated": 1622053231319
+        "text": "Refers to a Workspace created by a user, contributed to the project as a plugin and distributed with the whole software package. Plugin workspaces are useful to give access to users to ready-to-run strategies, demos, tutorials, or areas of the system under development.",
+        "updated": 1622193639612
     },
     "paragraphs": [
         {

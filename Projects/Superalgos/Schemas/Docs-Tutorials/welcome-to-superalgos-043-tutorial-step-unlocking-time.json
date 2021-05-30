@@ -32,7 +32,7 @@
         },
         {
             "style": "Callout",
-            "text": "To toggle between the various automatic modes and manual mode, hit Shift and make a gentle one-step roll with the wheel of your mouse on top of the time scale box. Alternatively, you can also place the mouse pointer over the scale box and hit the up and down arrow keys ↑ ↓. ",
+            "text": "To toggle between the various automatic modes and manual mode, hit Shift and make a gentle one-step roll with the wheel of your mouse on top of the time scale box. Alternatively, you can also place the mouse pointer over the scale box and hit the up and down arrow keys ↑ ↓.",
             "translations": [
                 {
                     "language": "IT",
@@ -41,7 +41,7 @@
                     "style": "Callout"
                 }
             ],
-            "updated": 1616495659408
+            "updated": 1622199287763
         },
         {
             "style": "Text",
@@ -51,7 +51,8 @@
                 {
                     "language": "IT",
                     "text": "Dovresti poterti muovere liberamente sull'asse X del grafico, ossia quella del tempo.",
-                    "updated": 1618647843971
+                    "updated": 1618647843971,
+                    "style": "Text"
                 }
             ]
         }

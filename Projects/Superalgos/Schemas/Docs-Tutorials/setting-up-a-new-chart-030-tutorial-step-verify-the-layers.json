@@ -3,7 +3,7 @@
     "pageNumber": 30,
     "type": "Tutorial Step - Verify the Layers",
     "definition": {
-        "text": "As you may have noticed, the layers that were added match the Bot Products under the Masters Data Mine Products node.",
+        "text": "As you may have noticed, the layers that were added match the Bot Products under the Candles Data Mine Products node.",
         "updated": 1620048469797,
         "icon": {
             "name": "layer",

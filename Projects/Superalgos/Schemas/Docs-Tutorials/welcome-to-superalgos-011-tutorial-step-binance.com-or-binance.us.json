@@ -7,7 +7,7 @@
             "project": "Superalgos",
             "name": "binance"
         },
-        "text": "Before we start data mining, I have a little question for you: are you trading at binance.com or binance.us?",
+        "text": "Before we start data mining, I have a little question for you: are you trading at binance.com, binance.us, or neither?",
         "translations": [
             {
                 "language": "IT",
@@ -27,7 +27,8 @@
                 "updated": 1618434029175,
                 "style": "Definition"
             }
-        ]
+        ],
+        "updated": 1622189667210
     },
     "paragraphs": [
         {
@@ -81,8 +82,8 @@
         },
         {
             "style": "List",
-            "text": "Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
-            "updated": 1616414675945,
+            "text": "Access the configuration and change the codeName to \"binanceus\". Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
+            "updated": 1622189775201,
             "translations": [
                 {
                     "language": "IT",
@@ -106,8 +107,8 @@
         },
         {
             "style": "List",
-            "text": "Edit the label of the node to read Binanceus.",
-            "updated": 1616414681256,
+            "text": "Edit the label of the node to read \"Binanceus\".",
+            "updated": 1622189798374,
             "translations": [
                 {
                     "language": "IT",

@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Abbiamo lanciato un backtest ma non abbiamo discusso del Trading System che stiamo testando! Facciamolo ora!",
-                "updated": 1618061084694
+                "updated": 1618061084694,
+                "style": "Definition"
             }
         ]
     },
@@ -25,7 +26,8 @@
                 {
                     "language": "IT",
                     "text": "L'idea è comprare il \"falling knife\" e vendere il \"rebound\". La strategia piazza un Limit Buy Order al di sotto dell'attuale prezzo. Se l'ordine non viene evaso nel giro del minuto successivo, viene cancellato e ne viene creato uno nuovo, eventualmente a un prezzo migliore. Se il prezzo scende, è probabile che l'ordine venga evaso: a quel punto la strategia tenta di vendere a un prezzo maggiore.",
-                    "updated": 1618061264322
+                    "updated": 1618061264322,
+                    "style": "Text"
                 }
             ]
         },
@@ -35,13 +37,14 @@
         },
         {
             "style": "Note",
-            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy per se.",
-            "updated": 1610640921014,
+            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy <i>per se</i>.",
+            "updated": 1622201574916,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Non discutiamo dell'efficacia del metodo, ma della sua implementazione. Questa è una demo per mostrare le capacità del Trading Bot, non la strategia in sè.",
-                    "updated": 1618061327170
+                    "updated": 1618061327170,
+                    "style": "Note"
                 }
             ]
         }

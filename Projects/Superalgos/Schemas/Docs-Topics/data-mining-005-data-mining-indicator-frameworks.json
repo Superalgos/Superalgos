@@ -8,27 +8,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "When running custom code, users have full control of the process and there is no limit on what it can be done in terms of data manipulation. The trade off is that the user must be a developer.",
-            "updated": 1621902338195
-        },
-        {
-            "style": "Text",
-            "text": "On the other hand, by running one of the available frameworks, an indicator can do powerful stuff leaving to the user the task to write only a very tiny piece of code to do the data transformations. In this case the flexibility is reduced comparing to custom code.",
-            "updated": 1621705829052
-        },
-        {
-            "style": "Note",
-            "text": "You don't need to be a developer to write these code snippets, most of the time are very simple javascript code.",
-            "updated": 1622195430462
-        },
-        {
-            "style": "Text",
-            "text": "Here we will see examples of each use case and list all the currently available indicator frameworks users can use."
-        },
-        {
             "style": "Title",
-            "text": "Types of Indicators Implementations"
+            "text": "Types of Indicator Implementations",
+            "updated": 1622211317016
         },
         {
             "style": "List",
@@ -36,9 +18,22 @@
             "updated": 1621902418790
         },
         {
+            "style": "Note",
+            "text": "When running custom code, users have full control of the process and there is no limit on what can be done in terms of data manipulation. The trade off is that the user must be a developer."
+        },
+        {
             "style": "List",
-            "text": "UI-Defined: This means that the Indictor Bot will base its behaviour on the definitions at the UI including the code snippets provided by the user.",
-            "updated": 1622195507610
+            "text": "UI-Defined: This means that the Indictor Bot will base its behaviour on the definitions at the UI including available frameworks, as well as the code snippets provided by the user.",
+            "updated": 1622211583849
+        },
+        {
+            "style": "Note",
+            "text": "By running one of the available frameworks, an indicator can do powerful stuff while only leaving the task of writing a very tiny piece of code to do the data transformations. In this case the flexibility is reduced comparing to custom code, but ease of development is greatly increased.",
+            "updated": 1622211470919
+        },
+        {
+            "style": "Success",
+            "text": "You don't need to be a developer to write these code snippets, most of the time they are very simple javascript code."
         },
         {
             "style": "Title",
@@ -65,13 +60,13 @@
         },
         {
             "style": "Subtitle",
-            "text": "How to Implement them",
-            "updated": 1621711303350
+            "text": "How to Implement Custom Code",
+            "updated": 1622212152208
         },
         {
             "style": "Text",
-            "text": "The way to implement a Custom Code Indicator tell the Bot at the config of the Process Definition that there is custom code for this process. Specifically, you need to add the botModule property to the config. This is how it looks like.",
-            "updated": 1621902538119
+            "text": "The way to implement a Custom Code Indicator is to set up the config for the Bot's Process Definition using the botModule property. This tells the bot that there will be custom code used for this Indicator. This is an example of what it should look like:",
+            "updated": 1622212134508
         },
         {
             "style": "Json",
@@ -84,14 +79,14 @@
             "updated": 1622195849390
         },
         {
-            "style": "Text",
+            "style": "Success",
             "text": "Most likely your new Bot will be added to the Superalgos project, so you should find the Project Schema File inside the Projects folder.",
             "updated": 1622196885148
         },
         {
             "style": "Text",
-            "text": "The definition to be added there should look something like this:",
-            "updated": 1621902599128
+            "text": "The definition you will need to add in the Schema file should look something like this:",
+            "updated": 1622212304362
         },
         {
             "style": "Json",
@@ -100,8 +95,8 @@
         },
         {
             "style": "Text",
-            "text": "After that you will need to add to the codebase a new Javascript module with your code.",
-            "updated": 1621902622372
+            "text": "Finally, you will need to add a new Javascript module with your code to the codebase using the same file name you defined in the Schema file.",
+            "updated": 1622212386180
         },
         {
             "style": "Title",
@@ -144,12 +139,13 @@
         },
         {
             "style": "Subtitle",
-            "text": "How to use those Frameworks",
-            "updated": 1621711329707
+            "text": "How to Use an Indicator Framework",
+            "updated": 1622212547671
         },
         {
             "style": "Text",
-            "text": "In all cases, to use an Indicator Framework at your Indicator Bot all you need to do is to specify the framework name at the Process Definition. "
+            "text": "In order to use a framework at your Indicator Bot, all you need to do is specify the framework name at the Process Definition under the framework property.",
+            "updated": 1622212711775
         },
         {
             "style": "Text",
@@ -163,8 +159,8 @@
         },
         {
             "style": "Text",
-            "text": "In this other example, the process will use the Multi-Time-Frame-Market framework.",
-            "updated": 1622197516426
+            "text": "Here is an example using the Multi-Time-Frame-Market framework.",
+            "updated": 1622212639925
         },
         {
             "style": "Json",

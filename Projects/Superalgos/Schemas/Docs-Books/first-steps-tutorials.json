@@ -54,7 +54,7 @@
         },
         {
             "style": "Chapter",
-            "text": "III->Superalgos->Tutorial->Contribute to Superalgos!->This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
+            "text": "III->Superalgos->Tutorial->Beyond the Basics->This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
             "updated": 1617208248309
         },
         {
@@ -91,6 +91,11 @@
             "style": "Chapter",
             "text": "X->Superalgos->Tutorial->Install a New Market->This tutorial covers the process of installing a new market. The process automates the creation of data and trading tasks, as well as charts for the said Market.",
             "updated": 1617208663643
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Superalgos->Tutorial->Setting Up a New Chart->This tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
+            "updated": 1621991930816
         }
     ]
 }

@@ -131,6 +131,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         keyPressed()
+        toggleMapView()
         checkPressButton()
         checkGif()
         checkImage()
@@ -162,6 +163,20 @@ function newSuperalgosTutorialSpace() {
             }
         }
 
+        function toggleMapView() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (
+                config.toggleMapView !== undefined
+            ) {
+                if (config.toggleMapView.view === "On") {
+                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
+                } else 
+                if (config.toggleMapView.view === "Off") {
+                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                }
+            }
+        }
         function checkViewportZoom() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
@@ -810,7 +825,7 @@ function newSuperalgosTutorialSpace() {
         resetDocumentation()
         resetRepositionAtTimeMachine()
         resetPositionAtNode()
-        resetTimeMachineKeyPressed()
+        resetTimeMachineKeyPressed() 
         resetKeyPressed()
         resetSlider()
         changeNodeConfig()

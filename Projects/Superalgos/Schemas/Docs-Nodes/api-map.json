@@ -38,6 +38,11 @@
         },
         {
             "style": "List",
+            "text": "codeName: this must be the same codeName as the Data Mine codeName in order for the Install New Market procedure to link them properly at the API Map Reference node.",
+            "updated": 1622472871204
+        },
+        {
+            "style": "List",
             "text": "protocol: the protocol to be used to access the API. For now either http or https."
         },
         {

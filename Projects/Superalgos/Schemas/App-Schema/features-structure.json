@@ -1,0 +1,35 @@
+{
+    "type": "Features Structure",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Project Feature",
+            "relatedUiObject": "Project Feature"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Contribution Management->"
+    },
+    "propertyNameAtParent": "featuresStructure",
+    "childrenNodesProperties": [
+        {
+            "name": "projectFeatures",
+            "type": "array",
+            "childType": "Project Feature",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

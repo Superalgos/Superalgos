@@ -1,0 +1,48 @@
+{
+    "type": "Project Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Project Asset",
+            "relatedUiObject": "Project Asset"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Assets Structure->Project Asset->"
+    },
+    "propertyNameAtParent": "projectAssets",
+    "childrenNodesProperties": [
+        {
+            "name": "projectAssets",
+            "type": "array",
+            "childType": "Project Asset",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

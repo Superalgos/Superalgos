@@ -1,0 +1,72 @@
+{
+    "assetName": "Whole Project",
+    "description": "Superalgos as a project has built over time several assets.",
+    "assetWeight": 100,
+    "innerAssets": [
+        {
+            "assetName": "Software",
+            "description": "Superalgos Software is all the sorftare written for the project in any form.",
+            "assetWeight": 85
+        },
+        {
+            "assetName": "Marketing",
+            "description": "All marketing related assets.",
+            "assetWeight": 10,
+            "innerAssets": [
+                {
+                    "assetName": "Web Site",
+                    "description": "The official Superalgos Website.",
+                    "assetWeight": 10,
+                    "innerAssets": [
+                        {
+                            "assetName": "Home Page",
+                            "assetWeight": 85
+                        },
+                        {
+                            "assetName": "Token",
+                            "assetWeight": 85
+                        }
+                    ]
+                },
+                {
+                    "assetName": "Articles",
+                    "assetWeight": 5
+                },
+                {
+                    "assetName": "Documentation",
+                    "assetWeight": 5
+                },
+                {
+                    "assetName": "Tutorials",
+                    "assetWeight": 5
+                }
+            ]
+        },
+        {
+            "assetName": "Community",
+            "assetWeight": 5
+        },
+        {
+            "assetName": "Teams",
+            "assetWeight": 5,
+            "innerAssets": [
+                {
+                    "assetName": "Core Team",
+                    "assetWeight": 5
+                },
+                {
+                    "assetName": "Core Devs Team",
+                    "assetWeight": 5
+                },
+                {
+                    "assetName": "Marketing Team",
+                    "assetWeight": 5
+                },
+                {
+                    "assetName": "Legal Team",
+                    "assetWeight": 5
+                }
+            ]
+        }
+    ]
+}

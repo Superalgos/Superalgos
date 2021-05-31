@@ -166,6 +166,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'next-version\')">Next-Version</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
@@ -176,6 +177,8 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'next-version\')">Next-Version</a></li>'
+
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'

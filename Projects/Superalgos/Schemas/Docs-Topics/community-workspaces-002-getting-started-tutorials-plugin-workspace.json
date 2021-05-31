@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "2",
-    "type": "Getting Started Plugin Workspace",
+    "type": "Getting Started Tutorials Plugin Workspace",
     "definition": {
         "text": "This workspace is the first point of contact with Superalgos. It's purpose is to get new users familiar with all the basic aspects of Superalgos.",
         "updated": 1616145473343
@@ -36,7 +36,7 @@
         },
         {
             "style": "List",
-            "text": "@julian-molina",
+            "text": "@julian-molina (Telegram)",
             "updated": 1616151219045
         }
     ]

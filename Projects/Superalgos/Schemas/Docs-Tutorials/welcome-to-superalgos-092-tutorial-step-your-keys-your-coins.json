@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Qui è dove configuro le Exchange Account Key per la Live Trading Session del Lightning Strike Trading System.",
-                "updated": 1618070825773
+                "updated": 1618070825773,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Accedi alla configurazione e inserisci attentamente la API Public Key e la API Secret Key.",
-                    "updated": 1618070869172
+                    "updated": 1618070869172,
+                    "style": "Callout"
                 }
             ]
         },
@@ -37,19 +39,21 @@
                 {
                     "language": "IT",
                     "text": "Cancella prima la stringa di testo di default per ogni parametro, così da non rischiare errori inserendo le tue chiavi.",
-                    "updated": 1618070932988
+                    "updated": 1618070932988,
+                    "style": "Text"
                 }
             ]
         },
         {
-            "style": "Note",
-            "text": "The Exchange Account Key is stored in the workspace file. It is used to authenticate with the exchange when the Trading Bot deals with orders. It is never sent or stored anywhere else.",
-            "updated": 1616435057411,
+            "style": "Warning",
+            "text": "The Exchange Account Key is stored in the User Workspace file, unencrypted. It is used to authenticate with the exchange. It's never sent or stored elsewhere. Don't share this workspace until you learn to how do it safely in the next tutorial.",
+            "updated": 1622233064100,
             "translations": [
                 {
                     "language": "IT",
                     "text": "L'Exchange Account Key è salvata nel workspace file. È utilizzata dal Trading Bot per autenticarsi sull'exchange quando gestisce gli ordini. Non viene inviata nè salvata in nessun'altro luogo.",
-                    "updated": 1618071006665
+                    "updated": 1618071006665,
+                    "style": "Note"
                 }
             ]
         }

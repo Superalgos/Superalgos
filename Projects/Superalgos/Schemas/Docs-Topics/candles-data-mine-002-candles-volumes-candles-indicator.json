@@ -1,7 +1,7 @@
 {
-    "topic": "Masters Data Mine",
-    "pageNumber": 4,
-    "type": "Candles Volumes - Masters Indicator",
+    "topic": "Candles Data Mine",
+    "pageNumber": 2,
+    "type": "Candles Volumes - Candles Indicator",
     "definition": {
         "text": "The indicator processes one-minute candles into candles and volumes information for all time frames.",
         "updated": 1610398384051

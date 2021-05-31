@@ -16,19 +16,23 @@
         },
         {
             "style": "List",
-            "text": "Masters Data Layer Manager: Turn everything off but the Candles and the Bollinger Bands layers."
+            "text": "Bollinger Data layer manager: Turn everything off but the Bollinger Bands layers.",
+            "updated": 1622489215220
         },
         {
             "style": "List",
-            "text": "Simulation Objects Layer Manager: Turn everything off but the Strategies and Trigger Stages layers."
+            "text": "Simulation Objects layer manager: Turn everything off but the \"Strategies\" and \"Trigger Stages\" layers.",
+            "updated": 1622489292671
         },
         {
             "style": "List",
-            "text": "Trading System Layer Manager: Turn everything off but the Trading System Errors, Highlights, and Values layers."
+            "text": "Trading System layer manager: Turn everything off but the \"Trading System Errors\", \"Highlights\", and \"Values\" layers.",
+            "updated": 1622489280401
         },
         {
             "style": "List",
-            "text": "Trading Engine Layer Manager: Turn everything off."
+            "text": "Trading Engine layer manager: Turn everything off.",
+            "updated": 1622489241076
         },
         {
             "style": "Text",

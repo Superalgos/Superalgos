@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Masters Layer Manager and turn on the Bollinger Channels Objects Layer!"
+            "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer!",
+            "updated": 1622480213561
         },
         {
             "style": "Note",

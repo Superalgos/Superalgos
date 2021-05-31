@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Go to the Trading System layer manager and turn on the Trading System Highlights and the Trading System Values layers..."
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Highlights\" and the \"Trading System Values\" layers...",
+            "updated": 1622488043632
         },
         {
             "style": "Callout",

@@ -1,0 +1,20 @@
+{
+    "topic": "Bollinger Data Mine",
+    "pageNumber": "1",
+    "type": "Bollinger by @luis_fernando_molina",
+    "definition": {
+        "text": "The Bollinger Data Mine features the Bollinger Bands (BB), Percentage Bandwisth (%B), Bollinger Channels, and Bollinger Subchannels indicators.",
+        "updated": 1622481705188
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
+        }
+    ]
+}

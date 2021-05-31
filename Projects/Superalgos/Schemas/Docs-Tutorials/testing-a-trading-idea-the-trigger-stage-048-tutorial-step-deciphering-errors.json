@@ -22,8 +22,8 @@
         },
         {
             "style": "List",
-            "text": "You know which node caused the error: it is likely the definition in the node that caused the error, either in the code of the associated Javascript Node, the Formula, or the configuration.",
-            "updated": 1612696441482
+            "text": "You know which node caused the error: it is likely the definition in the node that caused the error, either in the code of the associated Javascript Code node, the Formula, or the configuration.",
+            "updated": 1622487845254
         },
         {
             "style": "List",

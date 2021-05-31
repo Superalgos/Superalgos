@@ -1,0 +1,78 @@
+{
+    "type": "replaceBy Config Property",
+    "definition": {
+        "text": "This property allows you to instruct the API Fetcher Bot to set a value to this parameter based on contextual information that can not be defined at the Data Mine or the API Map. This contextual information can be for example the current Base Asset or the current time.",
+        "updated": 1622476480596
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "How To Use It",
+            "updated": 1622477226772
+        },
+        {
+            "style": "Subtitle",
+            "text": "replaceBy Config Property Usage"
+        },
+        {
+            "style": "Text",
+            "text": "This property is optional, meaning that the Bot will use the default value when it is not present. The default value for an API Query Parameter is the value configu property, while the default for an API Path Parameter is the codeName config property."
+        },
+        {
+            "style": "Text",
+            "text": "The possible values for this property are:"
+        },
+        {
+            "style": "List",
+            "text": "@BaseAsset: This will force the Bot to use the current Base Asset."
+        },
+        {
+            "style": "Javascript",
+            "text": "parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName",
+            "updated": 1622476773559
+        },
+        {
+            "style": "List",
+            "text": "@QuotedAsset: This will force the Bot to use the current Quoted Asset.",
+            "updated": 1622476819686
+        },
+        {
+            "style": "Javascript",
+            "text": "parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName",
+            "updated": 1622476849667
+        },
+        {
+            "style": "List",
+            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the begining of the current minute.",
+            "updated": 1622476907142
+        },
+        {
+            "style": "Javascript",
+            "text": "parameterValue = \nMath.trunc((new Date()).valueOf() / \nTS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nTS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS",
+            "updated": 1622477009814
+        },
+        {
+            "style": "List",
+            "text": "@EndCurrentMinute: This will instruct the Bot to use a timestamp at the ending of the current minute.",
+            "updated": 1622476926765
+        },
+        {
+            "style": "Javascript",
+            "text": "parameterValue = Math.trunc((new Date()).valueOf() / \nTS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * \nTS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS + \nTS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1",
+            "updated": 1622477088684
+        },
+        {
+            "style": "Note",
+            "text": "If users assing a value that is not listed above, the property will be ingnored and the default value will be used.",
+            "updated": 1622477178155
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

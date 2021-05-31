@@ -9,6 +9,11 @@
             "text": "Content"
         },
         {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Definition->Record Properties",
+            "updated": 1622292794198
+        },
+        {
             "style": "Text",
             "text": "Records may have as many properties as required."
         },

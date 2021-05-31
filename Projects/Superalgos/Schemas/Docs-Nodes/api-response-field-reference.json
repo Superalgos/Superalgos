@@ -33,8 +33,8 @@
         },
         {
             "style": "Text",
-            "text": "In order to extract individual values for each Record Property, the API Data Fetcher Bot needs to dynamically discover the nodePath for each Record Propety at the response data structure and can do it as long as the API Response Field referenced is under the Data Root. To autodiscover the nodePath it uses the API Response Schame nodePath to locate the Data Root, and then it follows the reference from the API Response Field Reference node to the API Response Field and climb upwards until it reach the API Response Schema. While climbing upwards it discovers the nodePath that it needs to grabb the value from the response data structure. That is how it works.",
-            "updated": 1621972472491
+            "text": "In order to extract individual values for each Record Property, the API Data Fetcher Bot needs to dynamically discover the nodePath for each Record Propety at the response data structure and can do it as long as the API Response Field referenced is under the Data Root. To autodiscover the nodePath it uses the API Response Schema nodePath to locate the Data Root, and then it follows the reference from the API Response Field Reference node to the API Response Field and climbs upwards until it reach the API Response Schema. While climbing upwards it discovers the nodePath that it needs to grab the value from the response data structure. That is how it works.",
+            "updated": 1622372741883
         },
         {
             "style": "Text",

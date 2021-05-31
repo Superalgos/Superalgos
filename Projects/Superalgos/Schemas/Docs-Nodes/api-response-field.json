@@ -17,8 +17,8 @@
         },
         {
             "style": "List",
-            "text": "fieldType: This property declares if the data is number, a string an object or an array, those are the 4 possible values.",
-            "updated": 1621022104672
+            "text": "fieldType: This property declares if the data is number, a string, an object, or an array, those are the 4 possible values.",
+            "updated": 1622315306276
         },
         {
             "style": "List",

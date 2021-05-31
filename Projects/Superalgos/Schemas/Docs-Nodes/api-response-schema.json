@@ -7,8 +7,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The API Map assumes the API Server will respond with string formatted in JSON. This means that the response will be a data structure of nestled objects and arrays. Users will need to map the response format into a API Response Schema by adding children to this node and to this node's children. All these descendants are of the same Node Type API Response Field. ",
-            "updated": 1621952655717
+            "text": "The API Map assumes the API Server will respond with string formatted in JSON. This means that the response will be a data structure of nestled objects and arrays. Users will need to map the response format into an API Response Schema by adding children to this node and to this node's children. All these descendants are of the same Node Type API Response Field.",
+            "updated": 1622312357188
         },
         {
             "style": "Title",

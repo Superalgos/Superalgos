@@ -62,9 +62,13 @@
             "updated": 1622230619069
         },
         {
+            "style": "Block",
+            "text": "Data Aggregation",
+            "updated": 1622336997587
+        },
+        {
             "style": "Title",
-            "text": "How Does Data Aggregation Work?",
-            "updated": 1622230634850
+            "text": "How Does Data Aggregation Work?"
         },
         {
             "style": "Text",
@@ -107,9 +111,13 @@
             "text": "Avg: This means that the average of all values found in the time range will be used as the value for the Record Proeprty."
         },
         {
+            "style": "Block",
+            "text": "Step By Step",
+            "updated": 1622372437520
+        },
+        {
             "style": "Title",
-            "text": "Step by Step Guide to Fetch Data from an API",
-            "updated": 1622231458352
+            "text": "Step by Step Guide to Fetch Data from an API"
         },
         {
             "style": "Text",

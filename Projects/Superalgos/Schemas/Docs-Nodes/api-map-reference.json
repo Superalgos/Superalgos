@@ -6,8 +6,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "style": "Important",
+            "text": "For this node to be correctly installed and a reference stablished to the API Data Mine by the Install New Market procedure, both the Data Mine and the API Data Map needs to have exactly the same config property codeName, otherwise, this node will be created but you will have to stablish the reference manually.",
+            "updated": 1622472653778
         }
     ]
 }

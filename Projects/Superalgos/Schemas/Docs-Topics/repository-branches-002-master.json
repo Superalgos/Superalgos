@@ -1,0 +1,34 @@
+{
+    "topic": "Repository Branches",
+    "pageNumber": "2",
+    "type": "Master",
+    "definition": {
+        "text": "The Master branch is where the stable code or current version is located at. This is the branch where the software is installed from by default. ",
+        "updated": 1622467520315
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Users of Superalgos running the stable version at Master discuss several topics here:",
+            "updated": 1622468372179
+        },
+        {
+            "style": "Link",
+            "text": "Telegram Community Group->t.me/superalgoscommunity",
+            "updated": 1622468544375
+        },
+        {
+            "style": "Text",
+            "text": "When they have issues with the stable version at Master, they ask for help here:"
+        },
+        {
+            "style": "Link",
+            "text": "Telegram Technical Support Group->t.me/superalgossupport",
+            "updated": 1622468555501
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -12,13 +12,13 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading these rules,",
-            "updated": 1610467009560
+            "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading the rules,",
+            "updated": 1622458251795
         },
         {
             "style": "Link",
-            "text": "as defined by John Bollinger himself!->www.bollingerbands.com/bollinger-band-rules",
-            "updated": 1615384340218
+            "text": "as defined by John Bollinger himself!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+            "updated": 1622458339543
         },
         {
             "style": "Callout",

@@ -51,6 +51,25 @@
         {
             "style": "List",
             "text": "timeFrames sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Multi-Time-Frame-Market"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [\n        \"24-hs\",\n        \"12-hs\",\n        \"08-hs\",\n        \"06-hs\",\n        \"04-hs\",\n        \"03-hs\",\n        \"02-hs\",\n        \"01-hs\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\",\n    \"timeFrames\": {\n        \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n        \"fileName\": \"Time.Frames.json\"\n    }\n}",
+            "updated": 1622230173671
+        },
+        {
+            "style": "Subtitle",
+            "text": "Multi-Time-Frame-Daily",
+            "updated": 1622230146222
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [\n        \"45-min\",\n        \"40-min\",\n        \"30-min\",\n        \"20-min\",\n        \"15-min\",\n        \"10-min\",\n        \"05-min\",\n        \"04-min\",\n        \"03-min\",\n        \"02-min\",\n        \"01-min\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n        \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n        \"fileName\": \"Data.Range.json\"\n    },\n    \"timeFrames\": {\n        \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n        \"fileName\": \"Time.Frames.json\"\n    }\n}",
+            "updated": 1622230187172
         }
     ]
 }

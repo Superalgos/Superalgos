@@ -12,7 +12,7 @@
 
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
-    let statusDependencies
+    let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map
     let indicatorOutputModule
@@ -21,9 +21,9 @@
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
-        statusDependencies = pStatusDependencies;
-        dataDependenciesModule = pDataDependencies;
+    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
+        statusDependenciesModule = pStatusDependencies;
+        dataDependenciesModule = pStatusDependenciesModule;
 
         indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -31,7 +31,7 @@
 
     function finalize() {
         dataFiles = undefined
-        statusDependencies = undefined
+        statusDependenciesModule = undefined
         dataDependenciesModule = undefined
         indicatorOutputModule = undefined
         fileStorage = undefined
@@ -60,7 +60,7 @@
                     /*
                     We look first for the bot who knows the begining of the market in order to get when the market starts.
                     */
-                    statusReport = statusDependencies.reportsByMainUtility.get("Market Starting Point")
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get("Market Starting Point")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -112,7 +112,7 @@
                     /*
                     Here we get the status report from the bot who knows which is the end of the market.
                     */
-                    statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get("Market Ending Point")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -147,7 +147,7 @@
                     contextVariables.dateEndOfMarket = new Date(thisReport.lastFile.valueOf())
 
                     /* Finally we get our own Status Report. */
-                    statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
+                    statusReport = statusDependenciesModule.reportsByMainUtility.get("Self Reference")
 
                     if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -229,9 +229,9 @@
                         "[ERROR] start -> getContextVariables -> err = " + err.stack)
                     if (err.message === "Cannot read property 'file' of undefined") {
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependencies declarations are correct. ")
+                            "[HINT] start -> getContextVariables -> Check the bot configuration to see if all of its statusDependenciesModule declarations are correct. ")
                         TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys))
+                            "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependenciesModule.keys))
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }
@@ -610,9 +610,7 @@
             }
 
             function writeStatusReport(lastFileDate, callBack) {
-                let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
-                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Time-Frame-Daily"
-                let thisReport = statusDependencies.statusReports.get(reportKey)
+                let thisReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
                 thisReport.file.lastFile = lastFileDate;
                 thisReport.file.interExecutionMemoryArray = interExecutionMemoryArray;

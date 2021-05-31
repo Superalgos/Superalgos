@@ -1,3 +1,4 @@
+/* Global Constatns */
 
 let canvas
 let PROJECTS_ARRAY

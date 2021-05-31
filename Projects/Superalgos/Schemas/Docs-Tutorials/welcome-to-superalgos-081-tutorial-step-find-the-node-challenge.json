@@ -12,20 +12,22 @@
             {
                 "language": "IT",
                 "text": "Il Trading Engine gestisce la complessità del trading automatico rendendo le informazioni accessibili agli utenti e ai sistemi di trading.",
-                "updated": 1618067277865
+                "updated": 1618067277865,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Rember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder:",
-            "updated": 1610536534720,
+            "text": "Remember my comments about granularity? Remember how the formula on the trading system fetched the value of the exit target rate? Here's a quick reminder:",
+            "updated": 1622228180200,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Ricordi i miei commenti sulla granularità? Ricordi come la formula del trading system prendeva il valore dell'Exit Target Rate? Ecco un promemoria:",
-                    "updated": 1618067378217
+                    "updated": 1618067378217,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,7 +43,8 @@
                 {
                     "language": "IT",
                     "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila!",
-                    "updated": 1618067490282
+                    "updated": 1618067490282,
+                    "style": "Callout"
                 }
             ]
         }

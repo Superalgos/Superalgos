@@ -12,7 +12,8 @@
             {
                 "language": "IT",
                 "text": "Ok, amico mio...è ora di entrare in azione! Sei pronto a una piccola Live Trading Session?",
-                "updated": 1618068381473
+                "updated": 1618068381473,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +25,8 @@
                 {
                     "language": "IT",
                     "text": "Ti aiuterò con i tre requisiti principali:",
-                    "updated": 1618068402523
+                    "updated": 1618068402523,
+                    "style": "Text"
                 }
             ]
         },
@@ -35,7 +37,8 @@
                 {
                     "language": "IT",
                     "text": "Controlla i parametri: in particolar modo decidi bene quanto capitale assegnare alla sessione",
-                    "updated": 1618068548173
+                    "updated": 1618068548173,
+                    "style": "List"
                 }
             ]
         },
@@ -46,7 +49,8 @@
                 {
                     "language": "IT",
                     "text": "Prepara un Exchange Account Key: necessaria perchè l'app possa accedere al tuo account sull'exchange.",
-                    "updated": 1618068559526
+                    "updated": 1618068559526,
+                    "style": "List"
                 }
             ]
         },
@@ -58,19 +62,21 @@
                 {
                     "language": "IT",
                     "text": "Garantisci un live data feed: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
-                    "updated": 1618068565912
+                    "updated": 1618068565912,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going.",
-            "updated": 1610642653006,
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going. You will at least learn how things work!",
+            "updated": 1622232287190,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Se per un qualunque motivo non sei pronto a fare live trading, non preccuparti! Prosegui pure.",
-                    "updated": 1618068597799
+                    "updated": 1618068597799,
+                    "style": "Note"
                 }
             ]
         }

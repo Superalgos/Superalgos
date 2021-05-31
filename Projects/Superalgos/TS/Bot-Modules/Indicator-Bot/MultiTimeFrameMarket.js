@@ -12,17 +12,17 @@
 
     let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
-    let statusDependencies
+    let statusDependenciesModule
     let dataDependenciesModule
     let dataFiles = new Map()
     let indicatorOutputModule
 
     return thisObject;
 
-    function initialize(pStatusDependencies, pDataDependencies, callBackFunction) {
+    function initialize(pStatusDependencies, pStatusDependenciesModule, callBackFunction) {
 
-        statusDependencies = pStatusDependencies
-        dataDependenciesModule = pDataDependencies
+        statusDependenciesModule = pStatusDependencies
+        dataDependenciesModule = pStatusDependenciesModule
 
         indicatorOutputModule = TS.projects.superalgos.botModules.indicatorOutput.newSuperalgosBotModulesIndicatorOutput(processIndex)
         indicatorOutputModule.initialize(callBackFunction)
@@ -31,7 +31,7 @@
     function finalize() {
         fileStorage = undefined
         dataFiles = undefined
-        statusDependencies = undefined
+        statusDependenciesModule = undefined
         dataDependenciesModule = undefined
         indicatorOutputModule = undefined
         thisObject = undefined
@@ -209,9 +209,7 @@
             }
 
             function writeStatusReport(callBack) {
-                let reportKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" +
-                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + "Multi-Time-Frame-Market"
-                let thisReport = statusDependencies.statusReports.get(reportKey)
+                let thisReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
                 thisReport.file.lastExecution = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_DATETIME;
                 if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.timeFramesFilter !== undefined) {

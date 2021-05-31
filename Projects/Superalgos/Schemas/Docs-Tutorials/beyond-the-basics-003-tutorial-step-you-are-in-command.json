@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ora ti parlo della mia amica, la barra di ricerca nei Docs. Diciamo che ha una doppia vita: non solo cerca, ma comanda pure! ",
-                "updated": 1619631665874
+                "updated": 1619631665874,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Quello che voglio dire è che la barra di ricerca è anche una riga di comando! La lista di comandi riguarda:",
-                    "updated": 1619631729737
+                    "updated": 1619631729737,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,9 +40,14 @@
                 {
                     "language": "IT",
                     "text": "Produzione e modifica della documentazione",
-                    "updated": 1619631754180
+                    "updated": 1619631754180,
+                    "style": "List"
                 }
             ]
+        },
+        {
+            "style": "List",
+            "text": "Getting updates."
         },
         {
             "style": "List",
@@ -50,7 +57,8 @@
                 {
                     "language": "IT",
                     "text": "Aggiungere il proprio contributo al progetto",
-                    "updated": 1619631772476
+                    "updated": 1619631772476,
+                    "style": "List"
                 }
             ]
         },
@@ -62,7 +70,8 @@
                 {
                     "language": "IT",
                     "text": "Lavoreremo su un esempio pratico che riguarda entrambe le cose! Ti insegnerò come modificare i docs e contribuire, usando un paio di comandi!",
-                    "updated": 1619631824997
+                    "updated": 1619631824997,
+                    "style": "Callout"
                 }
             ]
         },
@@ -74,7 +83,8 @@
                 {
                     "language": "IT",
                     "text": "Presenterò i prossimi step con una breve storia...spero ti piaccia l'idea!",
-                    "updated": 1619631849733
+                    "updated": 1619631849733,
+                    "style": "Text"
                 }
             ]
         }

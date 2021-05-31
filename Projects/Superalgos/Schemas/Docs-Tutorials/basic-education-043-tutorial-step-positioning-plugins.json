@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Il nodo Plugin File Position determina dove sarà posizionato il nodo nel workspace!",
-                "updated": 1619554715666
+                "updated": 1619554715666,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ecco perchè trovi il nodo Trading System sopra il nodo Plugin File Position!",
-                    "updated": 1619554752815
+                    "updated": 1619554752815,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,19 +40,21 @@
                 {
                     "language": "IT",
                     "text": "Se cancelli il nodo Trading System, ricomparirà la prossima volta che ricarichi il workspace. I Plugins sono caricati dal file plugin ogni volta che il workspace viene caricato!",
-                    "updated": 1619554795779
+                    "updated": 1619554795779,
+                    "style": "Success"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Feel free to try it! If so you wish, you may delete the Trading System node and refresh the page. Bear in mind that you will need to find the Basic Education tutorial and click Resume on the menu to continue!",
-            "updated": 1615921187621,
+            "text": "Feel free to try it! If so you wish, you may delete the Trading System node and refresh the page. Bear in mind that you will need to find the Basic Education Tutorial and click Resume on the menu to continue!",
+            "updated": 1622376059637,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Prova, se vuoi! Puoi anche cancellare il nodo Trading System e aggiornare la pagina. Tieni a mente che per continuare da qui dovrai cercare il Basic Education Tutorial e cliccare Resume sul menù!",
-                    "updated": 1619554844566
+                    "updated": 1619554844566,
+                    "style": "Text"
                 }
             ]
         }

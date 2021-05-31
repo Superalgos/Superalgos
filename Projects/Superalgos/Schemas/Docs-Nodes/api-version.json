@@ -7,8 +7,8 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "We expect every API to have at leat one version.",
-            "updated": 1621951647515
+            "text": "We expect every API to have at least one version.",
+            "updated": 1622291417472
         },
         {
             "style": "Include",

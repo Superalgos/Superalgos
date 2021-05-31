@@ -62,9 +62,13 @@
             "updated": 1622230619069
         },
         {
+            "style": "Block",
+            "text": "Data Aggregation",
+            "updated": 1622336997587
+        },
+        {
             "style": "Title",
-            "text": "How Does Data Aggregation Work?",
-            "updated": 1622230634850
+            "text": "How Does Data Aggregation Work?"
         },
         {
             "style": "Text",
@@ -107,9 +111,13 @@
             "text": "Avg: This means that the average of all values found in the time range will be used as the value for the Record Proeprty."
         },
         {
+            "style": "Block",
+            "text": "Step By Step",
+            "updated": 1622372437520
+        },
+        {
             "style": "Title",
-            "text": "Step by Step Guide to Fetch Data from an API",
-            "updated": 1622231458352
+            "text": "Step by Step Guide to Fetch Data from an API"
         },
         {
             "style": "Text",
@@ -133,8 +141,8 @@
         },
         {
             "style": "List",
-            "text": "Step #4: Read the API's documentation, indentify the endpoints, what parameters they require and what data they will provide you.",
-            "updated": 1621976675920
+            "text": "Step #4: Read the API's documentation, indentify the endpoints, what parameters they require and what data they will provide you. Another helpful way to see how the api responds is by typing the api endpoint into your browser and looking at the raw output.",
+            "updated": 1622469791527
         },
         {
             "style": "List",
@@ -143,8 +151,8 @@
         },
         {
             "style": "List",
-            "text": "Step #6: Create an API Map node, and start mapping the documented API by adding children to it.",
-            "updated": 1621976688595
+            "text": "Step #6: Create an API Map node, and start mapping the documented API by adding children to it. Especially pay attention to unnamed arrays and objects that may wrap the data.",
+            "updated": 1622470221717
         },
         {
             "style": "List",
@@ -196,8 +204,13 @@
         },
         {
             "style": "List",
-            "text": "Step #17: Pay attention to the special case of the required timeStamp Record Property. Specifically because it might be pointing to the header of the API response. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
-            "updated": 1622232714229
+            "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Addtionally, the timestamp may live in the header of the API responce. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
+            "updated": 1622475120505
+        },
+        {
+            "style": "Note",
+            "text": "It is a good idea to make sure you get the api fetcher bot running and debugged before moving on to the next step.",
+            "updated": 1622475171484
         },
         {
             "style": "List",

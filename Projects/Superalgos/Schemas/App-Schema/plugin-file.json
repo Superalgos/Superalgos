@@ -30,7 +30,7 @@
             "name": "pluginFilePosition",
             "type": "node",
             "childType": "Plugin File Position",
-            "autoAdd": false
+            "autoAdd": true
         }
     ]
 }

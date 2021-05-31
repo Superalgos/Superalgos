@@ -1178,13 +1178,13 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
-        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(nodeConfig.docs.project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         if (schemaDocument === undefined) {
             schemaDocument = {
                 type: 'Tutorial',
                 definition: {
-                    text: "If you are a new user then please refresh the UI with F5. This is a nasty bug we could not reproduce and fix yet."
+                    text: "If you are a new user then please refresh the UI with F5."
                 },
                 icon: {
                     project: "Superalgos",

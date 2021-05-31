@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading System layer manager and turn on the Trading System Errors layer!"
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer!",
+            "updated": 1622488220992
         },
         {
             "style": "Text",

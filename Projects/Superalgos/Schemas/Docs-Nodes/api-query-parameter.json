@@ -18,6 +18,15 @@
             "style": "List",
             "text": "value: It is the value to be used at this parameter. The API Map can define the value, that would be considered a default value. The same parameter defined at the Data Mine will have the actual value to be used replacing the default. If you are defining a API Map to be shared as a Plugin, you can avoid setting this property at the API Map level, and let the users set it at their Data Mine when they use your API Map. For completness, this parameter should be included at the the API Map even if the value property is not there.",
             "updated": 1622160191941
+        },
+        {
+            "style": "List",
+            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime. ",
+            "updated": 1622477507235
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->replaceBy Config Property->How To Use It"
         }
     ]
 }

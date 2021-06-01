@@ -12,8 +12,8 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Workspaces with the prefix Plugin come with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins allways remain unchanged.",
-            "updated": 1617181548594
+            "text": "Workspaces marked as Plugin Workspaces ship with the software. The rest are yours. When you open a plugin workspace a copy of it is made for you. Plugins allways remain unchanged.",
+            "updated": 1622540310563
         },
         {
             "style": "Important",

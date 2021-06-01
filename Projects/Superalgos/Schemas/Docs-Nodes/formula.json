@@ -59,7 +59,7 @@
         },
         {
             "style": "Javascript",
-            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.current.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.tradingCurrent.position.stopLoss.value}\n",
+            "text": "if (chart.at01hs.bollingerBand.movingAverage * 0.98 > \ntradingEngine.tradingCurrent.position.stopLoss.value)\n{chart.at01hs.bollingerBand.movingAverage * 0.98}\nelse\n{tradingEngine.tradingCurrent.position.stopLoss.value}\n",
             "updated": 1609346601773
         },
         {

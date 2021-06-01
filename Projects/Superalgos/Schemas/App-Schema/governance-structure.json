@@ -1,10 +1,10 @@
 {
-    "type": "Contributions Management",
+    "type": "Governance Structure",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Superalgos Release",
-            "relatedUiObject": "Superalgos Release",
+            "label": "Add Project Rank",
+            "relatedUiObject": "Project Rank",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -23,9 +23,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "superalgosReleases",
+            "name": "projectRanks",
             "type": "array",
-            "childType": "Superalgos Release",
+            "childType": "Project Rank",
             "autoAdd": false
         }
     ],

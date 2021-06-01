@@ -16,15 +16,21 @@
         },
         {
             "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
             "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions",
-            "actionFunction": "payload.executeAction"
+            "relatedUiObject": "Marketing Contributions"
         },
         {
             "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
             "label": "Add Community Contributions",
-            "relatedUiObject": "Community Contributions",
-            "actionFunction": "payload.executeAction"
+            "relatedUiObject": "Community Contributions"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Governance Contributions",
+            "relatedUiObject": "Governance Contributions"
         },
         {
             "action": "Delete UI Object",
@@ -55,14 +61,20 @@
         },
         {
             "name": "marketingContributions",
-            "type": "node",
+            "type": "array",
             "childType": "Marketing Contributions",
             "autoAdd": false
         },
         {
             "name": "communityContributions",
-            "type": "node",
+            "type": "array",
             "childType": "Community Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "governanceContributions",
+            "type": "array",
+            "childType": "Governance Contributions",
             "autoAdd": false
         }
     ],

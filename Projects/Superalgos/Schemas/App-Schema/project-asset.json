@@ -1,5 +1,5 @@
 {
-    "type": "Project Asset Type",
+    "type": "Project Asset",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,8 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Type",
-            "relatedUiObject": "Project Asset Type"
+            "label": "Add Project Asset Class",
+            "relatedUiObject": "Project Asset Class"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Project Asset",
+            "relatedUiObject": "Project Asset"
         },
         {
             "action": "Delete UI Object",
@@ -33,16 +39,25 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets Structure->Project Asset Type->"
+        "compatibleTypes": "->Project Asset Class->Project Asset->"
     },
-    "propertyNameAtParent": "projectAssetTypes",
+    "referencingRules": {
+        "compatibleTypes": "->Team->Project Rank->"
+    },
+    "propertyNameAtParent": "projectAssets",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetTypes",
+            "name": "projectAssetClasses",
             "type": "array",
-            "childType": "Project Asset Type",
+            "childType": "Project Asset Class",
+            "autoAdd": false
+        },
+        {
+            "name": "projectAssets",
+            "type": "array",
+            "childType": "Project Asset",
             "autoAdd": false
         }
     ],
-    "icon": "bitcoin"
+    "icon": "EN"
 }

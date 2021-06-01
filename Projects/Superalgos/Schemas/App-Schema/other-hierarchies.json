@@ -33,14 +33,14 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Contributions Management",
-            "relatedUiObject": "Contributions Management",
+            "label": "Add Assets Structure",
+            "relatedUiObject": "Assets Structure",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Project Ranking",
-            "relatedUiObject": "Project Ranking",
+            "label": "Add Governance Structure",
+            "relatedUiObject": "Governance Structure",
             "actionFunction": "payload.executeAction"
         },
         {

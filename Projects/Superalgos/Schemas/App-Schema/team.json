@@ -1,17 +1,24 @@
 {
-    "type": "Assets Structure",
+    "type": "Team",
     "menuItems": [
         {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Class",
-            "relatedUiObject": "Project Asset Class"
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Project Rank",
+            "relatedUiObject": "Project Rank"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Team",
+            "relatedUiObject": "Team"
         },
         {
             "action": "Delete UI Object",
@@ -23,25 +30,31 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isHierarchyHead": true,
-    "addLeftIcons": true,
-    "level": 1,
-    "attachingRules": {
-        "compatibleTypes": "->Superalgos Release->"
+    "editors": {
+        "config": true
     },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Project Rank->Team->"
+    },
+    "propertyNameAtParent": "teams",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetClasses",
+            "name": "projectRanks",
             "type": "array",
-            "childType": "Project Asset Class",
+            "childType": "Project Rank",
             "autoAdd": false
         },
         {
-            "name": "projectAssets",
+            "name": "teams",
             "type": "array",
-            "childType": "Project Asset",
+            "childType": "Team",
             "autoAdd": false
         }
     ],
-    "icon": "bitcoin"
+    "icon": "kraken"
 }

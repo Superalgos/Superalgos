@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Scroll the Trading Engine layer manager until you find the Current Episode layer. Turn it on!"
+            "text": "Scroll the Trading Engine layer manager until you find the \"Current Episode\" layer. Turn it on!",
+            "updated": 1622541140027
         },
         {
             "style": "Text",

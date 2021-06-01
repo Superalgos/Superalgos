@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Marketing Contributions",
+            "relatedUiObject": "Marketing Contributions"
         },
         {
             "action": "Delete UI Object",
@@ -33,14 +33,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets Structure->Project Asset->"
+        "compatibleTypes": "->User Contributions->Marketing Contributions->"
     },
     "propertyNameAtParent": "marketingContributions",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetTypes",
+            "name": "marketingContributions",
             "type": "array",
-            "childType": "Project Asset",
+            "childType": "Marketing Contributions",
             "autoAdd": false
         }
     ],

@@ -15,6 +15,12 @@
             "relatedUiObject": "Project Rank"
         },
         {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Team",
+            "relatedUiObject": "Team"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -33,7 +39,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets Structure->Project Rank->"
+        "compatibleTypes": "->Governance Structure->Project Rank->Team->"
     },
     "propertyNameAtParent": "projectRanks",
     "childrenNodesProperties": [
@@ -42,7 +48,13 @@
             "type": "array",
             "childType": "Project Rank",
             "autoAdd": false
+        },
+        {
+            "name": "teams",
+            "type": "array",
+            "childType": "Team",
+            "autoAdd": false
         }
     ],
-    "icon": "bitcoin"
+    "icon": "bitfinex"
 }

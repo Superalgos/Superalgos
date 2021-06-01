@@ -1,11 +1,18 @@
 {
-    "type": "Assets Structure",
+    "type": "Contributed Youtube Video",
     "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Type",
-            "relatedUiObject": "Project Asset Type"
+            "label": "Add Project Asset",
+            "relatedUiObject": "Project Asset"
         },
         {
             "action": "Delete UI Object",
@@ -17,17 +24,23 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "addLeftIcons": true,
-    "level": 1,
-    "attachingRules": {
-        "compatibleTypes": "->Superalgos Release->"
+    "editors": {
+        "config": true
     },
-    "propertyNameAtParent": "assetsStructure",
+    "initialValues": {
+        "config": "{\n  \"description\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Assets Structure->Project Asset->"
+    },
+    "propertyNameAtParent": "softwareContributions",
     "childrenNodesProperties": [
         {
             "name": "projectAssetTypes",
             "type": "array",
-            "childType": "Project Asset Type",
+            "childType": "Project Asset",
             "autoAdd": false
         }
     ],

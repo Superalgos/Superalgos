@@ -2,16 +2,9 @@
     "type": "Contributions Management",
     "menuItems": [
         {
-            "action": "Configure",
-            "actionFunction": "uiObject.configEditor.activate",
-            "label": "Configure",
-            "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add Missing Children",
-            "label": "Add Missing Items",
-            "relatedUiObject": "Calculations Procedure",
+            "action": "Add UI Object",
+            "label": "Add Superalgos Release",
+            "relatedUiObject": "Superalgos Release",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -24,25 +17,16 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
-    "attachingRules": {
-        "compatibleTypes": "->API Query Response->"
-    },
     "childrenNodesProperties": [
         {
-            "name": "assetsStructure",
-            "type": "node",
-            "childType": "Assets Structure",
-            "autoAdd": true
-        },
-        {
-            "name": "featuresStructure",
-            "type": "node",
-            "childType": "Features Structure",
-            "autoAdd": true
+            "name": "superalgosReleases",
+            "type": "array",
+            "childType": "Superalgos Release",
+            "autoAdd": false
         }
     ],
     "icon": "bitcoin"

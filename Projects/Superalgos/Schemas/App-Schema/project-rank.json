@@ -1,5 +1,5 @@
 {
-    "type": "Project Asset",
+    "type": "Project Rank",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Project Rank",
+            "relatedUiObject": "Project Rank"
         },
         {
             "action": "Delete UI Object",
@@ -33,14 +33,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets Structure->Project Asset->"
+        "compatibleTypes": "->Assets Structure->Project Rank->"
     },
-    "propertyNameAtParent": "projectAssets",
+    "propertyNameAtParent": "projectRanks",
     "childrenNodesProperties": [
         {
-            "name": "projectAssets",
+            "name": "projectRanks",
             "type": "array",
-            "childType": "Project Asset",
+            "childType": "Project Rank",
             "autoAdd": false
         }
     ],

@@ -1,11 +1,11 @@
 {
-    "type": "Features Structure",
+    "type": "Project Ranking",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Project Feature",
-            "relatedUiObject": "Project Feature"
+            "label": "Add Project Rank",
+            "relatedUiObject": "Project Rank",
+            "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
@@ -17,17 +17,15 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "isTitleAllwaysVisible": false,
+    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 1,
-    "attachingRules": {
-        "compatibleTypes": "->Superalgos Release->"
-    },
-    "propertyNameAtParent": "featuresStructure",
+    "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "projectFeatures",
+            "name": "projectRanks",
             "type": "array",
-            "childType": "Project Feature",
+            "childType": "Project Rank",
             "autoAdd": false
         }
     ],

@@ -1,0 +1,70 @@
+{
+    "type": "User Contributions",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Software Contributions",
+            "relatedUiObject": "Software Contributions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Marketing Contributions",
+            "relatedUiObject": "Marketing Contributions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Community Contributions",
+            "relatedUiObject": "Community Contributions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"codeName\": \"\"\n}"
+    },
+    "isTitleAllwaysVisible": false,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "softwareContributions",
+            "type": "array",
+            "childType": "Software Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "marketingContributions",
+            "type": "node",
+            "childType": "Marketing Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "communityContributions",
+            "type": "node",
+            "childType": "Community Contributions",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

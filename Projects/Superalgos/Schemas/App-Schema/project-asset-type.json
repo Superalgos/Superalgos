@@ -1,6 +1,13 @@
 {
-    "type": "Assets Structure",
+    "type": "Project Asset Type",
     "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
@@ -17,12 +24,18 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "addLeftIcons": true,
-    "level": 1,
-    "attachingRules": {
-        "compatibleTypes": "->Superalgos Release->"
+    "editors": {
+        "config": true
     },
-    "propertyNameAtParent": "assetsStructure",
+    "initialValues": {
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Assets Structure->Project Asset Type->"
+    },
+    "propertyNameAtParent": "projectAssetTypes",
     "childrenNodesProperties": [
         {
             "name": "projectAssetTypes",

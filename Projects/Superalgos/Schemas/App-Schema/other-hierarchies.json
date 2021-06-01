@@ -38,6 +38,18 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Project Ranking",
+            "relatedUiObject": "Project Ranking",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Contributions",
+            "relatedUiObject": "User Contributions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",

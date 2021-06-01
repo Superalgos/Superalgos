@@ -15,6 +15,12 @@
             "relatedUiObject": "Community Contributions"
         },
         {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Contributed Asset",
+            "relatedUiObject": "Contributed Asset"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -41,6 +47,12 @@
             "name": "communityContributions",
             "type": "array",
             "childType": "Community Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "contributedAssets",
+            "type": "array",
+            "childType": "Contributed Asset",
             "autoAdd": false
         }
     ],

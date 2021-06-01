@@ -35,7 +35,7 @@
     "attachingRules": {
         "compatibleTypes": "->Assets Structure->Project Asset->"
     },
-    "propertyNameAtParent": "softwareContributions",
+    "propertyNameAtParent": "marketingContributions",
     "childrenNodesProperties": [
         {
             "name": "projectAssetTypes",

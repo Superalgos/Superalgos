@@ -38,7 +38,7 @@
     "propertyNameAtParent": "softwareContributions",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetTypes",
+            "name": "communityContributions",
             "type": "array",
             "childType": "Project Asset",
             "autoAdd": false

@@ -422,8 +422,24 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                         parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
                                         break
                                     }
+                                    case '@BaseAssetName': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                        break
+                                    }
                                     case '@QuotedAsset': {
                                         parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                                        break
+                                    }
+                                    case '@QuotedAssetName': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                        break
+                                    }
+                                    case '@Exchange': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+                                        break
+                                    }
+                                    case '@ExchangeName': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
                                         break
                                     }
                                     case '@BeginCurrentMinute': {

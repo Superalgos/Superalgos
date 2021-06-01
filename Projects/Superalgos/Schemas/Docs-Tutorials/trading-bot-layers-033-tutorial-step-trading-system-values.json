@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "formula"
         },
-        "text": "The Trading System Values layers works like the layers on the Trading Engine layer manager showing the values of nodes..."
+        "text": "The \"Trading System Values\" layers works like the layers on the Trading Engine layer manager showing the values of nodes...",
+        "updated": 1622544968894
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the Trading System Values layer on, slide your mouse over the chart and check the stop formulas!"
+            "text": "Turn the \"Trading System Values\" layer on, slide your mouse over the chart and check the stop formulas!",
+            "updated": 1622544977236
         },
         {
             "style": "Note",

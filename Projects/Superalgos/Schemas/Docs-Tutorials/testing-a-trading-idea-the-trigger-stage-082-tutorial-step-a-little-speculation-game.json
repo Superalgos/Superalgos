@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Masters Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!"
+            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!",
+            "updated": 1622490115400
         },
         {
             "style": "Text",

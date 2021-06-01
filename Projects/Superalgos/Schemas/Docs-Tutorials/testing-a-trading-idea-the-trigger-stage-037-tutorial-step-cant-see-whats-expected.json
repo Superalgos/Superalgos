@@ -24,7 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Did you set up the definitions as instructed? "
+            "text": "Did you set up the definitions as instructed?",
+            "updated": 1622487112241
+        },
+        {
+            "style": "List",
+            "text": "Did you use two situations in the Trigger Off Event ?",
+            "updated": 1622488179340
         },
         {
             "style": "Success",

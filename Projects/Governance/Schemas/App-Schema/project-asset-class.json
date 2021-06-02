@@ -1,5 +1,5 @@
 {
-    "type": "Project Asset Class",
+    "type": "Asset Class",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Class",
-            "relatedUiObject": "Project Asset Class"
+            "label": "Add Asset Class",
+            "relatedUiObject": "Asset Class"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
@@ -39,23 +39,23 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets Structure->Project Asset Class->"
+        "compatibleTypes": "->Assets->Asset Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Project Rank->"
+        "compatibleTypes": "->Team->Ranking Position->"
     },
-    "propertyNameAtParent": "projectAssetClasses",
+    "propertyNameAtParent": "assetClasses",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetClasses",
+            "name": "assetClasses",
             "type": "array",
-            "childType": "Project Asset Class",
+            "childType": "Asset Class",
             "autoAdd": false
         },
         {
-            "name": "projectAssets",
+            "name": "assets",
             "type": "array",
-            "childType": "Project Asset",
+            "childType": "Asset",
             "autoAdd": false
         }
     ],

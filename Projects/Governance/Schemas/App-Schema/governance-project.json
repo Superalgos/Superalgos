@@ -3,14 +3,14 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Assets Structure",
-            "relatedUiObject": "Assets Structure",
+            "label": "Add Assets",
+            "relatedUiObject": "Assets",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Governance Structure",
-            "relatedUiObject": "Governance Structure",
+            "label": "Add Ranking",
+            "relatedUiObject": "Ranking",
             "actionFunction": "payload.executeAction"
         },
         {

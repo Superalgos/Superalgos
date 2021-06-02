@@ -34,7 +34,7 @@
         "compatibleTypes": "->Software Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Project Asset->"
+        "compatibleTypes": "->Asset->"
     },
     "propertyNameAtParent": "contributedAssets",
     "icon": "tron"

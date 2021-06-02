@@ -1,10 +1,10 @@
 {
-    "type": "Governance Structure",
+    "type": "Ranking",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Project Rank",
-            "relatedUiObject": "Project Rank",
+            "label": "Add Ranking Position",
+            "relatedUiObject": "Ranking Position",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -23,9 +23,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "projectRanks",
+            "name": "rankingPositions",
             "type": "array",
-            "childType": "Project Rank",
+            "childType": "Ranking Position",
             "autoAdd": false
         }
     ],

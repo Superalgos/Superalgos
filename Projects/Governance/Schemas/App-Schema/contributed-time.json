@@ -19,7 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Parent"
     ],
     "editors": {
         "config": true
@@ -33,7 +34,7 @@
         "compatibleTypes": "->Governance Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Project Rank->"
+        "compatibleTypes": "->Ranking Position->"
     },
     "propertyNameAtParent": "contributedTimes",
     "icon": "dogecoin"

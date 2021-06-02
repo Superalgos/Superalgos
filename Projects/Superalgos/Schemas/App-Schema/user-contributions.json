@@ -33,6 +33,12 @@
             "relatedUiObject": "Governance Contributions"
         },
         {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Civic Contributions",
+            "relatedUiObject": "Civic Contributions"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -75,6 +81,12 @@
             "name": "governanceContributions",
             "type": "array",
             "childType": "Governance Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "civicContributions",
+            "type": "array",
+            "childType": "Civic Contributions",
             "autoAdd": false
         }
     ],

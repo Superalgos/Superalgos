@@ -1,0 +1,60 @@
+{
+    "type": "Civic Contributions",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Civic Contributions",
+            "relatedUiObject": "Civic Contributions"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Contributed Vote",
+            "relatedUiObject": "Contributed Vote"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Contributions->Civic Contributions->"
+    },
+    "propertyNameAtParent": "civicContributions",
+    "childrenNodesProperties": [
+        {
+            "name": "civicContributions",
+            "type": "array",
+            "childType": "Civic Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "contributedVotes",
+            "type": "array",
+            "childType": "Contributed Vote",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

@@ -6,7 +6,6 @@ function newGovernanceActionSwitch() {
         finalize: finalize
     }
 
-
     return thisObject
 
     function finalize() {

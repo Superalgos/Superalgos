@@ -1,5 +1,5 @@
-function newGobernanceAssetsSpace() {
-    const MODULE_NAME = 'Assets Space'
+function newGovernanceRankingSpace() {
+    const MODULE_NAME = 'Ranking Space'
 
     let thisObject = {
         container: undefined,
@@ -13,6 +13,8 @@ function newGobernanceAssetsSpace() {
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
 
+    let lastTryToReconnectDatetime
+
     return thisObject
 
     function finalize() {
@@ -25,7 +27,7 @@ function newGobernanceAssetsSpace() {
     }
 
     function physics() {
-
+     
     }
 
     function getContainer(point) {

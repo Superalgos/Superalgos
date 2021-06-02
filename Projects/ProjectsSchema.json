@@ -1010,10 +1010,10 @@
             ],
             "spaces": [
                 {
-                    "name": "Blockchain Space",
-                    "folderName": "Blockchain-Space",
-                    "propertyName": "blockchainSpace",
-                    "functionName": "newEthereumBlockchainSpace",
+                    "name": "Assets Space",
+                    "folderName": "Assets-Space",
+                    "propertyName": "assetsSpace",
+                    "functionName": "newGobernanceAssetsSpace",
                     "initializationIndex": 0,
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 0,
@@ -1023,10 +1023,10 @@
                     "onMouseDownIndex": 0
                 },
                 {
-                    "name": "Wallet Space",
-                    "folderName": "Wallet-Space",
-                    "propertyName": "walletSpace",
-                    "functionName": "newEthereumWalletSpace",
+                    "name": "Ranking Space",
+                    "folderName": "Ranking-Space",
+                    "propertyName": "rankingSpace",
+                    "functionName": "newGovernanceRankingSpace",
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 1,
@@ -1034,6 +1034,19 @@
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
                     "onMouseDownIndex": 1
+                },
+                {
+                    "name": "User Contributions Space",
+                    "folderName": "User-Contributions-Space",
+                    "propertyName": "userContributionsSpace",
+                    "functionName": "newGovernanceUserContributionsSpace",
+                    "initializationIndex": 2,
+                    "animationPhysicsIndex": 2,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
                 }
             ]
         },

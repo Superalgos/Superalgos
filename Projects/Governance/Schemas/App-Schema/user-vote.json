@@ -19,7 +19,6 @@
         }
     ],
     "title": [
-        "Reference Parent Find Node Type->User Contributions",
         "Use Reference Parent"
     ],
     "editors": {
@@ -34,8 +33,8 @@
         "compatibleTypes": "->Civic Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Contributed Time->Governance Contributions->"
+        "compatibleTypes": "->User Profile->"
     },
     "propertyNameAtParent": "userVotes",
-    "icon": "dogecoin"
+    "icon": "user-profile"
 }

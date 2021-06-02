@@ -31,7 +31,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Governance Contributions->"
+        "compatibleTypes": "->Time Contributions->"
     },
     "referencingRules": {
         "compatibleTypes": "->Ranking Position->"

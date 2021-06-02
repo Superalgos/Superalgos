@@ -1,5 +1,5 @@
 {
-    "type": "User Contributions",
+    "type": "User Profile",
     "menuItems": [
         {
             "action": "Configure",
@@ -29,8 +29,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Governance Contributions",
-            "relatedUiObject": "Governance Contributions"
+            "label": "Add Time Contributions",
+            "relatedUiObject": "Time Contributions"
         },
         {
             "action": "Add UI Object",
@@ -78,9 +78,9 @@
             "autoAdd": false
         },
         {
-            "name": "governanceContributions",
+            "name": "timeContributions",
             "type": "array",
-            "childType": "Governance Contributions",
+            "childType": "Time Contributions",
             "autoAdd": false
         },
         {
@@ -89,6 +89,5 @@
             "childType": "Civic Contributions",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

@@ -21,8 +21,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add User Contributions",
-            "relatedUiObject": "User Contributions",
+            "label": "Add User Profile",
+            "relatedUiObject": "User Profile",
             "actionFunction": "payload.executeAction"
         },
         {

@@ -39,7 +39,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Contributions->Software Contributions->"
+        "compatibleTypes": "->User Profile->Software Contributions->"
     },
     "propertyNameAtParent": "softwareContributions",
     "childrenNodesProperties": [

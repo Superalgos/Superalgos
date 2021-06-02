@@ -57,7 +57,7 @@
         },
         {
             "style": "Text",
-            "text": "All you need to do is pull the tab on the left-hand side of the screen, scroll and find the Getting Started Tutorials plugin workspace and click it!",
+            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the Getting Started Tutorials plugin, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
             "translations": [
                 {
                     "language": "IT",
@@ -78,32 +78,12 @@
                     "style": "Text"
                 }
             ],
-            "updated": 1622193846331
+            "updated": 1622634394712
         },
         {
-            "style": "Success",
-            "text": "The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Un workspace Getting-Started nuovo e pulito verrà caricato e lanciato dall'inizio!",
-                    "updated": 1614791287049,
-                    "style": "Success"
-                },
-                {
-                    "language": "ID",
-                    "text": "Getting Started wokspace yang baru akan dimuat dan muncul kembali, seperti memulai dari awal!",
-                    "updated": 1616770297595,
-                    "style": "Success"
-                },
-                {
-                    "language": "ES",
-                    "text": "Se cargará un nuevo espacio de trabajo de \"Getting Started\" y apareceré de nuevo, fresco desde el principio!",
-                    "updated": 1618438286128,
-                    "style": "Success"
-                }
-            ],
-            "updated": 1622193879709
+            "style": "Note",
+            "text": "Plugin Workspaces are first in the list, featuring a black background. Then comes the list of user workspaces, on a purple background.",
+            "updated": 1622634460755
         }
     ]
 }

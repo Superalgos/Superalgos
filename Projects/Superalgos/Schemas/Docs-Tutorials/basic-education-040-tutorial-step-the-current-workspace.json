@@ -60,8 +60,8 @@
         },
         {
             "style": "Success",
-            "text": "You just created a new workspace! Go to the My-Workspaces folder to verify the new file is there.",
-            "updated": 1615907412107,
+            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
+            "updated": 1622635421285,
             "translations": [
                 {
                     "language": "IT",

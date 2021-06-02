@@ -58,8 +58,8 @@
         },
         {
             "style": "Success",
-            "text": "The Workspace is saved automatically every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
-            "updated": 1622193961757
+            "text": "The workspace is saved automatically every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
+            "updated": 1622634511330
         },
         {
             "style": "Important",

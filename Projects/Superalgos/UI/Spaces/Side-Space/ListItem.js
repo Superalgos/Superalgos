@@ -91,9 +91,9 @@ function newListItem() {
         let labelColor
 
         if (prefix === "User ") {
-            backgroundColor = UI_COLOR.BLACK
+            backgroundColor = UI_COLOR.MANGANESE_PURPLE
         } else {
-            backgroundColor = UI_COLOR.GREY
+            backgroundColor = UI_COLOR.BLACK
         }
 
         const RED_LINE_HIGHT = 4
@@ -103,7 +103,7 @@ function newListItem() {
             cornerRadius: 0,
             lineWidth: 1,
             container: thisObject.container,
-            borderColor: UI_COLOR.RUSTED_RED,
+            borderColor: UI_COLOR.BLACK,
             castShadow: false,
             backgroundColor: backgroundColor,
             opacity: OPACITY

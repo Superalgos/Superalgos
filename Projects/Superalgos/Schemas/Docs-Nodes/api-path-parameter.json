@@ -6,12 +6,12 @@
     },
     "paragraphs": [
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Configuration",
             "updated": 1621018220723
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Important Properties"
         },
         {

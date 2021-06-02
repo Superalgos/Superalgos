@@ -324,7 +324,7 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
         }
 
         doHeartBeat()
-        
+
         function doHeartBeat() {
             /*  Telling the world we are alive and doing well */
             let currentDateString =
@@ -535,6 +535,12 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                     element.begin >= outputElement.begin &&
                     element.end <= outputElement.end) {
                     aggregateElements()
+                }
+                /*
+                If the Timestamp is not a numeric value, then we will convert it to it.
+                */
+                if (element.timestamp !== undefined && isNaN(element.timestamp)) {
+                    element.timestamp = (new Date(element.timestamp)).valueOf()
                 }
                 /* 
                 Here we discard all the elements out of range based on the timestamp propertiy of

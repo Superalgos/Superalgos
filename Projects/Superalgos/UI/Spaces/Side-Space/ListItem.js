@@ -92,7 +92,6 @@ function newListItem() {
 
         if (prefix === "User ") {
             backgroundColor = UI_COLOR.MANGANESE_PURPLE
-            labelColor = UI_COLOR.WHITE
         } else {
             backgroundColor = UI_COLOR.BLACK
         }
@@ -111,7 +110,7 @@ function newListItem() {
         }
 
         if (isMouseOver === false) {
-            labelColor = labelColor
+            labelColor = UI_COLOR.WHITE
         } else {
             labelColor = UI_COLOR.TITANIUM_YELLOW
         }

@@ -1,5 +1,5 @@
 {
-    "type": "Features Structure",
+    "type": "Features",
     "menuItems": [
         {
             "action": "Add UI Object",
@@ -22,7 +22,6 @@
     "attachingRules": {
         "compatibleTypes": "->Superalgos Release->"
     },
-    "propertyNameAtParent": "featuresStructure",
     "childrenNodesProperties": [
         {
             "name": "projectFeatures",

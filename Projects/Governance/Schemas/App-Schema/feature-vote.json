@@ -1,5 +1,5 @@
 {
-    "type": "Project Feature",
+    "type": "Feature Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -7,12 +7,6 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Project Feature",
-            "relatedUiObject": "Project Feature"
         },
         {
             "action": "Delete UI Object",
@@ -24,25 +18,24 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "title": [
+        "Use Reference Parent Parent",
+        "Use Reference Parent"
+    ],
     "editors": {
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n  \"description\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Features->Project Feature->"
+        "compatibleTypes": "->Civic Contributions->"
     },
-    "propertyNameAtParent": "projectFeatures",
-    "childrenNodesProperties": [
-        {
-            "name": "projectFeatures",
-            "type": "array",
-            "childType": "Project Feature",
-            "autoAdd": false
-        }
-    ],
-    "icon": "bitcoin"
+    "referencingRules": {
+        "compatibleTypes": "->Contributed Time->Governance Contributions->"
+    },
+    "propertyNameAtParent": "featureVotes",
+    "icon": "ethereum"
 }

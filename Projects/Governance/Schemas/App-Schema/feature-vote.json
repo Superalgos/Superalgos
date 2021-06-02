@@ -19,6 +19,7 @@
         }
     ],
     "title": [
+        "Use Reference Parent Parent Parent",
         "Use Reference Parent Parent",
         "Use Reference Parent"
     ],
@@ -34,8 +35,8 @@
         "compatibleTypes": "->Civic Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Contributed Time->Governance Contributions->"
+        "compatibleTypes": "->Feature Class->Feature->"
     },
     "propertyNameAtParent": "featureVotes",
-    "icon": "ethereum"
+    "icon": "github-api"
 }

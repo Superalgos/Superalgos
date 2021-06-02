@@ -39,7 +39,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Contributions->Community Contributions->"
+        "compatibleTypes": "->User Profile->Community Contributions->"
     },
     "propertyNameAtParent": "communityContributions",
     "childrenNodesProperties": [

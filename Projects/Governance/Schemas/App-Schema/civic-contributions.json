@@ -35,6 +35,12 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
+            "label": "Add Time Vote",
+            "relatedUiObject": "Time Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
             "label": "Add User Vote",
             "relatedUiObject": "User Vote"
         },
@@ -57,7 +63,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Contributions->Civic Contributions->"
+        "compatibleTypes": "->User Profile->Civic Contributions->"
     },
     "propertyNameAtParent": "civicContributions",
     "childrenNodesProperties": [
@@ -77,6 +83,12 @@
             "name": "featureVotes",
             "type": "array",
             "childType": "Feature Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "timeVotes",
+            "type": "array",
+            "childType": "Time Vote",
             "autoAdd": false
         },
         {

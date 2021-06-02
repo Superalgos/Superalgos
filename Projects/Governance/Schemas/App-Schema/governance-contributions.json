@@ -1,5 +1,5 @@
 {
-    "type": "Governance Contributions",
+    "type": "Time Contributions",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Governance Contributions",
-            "relatedUiObject": "Governance Contributions"
+            "label": "Add Time Contributions",
+            "relatedUiObject": "Time Contributions"
         },
         {
             "action": "Add UI Object",
@@ -39,14 +39,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Contributions->Governance Contributions->"
+        "compatibleTypes": "->User Profile->Time Contributions->"
     },
-    "propertyNameAtParent": "governanceContributions",
+    "propertyNameAtParent": "timeContributions",
     "childrenNodesProperties": [
         {
-            "name": "governanceContributions",
+            "name": "timeContributions",
             "type": "array",
-            "childType": "Governance Contributions",
+            "childType": "Time Contributions",
             "autoAdd": false
         },
         {

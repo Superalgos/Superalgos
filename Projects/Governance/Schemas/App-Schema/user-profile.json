@@ -39,6 +39,14 @@
             "relatedUiObject": "Civic Contributions"
         },
         {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "referrer",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Referrer",
+            "relatedUiObject": "Referrer"
+        },
+        {
             "action": "Delete UI Object",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
@@ -87,6 +95,12 @@
             "name": "civicContributions",
             "type": "array",
             "childType": "Civic Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "referrer",
+            "type": "node",
+            "childType": "Referrer",
             "autoAdd": false
         }
     ]

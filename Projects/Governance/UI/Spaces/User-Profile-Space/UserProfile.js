@@ -15,17 +15,13 @@ function newGovernanceUserProfileSpace() {
 
     return thisObject
 
-    function finalize() {
-        thisObject.container.finalize()
-        thisObject.container = undefined
-    }
-
     function initialize() {
 
     }
 
-    function physics() {
-
+    function finalize() {
+        thisObject.container.finalize()
+        thisObject.container = undefined
     }
 
     function getContainer(point) {
@@ -36,6 +32,26 @@ function newGovernanceUserProfileSpace() {
         } else {
             return undefined
         }
+    }
+
+    function physics() {
+        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) {return}
+
+        let userProfiles = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+ 
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            userProfilePhysics(userProfile)
+        }
+    }
+
+    function userProfilePhysics(userProfile) {
+        let tokens =  UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens') 
+        tokens = new Intl.NumberFormat().format(tokens) + ' ' + 'SA'
+        if ( userProfile.payload !== undefined) {
+            userProfile.payload.uiObject.valueAtAngle =  false
+            userProfile.payload.uiObject.setValue(tokens)
+        }        
     }
 
     function draw() {

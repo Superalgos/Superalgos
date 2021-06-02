@@ -1,5 +1,5 @@
-function newGovernanceUserContributionsSpace() {
-    const MODULE_NAME = 'User Contributions Space'
+function newGovernanceUserFeaturesSpace() {
+    const MODULE_NAME = 'Features Space'
 
     let thisObject = {
         container: undefined,

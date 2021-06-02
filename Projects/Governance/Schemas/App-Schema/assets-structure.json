@@ -1,17 +1,17 @@
 {
-    "type": "Assets Structure",
+    "type": "Assets",
     "menuItems": [
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Class",
-            "relatedUiObject": "Project Asset Class"
+            "label": "Add Asset Class",
+            "relatedUiObject": "Asset Class"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
@@ -31,15 +31,15 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "projectAssetClasses",
+            "name": "assetClasses",
             "type": "array",
-            "childType": "Project Asset Class",
+            "childType": "Asset Class",
             "autoAdd": false
         },
         {
-            "name": "projectAssets",
+            "name": "assets",
             "type": "array",
-            "childType": "Project Asset",
+            "childType": "Asset",
             "autoAdd": false
         }
     ],

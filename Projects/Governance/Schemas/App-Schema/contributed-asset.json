@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Time",
+    "type": "Contributed Asset",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,7 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Parent"
     ],
     "editors": {
         "config": true
@@ -30,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Governance Contributions->"
+        "compatibleTypes": "->Software Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Project Rank->"
+        "compatibleTypes": "->Asset->"
     },
-    "propertyNameAtParent": "contributedTimes",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "contributedAssets",
+    "icon": "tron"
 }

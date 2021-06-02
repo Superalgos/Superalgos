@@ -1,0 +1,60 @@
+{
+    "type": "Team",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Ranking Position",
+            "relatedUiObject": "Ranking Position"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Team",
+            "relatedUiObject": "Team"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Ranking Position->Team->"
+    },
+    "propertyNameAtParent": "teams",
+    "childrenNodesProperties": [
+        {
+            "name": "rankingPositions",
+            "type": "array",
+            "childType": "Ranking Position",
+            "autoAdd": false
+        },
+        {
+            "name": "teams",
+            "type": "array",
+            "childType": "Team",
+            "autoAdd": false
+        }
+    ],
+    "icon": "kraken"
+}

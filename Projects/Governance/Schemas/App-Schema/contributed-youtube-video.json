@@ -1,5 +1,5 @@
 {
-    "type": "Project Asset",
+    "type": "Contributed Youtube Video",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset Class",
-            "relatedUiObject": "Project Asset Class"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Project Asset",
-            "relatedUiObject": "Project Asset"
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
@@ -34,30 +28,21 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n  \"description\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Project Asset Class->Project Asset->"
+        "compatibleTypes": "->Assets->Asset->"
     },
-    "referencingRules": {
-        "compatibleTypes": "->Team->Project Rank->"
-    },
-    "propertyNameAtParent": "projectAssets",
+    "propertyNameAtParent": "softwareContributions",
     "childrenNodesProperties": [
         {
-            "name": "projectAssetClasses",
+            "name": "assetClass",
             "type": "array",
-            "childType": "Project Asset Class",
-            "autoAdd": false
-        },
-        {
-            "name": "projectAssets",
-            "type": "array",
-            "childType": "Project Asset",
+            "childType": "Asset",
             "autoAdd": false
         }
     ],
-    "icon": "EN"
+    "icon": "bitcoin"
 }

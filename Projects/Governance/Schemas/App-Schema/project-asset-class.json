@@ -1,5 +1,5 @@
 {
-    "type": "Team",
+    "type": "Asset Class",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Project Rank",
-            "relatedUiObject": "Project Rank"
+            "label": "Add Asset Class",
+            "relatedUiObject": "Asset Class"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
@@ -39,22 +39,25 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Project Rank->Team->"
+        "compatibleTypes": "->Assets->Asset Class->"
     },
-    "propertyNameAtParent": "teams",
+    "referencingRules": {
+        "compatibleTypes": "->Team->Ranking Position->"
+    },
+    "propertyNameAtParent": "assetClasses",
     "childrenNodesProperties": [
         {
-            "name": "projectRanks",
+            "name": "assetClasses",
             "type": "array",
-            "childType": "Project Rank",
+            "childType": "Asset Class",
             "autoAdd": false
         },
         {
-            "name": "teams",
+            "name": "assets",
             "type": "array",
-            "childType": "Team",
+            "childType": "Asset",
             "autoAdd": false
         }
     ],
-    "icon": "kraken"
+    "icon": "DE"
 }

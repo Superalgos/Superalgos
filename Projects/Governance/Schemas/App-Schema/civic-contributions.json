@@ -17,8 +17,26 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Vote",
-            "relatedUiObject": "Contributed Vote"
+            "label": "Add Ranking Vote",
+            "relatedUiObject": "Ranking Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Vote",
+            "relatedUiObject": "Asset Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Vote",
+            "relatedUiObject": "Feature Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Vote",
+            "relatedUiObject": "User Vote"
         },
         {
             "action": "Delete UI Object",
@@ -50,9 +68,27 @@
             "autoAdd": false
         },
         {
-            "name": "contributedVotes",
+            "name": "assetVotes",
             "type": "array",
-            "childType": "Contributed Vote",
+            "childType": "Asset Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureVotes",
+            "type": "array",
+            "childType": "Feature Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "rankingVotes",
+            "type": "array",
+            "childType": "Ranking Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "userVotes",
+            "type": "array",
+            "childType": "User Vote",
             "autoAdd": false
         }
     ],

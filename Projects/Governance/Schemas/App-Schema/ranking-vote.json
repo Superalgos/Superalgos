@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Vote",
+    "type": "Ranking Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,7 +19,7 @@
         }
     ],
     "title": [
-        "Reference Parent Find Node Type->User Contributions",
+        "Use Reference Parent Parent",
         "Use Reference Parent"
     ],
     "editors": {
@@ -34,8 +34,8 @@
         "compatibleTypes": "->Civic Contributions->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Contributed Time->Governance Contributions->"
+        "compatibleTypes": "->Team->Ranking Position->"
     },
-    "propertyNameAtParent": "contributedVotes",
-    "icon": "ethereum"
+    "propertyNameAtParent": "rankingVotes",
+    "icon": "bitfinex"
 }

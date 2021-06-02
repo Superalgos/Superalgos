@@ -164,6 +164,23 @@ function newUiObjectTitle() {
                         }
                         break
                     }
+                    case 'Use Reference Parent Parent Parent Parent': {
+                        let nodeToUse = thisObject.payload.node.payload.referenceParent
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
+                                if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                    nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode.payload.parentNode
+                                    if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                        thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                                        thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                                    }
+                                }
+                            }
+                        }
+                        break
+                    }
                     default: {
                         if (titleReference.indexOf('Use Child @') === 0) {
                             let propertyName = titleReference.substring(titleReference.indexOf('@') + 1, titleReference.length)

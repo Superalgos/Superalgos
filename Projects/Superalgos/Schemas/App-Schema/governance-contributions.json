@@ -1,5 +1,5 @@
 {
-    "type": "Marketing Contributions",
+    "type": "Governance Contributions",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions"
+            "label": "Add Governance Contributions",
+            "relatedUiObject": "Governance Contributions"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Contributed Time",
+            "relatedUiObject": "Contributed Time"
         },
         {
             "action": "Delete UI Object",
@@ -39,20 +39,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Contributions->Marketing Contributions->"
+        "compatibleTypes": "->User Contributions->Governance Contributions->"
     },
-    "propertyNameAtParent": "marketingContributions",
+    "propertyNameAtParent": "governanceContributions",
     "childrenNodesProperties": [
         {
-            "name": "marketingContributions",
+            "name": "governanceContributions",
             "type": "array",
-            "childType": "Marketing Contributions",
+            "childType": "Governance Contributions",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "contributedTimes",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Contributed Time",
             "autoAdd": false
         }
     ],

@@ -1,0 +1,40 @@
+{
+    "type": "Contributed Time",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Governance Contributions->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Project Rank->"
+    },
+    "propertyNameAtParent": "contributedTimes",
+    "icon": "dogecoin"
+}

@@ -1,0 +1,41 @@
+{
+    "type": "Contributed Vote",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Reference Parent Find Node Type->User Contributions",
+        "Use Reference Parent"
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"description\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Civic Contributions->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Contributed Time->Governance Contributions->"
+    },
+    "propertyNameAtParent": "contributedVotes",
+    "icon": "ethereum"
+}

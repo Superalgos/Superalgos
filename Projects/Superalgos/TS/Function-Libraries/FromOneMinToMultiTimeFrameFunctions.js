@@ -604,7 +604,9 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                         for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                             let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
                             if (property.config.aggregationMethod === 'Min' || saveElement === false) {
-                                if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
+                                if (outputElement[property.config.codeName] === 0) { // Set initial value if default value is present
+                                    outputElement[property.config.codeName] = record.map.get(property.config.codeName)
+                                } else if (record.map.get(property.config.codeName) < outputElement[property.config.codeName]) {
                                     outputElement[property.config.codeName] = record.map.get(property.config.codeName)
                                 }
                             }
@@ -643,7 +645,7 @@ exports.newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = func
                         */
                         for (let j = 0; j < node.outputDataset.referenceParent.parentNode.record.properties.length; j++) {
                             let property = node.outputDataset.referenceParent.parentNode.record.properties[j]
-                            if (property.config.aggregationMethod === 'Average') {
+                            if (property.config.aggregationMethod === 'Avg') {
 
                                 if (outputElementAverage[property.config.codeName] === undefined) {
                                     outputElementAverage[property.config.codeName] = {}

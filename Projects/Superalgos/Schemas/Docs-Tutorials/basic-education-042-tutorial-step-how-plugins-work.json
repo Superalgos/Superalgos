@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Cerca il nodo Plugin Trading Systems e espandilo! Vedrai un nodo Plugin File chiamato Masters-Lightning-Strike...",
-                "updated": 1619554497047
+                "updated": 1619554497047,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Lightning Strike è il Trading System demo che hai utilizzato nel Welcome Tutorial. È incluso in questo workspace come plugin!",
-                    "updated": 1619554546740
+                    "updated": 1619554546740,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Segui la linea tratteggiata arancione finchè trovi il nodo a cui si connette! Usa i tasti Ctrl + frecce sulla tastiera per andare più veloce!",
-                    "updated": 1619554592294
+                    "updated": 1619554592294,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Ben fatto! Hai trovato il nodo Lightning Strike Trading System. Se lo trascini a lato, troverai il nodo Plugin File Position.",
-                    "updated": 1619554669930
+                    "updated": 1619554669930,
+                    "style": "Text"
                 }
             ]
         }

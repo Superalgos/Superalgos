@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Questa recensione è il tuo primo contributo, e ti ringraziamo molto per questo!",
-                "updated": 1619636353818
+                "updated": 1619636353818,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Perchè la tua recensione sia inclusa nella repo di Superalgos, devi autenticarti con il tuo user name GitHub.com nell'ultimo paragrafo della pagina! È importante così che tu possa poi trovarla usando la barra di ricerca! Man mano che prosegui in Superalgos, puoi sempre tornare indietro e modificarla.",
-                    "updated": 1619636467512
+                    "updated": 1619636467512,
+                    "style": "Important"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "I contributi sono soggetti ai termini della Apache Licence 2.0. In breve, chi contribuisce concede esplicitamente diritti di copyright/brevetto.",
-                    "updated": 1619636533564
+                    "updated": 1619636533564,
+                    "style": "Note"
                 }
             ]
         }

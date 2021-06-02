@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Dobbiamo soltanto collegare il backup del nodo Trading Parameters al nodo Backtesting Session.",
-                "updated": 1619466868713
+                "updated": 1619466868713,
+                "style": "Definition"
             }
         ]
     },
@@ -25,7 +26,8 @@
                 {
                     "language": "IT",
                     "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso!",
-                    "updated": 1619466965635
+                    "updated": 1619466965635,
+                    "style": "Callout"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Ecco qua! Il backup del nodo Trading Parameters è ripristinato e pronto all'uso.",
-                    "updated": 1619467003032
+                    "updated": 1619467003032,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Nota che puoi cancellare il secondo nodo Trading Parameters se vuoi, o puoi tenerlo da parte per un uso futuro.",
-                    "updated": 1619467046273
+                    "updated": 1619467046273,
+                    "style": "Note"
                 }
             ]
         }

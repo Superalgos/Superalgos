@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Gli Indicators sono costruiti dalla community! Solitamente uno sviluppatore costruisce gli indicatori di cui ha bisogno, e contribuisce al progetto con una nuova Data Mine!",
-                "updated": 1619592382827
+                "updated": 1619592382827,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Il Community Data Mines Book è dove puoi trovare tutti i data mines esistenti e i loro indicatori. Ogni capitolo del libro corrisponde a una Data Mine...",
-                    "updated": 1619592437976
+                    "updated": 1619592437976,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Dai un'occhiata al contenuto dei capitoli per avere un'idea su cosa sia disponibile al momento!",
-                    "updated": 1619592485175
+                    "updated": 1619592485175,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Per usare una Data Mine,, includila nel workspace o come plugin, e installa il market. Tutti i Data Tasks verranno creati automaticamente!",
-                    "updated": 1619592631191
+                    "updated": 1619592631191,
+                    "style": "Success"
                 }
             ]
         }

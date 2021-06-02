@@ -1,0 +1,59 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 72,
+    "type": "Tutorial Step - Sell It Quick!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-limit-sell-order"
+        },
+        "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Sicuramente hai notato che non ci sono più limit buy orders: al loro posto, cominciano ad apparire i sell orders!",
+                "updated": 1618061675585,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Notice how the first Limit Sell Order is placed at 00:22 AM, the minute after the buy order filled!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come il Limit Sell Order è inserito alle 00:22, un minuto dopo che il buy order è stato evaso.",
+                    "updated": 1618061709740,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's the same minute Superalgos would have gotten notice from the exchange that the order got filled. The Trading Bot connects with the exchange and goes through two distinct cycles. ",
+            "updated": 1616428810807,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È lo stesso minuto in cui Superalgos viene notificato dall'exchange che l'ordine è stato evaso. Il Trading Bot si connette con l'exchange e esegue due cicli distinti di operazioni.",
+                    "updated": 1618061767833,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "In the first Cycle, it finds out the status of existing orders. In the second, it gives new instructions.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel primo Cycle, controlla lo stato degli ordini esistenti. Nel secondo, dà nuove istruzioni.",
+                    "updated": 1618061798692,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Sarò pedante su questo topic! Ora proviamo il secondo esempio!",
-                "updated": 1619502967378
+                "updated": 1619502967378,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Fai un backup del nodo Trading System! Ripristina il backup senza cancellare l'originale. Poi ripristinalo di nuovo, ma questa volta cancellando prima il nodo originale!",
-                    "updated": 1619503042022
+                    "updated": 1619503042022,
+                    "style": "Callout"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Verifica che le references in ingresso sono mantenute solo nel secondo caso!",
-                    "updated": 1619503065417
+                    "updated": 1619503065417,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Ricorda che, per mantenere le reference in entrata, devi cancellare la struttura originale prima di ripristinare il backup!",
-                    "updated": 1619503100070
+                    "updated": 1619503100070,
+                    "style": "Success"
                 }
             ]
         }

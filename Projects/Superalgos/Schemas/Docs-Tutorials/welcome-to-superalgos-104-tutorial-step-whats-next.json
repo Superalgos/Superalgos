@@ -1,0 +1,48 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 104,
+    "type": "Tutorial Step - What's Next?",
+    "definition": {
+        "icon": {
+            "name": "help",
+            "project": "Superalgos"
+        },
+        "text": "There are tons of things we haven't covered yet, I know! Just look around! So much stuff to see! It's mind-boggling.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare!",
+                "updated": 1618072213077,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm sure you still have tons of questions floating in your head... How do I build my own strategies? How do I measure performance? How do I build an indicator? How do I deploy a trading farm? How may I integrate with TradingView? How do I set up Telegram announcements?",
+            "updated": 1610711099627,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram?",
+                    "updated": 1618072291773,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Don't worry! You'll get there my friend! There are more tutorials and a lot of reading material available! Maybe it's a good idea to give you a quick glimpse into the built-in Documentation system before I say goodbye!",
+            "updated": 1611579231884,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non preoccuparti! Imparerai tutto! Ci sono altri tutorial e tonnellate di materiale da leggere! Penso sia una buona idea mostrarti velocemente il sistema di documentazione prima di salutarci!",
+                    "updated": 1618072351473,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

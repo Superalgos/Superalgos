@@ -1,0 +1,84 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Remote Access!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network-node"
+        },
+        "text": "Superalgos allows running the Client on a machine and accessing it via the browser from another machine in the network.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Superalgos bisa dijalankan secara Clients, melalui mesin dan mengakses dengan Chrome dengan mesin dari jaringan yang berbeda.",
+                "updated": 1614426387929,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red",
+                "updated": 1618433029749,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Superalgos permette di accedere al Client in esecuzione su un dispositivo collegandosi attraverso il browser da un'altra macchina della rete.",
+                "updated": 1614717921223,
+                "style": "Definition"
+            }
+        ],
+        "updated": 1616410688496
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer Network Node represents the machine the Client is running on.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Banyak pengguna memilih untuk menjalankan Client di cloud, juga di mesin single-board seperti Raspberry Pi, atau di PC khusus yang dapat mereka tinggalkan setiap saat dengan trading tetap berlangsung. Node My Computer Network merepresentasikan Client yang dijalankan sekarang.",
+                    "updated": 1614426753535,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Muchos usuarios optan por ejecutar el Cliente en la nube, en máquinas sencillas como la Raspberry Pi, o en un PC dedicado que pueden dejar encendido en todo momento cuando operan en live. El nodo de red de My Computer Network representa la máquina en la que se ejecuta el Cliente.",
+                    "updated": 1613595575444,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Molti utenti scelgono di eseguire il Client sul cloud, su computer a scheda singola come il Raspberry Pi o su PC dedicati che possono lasciare sempre attivi quando fanno trading live. Il Network Node My Computer rappresenta la macchina su cui il Client é in esecuzione.",
+                    "updated": 1614717893341,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "At this stage, Superalgos does not implement any form of security. You should use the system in the context of a restricted Local Area Network only. If you chose to run the Client in the cloud, you must implement your own security.",
+            "updated": 1611076067427,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Saat ini, Superalgos tidak menerapkan keamanan dalam bentuk apa pun. Kamu harus menggunakan sistem dalam konteks Jaringan Restricted Local Area Network saja. Jika kamu memilih untuk menjalankan Client di cloud, Kamu harus mensetup keamanan kamu sendiri.",
+                    "updated": 1614426920839,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "En este momento, Superalgos no implementa ninguna forma de seguridad. Debe utilizar el sistema únicamente en el contexto de una red de área local restringida. Si decide ejecutar el Cliente en la nube, deberá implementar su propia seguridad.",
+                    "updated": 1613595591178,
+                    "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Al momento, Superalgos non implementa alcuna forma di sicurezza. Dovresti usarlo soltanto in un contesto sicuro, come una LAN riservata. Se scegli di eseguire il Client nel cloud, devi implementare da te i meccanismi di sicurezza.",
+                    "updated": 1614718058273,
+                    "style": "Warning"
+                }
+            ]
+        }
+    ]
+}

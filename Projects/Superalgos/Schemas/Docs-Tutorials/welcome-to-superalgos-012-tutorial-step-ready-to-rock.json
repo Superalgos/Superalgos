@@ -1,0 +1,157 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Ready to Rock?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "The Data Tasks node controls all the data mining tasks defined for this Network Node.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il nodo Data Task controlla tutte le task di data mining definite per questo Network Node.",
+                "updated": 1614719093819,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Data Tasks node mengkontrol semua data mining tasks yang telah ditentukan untuk Network Node.",
+                "updated": 1616352238548,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este Network Node.",
+                "updated": 1618433799425,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You are about to start the first of the following activities that we'll cover in the next few minutes:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Stai per cominciare la prima delle seguenti attività che copriremo nei prossimi minuti:",
+                    "updated": 1614719131672,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu akan memulai aktivitas pertama berikut yang akan kami bahas setelah ini:",
+                    "updated": 1616352314863,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estas a punto de empezar las siguientes actividades, que cubriremos en los proximos minutos",
+                    "updated": 1618433837116,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Run a data mining operation to get data for the BTC/USDT Market from Binance.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "1.  Eseguire un operazione di data mining per ottenere i dati per il Market BTC/USDT da Binance.",
+                    "updated": 1618645569627,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "1. Menjalankan operasi data mining untuk mendapatkan data BTC/USDT Market dari Binance.",
+                    "updated": 1616352385845,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una operación de data mining para obtener datos del mercado BTC/USDT de Binance.",
+                    "updated": 1618433865098,
+                    "style": "List"
+                }
+            ],
+            "updated": 1616414602356
+        },
+        {
+            "style": "List",
+            "text": "Run a Backtesting Session with an existing open-source strategy.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "2. Eseguire una Backtesting Session con una strategia open-source già esistente.",
+                    "updated": 1618645582737,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "2. Menjalankan Backtesting Session dengan strategi sumber terbuka yang ada.",
+                    "updated": 1616352419031,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una Backtesting session con una estrategia de código abierto existente.",
+                    "updated": 1618433902156,
+                    "style": "List"
+                }
+            ],
+            "updated": 1616414607531
+        },
+        {
+            "style": "List",
+            "text": "Run a Live Trading Session with minimal funds, to test the critical aspects of the system.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "3. Eseguire una Live Trading Session con un importo minimo, per testare gli aspetti critici del sistema.",
+                    "updated": 1618645614529,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "3. Menjalankan Live Trading Session dengan modal kecil, untuk menguji aspek krusial dari sistem.",
+                    "updated": 1616352469782,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar una Live trading session con fondos mínimos, para descubrir aspectos críticos del sistema.",
+                    "updated": 1618433958316,
+                    "style": "List"
+                }
+            ],
+            "updated": 1616414612909
+        },
+        {
+            "style": "Callout",
+            "text": "Are you cool with this? Shall we start?",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Che ne dici, sei d'accordo? Possiamo incominciare?",
+                    "updated": 1614719416134,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu aman dengan hal ini? Mari kita mulai?",
+                    "updated": 1616352500052,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos activos con esto? Empezamos?",
+                    "updated": 1618433978877,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 111,
+    "type": "Tutorial Step - Help Us With a Star!",
+    "definition": {
+        "text": "I hope you enjoyed this tutorial! Would you like to show your gratitude by giving a star to the Superalgos repo?",
+        "updated": 1622379203330,
+        "icon": {
+            "name": "github",
+            "project": "Superalgos"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ti è piaciuto questo tutorial? Ti va di mostrare gratitudine alla Community dando alla repo di Superalgos una stella?",
+                "updated": 1618649022612,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Users who came before you put time and effort into crafting tutorials so that you may have a better experience! Giving a star to our repo is a nice way to say thanks! Stars improve the rankings on Github's search. The more stars, the easier it is for developers to find and ultimately contribute to Superalgos! Giving a star to the repo serves your own interests too!",
+            "updated": 1618574617711,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Altri utenti hanno impiegato il loro tempo e i loro sforzi per creare tutorials in modo da darti un'esperienza migliore! Dare una stella alla nostra repo è un buon modo per dire \"grazie\"! Le stelle migliorano il ranking nelle ricerche su Github. Più stelle ha il progetto, più è facile per altri trovarlo e contribuirvi: dare una stella alla repo può quindi essere anche nel tuo interesse!",
+                    "updated": 1618649405317,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "If you haven't yet, please go to our repository and click the Star button on the top-right corner!",
+            "updated": 1618572346595,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se non lo hai già fatto, torna al nostro repository e clicca il bottone a forma di stella nell'angolo in alto a destra!",
+                    "updated": 1618649349174,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Here's a link for your convenience! Thank you!->github.com/Superalgos/Superalgos",
+            "updated": 1611584996191,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco il link, per comodità! Grazie mille!->github.com/Superalgos/Superalgos",
+                    "updated": 1618073740398,
+                    "style": "Link"
+                }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se sei uno sviluppatore e il tuo exchange preferito non è ancora testato, puoi dare una mano pensandoci tu!",
-                "updated": 1619591295060
+                "updated": 1619591295060,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Questo topic nei Docs spiega come debuggare il Sensor Bot perchè recuperi dati da un exchange. Se l'exchange supporta le funzioni base di Superalgos, dovresti riuscire a trovare una soluzione!",
-                    "updated": 1619591361290
+                    "updated": 1619591361290,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Condividere i test con la Community è un contributo importante, e permetterà a ognuno di usare i propri exchange preferiti!",
-                    "updated": 1619591417403
+                    "updated": 1619591417403,
+                    "style": "Success"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Ti consigliamo vivamente di completare la tua educazione su Superalgos, prima di addentrarti nel configurare nuovi exchanges.",
-                    "updated": 1619591462257
+                    "updated": 1619591462257,
+                    "style": "Important"
                 }
             ]
         }

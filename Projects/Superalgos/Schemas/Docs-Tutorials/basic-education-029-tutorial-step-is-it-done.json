@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se non lo hai già fatto, stabilisci una reference dal Trading System Reference al Lightning Strike Trading System!",
-                "updated": 1619502021908
+                "updated": 1619502021908,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Forse troverai questa tecnica per creare le reference un po' caotica o poco pratica. Se hai idee su come migliorarla, apri pure una feature request issue su Github. Considerà però quanto segue:",
-                    "updated": 1619502100883
+                    "updated": 1619502100883,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "In un workspace complesso, centinaia di nodi potrebbero accettare una reference.",
-                    "updated": 1619502129280
+                    "updated": 1619502129280,
+                    "style": "List"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "La reference deve essere stabilita in modo univoco tra una coppia di nodi.",
-                    "updated": 1619502166682
+                    "updated": 1619502166682,
+                    "style": "List"
                 }
             ]
         },
@@ -60,7 +64,8 @@
                 {
                     "language": "IT",
                     "text": "Ti assicuro che comunque non è complicato se lo fai un paio di volte!",
-                    "updated": 1619502186118
+                    "updated": 1619502186118,
+                    "style": "Success"
                 }
             ]
         },

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "La maggior parte dei file nella cartella Superalgos possono essere modificati per contribuire al progetto! Questo include codici, immagini, docs, ecc.",
-                "updated": 1619637453095
+                "updated": 1619637453095,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Queste cartelle non prevedono condivisione: My-Workspaces, Data-Storage, e Log-Files.",
-                    "updated": 1619637492839
+                    "updated": 1619637492839,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Non usare la cartella Superalgos per salvare file privati o che non sono parte del software! Qualsiasi cosa includi nelle cartelle, ad eccezione di quelle elencate sopra, viene eventualmente inviato al tuo fork su GitHub.com e incluso in una Pull Request, diventando visibile al pubblico!",
-                    "updated": 1619637607807
+                    "updated": 1619637607807,
+                    "style": "Important"
                 }
             ]
         }

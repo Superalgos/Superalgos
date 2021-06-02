@@ -1,0 +1,131 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Ok... Back to Work!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the Network Node.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora che sei più a tuo agio nel muoverti, ti suggerirei un piccolo tour di esplorazione della sezione Data Tasks della gerarchia.",
+                "updated": 1614791644655,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sekarang kamu bisa nyaman kemana-mana, Aku ingin kamu untuk pergi tour kecil-kecilan untuk mengeksplor bagian Data Tasks dari hirarki.",
+                "updated": 1616770842957,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora que te sientes cómodo por aqui, quiero que hagas un pequeño recorrido explorando la sección Data Tasks de la jerarquía.",
+                "updated": 1618439383864,
+                "style": "Definition"
+            }
+        ],
+        "updated": 1622194034630
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Notice the following:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi notare che:",
+                    "updated": 1614791668620,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan hal-hal berikut:",
+                    "updated": 1616770892134,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fijate en lo siguiente",
+                    "updated": 1618439399867,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The section is organized&mdash;first and foremost&mdash;by project, exchange, and market. This will help you work with multiple exchanges and multiple markets in an orderly fashion.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La sezione è organizzata innanzitutto per progetto, exchange e market. Questa struttura ti aiuta a lavorare con exchange multipli e markets multipli in modo ordinato.",
+                    "updated": 1614791724096,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Bagian ini diatur — pertama dan terpenting — menurut project, exchange, dan market. Ini akan membantu kamu bekerja dengan banyak exchange dan banyak market secara teratur.",
+                    "updated": 1616770973515,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "La sección está organizada, en primer lugar, por proyecto, exchage  y mercado. Esto le ayudará a trabajar con varios exchanges y mercados de forma ordenada.",
+                    "updated": 1618439477366,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The Exchange Data Tasks and Market Data Tasks nodes may control all tasks in the exchange and market respectively.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I nodi Exchange Data Tasks e Market Data Tasks controllano tutte le tasks rispettivamente in un exchange e in un market.",
+                    "updated": 1614791806588,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Data Tasks dan Market Data Tasks node dapat mengontrol semua tugas di exchange dan market masing-masing.",
+                    "updated": 1616771015778,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los nodos de Exchange Data Tasks y Market Data Tasks pueden controlar todas las tareas del exchange y del mercado respectivamente.",
+                    "updated": 1618439583481,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go out and check those nodes and their menus!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata a quei nodi e ai loro menu!",
+                    "updated": 1614791842750,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergilah dan periksa node-node tersebut dan menunya!",
+                    "updated": 1616771060371,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Salga y explore esos nodos y sus menús.",
+                    "updated": 1618439650404,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

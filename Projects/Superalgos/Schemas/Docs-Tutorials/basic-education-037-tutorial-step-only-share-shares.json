@@ -1,6 +1,6 @@
 {
     "tutorial": "Basic Education",
-    "pageNumber": "37",
+    "pageNumber": 37,
     "type": "Tutorial Step - Only Share Shares!",
     "definition": {
         "text": "Shares are just like Backups, but the resulting file is stripped off sensitive personal information!",

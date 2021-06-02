@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Le References sono il modo in cui i nodi ottengono dati da altri nodi. È un concetto cruciale, quindi fai attenzione!",
-                "updated": 1619500676047
+                "updated": 1619500676047,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Leggi attentamente questa pagina! Se non sei uno sviluppatore, potresti volerla rileggere finchè non hai afferrato bene i concetti!",
-                    "updated": 1619500726572
+                    "updated": 1619500726572,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "In breve, le References hanno...",
-                    "updated": 1619500753323
+                    "updated": 1619500753323,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "una direzione: in uscita o in entrata",
-                    "updated": 1619500782894
+                    "updated": 1619500782894,
+                    "style": "List"
                 }
             ]
         },
@@ -61,7 +65,8 @@
                 {
                     "language": "IT",
                     "text": "uno scope: interno o esterno",
-                    "updated": 1619500797304
+                    "updated": 1619500797304,
+                    "style": "List"
                 }
             ]
         },
@@ -73,7 +78,8 @@
                 {
                     "language": "IT",
                     "text": "Il concetto di scope di una Reference è cruciale per comprendere la differenza tra backups e cloni!",
-                    "updated": 1619500844066
+                    "updated": 1619500844066,
+                    "style": "Note"
                 }
             ]
         }

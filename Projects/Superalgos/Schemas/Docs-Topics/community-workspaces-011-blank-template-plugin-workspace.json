@@ -21,14 +21,9 @@
             "text": "The BTC-USDT Market installed on the Binance exchange."
         },
         {
-            "style": "List",
-            "text": "The collection of tested exchanges in case you need to obtain the configuration from an exchange different than Binance.",
-            "updated": 1622623884495
-        },
-        {
             "style": "Success",
-            "text": "You may switch to a different market by changing the configuration of the assets under the Exchange Assets node, and you may switch to a different exchange by changing the configuration of the Crypto Exchange node.",
-            "updated": 1622624056167
+            "text": "You may switch to a different market by changing the configuration of the assets under the Exchange Assets node, and you may switch to a different exchange by changing the configuration of the Crypto Exchange node. You may find the configuration of other exchanges in the Tested Exchanges topic.",
+            "updated": 1622626283772
         },
         {
             "style": "Title",

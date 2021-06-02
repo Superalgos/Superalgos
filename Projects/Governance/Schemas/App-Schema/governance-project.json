@@ -1,34 +1,22 @@
 {
-    "type": "Other Hierarchies",
+    "type": "Governance Project",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Network",
-            "relatedUiObject": "Network",
+            "label": "Add Assets Structure",
+            "relatedUiObject": "Assets Structure",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Tutorial",
-            "relatedUiObject": "Tutorial",
+            "label": "Add Governance Structure",
+            "relatedUiObject": "Governance Structure",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Plugins",
-            "relatedUiObject": "Plugins",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
-            "label": "Add APIs",
-            "relatedUiObject": "APIs",
-            "actionFunction": "payload.executeAction"
-        },
-        {
-            "action": "Add UI Object",
-            "label": "Add API Map",
-            "relatedUiObject": "API Map",
+            "label": "Add User Contributions",
+            "relatedUiObject": "User Contributions",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -41,9 +29,19 @@
             "iconPathOff": "delete-entity"
         }
     ],
+    "isProjectHead": true,
     "isTitleAllwaysVisible": false,
     "addLeftIcons": true,
-    "isPinned": false,
-    "level": 2,
-    "propertyNameAtParent": "otherHierarchies"
+    "isPinned": true,
+    "positionLocked": true,
+    "icon": "bitcoin",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Superalgos",
+            "autoAdd": true
+        }
+    ]
 }

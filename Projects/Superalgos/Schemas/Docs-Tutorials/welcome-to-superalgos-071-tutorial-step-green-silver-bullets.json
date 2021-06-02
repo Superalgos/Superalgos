@@ -1,0 +1,59 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 71,
+    "type": "Tutorial Step - Green Silver Bullets",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "bullet-limit-buy-order"
+        },
+        "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Vedi quei cerchi verdi con dentro la \"L\"? Sono i Limit Buy Order di cui parlavo.",
+                "updated": 1618061409837,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Notice how an order is placed every minute and is canceled before a new order is placed. Do you recognize the symbol for the order cancellation? It's the smaller, darker bullet with a white horizontal stripe in the middle!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come viene inserito un ordine al minuto, e come questo viene cancellato prima di inserirne uno nuovo: quest'ultimo evento è riconoscibile dal cerchio scuro più piccolo con una striscia orizziontale che lo attraversa!",
+                    "updated": 1618061508009,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Notice the knife falling at 00:21 AM! The price fell well below the rate of the limit order, therefore, the order was filled! That is what the bigger&mdash;filled&mdash;green bullet indicates!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota il \"falling knife\" delle 00:21! Il prezzo scende al di sotto di quello del limit order, che quindi viene evaso. Ciò è indicato dal cerchio più grande riempito di colore verde!",
+                    "updated": 1618061604262,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "So. . . what happens afterwards?",
+            "updated": 1610536393495,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quindi...dopo che succede?",
+                    "updated": 1618061624143,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

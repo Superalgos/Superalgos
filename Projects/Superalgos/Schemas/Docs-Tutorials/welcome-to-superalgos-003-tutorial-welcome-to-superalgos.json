@@ -1,0 +1,107 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 3,
+    "type": "Tutorial - Welcome to Superalgos!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Aku adalah tutorial yang interaktif, yang berkerja untuk memfasilitasi orientasi pemikiran kamu dan mengajari kamu semua dasar tentang Superalgos!",
+                "updated": 1614416780981,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Soy un tutorial interactivo, el primero de una serie diseñada para facilitar tu llegada y enseñarte lo básico.",
+                "updated": 1613594456875,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Sono un tutorial interattivo, il primo di una serie progettata per rendere più facile la tua introduzione a Superalgos e per insegnarti tutti i concetti base!",
+                "updated": 1614711302828,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I will get you started, show you the tools that will help you move around comfortably, and help you discover all the cool things that Superalgos may do for you.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Aku akan membantumu dalam memulai, dan menunjukkan alat yang akan membantumu bergerak dengan nyaman, dan menemukan semua hal keren yang akan dilakukan Superalgos untuk tradingmu.",
+                    "updated": 1614416877222,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te pondré en marcha, te mostraré las herramientas que te ayudarán a moverte cómodamente y te ayudaré a descubrir todas las cosas geniales que Superalgos puede hacer por ti.",
+                    "updated": 1613594557989,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Ti farò un'introduzione, mostrandoti gli strumenti che ti aiuteranno a prendere confidenza, e ti aiuterò a scoprire tutte le cose grandiose che Superalgos può fare per te.",
+                    "updated": 1614711533001,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Tutorials are the ultimate Superalgos onboarding tool! Starting with Superalgos in any other way is a mistake, as no other resource will get you up to speed faster. You should do all tutorials before trying to implement your own ideas!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Memulai Superalgos dengan cara sendiri sangat tidak direkomendasikan, karena tidak ada sumber lain yang lebih paham selain aku. Aku akan membantumu dalam memahami Superalgos!",
+                    "updated": 1616696383875,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los tutoriales son la mejor manera de comenzar en Superalgos. Empezar de otra manera es un error, ya que ningún otro recurso te pondrá al día más rápido. ¡Deberías recorrer todos los tutoriales antes de intentar poner en marcha tus estrategias!",
+                    "updated": 1618431788534,
+                    "style": "Callout"
+                },
+                {
+                    "language": "IT",
+                    "text": "Sono lo strumento definitivo per scoprire Superalgos! Avventurarti alla sua scoperta in qualsiasi altro modo é un errore: nessun altro strumento ti aiuterà a farlo più in fretta. Ti assicuro che risponderò alla maggior parte delle tue domande!",
+                    "updated": 1614711851139,
+                    "style": "Callout"
+                }
+            ],
+            "updated": 1616410377766
+        },
+        {
+            "style": "Success",
+            "text": "Please, always click Next to continue!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Mohon, klik Next untuk melanjutkan",
+                    "updated": 1614417191759,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Porfavor, presiona siguiente para continuar",
+                    "updated": 1613594696979,
+                    "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Premi sempre Next per continuare!",
+                    "updated": 1614711933264,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

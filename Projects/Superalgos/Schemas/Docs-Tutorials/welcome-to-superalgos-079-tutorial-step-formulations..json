@@ -1,0 +1,59 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 79,
+    "type": "Tutorial Step - Formulations...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "formula"
+        },
+        "text": "What you just went through is the definition of the Limit Buy Order that is placed and cancelled every minute until it gets filled.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Quella che hai appena guardato è la definizione del Limit Buy Order che viene piazzato e cancellato ogni minuto finchè non viene evaso.",
+                "updated": 1618065276195,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the node that determines the rate of the limit order. Remember what we discussed earlier about placing the order at the rate of the fourth support level?",
+            "updated": 1616429339703,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questo è il nodo che determina il prezzo del limit order. Ricordi quando abbiamo parlato di come l'ordine viene piazzato al quarto livello di supporto?",
+                    "updated": 1618065331055,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Formula attached to the Order Rate node and click Edit on the menu.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai alla Formula collegata al nodo Order Rate e clicca Edit sul menu.",
+                    "updated": 1618065364382,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Well... that is how it's done! As you can see, the syntax is virtually self-explanatory! It involves defining the time frame, the indicator, and the indicator property involved.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco, è così che funziona! Come vedi, la sintassi è intuitiva. Comprende la definizione del time frame, degli indicatori interessati e delle loro proprietà.",
+                    "updated": 1618065469493,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

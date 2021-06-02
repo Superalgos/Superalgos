@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Superalgos è un progetto basato sulla Community! Rendiamo il software disponibile a tutti gratuitamente, ma chiediamo qualcosa in cambio...il tuo aiuto!",
-                "updated": 1619631895640
+                "updated": 1619631895640,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Come fa Superalgos ad essere gratis? Dove sta il trucco? Ecco la storia...",
-                    "updated": 1619631920615
+                    "updated": 1619631920615,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos è iniziato con un gruppo di amici che hanno unito le forze per automatizzare il loro trading di crypto!",
-                    "updated": 1619631952862
+                    "updated": 1619631952862,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Gli amici presto realizzarono che per competere con i top del mercato era necessaria una notevole infrastruttura software, che fosse al pari o migliore dei software proprietari usati dalle aziende. Un lavoro simile non poteva essere portato a termine da un piccolo team, almeno non in un intervallo di tempo ragionevole.",
-                    "updated": 1619632081107
+                    "updated": 1619632081107,
+                    "style": "Text"
                 }
             ]
         }

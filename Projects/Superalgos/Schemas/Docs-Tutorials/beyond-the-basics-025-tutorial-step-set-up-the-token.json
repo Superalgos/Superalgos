@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Dopo aver premuto il tasto Generate Token, otterrai il tuo token! Non lasciare la pagina perchè non lo vedrai mai più!",
-                "updated": 1619638408223
+                "updated": 1619638408223,
+                "style": "Definition"
             }
         ]
     },
@@ -25,7 +26,8 @@
                 {
                     "language": "IT",
                     "text": "Copia il token, apri la config del nodo Githup API, e incollalo tra le virgolette del token parameter. Riempi il parametro user con il tuo utente GitHub.com (non la mail)!",
-                    "updated": 1619638498454
+                    "updated": 1619638498454,
+                    "style": "Callout"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos salva il token nel file workspace, come la tua Exchange Account Key. Il token viene usato per autenticarti con l'API di GitHub.com e creare la Pull Request. Non è mai inviato nè salvato altrove.",
-                    "updated": 1619638547007
+                    "updated": 1619638547007,
+                    "style": "Note"
                 }
             ]
         }

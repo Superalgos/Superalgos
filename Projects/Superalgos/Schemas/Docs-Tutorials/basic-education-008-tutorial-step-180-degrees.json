@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Quando tutti i nodi figlio sono impostati a 180 gradi, ogni nodo prende posizione in una frazione di un semicerchio, in posizione normale al nodo padre.",
-                "updated": 1619459891459
+                "updated": 1619459891459,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ma che succede se uno dei nodi figli ha un'altro valore per l'impostazione Angle to Parent? Vediamo subito!",
-                    "updated": 1619459962741
+                    "updated": 1619459962741,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Clicca una volta sulla proprietà Angle to Parent del nodo Trading Parameters e esci dal menù!",
-                    "updated": 1619459998306
+                    "updated": 1619459998306,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Il nodo prende posizione in un angolo di 90 gradi! Fai lo stesso con i nodi Trading System Reference e Trading Engine Reference!",
-                    "updated": 1619460071962
+                    "updated": 1619460071962,
+                    "style": "Text"
                 }
             ]
         }

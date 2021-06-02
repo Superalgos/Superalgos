@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "E se i nodi sono troppo lontani tra loro, magari in due diverse gerarchie? Guarda il video per imparare un paio di trucchi!",
-                "updated": 1619501705796
+                "updated": 1619501705796,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Questi trucchi ti faciliteranno:",
-                    "updated": 1619501769226
+                    "updated": 1619501769226,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Usa la mappa del design space tante volte quante serve per trovare il percorso tra i nodi.",
-                    "updated": 1619501801090
+                    "updated": 1619501801090,
+                    "style": "List"
                 }
             ]
         },
@@ -48,7 +51,8 @@
                 {
                     "language": "IT",
                     "text": "Fissa il nodo che sposterai, così da poterlo lasciare in qualunque momento quando avrai bisogno di aprire il design space per cercare direzioni.",
-                    "updated": 1619501872996
+                    "updated": 1619501872996,
+                    "style": "List"
                 }
             ]
         },
@@ -60,7 +64,8 @@
                 {
                     "language": "IT",
                     "text": "Usa Ctrl / Cmd + tasti freccia per trascinare il nodo attraverso lo schermo dopo averci cliccato sopra. Tieni premuti i tasti e il nodo volerà!",
-                    "updated": 1619501949818
+                    "updated": 1619501949818,
+                    "style": "List"
                 }
             ]
         },
@@ -71,7 +76,8 @@
                 {
                     "language": "IT",
                     "text": "Rimuovi il pin una volta stabilita la reference, così da rimandare il nodo al suo posto.",
-                    "updated": 1619501980789
+                    "updated": 1619501980789,
+                    "style": "List"
                 }
             ]
         }

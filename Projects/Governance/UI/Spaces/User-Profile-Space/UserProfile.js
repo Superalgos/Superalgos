@@ -77,7 +77,7 @@ function newGovernanceUserProfileSpace() {
         voting power.
         */
         if (
-            node.type === 'Ranking Position' ||
+            node.type === 'Position' ||
             node.type === 'Asset' ||
             node.type === 'Feature'
         ) { return }
@@ -133,7 +133,7 @@ function newGovernanceUserProfileSpace() {
         voting power.
         */
         if (
-            node.type === 'Ranking Position' ||
+            node.type === 'Position' ||
             node.type === 'Asset' ||
             node.type === 'Feature'
         ) { return }

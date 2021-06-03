@@ -416,30 +416,49 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
 
                         function checkReplaceBy(apiParameter) {
                             let parameterValue
+                            let rawValue
                             if (apiParameter.config.replaceBy !== undefined) {
                                 switch (apiParameter.config.replaceBy) {
                                     case '@BaseAsset': {
                                         parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
                                         break
                                     }
-                                    case '@BaseAssetName': {
-                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                    case '@BaseAssetNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@BaseAssetNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                        parameterValue = rawValue.toLowerCase()
                                         break
                                     }
                                     case '@QuotedAsset': {
                                         parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
                                         break
                                     }
-                                    case '@QuotedAssetName': {
-                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                    case '@QuotedAssetNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@QuotedAssetNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                        parameterValue = rawValue.toLowerCase()
                                         break
                                     }
                                     case '@Exchange': {
                                         parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
                                         break
                                     }
-                                    case '@ExchangeName': {
-                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                                    case '@ExchangeNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@ExchangeNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                                        parameterValue = rawValue.toLowerCase()
                                         break
                                     }
                                     case '@BeginCurrentMinute': {

@@ -1,8 +1,8 @@
 {
     "type": "replaceBy Config Property",
     "definition": {
-        "text": "This property allows you to instruct the API Fetcher Bot to set a value to this parameter based on contextual information that can not be defined at the Data Mine or the API Map. This contextual information can be for example the current Base Asset or the current time.",
-        "updated": 1622476480596
+        "text": "This property is used within API Path Parameter and API Query Parameter configs.  It allows you to instruct the API Fetcher Bot to set a value for this parameter based on contextual information that cannot be predefined at the Data Mine or the API Map. For example, this contextual information could be the current Base Asset being used or the current Time.",
+        "updated": 1622684765167
     },
     "paragraphs": [
         {
@@ -11,16 +11,27 @@
             "updated": 1622477226772
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "replaceBy Config Property Usage"
         },
         {
             "style": "Text",
-            "text": "This property is optional, meaning that the Bot will use the default value when it is not present. The default value for an API Query Parameter is the value configu property, while the default for an API Path Parameter is the codeName config property."
+            "text": "This property is optional, meaning that the Bot will use the default value when it is not present. The default value for both API Query Parameter and API Path Parameter is the codeName config property. An example of how this would look in a config is as follows:",
+            "updated": 1622685164654
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n    \"codeName\": \"currentBaseAsset\",\n    \"isString\": false,\n    \"isOptional\": false,\n    \"description\": \"\",\n    \"replaceBy\": \"@BaseAsset\"\n}",
+            "updated": 1622685104193
         },
         {
             "style": "Text",
-            "text": "The possible values for this property are:"
+            "text": "The following list lays out all the possible values you can use within the replaceBy property. ",
+            "updated": 1622685176762
+        },
+        {
+            "style": "Subtitle",
+            "text": "For Base Asset"
         },
         {
             "style": "List",
@@ -33,8 +44,32 @@
         },
         {
             "style": "List",
-            "text": "@QuotedAsset: This will force the Bot to use the current Quoted Asset.",
-            "updated": 1622476819686
+            "text": "@BaseAssetNameUppercase: This will force the Bot to use the current name of the Base Asset beginning with an uppercase letter.",
+            "updated": 1622683262892
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name\nparameterValue = rawValue.toUpperCase()",
+            "updated": 1622683076901
+        },
+        {
+            "style": "List",
+            "text": "@BaseAssetNameLowercase: This will force the Bot to use the name of the current Base Asset beginning with a lowercase letter.",
+            "updated": 1622683250737
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode\n.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name\nparameterValue = rawValue.toLowerCase()",
+            "updated": 1622683129110
+        },
+        {
+            "style": "Subtitle",
+            "text": "For Quoted Asset",
+            "updated": 1622684096573
+        },
+        {
+            "style": "List",
+            "text": "@QuotedAsset: This will force the Bot to use the current Quoted Asset."
         },
         {
             "style": "Javascript",
@@ -43,8 +78,66 @@
         },
         {
             "style": "List",
-            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the begining of the current minute.",
-            "updated": 1622476907142
+            "text": "@QuotedAssetNameUppercase: This will force the Bot to use the name of the current Base Asset beginning with an uppercase letter.",
+            "updated": 1622683649444
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name\nparameterValue = rawValue.toUpperCase()",
+            "updated": 1622683501102
+        },
+        {
+            "style": "List",
+            "text": "@QuotedAssetNameLowercase: This will force the Bot to use the name of the current Base Asset beginning with a lowercase letter.",
+            "updated": 1622683656687
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name\nparameterValue = rawValue.toLowerCase()",
+            "updated": 1622683457003
+        },
+        {
+            "style": "Subtitle",
+            "text": "For Exchange",
+            "updated": 1622684422398
+        },
+        {
+            "style": "List",
+            "text": "@Exchange: This will force the Bot to use the current Exchange."
+        },
+        {
+            "style": "Javascript",
+            "text": "parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE \n.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName",
+            "updated": 1622682215370
+        },
+        {
+            "style": "List",
+            "text": "@ExchangeNameUppercase: This will force the Bot to use the name of the current Exchange beginning with an uppercase letter.",
+            "updated": 1622684044204
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name\nparameterValue = rawValue.toUpperCase()",
+            "updated": 1622683827954
+        },
+        {
+            "style": "List",
+            "text": "@ExchangeNameLowercase: This will force the Bot to use the name of the current Exchange beginning with a lowercase letter.",
+            "updated": 1622684016700
+        },
+        {
+            "style": "Javascript",
+            "text": "rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE\n.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name\nparameterValue = rawValue.toLowerCase()",
+            "updated": 1622683964537
+        },
+        {
+            "style": "Subtitle",
+            "text": "For Timestamp",
+            "updated": 1622684458481
+        },
+        {
+            "style": "List",
+            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the begining of the current minute."
         },
         {
             "style": "Javascript",
@@ -63,8 +156,13 @@
         },
         {
             "style": "Note",
-            "text": "If users assing a value that is not listed above, the property will be ingnored and the default value will be used.",
-            "updated": 1622477178155
+            "text": "If users access a value that is not listed above, the property will be ignored and the default value will be used.",
+            "updated": 1622682302500
+        },
+        {
+            "style": "Success",
+            "text": "Name values are drawn from the asset labels held within the Exchange Assets node.",
+            "updated": 1622684251888
         },
         {
             "style": "Text",

@@ -35,8 +35,20 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Vote",
-            "relatedUiObject": "Time Vote"
+            "label": "Add Time Claim Vote",
+            "relatedUiObject": "Time Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Claim Vote",
+            "relatedUiObject": "Asset Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Claim Vote",
+            "relatedUiObject": "Feature Claim Vote"
         },
         {
             "action": "Add UI Object",
@@ -86,9 +98,21 @@
             "autoAdd": false
         },
         {
-            "name": "timeVotes",
+            "name": "timeClaimVotes",
             "type": "array",
-            "childType": "Time Vote",
+            "childType": "Time Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "assetClaimVotes",
+            "type": "array",
+            "childType": "Asset Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureClaimVotes",
+            "type": "array",
+            "childType": "Feature Claim Vote",
             "autoAdd": false
         },
         {

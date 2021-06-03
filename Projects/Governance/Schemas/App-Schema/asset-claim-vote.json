@@ -1,5 +1,5 @@
 {
-    "type": "Time Vote",
+    "type": "Asset Claim Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -34,8 +34,8 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Time Contribution Claim->"
+        "compatibleTypes": "->Asset Contribution Claim->"
     },
-    "propertyNameAtParent": "timeVotes",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "assetClaimVotes",
+    "icon": "EN"
 }

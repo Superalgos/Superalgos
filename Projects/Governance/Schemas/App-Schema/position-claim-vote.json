@@ -1,5 +1,5 @@
 {
-    "type": "Time Claim Vote",
+    "type": "Position Claim Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -34,8 +34,8 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Time Contribution Claim->"
+        "compatibleTypes": "->Position Contribution Claim->"
     },
-    "propertyNameAtParent": "timeClaimVotes",
+    "propertyNameAtParent": "positionClaimVotes",
     "icon": "dogecoin"
 }

@@ -1,4 +1,4 @@
-function newGovernanceUserFeaturesSpace() {
+function newGovernanceFeaturesSpace() {          
     const MODULE_NAME = 'Features Space'
 
     let thisObject = {

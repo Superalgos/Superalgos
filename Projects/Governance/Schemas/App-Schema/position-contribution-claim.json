@@ -1,5 +1,5 @@
 {
-    "type": "Time Contribution Claim",
+    "type": "Position Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Time Contributions Folder->"
+        "compatibleTypes": "->Position Contributions Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Position->"
     },
-    "propertyNameAtParent": "timeContributionClaims",
+    "propertyNameAtParent": "positionContributionClaims",
     "icon": "dogecoin"
 }

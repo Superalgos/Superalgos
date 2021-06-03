@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Pool Class",
-            "relatedUiObject": "Pool Class"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
@@ -41,9 +41,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "poolClasses",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Pool Class",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {

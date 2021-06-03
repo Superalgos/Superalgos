@@ -23,8 +23,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions Folder",
-            "relatedUiObject": "Time Contributions Folder"
+            "label": "Add Position Contributions Folder",
+            "relatedUiObject": "Position Contributions Folder"
         },
         {
             "action": "Delete UI Object",
@@ -62,9 +62,9 @@
             "autoAdd": false
         },
         {
-            "name": "timeContributionsFolder",
+            "name": "positionContributionsFolder",
             "type": "array",
-            "childType": "Time Contributions Folder",
+            "childType": "Position Contributions Folder",
             "autoAdd": false
         }
     ],

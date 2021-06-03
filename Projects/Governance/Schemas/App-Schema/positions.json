@@ -1,11 +1,11 @@
 {
-    "type": "Organization Chart",
+    "type": "Positions",
     "menuItems": [
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
         },
         {
             "action": "Add UI Object",
@@ -28,9 +28,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "teams",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Team",
+            "childType": "Position Class",
             "autoAdd": false
         },
         {

@@ -19,10 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent Parent Parent Parent",
-        "Use Reference Parent Parent Parent",
-        "Use Reference Parent Parent",
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Type"
     ],
     "editors": {
         "config": true
@@ -36,7 +34,7 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Pool Class->Pool->"
+        "compatibleTypes": "->Tokens Switch->Pool->"
     },
     "propertyNameAtParent": "poolWeightVotes"
 }

@@ -17,6 +17,12 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
+            "label": "Add Pool Weight Vote",
+            "relatedUiObject": "Pool Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
             "label": "Add Position Weight Vote",
             "relatedUiObject": "Position Weight Vote"
         },
@@ -35,8 +41,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Claim Vote",
-            "relatedUiObject": "Time Claim Vote"
+            "label": "Add Position Claim Vote",
+            "relatedUiObject": "Position Claim Vote"
         },
         {
             "action": "Add UI Object",
@@ -86,6 +92,12 @@
             "autoAdd": false
         },
         {
+            "name": "poolWeightVotes",
+            "type": "array",
+            "childType": "Pool Weight Vote",
+            "autoAdd": false
+        },
+        {
             "name": "assetWeightVotes",
             "type": "array",
             "childType": "Asset Weight Vote",
@@ -98,9 +110,9 @@
             "autoAdd": false
         },
         {
-            "name": "timeClaimVotes",
+            "name": "positionClaimVotes",
             "type": "array",
-            "childType": "Time Claim Vote",
+            "childType": "Position Claim Vote",
             "autoAdd": false
         },
         {

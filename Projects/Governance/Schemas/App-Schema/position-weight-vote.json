@@ -34,7 +34,7 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Position->"
+        "compatibleTypes": "->Position Class->Position->"
     },
     "propertyNameAtParent": "positionWeightVotes",
     "icon": "bitfinex"

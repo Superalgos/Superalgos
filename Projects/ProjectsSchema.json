@@ -1036,10 +1036,10 @@
                     "onMouseDownIndex": 1
                 },
                 {
-                    "name": "User Features Space",
-                    "folderName": "User-Features-Space",
-                    "propertyName": "userFeaturesSpace",
-                    "functionName": "newGovernanceUserFeaturesSpace",
+                    "name": "Features Space",
+                    "folderName": "Features-Space",
+                    "propertyName": "featuresSpace",
+                    "functionName": "newGovernanceFeaturesSpace",
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 2,
@@ -1049,10 +1049,10 @@
                     "onMouseDownIndex": 2
                 },
                 {
-                    "name": "Ranking Space",
-                    "folderName": "Ranking-Space",
-                    "propertyName": "rankingSpace",
-                    "functionName": "newGovernanceRankingSpace",
+                    "name": "Positions Space",
+                    "folderName": "Positions-Space",
+                    "propertyName": "positionsSpace",
+                    "functionName": "newGovernancePositionsSpace",
                     "initializationIndex": 3,
                     "animationPhysicsIndex": 3,
                     "animationDrawIndex": 3,
@@ -1060,6 +1060,19 @@
                     "onMouseOverIndex": 3,
                     "onMouseClickIndex": 3,
                     "onMouseDownIndex": 3
+                },
+                {
+                    "name": "Pools Space",
+                    "folderName": "Pools-Space",
+                    "propertyName": "poolsSpace",
+                    "functionName": "newGovernancePoolsSpace",
+                    "initializationIndex": 4,
+                    "animationPhysicsIndex": 4,
+                    "animationDrawIndex": 4,
+                    "onMouseWheelIndex": 4,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 }
             ]
         },

@@ -1,5 +1,5 @@
 {
-    "type": "Pool Class",
+    "type": "Tokens Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Pool Class",
-            "relatedUiObject": "Pool Class"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
@@ -39,17 +39,17 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Pools->Pool Class->"
+        "compatibleTypes": "->Pools->Tokens Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Position->"
+        "compatibleTypes": "->Position Class->Position->"
     },
-    "propertyNameAtParent": "poolClasses",
+    "propertyNameAtParent": "tokensSwitches",
     "childrenNodesProperties": [
         {
-            "name": "poolClasses",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Pool Class",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {

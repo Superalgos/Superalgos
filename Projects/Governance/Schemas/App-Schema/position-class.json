@@ -1,5 +1,5 @@
 {
-    "type": "Time Contributions Folder",
+    "type": "Position Class",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions Folder",
-            "relatedUiObject": "Time Contributions Folder"
+            "label": "Add Position",
+            "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Contribution Claim",
-            "relatedUiObject": "Time Contribution Claim"
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
         },
         {
             "action": "Delete UI Object",
@@ -34,27 +34,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Time Contributions Folder->"
+        "compatibleTypes": "->Position->Position Class->"
     },
-    "propertyNameAtParent": "timeContributionsFolder",
+    "propertyNameAtParent": "positionClasss",
     "childrenNodesProperties": [
         {
-            "name": "timeContributionsFolder",
+            "name": "positions",
             "type": "array",
-            "childType": "Time Contributions Folder",
+            "childType": "Position",
             "autoAdd": false
         },
         {
-            "name": "timeContributionClaims",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Time Contribution Claim",
+            "childType": "Position Class",
             "autoAdd": false
         }
     ],
-    "icon": "bitcoin"
+    "icon": "kraken"
 }

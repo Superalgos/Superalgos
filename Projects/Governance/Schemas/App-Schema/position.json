@@ -17,8 +17,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
         },
         {
             "action": "Delete UI Object",
@@ -39,7 +39,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Organization Chart->Position->Team->"
+        "compatibleTypes": "->Positions->Position->Position Class->"
     },
     "propertyNameAtParent": "positions",
     "childrenNodesProperties": [
@@ -50,9 +50,9 @@
             "autoAdd": false
         },
         {
-            "name": "teams",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Team",
+            "childType": "Position Class",
             "autoAdd": false
         }
     ],

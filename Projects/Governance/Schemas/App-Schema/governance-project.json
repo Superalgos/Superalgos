@@ -21,8 +21,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Organization Chart",
-            "relatedUiObject": "Organization Chart",
+            "label": "Add Positions",
+            "relatedUiObject": "Positions",
             "actionFunction": "payload.executeAction"
         },
         {

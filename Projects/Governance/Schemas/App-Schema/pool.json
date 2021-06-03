@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Pool Class",
-            "relatedUiObject": "Pool Class"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
@@ -39,17 +39,17 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Pool Class->Pool->"
+        "compatibleTypes": "->Tokens Switch->Pool->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Organization Chart->Assets->Features->"
+        "compatibleTypes": "->Positions->Assets->Features->"
     },
     "propertyNameAtParent": "pools",
     "childrenNodesProperties": [
         {
-            "name": "poolClasses",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Pool Class",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {

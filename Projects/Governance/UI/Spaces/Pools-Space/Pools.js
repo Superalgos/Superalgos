@@ -1,5 +1,5 @@
-function newGovernanceUserProfileSpace() {
-    const MODULE_NAME = 'User Profile Space'
+function newGovernancePoolsSpace() {
+    const MODULE_NAME = 'Pool Space'
 
     let thisObject = {
         container: undefined,
@@ -37,45 +37,45 @@ function newGovernanceUserProfileSpace() {
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-        let userProfiles = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let pools = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
 
         /*
-        We will first reset all the voting power, and then distribute it.
+        We will first reset all the token flows, and then distribute it.
         */
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            userProfileReset(userProfile)
+        for (let i = 0; i < pools.length; i++) {
+            let poolsNode = pools[i]
+            poolsReset(poolsNode)
         }
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-            userProfileDistribute(userProfile)
+        for (let i = 0; i < pools.length; i++) {
+            let poolsNode = pools[i]
+            poolsDistribute(poolsNode)
         }
     }
 
-    function userProfileReset(userProfile) {
-        resetVotingPower(userProfile)
+    function poolsReset(pools) {
+        resetTokenFlow(pools)
     }
 
-    function userProfileDistribute(userProfile) {
-        let votingPower = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
-        distributeVotingPower(userProfile, votingPower)
+    function poolsDistribute(pools) {
+        let tokenFlow = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
+        distributeTokenFlow(pools, tokenFlow)
     }
 
-    function resetVotingPower(node) {
+    function resetTokenFlow(node) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.votingPower = 0
+        node.payload.tokenFlow = 0
         /*
-        If there is a reference parent defined, this means that the voting power is 
+        If there is a reference parent defined, this means that the token flow is 
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            resetVotingPower(node.payload.referenceParent)
+            resetTokenFlow(node.payload.referenceParent)
             return
         }
         /*
         When we reach certain node types, we will halt the distribution, because thse are targets for 
-        voting power.
+        token flow.
         */
         if (
             node.type === 'Position' ||
@@ -83,7 +83,7 @@ function newGovernanceUserProfileSpace() {
             node.type === 'Feature'
         ) { return }
         /*
-        If there is no reference parent we will redistribute voting power among children.
+        If there is no reference parent we will redistribute token flow among children.
         */
         let schemaDocument = getSchemaDocument(node)
         if (schemaDocument === undefined) { return }
@@ -92,13 +92,11 @@ function newGovernanceUserProfileSpace() {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
-                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
-
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                        if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            resetVotingPower(childNode)
+                            resetTokenFlow(childNode)
                         }
                     }
                         break
@@ -107,7 +105,7 @@ function newGovernanceUserProfileSpace() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                resetVotingPower(childNode)
+                                resetTokenFlow(childNode)
                             }
                         }
                         break
@@ -117,30 +115,29 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function distributeVotingPower(node, votingPower) {
+    function distributeTokenFlow(node, tokenFlow) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.votingPower = node.payload.votingPower + votingPower
-        drawVotingPower(node, node.payload.votingPower)
+        node.payload.tokenFlow = node.payload.tokenFlow + tokenFlow
+        drawTokenFlow(node, node.payload.tokenFlow)
         /*
-        If there is a reference parent defined, this means that the voting power is 
+        If there is a reference parent defined, this means that the token flow is 
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            distributeVotingPower(node.payload.referenceParent, votingPower)
+            distributeTokenFlow(node.payload.referenceParent, tokenFlow)
             return
         }
         /*
         When we reach certain node types, we will halt the distribution, because thse are targets for 
-        voting power.
+        token flow.
         */
         if (
-            node.type === 'Position' ||
             node.type === 'Asset' ||
             node.type === 'Feature'
         ) { return }
         /*
-        If there is no reference parent we will redistribute voting power among children.
+        If there is no reference parent we will redistribute token flow among children.
         */
         let schemaDocument = getSchemaDocument(node)
         if (schemaDocument === undefined) { return }
@@ -149,13 +146,11 @@ function newGovernanceUserProfileSpace() {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
-                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
-
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                        if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            distributeVotingPower(childNode, votingPower)
+                            distributeTokenFlow(childNode, tokenFlow)
                         }
                     }
                         break
@@ -164,7 +159,7 @@ function newGovernanceUserProfileSpace() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                distributeVotingPower(childNode, votingPower / propertyArray.length)
+                                distributeTokenFlow(childNode, tokenFlow / propertyArray.length)
                             }
                         }
                         break
@@ -174,30 +169,13 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function drawVotingPower(node, votingPower) {
-        votingPower = new Intl.NumberFormat().format(votingPower) + ' ' + 'Votes'
+    function drawTokenFlow(node, tokenFlow) {
+        tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens'
         if (node.payload !== undefined) {
-            if (node.type === 'User Profile') {
+            if (node.type === 'Pools') {
                 return
             }
-            if (
-                node.type === 'Position' ||
-                node.type === 'Position Class' ||
-                node.type === 'Pool' ||
-                node.type === 'Tokens Switch' ||
-                node.type === 'Asset' ||
-                node.type === 'Asset Class' ||
-                node.type === 'Feature' ||
-                node.type === 'Feature Class'
-            ) { 
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = false
-            } else{
-                node.payload.uiObject.valueAngleOffset = 180
-                node.payload.uiObject.valueAtAngle = true
-            }
-
-            node.payload.uiObject.setValue(votingPower)
+            node.payload.uiObject.setStatus(tokenFlow)
         }
     }
 

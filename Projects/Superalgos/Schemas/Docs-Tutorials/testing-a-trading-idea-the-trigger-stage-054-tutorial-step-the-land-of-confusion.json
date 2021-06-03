@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Turn off the Strategies and the Trigger Stages layers in the Simulation Objects layer manager!"
+            "text": "Turn off the \"Strategies\" and the \"Trigger Stages\" layers in the Simulation Objects layer manager!",
+            "updated": 1622488349304
         },
         {
             "style": "Text",

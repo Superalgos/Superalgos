@@ -6,12 +6,12 @@
     },
     "paragraphs": [
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "Configuration",
             "updated": 1621018220723
         },
         {
-            "style": "Text",
+            "style": "Subtitle",
             "text": "Important Properties"
         },
         {
@@ -21,11 +21,13 @@
         },
         {
             "style": "List",
-            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter. The possible values are: @BaseAsset and @QuotedAsset"
+            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime. ",
+            "updated": 1622477486319
         },
         {
-            "style": "Important",
-            "text": "The replacedBy property is the way users have to send some contextual values to the API Server like for example the Base Asset or Quoted Asset of the Defautl Market."
+            "style": "Include",
+            "text": "Superalgos->Concept->replaceBy Config Property->How To Use It",
+            "updated": 1622477440806
         }
     ]
 }

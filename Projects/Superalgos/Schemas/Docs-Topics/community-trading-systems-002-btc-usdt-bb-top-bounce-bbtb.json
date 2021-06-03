@@ -163,7 +163,8 @@
         },
         {
             "style": "Text",
-            "text": "Masters Data Mine:"
+            "text": "Candles Data Mine:",
+            "updated": 1622559136531
         },
         {
             "style": "List",
@@ -172,6 +173,10 @@
         {
             "style": "List",
             "text": "Candles & Volumes"
+        },
+        {
+            "style": "Text",
+            "text": "Bollinger Data Mine:"
         },
         {
             "style": "List",

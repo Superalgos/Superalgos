@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Proviamo gli esempi che hai appena letto, così da imparare bene!",
-                "updated": 1619502744066
+                "updated": 1619502744066,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Fai un backup del nodo Lightning Strike Task e ripristinalo senza cancellare il nodo originale. Poi ripeti l'operazione, ma cancella il nodo originale prima di ripristinare il backup.",
-                    "updated": 1619502813746
+                    "updated": 1619502813746,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Verifica che, in entrambi i casi, le references in uscita dal Trading System Reference e dal Trading Engine References sono mantenute.",
-                    "updated": 1619502861169
+                    "updated": 1619502861169,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Ricorda che le references in uscita sono sempre mantenute!",
-                    "updated": 1619502874482
+                    "updated": 1619502874482,
+                    "style": "Success"
                 }
             ]
         }

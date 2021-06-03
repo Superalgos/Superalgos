@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Mettiamo che tu voglia testare una strategia con diversi set di parametri: inizia facendo un backup del nodo Trading Parameters!",
-                "updated": 1619466111095
+                "updated": 1619466111095,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ora hai un backup di tutti i parametri di trading, e puoi cambiarli a piacimento sapendo di poter sempre ripristinare la versione originale! Se sei su Chrome, il backup deve essere visibile nell'angolo in basso a sinistra della finestra del browser.",
-                    "updated": 1619466247645
+                    "updated": 1619466247645,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Ora trascina il file di backup e rilascialo nel Design Space. È così che si ripristina un backup!",
-                    "updated": 1619466286103
+                    "updated": 1619466286103,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Facile, no? Nel prossimo step, ti mostrerò come tornare a utilizzare la versione originale!",
-                    "updated": 1619466338500
+                    "updated": 1619466338500,
+                    "style": "Text"
                 }
             ]
         }

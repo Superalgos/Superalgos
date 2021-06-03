@@ -7,7 +7,8 @@
             "project": "Superalgos",
             "name": "position"
         },
-        "text": "Did you notice there are three different layers about positions? Position, Position Base Asset, and Position Quoted Asset!"
+        "text": "Did you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
+        "updated": 1622541670733
     },
     "paragraphs": [
         {

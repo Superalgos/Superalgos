@@ -11,12 +11,13 @@
             "updated": 1621016234649
         },
         {
-            "style": "Subtitle",
+            "style": "Title",
             "text": "How is it used?"
         },
         {
             "style": "Text",
-            "text": "To use an API Map users need to setup a Task for an API Data Fetcher Bot. This set up is done automatically as part of the Install New Market procedure if an API Map is detected at the Worksapce. From within that Task, a reference to an API Map is established. "
+            "text": "To use an API Map users need to setup a Task for an API Data Fetcher Bot. This set up is done automatically as part of the Install Market procedure if an API Map is detected at the Worksapce. From within that Task, a reference to an API Map is established.",
+            "updated": 1622626543279
         },
         {
             "style": "Text",
@@ -35,6 +36,11 @@
         {
             "style": "Title",
             "text": "Configuration"
+        },
+        {
+            "style": "List",
+            "text": "codeName: this must be the same codeName as the Data Mine codeName in order for the Install New Market procedure to link them properly at the API Map Reference node.",
+            "updated": 1622472871204
         },
         {
             "style": "List",

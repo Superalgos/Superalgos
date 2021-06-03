@@ -1,0 +1,61 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 94,
+    "type": "Tutorial Step - Your Keys, Your Coins!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "exchange-account-key"
+        },
+        "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",
+        "updated": 1610817577376,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Qui è dove configuro le Exchange Account Key per la Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1618070825773,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Acess the configuration and carefully enter the API Pubilic Key and the API secret key.",
+            "updated": 1616435074225,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Accedi alla configurazione e inserisci attentamente la API Public Key e la API Secret Key.",
+                    "updated": 1618070869172,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Delete the default text string for each parameter first, so that no foreign character gets mixed up with the keys.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Cancella prima la stringa di testo di default per ogni parametro, così da non rischiare errori inserendo le tue chiavi.",
+                    "updated": 1618070932988,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "The Exchange Account Key is stored in the User Workspace file, unencrypted. It is used to authenticate with the exchange. It's never sent or stored elsewhere. Don't share this workspace until you learn to how do it safely in the next tutorial.",
+            "updated": 1622233064100,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'Exchange Account Key è salvata nel workspace file. È utilizzata dal Trading Bot per autenticarsi sull'exchange quando gestisce gli ordini. Non viene inviata nè salvata in nessun'altro luogo.",
+                    "updated": 1618071006665,
+                    "style": "Warning"
+                }
+            ]
+        }
+    ]
+}

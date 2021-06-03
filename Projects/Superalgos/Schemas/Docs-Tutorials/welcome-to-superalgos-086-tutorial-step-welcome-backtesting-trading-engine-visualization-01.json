@@ -1,0 +1,22 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 86,
+    "type": "Tutorial Step - Welcome Backtesting Trading Engine Visualization 01",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questo step eseguirà un video a schermo intero.",
+                "updated": 1618068032985,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-backtesting-trading-engine-visualization-01.gif"
+        }
+    ]
+}

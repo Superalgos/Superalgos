@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se sei uno sviluppatore o hai una conoscenza, anche base, di JavaScript, puoi costruire i tuoi indicatori!",
-                "updated": 1619592159342
+                "updated": 1619592159342,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Questa è una funzione chiave di Superalgos: una trading intelligence non può emergere senza capacità di analizzare dati di mercato! Non mi addentro su come costruire indicatori a questo punto, volevo solo ricordarti che potrai farlo!",
-                    "updated": 1619592280131
+                    "updated": 1619592280131,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "C'è una serie di video tutorial completa che spiega l'intero processo! Dai un'occhiata alla pagina sui Docs!",
-                    "updated": 1619592318550
+                    "updated": 1619592318550,
+                    "style": "Callout"
                 }
             ]
         }

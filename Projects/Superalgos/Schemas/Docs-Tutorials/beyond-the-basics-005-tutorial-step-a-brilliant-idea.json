@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Superalgos è gratis per tutti, perchè vogliamo il tuo aiuto! Vogliamo le menti migliori e più volenterose per aiutarci a costruire la piattaforma di trading automatizzato definitiva!",
-                "updated": 1619632162177
+                "updated": 1619632162177,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Il tuo primo contributo è il tuo feedback!",
-                    "updated": 1619632177630
+                    "updated": 1619632177630,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Probabilmente ormai hai investito ore scoprendo Superalgos. Vorremmo sapere la tua prima impressione, fresca di un'esperienza recente! E vogliamo che il tuo feedback sia il primo di molti contributi al progetto.",
-                    "updated": 1619632239016
+                    "updated": 1619632239016,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Non devi essere un super-programmatore o un trader professionista per contribuire. Ci si aspetta che ogni utente dia un contributo! Ti dico come!",
-                    "updated": 1619632343742
+                    "updated": 1619632343742,
+                    "style": "Success"
                 }
             ]
         }

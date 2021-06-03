@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "31",
+    "pageNumber": 31,
     "type": "Tutorial Step - A Book on Tutorials",
     "definition": {
         "text": "Congratulations! You reached the end of another tutorial! I hope you feel that you're starting to grasp how Superalgos works!",
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Congratulazioni! Sei alla fine di un altro tutorial! Spero che ormai tu abbia un'idea di come funziona Superalgos!",
-                "updated": 1619638188232
+                "updated": 1619638188232,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Parliamo di cosa verrà dopo! La pagina che ho aperto è il libro First Step Tutorials. D'ora in poi sei libero di scegliere che tutorial fare!",
-                    "updated": 1619638242869
+                    "updated": 1619638242869,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "TDai un'occhiata alla lista di tutorial disponibile su ogni pagina dei Plugin Workspaces e scegli quale fare! Credo che l'ordine in cui sono elencati sia quello più appropriato, ma dipende anche dai tuoi interessi quindi la scelta è tua!",
-                    "updated": 1619638304612
+                    "updated": 1619638304612,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Ci vediamo al prossimo tutorial!",
-                    "updated": 1619638313318
+                    "updated": 1619638313318,
+                    "style": "Success"
                 }
             ]
         }

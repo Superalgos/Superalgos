@@ -1,8 +1,8 @@
 {
     "type": "API Path Parameters",
     "definition": {
-        "text": "Path parameters are the type of parameters that are embedded as part of an URL path. They could be fixed string of texts or they could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
-        "updated": 1621018106262
+        "text": "Path parameters are the type of parameters that are embedded as part of an URL path. They could be a fixed string of texts or they could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
+        "updated": 1622336383876
     },
     "paragraphs": [
         {

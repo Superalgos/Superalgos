@@ -1,0 +1,62 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 56,
+    "type": "Tutorial Step - Your Graduation",
+    "definition": {
+        "text": "Congratulations! You've graduated from your Basic Education and are ready to move on to more advanced stuff!",
+        "updated": 1616262672256,
+        "icon": {
+            "name": "trading-strategy",
+            "project": "Superalgos"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Congratulazioni! Ti sei laureato in Basic Education e sei pronto a tuffarti in materie più avanzate!",
+                "updated": 1619592957336,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the next tutorial you are going to learn how to update your app, switch branches to test the version in the develop branch, a few tricks about the Docs, and more!",
+            "updated": 1616262918705,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nel prossimo tutorial imparerai come aggiornare la tua app, cambiare branch per testare la versione in sviluppo, trucchi sui Docs e altro!",
+                    "updated": 1619593005138,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "You'll also be able submit a review about your experience with Superalgos up to this point!",
+            "updated": 1616262935170,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Potrai anche scrivere una recensione sulla tua esperienza in Superalgos finora!",
+                    "updated": 1619593027426,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "As you progress with Superalgos, you may need a refresher on the topics covered in this tutorial or the one before! That is a standard practice, so do come back until you learn all tricks!",
+            "updated": 1616263081822,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Man mano che procedi in Superalgos, potresti aver bisogno di un ripasso sui topic affrontati in questo tutorial o in quello prima. È normale, puoi tornare quando vuoi finchè non impari tutti i trucchi!",
+                    "updated": 1619593078538,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

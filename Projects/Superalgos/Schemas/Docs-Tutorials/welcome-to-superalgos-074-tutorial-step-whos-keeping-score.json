@@ -1,0 +1,38 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 74,
+    "type": "Tutorial Step - Who's Keeping Score?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Check the table below and see if you can interpret the support levels you see on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Guarda questa tabella per interpretare i livelli di supporto che vedi sul grafico.",
+                "updated": 1618062212883,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "<table>\r\n    <thead>\r\n      <tr>\r\n        <th style='text-align: center'>Rejections&nbsp;&nbsp;</th>\r\n        <th style='text-align: center'>&nbsp;&nbsp;Graphics&nbsp;&nbsp;</th>\r\n        <th style='text-align: left'>&nbsp;&nbsp;Comments</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody>\r\n      <tr>\r\n        <td style='text-align: center'>1</td>\r\n        <td style='text-align: center'><span style='display: block; border-bottom: 1px dotted grey;'> </span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A faint, grey dotted line.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>2</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(150, 150, 150, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A grey block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>3</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(2, 149, 170, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A turquoise block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>4</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(244, 228, 9, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A yellow block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>5</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(188, 214, 67, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A green block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>6</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(240, 162, 2, 0.2); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;An orange block.</td>\r\n      </tr>\r\n      <tr>\r\n        <td style='text-align: center'>7 or more</td>\r\n        <td style='text-align: center'><span style='display: block; background: RGB(91,80, 122, 0.4); '>&nbsp;</span></td>\r\n        <td style='text-align: left'>&nbsp;&nbsp;A purple block.</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>"
+        },
+        {
+            "style": "Text",
+            "text": "<br/>For a new support level with one rejection, the dotted line marks the exact level on which price bounced. For further rejections, the blocks mark the rate ranges on which subsequent rejections are counted.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<br>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
+                    "updated": 1618062387108,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

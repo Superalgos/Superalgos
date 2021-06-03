@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ci sono un paio di cose da considerare ogni volta che cambi branch! Vediamone una lista prima di continuare!",
-                "updated": 1619634039951
+                "updated": 1619634039951,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Può succedere che il workspace o altri dati nel master branch non siano compatibili con quelli in altri branch.",
-                    "updated": 1619634081336
+                    "updated": 1619634081336,
+                    "style": "List"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Se il workspace corrente è incompatibile con il software di un altro branch, esso potrebbe corrompersi ricaricando l'app. In questo caso, carica uno dei Plugin Workspace del nuovo branch.",
-                    "updated": 1619634165746
+                    "updated": 1619634165746,
+                    "style": "List"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Anche la struttura dei dati estratti potrebbe essere cambiata!",
-                    "updated": 1619634182120
+                    "updated": 1619634182120,
+                    "style": "List"
                 }
             ]
         },
@@ -62,7 +66,8 @@
                 {
                     "language": "IT",
                     "text": "Leggi sempre il file README nel branch a cui vuoi accedere per leggere le note sulla retrocompatibilità. Prima di cambiare branches, fai un backup del tuo lavoro!",
-                    "updated": 1619634260507
+                    "updated": 1619634260507,
+                    "style": "Important"
                 }
             ]
         }

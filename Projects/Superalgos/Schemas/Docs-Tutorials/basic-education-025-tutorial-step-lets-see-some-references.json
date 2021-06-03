@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Nota i due nodi sotto Backtesting Session: Trading System Reference e Trading Engine Reference. A cosa servono questi nodi?",
-                "updated": 1619500944274
+                "updated": 1619500944274,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Backtesting Session deve referenziare il Trading System così da ottenere le regole per il trading. Deve anche avere un riferimento al Trading Engine così da avere info relative alla sessione di trading. Un nodo può però stabilire solo una reference in uscita!",
-                    "updated": 1619501079718
+                    "updated": 1619501079718,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Ecco perchè questi nodi esistono: sono un supporto per il nodo Backtesting Session, così che ognuno di essi abbia un collegamento in uscita con un altro nodo!",
-                    "updated": 1619501188069
+                    "updated": 1619501188069,
+                    "style": "Note"
                 }
             ]
         }

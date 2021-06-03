@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Il motivo per cui la distanza di un nodo dal padre è relativa alla distanza del padre dal proprio padre ti permette di modificare lunghe strutture di nodi!",
-                "updated": 1619460922873
+                "updated": 1619460922873,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Clicca una volta sul pulsante Distance to Parent del nodo Network!",
-                    "updated": 1619460938644
+                    "updated": 1619460938644,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Wow, hai visto? Questi strumenti ti permettono il pieno controllo su come organizzi visualmente le gerarchie!",
-                    "updated": 1619461000739
+                    "updated": 1619461000739,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Prova a cancellare la proprietà Distance To Parent sul nodo Testing Trading Tasks. Come vedi, puoi impostare una distanza arbitraria dal nodo padre, ma l'angolo con esso rimane fisso.",
-                    "updated": 1619461092123
+                    "updated": 1619461092123,
+                    "style": "Success"
                 }
             ]
         }

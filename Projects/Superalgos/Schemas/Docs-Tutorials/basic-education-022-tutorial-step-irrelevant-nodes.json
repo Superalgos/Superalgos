@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "I nodi che non appartengono a una gerarchia non sono calcolati. Esistono nel workspace, ma non influenzano i calcoli del sistema in alcun modo.",
-                "updated": 1619467123969
+                "updated": 1619467123969,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "È quindi possibile conservare un numero qualsiasi di nodi o strutture scollegati dalle gerarchie, per quanto tempo si desidera, tenendoli a disposizione per un uso futuro o per un qualsiasi altro motivo.",
-                    "updated": 1619467283026
+                    "updated": 1619467283026,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Uno scenario comune è mantenere versioni multiple di alcune configurazioni mentre si costruiscono strategie, così da poter testare un set di regole e cambiarlo con un altro al test successivo. È perfino possibile mantenere diverse versioni di intere strategie!",
-                    "updated": 1619467375126
+                    "updated": 1619467375126,
+                    "style": "Success"
                 }
             ]
         }

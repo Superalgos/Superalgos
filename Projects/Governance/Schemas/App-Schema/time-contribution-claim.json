@@ -1,5 +1,5 @@
 {
-    "type": "Feature Vote",
+    "type": "Time Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,9 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent Parent Parent",
-        "Use Reference Parent Parent",
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Parent"
     ],
     "editors": {
         "config": true
@@ -32,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Votes Switch->"
+        "compatibleTypes": "->Time Contributions Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Feature Class->Feature->"
+        "compatibleTypes": "->Ranking Position->"
     },
-    "propertyNameAtParent": "featureVotes",
-    "icon": "github-api"
+    "propertyNameAtParent": "timeContributionClaims",
+    "icon": "dogecoin"
 }

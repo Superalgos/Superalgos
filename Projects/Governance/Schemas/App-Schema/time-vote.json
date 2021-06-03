@@ -31,10 +31,10 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Contributed Time->"
+        "compatibleTypes": "->Time Contribution Claim->"
     },
     "propertyNameAtParent": "timeVotes",
     "icon": "dogecoin"

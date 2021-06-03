@@ -1,5 +1,5 @@
 {
-    "type": "Software Contributions",
+    "type": "Asset Contributions Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Software Contributions",
-            "relatedUiObject": "Software Contributions"
+            "label": "Add Asset Contributions Folder",
+            "relatedUiObject": "Asset Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Asset Contribution Claim",
+            "relatedUiObject": "Asset Contribution Claim"
         },
         {
             "action": "Delete UI Object",
@@ -39,20 +39,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Software Contributions->"
+        "compatibleTypes": "->Contribution Claims->Asset Contributions Folder->"
     },
-    "propertyNameAtParent": "softwareContributions",
+    "propertyNameAtParent": "assetContributionsFolder",
     "childrenNodesProperties": [
         {
-            "name": "softwareContributions",
+            "name": "assetContributionsFolder",
             "type": "array",
-            "childType": "Software Contributions",
+            "childType": "Asset Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "assetContributionClaims",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Asset Contribution Claim",
             "autoAdd": false
         }
     ],

@@ -10,27 +10,21 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Software Contributions",
-            "relatedUiObject": "Software Contributions",
+            "label": "Add Asset Contributions Folder",
+            "relatedUiObject": "Asset Contributions Folder",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions"
+            "label": "Add Feature Contributions Folder",
+            "relatedUiObject": "Feature Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Community Contributions",
-            "relatedUiObject": "Community Contributions"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions",
-            "relatedUiObject": "Time Contributions"
+            "label": "Add Time Contributions Folder",
+            "relatedUiObject": "Time Contributions Folder"
         },
         {
             "action": "Delete UI Object",
@@ -54,27 +48,21 @@
     "propertyNameAtParent": "contributionClaims",
     "childrenNodesProperties": [
         {
-            "name": "softwareContributions",
+            "name": "assetContributionsFolder",
             "type": "array",
-            "childType": "Software Contributions",
+            "childType": "Asset Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "marketingContributions",
+            "name": "featureContributionsFolder",
             "type": "array",
-            "childType": "Marketing Contributions",
+            "childType": "Feature Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "communityContributions",
+            "name": "timeContributionsFolder",
             "type": "array",
-            "childType": "Community Contributions",
-            "autoAdd": false
-        },
-        {
-            "name": "timeContributions",
-            "type": "array",
-            "childType": "Time Contributions",
+            "childType": "Time Contributions Folder",
             "autoAdd": false
         }
     ],

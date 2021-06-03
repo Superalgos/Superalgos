@@ -1,5 +1,5 @@
 {
-    "type": "Civic Contributions",
+    "type": "Votes Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Civic Contributions",
-            "relatedUiObject": "Civic Contributions"
+            "label": "Add Votes Switch",
+            "relatedUiObject": "Votes Switch"
         },
         {
             "action": "Add UI Object",
@@ -63,14 +63,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Votes Distribution->Civic Contributions->"
+        "compatibleTypes": "->Votes Distribution->Votes Switch->"
     },
-    "propertyNameAtParent": "civicContributions",
+    "propertyNameAtParent": "votesSwitch",
     "childrenNodesProperties": [
         {
-            "name": "civicContributions",
+            "name": "votesSwitch",
             "type": "array",
-            "childType": "Civic Contributions",
+            "childType": "Votes Switch",
             "autoAdd": false
         },
         {

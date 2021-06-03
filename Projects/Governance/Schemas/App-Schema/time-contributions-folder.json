@@ -1,5 +1,5 @@
 {
-    "type": "Marketing Contributions",
+    "type": "Time Contributions Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions"
+            "label": "Add Time Contributions Folder",
+            "relatedUiObject": "Time Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Time Contribution Claim",
+            "relatedUiObject": "Time Contribution Claim"
         },
         {
             "action": "Delete UI Object",
@@ -39,20 +39,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Marketing Contributions->"
+        "compatibleTypes": "->Contribution Claims->Time Contributions Folder->"
     },
-    "propertyNameAtParent": "marketingContributions",
+    "propertyNameAtParent": "timeContributionsFolder",
     "childrenNodesProperties": [
         {
-            "name": "marketingContributions",
+            "name": "timeContributionsFolder",
             "type": "array",
-            "childType": "Marketing Contributions",
+            "childType": "Time Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "timeContributionClaims",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Time Contribution Claim",
             "autoAdd": false
         }
     ],

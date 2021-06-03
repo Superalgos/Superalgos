@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Time",
+    "type": "Feature Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Time Contributions->"
+        "compatibleTypes": "->Feature Contributions Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Ranking Position->"
+        "compatibleTypes": "->Feature->"
     },
-    "propertyNameAtParent": "contributedTimes",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "featureContributionClaims",
+    "icon": "tron"
 }

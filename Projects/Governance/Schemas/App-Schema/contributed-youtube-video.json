@@ -35,7 +35,7 @@
     "attachingRules": {
         "compatibleTypes": "->Assets->Asset->"
     },
-    "propertyNameAtParent": "softwareContributions",
+    "propertyNameAtParent": "assetContributionsFolder",
     "childrenNodesProperties": [
         {
             "name": "assetClass",

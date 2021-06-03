@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Asset",
+    "type": "Asset Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Software Contributions->"
+        "compatibleTypes": "->Asset Contributions Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Asset->"
     },
-    "propertyNameAtParent": "contributedAssets",
+    "propertyNameAtParent": "assetContributionClaims",
     "icon": "tron"
 }

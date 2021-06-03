@@ -1,5 +1,5 @@
 {
-    "type": "Community Contributions",
+    "type": "Contribution Claims",
     "menuItems": [
         {
             "action": "Configure",
@@ -10,6 +10,18 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Software Contributions",
+            "relatedUiObject": "Software Contributions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Marketing Contributions",
+            "relatedUiObject": "Marketing Contributions"
+        },
+        {
+            "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Community Contributions",
             "relatedUiObject": "Community Contributions"
@@ -17,8 +29,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Time Contributions",
+            "relatedUiObject": "Time Contributions"
         },
         {
             "action": "Delete UI Object",
@@ -34,15 +46,25 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{\n\"codeName\": \"\"\n}"
     },
+    "isTitleAllwaysVisible": false,
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Community Contributions->"
-    },
-    "propertyNameAtParent": "communityContributions",
+    "level": 1,
+    "propertyNameAtParent": "contributionClaims",
     "childrenNodesProperties": [
+        {
+            "name": "softwareContributions",
+            "type": "array",
+            "childType": "Software Contributions",
+            "autoAdd": false
+        },
+        {
+            "name": "marketingContributions",
+            "type": "array",
+            "childType": "Marketing Contributions",
+            "autoAdd": false
+        },
         {
             "name": "communityContributions",
             "type": "array",
@@ -50,9 +72,9 @@
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "timeContributions",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Time Contributions",
             "autoAdd": false
         }
     ],

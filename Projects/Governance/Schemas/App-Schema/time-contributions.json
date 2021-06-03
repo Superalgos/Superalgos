@@ -1,5 +1,5 @@
 {
-    "type": "Community Contributions",
+    "type": "Time Contributions",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Community Contributions",
-            "relatedUiObject": "Community Contributions"
+            "label": "Add Time Contributions",
+            "relatedUiObject": "Time Contributions"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Contributed Time",
+            "relatedUiObject": "Contributed Time"
         },
         {
             "action": "Delete UI Object",
@@ -39,20 +39,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Community Contributions->"
+        "compatibleTypes": "->Contribution Claims->Time Contributions->"
     },
-    "propertyNameAtParent": "communityContributions",
+    "propertyNameAtParent": "timeContributions",
     "childrenNodesProperties": [
         {
-            "name": "communityContributions",
+            "name": "timeContributions",
             "type": "array",
-            "childType": "Community Contributions",
+            "childType": "Time Contributions",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "contributedTimes",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Contributed Time",
             "autoAdd": false
         }
     ],

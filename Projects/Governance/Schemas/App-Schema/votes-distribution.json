@@ -1,5 +1,5 @@
 {
-    "type": "Time Contributions",
+    "type": "Votes Distribution",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,16 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions",
-            "relatedUiObject": "Time Contributions"
+            "label": "Add Civic Contributions",
+            "relatedUiObject": "Civic Contributions"
         },
         {
             "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "referrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Time",
-            "relatedUiObject": "Contributed Time"
+            "label": "Add Referrer",
+            "relatedUiObject": "Referrer"
         },
         {
             "action": "Delete UI Object",
@@ -34,25 +36,18 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{\n\"codeName\": \"\"\n}"
     },
+    "isTitleAllwaysVisible": false,
+    "isHierarchyHead": false,
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->User Profile->Time Contributions->"
-    },
-    "propertyNameAtParent": "timeContributions",
+    "level": 1,
+    "propertyNameAtParent": "votesDistribution",
     "childrenNodesProperties": [
         {
-            "name": "timeContributions",
+            "name": "civicContributions",
             "type": "array",
-            "childType": "Time Contributions",
-            "autoAdd": false
-        },
-        {
-            "name": "contributedTimes",
-            "type": "array",
-            "childType": "Contributed Time",
+            "childType": "Civic Contributions",
             "autoAdd": false
         }
     ],

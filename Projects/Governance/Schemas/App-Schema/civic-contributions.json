@@ -63,7 +63,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->Civic Contributions->"
+        "compatibleTypes": "->Votes Distribution->Civic Contributions->"
     },
     "propertyNameAtParent": "civicContributions",
     "childrenNodesProperties": [

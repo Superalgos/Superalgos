@@ -39,7 +39,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->Marketing Contributions->"
+        "compatibleTypes": "->Contribution Claims->Marketing Contributions->"
     },
     "propertyNameAtParent": "marketingContributions",
     "childrenNodesProperties": [

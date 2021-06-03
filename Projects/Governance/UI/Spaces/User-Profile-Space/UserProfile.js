@@ -91,19 +91,22 @@ function newGovernanceUserProfileSpace() {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
-                if (node.type === 'User Profile' && property.name !== "civicContributions") { continue }
+                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
 
                 switch (property.type) {
                     case 'node': {
-                        // We will not follow this path.
+                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            let childNode = node[property.name]
+                            resetVotingPower(childNode)
+                        }
                     }
                         break
                     case 'array': {
                         let propertyArray = node[property.name]
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
-                                childNde = propertyArray[m]
-                                resetVotingPower(childNde)
+                                let childNode = propertyArray[m]
+                                resetVotingPower(childNode)
                             }
                         }
                         break
@@ -144,19 +147,22 @@ function newGovernanceUserProfileSpace() {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
-                if (node.type === 'User Profile' && property.name !== "civicContributions") { continue }
+                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
 
                 switch (property.type) {
                     case 'node': {
-                        // We will not follow this path.
+                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            let childNode = node[property.name]
+                            distributeVotingPower(childNode, votingPower)
+                        }
                     }
                         break
                     case 'array': {
                         let propertyArray = node[property.name]
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
-                                childNde = propertyArray[m]
-                                distributeVotingPower(childNde, votingPower / propertyArray.length)
+                                let childNode = propertyArray[m]
+                                distributeVotingPower(childNode, votingPower / propertyArray.length)
                             }
                         }
                         break

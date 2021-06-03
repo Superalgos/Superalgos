@@ -1,10 +1,10 @@
 {
-    "type": "Ranking",
+    "type": "Oranization Chart",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Ranking Position",
-            "relatedUiObject": "Ranking Position",
+            "label": "Add Position",
+            "relatedUiObject": "Position",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -23,9 +23,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "rankingPositions",
+            "name": "positions",
             "type": "array",
-            "childType": "Ranking Position",
+            "childType": "Position",
             "autoAdd": false
         }
     ],

@@ -17,8 +17,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Ranking Vote",
-            "relatedUiObject": "Ranking Vote"
+            "label": "Add Position Vote",
+            "relatedUiObject": "Position Vote"
         },
         {
             "action": "Add UI Object",
@@ -92,9 +92,9 @@
             "autoAdd": false
         },
         {
-            "name": "rankingVotes",
+            "name": "positionVotes",
             "type": "array",
-            "childType": "Ranking Vote",
+            "childType": "Position Vote",
             "autoAdd": false
         },
         {

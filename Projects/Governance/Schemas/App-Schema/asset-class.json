@@ -42,7 +42,7 @@
         "compatibleTypes": "->Assets->Asset Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Ranking Position->"
+        "compatibleTypes": "->Team->Position->"
     },
     "propertyNameAtParent": "assetClasses",
     "childrenNodesProperties": [

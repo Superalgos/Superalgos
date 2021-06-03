@@ -11,8 +11,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Ranking Position",
-            "relatedUiObject": "Ranking Position"
+            "label": "Add Position",
+            "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
@@ -39,14 +39,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Ranking Position->Team->"
+        "compatibleTypes": "->Position->Team->"
     },
     "propertyNameAtParent": "teams",
     "childrenNodesProperties": [
         {
-            "name": "rankingPositions",
+            "name": "positions",
             "type": "array",
-            "childType": "Ranking Position",
+            "childType": "Position",
             "autoAdd": false
         },
         {

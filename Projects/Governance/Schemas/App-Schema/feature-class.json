@@ -42,7 +42,7 @@
         "compatibleTypes": "->Features->Feature Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Ranking Position->"
+        "compatibleTypes": "->Team->Position->"
     },
     "propertyNameAtParent": "featureClasses",
     "childrenNodesProperties": [

@@ -1,5 +1,5 @@
 {
-    "type": "Ranking Vote",
+    "type": "Position Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -34,8 +34,8 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Ranking Position->"
+        "compatibleTypes": "->Team->Position->"
     },
-    "propertyNameAtParent": "rankingVotes",
+    "propertyNameAtParent": "positionVotes",
     "icon": "bitfinex"
 }

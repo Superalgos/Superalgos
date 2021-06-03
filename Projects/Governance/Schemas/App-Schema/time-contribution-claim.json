@@ -34,7 +34,7 @@
         "compatibleTypes": "->Time Contributions Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Ranking Position->"
+        "compatibleTypes": "->Position->"
     },
     "propertyNameAtParent": "timeContributionClaims",
     "icon": "dogecoin"

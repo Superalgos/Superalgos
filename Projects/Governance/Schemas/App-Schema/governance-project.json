@@ -15,8 +15,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Ranking",
-            "relatedUiObject": "Ranking",
+            "label": "Add Oranization Chart",
+            "relatedUiObject": "Oranization Chart",
             "actionFunction": "payload.executeAction"
         },
         {

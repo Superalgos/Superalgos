@@ -1,0 +1,86 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "12",
+    "type": "TPSL Bands",
+    "definition": {
+        "text": "This indicator is not a signal generating indicator but rather one of many methods of generating Take Profit and Stop Loss levels.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "The primary usage of this indicator is for the data found in the panel and to reference from your Trading System although it does come with a plotter in case you'd like to view the levels on your chart. You set the parameters at the data mining task => indicator bot instance as the default values (below) are arbitrary and based on relativeMovingAverage(trueRange).",
+            "updated": 1622695020858
+        },
+        {
+            "style": "Title",
+            "text": "Default Values:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "periods = 15;  (for calculation of the ATR)",
+            "updated": 1622694577540
+        },
+        {
+            "style": "Text",
+            "text": "take profit multiplier (of ATR) = 1;     (i.e.- 100% of ATR.)",
+            "updated": 1622694767558
+        },
+        {
+            "style": "Text",
+            "text": "Stop Loss Multiplier (of ATR) = 1.5; (i.e.- 150% of ATR.)",
+            "updated": 1622695076620
+        },
+        {
+            "style": "Text",
+            "text": "*Note* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
+            "updated": 1622695096382
+        },
+        {
+            "style": "Title",
+            "text": "Parameters for Indicator Bot Instance:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "parameters at Indicator Bot Instance should look like this:",
+            "updated": 1622694828029
+        },
+        {
+            "style": "Text",
+            "text": "{"
+        },
+        {
+            "style": "Text",
+            "text": "<b>\"periods\": value,",
+            "updated": 1622694892884
+        },
+        {
+            "style": "Text",
+            "text": "\"tpMult\": value,"
+        },
+        {
+            "style": "Text",
+            "text": "\"slMult\": value"
+        },
+        {
+            "style": "Text",
+            "text": "</b>}"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

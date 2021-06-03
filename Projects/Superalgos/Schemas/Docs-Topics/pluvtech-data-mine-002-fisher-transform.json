@@ -1,0 +1,33 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "2",
+    "type": "Fisher Transform",
+    "definition": {
+        "text": "The Fisher Transform - An attempt to normalize a non-normal distribution.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "A technical indicator created by John F. Ehlers that converts prices into a Gaussian normal distribution. The indicator highlights when prices have moved to an extreme, based on recent prices. This may help in spotting turning points in the price of an asset. It also helps show the trend and isolate the price waves within a trend."
+        },
+        {
+            "style": "Link",
+            "text": "Fisher Transform - (investopedia)->www.investopedia.com/terms/f/fisher-transform.asp"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

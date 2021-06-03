@@ -1,0 +1,70 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "1",
+    "type": "Pluvtech by @Pluvtech",
+    "definition": {
+        "text": "The Pluvtech Data Mine features several indicators as listed below. These indicator's parameters can be adjusted at the Indicator Bot Instance under the applicable Data Mining Task Node (The defaults for most are arbitrary). Now go make some money!",
+        "updated": 1622696926695
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Pluvtech Indicators:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "1.) Fisher Transform",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "2.) Waddah Attar"
+        },
+        {
+            "style": "Text",
+            "text": "3.) MACD"
+        },
+        {
+            "style": "Text",
+            "text": "4.) Hull Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "5.) Exponential Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "6.) McGinley Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "7.) Simple Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "8.) Weighted Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "9.) Volume Weighted Moving Average"
+        },
+        {
+            "style": "Text",
+            "text": "10.) Fibonacci Bollinger Bands"
+        },
+        {
+            "style": "Text",
+            "text": "11.) TPSL Bands"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

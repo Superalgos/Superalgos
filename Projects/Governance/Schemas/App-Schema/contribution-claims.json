@@ -42,7 +42,9 @@
     "initialValues": {
         "config": "{\n\"codeName\": \"\"\n}"
     },
-    "isTitleAllwaysVisible": false,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
     "addLeftIcons": true,
     "level": 1,
     "propertyNameAtParent": "contributionClaims",

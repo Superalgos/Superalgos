@@ -38,8 +38,9 @@
     "initialValues": {
         "config": "{\n\"codeName\": \"\"\n}"
     },
-    "isTitleAllwaysVisible": false,
-    "isHierarchyHead": false,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
     "addLeftIcons": true,
     "level": 1,
     "propertyNameAtParent": "votesDistribution",

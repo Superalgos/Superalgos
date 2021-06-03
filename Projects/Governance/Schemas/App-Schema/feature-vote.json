@@ -1,5 +1,5 @@
 {
-    "type": "Feature Vote",
+    "type": "Feature Weight Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -37,6 +37,6 @@
     "referencingRules": {
         "compatibleTypes": "->Feature Class->Feature->"
     },
-    "propertyNameAtParent": "featureVotes",
+    "propertyNameAtParent": "featureWeightVotes",
     "icon": "github-api"
 }

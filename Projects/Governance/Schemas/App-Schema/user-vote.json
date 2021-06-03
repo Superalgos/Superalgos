@@ -1,5 +1,5 @@
 {
-    "type": "User Vote",
+    "type": "User Vote Transfer",
     "menuItems": [
         {
             "action": "Configure",
@@ -35,6 +35,6 @@
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userVotes",
+    "propertyNameAtParent": "userVoteTransfers",
     "icon": "user-profile"
 }

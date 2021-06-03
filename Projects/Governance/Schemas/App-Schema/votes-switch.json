@@ -17,20 +17,20 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position Vote",
-            "relatedUiObject": "Position Vote"
+            "label": "Add Position Weight Vote",
+            "relatedUiObject": "Position Weight Vote"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Vote",
-            "relatedUiObject": "Asset Vote"
+            "label": "Add Asset Weight Vote",
+            "relatedUiObject": "Asset Weight Vote"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature Vote",
-            "relatedUiObject": "Feature Vote"
+            "label": "Add Feature Weight Vote",
+            "relatedUiObject": "Feature Weight Vote"
         },
         {
             "action": "Add UI Object",
@@ -41,8 +41,8 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add User Vote",
-            "relatedUiObject": "User Vote"
+            "label": "Add User Vote Transfer",
+            "relatedUiObject": "User Vote Transfer"
         },
         {
             "action": "Delete UI Object",
@@ -74,15 +74,15 @@
             "autoAdd": false
         },
         {
-            "name": "assetVotes",
+            "name": "assetWeightVotes",
             "type": "array",
-            "childType": "Asset Vote",
+            "childType": "Asset Weight Vote",
             "autoAdd": false
         },
         {
-            "name": "featureVotes",
+            "name": "featureWeightVotes",
             "type": "array",
-            "childType": "Feature Vote",
+            "childType": "Feature Weight Vote",
             "autoAdd": false
         },
         {
@@ -92,15 +92,15 @@
             "autoAdd": false
         },
         {
-            "name": "positionVotes",
+            "name": "positionWeightVotes",
             "type": "array",
-            "childType": "Position Vote",
+            "childType": "Position Weight Vote",
             "autoAdd": false
         },
         {
-            "name": "userVotes",
+            "name": "userVoteTransfers",
             "type": "array",
-            "childType": "User Vote",
+            "childType": "User Vote Transfer",
             "autoAdd": false
         }
     ],

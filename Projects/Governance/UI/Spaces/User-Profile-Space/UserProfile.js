@@ -62,6 +62,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     function resetVotingPower(node) {
+        if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.votingPower = 0
         /*
@@ -117,6 +118,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     function distributeVotingPower(node, votingPower) {
+        if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.votingPower = node.payload.votingPower + votingPower
         drawVotingPower(node, node.payload.votingPower)
@@ -175,7 +177,11 @@ function newGovernanceUserProfileSpace() {
     function drawVotingPower(node, votingPower) {
         votingPower = new Intl.NumberFormat().format(votingPower) + ' ' + 'SA'
         if (node.payload !== undefined) {
-            node.payload.uiObject.valueAtAngle = false
+            if (node.type === 'User Profile') {
+                return
+            }
+            node.payload.uiObject.valueAngleOffset = 180
+            node.payload.uiObject.valueAtAngle = true
             node.payload.uiObject.setValue(votingPower)
         }
     }

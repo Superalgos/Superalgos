@@ -29,6 +29,7 @@ function newUiObject() {
         hasWarning: undefined,
         hasInfo: undefined,
         valueAtAngle: true,
+        valueAngleOffset: 0,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -1827,8 +1828,8 @@ function newUiObject() {
                         x: position.x - getTextWidth(label) / 2,
                         y: position.y
                     }
-                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle))
-                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle))
+                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
+                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
                 } else {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {

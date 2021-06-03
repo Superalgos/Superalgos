@@ -1,5 +1,5 @@
 {
-    "type": "Asset Vote",
+    "type": "Asset Weight Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -38,6 +38,6 @@
     "referencingRules": {
         "compatibleTypes": "->Asset Class->Asset->"
     },
-    "propertyNameAtParent": "assetVotes",
+    "propertyNameAtParent": "assetWeightVotes",
     "icon": "EN"
 }

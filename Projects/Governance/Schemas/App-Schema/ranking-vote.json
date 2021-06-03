@@ -1,5 +1,5 @@
 {
-    "type": "Position Vote",
+    "type": "Position Weight Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -36,6 +36,6 @@
     "referencingRules": {
         "compatibleTypes": "->Team->Position->"
     },
-    "propertyNameAtParent": "positionVotes",
+    "propertyNameAtParent": "positionWeightVotes",
     "icon": "bitfinex"
 }

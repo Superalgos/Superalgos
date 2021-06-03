@@ -1,5 +1,5 @@
 {
-    "type": "Asset",
+    "type": "Pools",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Class",
-            "relatedUiObject": "Asset Class"
+            "label": "Add Pool Class",
+            "relatedUiObject": "Pool Class"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset",
-            "relatedUiObject": "Asset"
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
         },
         {
             "action": "Delete UI Object",
@@ -34,27 +34,23 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\" \n}"
+        "config": "{\n  \"token\": \"\"\n}"
     },
+    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Asset Class->Asset->"
-    },
-    "propertyNameAtParent": "assets",
+    "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "assetClasses",
+            "name": "poolClasses",
             "type": "array",
-            "childType": "Asset Class",
+            "childType": "Pool Class",
             "autoAdd": false
         },
         {
-            "name": "assets",
+            "name": "pools",
             "type": "array",
-            "childType": "Asset",
+            "childType": "Pool",
             "autoAdd": false
         }
-    ],
-    "icon": "EN"
+    ]
 }

@@ -3,6 +3,12 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "label": "Add Pools",
+            "relatedUiObject": "Pools",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Assets",
             "relatedUiObject": "Assets",
             "actionFunction": "payload.executeAction"
@@ -15,8 +21,8 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Oranization Chart",
-            "relatedUiObject": "Oranization Chart",
+            "label": "Add Organization Chart",
+            "relatedUiObject": "Organization Chart",
             "actionFunction": "payload.executeAction"
         },
         {

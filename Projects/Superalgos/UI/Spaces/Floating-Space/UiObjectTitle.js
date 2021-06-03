@@ -122,7 +122,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Type': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
                         }

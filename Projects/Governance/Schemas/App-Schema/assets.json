@@ -25,10 +25,7 @@
     ],
     "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 1,
-    "attachingRules": {
-        "compatibleTypes": "->Superalgos Release->"
-    },
+    "level": 0,
     "childrenNodesProperties": [
         {
             "name": "assetClasses",

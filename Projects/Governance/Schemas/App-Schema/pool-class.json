@@ -1,5 +1,5 @@
 {
-    "type": "Position",
+    "type": "Pool Class",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position",
-            "relatedUiObject": "Position"
+            "label": "Add Pool Class",
+            "relatedUiObject": "Pool Class"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
         },
         {
             "action": "Delete UI Object",
@@ -39,22 +39,24 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Oranization Chart->Position->Team->"
+        "compatibleTypes": "->Pools->Pool Class->"
     },
-    "propertyNameAtParent": "positions",
+    "referencingRules": {
+        "compatibleTypes": "->Team->Position->"
+    },
+    "propertyNameAtParent": "poolClasses",
     "childrenNodesProperties": [
         {
-            "name": "positions",
+            "name": "poolClasses",
             "type": "array",
-            "childType": "Position",
+            "childType": "Pool Class",
             "autoAdd": false
         },
         {
-            "name": "teams",
+            "name": "pools",
             "type": "array",
-            "childType": "Team",
+            "childType": "Pool",
             "autoAdd": false
         }
-    ],
-    "icon": "bitfinex"
+    ]
 }

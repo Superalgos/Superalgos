@@ -1,6 +1,12 @@
 {
-    "type": "Oranization Chart",
+    "type": "Organization Chart",
     "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Team",
+            "relatedUiObject": "Team"
+        },
         {
             "action": "Add UI Object",
             "label": "Add Position",
@@ -17,11 +23,16 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isTitleAllwaysVisible": false,
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
     "childrenNodesProperties": [
+        {
+            "name": "teams",
+            "type": "array",
+            "childType": "Team",
+            "autoAdd": false
+        },
         {
             "name": "positions",
             "type": "array",

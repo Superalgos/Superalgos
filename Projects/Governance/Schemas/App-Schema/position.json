@@ -1,5 +1,5 @@
 {
-    "type": "Asset",
+    "type": "Position",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Class",
-            "relatedUiObject": "Asset Class"
+            "label": "Add Position",
+            "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset",
-            "relatedUiObject": "Asset"
+            "label": "Add Team",
+            "relatedUiObject": "Team"
         },
         {
             "action": "Delete UI Object",
@@ -39,22 +39,22 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Asset Class->Asset->"
+        "compatibleTypes": "->Organization Chart->Position->Team->"
     },
-    "propertyNameAtParent": "assets",
+    "propertyNameAtParent": "positions",
     "childrenNodesProperties": [
         {
-            "name": "assetClasses",
+            "name": "positions",
             "type": "array",
-            "childType": "Asset Class",
+            "childType": "Position",
             "autoAdd": false
         },
         {
-            "name": "assets",
+            "name": "teams",
             "type": "array",
-            "childType": "Asset",
+            "childType": "Team",
             "autoAdd": false
         }
     ],
-    "icon": "EN"
+    "icon": "bitfinex"
 }

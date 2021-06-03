@@ -1,0 +1,20 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "10",
+    "type": "Volume Weighted Moving Average",
+    "definition": {
+        "text": "The Volume-Weighted Moving Average (VWMA) emphasizes volume by weighing prices based on the amount of trading activity in a given period of time. In periods of low market volume, the SMA and the VWMA are close in value. The indicator can be used to identify and trade trends.",
+        "updated": 1622696264788
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Candles Volumes in Action",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-bot-instance"
+        },
+        "text": "That's right! Indicators will start working as soon as the sensor bot finishes her job!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Esatto! Gli indicatori cominceranno a lavorare non appena il sensor bot avrà finito il suo lavoro!",
+                "updated": 1614720705287,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Betul banget! Indicators akan langsung bekerja sesaat sensor bot selesai dengan pekerjaannya!",
+                "updated": 1616697966006,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Así es. Los indicadores comenzarán a funcionar tan pronto como el sensor bot termine su trabajo.",
+                "updated": 1618434927541,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You're watching the processes of Candles Volumes. She turns the one-minute candles the sensor bot downloads from the exchange into candles for all time frames.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ciò che vedi é il processo del Candles Volumes: trasforma le candele sul periodo di un minuto che il sensor bot scarica dall'exchange in candele per tutti i periodi temporali.",
+                    "updated": 1614721117562,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sedang melihat proses dari Candles Volumes. Dia mengubah candle one-minute sensor bot dari exchange menjadi candle all time frames.",
+                    "updated": 1616698088483,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estás viendo los procesos de Volúmenes de Velas. Convierte las velas de un minuto que el sensor bot descarga del Exchange en velas para las diferentes temporalidades.",
+                    "updated": 1618435042108,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "What happens after she finishes?",
+            "updated": 1611076432059,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Che succede dopo che ha terminato?",
+                    "updated": 1614720863282,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Apa yang terjadi jika dia selesai?",
+                    "updated": 1616698342102,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Que pasa cuando el bot acaba?",
+                    "updated": 1618435057332,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Other bots need Candles Volumes to finish her work so that they may start doing theirs. Imagine a bot needs to calculate a 20-periods Simple Moving Average for all time frames. She needs the Data Product produced by Candles Volumes as input for the SMA calculation. We call such a need a Data Dependency.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Altri bot hanno bisogno che la Candles Volumes termini, prima di iniziare il loro compito. Immagina un bot che calcoli SMA-20 su tutti i time-frame: ha bisogno di un Data Product come input, risultato del Candles Volumes. Questo rapporto si chiama Data Dependency.",
+                    "updated": 1614788007733,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Bot lainnya membutuhkan Candles Volumes selesai diproses agar memulai pekerjaan. Bayangkan bot mengkalkulasi 20-periods Simple Moving Average untuk all time frames. Dia butuh Data Productdari Candles Volumes yang diinput untuk kalkulasi SMA. Kami menamakan dia Data Dependency.",
+                    "updated": 1616698324324,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Otros bots necesitan que Candles Volumes acabe, para poder iniciarse. Imagina que un bot necesita calcular una SMA de 20 periodos en todas las temporalidades. Necesita el Data Product de Candles Volumes como entrada para el cálculo de la SMA. Llamamos a esto una Dependencia de Datos. **Note Shorten so it fits on window",
+                    "updated": 1618435361110,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

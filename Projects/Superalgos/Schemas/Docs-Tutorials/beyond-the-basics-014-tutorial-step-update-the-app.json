@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Il comando App Update scarica l'ultima versione del software dalla repo originale nel Current Branch!",
-                "updated": 1619635188773
+                "updated": 1619635188773,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Puoi usare questo comando su una qualsiasi delle branch! Eccolo:",
-                    "updated": 1619635221928
+                    "updated": 1619635221928,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,7 +43,8 @@
                 {
                     "language": "IT",
                     "text": "Copia e lancia il comando!",
-                    "updated": 1619635232561
+                    "updated": 1619635232561,
+                    "style": "Callout"
                 }
             ]
         },
@@ -53,7 +56,8 @@
                 {
                     "language": "IT",
                     "text": "Una volta che l'update è completo, dovrai chiudere l'app, riavviarla, cercare il tutorial e proseguire, proprio come hai fatto prima!",
-                    "updated": 1619635269785
+                    "updated": 1619635269785,
+                    "style": "Success"
                 }
             ]
         }

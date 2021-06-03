@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
-                "updated": 1619590461442
+                "updated": 1619590461442,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
-                    "updated": 1619590579206
+                    "updated": 1619590579206,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
-                    "updated": 1619590641442
+                    "updated": 1619590641442,
+                    "style": "Success"
                 }
             ]
         }

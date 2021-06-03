@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ì dati che hai scaricato dagli exchange e processato con gli indicatori è disponibile ovunque e accessibile da ogni workspace e strategia.",
-                "updated": 1619591708965
+                "updated": 1619591708965,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "I dati sono salvati nella cartella Data-Storage e organizzati per Progetto, Data Mine, Bot e Market. Non importa quale workspace hai usato per estrarre dati o processare indicatori.",
-                    "updated": 1619591759698
+                    "updated": 1619591759698,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "I dati sono disponibili a tutti i workspace per permetterti di lavorare con le stesse data source indipendentemente da cosa stai facendo.",
-                    "updated": 1619591804048
+                    "updated": 1619591804048,
+                    "style": "Note"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Non esiste una utilità di data management nell'app. Usa il file system della tua macchina!",
-                    "updated": 1619591845921
+                    "updated": 1619591845921,
+                    "style": "Success"
                 }
             ]
         }

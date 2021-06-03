@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ci sei ancora? Ormai, con due tutorial completati sul tuo curriculum, sei di famiglia! Benvenuto nella Community!",
-                "updated": 1619631145148
+                "updated": 1619631145148,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "In questo tutorial imparerai come tenere aggiornato il sistema, usare la sua command-line, cambiare branches e altri trucchi utili!",
-                    "updated": 1619631204346
+                    "updated": 1619631204346,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Le skill che imparerai ti permetteranno anche di iniziare a contribuire al progetto! Ricorda, questo è un progetto basato sulla community... Ci si aspetta che ognuno di noi faccia quel che può per aiutare e migliorare il software!",
-                    "updated": 1619631313456
+                    "updated": 1619631313456,
+                    "style": "Note"
                 }
             ]
         },

@@ -385,6 +385,7 @@ function newWorkspace() {
                                 thisObject.isInitialized = true
                                 saveWorkspace()
                                 runTasksAndSessions()
+                                playTutorials()
                             }
                         }
                         break

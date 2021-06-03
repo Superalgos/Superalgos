@@ -1,5 +1,5 @@
 {
-    "type": "Ranking Position",
+    "type": "Pools",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Ranking Position",
-            "relatedUiObject": "Ranking Position"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
         },
         {
             "action": "Delete UI Object",
@@ -34,27 +34,23 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n  \"token\": \"\"\n}"
     },
+    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Ranking->Ranking Position->Team->"
-    },
-    "propertyNameAtParent": "rankingPositions",
+    "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "rankingPositions",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Ranking Position",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {
-            "name": "teams",
+            "name": "pools",
             "type": "array",
-            "childType": "Team",
+            "childType": "Pool",
             "autoAdd": false
         }
-    ],
-    "icon": "bitfinex"
+    ]
 }

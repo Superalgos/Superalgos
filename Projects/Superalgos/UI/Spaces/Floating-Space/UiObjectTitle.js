@@ -122,7 +122,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Type': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
                         }
@@ -189,14 +189,14 @@ function newUiObjectTitle() {
                             thisObject.payload.title = thisObject.payload.title + separator + childNode.name
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + childNode.name
                         }
-                        if (titleReference.indexOf('Find Node Type->') === 0) {
+                        if (titleReference.indexOf('Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
                             let nodeToUse = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.node,
                                 nodeType,
                                 undefined,
                                 true,
-                                true,
+                                false,
                                 true,
                                 false
                             )
@@ -204,14 +204,14 @@ function newUiObjectTitle() {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.name
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.name
                         }
-                        if (titleReference.indexOf('Reference Parent Find Node Type->') === 0) {
+                        if (titleReference.indexOf('Reference Parent Find In Parents Node Type->') === 0) {
                             let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
                             let nodeToUse = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(
                                 thisObject.payload.referenceParent,
                                 nodeType,
                                 undefined,
                                 true,
-                                true,
+                                false,
                                 true,
                                 false
                             )

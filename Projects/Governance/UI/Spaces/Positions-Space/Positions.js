@@ -1,5 +1,5 @@
-function newGovernanceRankingSpace() {
-    const MODULE_NAME = 'Ranking Space'
+function newGovernancePositionsSpace() {
+    const MODULE_NAME = 'Positions Space'
 
     let thisObject = {
         container: undefined,
@@ -27,7 +27,7 @@ function newGovernanceRankingSpace() {
     }
 
     function physics() {
-     
+
     }
 
     function getContainer(point) {

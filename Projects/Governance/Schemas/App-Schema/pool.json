@@ -1,5 +1,5 @@
 {
-    "type": "Community Contributions",
+    "type": "Pool",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Community Contributions",
-            "relatedUiObject": "Community Contributions"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
         },
         {
             "action": "Delete UI Object",
@@ -39,22 +39,24 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->Community Contributions->"
+        "compatibleTypes": "->Tokens Switch->Pool->"
     },
-    "propertyNameAtParent": "communityContributions",
+    "referencingRules": {
+        "compatibleTypes": "->Positions->Assets->Features->"
+    },
+    "propertyNameAtParent": "pools",
     "childrenNodesProperties": [
         {
-            "name": "communityContributions",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Community Contributions",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "pools",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Pool",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

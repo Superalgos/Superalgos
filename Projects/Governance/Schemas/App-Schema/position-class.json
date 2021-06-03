@@ -1,5 +1,5 @@
 {
-    "type": "Team",
+    "type": "Position Class",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Ranking Position",
-            "relatedUiObject": "Ranking Position"
+            "label": "Add Position",
+            "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Team",
-            "relatedUiObject": "Team"
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
         },
         {
             "action": "Delete UI Object",
@@ -39,20 +39,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Ranking Position->Team->"
+        "compatibleTypes": "->Position->Position Class->"
     },
-    "propertyNameAtParent": "teams",
+    "propertyNameAtParent": "positionClasss",
     "childrenNodesProperties": [
         {
-            "name": "rankingPositions",
+            "name": "positions",
             "type": "array",
-            "childType": "Ranking Position",
+            "childType": "Position",
             "autoAdd": false
         },
         {
-            "name": "teams",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Team",
+            "childType": "Position Class",
             "autoAdd": false
         }
     ],

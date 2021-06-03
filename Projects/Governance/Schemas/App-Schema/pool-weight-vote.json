@@ -1,5 +1,5 @@
 {
-    "type": "Ranking Vote",
+    "type": "Pool Weight Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,8 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent Parent",
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Type"
     ],
     "editors": {
         "config": true
@@ -31,11 +31,10 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Team->Ranking Position->"
+        "compatibleTypes": "->Tokens Switch->Pool->"
     },
-    "propertyNameAtParent": "rankingVotes",
-    "icon": "bitfinex"
+    "propertyNameAtParent": "poolWeightVotes"
 }

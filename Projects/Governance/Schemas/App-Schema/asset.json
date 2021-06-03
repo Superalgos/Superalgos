@@ -34,15 +34,12 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n  \"description\": \"\" \n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
         "compatibleTypes": "->Asset Class->Asset->"
-    },
-    "referencingRules": {
-        "compatibleTypes": "->Team->Ranking Position->"
     },
     "propertyNameAtParent": "assets",
     "childrenNodesProperties": [

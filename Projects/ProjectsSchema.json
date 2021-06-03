@@ -1010,10 +1010,10 @@
             ],
             "spaces": [
                 {
-                    "name": "Assets Space",
-                    "folderName": "Assets-Space",
-                    "propertyName": "assetsSpace",
-                    "functionName": "newGobernanceAssetsSpace",
+                    "name": "User Profile Space",
+                    "folderName": "User-Profile-Space",
+                    "propertyName": "userProfileSpace",
+                    "functionName": "newGovernanceUserProfileSpace",
                     "initializationIndex": 0,
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 0,
@@ -1023,10 +1023,10 @@
                     "onMouseDownIndex": 0
                 },
                 {
-                    "name": "Ranking Space",
-                    "folderName": "Ranking-Space",
-                    "propertyName": "rankingSpace",
-                    "functionName": "newGovernanceRankingSpace",
+                    "name": "Assets Space",
+                    "folderName": "Assets-Space",
+                    "propertyName": "assetsSpace",
+                    "functionName": "newGobernanceAssetsSpace",
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 1,
@@ -1036,10 +1036,10 @@
                     "onMouseDownIndex": 1
                 },
                 {
-                    "name": "User Contributions Space",
-                    "folderName": "User-Contributions-Space",
-                    "propertyName": "userContributionsSpace",
-                    "functionName": "newGovernanceUserContributionsSpace",
+                    "name": "Features Space",
+                    "folderName": "Features-Space",
+                    "propertyName": "featuresSpace",
+                    "functionName": "newGovernanceFeaturesSpace",
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 2,
@@ -1047,6 +1047,32 @@
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 2,
                     "onMouseDownIndex": 2
+                },
+                {
+                    "name": "Positions Space",
+                    "folderName": "Positions-Space",
+                    "propertyName": "positionsSpace",
+                    "functionName": "newGovernancePositionsSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 3,
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
+                },
+                {
+                    "name": "Pools Space",
+                    "folderName": "Pools-Space",
+                    "propertyName": "poolsSpace",
+                    "functionName": "newGovernancePoolsSpace",
+                    "initializationIndex": 4,
+                    "animationPhysicsIndex": 4,
+                    "animationDrawIndex": 4,
+                    "onMouseWheelIndex": 4,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 }
             ]
         },

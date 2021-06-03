@@ -1,5 +1,5 @@
 {
-    "type": "User Vote",
+    "type": "Asset Claim Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,6 +19,7 @@
         }
     ],
     "title": [
+        "Reference Parent Find In Parents Node Type->User Profile",
         "Use Reference Parent"
     ],
     "editors": {
@@ -30,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Asset Contribution Claim->"
     },
-    "propertyNameAtParent": "userVotes",
-    "icon": "user-profile"
+    "propertyNameAtParent": "assetClaimVotes",
+    "icon": "EN"
 }

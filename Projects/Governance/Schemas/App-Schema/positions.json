@@ -1,10 +1,16 @@
 {
-    "type": "Ranking",
+    "type": "Positions",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Ranking Position",
-            "relatedUiObject": "Ranking Position",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Position",
+            "relatedUiObject": "Position",
             "actionFunction": "payload.executeAction"
         },
         {
@@ -17,15 +23,20 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isTitleAllwaysVisible": false,
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "rankingPositions",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Ranking Position",
+            "childType": "Position Class",
+            "autoAdd": false
+        },
+        {
+            "name": "positions",
+            "type": "array",
+            "childType": "Position",
             "autoAdd": false
         }
     ],

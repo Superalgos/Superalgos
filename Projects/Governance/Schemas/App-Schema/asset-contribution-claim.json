@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Time",
+    "type": "Asset Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Time Contributions->"
+        "compatibleTypes": "->Asset Contributions Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Ranking Position->"
+        "compatibleTypes": "->Asset->"
     },
-    "propertyNameAtParent": "contributedTimes",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "assetContributionClaims",
+    "icon": "tron"
 }

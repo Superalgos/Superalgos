@@ -1,5 +1,5 @@
 {
-    "type": "Feature Class",
+    "type": "Contribution Claims",
     "menuItems": [
         {
             "action": "Configure",
@@ -10,15 +10,21 @@
         },
         {
             "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Feature Class",
-            "relatedUiObject": "Feature Class"
+            "label": "Add Asset Contributions Folder",
+            "relatedUiObject": "Asset Contributions Folder",
+            "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature",
-            "relatedUiObject": "Feature"
+            "label": "Add Feature Contributions Folder",
+            "relatedUiObject": "Feature Contributions Folder"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Contributions Folder",
+            "relatedUiObject": "Position Contributions Folder"
         },
         {
             "action": "Delete UI Object",
@@ -34,30 +40,33 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n\"codeName\": \"\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
     },
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Features->Feature Class->"
-    },
-    "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
-    },
-    "propertyNameAtParent": "featureClasses",
+    "level": 1,
+    "propertyNameAtParent": "contributionClaims",
     "childrenNodesProperties": [
         {
-            "name": "featureClasses",
+            "name": "assetContributionsFolder",
             "type": "array",
-            "childType": "Feature Class",
+            "childType": "Asset Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "features",
+            "name": "featureContributionsFolder",
             "type": "array",
-            "childType": "Feature",
+            "childType": "Feature Contributions Folder",
+            "autoAdd": false
+        },
+        {
+            "name": "positionContributionsFolder",
+            "type": "array",
+            "childType": "Position Contributions Folder",
             "autoAdd": false
         }
     ],
-    "icon": "zar"
+    "icon": "bitcoin"
 }

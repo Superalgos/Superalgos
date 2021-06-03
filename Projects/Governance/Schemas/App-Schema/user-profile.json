@@ -10,33 +10,27 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Software Contributions",
-            "relatedUiObject": "Software Contributions",
-            "actionFunction": "payload.executeAction"
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "contributionClaims",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Contribution Claims",
+            "relatedUiObject": "Contribution Claims"
         },
         {
             "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votesDistribution",
             "actionFunction": "payload.executeAction",
-            "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions"
+            "label": "Add Votes Distribution",
+            "relatedUiObject": "Votes Distribution"
         },
         {
             "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "referrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Community Contributions",
-            "relatedUiObject": "Community Contributions"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions",
-            "relatedUiObject": "Time Contributions"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Civic Contributions",
-            "relatedUiObject": "Civic Contributions"
+            "label": "Add Referrer",
+            "relatedUiObject": "Referrer"
         },
         {
             "action": "Delete UI Object",
@@ -60,33 +54,21 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "softwareContributions",
-            "type": "array",
-            "childType": "Software Contributions",
+            "name": "contributionClaims",
+            "type": "node",
+            "childType": "Contribution Claims",
             "autoAdd": false
         },
         {
-            "name": "marketingContributions",
-            "type": "array",
-            "childType": "Marketing Contributions",
+            "name": "votesDistribution",
+            "type": "node",
+            "childType": "Votes Distribution",
             "autoAdd": false
         },
         {
-            "name": "communityContributions",
-            "type": "array",
-            "childType": "Community Contributions",
-            "autoAdd": false
-        },
-        {
-            "name": "timeContributions",
-            "type": "array",
-            "childType": "Time Contributions",
-            "autoAdd": false
-        },
-        {
-            "name": "civicContributions",
-            "type": "array",
-            "childType": "Civic Contributions",
+            "name": "referrer",
+            "type": "node",
+            "childType": "Referrer",
             "autoAdd": false
         }
     ]

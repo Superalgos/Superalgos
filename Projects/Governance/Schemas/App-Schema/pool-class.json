@@ -1,5 +1,5 @@
 {
-    "type": "Marketing Contributions",
+    "type": "Tokens Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Marketing Contributions",
-            "relatedUiObject": "Marketing Contributions"
+            "label": "Add Tokens Switch",
+            "relatedUiObject": "Tokens Switch"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Asset",
-            "relatedUiObject": "Contributed Asset"
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
         },
         {
             "action": "Delete UI Object",
@@ -34,27 +34,29 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->Marketing Contributions->"
+        "compatibleTypes": "->Pools->Tokens Switch->"
     },
-    "propertyNameAtParent": "marketingContributions",
+    "referencingRules": {
+        "compatibleTypes": "->Position Class->Position->"
+    },
+    "propertyNameAtParent": "tokensSwitches",
     "childrenNodesProperties": [
         {
-            "name": "marketingContributions",
+            "name": "tokensSwitches",
             "type": "array",
-            "childType": "Marketing Contributions",
+            "childType": "Tokens Switch",
             "autoAdd": false
         },
         {
-            "name": "contributedAssets",
+            "name": "pools",
             "type": "array",
-            "childType": "Contributed Asset",
+            "childType": "Pool",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Youtube Video",
+    "type": "Position Claim Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -7,12 +7,6 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add UI Object",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Asset",
-            "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
@@ -24,6 +18,10 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "title": [
+        "Reference Parent Find In Parents Node Type->User Profile",
+        "Use Reference Parent"
+    ],
     "editors": {
         "config": true
     },
@@ -33,16 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Assets->Asset->"
+        "compatibleTypes": "->Votes Switch->"
     },
-    "propertyNameAtParent": "assetContributionsFolder",
-    "childrenNodesProperties": [
-        {
-            "name": "assetClass",
-            "type": "array",
-            "childType": "Asset",
-            "autoAdd": false
-        }
-    ],
-    "icon": "bitcoin"
+    "referencingRules": {
+        "compatibleTypes": "->Position Contribution Claim->"
+    },
+    "propertyNameAtParent": "positionClaimVotes",
+    "icon": "dogecoin"
 }

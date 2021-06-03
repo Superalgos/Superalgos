@@ -1,5 +1,5 @@
 {
-    "type": "Time Contributions",
+    "type": "Position",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Time Contributions",
-            "relatedUiObject": "Time Contributions"
+            "label": "Add Position",
+            "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Contributed Time",
-            "relatedUiObject": "Contributed Time"
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class"
         },
         {
             "action": "Delete UI Object",
@@ -34,27 +34,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{\n  \"description\": \"\" \n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->Time Contributions->"
+        "compatibleTypes": "->Positions->Position->Position Class->"
     },
-    "propertyNameAtParent": "timeContributions",
+    "propertyNameAtParent": "positions",
     "childrenNodesProperties": [
         {
-            "name": "timeContributions",
+            "name": "positions",
             "type": "array",
-            "childType": "Time Contributions",
+            "childType": "Position",
             "autoAdd": false
         },
         {
-            "name": "contributedTimes",
+            "name": "positionClasss",
             "type": "array",
-            "childType": "Contributed Time",
+            "childType": "Position Class",
             "autoAdd": false
         }
     ],
-    "icon": "bitcoin"
+    "icon": "bitfinex"
 }

@@ -1,5 +1,5 @@
 {
-    "type": "Feature Class",
+    "type": "Votes Distribution",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,16 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature Class",
-            "relatedUiObject": "Feature Class"
+            "label": "Add Votes Switch",
+            "relatedUiObject": "Votes Switch"
         },
         {
             "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "referrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature",
-            "relatedUiObject": "Feature"
+            "label": "Add Referrer",
+            "relatedUiObject": "Referrer"
         },
         {
             "action": "Delete UI Object",
@@ -34,30 +36,21 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n\"codeName\": \"\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
     },
     "addLeftIcons": true,
-    "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Features->Feature Class->"
-    },
-    "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
-    },
-    "propertyNameAtParent": "featureClasses",
+    "level": 1,
+    "propertyNameAtParent": "votesDistribution",
     "childrenNodesProperties": [
         {
-            "name": "featureClasses",
+            "name": "votesSwitch",
             "type": "array",
-            "childType": "Feature Class",
-            "autoAdd": false
-        },
-        {
-            "name": "features",
-            "type": "array",
-            "childType": "Feature",
+            "childType": "Votes Switch",
             "autoAdd": false
         }
     ],
-    "icon": "zar"
+    "icon": "bitcoin"
 }

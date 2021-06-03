@@ -1,5 +1,5 @@
 {
-    "type": "Contributed Asset",
+    "type": "Feature Claim Vote",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,8 +19,8 @@
         }
     ],
     "title": [
-        "Use Reference Parent",
-        "Use Reference Parent Parent"
+        "Reference Parent Find In Parents Node Type->User Profile",
+        "Use Reference Parent"
     ],
     "editors": {
         "config": true
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Software Contributions->"
+        "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Asset->"
+        "compatibleTypes": "->Feature Contribution Claim->"
     },
-    "propertyNameAtParent": "contributedAssets",
-    "icon": "tron"
+    "propertyNameAtParent": "featureClaimVotes",
+    "icon": "github-api"
 }

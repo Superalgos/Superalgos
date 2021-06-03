@@ -1,5 +1,5 @@
 {
-    "type": "Time Vote",
+    "type": "Feature Contribution Claim",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,8 +19,8 @@
         }
     ],
     "title": [
-        "Reference Parent Find Node Type->User Profile",
-        "Use Reference Parent"
+        "Use Reference Parent",
+        "Use Reference Parent Parent"
     ],
     "editors": {
         "config": true
@@ -31,11 +31,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->Feature Contributions Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Contributed Time->"
+        "compatibleTypes": "->Feature->"
     },
-    "propertyNameAtParent": "timeVotes",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "featureContributionClaims",
+    "icon": "tron"
 }

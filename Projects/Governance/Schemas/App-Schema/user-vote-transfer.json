@@ -1,5 +1,5 @@
 {
-    "type": "Asset Vote",
+    "type": "User Vote Transfer",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,9 +19,6 @@
         }
     ],
     "title": [
-        "Use Reference Parent Parent Parent Parent",
-        "Use Reference Parent Parent Parent",
-        "Use Reference Parent Parent",
         "Use Reference Parent"
     ],
     "editors": {
@@ -33,11 +30,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Asset Class->Asset->"
+        "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "assetVotes",
-    "icon": "EN"
+    "propertyNameAtParent": "userVoteTransfers",
+    "icon": "user-profile"
 }

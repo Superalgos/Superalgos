@@ -1,5 +1,5 @@
 {
-    "type": "Feature Class",
+    "type": "Position Contributions Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,14 +11,14 @@
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature Class",
-            "relatedUiObject": "Feature Class"
+            "label": "Add Position Contributions Folder",
+            "relatedUiObject": "Position Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature",
-            "relatedUiObject": "Feature"
+            "label": "Add Position Contribution Claim",
+            "relatedUiObject": "Position Contribution Claim"
         },
         {
             "action": "Delete UI Object",
@@ -34,30 +34,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}"
+        "config": "{\n  \"description\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Features->Feature Class->"
+        "compatibleTypes": "->Contribution Claims->Position Contributions Folder->"
     },
-    "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
-    },
-    "propertyNameAtParent": "featureClasses",
+    "propertyNameAtParent": "positionContributionsFolder",
     "childrenNodesProperties": [
         {
-            "name": "featureClasses",
+            "name": "positionContributionsFolder",
             "type": "array",
-            "childType": "Feature Class",
+            "childType": "Position Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "features",
+            "name": "positionContributionClaims",
             "type": "array",
-            "childType": "Feature",
+            "childType": "Position Contribution Claim",
             "autoAdd": false
         }
     ],
-    "icon": "zar"
+    "icon": "bitcoin"
 }

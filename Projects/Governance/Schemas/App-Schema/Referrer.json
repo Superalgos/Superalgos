@@ -1,5 +1,5 @@
 {
-    "type": "Feature Vote",
+    "type": "Referrer",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,8 +19,6 @@
         }
     ],
     "title": [
-        "Use Reference Parent Parent Parent",
-        "Use Reference Parent Parent",
         "Use Reference Parent"
     ],
     "editors": {
@@ -32,11 +30,11 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Civic Contributions->"
+        "compatibleTypes": "->User Profile->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Feature Class->Feature->"
+        "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "featureVotes",
+    "propertyNameAtParent": "referrer",
     "icon": "github-api"
 }

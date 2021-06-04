@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "Oftentimes, when building a strategy, the need for a place to store some data may arise. The User-Defined-Variables nodes are the correct place to do this. The children nodes, (User Defined variable nodes), of this node are unused by the base code of the Superalgos processes thus the data placed inside these variables will remain unchanged and available for the duration of the episode."
+            "text": "Oftentimes, when building a strategy, the need for a place to store some data may arise. The User Defined Variables nodes are the correct place to do this. The children nodes, (User Defined Variable nodes), of this node are unused by the base code of the Superalgos processes thus the data placed inside these variables will remain unchanged and available for the duration of the episode.",
+            "updated": 1622828443644
         },
         {
             "style": "Text",

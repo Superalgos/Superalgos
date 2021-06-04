@@ -1,22 +1,24 @@
 {
     "type": "API Query Parameters",
     "definition": {
-        "text": "Is a query string, that is a part of a uniform resource locator (URL) that assigns values to specified parameters. The query parameters commonly includes fields added to the base URL.",
-        "updated": 1621022301794
+        "text": "A query string is part of a uniform resource locator (URL). The query parameter is added to the base URL and assigns values to specified parameters in order to specify the request for data to the API. ",
+        "updated": 1622770771990
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In other words, Query Parameters are the parameters sent at any URL after the question mark ?",
-            "updated": 1621954104568
+            "text": "In other words, an API Query is part of the URL used to request information from an API. These values are held after the ? in the request URL. Queries are generally used to make adjustments to the type of data the api will return. For example, if an api endpoint accepts a time query, you will be able to request data from a specific time period.",
+            "updated": 1622765459697
         },
         {
-            "style": "Text",
-            "text": "Query Parameters in general do not need to be defined in any specific orders, so feel free to add children for this node in whatever order you like."
+            "style": "Note",
+            "text": "Query Parameters in general do not need to be defined in any specific order, so feel free to add children for this node in whatever order you like.",
+            "updated": 1622765484886
         },
         {
             "style": "Success",
-            "text": "When found at the API Map will define the default values for each parameter. When found at the Data Mine will define the actual values to be used, these would replace the defaults."
+            "text": "When a API Query Parameter is found at the API Map, it will define the default values based on the value property of each API Query Parameter node. However, if the replaceBy property is used the system will pull the value from the user's system.  Examples of this are the current time, current exchange being used, etc.",
+            "updated": 1622771917666
         }
     ]
 }

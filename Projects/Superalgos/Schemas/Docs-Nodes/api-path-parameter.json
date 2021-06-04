@@ -1,28 +1,43 @@
 {
     "type": "API Path Parameter",
     "definition": {
-        "text": "Path parameter is the type of parameters that is embedded as part of an URL path. It could be fixed string of text or it could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
-        "updated": 1621018173339
+        "text": "A path parameter defines the unique path to your endpoint. \nFor a full description of how to identify a path parameter see the API Path Parameters page.",
+        "updated": 1622774607176
     },
     "paragraphs": [
         {
+            "style": "Text",
+            "text": "A path parameter can be a fixed string of text defined at an API Path Parameter node, or it can be dynamically replaced by the API Fetcher Bot for a value generated at runtime.",
+            "updated": 1622772709866
+        },
+        {
             "style": "Title",
-            "text": "Configuration",
-            "updated": 1621018220723
-        },
-        {
-            "style": "Subtitle",
-            "text": "Important Properties"
+            "text": "Configuration Properties",
+            "updated": 1622772725049
         },
         {
             "style": "List",
-            "text": "codeName: here you must write the exact string that is going to be used to form the URL path. ",
-            "updated": 1621950838675
+            "text": "codeName: This property holds the value used to help build the request URL.",
+            "updated": 1622773158340
+        },
+        {
+            "style": "Important",
+            "text": "Becareful to write the exact string specified in the API documentation. Extra spaces, or capital letters will break the URL and cause it to return an error.",
+            "updated": 1622773133088
         },
         {
             "style": "List",
-            "text": "replaceBy: this property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime. ",
-            "updated": 1622477486319
+            "text": "replaceBy: This property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime.",
+            "updated": 1622773172219
+        },
+        {
+            "style": "Text",
+            "text": "Here is an example of an API Path Parameter config:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"currentBaseAsset\",\n    \"isString\": true,\n    \"isOptional\": false,\n    \"description\": \"Get statistics for the current base asset\",\n    \"replaceBy\": \"@BaseAssetNameLowercase\"\n}",
+            "updated": 1622774822924
         },
         {
             "style": "Include",

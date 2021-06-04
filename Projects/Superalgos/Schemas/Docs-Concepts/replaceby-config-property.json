@@ -20,7 +20,7 @@
             "updated": 1622685164654
         },
         {
-            "style": "Javascript",
+            "style": "Json",
             "text": "{\n    \"codeName\": \"currentBaseAsset\",\n    \"isString\": false,\n    \"isOptional\": false,\n    \"description\": \"\",\n    \"replaceBy\": \"@BaseAsset\"\n}",
             "updated": 1622685104193
         },

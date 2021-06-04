@@ -1,22 +1,121 @@
 {
     "type": "API Path Parameters",
     "definition": {
-        "text": "Path parameters are the type of parameters that are embedded as part of an URL path. They could be a fixed string of texts or they could be a parameter that is replaced by the API Fetcher Bot for some value at runtime.",
-        "updated": 1622336383876
+        "text": "API Path Parameters are embedded as part of an URL path. They allow you to specify the unique path to your endpoint.",
+        "updated": 1622771530317
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "When found at an API Map they define the default values for each parameter, whicle when found at a Data Mine, they define the actual values to be used, which overrides the defaults.",
-            "updated": 1621022867854
-        },
-        {
             "style": "Title",
-            "text": "How to identify them?"
+            "text": "How to identify API Path Parameters",
+            "updated": 1622772536805
         },
         {
             "style": "Text",
-            "text": "The API your are trying to map shold have it's API Path Parameters documented. If not, check any example provided there of how to request the data and see if there are inner folders below the folder of the API Enpoint. These folders are, each one, one API Path Parameter that needs to be defined. As everything else in Superalgos, this current node children are considered clockwise, that defines the order in which the path will be constructed at runtime."
+            "text": "The API you are trying to map should have it's API Path Parameters documented. If not, check any examples they may provide for how to request the data and see if there are inner folders below the main folder of the API Enpoint. Each one of these folders are an API Path Parameter that needs to be defined.",
+            "updated": 1622772590217
+        },
+        {
+            "style": "Success",
+            "text": "As with everything else in Superalgos, node children are considered clockwise. This is important because it will affect the order in which Superalgos builds the URL request you will send to the API.",
+            "updated": 1622773291926
+        },
+        {
+            "style": "Text",
+            "text": "Here are some examples of API request URLs:"
+        },
+        {
+            "style": "Javascript",
+            "text": "https://api.coingecko.com/api/v3/coins/bitcoin?",
+            "updated": 1622773573541
+        },
+        {
+            "style": "Javascript",
+            "text": "https://data.messari.io/api/v1/assets/btc?",
+            "updated": 1622773581349
+        },
+        {
+            "style": "Subtitle",
+            "text": "Sections of an API Request URL",
+            "updated": 1622773855472
+        },
+        {
+            "style": "Text",
+            "text": "Let's break down one of these URLs and identify each part of it."
+        },
+        {
+            "style": "List",
+            "text": "Internet Protocol: This is the section on the very front of almost any internet link you will see.",
+            "updated": 1622774168610
+        },
+        {
+            "style": "Javascript",
+            "text": "https",
+            "updated": 1622774200879
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the protocol config property in the main API Map node."
+        },
+        {
+            "style": "List",
+            "text": "Root Domain Name: This is the section of the URL that is before the first backslash:"
+        },
+        {
+            "style": "Javascript",
+            "text": "data.messari.io"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the hostName config property in the main API Map node. ",
+            "updated": 1622774031960
+        },
+        {
+            "style": "List",
+            "text": "API Path: This is the section that defines the main path to the API:"
+        },
+        {
+            "style": "Javascript",
+            "text": "api"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the path config property in the main API Map node.",
+            "updated": 1622773958109
+        },
+        {
+            "style": "List",
+            "text": "API Version Number: This is the section that defines the API version to which you are making requests."
+        },
+        {
+            "style": "Javascript",
+            "text": "v1"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the codename config property in the API Versioin node."
+        },
+        {
+            "style": "List",
+            "text": "Path Parameters: These are the remaning sections of the path before the question mark:"
+        },
+        {
+            "style": "Javascript",
+            "text": "assets ",
+            "updated": 1622774373224
+        },
+        {
+            "style": "Javascript",
+            "text": "btc"
+        },
+        {
+            "style": "Note",
+            "text": "You define each of these using the codeName config property in the API Path Parameter node.",
+            "updated": 1622774459925
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Include",

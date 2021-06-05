@@ -26,8 +26,12 @@
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863183444
+            "text": "API Endpoint Configuration",
+            "updated": 1622895671396
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

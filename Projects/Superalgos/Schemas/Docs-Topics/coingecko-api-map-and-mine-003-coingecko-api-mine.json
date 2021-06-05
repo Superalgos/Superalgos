@@ -43,8 +43,8 @@
         },
         {
             "style": "Note",
-            "text": "CoinGecko score is an aggregated score combining liquidity, community, developer, and public interest scores.",
-            "updated": 1622689922164
+            "text": "CoinGecko score is an aggregated score combining liquidity, community, and developer scores.",
+            "updated": 1622846902289
         },
         {
             "style": "List",

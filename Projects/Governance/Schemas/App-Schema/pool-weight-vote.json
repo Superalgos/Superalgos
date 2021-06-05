@@ -34,7 +34,7 @@
         "compatibleTypes": "->Votes Switch->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Tokens Switch->Pool->"
+        "compatibleTypes": "->Pool Class->Pool->"
     },
     "propertyNameAtParent": "poolWeightVotes"
 }

@@ -78,7 +78,6 @@ function newGovernancePoolsSpace() {
         token flow.
         */
         if (
-            node.type === 'Position' ||
             node.type === 'Asset' ||
             node.type === 'Feature'
         ) { return }

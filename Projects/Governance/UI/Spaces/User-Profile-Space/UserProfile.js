@@ -188,7 +188,10 @@ function newGovernanceUserProfileSpace() {
                 node.type === 'Asset' ||
                 node.type === 'Asset Class' ||
                 node.type === 'Feature' ||
-                node.type === 'Feature Class'
+                node.type === 'Feature Class' ||
+                node.type === 'Position Contribution Claim' ||
+                node.type === 'Asset Contribution Claim' ||
+                node.type === 'Feature Contribution Claim'
             ) { 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false

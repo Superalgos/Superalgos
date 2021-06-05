@@ -7,8 +7,8 @@ services:
     image: superalgos
     command: ["minMemo"]
     ports:
-      - '34248:34248'
-      - '18041:18041'
+      - '34249:34249'
+      - '18042:18042'
     volumes:
       - ../Data-Storage:/app/Data-Storage
       - ../Log-Files:/app/Log-Files

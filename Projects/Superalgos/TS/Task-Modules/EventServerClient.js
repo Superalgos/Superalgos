@@ -21,7 +21,7 @@
     const WEB_SOCKET = require('ws')
 
     if (host === undefined) {
-        host = 'localhost'
+        host = '192.168.1.106'
     }
     if (port === undefined) {
         port = global.env.WEB_SOCKETS_INTERFACE_PORT  

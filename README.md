@@ -230,7 +230,7 @@ Follow the link to [install docker](https://docs.docker.com/engine/install/).
 docker login ghcr.io --username your-github-username --password-stdin
 ```
 ```
-docker run -p 18041:18041 -p 34248 superalgos/superalgos
+docker run -p 18042:18042 -p 34249 superalgos/superalgos
 ```
 
 Now you can access to the Superalgos UI.

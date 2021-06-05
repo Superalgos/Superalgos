@@ -74,7 +74,7 @@
         },
         {
             "style": "Javascript",
-            "text": "[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = undefined\nEventServerClient.js:50\n[ERROR] This could mean that the port 18041 is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the.ENV file inside the Superalgos folder AND at the.Environment.js file inside the TaskServer folder. After that run the app again.\nEventServerClient.js:51\n[ERROR] If you are debugging, it can also mean that the Superalgos Client is not running.",
+            "text": "[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = undefined\nEventServerClient.js:50\n[ERROR] This could mean that the port 18042 is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the.ENV file inside the Superalgos folder AND at the.Environment.js file inside the TaskServer folder. After that run the app again.\nEventServerClient.js:51\n[ERROR] If you are debugging, it can also mean that the Superalgos Client is not running.",
             "updated": 1614597267564
         },
         {

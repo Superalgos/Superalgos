@@ -9,7 +9,7 @@ exports.newSuperalgosGlobalsTaskConstants = function () {
         PROJECT_DEFINITION_NODE: undefined,
         PROJECTS_SCHEMA: undefined,
         APP_SCHEMA_MAP: new Map(),
-        EVENT_SERVER_CLIENT_MODULE_OBJECT: undefined,         // This is an instance of the Event Server Client pointing to the localhost server
+        EVENT_SERVER_CLIENT_MODULE_OBJECT: undefined,         // This is an instance of the Event Server Client pointing to the 192.168.1.106 server
         TASK_HEARTBEAT_INTERVAL_HANDLER: undefined
     }
 

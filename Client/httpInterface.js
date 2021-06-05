@@ -46,7 +46,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 if (process.argv.includes("noBrowser")) {
                     //Running Client only with no UI.
                 } else {
-                    open('http://localhost:' + port)
+                    open('http://192.168.1.106:' + port)
                 }
 
             }

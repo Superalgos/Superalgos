@@ -577,7 +577,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"httpPort\": \"8545\"\n}"
+            "config": "{ \n\"host\": \"192.168.1.106\", \n\"httpPort\": \"8545\"\n}"
         },
         "addLeftIcons": true,
         "level": 1,

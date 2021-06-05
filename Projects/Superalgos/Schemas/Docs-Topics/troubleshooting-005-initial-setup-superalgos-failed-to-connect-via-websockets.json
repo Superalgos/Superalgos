@@ -22,20 +22,20 @@
         },
         {
             "style": "Json",
-            "text": "{\n\"host\": \"localhost\",\n\"webPort\": \"34248\",\n\"webSocketsPort\": \"18041\"\n}",
+            "text": "{\n\"host\": \"192.168.1.106\",\n\"webPort\": \"34249\",\n\"webSocketsPort\": \"18042\"\n}",
             "updated": 1611513108585
         },
         {
             "style": "Text",
-            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+            "text": "host is the machine or hardware represented by the network node. The default parameter is 192.168.1.106, but if you intend to access the backend services of this node from a remote computer, then you must change 192.168.1.106 for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
         },
         {
             "style": "List",
-            "text": "webPort is the port used by the Web Server, at this stage 34248."
+            "text": "webPort is the port used by the Web Server, at this stage 34249."
         },
         {
             "style": "List",
-            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18042."
         },
         {
             "style": "Note",

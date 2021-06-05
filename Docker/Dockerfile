@@ -4,6 +4,6 @@ COPY . .
 RUN adduser --disabled-password --no-create-home superalgos
 RUN chown -R superalgos:superalgos /app
 USER superalgos
-EXPOSE 34248
-EXPOSE 18041
+EXPOSE 34249
+EXPOSE 18042
 ENTRYPOINT ["node", "run", "noBrowser"]

@@ -2360,7 +2360,7 @@
             "config": true
         },
         "initialValues": {
-            "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
+            "config": "{ \n\"host\": \"192.168.1.106\", \n\"webPort\": \"34249\", \n\"webSocketsPort\": \"18042\"\n}"
         },
         "isTitleAllwaysVisible": true,
         "addLeftIcons": true,

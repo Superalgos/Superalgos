@@ -21,5 +21,5 @@ USER superalgos
 RUN node setup
 EXPOSE 34248
 EXPOSE 18041
-VOLUME ["Data-Storage", "Log-Files", "My-Workspaces"]
+VOLUME ["/app/Data-Storage", "/app/Log-Files", "/app/My-Workspaces"]
 ENTRYPOINT ["node", "run", "noBrowser"]

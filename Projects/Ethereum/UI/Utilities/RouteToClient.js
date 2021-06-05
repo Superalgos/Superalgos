@@ -1,5 +1,5 @@
 function newEthereumUtilitiesRouteToClient() {
-    thisObject = {
+    let thisObject = {
         buildRouteToClient: buildRouteToClient
     }
 

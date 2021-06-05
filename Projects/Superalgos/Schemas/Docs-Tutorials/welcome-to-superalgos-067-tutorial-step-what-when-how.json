@@ -1,0 +1,108 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 67,
+    "type": "Tutorial Step - What? When? How?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-parameters"
+        },
+        "text": "Trading Parameters determine key aspects of how the trading session is run. Let's take a quick, superficial look...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "I Trading Parameters controllano gli aspetti chiave dell'esecuzione della sessione di trading. Diamo un'occhiata veloce...",
+                "updated": 1618060155151,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Session Base Asset: no capital is assigned in BTC.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Session Base Asset: 0 BTC",
+                    "updated": 1618060455866,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Session Quoted Asset: 1000 USDT of initial capital.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Session Quoted Asset: 1000 USDT di capitale iniziale",
+                    "updated": 1618060205541,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Range: we'll test a single day, 2020-09-01.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Time Range: test su un singolo giorno (2020-09-01)",
+                    "updated": 1618060612074,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Frame: orders are placed/canceled every minute, thus 01-min is appropriate.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Time Frame: 01-min (dato che gli ordini vengono inseriti/cancellati ogni minuto)",
+                    "updated": 1618060502887,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Slippage: it's irrelevant for this case, as this particular trading system uses limit orders only.",
+            "updated": 1610639262905,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Slippage: irrilevante in questo di Trading System",
+                    "updated": 1618060520878,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Fee Structure: 0.1% is the lower Binance tier.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fee Structure: 0.1% è il livello iniziale di Binance.",
+                    "updated": 1618060361331,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The remaining parameters do not affect the simulation. To learn more about Trading Parameters, take a look at the documentation.",
+            "updated": 1610640777415,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "I restanti parametri non influenzano questa simulazione. Se vuoi saperne di più, consulta la sezione Trading Parameters nella documentazione.",
+                    "updated": 1618060588588,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

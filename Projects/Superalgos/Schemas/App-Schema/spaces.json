@@ -1,0 +1,37 @@
+{
+    "type": "Spaces",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Charting Space",
+            "relatedUiObject": "Charting Space",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Design Space",
+            "relatedUiObject": "Design Space",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Docs Space",
+            "relatedUiObject": "Docs Space",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": false,
+    "level": 2,
+    "propertyNameAtParent": "spaces"
+}

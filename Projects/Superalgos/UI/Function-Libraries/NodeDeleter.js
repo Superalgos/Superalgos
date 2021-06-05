@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryNodeDeleter() {
-    thisObject = {
+    let thisObject = {
         deleteWorkspace: deleteWorkspace,
         deleteUIObject: deleteUIObject
     }

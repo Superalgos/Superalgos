@@ -1,0 +1,54 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": 3,
+    "type": "Data Mining - Dataset Types",
+    "definition": {
+        "text": "Superalgos organizes data into datasets. These datasets are standardized across the system using different type definitions.",
+        "updated": 1622204454559
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Dataset List",
+            "updated": 1622052318412
+        },
+        {
+            "style": "Title",
+            "text": "Dataset Types",
+            "updated": 1622227827875
+        },
+        {
+            "style": "Text",
+            "text": "This is the complete list of Dataset types currently supported by the system:"
+        },
+        {
+            "style": "List",
+            "text": "Single-File: As the name suggests, this Dataset consists of only one file containing all the data. This Dataset type can be plotted and its data consumed by and within Trading Strategies. The API Data Fetcher Bot can also save Raw Data in this type of dataset, if needed.",
+            "updated": 1622204763019
+        },
+        {
+            "style": "Note",
+            "text": "The Single-File Dataset type is not frequently used. Currently, it is the Dataset type used to store data coming from Webhooks. It is stored in this way because it is assumed that not a lot of data will come through this pipe, only signals produced by external systems. The Webhooks feature is expected to evolve in the future managing the incoming data in another type of Dataset.",
+            "updated": 1622204852370
+        },
+        {
+            "style": "List",
+            "text": "One-Min-Daily: This Dataset type organizes data in one file per day and, as the name suggests, expects the data itself to belong to time frames of one minute. This type of Dataset can not be plotted or its data consumed by Trading Strategies.",
+            "updated": 1622191007219
+        },
+        {
+            "style": "List",
+            "text": "Multi-Time-Frame-Daily: This Dataset type organizes data in one file per day for each Time Frame ranging from 1 minute to 45 minutes. The data of this type of Dataset can be plotted and can be consumed by Trading Strategies.",
+            "updated": 1622191043785
+        },
+        {
+            "style": "List",
+            "text": "Multi-Time-Frame-Market: This Dataset type organizes data in only one file for each Time Frame ranging from 1 hour to 24 hours. That means that the whole market history will be stored in one single file for each time frame. For example candles of 1 hour for a certain market, will be stored in a single file. The data of this type of Dataset can be plotted and can be consumed by Trading Strategies.",
+            "updated": 1622191087786
+        },
+        {
+            "style": "Success",
+            "text": "By far, the most popular Dataset Types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market. "
+        }
+    ]
+}

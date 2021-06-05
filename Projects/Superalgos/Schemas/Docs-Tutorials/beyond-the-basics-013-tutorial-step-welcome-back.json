@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se hai seguito le mie istruzioni, ora il tuo software sta girando sulla branch plugins-docs! Fantastico!",
-                "updated": 1619634969342
+                "updated": 1619634969342,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Il software corrente è la versione di Superalgos che si trovava nel branch plugins-docs il giorno che hai fatto il fork del progetto! Questo perchè cambiando branch scarichi il software dal tuo fork e non dalla repo originale.",
-                    "updated": 1619635036896
+                    "updated": 1619635036896,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Devi fare l'update così da eseguire l'ultima versione! È importante soprattutto se vuoi contribuire al progetto. Lavora sempre sull'ultima versione, così che i cambiamenti che fai includano le ultime modifiche degli altri utenti!",
-                    "updated": 1619635122521
+                    "updated": 1619635122521,
+                    "style": "Success"
                 }
             ]
         }

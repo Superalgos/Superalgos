@@ -1,0 +1,46 @@
+{
+    "type": "Output Dataset Folder",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Output Dataset",
+            "relatedUiObject": "Output Dataset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Output Dataset Folder",
+            "relatedUiObject": "Output Dataset Folder",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Process Output->Output Dataset Folder->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "outputDatasets",
+            "type": "array",
+            "childType": "Output Dataset",
+            "autoAdd": false
+        },
+        {
+            "name": "outputDatasetFolders",
+            "type": "array",
+            "childType": "Output Dataset Folder",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "outputDatasetFolders"
+}

@@ -1,6 +1,0 @@
-.git
-.dockerignore
-Dockerfile
-node_modules
-*.swp
-*.pyc

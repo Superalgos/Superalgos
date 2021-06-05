@@ -128,7 +128,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
         await writeTimeFramesFiles()
         await writeDataRanges()
 
-        if (currentTimeFrame.value > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
+        if (currentTimeFrame.value > TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[0][0]) {
             await writeMarketStatusReport()
         } else {
             await writeDailyStatusReport()
@@ -152,7 +152,7 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
 
                 let fileContent = JSON.stringify(dataRange)
                 let fileName = '/Data.Range.json'
-                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + productCodeName + "/" + 'Multi-Period-Daily' + fileName
+                let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/" + productCodeName + "/" + 'Multi-Time-Frame-Daily' + fileName
 
                 let response = await fileStorage.asyncCreateTextFile(filePath, fileContent + '\n')
 
@@ -180,8 +180,8 @@ exports.newSuperalgosFunctionLibrariesProcessFilesFunctions = function () {
                 outputDatasetIndex++
             ) {
                 let productCodeName = outputDatasets[outputDatasetIndex].referenceParent.parentNode.config.codeName
-                await writeTimeFramesFile(productCodeName, 'Multi-Period-Daily')
-                await writeTimeFramesFile(productCodeName, 'Multi-Period-Market')
+                await writeTimeFramesFile(productCodeName, 'Multi-Time-Frame-Daily')
+                await writeTimeFramesFile(productCodeName, 'Multi-Time-Frame-Market')
 
                 async function writeTimeFramesFile(productCodeName, processType) {
 

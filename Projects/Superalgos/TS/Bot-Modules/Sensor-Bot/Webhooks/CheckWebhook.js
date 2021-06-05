@@ -4,7 +4,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
     const MODULE_NAME = "Check Webhooks";
     const FOLDER_NAME = "External-Signals";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };
@@ -52,7 +52,7 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
 
-                    if (thisReport.file.lasrRun !== undefined) {
+                    if (thisReport.file.lastRun !== undefined) {
 
                         let fileName = 'Data.json'
                         let filePath = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + "/Output/" + FOLDER_NAME + "/" + 'Single-File'
@@ -83,7 +83,6 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
                             "[HINT] start -> getContextVariables -> Dependencies loaded -> keys = " + JSON.stringify(statusDependencies.keys));
                     }
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 
@@ -148,14 +147,13 @@ exports.newSuperalgosBotModulesCheckWebhook = function (processIndex) {
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[ERROR] start -> saveMessages -> err = " + err.stack);
                     callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
-                    abort = true
                 }
             }
 
             function writeStatusReport() {
                 try {
                     thisReport.file = {
-                        lasrRun: (new Date()).toISOString()
+                        lastRun: (new Date()).toISOString()
                     };
                     thisReport.save(onSaved);
 

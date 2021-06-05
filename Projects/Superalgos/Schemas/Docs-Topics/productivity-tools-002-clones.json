@@ -35,7 +35,7 @@
         },
         {
             "style": "Text",
-            "text": "The same example as with backups apply: cloning a Task running a Backtesting Session produces a copy of the Task with the Trading Process Instance maintaining the reference to the Trading Bot Multi-Period process, Trading Session Reference maintaining the reference to the corresponding Trading System, and the Trading Engine Reference keeping the reference to the Trading Engine hierarchy.",
+            "text": "The same example as with backups apply: cloning a Task running a Backtesting Session produces a copy of the Task with the Trading Process Instance maintaining the reference to the Trading Bot Multi-Time-Frame process, Trading Session Reference maintaining the reference to the corresponding Trading System, and the Trading Engine Reference keeping the reference to the Trading Engine hierarchy.",
             "updated": 1615832824246
         },
         {

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Analogamente alle Node Attaching Rules, ogni nodo ha regole di compatibilità per le References.",
-                "updated": 1619502324183
+                "updated": 1619502324183,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Vail al menù del nodo Trading System Reference, clicca sull'help e scorri in fondo alla pagina!",
-                    "updated": 1619502365211
+                    "updated": 1619502365211,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Se sei uno sviluppatore, ti interesserà sapere che Node Attaching Rules e Node Reference Rules sono definite nel file AppSchema.json nella cartella Schema di un Progetto.",
-                    "updated": 1619502424887
+                    "updated": 1619502424887,
+                    "style": "Note"
                 }
             ]
         }

@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesStatusBar() {
-    thisObject = {
+    let thisObject = {
         changeStatus: changeStatus
     }
 

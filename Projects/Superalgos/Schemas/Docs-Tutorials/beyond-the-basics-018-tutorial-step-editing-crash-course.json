@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ti mostro come modificare una pagina! Un click col tasto destro su un parametro apre il menù stili, e la matita avvia la modalità edit...",
-                "updated": 1619636869245
+                "updated": 1619636869245,
+                "style": "Definition"
             }
         ]
     },
@@ -31,7 +32,8 @@
                 {
                     "language": "IT",
                     "text": "Ab|: crea elenchi puntati come questo!",
-                    "updated": 1619636137132
+                    "updated": 1619636137132,
+                    "style": "List"
                 }
             ]
         },
@@ -43,7 +45,8 @@
                 {
                     "language": "IT",
                     "text": "La quarta colonna contiene box per le note (come questa), i consigli, gli avvisi e i messaggi importanti.",
-                    "updated": 1619636222095
+                    "updated": 1619636222095,
+                    "style": "Note"
                 }
             ]
         },
@@ -60,7 +63,8 @@
                 {
                     "language": "IT",
                     "text": "Abc| trasforma il paragrafo in testo normale. Dovrebbe essere abbastanza per la tua recensione! Ti spiegherò il resto più avanti!",
-                    "updated": 1619636897153
+                    "updated": 1619636897153,
+                    "style": "Text"
                 }
             ]
         }

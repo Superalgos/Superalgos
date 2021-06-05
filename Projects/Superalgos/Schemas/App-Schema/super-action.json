@@ -1,0 +1,35 @@
+{
+    "type": "Super Action",
+    "menuItems": [
+        {
+            "action": "Run Super Action",
+            "label": "Run",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Super Action Executed",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "propertyNameAtParent": "superActions",
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Super Actions->Market->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Master Script->"
+    },
+    "childrenNodesProperties": []
+}

@@ -1,0 +1,62 @@
+{
+    "type": "Bias",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "biasInitializer",
+            "label": "Add Bias Initializer",
+            "relatedUiObject": "Bias Initializer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "biasConstraint",
+            "label": "Add Bias Constraint",
+            "relatedUiObject": "Bias Constraint",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "biasRegularizer",
+            "label": "Add Bias Regularizer",
+            "relatedUiObject": "Bias Regularizer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Dense Layer->"
+    },
+    "propertyNameAtParent": "bias",
+    "childrenNodesProperties": [
+        {
+            "name": "biasInitializer",
+            "type": "node",
+            "childType": "Bias Initializer"
+        },
+        {
+            "name": "biasConstraint",
+            "type": "node",
+            "childType": "Bias Constraint"
+        },
+        {
+            "name": "biasRegularizer",
+            "type": "node",
+            "childType": "Bias Regularizer"
+        }
+    ],
+    "icon": "tensorflow"
+}

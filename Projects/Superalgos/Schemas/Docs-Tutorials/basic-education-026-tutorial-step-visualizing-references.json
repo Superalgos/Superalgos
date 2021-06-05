@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Quando passi con il mouse sopra un nodo con una reference in uscita, questa diventa visibile.",
-                "updated": 1619501234351
+                "updated": 1619501234351,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ma c'è anche un modo per rendere tutte le reference visibili!",
-                    "updated": 1619501260308
+                    "updated": 1619501260308,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Premi: Ctrl + Shift + Alt + Key-R",
-                    "updated": 1619501297328
+                    "updated": 1619501297328,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Ora vedi le references in uscita sia dal nodo Trading System che dal nodo Trading Engine Reference.",
-                    "updated": 1619501324177
+                    "updated": 1619501324177,
+                    "style": "Text"
                 }
             ]
         },
@@ -62,7 +66,8 @@
                 {
                     "language": "IT",
                     "text": "Fai click con il tasto destro per accedere alla mappa del Design Space e identificare le altre references ora visibili.",
-                    "updated": 1619501364541
+                    "updated": 1619501364541,
+                    "style": "Success"
                 }
             ]
         }

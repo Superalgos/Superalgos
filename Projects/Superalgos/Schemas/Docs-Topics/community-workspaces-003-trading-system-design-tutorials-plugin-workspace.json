@@ -34,20 +34,13 @@
         },
         {
             "style": "Title",
-            "text": "Brought to you by",
+            "text": "Maintainer",
             "updated": 1616151252550
         },
         {
-            "style": "List",
-            "text": "@julian-molina"
-        },
-        {
-            "style": "Text",
-            "text": ""
-        },
-        {
-            "style": "Text",
-            "text": ""
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622623292203
         }
     ]
 }

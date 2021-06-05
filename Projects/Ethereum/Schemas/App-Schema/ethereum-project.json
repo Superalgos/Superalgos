@@ -1,0 +1,59 @@
+{
+    "type": "Ethereum Project",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Blockchain",
+            "relatedUiObject": "Ethereum Blockchain",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Decentralized Application",
+            "relatedUiObject": "Ethereum Decentralized Application",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Token Definitions",
+            "relatedUiObject": "Ethereum Token Definitions",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Wallet",
+            "relatedUiObject": "Ethereum Wallet",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Mine",
+            "relatedUiObject": "Data Mine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "icon": "ethereum",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Superalgos",
+            "autoAdd": true
+        }
+    ]
+}

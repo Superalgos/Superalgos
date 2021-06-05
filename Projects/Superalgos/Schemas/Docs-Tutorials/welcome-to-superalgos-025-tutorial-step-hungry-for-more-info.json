@@ -1,0 +1,180 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Hungry For More Info?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "I won't go into every detail as we move along, but if you need more info on a node, the help button on the menu takes you straight to its documentation.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Non mi addentrerò in ogni dettaglio mentre proseguiamo, ma se hai bisogno di più info su un nodo il pulsante di help sul menu ti porta direttamente alla relativa documentazione.",
+                "updated": 1614790878931,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Aku tidak akan memberitahu secara detail selama tutorial ini, tetapi jika kamu membutuhkan info lanjutan dari node, tombol help di menu akan langsung ke dokumentasi.",
+                "updated": 1616769777337,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "No entraré en todos los detalles mientras avanzamos, pero si necesitas más información sobre un nodo, el botón de ayuda del menú te lleva directamente a su documentación.",
+                "updated": 1618437888108,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The documentation of a node may include one or more of the following sections:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La documentazione di un nodo può includere una o più delle seguenti sezioni:",
+                    "updated": 1614790910243,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Dokumentasi dari node mungkin memiliki beberapa bagian berikut:",
+                    "updated": 1616769832945,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La documentación de un nodo puede incluir una o varias de las siguientes secciones:",
+                    "updated": 1618437914338,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Definition: describes what the node is or does.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<b>Definizione</b>: descrive il nodo o la sua funzione",
+                    "updated": 1614790956373,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Definition: mendeskripsikan apa kegunaan dan yang dilakukan node tersebut.",
+                    "updated": 1616769900408,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Definition: describe que es o que hace el nodo",
+                    "updated": 1618437935444,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Content: describes how the node works.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<b>Contenuto:</b> descrive come funziona il nodo",
+                    "updated": 1614791022017,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Content: Memberitahukan bagaimana node berkerja.",
+                    "updated": 1616769935124,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Content: describe como funciona el nodo",
+                    "updated": 1618437948010,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Configuration: some nodes may have one.",
+            "updated": 1615304462606,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "<b>Configurazione:</b> alcuni nodi ne hanno una",
+                    "updated": 1614791040416,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Configuration: beberapa node mungkin memilikinya.",
+                    "updated": 1616769963219,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Configuration: Algunos nodos pueden tenerla",
+                    "updated": 1618437961538,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Technical: the rest of the info is usually of a technical nature, oriented to developers.",
+            "updated": 1615304469703,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Info tecniche: il resto delle informazioni sono solitamente di natura tecnica, principalmente di interesse per gli sviluppatori.",
+                    "updated": 1618646206784,
+                    "style": "List"
+                },
+                {
+                    "language": "ID",
+                    "text": "Technical: info lainnya biasanya bersifat teknis, berorientasi pada developer.",
+                    "updated": 1616769985293,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Technical: El resto de la info es de caracter técnico, orientada a desarrolladores",
+                    "updated": 1618438001044,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Click the help button on the Data Tasks node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca il pulsante di help sul nodo Data Tasks!",
+                    "updated": 1614791129195,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Click tombol help di Data Tasks node!",
+                    "updated": 1616770003646,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz click en el boton de aydua del nodo de Data Tasks!",
+                    "updated": 1618438023008,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

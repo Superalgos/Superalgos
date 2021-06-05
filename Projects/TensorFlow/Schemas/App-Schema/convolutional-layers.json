@@ -1,0 +1,134 @@
+{
+    "type": "Convolutional Layers",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Conv 1D Layer",
+            "relatedUiObject": "Conv 1D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Conv 2D Layer",
+            "relatedUiObject": "Conv 2D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Conv 2D Transpose Layer",
+            "relatedUiObject": "Conv 2D Transpose Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Conv 3D Layer",
+            "relatedUiObject": "Conv 3D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Cropping 2D Layer",
+            "relatedUiObject": "Cropping 2D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Depthwise Conv 2D Layer",
+            "relatedUiObject": "Depthwise Conv 2D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Separable Conv 2D Layer",
+            "relatedUiObject": "Separable Conv 2D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layer",
+            "label": "Add Up Sampling 2D Layer",
+            "relatedUiObject": "Up Sampling 2D Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Sequential layer->"
+    },
+    "propertyNameAtParent": "typeOfLayer",
+    "childrenNodesProperties": [
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Conv 1D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Conv 2D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Conv 2D Transpose Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Conv 3D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Cropping 2D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Depthwise Conv 2D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Separable Conv 2D Layer"
+        },
+        {
+            "name": "layer",
+            "type": "node",
+            "childType": "Up Sampling 2D Layer"
+        }
+    ],
+    "icon": "tensorflow"
+}

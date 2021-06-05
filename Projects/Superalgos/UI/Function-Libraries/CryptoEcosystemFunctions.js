@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryCryptoEcosystemFunctions() {
-    thisObject = {
+    let thisObject = {
         addMissingExchanges: addMissingExchanges,
         addMissingAssets: addMissingAssets,
         addMissingMarkets: addMissingMarkets,

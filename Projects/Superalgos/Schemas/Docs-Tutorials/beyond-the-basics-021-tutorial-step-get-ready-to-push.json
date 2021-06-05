@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos!",
-                "updated": 1619636976424
+                "updated": 1619636976424,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos interagisce con Git per mantenere la tua installazione aggiornata e per rendere più facile agli utenti meno tecnici contribuire. Il comando App Contribute esegue questi comandi Git:",
-                    "updated": 1619637039829
+                    "updated": 1619637039829,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "git add: aggiunge le tue modifiche in un git commit.",
-                    "updated": 1619637078728
+                    "updated": 1619637078728,
+                    "style": "List"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "git commit: fa il commit delle modifiche.",
-                    "updated": 1619637115670
+                    "updated": 1619637115670,
+                    "style": "List"
                 }
             ]
         },
@@ -62,7 +66,8 @@
                 {
                     "language": "IT",
                     "text": "git push: fa il push delle modifiche sul tuo fork.",
-                    "updated": 1619637112020
+                    "updated": 1619637112020,
+                    "style": "List"
                 }
             ]
         },
@@ -74,7 +79,8 @@
                 {
                     "language": "IT",
                     "text": "github createPullRequest: crea una Pull Request alla repo di Superalgos, o aggiunge i commit alla tua Pull Request esistente.",
-                    "updated": 1619637154313
+                    "updated": 1619637154313,
+                    "style": "List"
                 }
             ]
         }

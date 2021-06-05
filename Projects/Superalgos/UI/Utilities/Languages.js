@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesLanguages() {
-    thisObject = {
+    let thisObject = {
         getLaguageLabel: getLaguageLabel
     }
 
@@ -22,6 +22,14 @@ function newSuperalgosUtilitiesLanguages() {
             }
             case 'IT': {
                 languageLabel = 'Italian'
+                break
+            }
+            case 'DE': {
+                languageLabel = 'German'
+                break
+            }
+            case 'FR': {
+                languageLabel = 'French'
                 break
             }
             case 'CN': {

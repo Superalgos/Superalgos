@@ -1,0 +1,72 @@
+{
+    "type": "Phase",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "nextPhaseEvent",
+            "label": "Add Next Phase Event",
+            "relatedUiObject": "Next Phase Event",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Move To Phase Event",
+            "relatedUiObject": "Move To Phase Event",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "chainedToSameType": true,
+    "attachingRules": {
+        "compatibleTypes": "->Managed Stop->Managed Take Profit->Phase->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": true
+        },
+        {
+            "name": "nextPhaseEvent",
+            "type": "node",
+            "childType": "Next Phase Event"
+        },
+        {
+            "name": "moveToPhaseEvents",
+            "type": "array",
+            "childType": "Move To Phase Event"
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement"
+        }
+    ],
+    "propertyNameAtParent": "phases"
+}

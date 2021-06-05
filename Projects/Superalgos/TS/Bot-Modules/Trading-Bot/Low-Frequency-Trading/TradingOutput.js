@@ -22,7 +22,7 @@ exports.newSuperalgosBotModulesTradingOutput = function (processIndex) {
         try {
             let fileStorage = TS.projects.superalgos.taskModules.fileStorage.newFileStorage(processIndex)
 
-            if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[0][0]) {
+            if (timeFrame > TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[0][0]) {
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = false
             } else {
                 TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = true

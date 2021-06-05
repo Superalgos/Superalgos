@@ -1,0 +1,45 @@
+{
+    "type": "Next Phase Event",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Situation",
+            "relatedUiObject": "Situation",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Phase->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "situations",
+            "type": "array",
+            "childType": "Situation",
+            "autoAdd": true
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement"
+        }
+    ],
+    "propertyNameAtParent": "nextPhaseEvent"
+}

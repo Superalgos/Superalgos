@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Sperimentando con questa proprietà, ti accorgerai che spesso non si comporta in modo chiaro o prevedibile.",
-                "updated": 1619461378348
+                "updated": 1619461378348,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "L'implementazione attuale di questa proprietà non è ottimale. Se sei uno sviluppatore, questa potrebbe essere una grande opportunità per analizzare il codice esistente e rendere più utilizzabile questa funzionalità!",
-                    "updated": 1619461465723
+                    "updated": 1619461465723,
+                    "style": "Important"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Sperimenta pure con questa funzionalità, ma probabilmente vorrai tornare alla proprietà di default!",
-                    "updated": 1619461498671
+                    "updated": 1619461498671,
+                    "style": "Callout"
                 }
             ]
         }

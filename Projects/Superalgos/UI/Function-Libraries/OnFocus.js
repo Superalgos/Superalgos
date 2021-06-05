@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryOnFocus() {
-    thisObject = {
+    let thisObject = {
         getNodeThatIsOnFocus: getNodeThatIsOnFocus
     }
     return thisObject

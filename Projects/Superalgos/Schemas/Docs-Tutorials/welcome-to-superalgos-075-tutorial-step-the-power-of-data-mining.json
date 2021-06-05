@@ -1,0 +1,47 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 75,
+    "type": "Tutorial Step - The Power of Data Mining",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Why do levels jump up and down? There's something I haven't told you yet, 'cos I'm afraid it may blow your mind!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Perchè i livelli saltano su e giù? C'è qualcosa che ancora non ti ho detto, e vedrai che ti farà impazzire!",
+                "updated": 1618064409000,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The bot keeps track of all support levels alive since the start of the dataset, but only shows you the five levels closest to the current price.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il bot tiene traccia di tutti i livelli di supporto esistenti dall'inizio del dataset, ma ti mostra solo i cinque livelli più vicini al prezzo corrente.",
+                    "updated": 1618062479544,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Keeping track of information for the whole span of the dataset—which may count years—is the extraordinary value of data mining, and the kind of things you wouldn't be able to calculate with a function, on the fly. The Plotter associated with the Indicator Bot dynamically shows the five levels of support closest to the price because those are the relevant levels for the context, and it's how the plotter is built!",
+            "updated": 1616429006453,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tenere traccia dei dati per tutto il periodo temporale definito dal dataset (che può essere di anni) è il grande potere del data mining, e il tipo di informazioni che non puoi ricavare facilmente. Il Plotter associato all'Indicator Bot mostra dinamicamente i cinque livelli più vicini al prezzo attuale perchè sono i più rilevanti, ed è così che il Plotter è stato configurato!",
+                    "updated": 1618064485684,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

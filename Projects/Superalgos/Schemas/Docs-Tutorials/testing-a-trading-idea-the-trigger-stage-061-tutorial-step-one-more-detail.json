@@ -16,7 +16,8 @@
         },
         {
             "style": "Callout",
-            "text": "Can you write the condition with this information? Open a text editor and try it!"
+            "text": "Can you write the condition with this information? Fire up a text editor and try it!",
+            "updated": 1622488680122
         },
         {
             "style": "Success",

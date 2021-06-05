@@ -2,14 +2,23 @@ function newSuperalgosFunctionLibraryProtocolNode() {
     const MODULE_NAME = 'Protocol Node'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
 
-    thisObject = {
+
+    let thisObject = {
         getProtocolNode: getProtocolNode
     }
     return thisObject
 
-    function getProtocolNode(node, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, lightingPath) {
+    function getProtocolNode(
+        node,
+        removePersonalData,
+        parseConfig,
+        includeIds,
+        includePayload,
+        includeReferencesInSavedPayload,
+        lightingPath,
+        excludeChildrenOfType
+    ) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
 
@@ -28,16 +37,34 @@ function newSuperalgosFunctionLibraryProtocolNode() {
             if (schemaDocument.childrenNodesProperties !== undefined) {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
+                    if (property.childType === excludeChildrenOfType) {
+                        continue
+                    }
 
                     switch (property.type) {
                         case 'node': {
                             if (node[property.name] !== undefined) {
                                 if (lightingPath === undefined) {
-                                    object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseConfig, includeIds, includeReferencesInSavedPayload, includePayload)
+                                    object[property.name] = getProtocolNode(
+                                        node[property.name],
+                                        removePersonalData,
+                                        parseConfig,
+                                        includeIds,
+                                        includeReferencesInSavedPayload,
+                                        includePayload
+                                    )
                                 } else {
                                     let newLightingPath = getNewLightingPath(lightingPath, node.type, property.childType)
                                     if (newLightingPath !== undefined) {
-                                        object[property.name] = getProtocolNode(node[property.name], removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                                        object[property.name] = getProtocolNode(
+                                            node[property.name],
+                                            removePersonalData,
+                                            parseConfig,
+                                            includeIds,
+                                            includePayload,
+                                            includeReferencesInSavedPayload,
+                                            newLightingPath
+                                        )
                                     }
                                 }
                             }
@@ -49,7 +76,14 @@ function newSuperalgosFunctionLibraryProtocolNode() {
                                     let nodePropertyArray = node[property.name]
                                     object[property.name] = []
                                     for (let m = 0; m < nodePropertyArray.length; m++) {
-                                        let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseConfig, includeIds, includeReferencesInSavedPayload, includePayload)
+                                        let protocolNode = getProtocolNode(
+                                            nodePropertyArray[m],
+                                            removePersonalData,
+                                            parseConfig,
+                                            includeIds,
+                                            includeReferencesInSavedPayload,
+                                            includePayload
+                                        )
                                         if (protocolNode !== undefined) {
                                             object[property.name].push(protocolNode)
                                         }
@@ -60,7 +94,15 @@ function newSuperalgosFunctionLibraryProtocolNode() {
                                         let nodePropertyArray = node[property.name]
                                         object[property.name] = []
                                         for (let m = 0; m < nodePropertyArray.length; m++) {
-                                            let protocolNode = getProtocolNode(nodePropertyArray[m], removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                                            let protocolNode = getProtocolNode(
+                                                nodePropertyArray[m],
+                                                removePersonalData,
+                                                parseConfig,
+                                                includeIds,
+                                                includePayload,
+                                                includeReferencesInSavedPayload,
+                                                newLightingPath
+                                            )
                                             if (protocolNode !== undefined) {
                                                 object[property.name].push(protocolNode)
                                             }
@@ -74,11 +116,21 @@ function newSuperalgosFunctionLibraryProtocolNode() {
                 }
             }
 
+
             /* Parent Nodes */
             if (node.payload.parentNode !== undefined) {
                 let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
                 if (newLightingPath !== undefined) {
-                    object.parentNode = getProtocolNode(node.payload.parentNode, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                    object.parentNode = getProtocolNode(
+                        node.payload.parentNode,
+                        removePersonalData,
+                        parseConfig,
+                        includeIds,
+                        includePayload,
+                        includeReferencesInSavedPayload,
+                        newLightingPath,
+                        node.type
+                    )
                 } else {
                     let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.parentNode.type)
                 }
@@ -86,7 +138,15 @@ function newSuperalgosFunctionLibraryProtocolNode() {
             if (node.payload.referenceParent !== undefined) {
                 let newLightingPath = getNewLightingPath(lightingPath, node.type, node.payload.referenceParent.type)
                 if (newLightingPath !== undefined) {
-                    object.referenceParent = getProtocolNode(node.payload.referenceParent, removePersonalData, parseConfig, includeIds, includePayload, includeReferencesInSavedPayload, newLightingPath)
+                    object.referenceParent = getProtocolNode(
+                        node.payload.referenceParent,
+                        removePersonalData,
+                        parseConfig,
+                        includeIds,
+                        includePayload,
+                        includeReferencesInSavedPayload,
+                        newLightingPath
+                    )
                 }
             }
 
@@ -127,19 +187,23 @@ function newSuperalgosFunctionLibraryProtocolNode() {
         /* 
         In some situations, the current and next node are of the same type.
         When that happens, we need to search for the second instance of that type
-        at the lighting path.
+        at the lighting path, and then remove one of the strings for the returning path.
         */
         if (currentNodeType === nextNodeType) {
-            let tempLightingPath = lightingPath.substring(currentNodePosition + currentNodeType.length, lightingPath.length + 1)
+            let tempLightingPath = lightingPath.substring(currentNodePosition + currentNodeType.length + 2, lightingPath.length + 1)
             nextNodePosition = tempLightingPath.indexOf('->' + nextNodeType + '->')
-        }
 
-        let newLightingPath = lightingPath.substring(nextNodePosition, lightingPath.length + 1)
+            let newLightingPath = lightingPath.substring(nextNodePosition, lightingPath.length + 1)
 
-        if (nextNodePosition > currentNodePosition) {
-            return newLightingPath
+            if (nextNodePosition >= currentNodePosition) {
+                return newLightingPath
+            }
         } else {
-            return
+            let newLightingPath = lightingPath.substring(nextNodePosition, lightingPath.length + 1)
+
+            if (nextNodePosition > currentNodePosition) {
+                return newLightingPath
+            }
         }
     }
 

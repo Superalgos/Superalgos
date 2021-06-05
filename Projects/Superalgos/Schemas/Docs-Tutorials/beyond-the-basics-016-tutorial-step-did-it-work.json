@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se il comando era giusto, dovresti ottenere una nuova pagina con il tuo titolo, un invito a scrivere un sommario e altre istruzioni in fondo!",
-                "updated": 1619635581995
+                "updated": 1619635581995,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Se hai ricevuto un errore, leggilo e sistema il problema! Probabilmente è la sintassi del comando. Puoi sempre fare andare indietro di uno step e recuperare il comando originale!",
-                    "updated": 1619635652289
+                    "updated": 1619635652289,
+                    "style": "Note"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Nel prossimo step, analizzeremo come funziona il comando!",
-                    "updated": 1619635672214
+                    "updated": 1619635672214,
+                    "style": "Success"
                 }
             ]
         }

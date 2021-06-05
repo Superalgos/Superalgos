@@ -1,24 +1,20 @@
 {
     "topic": "Masters Data Mine",
     "pageNumber": 1,
-    "type": "Masters By @Luis-Fernando-Molina",
+    "type": "Masters by @luis_fernando_molina",
     "definition": {
-        "text": "The set of indicators built in the Masters data mine include candles, volumes, candle channels, volume channels, Bollinger bands (BB), Percentage Bandwidth (%B), Bollinger Channels, Bollinger Sub-Channels, and Supports and Resistances.",
-        "updated": 1611685914850
+        "text": "The Masters Data Mine features the Supports and Resistances indicator.",
+        "updated": 1622480871389
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "The Masters data mine is brought to you by...",
+            "style": "Title",
+            "text": "Maintainer",
             "updated": 1611685963401
         },
         {
             "style": "Link",
-            "text": "@Luis-Fernando-Molina->github.com/Luis-Fernando-Molina"
-        },
-        {
-            "style": "Success",
-            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
         }
     ]
 }

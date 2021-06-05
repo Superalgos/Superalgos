@@ -1,0 +1,34 @@
+{
+    "type": "ERC-721 Token Type",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Ethereum Token",
+            "relatedUiObject": "Ethereum Token",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Ethereum Token Definitions->"
+    },
+    "propertyNameAtParent": "erc-721TokenType",
+    "childrenNodesProperties": [
+        {
+            "name": "ethereumTokens",
+            "type": "array",
+            "childType": "Ethereum Token"
+        }
+    ],
+    "icon": "ethereum"
+}

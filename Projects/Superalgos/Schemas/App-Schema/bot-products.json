@@ -1,0 +1,46 @@
+{
+    "type": "Bot Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product Folder",
+            "relatedUiObject": "Data Product Folder",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
+    },
+    "propertyNameAtParent": "botProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "dataProducts",
+            "type": "array",
+            "childType": "Data Product",
+            "autoAdd": false
+        },
+        {
+            "name": "dataProductFolders",
+            "type": "array",
+            "childType": "Data Product Folder",
+            "autoAdd": false
+        }
+    ]
+}

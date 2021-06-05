@@ -1,5 +1,5 @@
 function newEthereumFunctionLibraryAccounts() {
-    thisObject = {
+    let thisObject = {
         createWalletAccount: createWalletAccount
     }
 

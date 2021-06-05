@@ -190,7 +190,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.max.value",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.tradingCurrent.tradingEpisode.candle.max.value",
             "updated": 1610223027648
         },
         {
@@ -211,7 +211,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.current.tradingEpisode.candle.min.value",
+            "text": "tradingEngineOrder.orderStatistics.actualRate.value =\ntradingEngine.tradingCurrent.tradingEpisode.candle.min.value",
             "updated": 1610223044937
         },
         {

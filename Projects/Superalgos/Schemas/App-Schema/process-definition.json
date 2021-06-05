@@ -1,0 +1,73 @@
+{
+    "type": "Process Definition",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Items",
+            "relatedUiObject": "Calculations Procedure",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"Multi-Time-Frame-Market|Multi-Time-Frame-Market|From-One-Min-To-Multi-Time-Frame-Daily|From-One-Min-To-Multi-Time-Frame-Market\", \n  \"normalWaitTime\": 0, \n  \"retryWaitTime\": 10000, \n  \"framework\": { \n    \"name\": \"Multi-Time-Frame-Market|Multi-Time-Frame-Market|From-One-Min-To-Multi-Time-Frame-Daily|From-One-Min-To-Multi-Time-Frame-Market\" \n  }\n}"
+    },
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processOutput",
+            "type": "node",
+            "childType": "Process Output",
+            "autoAdd": true
+        },
+        {
+            "name": "processDependencies",
+            "type": "node",
+            "childType": "Process Dependencies",
+            "autoAdd": true
+        },
+        {
+            "name": "statusReport",
+            "type": "node",
+            "childType": "Status Report",
+            "autoAdd": true
+        },
+        {
+            "name": "executionStartedEvent",
+            "type": "node",
+            "childType": "Execution Started Event",
+            "autoAdd": true
+        },
+        {
+            "name": "executionFinishedEvent",
+            "type": "node",
+            "childType": "Execution Finished Event",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "processes"
+}

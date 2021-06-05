@@ -1,0 +1,124 @@
+{
+    "type": "Market Order",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Engine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Trading Last->"
+    },
+    "propertyNameAtParent": "marketOrders",
+    "childrenNodesProperties": [
+        {
+            "name": "serialNumber",
+            "type": "node",
+            "childType": "Serial Number",
+            "autoAdd": true
+        },
+        {
+            "name": "identifier",
+            "type": "node",
+            "childType": "Identifier",
+            "autoAdd": true
+        },
+        {
+            "name": "exchangeId",
+            "type": "node",
+            "childType": "Exchange Id",
+            "autoAdd": true
+        },
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "rate",
+            "type": "node",
+            "childType": "Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "exitType",
+            "type": "node",
+            "childType": "Exit Type",
+            "autoAdd": true
+        },
+        {
+            "name": "status",
+            "type": "node",
+            "childType": "Status",
+            "autoAdd": true
+        },
+        {
+            "name": "orderName",
+            "type": "node",
+            "childType": "Order Name",
+            "autoAdd": true
+        },
+        {
+            "name": "algorithmName",
+            "type": "node",
+            "childType": "Algorithm Name",
+            "autoAdd": true
+        },
+        {
+            "name": "situationName",
+            "type": "node",
+            "childType": "Situation Name",
+            "autoAdd": true
+        },
+        {
+            "name": "orderCounters",
+            "type": "node",
+            "childType": "Order Counters",
+            "autoAdd": true
+        },
+        {
+            "name": "lock",
+            "type": "node",
+            "childType": "Lock",
+            "autoAdd": true
+        },
+        {
+            "name": "orderBaseAsset",
+            "type": "node",
+            "childType": "Order Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "orderQuotedAsset",
+            "type": "node",
+            "childType": "Order Quoted Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "orderStatistics",
+            "type": "node",
+            "childType": "Order Statistics",
+            "autoAdd": true
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "type": "Shapes",
+    "level": 4,
+    "propertyNameAtParent": "shapes",
+    "attachingRules": {
+        "compatibleTypes": "->Plotter Module->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "chartPoints",
+            "type": "array",
+            "childType": "Chart Points",
+            "autoAdd": true
+        },
+        {
+            "name": "polygons",
+            "type": "array",
+            "childType": "Polygon",
+            "autoAdd": true
+        },
+        {
+            "name": "images",
+            "type": "array",
+            "childType": "Image",
+            "autoAdd": false
+        },
+        {
+            "name": "texts",
+            "type": "array",
+            "childType": "Text",
+            "autoAdd": false
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Chart Points",
+            "relatedUiObject": "Chart Points"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Polygon",
+            "relatedUiObject": "Polygon"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Image",
+            "relatedUiObject": "Image"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Text",
+            "relatedUiObject": "Text"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

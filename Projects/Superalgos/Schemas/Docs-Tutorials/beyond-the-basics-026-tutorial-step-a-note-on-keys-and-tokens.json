@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Prima di proseguire, devo parlarti di punti importanti che riguardano la sicurezza delle tue chiavi e dei tuoi token...",
-                "updated": 1619641318317
+                "updated": 1619641318317,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos salva il file workspace che contiene chiavi e tokens in formato JSON, quindi NON CRIPTATO. In questo stato, queste importanti informazioni sono tanto sicure quanto lo è il tuo computer.",
-                    "updated": 1619641491336
+                    "updated": 1619641491336,
+                    "style": "Important"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Non condividere mai il tuo file workspace così com'è. Per condividerlo, usa il pulsante Share sul menù. Crea una copia del tuo workspace senza le informazioni personali, rimuovendo le gerarchie API e la sezione Exchange Accounts del nodo Crypto Exchange.",
-                    "updated": 1619641476652
+                    "updated": 1619641476652,
+                    "style": "Warning"
                 }
             ]
         },

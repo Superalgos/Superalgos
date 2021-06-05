@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesLoadSaveFrame() {
-    thisObject = {
+    let thisObject = {
         saveFrame: saveFrame,
         loadFrame: loadFrame
     }

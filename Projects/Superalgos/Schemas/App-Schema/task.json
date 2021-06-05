@@ -1,0 +1,127 @@
+{
+    "type": "Task",
+    "menuItems": [
+        {
+            "action": "Run Task",
+            "label": "Run",
+            "workingLabel": "Stop",
+            "workDoneLabel": "Task Running",
+            "workFailedLabel": "Task Cannot be Run",
+            "secondaryAction": "Stop Task",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Task Stopped",
+            "secondaryWorkFailedLabel": "Task Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Debug Task",
+            "label": "Debug",
+            "workingLabel": "Debugging",
+            "workDoneLabel": "Debug Request Sent",
+            "workFailedLabel": "Task Cannot be Debugged",
+            "iconPathOn": "status-dependency",
+            "iconPathOff": "status-dependency",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add Sensor Bot Instance",
+            "relatedUiObject": "Sensor Bot Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add API Data Fetcher Bot",
+            "relatedUiObject": "API Data Fetcher Bot Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add Indicator Bot Instance",
+            "relatedUiObject": "Indicator Bot Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add Trading Bot Instance",
+            "relatedUiObject": "Trading Bot Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add Learning Bot Instance",
+            "relatedUiObject": "Learning Bot Instance",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "keyReference",
+            "label": "Add Key Reference",
+            "relatedUiObject": "Key Reference",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "attachingRules": {
+        "compatibleTypes": "->Task Manager->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Trading Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Sensor Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "API Data Fetcher Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Indicator Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Learning Bot Instance"
+        },
+        {
+            "name": "keyReference",
+            "type": "node",
+            "childType": "Key Reference"
+        }
+    ],
+    "propertyNameAtParent": "tasks"
+}

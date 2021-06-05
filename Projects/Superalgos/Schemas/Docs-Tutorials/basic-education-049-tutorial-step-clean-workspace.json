@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Parlando di exchanges e plugins testati, c'è un plugin workspace che puoi usare come punto di inizio quando crei nuovi oggetti!",
-                "updated": 1619591538451
+                "updated": 1619591538451,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "È il Tested Exchanges Plugin Workspace!",
-                    "updated": 1619591552367
+                    "updated": 1619591552367,
+                    "style": "Note"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Quando avrai fatto tutti i tutorial disponibili, sarai finalmente pronto a costruire il tuo Trading System. Questo è il plugin workspace da cui puoi partire!",
-                    "updated": 1619591627147
+                    "updated": 1619591627147,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Contiene un Trading System pulito, il tutorial Install New Market e l'elenco di exchange testati che puoi usare.",
-                    "updated": 1619591665451
+                    "updated": 1619591665451,
+                    "style": "Success"
                 }
             ]
         }

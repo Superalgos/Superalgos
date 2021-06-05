@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryDataStorageFunctions() {
-    thisObject = {
+    let thisObject = {
         addAllDataProducts: addAllDataProducts,
         addAllDataMineProducts: addAllDataMineProducts,
         addAllTradingMineProducts: addAllTradingMineProducts,
@@ -42,6 +42,7 @@ function newSuperalgosFunctionLibraryDataStorageFunctions() {
         */
         let mine = node.payload.referenceParent
         scanBotArray(mine.sensorBots)
+        scanBotArray(mine.apiDataFetcherBots)
         scanBotArray(mine.indicatorBots)
         scanBotArray(mine.tradingBots)
         scanBotArray(mine.learningBots)

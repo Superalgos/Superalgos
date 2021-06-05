@@ -1,0 +1,60 @@
+{
+    "type": "Plotter Panel",
+    "level": 4,
+    "propertyNameAtParent": "panels",
+    "attachingRules": {
+        "compatibleTypes": "->Plotter Module->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"codeName\": \"\", \n\"isLegacy\": false\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "plotterPanelJavascriptCode",
+            "type": "node",
+            "childType": "Plotter Panel Javascript Code"
+        },
+        {
+            "name": "panelData",
+            "type": "array",
+            "childType": "Panel Data",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "plotterPanelJavascriptCode",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Javascript Code",
+            "relatedUiObject": "Plotter Panel Javascript Code"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Panel Data",
+            "relatedUiObject": "Panel Data"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

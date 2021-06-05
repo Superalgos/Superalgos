@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "I Clones (cloni) si differenziano dai backup dal fatto che sono progettati per replicare strutture di dati in modo che la copia sia uguale all'originale.",
-                "updated": 1619545781267
+                "updated": 1619545781267,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Leggi attentamente questa pagina!",
-                    "updated": 1619545792048
+                    "updated": 1619545792048,
+                    "style": "Callout"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "In sintesi:",
-                    "updated": 1619545801000
+                    "updated": 1619545801000,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Il comportamento dei cloni <b>non</b> varia in base alla presenza o meno dell'originale al momento del ripristino.",
-                    "updated": 1619546165377
+                    "updated": 1619546165377,
+                    "style": "List"
                 }
             ]
         },
@@ -61,19 +65,21 @@
                 {
                     "language": "IT",
                     "text": "Le references in ingresso vengono sempre perse.",
-                    "updated": 1619545955251
+                    "updated": 1619545955251,
+                    "style": "List"
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Feel free to take the time to test the Clones feature on your own! We'll move on to other topics without further due!",
-            "updated": 1615884678255,
+            "text": "Feel free to take the time to test the Clones feature on your own! We'll move on to other topics without further ado!",
+            "updated": 1622374462370,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Prenditi pure del tempo per testare la funzionalità dei cloni! Poi ci muoveremo ad altri argomenti!",
-                    "updated": 1619546030194
+                    "updated": 1619546030194,
+                    "style": "Success"
                 }
             ]
         }

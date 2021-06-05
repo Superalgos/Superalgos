@@ -1,0 +1,84 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 5,
+    "type": "Tutorial Step - That's Me On the Right!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Tutorial ini dibuat oleh system, jadi kamu juga bisa membuat tutorial berbeda jika ingin! Tapi kita bahas hal besar itu nanti saja. Untuk sekarang fokus saja ke hal yang basic!",
+                "updated": 1614417905988,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico!",
+                "updated": 1618431969376,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "I tutorial sono definiti all'interno del sistema, quindi puoi creare altri di noi se lo vuoi! Ma parleremo di questo potere divino più avanti. Prima concentriamoci sulle basi!",
+                "updated": 1614712747107,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos is inherently a visual tool. The system represents information in hierarchical structures of interconnected nodes, represented by icons. What you see on your right is one of these hierarchies—in particular, a Tutorial hierarchy. In this case, \"tutorial\" is the type of node and \"Welcome to Superalgos!\" is the name of the node.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Superalgos merupakan data yang divisualisasikan. Dengan sistem yang merepresentasikan informasi berstruktur hirarki dari nodes yang tersambung (berbentuk icon). Apa yang kamu lihat disebelah bagian dari hirarki juga, secara detail tutorial yang dimaksud adalah Welcome to Superalgos!",
+                    "updated": 1614418099585,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos es intrínsecamente una herramienta visual. El sistema representa la información en estructuras jerárquicas de nodos interconectados, representados por iconos. Lo que ve a su derecha es una de estas jerarquías, en concreto, una jerarquía de Tutorial. En este caso, \"tutorial\" es el tipo de nodo y \"¡Bienvenido a Superalgos!\" es el nombre del node.",
+                    "updated": 1618432149966,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Superalgos é per natura uno strumento visivo. Il sistema rappresenta le informazioni in una struttura gerarchica di nodi interconnessi, rappresentati da icone. Alla tua destra c'é una di queste gerarchie: più precisamente, una gerarchia Tutorial. In questo caso \"tutorial\" è il tipo del nodo e \"Welcome to Superalgos\" è il suo nome.",
+                    "updated": 1618645075554,
+                    "style": "Text"
+                }
+            ],
+            "updated": 1616410534255
+        },
+        {
+            "style": "Callout",
+            "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons!",
+            "updated": 1611075799669,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Dekatkan pointer mousemu ke node Tutorial dan lihat apa yang terjadi!, Keren bukan? Banyak sekali tombol disana!",
+                    "updated": 1614424765045,
+                    "style": "Callout"
+                },
+                {
+                    "language": "IT",
+                    "text": "Sposta il cursore del mouse sul nodo Tutorial e guarda cosa succede! Wow! Forte, vero? Ci sono un sacco di pulsanti!",
+                    "updated": 1614717176134,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pase el puntero del ratón sobre el node  Tutorial y vea lo que ocurre. ¡Wow! Genial, ¿verdad? ¡Son un montón de botones!",
+                    "updated": 1618432002187,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

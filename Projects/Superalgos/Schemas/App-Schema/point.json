@@ -1,0 +1,36 @@
+{
+    "type": "Point",
+    "level": 4,
+    "propertyNameAtParent": "points",
+    "attachingRules": {
+        "compatibleTypes": "->Chart Points->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pointFormula",
+            "type": "node",
+            "childType": "Point Formula",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "pointFormula",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Point Formula",
+            "relatedUiObject": "Point Formula"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

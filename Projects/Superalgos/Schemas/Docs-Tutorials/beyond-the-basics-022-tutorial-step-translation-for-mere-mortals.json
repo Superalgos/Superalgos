@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se non sei uno sviluppatore o non conosci bene Git, probabilmente gli ultimi step ti sono sembrati un caos! Immagino!",
-                "updated": 1619637224858
+                "updated": 1619637224858,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Git è un controllo di versione open-source che ha lo scopo di gestire le collaborazioni. È lo standard industriale.",
-                    "updated": 1619637277451
+                    "updated": 1619637277451,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Il passo precedente elenca gli steo tenici necessari per far regolare la collaborazione, seguendo alcune regole base così da non interferire con il lavoro di altre persone!",
-                    "updated": 1619637356441
+                    "updated": 1619637356441,
+                    "style": "Success"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Se conosci Git, puoi scegliere quale workflow seguire!",
-                    "updated": 1619637378349
+                    "updated": 1619637378349,
+                    "style": "Note"
                 }
             ]
         },

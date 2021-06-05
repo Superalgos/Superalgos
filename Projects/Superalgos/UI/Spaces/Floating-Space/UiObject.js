@@ -1833,12 +1833,12 @@ function newUiObject() {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {
                             x: position.x - getTextWidth(label) / 2,
-                            y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
+                            y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
                         }
                     } else {
                         labelPoint = {
                             x: position.x - getTextWidth(label) / 2,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                         }
                     }
                 }
@@ -1887,12 +1887,12 @@ function newUiObject() {
             if (thisObject.isOnFocus === true) {
                 labelPoint = {
                     x: position.x - getTextWidth(label) / 2,
-                    y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
+                    y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
                 }
             } else {
                 labelPoint = {
                     x: position.x - getTextWidth(label) / 2,
-                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
                 }
             }
 
@@ -1939,12 +1939,12 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - getTextWidth(label) / 2,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 3 + 30
+                        y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
                     }
                 } else {
                     labelPoint = {
                         x: position.x - getTextWidth(label) / 2,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
                     }
                 }
 

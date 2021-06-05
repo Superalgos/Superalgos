@@ -1,0 +1,65 @@
+{
+    "type": "Learning Session Reference",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Learning Mine Products",
+            "relatedUiObject": "Learning Mine Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Learning Mine Products",
+            "label": "Add All Learning Mine Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Learning Mine Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Type",
+        "Use Child @marketDataProducts"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "alternativeIcons": "Use Reference Parent",
+    "referencingRules": {
+        "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Learning Products->"
+    },
+    "propertyNameAtParent": "learningSessionReferences",
+    "childrenNodesProperties": [
+        {
+            "name": "dataProducts",
+            "type": "array",
+            "childType": "Data Product",
+            "autoAdd": false
+        },
+        {
+            "name": "learningMineProducts",
+            "type": "array",
+            "childType": "Learning Mine Products",
+            "autoAdd": false
+        }
+    ]
+}

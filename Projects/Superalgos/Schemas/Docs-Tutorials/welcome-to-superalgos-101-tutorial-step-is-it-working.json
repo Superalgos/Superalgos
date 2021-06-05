@@ -1,0 +1,47 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 101,
+    "type": "Tutorial Step - Is It Working?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "binance"
+        },
+        "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",
+        "updated": 1616435272813,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il modo più sicuro per verificare che tutto sta andando bene è andare su Binance e controllare la cronologia degli ordini BTC/USDT.",
+                "updated": 1618071697384,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to Binance and take a look at what's going on!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai su Binance e controlla costa sta succedendo!",
+                    "updated": 1618071709908,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "At any point in time, you should see one open order and a number of canceled orders pilling up in your order history, pretty much like in the video on the next step!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In qualunque momento, dovresti vedere un ordine aperto e un certo numero di ordini cancellati nella tua cronologia, come nel video al prossimo step!",
+                    "updated": 1618071750939,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

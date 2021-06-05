@@ -1,0 +1,45 @@
+{
+    "type": "Dashboard",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Time Machine",
+            "relatedUiObject": "Time Machine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Time Machines",
+            "label": "Add Missing Time Machines",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Time Machine",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "referencingRules": {
+        "compatibleTypes": "->Testing Trading Tasks->Production Trading Tasks->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Project Dashboards->"
+    },
+    "propertyNameAtParent": "dashboards",
+    "childrenNodesProperties": [
+        {
+            "name": "timeMachines",
+            "type": "array",
+            "childType": "Time Machine"
+        }
+    ]
+}

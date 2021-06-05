@@ -1,0 +1,60 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 55,
+    "type": "Tutorial Step - Layers on Top of Layers",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer"
+        },
+        "text": "Your data mining operation features bots making data products. Each product is made available on the charts through a Layer in a Layer Manager.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Le operazioni di data mining coinvolgono bots che creano data products. Ogni product è accessibile dal grafico attraverso un Layer nel Layer Manager.",
+                "updated": 1618648641710,
+                "style": "Definition"
+            }
+        ],
+        "updated": 1616427338175
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first layer manager to the left of this time machine features three layers. Those layers represent the data products that the Trading System we are going to test later on uses to make trading decisions.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il primo Layer Manager alla sinistra di questa Time Machine contiene tre layers. Questi layer rappresentano i data products che il Trading System, che testeremo più tardi, usa per fare le sue scelte.",
+                    "updated": 1615963760779,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To turn layers on and off, left-click on them!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per attivare e disattivare i layers, cliccaci sopra!",
+                    "updated": 1615963587655,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos ships with many more indicators, but they are not configured in this Workspace. You will learn about them later!",
+            "updated": 1610622819519,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos è provvisto di molti più indicatori, ma non sono configurati in questo Workspace. Ne parleremo più tardi!",
+                    "updated": 1615963772691,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

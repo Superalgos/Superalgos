@@ -1,0 +1,100 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": 4,
+    "type": "Data Mining - Datasets Type Conversions",
+    "definition": {
+        "text": "Processes fetching data from the Internet are optimized for accessing a wide range of APIs available out there. The Dataset Type they use to store raw data is usually not the best one for data consumption within the system. For that reason Dataset Type conversions need to be done.",
+        "updated": 1622205220555
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Types of Dataset Conversions",
+            "updated": 1622227863425
+        },
+        {
+            "style": "Text",
+            "text": "The type of conversions currently implemented within the system are:"
+        },
+        {
+            "style": "List",
+            "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Daily.",
+            "updated": 1621701316752
+        },
+        {
+            "style": "List",
+            "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Market.",
+            "updated": 1621701322738
+        },
+        {
+            "style": "Subtitle",
+            "text": "How to Convert from One Dataset Type to Another",
+            "updated": 1622205287155
+        },
+        {
+            "style": "Text",
+            "text": "There are two ways to convert from one Dataset type to another. ",
+            "updated": 1621699409527
+        },
+        {
+            "style": "List",
+            "text": "Custom Code: Users can write code to handle the conversion in cases where the standard converter is not available for the type of conversion needed.",
+            "updated": 1622205316515
+        },
+        {
+            "style": "List",
+            "text": "Standard Converter: Use a standard converter to do the job. Currently there is only one Standard Converter and it works converting from One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset types. ",
+            "updated": 1621711423050
+        },
+        {
+            "style": "Subtitle",
+            "text": "Custom Code Example",
+            "updated": 1622205366974
+        },
+        {
+            "style": "Text",
+            "text": "The Candles-Volumes indicator at the Master Data Mine converts One-Min candles and volumes into candles and volumes of 2 min, 3 min ecc.. up to 24hs. To do this, it runs a custom made algorithm that aggregates that information provided by the Exchange Raw Data Sensor Bot.",
+            "updated": 1622191376005
+        },
+        {
+            "style": "Note",
+            "text": "The reason this was implemented as custom code is because when it was needed there was no standard converter and it has not been migrated to the currently existing one.",
+            "updated": 1622205482848
+        },
+        {
+            "style": "Subtitle",
+            "text": "Standard Converter Example",
+            "updated": 1621701438440
+        },
+        {
+            "style": "Text",
+            "text": "The Asset Metrics Indicator Bot, defined at the Messari Data Mine, uses the Standard Converter from One-Min-Daily Dataset type to Multi-Time-Frame-Daily and Multi-Time-Frame-Market Dataset types. In order to use the converter, the bot's Process Definition nodes needs to have a framework of the converter defined within its config.",
+            "updated": 1622205718679
+        },
+        {
+            "style": "Text",
+            "text": "To convert to Multi-Time-Frame-Daily, set the framework name as follows:",
+            "updated": 1622205768649
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"From-One-Min-To-Multi-Time-Frame-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Time-Frame-Daily\"\n    }\n}",
+            "updated": 1621701781838
+        },
+        {
+            "style": "Text",
+            "text": "To convert to Multi-Time-Frame-Market, set the framework name like this:",
+            "updated": 1622205804137
+        },
+        {
+            "style": "Json",
+            "text": " {\n    \"codeName\": \"From-One-Min-To-Multi-Time-Frame-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"From-One-Min-To-Multi-Time-Frame-Market\"\n    }\n}",
+            "updated": 1621901499029
+        },
+        {
+            "style": "Success",
+            "text": "You will need the standard converter everytime you use the API Data Fetcher Bot to extract data from some Inernet API. The bot will usually save the data in a One-Min-Daily Dataset Type, and you will need to setup an Indicator Bot with two processes in order to convert the One-Min-Daily Dataset Type into a Multi-Time-Frame-Daily and a Multi-Time-Frame-Market Dataset Type.",
+            "updated": 1622191511065
+        }
+    ]
+}

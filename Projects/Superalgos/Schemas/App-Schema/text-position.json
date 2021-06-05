@@ -1,0 +1,40 @@
+{
+    "type": "Text Position",
+    "level": 4,
+    "propertyNameAtParent": "textPosition",
+    "attachingRules": {
+        "compatibleTypes": "->Text->"
+    },
+    "childrenNodesProperties": [],
+    "referencingRules": {
+        "compatibleTypes": "->Point->"
+    },
+    "editors": {
+        "config": true
+    },
+    "title": [
+        "Use Reference Parent"
+    ],
+    "initialValues": {
+        "config": "{ \n\"offsetX\": 0,\n \"offsetY\": 0\n }"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

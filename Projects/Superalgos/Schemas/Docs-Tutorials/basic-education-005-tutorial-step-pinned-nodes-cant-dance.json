@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Quando un nodo è \"pinned\", è fissato a una posizione indipendentemente dal resto delle proprietà di disposizione!",
-                "updated": 1619459518708
+                "updated": 1619459518708,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Puoi fissare un nodo, una struttura di nodi o anche un'intera gerarchia. Proviamo un'altra cosa...",
-                    "updated": 1619459542669
+                    "updated": 1619459542669,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Fissa il nodo Trading Parameters e trascinalo via!",
-                    "updated": 1619459606476
+                    "updated": 1619459606476,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Nota come tutti i nodi figli seguono il nodo padre, ma il nodo Session Base Asset rimane fisso! Prima di proseguire, togli il pin da tutti i nodi per tenere in ordine il workspace!",
-                    "updated": 1619459651253
+                    "updated": 1619459651253,
+                    "style": "Note"
                 }
             ]
         }

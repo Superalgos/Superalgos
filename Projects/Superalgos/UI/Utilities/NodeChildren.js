@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesNodeChildren() {
-    thisObject = {
+    let thisObject = {
         isMissingChildren: isMissingChildren,
         findChildReferencingThisNode: findChildReferencingThisNode,
         findOrCreateChildWithReference: findOrCreateChildWithReference,

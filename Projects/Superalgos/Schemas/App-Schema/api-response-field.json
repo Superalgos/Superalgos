@@ -1,0 +1,48 @@
+{
+    "type": "API Response Field",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add API Response Field",
+            "relatedUiObject": "API Response Field",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"codeName\": \"\", \"fieldType\": \"\", \"descrption\": \"\"}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "propertyNameAtParent": "apiResponseFields",
+    "attachingRules": {
+        "compatibleTypes": "->API Response Field->API Response Schema->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "apiResponseFields",
+            "type": "array",
+            "childType": "API Response Field",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

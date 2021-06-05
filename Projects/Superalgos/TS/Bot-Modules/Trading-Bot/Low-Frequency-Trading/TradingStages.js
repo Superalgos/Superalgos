@@ -169,6 +169,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkTriggerOff() {
             if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
+                checkUserDefinedCode('Trigger Stage', 'Running', 'first');
 
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
@@ -246,6 +247,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                                 changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
+                            } else {
+                                checkUserDefinedCode('Trigger Stage', 'Running', 'last');
                             }
                         }
                     }
@@ -263,7 +266,8 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         function checkIfWeNeedToAbortTheStage() {
             /* Abort Open Stage Check */
-            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' && tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
+            if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' &&
+                (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening' || tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') ){
                 /* 
                 if the Close stage is opened while the open stage is still open that means that
                 we need to stop placing orders, check what happened to the orders already placed,
@@ -278,7 +282,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define an Open Stage, because the Open Stage is optional.
-                Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
+                Here we are going to see if that is the case and if it is, we will immediately consider 
                 the Open Stage as closed.
                 */
                 if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage === undefined) {
@@ -299,7 +303,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage)
                 initializeStageTargetSize()
 
-                /* From here on, the stage is officialy Open */
+                /* From here on, the stage is officially Open */
                 changeStageStatus('Open Stage', 'Open')
             }
         }
@@ -311,6 +315,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 While the Open Stage is Open, we do our regular stuff: place orders and check 
                 what happened to the orders already placed.
                 */
+                checkUserDefinedCode('Open Stage', 'Running', 'first');
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyOpenStage
                 let executionNode = tradingSystemStage.openExecution
@@ -324,6 +329,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     tradingEngineStage
                 )
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Open Stage')
+
+                /* User Defined Code if runWhileAtStage==true */
+                if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
+                  checkUserDefinedCode('Open Stage', 'Running', 'last');
+                }
             }
         }
 
@@ -410,7 +420,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Opening') {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
-                
+
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
                 Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
@@ -418,7 +428,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 */
                 if (manageStage === undefined) {
                     changeStageStatus('Manage Stage', 'Closed', 'Manage Stage Undefined')
-                    changeStageStatus('Close Stage', 'Opening')
+                    if (tradingEngine.tradingCurrent.strategyOpenStage.status.value !== 'Open' && tradingEngine.tradingCurrent.strategyOpenStage.status.value !== 'Opening') {
+                        changeStageStatus('Close Stage', 'Opening');
+                    }
                     return
                 }
 
@@ -431,6 +443,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         function runWhenStatusIsOpen() {
             /* Open Status Procedure */
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+                checkUserDefinedCode('Manage Stage', 'Running', 'first');
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
 
@@ -450,6 +463,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 /* Checking if Stop or Take Profit were hit */
                 checkStopLossOrTakeProfitWasHit()
+
+                /* If User Defined Code exists check for runWhileAtStage */
+                if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
+                  checkUserDefinedCode('Manage Stage', 'Running', 'last');
+                }
             }
 
             function calculateStopLoss() {
@@ -751,7 +769,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                     or our Take Profit were hit. 
                     */
 
-                    /* Stop Loss condition: Here we verify if the Stop Loss was hitted or not. */
+                    /* Stop Loss condition: Here we verify if the Stop Loss was hit or not. */
                     if (
                         (
                             tradingEngine.tradingCurrent.position.stopLoss.stopLossPosition.value === 'Above' &&
@@ -800,6 +818,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
         runWhenStatusIsOpening()
         await runWhenStatusIsOpen()
+        await runWhenStatusIsClosing()
 
         function runWhenStatusIsOpening() {
 
@@ -822,7 +841,9 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
                 /* Exit Position size and rate */
                 tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
-                tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage)
+                if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage, 'Close Stage') === false) {
+                    //console.log("No Close-Stage Target Asset to Trade: Strategy Closing.");
+                }
 
                 initializeStageTargetSize()
                 changeStageStatus('Close Stage', 'Open')
@@ -845,6 +866,7 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 /*
                 This will happen as long as the Close Stage is Open.
                 */
+                checkUserDefinedCode('Close Stage', 'Running', 'first');
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
                 let executionNode = tradingSystemStage.closeExecution
@@ -858,6 +880,62 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
                 )
 
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
+                /* If User Defined Code exists check for runWhileAtStage */
+                if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
+                  checkUserDefinedCode('Close Stage', 'Running', 'last');
+                }
+            }
+        }
+
+        async function runWhenStatusIsClosing() {
+            /* Closing Status Procedure */
+            if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Closing') {
+                /*
+                During the closing stage status, we do not place new orders, just check
+                if the ones placed were filled, and cancel the ones not filled.
+                */
+                let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
+                let executionNode = tradingSystemStage.closeExecution
+
+                /*
+                Check if there are unfilled orders, we will check if they were executed,
+                and cancel the ones that were not.
+                */
+                tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
+                tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
+
+                await tradingExecutionModuleObject.runExecution(
+                    executionNode,
+                    tradingEngine.tradingCurrent.strategyCloseStage
+                )
+
+                /*
+                The Closing is finished when the sizeFilled + feesPaid reaches the sizePlaced.
+                This can happens either because we update the sizeFilled value when we see
+                at the exchange that orders were filled, or we reduce the sizePlaced when
+                we cancel not yet filled orders. Here it does not matter the targetSize since
+                this status represent a force closure of this stage.
+                */
+                switch (tradingEngine.tradingCurrent.strategyCloseStage.stageDefinedIn.value) {
+                    case 'Base Asset': {
+                        if (
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageBaseAsset.sizePlaced.value
+                        ) {
+                            changeStageStatus('Close Stage', 'Closed')
+                        }
+                        break
+                    }
+                    case 'Quoted Asset': {
+                        if (
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizeFilled.value >=
+                            tradingEngine.tradingCurrent.strategyCloseStage.stageQuotedAsset.sizePlaced.value
+                        ) {
+                            changeStageStatus('Close Stage', 'Closed')
+                        }
+                        break
+                    }
+                }
             }
         }
 
@@ -882,11 +960,12 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
 
     function exitPositionValidation() {
         /* 
-        Exit Position Validation: we need al the previous stages to be either closed 
-        or at their initial default value. The last is becasue after Closed objects are 
-        initialized to their defualts.  
+        Exit Position Validation: we need all the previous stages to be either closed 
+        or at their initial default value. The last is because after Closed objects are 
+        initialized to their defaults.
         */
         if (tradingEngine.tradingCurrent.position.status.value !== 'Open' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
+        if (tradingEngine.tradingCurrent.position.status.value !== 'Close' && tradingEngine.tradingCurrent.position.status.value !== 'Closing') { return }
         if (
             (
                 tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Closed' ||
@@ -1068,9 +1147,11 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
         }
         if (stage.status.value === 'Open') {
             openStage(stage)
+            checkUserDefinedCode(stageName, 'Open')
         }
         if (stage.status.value === 'Closed') {
-            closeStage(stage)
+            checkUserDefinedCode(stageName, 'Closed')
+            closeStage(stage, stageName)
         }
 
         /*
@@ -1091,10 +1172,23 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             stage.beginRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
         }
 
-        function closeStage(stage) {
+        function closeStage(stage, stageName) {
             /* Recording the closing at the Trading Engine Data Structure */
             stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
             stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
+            
+            if (stageName === 'Open Stage') {
+                if (tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Open' &&
+                    tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Open') {
+                    changeStageStatus('Close Stage', 'Opening');
+                }
+            }
+            if (stageName === 'Close Stage') {
+                if (tradingEngine.tradingCurrent.position.status.value === 'Open') {
+                    tradingPositionModuleObject.closingPosition('Close Stage Closed')
+                    /* NOTE:TODO: Announcement May need added Here */
+                }
+            }
         }
     }
 
@@ -1173,5 +1267,58 @@ exports.newSuperalgosBotModulesTradingStages = function (processIndex) {
             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
         throw 'Error Already Recorded'
+    }
+
+    /* checkUserDefinedCode(): Checks if User Defined Code exists and processes if applicable. */
+    function checkUserDefinedCode(stage, status, when) {
+      let tradingSystemStage = getTradingSystemStage(stage);
+
+      if (tradingSystemStage !== undefined &&
+          tradingSystemStage.userDefinedCode !== undefined) {
+        if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
+
+        switch(status) {
+          case 'Open' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhenEnteringStage) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+          case 'Running' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+          case 'Closed' : {
+            if (tradingSystemStage.userDefinedCode.config.runWhenExitingStage) {
+              tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
+            }
+            break;
+          }
+        }
+      }
+    }
+
+    /* getTradingSystemStage(): takes stage name returns stage object. */
+    function getTradingSystemStage(stage) {
+      switch(stage) {
+        case 'Trigger Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage;
+          break;
+        }
+        case 'Open Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage;
+          break;
+        }
+        case 'Manage Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage;
+          break
+        }
+        case 'Close Stage' : {
+          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage;
+          break;
+        }
+      }
     }
 }

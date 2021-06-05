@@ -1,0 +1,33 @@
+{
+    "type": "Style",
+    "level": 4,
+    "propertyNameAtParent": "style",
+    "attachingRules": {
+        "compatibleTypes": "->Style Condition->Polygon Body->Polygon Border->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": " { \"default\": {  \"opacity\": 0.2,  \"lineWidth\": 1,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.DARK_TURQUOISE\" }, \"atMousePosition\": {  \"opacity\": 0.3,  \"lineWidth\": 2,  \"lineDash\": [0,0],  \"paletteColor\": \"UI_COLOR.RUSTED_RED\" }}"
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

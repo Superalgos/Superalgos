@@ -1,0 +1,55 @@
+{
+    "type": "Exchange Assets",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Asset",
+            "relatedUiObject": "Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Assets",
+            "label": "Add Missing Assets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"addMissingAssetsFilter\": { \"quotedAsset\": \"USDT\"} \n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "propertyNameAtParent": "exchangeAssets",
+    "childrenNodesProperties": [
+        {
+            "name": "assets",
+            "type": "array",
+            "childType": "Asset"
+        }
+    ]
+}

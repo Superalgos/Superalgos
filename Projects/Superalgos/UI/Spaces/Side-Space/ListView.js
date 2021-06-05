@@ -34,7 +34,7 @@ function newListView() {
 
     let headerHeight = 40
     let footerHeight = 30
-    let listItemHeight = SIDE_PANEL_WIDTH * 0.75
+    let listItemHeight = SIDE_PANEL_WIDTH * 0.40
 
     let posibleVisibleListItems
 

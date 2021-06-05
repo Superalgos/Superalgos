@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Prima di lanciarti in una scrittura sfrenata, assicurati di salvare la pagina una volta ogni tanto! Non rischiare il tuo romanzo!",
-                "updated": 1619636603159
+                "updated": 1619636603159,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Ogni paragrafo che scrivi è salvato a livello della sessione del browser appena esci dalla modalità Edit. Per salvare la pagina su disco ed evitare di perdere il lavoro in caso il browser crashasse, usa questo comando:",
-                    "updated": 1619636674917
+                    "updated": 1619636674917,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,7 +44,8 @@
                 {
                     "language": "IT",
                     "text": "Se per qualche ragione perdi di vista la pagina, lancia il comando docs.reindex e cercala col titolo che le hai dato aggiungendola! Puoi anche usare il pulsante BACK sul footer della pagina!",
-                    "updated": 1619636726170
+                    "updated": 1619636726170,
+                    "style": "Success"
                 }
             ]
         }

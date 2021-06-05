@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "For example, in a Task set up to run a Backtesting Session, the Trading Process Instance references the Trading Bot Multi-Period process, the Trading System Reference references a Trading System, and the Trading Engine Reference references the Trading Engine. These are all outgoing references relative to the structure of nodes that make up a Task.",
+            "text": "For example, in a Task set up to run a Backtesting Session, the Trading Process Instance references the Trading Bot Multi-Time-Frame process, the Trading System Reference references a Trading System, and the Trading Engine Reference references the Trading Engine. These are all outgoing references relative to the structure of nodes that make up a Task.",
             "updated": 1615823380296
         },
         {

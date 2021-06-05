@@ -1,0 +1,47 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Playing with the Rate Scale!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "rate-scale"
+        },
+        "text": "Do I need to tell you how the Rate Scale works or can you figure it out on your own? Ok... I'll give you a hint...",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Vuoi che ti spieghi come funziona il Rate Scale, o lo immagini già? Ok, ti darò un suggerimento...",
+                "updated": 1614893948589,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The rate scale works like the time scale, but —when using the keyboard— you must reverse the arrow keys! Use the left and right arrows ← → to toggle through the automatic modes and up and down arrows ↑ ↓ to affect the scale! Check the video coming next for clarity!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Funziona esattamente come il Time Scale, con la differenza che se usi le frecce devi invertire le direzioni dei tasti! Usa le frecce laterali per scegliere tra le modalità automatiche e quelle su e giù ↑ ↓ per cambiare la scala! Guarda il video al prossimo step per i dettagli.",
+                    "updated": 1618648350572,
+                    "style": "Callout"
+                }
+            ],
+            "updated": 1616505192799
+        },
+        {
+            "style": "Success",
+            "text": "Play with the semi-automatic scale modes too! You know, when a single tiny triangle remains visible after a few flicks of the mouse wheel.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prova anche la modalità semi-automatica per le differenti scale! Ruota la rotella del mouse finchè non vedi un singolo triangolino verde.",
+                    "updated": 1614894098439,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

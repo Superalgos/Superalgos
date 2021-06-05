@@ -1,0 +1,33 @@
+{
+    "type": "Time Frames Filter",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"dailyTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],\n\"marketTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\"]\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Indicator Bot Instance->"
+    },
+    "propertyNameAtParent": "timeFramesFilter"
+}

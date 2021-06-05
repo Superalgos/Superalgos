@@ -6,9 +6,18 @@
     },
     "paragraphs": [
         {
+            "style": "Include",
+            "text": "Superalgos->Node->Record Definition->Record Properties",
+            "updated": 1622292888747
+        },
+        {
+            "style": "Title",
+            "text": "How is a Record Formula used?",
+            "updated": 1622292907320
+        },
+        {
             "style": "Text",
-            "text": "Formulas may use both the record and the variable objects made available by the calculations procedure and the data building procedure (see procedure loop).",
-            "updated": 1609788725463
+            "text": "Formulas may use both the record and the variable objects made available by the calculations procedure and the data building procedure (see procedure loop)."
         },
         {
             "style": "Text",

@@ -1,0 +1,79 @@
+{
+    "type": "API Endpoint",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiQueryParameters",
+            "label": "Add API Query Parameters",
+            "relatedUiObject": "API Query Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiPathParameters",
+            "label": "Add API Path Parameters",
+            "relatedUiObject": "API Path Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiQueryResponses",
+            "label": "Add API Query Responses",
+            "relatedUiObject": "API Query Responses",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"codeName\": \"\"}"
+    },
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->API Version->"
+    },
+    "propertyNameAtParent": "apiEndpoints",
+    "childrenNodesProperties": [
+        {
+            "name": "apiQueryParameters",
+            "type": "node",
+            "childType": "API Query Parameters",
+            "autoAdd": true
+        },
+        {
+            "name": "apiPathParameters",
+            "type": "node",
+            "childType": "API Path Parameters",
+            "autoAdd": true
+        },
+        {
+            "name": "apiQueryResponses",
+            "type": "node",
+            "childType": "API Query Responses",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

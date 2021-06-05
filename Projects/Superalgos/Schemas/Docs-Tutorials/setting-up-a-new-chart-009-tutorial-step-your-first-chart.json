@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In particular, we are going to hook up a Time Machine to the indicators of the Masters Data Mine. These indicators will be the core data we plot on our chart. ",
-            "updated": 1620007866528
+            "text": "In particular, we are going to hook up a Time Machine to the indicators of the Candles Data Mine. These indicators will be the core data we plot on our chart.",
+            "updated": 1622169394289
         },
         {
             "style": "Note",

@@ -1,0 +1,28 @@
+{
+    "type": "Output Dataset",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Dataset Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Process Output->Output Dataset Folder->"
+    },
+    "propertyNameAtParent": "outputDatasets"
+}

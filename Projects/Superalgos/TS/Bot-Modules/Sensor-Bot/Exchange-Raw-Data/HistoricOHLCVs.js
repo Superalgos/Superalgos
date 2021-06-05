@@ -1,12 +1,11 @@
-﻿
-exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
+﻿exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
 
     const MODULE_NAME = "Historic OHLCVs";
     const CANDLES_FOLDER_NAME = "Candles/One-Min";
     const VOLUMES_FOLDER_NAME = "Volumes/One-Min";
     const OHLCVS_FOLDER_NAME = "OHLCVs/One-Min";
 
-    thisObject = {
+    let thisObject = {
         initialize: initialize,
         start: start
     };
@@ -57,14 +56,21 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
     maxTradesPerFetch - this is set to a number that indicates the maximum number of trades the exchange will return in
                         the fetchTrades method (e.g. for the Luno exchange, this number is 100).
     */
-   let useFetchTradesForFetchOHLCVs = false
-   let maxTradesPerFetch = 100
+    let useFetchTradesForFetchOHLCVs = false
+    let maxTradesPerFetch = 100
 
     return thisObject;
 
     function initialize(pStatusDependencies, callBackFunction) {
         let exchangeClass
+        /*
+        This is what we are going to do hereL
+        
+        1. Parameters set by SA user at the Crypto Exchange node are extracted. There might be parameters for each supported method at the CCXT library.
+        2. The CCXT class for the configured exchange is instantiated, with whatever options where configured.
 
+        This gives the SA user a lot of control over the underlaying CCXT gateway to exchanges.
+        */
         try {
             statusDependencies = pStatusDependencies;
 
@@ -94,14 +100,14 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                         if (API.rateLimit !== undefined) {
                             rateLimit = API.rateLimit
                         }
+                        if (API.limit !== undefined) {
+                            limit = API.limit
+                        }
                         if (API.hostname !== undefined) {
                             hostname = API.hostname
                         }
                         if (API.fetchType !== undefined) {
                             fetchType = API.fetchType
-                        }
-                        if (API.limit !== undefined) {
-                            limit = API.limit
                         }
                         if (API.useFetchTradesForFetchOHLCVs !== undefined) {
                             useFetchTradesForFetchOHLCVs = API.useFetchTradesForFetchOHLCVs
@@ -189,7 +195,10 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                 try {
                     let reportKey
 
-                    reportKey = "Masters" + "-" + "Exchange-Raw-Data" + "-" + "Historic-OHLCVs"
+                    reportKey = 
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.parentNode.config.codeName + "-" + 
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.parentNode.config.codeName + "-" + 
+                    TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.codeName
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         "[INFO] start -> getContextVariables -> reportKey = " + reportKey)
 
@@ -198,6 +207,11 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
                         callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
+                    }
+
+                    /* Check if the uiStartDate is Invalid, if so lets set it to the Epoch and let the getMarketStart function later take care of it */
+                    if(isNaN(uiStartDate)) {
+                        uiStartDate = new Date(0)
                     }
 
                     thisReport = statusDependencies.statusReports.get(reportKey)
@@ -294,7 +308,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 }
                             }
                         }
-                    }    
+                    }
                 } catch (err) {
                     TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                     TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -345,8 +359,11 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                     let previousSince
                     let fromDate = new Date(since)
                     let lastDate = new Date()
+                    let changeToMarketStart = false
 
                     while (true) {
+
+                        let invalidSince = false
 
                         /* Reporting we are doing well */
                         function heartBeat(noNewInternalLoop) {
@@ -365,8 +382,6 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             }
                         }
 
-                        heartBeat()
-
                         /* Defining if we will query the exchange by Date or Id */
                         if (fetchType === "by Id") {
                             /*
@@ -377,11 +392,120 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             since = lastId
                         }
 
+                        /*
+                        If this is the first time the process has run, check if to see if the start date the user
+                        has entered is before the start of the Market on the Exchange. If this is the case, jump
+                        forward to the start date of the Market.
+                         */
+                        if(firstTimeThisProcessRun && changeToMarketStart === false && useFetchTradesForFetchOHLCVs === false) {
+                            let marketStartSince
+
+                            marketStartSince = await findMarketStart()
+
+                            if (initialProcessTimestamp < marketStartSince) {
+                                since = marketStartSince
+                                fromDate = new Date(since)
+                                changeToMarketStart = true
+                            }
+                        }
+
+                        heartBeat()
+
                         /* Fetching the OHLCVs from the exchange.*/
                         await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
                         const OHLCVs = useFetchTradesForFetchOHLCVs ?
-                                       await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :
-                                       await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
+                            await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :
+                            await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
+
+
+                        if (OHLCVs.length === 0) {
+                            /*
+                            If OHLCVs is empty we might be dealing with extended maintenance longer than our OHLCV limit.
+                            If this is the case jump forward to the next valid OHLCV record.
+                             */
+                            since = await findNextValidOHLCV()
+                        }
+
+                        /*
+                        CCXT for certain Exchanges will return an empty or partial array if the since date is too
+                        far in the past if this occurs this function will recursively step backwards in the Exchange
+                         and Market in 1D intervals until it finds the earliest date with values.
+                        */
+
+                        async function findMarketStart() {
+
+                            let earliestMarketSince = undefined
+                            let foundDate = false
+                            let searchSize = limit
+                            let previousMarketSince = undefined
+                            while (foundDate !== true) {
+
+                                await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
+                                const earlyOHLCVs = useFetchTradesForFetchOHLCVs ?
+                                    await fetchTradesForOHLCV(symbol, '1d', earliestMarketSince, searchSize, params) :
+                                    await exchange.fetchOHLCV(symbol, '1d', earliestMarketSince, searchSize, params)
+
+                                if (earlyOHLCVs.length === searchSize && previousMarketSince !== earlyOHLCVs[0][0]) { // If array is full, and the date returned isn't the same then we are still working in valid data, search further back
+                                    earliestMarketSince = (earlyOHLCVs[0][0] - (TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
+                                    previousMarketSince = earlyOHLCVs[0][0]
+
+                                } else if (earlyOHLCVs.length === searchSize && previousMarketSince === earlyOHLCVs[0][0]) { // If array is full, but the first OHLCV date is the same as last time then we've found our Market Start
+                                    foundDate = true
+                                    invalidSince = true
+                                    return earlyOHLCVs[0][0]
+
+                                } else if (earlyOHLCVs.length < searchSize && earlyOHLCVs.length > 0) { // If the array is partially filled then, take the earliest data and we've found our Market Start
+                                    foundDate = true
+                                    invalidSince = true
+                                    return earlyOHLCVs[0][0]
+
+                                } else if ((earlyOHLCVs.length === 0 && searchSize !== 1)) { // If array is empty, we've gone too far, half the search size and retry
+                                    earliestMarketSince = (earliestMarketSince + (TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS * searchSize))
+                                    if (searchSize > 1) {
+                                        searchSize = Math.floor(searchSize / 2)
+                                    }
+
+                                } else { // Otherwise, the array is empty and we're at the lowest searchSize then we've found our Market Start
+                                    foundDate = true
+                                    invalidSince = true
+                                    return earliestMarketSince
+
+                                }
+
+                                let processingDate = new Date(earliestMarketSince)
+                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.superalgos.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                TS.projects.superalgos.functionLibraries.processFunctions.processHeartBeat(processIndex, "Invalid or No Start Date. Finding Market Start @ " + processingDate, 0)
+                            }
+                        }
+
+                        /*
+                        CCXT will return an empty array if there are no OHLCVs for the limit.
+                        This can happen when the Exchange has extended maintenance i.e. over
+                        1,000 minutes (example see Binance on 2018-02-08). This function will
+                        return the next valid returned OHLCV.
+                        */
+
+                        async function findNextValidOHLCV() {
+
+                            let foundDate = false
+
+                            while (foundDate !== true) {
+
+                                await new Promise(resolve => setTimeout(resolve, rateLimit)) // rate limit
+                                const nextValidOHLCVs = useFetchTradesForFetchOHLCVs ?
+                                    await fetchTradesForOHLCV(symbol, '1m', since, limit, params) :
+                                    await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
+
+                                if (nextValidOHLCVs.length === 0) {
+                                    since = (since + (TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS * limit))
+
+                                } else {
+                                    foundDate = true
+                                    invalidSince = true
+                                    return nextValidOHLCVs[0][0]
+                                }
+                            }
+                        }
 
                         /*
                         OHLCV Structure
@@ -418,15 +542,12 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                                 fromDate = new Date(beginingOfMarket.valueOf())
                                 firstTimeThisProcessRun = false
                             }
-                        }
 
-                        if (OHLCVs.length > 1) {
                             previousSince = since
                             since = OHLCVs[OHLCVs.length - 1][0] // 'timestamp'
                             if (since === previousSince) {
                                 since++ // this prevents requesting in a loop OHLCVs with the same timestamp, that can happen when all the records fetched come with exactly the same timestamp.
                             }
-
 
                             lastId = OHLCVs[OHLCVs.length - 1]['id']
 
@@ -444,8 +565,19 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             heartBeat(true)
                         }
 
+                        let currentDate = new Date(since)
+
+                        /*
+                        If we've pulled less OHLCVs than the limit, this either means:
+                        (1) we reached the current date and are now pulling the latest
+                        (2) there was exchange maintenance on the date being processed
+                        (3) we've found zero records as the start date was way in the past
+
+                        If (1) is the case, or if we're stopping the task or have hit the max
+                        limit. then break and stop till the next loop.
+                         */
                         if (
-                            OHLCVs.length < limit - 1 ||
+                            (OHLCVs.length < limit - 1 && invalidSince === false && TS.projects.superalgos.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date())) ||
                             TS.projects.superalgos.globals.taskVariables.IS_TASK_STOPPING === true ||
                             rawDataArray.length >= MAX_OHLCVs_PER_EXECUTION
                         ) {
@@ -868,7 +1000,7 @@ exports.newSuperalgosBotModulesHistoricOHLCVs = function (processIndex) {
                             if (dataLength > 0) {
                                 // first get the start of the day after this day we are checking
                                 let timestamp = (day * TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS) +
-                                                TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                                    TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                                 if (rawDataArray[dataLength - 1][0] < timestamp) {
                                     // there is no data for the next day, so now trim this day's data to remove anything before it
                                     timestamp -= TS.projects.superalgos.globals.timeConstants.ONE_DAY_IN_MILISECONDS

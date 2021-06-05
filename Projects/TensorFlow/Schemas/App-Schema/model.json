@@ -1,0 +1,87 @@
+{
+    "type": "Model",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "api",
+            "label": "Add Layers API",
+            "relatedUiObject": "Layers API",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "api",
+            "label": "Add Core API",
+            "relatedUiObject": "Core API",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "compile",
+            "label": "Add Compile",
+            "relatedUiObject": "Compile",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "fitDataset",
+            "label": "Add Fit Dataset",
+            "relatedUiObject": "Fit Dataset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Artificial Neural Network->"
+    },
+    "propertyNameAtParent": "model",
+    "childrenNodesProperties": [
+        {
+            "name": "api",
+            "type": "node",
+            "childType": "Layers API"
+        },
+        {
+            "name": "api",
+            "type": "node",
+            "childType": "Core API"
+        },
+        {
+            "name": "compile",
+            "type": "node",
+            "childType": "Compile"
+        },
+        {
+            "name": "fitDataset",
+            "type": "node",
+            "childType": "Fit Dataset"
+        }
+    ]
+}

@@ -1,0 +1,125 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Let's Go for a Ride!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network"
+        },
+        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Sebelum aku memperlihatkan bagian lain dari menu, ayo kebeberapa hirarki lain seperti Network.",
+                "updated": 1614425404268,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de mostrarte el resto del menú, vamos a echar un vistazo a otra jerarquía: la Network.",
+                "updated": 1613595345116,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Prima che ti mostri il resto del menu, diamo un'occhiata un'altra gerarchia: il Network.",
+                "updated": 1614717275389,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Network merupakan hirarki yang mengatur ruang kendali sistem. Di sinilah kamu bisa mengontrol Data Tasks, Testing Trading Tasks, dan Production Trading Tasks.",
+                    "updated": 1614425530127,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La jerarquía de la red es la sala de control del sistema. Aquí es donde usted controla sus Data Tasks, Testing Trading Tasks, y Production Trading Tasks.",
+                    "updated": 1613595453982,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "La gerarchia Network é il centro di controllo del sistema. Qui puoi controllare i Data Tasks, i Testing Trading Tasks e i Production Trading Tasks.",
+                    "updated": 1614717446087,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the hierarchy and take a look inside!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Besarkan hirarki ini dan lihat didalamnya!",
+                    "updated": 1614425575929,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Amplíe la jerarquía y eche un vistazo al interior.",
+                    "updated": 1613595398384,
+                    "style": "Callout"
+                },
+                {
+                    "language": "IT",
+                    "text": "Espandi la gerarchia e dacci un occhiata!",
+                    "updated": 1614717504312,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "See the nodes I mentioned earlier? Cool! We are here to start your first ever data mining operation. ",
+            "updated": 1616414275577,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Lihat nodes yang kumention sebelumnya? Keren! Kita akan memulai pertama kali data mining operation.",
+                    "updated": 1616766196462,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para empezar su primera operación de minería de datos.",
+                    "updated": 1618432296243,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining.",
+                    "updated": 1618645279020,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "But before we start, I have a quick question for you: are you accessing the Client remotely?",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Sebelum mulai, aku punya pertanyaan: Apakah kamu mengakses Client secara remote?",
+                    "updated": 1616766215561,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Pero antes de empezar, tengo una pregunta para ti, estas accediendo al cliete de forma remota? ",
+                    "updated": 1618432190261,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

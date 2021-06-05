@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesMeshes() {
-    thisObject = {
+    let thisObject = {
         findNodeInNodeMesh: findNodeInNodeMesh
     }
 

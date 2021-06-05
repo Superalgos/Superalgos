@@ -72,7 +72,7 @@ function newSuperalgosDocsDocumentPage() {
                     paragraphs: [
                         {
                             style: "Text",
-                            text: "Left click and select the pencil button to enter edit mode."
+                            text: "Right click and select the pencil button to enter edit mode."
                         }
                     ]
                 }

@@ -1,0 +1,28 @@
+{
+    "type": "Execution Started Event",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent Parent",
+        "Use Reference Parent Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Execution Finished Event->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Process Definition->Trading Process Instance->Learning Process Instance->"
+    },
+    "propertyNameAtParent": "executionStartedEvent"
+}

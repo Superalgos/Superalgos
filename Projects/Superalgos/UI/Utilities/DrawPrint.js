@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesDrawPrint() {
-    thisObject = {
+    let thisObject = {
         roundedCornersBackground: roundedCornersBackground,
         drawLabel: drawLabel,
         drawIcon: drawIcon,

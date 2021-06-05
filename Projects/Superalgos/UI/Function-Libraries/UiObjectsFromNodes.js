@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
-    thisObject = {
+    let thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
         syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
@@ -93,6 +93,10 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
                         if (project.pluginTutorials !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTutorials.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTutorials.pluginFiles, 'Tutorials')
+                        }
+                        if (project.pluginApiMaps !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginApiMaps.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginApiMaps.pluginFiles, 'API-Maps')
                         }
                     }
                 }

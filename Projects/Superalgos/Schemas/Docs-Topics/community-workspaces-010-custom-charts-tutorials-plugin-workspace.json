@@ -3,8 +3,8 @@
     "pageNumber": 10,
     "type": "Custom Charts Tutorials Plugin Workspace",
     "definition": {
-        "text": "This workspace will walk you through everything you need to know about setting up custom charts within your Design Space. The tutorials aim to offer step by step guidance taking you from charting beginner to charting expert.",
-        "updated": 1621990685106
+        "text": "This workspace will walk you through everything you need to know about setting up custom charts within the Design Space. The tutorials aim to offer step by step guidance taking you from charting beginner to charting expert.",
+        "updated": 1622624767597
     },
     "paragraphs": [
         {
@@ -18,7 +18,7 @@
         },
         {
             "style": "Title",
-            "text": "Brought to you by"
+            "text": "Maintainer"
         },
         {
             "style": "List",

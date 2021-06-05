@@ -3,12 +3,12 @@
     "pageNumber": 7,
     "type": "Tutorial Step - Trigger Stage",
     "definition": {
-        "text": "Trigger Stage is a our Talent Scout",
+        "text": "Trigger Stage is our Talent Scout",
         "icon": {
             "name": "trigger-stage",
             "project": "Superalgos"
         },
-        "updated": 1614243745480
+        "updated": 1622385913906
     },
     "paragraphs": [
         {

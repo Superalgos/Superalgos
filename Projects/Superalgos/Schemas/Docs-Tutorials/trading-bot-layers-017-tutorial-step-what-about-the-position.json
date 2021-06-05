@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Scroll down the Simulation Objects layer manager and turn on the Position Base Asset layer!"
+            "text": "Scroll down the Simulation Objects layer manager and turn on the \"Position Base Asset\" layer!",
+            "updated": 1622541528562
         },
         {
             "style": "Text",

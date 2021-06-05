@@ -1,0 +1,48 @@
+{
+    "type": "Master Script",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Template Script",
+            "relatedUiObject": "Template Script",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Javascript Code",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "javascriptCode",
+            "relatedUiObject": "Javascript Code",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "propertyNameAtParent": "masterScripts",
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Scripts Library->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "templateScripts",
+            "type": "array",
+            "childType": "Template Script"
+        },
+        {
+            "name": "javascriptCode",
+            "type": "node",
+            "childType": "Javascript Code",
+            "autoAdd": true
+        }
+    ]
+}

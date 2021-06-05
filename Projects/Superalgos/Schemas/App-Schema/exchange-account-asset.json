@@ -1,0 +1,29 @@
+{
+    "type": "Exchange Account Asset",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 4,
+    "referencingRules": {
+        "compatibleTypes": "->Asset->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->User Assets->"
+    },
+    "title": [
+        "Use Reference Parent"
+    ],
+    "propertyNameAtParent": "assets",
+    "alternativeIcons": "Use Reference Parent",
+    "isPersonalData": true
+}

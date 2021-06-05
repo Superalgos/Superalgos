@@ -1,0 +1,63 @@
+{
+    "type": "Data Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Project Data Tasks",
+            "label": "Run All Project Data Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Project Data Tasks",
+            "label": "Stop All Project Data Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Project Data Tasks",
+            "relatedUiObject": "Project Data Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Project Data Tasks",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Project Data Tasks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Network Node->"
+    },
+    "propertyNameAtParent": "dataTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDataTasks",
+            "type": "array",
+            "childType": "Project Data Tasks",
+            "monitorChildrenRunning": true
+        }
+    ]
+}

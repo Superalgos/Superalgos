@@ -1,0 +1,42 @@
+{
+    "type": "Status Dependency",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"mainUtility\": \"Self Reference|Market Starting Point|Market Ending Point\"\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent Parent",
+        "Use Reference Parent Parent"
+    ],
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Status Report->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Process Dependencies->"
+    },
+    "propertyNameAtParent": "statusDependencies"
+}

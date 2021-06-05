@@ -82,7 +82,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value +\npreviousBaseAssetSizeFilled",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value +\npreviousBaseAssetSizeFilled",
             "updated": 1610224035951
         },
         {
@@ -92,7 +92,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value -\ntradingEngineOrder.orderBaseAsset.sizeFilled.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\ntradingEngineOrder.orderBaseAsset.sizeFilled.value",
             "updated": 1610224081072
         },
         {
@@ -102,7 +102,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value -\npreviousQuotedAssetSizeFilled +\npreviousQuotedAssetFeesPaid",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\npreviousQuotedAssetSizeFilled +\npreviousQuotedAssetFeesPaid",
             "updated": 1610224107848
         },
         {
@@ -112,7 +112,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value +\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value -\ntradingEngineOrder.orderQuotedAsset.feesPaid.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value +\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value -\ntradingEngineOrder.orderQuotedAsset.feesPaid.value",
             "updated": 1610224148958
         },
         {
@@ -126,7 +126,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value -\npreviousBaseAssetSizeFilled +\npreviousBaseAssetFeesPaid",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\npreviousBaseAssetSizeFilled +\npreviousBaseAssetFeesPaid",
             "updated": 1610224182969
         },
         {
@@ -136,7 +136,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeBaseAsset.balance.value +\ntradingEngineOrder.orderBaseAsset.sizeFilled.value -\ntradingEngineOrder.orderBaseAsset.feesPaid.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value +\ntradingEngineOrder.orderBaseAsset.sizeFilled.value -\ntradingEngineOrder.orderBaseAsset.feesPaid.value",
             "updated": 1610224202075
         },
         {
@@ -146,7 +146,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value +\npreviousQuotedAssetSizeFilled",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value +\npreviousQuotedAssetSizeFilled",
             "updated": 1610224219415
         },
         {
@@ -156,7 +156,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\ntradingEngineOrder.orderQuotedAsset.sizeFilled.value",
             "updated": 1610224237924
         },
         {

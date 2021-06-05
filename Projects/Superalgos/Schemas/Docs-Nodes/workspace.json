@@ -55,6 +55,15 @@
         },
         {
             "style": "Text",
+            "text": "Any workspace that is saved by the user is a User Workspace.",
+            "updated": 1622634912210
+        },
+        {
+            "style": "Note",
+            "text": "User workspaces feature a purple background in the workspaces tab."
+        },
+        {
+            "style": "Text",
             "text": "Workspaces are saved as JSON files in the My-Workspaces folder.",
             "updated": 1615891202642
         },
@@ -75,8 +84,7 @@
         },
         {
             "style": "Title",
-            "text": "Plugin Workspaces",
-            "updated": 1615892918302
+            "text": "Plugin Workspaces"
         },
         {
             "style": "Text",
@@ -84,8 +92,9 @@
             "updated": 1616259409951
         },
         {
-            "style": "Text",
-            "text": "In the Workspaces Tab, plugin workspaces are marked with the words \"Plugin\" so that you may differentiate them from your own workspaces."
+            "style": "Note",
+            "text": "In the workspaces tab, plugin workspaces are marked with the words \"Plugin Workspace\", and feature a black background so that you may differentiate them from your own workspaces.",
+            "updated": 1622634983432
         },
         {
             "style": "Important",

@@ -30,7 +30,7 @@ function newFileCursor() {
   let session
   let product
   let dataset
-  let periodName
+  let timeFrameLabel
   let timeFrame
   let beginDateRange
   let endDateRange
@@ -58,7 +58,7 @@ function newFileCursor() {
       session = undefined
       product = undefined
       dataset = undefined
-      periodName = undefined
+      timeFrameLabel = undefined
       timeFrame = undefined
       beginDateRange = undefined
       endDateRange = undefined
@@ -67,7 +67,7 @@ function newFileCursor() {
       thisObject.files = undefined
       cursorDate = undefined
       fileCloud = undefined
-      periodName = undefined
+      timeFrameLabel = undefined
       timeFrame = undefined
       finalized = true
     } catch (err) {
@@ -84,7 +84,7 @@ function newFileCursor() {
     pDataset,
     pExchange,
     pMarket,
-    pPeriodName,
+    ptimeFrameLabel,
     pTimeFrame,
     pCursorDate,
     pCurrentTimeFrame,
@@ -101,7 +101,7 @@ function newFileCursor() {
       session = pSession
       product = pProduct
       dataset = pDataset
-      periodName = pPeriodName
+      timeFrameLabel = ptimeFrameLabel
       cursorDate = removeTime(pCursorDate)
       timeFrame = pTimeFrame
       beginDateRange = pBeginDateRange
@@ -109,11 +109,11 @@ function newFileCursor() {
       eventsServerClient = pEventsServerClient
 
       let key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + dataset.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
-      let callerId = key + '-' + periodName + newUniqueId()
+      let callerId = key + '-' + timeFrameLabel + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Dataset Updated', undefined, callerId, onResponseDataSet, updateFiles)
 
       key = mine.config.codeName + '-' + bot.config.codeName + '-' + product.config.codeName + '-' + exchange.config.codeName + '-' + market.baseAsset + '/' + market.quotedAsset
-      callerId = key + '-' + periodName + newUniqueId()
+      callerId = key + '-' + timeFrameLabel + newUniqueId()
       eventsServerClient.listenToEvent(key, 'Data Range Updated', undefined, callerId, onResponseDataRange, updateDataRange)
 
       callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
@@ -168,7 +168,7 @@ function newFileCursor() {
 
       dateString = targetDate.getUTCFullYear() + '-' + pad(targetDate.getUTCMonth() + 1, 2) + '-' + pad(targetDate.getUTCDate(), 2)
 
-      fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
+      fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, timeFrameLabel, targetDate, undefined, undefined, undefined, onFileReceived)
 
       function onFileReceived(err, file) {
         try {
@@ -207,8 +207,8 @@ function newFileCursor() {
 
       let positionA
 
-      for (let i = 0; i < dailyFilePeriods.length; i++) {
-        let period = dailyFilePeriods[i]
+      for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+        let period = dailyTimeFramesArray[i]
 
         if (period[0] === pTimeFrame) {
           positionA = i
@@ -468,7 +468,7 @@ function newFileCursor() {
             if (thisObject.files.get(dateString) === undefined) {
               // We dont reload files we already have.
 
-              fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, periodName, targetDate, undefined, undefined, undefined, onFileReceived)
+              fileCloud.getFile(mine, bot, session, product, dataset, exchange, market, timeFrameLabel, targetDate, undefined, undefined, undefined, onFileReceived)
             } else {
               controlLoop()
             }

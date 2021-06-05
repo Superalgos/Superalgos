@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Select Run All Project Data Tasks on the Data Tasks node menu!"
+            "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
+            "updated": 1622447060448
         },
         {
             "style": "Note",

@@ -1,0 +1,62 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 64,
+    "type": "Tutorial Step - Machines Learn Too!",
+    "definition": {
+        "icon": {
+            "name": "tensorflow-project",
+            "project": "TensorFlow"
+        },
+        "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
+        "updated": 1616691534660,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "L'ultima versione di Superalgos presenta un integrazione sperimentale per sfruttare il machine learning.",
+                "updated": 1618058419040,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The integration maps the definition of a NodeJS TensorFlow Library featuring a Supervised Learning algorithm and its Artificial Neural Network in the same kind of structure of nodes typical of Superalgos.",
+            "updated": 1616692845459,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'integrazione mappa la TensorFlow Library di NodeJS, che contiene un algoritmo di Supervised Learning e la relativa Artificial Neural Network, allo stesso tipo di struttura di nodi tipica di Superalgos.",
+                    "updated": 1618058443954,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The integration leverages the rest of the Superalgos infrastructure, so that you may use your datasets to train ML algos and use the resulting models from within trading systems!",
+            "updated": 1616692959991,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'integrazione sfrutta l'infrastuttura di Superalgos, quindi puoi usare i tuoi datasets per fare il training degli algoritmi di ML e usarne i modelli direttamente dal Trading System.",
+                    "updated": 1618058363973,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "After doing the first few tutorials, take a look at the Machine Learning Demo Plugin Workspace!",
+            "updated": 1616693444144,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Dopo i primi tutorial, dai un'occhiata a Machine Learning Demo Plugin Workspace!",
+                    "updated": 1618058432041,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

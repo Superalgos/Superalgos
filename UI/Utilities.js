@@ -37,15 +37,15 @@ function dynamicDecimals(value, minDecimals) {
 }
 
 function convertTimeFrameToName(pTimeFrame) {
-    for (let i = 0; i < dailyFilePeriods.length; i++) {
-        let period = dailyFilePeriods[i]
+    for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+        let period = dailyTimeFramesArray[i]
         if (period[0] === pTimeFrame) {
             return period[1]
         }
     }
 
-    for (let i = 0; i < marketFilesPeriods.length; i++) {
-        let period = marketFilesPeriods[i]
+    for (let i = 0; i < marketTimeFramesArray.length; i++) {
+        let period = marketTimeFramesArray[i]
         if (period[0] === pTimeFrame) {
             return period[1]
         }

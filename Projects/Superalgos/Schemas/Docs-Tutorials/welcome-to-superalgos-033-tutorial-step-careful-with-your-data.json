@@ -1,0 +1,110 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 33,
+    "type": "Tutorial Step - Careful With Your Data!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "dataset-definition"
+        },
+        "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Può volerci fino a un minuto perchè tutte le tasks si fermino. Il sistema non deve assolutamente essere chiuso prima che ciò accada.",
+                "updated": 1614846504651,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Membutuhkan hingga satu menit untuk semua tasks agar sampai berhenti. Jangan menutup sistem sebelum semua tasks berhenti.",
+                "updated": 1616932775779,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Check the console app to see tasks stopping!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Guarda la console per verificare che le tasks si stoppino!",
+                    "updated": 1618646677731,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Periksa console app untuk melihat tasks berhenti!",
+                    "updated": 1616932267740,
+                    "style": "Callout"
+                }
+            ],
+            "updated": 1616416021973
+        },
+        {
+            "style": "Text",
+            "text": "The proper way to close Superalgos is:",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Cara yang tepat untuk menutup Superalgos adalah:",
+                    "updated": 1616932216490,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Stop all tasks and allow a couple of minutes.",
+            "updated": 1616416090932,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Matikan semua tasks dan tunggu beberapa menit.",
+                    "updated": 1616932788679,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "When all tasks stop you may close the console app or stop the process with Ctrl + Key-C.",
+            "updated": 1622197535990,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Setelah semua tasks berhenti kamu harus menutup console app.",
+                    "updated": 1616932273154,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You may close the browser at any point and leave tasks processing in the background.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kamu akan menutup browser dan membiarkan tasks memproses dilatar belakang.",
+                    "updated": 1616932749614,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "Closing the Client before tasks stop may cause your data to become corrupt!",
+            "updated": 1616416130792,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt!",
+                    "updated": 1616932378361,
+                    "style": "Warning"
+                }
+            ]
+        }
+    ]
+}

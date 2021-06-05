@@ -1,0 +1,49 @@
+{
+    "type": "Plotter",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Plotter Module",
+            "relatedUiObject": "Plotter Module",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Data Mine->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "modules",
+            "type": "array",
+            "childType": "Plotter Module",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "plotters"
+}

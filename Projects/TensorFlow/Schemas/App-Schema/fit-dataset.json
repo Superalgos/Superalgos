@@ -1,0 +1,62 @@
+{
+    "type": "Fit Dataset",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "verbose",
+            "label": "Add Verbose",
+            "relatedUiObject": "Verbose",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "epochs",
+            "label": "Add Epochs",
+            "relatedUiObject": "Epochs",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "callbacks",
+            "label": "Add Callbacks",
+            "relatedUiObject": "Callbacks",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Model->"
+    },
+    "propertyNameAtParent": "fitDataset",
+    "childrenNodesProperties": [
+        {
+            "name": "verbose",
+            "type": "node",
+            "childType": "Verbose"
+        },
+        {
+            "name": "epochs",
+            "type": "node",
+            "childType": "Epochs"
+        },
+        {
+            "name": "callbacks",
+            "type": "node",
+            "childType": "Callbacks"
+        }
+    ],
+    "icon": "tensorflow"
+}

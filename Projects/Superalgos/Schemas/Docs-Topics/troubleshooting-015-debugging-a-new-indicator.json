@@ -22,7 +22,7 @@
         },
         {
             "style": "List",
-            "text": "Determine which process is not running (Multi-Period-Daily or Multi-Period-Market)."
+            "text": "Determine which process is not running (Multi-Time-Frame-Daily or Multi-Time-Frame-Market)."
         },
         {
             "style": "List",

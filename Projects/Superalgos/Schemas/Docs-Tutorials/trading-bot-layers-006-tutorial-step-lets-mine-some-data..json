@@ -12,12 +12,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Select Run All Project Data Tasks on the Data Tasks node menu!",
-            "updated": 1617181714117
+            "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
+            "updated": 1622540506392
         },
         {
             "style": "Note",
-            "text": "If you are doing this tutorial after doing the Getting Started tutorial, chances are you may already have part of the data required, which may make things faster!"
+            "text": "If you are doing this tutorial after doing the Getting Started tutorials, chances are you may already have part of the data required, which may make things faster!",
+            "updated": 1622540530483
         }
     ]
 }

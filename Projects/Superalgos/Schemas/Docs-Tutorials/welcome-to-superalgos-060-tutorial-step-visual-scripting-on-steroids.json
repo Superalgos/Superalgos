@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 60,
+    "type": "Tutorial Step - Visual Scripting on Steroids",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-bot"
+        },
+        "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "A proposito di costruzioni a blocchi, ora siamo nei confini del Masters Data Mine. Alla tua sinistra vedi la definizione di uno dei bots per cui hai avviato il mining giusto prima.",
+                "updated": 1618056284204,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty much like with the Lego-like definitions of the Charting Space, bots are too defined on a visual environment.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Analogamente alle dinamiche \"stile Lego\" del Charting Space, anche i bots sono definiti visivamente.",
+                    "updated": 1618056303696,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "All developers need to code is the actual Data Building Procedure.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tutto ciò che gli sviluppatori devono programmare è la Data Building Procedure che verrà usata.",
+                    "updated": 1618056067442,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Everything else is defined on a visual setting: processes with their dependencies, outputs and so on, and products, with their record and dataset definitions, etc.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni cosa ha una rappresentazione visiva: sia i processi, con le loro dipendenze e output, che i prodotti, con i loro record e datasets, così come ogni altra entità presente nel programma.",
+                    "updated": 1618056262610,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

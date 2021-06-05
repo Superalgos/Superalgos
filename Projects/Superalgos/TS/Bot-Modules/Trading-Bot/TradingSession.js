@@ -613,18 +613,18 @@
 
             function getTimeFrameFromLabel(timeFrameLabel) {
 
-                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; i++) {
-                    let value = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[i][0]
-                    let label = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[i][1]
+                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; i++) {
+                    let value = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[i][0]
+                    let label = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[i][1]
 
                     if (timeFrameLabel === label) {
                         return value
                     }
                 }
 
-                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; i++) {
-                    let value = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[i][0]
-                    let label = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[i][1]
+                for (let i = 0; i < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; i++) {
+                    let value = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[i][0]
+                    let label = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[i][1]
 
                     if (timeFrameLabel === label) {
                         return value

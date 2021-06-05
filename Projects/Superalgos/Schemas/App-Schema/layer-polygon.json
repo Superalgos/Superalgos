@@ -1,0 +1,42 @@
+{
+    "type": "Layer Polygon",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "initialValues": {
+        "config": "{ \n\"status\": \"on\"\n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Polygon->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Layer Polygons->"
+    },
+    "propertyNameAtParent": "layerPolygons",
+    "childrenNodesProperties": [],
+    "icon": "under-construction"
+}

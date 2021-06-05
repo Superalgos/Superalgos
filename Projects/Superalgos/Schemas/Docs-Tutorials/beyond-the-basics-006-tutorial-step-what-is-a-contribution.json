@@ -1,0 +1,126 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 6,
+    "type": "Tutorial Step - What is a Contribution?",
+    "definition": {
+        "text": "The project will succeed if it manages to foster global collaboration. We welcome contributions of all sorts so that everyone may give back!",
+        "icon": {
+            "name": "execution-algorithm",
+            "project": "Superalgos"
+        },
+        "updated": 1610967203397,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il progetto avrà successo se riusciremo a promuovere una collaborazione globale: sono importanti contributi di ogni tipo!",
+                "updated": 1619632436237,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "In short, everything that adds value is good!",
+            "updated": 1610822442723,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Qualunque cosa aggiunga valore al progetto è gradita!",
+                    "updated": 1619632572571,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Fixing a typo, a dead link, and improving the Docs.",
+            "updated": 1616871916250,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Correggere errori e dead link, o migliorare i Docs.",
+                    "updated": 1619632631173,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Translating a page into your native language.",
+            "updated": 1610715988366,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Tradurre una pagina nella tua lingua madre.",
+                    "updated": 1619632643304,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Designing icons, working to improve the UX/UI.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fare il design delle icone, migliorare la UX/UI.",
+                    "updated": 1619632670924,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Producing content as in-app tutorials or videos.",
+            "updated": 1610716958990,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Produrre contenuto come tutorial in-app o video.",
+                    "updated": 1619632686983,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Blogging about Superalgos and spreading the word.",
+            "updated": 1610717040985,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Recensire Superalgos nei vari blog e social",
+                    "updated": 1619632764021,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Sharing a Data Mine or a Trading System!",
+            "updated": 1610716257080,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Condividere un Data Mine o un Trading System!",
+                    "updated": 1619632784995,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Testing, removing bugs, integrating crypto-projects, and contributing to the codebase.",
+            "updated": 1622026157502,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Testare, debuggare, integrare progetti crypto e contribuire alla codebase.",
+                    "updated": 1619632810073,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

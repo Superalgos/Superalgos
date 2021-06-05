@@ -44,7 +44,7 @@
         },
         {
             "style": "List",
-            "text": "getHierarchyHeadsByType",
+            "text": "getHierarchyHeadByNodeType",
             "updated": 1614931380751
         },
         {

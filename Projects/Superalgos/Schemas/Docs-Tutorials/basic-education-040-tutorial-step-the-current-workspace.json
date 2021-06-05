@@ -3,17 +3,18 @@
     "pageNumber": 40,
     "type": "Tutorial Step - The Current Workspace",
     "definition": {
-        "text": "The current workspace is the one you are using at any point.",
+        "text": "The current workspace is the User Workspace you are using at any point.",
         "icon": {
             "name": "workspace",
             "project": "Superalgos"
         },
-        "updated": 1615906908608,
+        "updated": 1622375537282,
         "translations": [
             {
                 "language": "IT",
                 "text": "Il workspace corrente è quello in uso in un dato momento.",
-                "updated": 1619553876743
+                "updated": 1619553876743,
+                "style": "Definition"
             }
         ]
     },
@@ -26,19 +27,21 @@
                 {
                     "language": "IT",
                     "text": "Se chiudi e riapri l'app, o aggiorni la UI, il sistema carica l'ultimo workspace utilizzato.",
-                    "updated": 1619553925670
+                    "updated": 1619553925670,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Go to the menu of the Workspace node, double-click on the Getting Started label and change the name of the workspace to Basic Education.",
-            "updated": 1615907154715,
+            "text": "Access the menu of the Workspace node, double-click on the \"Getting Started Tutorials\" label and change it to \"Basic Education\".",
+            "updated": 1622375773294,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Vai al menù del nodo Workspace, fai doppio click sul label Getting Started e cambia il nome del workspace in \"Basic Education\".",
-                    "updated": 1619553975961
+                    "updated": 1619553975961,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,19 +53,21 @@
                 {
                     "language": "IT",
                     "text": "Poi premi Ctrl + Shift + Alt + Key-S",
-                    "updated": 1619553982192
+                    "updated": 1619553982192,
+                    "style": "Text"
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "You just created a new workspace! Go to the My-Workspaces folder to verify the new file is there.",
-            "updated": 1615907412107,
+            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
+            "updated": 1622635421285,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Hai creato un workspace! Vai alla cartella My-Workspaces e verifica che il nuovo file sia là.",
-                    "updated": 1619554083035
+                    "updated": 1619554083035,
+                    "style": "Success"
                 }
             ]
         }

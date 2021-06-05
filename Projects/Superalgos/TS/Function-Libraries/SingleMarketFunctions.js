@@ -99,7 +99,7 @@
                 botNode = TS.projects.superalgos.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
             }
             if (botNode === undefined) {
-                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. Product Definition = ");
+                TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. ");
                 callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -335,16 +335,43 @@
                 let dataDependencyMap = new Map()
                 for (let j = 0; j < dataDependecyArray.length; j++) {
                     let record = dataDependecyArray[j]
-                    let key = record.begin.toString() + '-' + record.end.toString()
-                    dataDependencyMap.set(key, record)
+                    let key
+                    if (record.begin !== undefined && record.end !== undefined) {
+                        key = record.begin.toString() + '-' + record.end.toString()
+                        dataDependencyMap.set(key, record)
+                    } else {
+                        /*
+                        Datasets with objects that do not have a begin and end can not be part of the map.
+                        */
+                    }
                 }
                 dataDependencies[dataDependencyName] = dataDependencyMap
             }
         }
-
+        /*
+        This function allows users to locate an object at a dataset based on the begins and end properties 
+        of another object provided to the function as a parameter. For example, users can localte the 
+        bollinger band object that has the same begin and end than a candle object.
+        */
         function getElement(dependencyName, currentRecordPrimaryDataDependency) {
             let key = currentRecordPrimaryDataDependency.begin.toString() + '-' + currentRecordPrimaryDataDependency.end.toString()
             return dataDependencies[dependencyName].get(key)
+        }
+        /*
+        This function allows users to locate an object at a dataset whose objects does not have a begin and end
+        property but instead, they have a timestamp property. It receives an arbitrary begin / end object and
+        the function will search within the dependency dataset for the first record whose timestamp is whitin 
+        the begin and end of the received reference objet. For example, a user can get the News record that belong
+        to a certain Candle object.
+        */
+        function getTimestampElement(dependencyName, currentRecordPrimaryDataDependency) {
+            let dependencyArray = products[dependencyName]
+            for (let i = 0; i < dependencyArray.length; i++) {
+                let record = dependencyArray[i]
+                if (record.timestamp >= currentRecordPrimaryDataDependency.begin && record.timestamp <= currentRecordPrimaryDataDependency.end) {
+                    return record
+                }
+            }
         }
 
         /*

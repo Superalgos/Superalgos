@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Prova differenti impostazioni per la distanza del nodo Trading System Reference! Cliccai il tasto con il metro!",
-                "updated": 1619460658554
+                "updated": 1619460658554,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Facile, no? E che succede quando i nodi che stai regolando hanno a loro volta dei figli?",
-                    "updated": 1619460693659
+                    "updated": 1619460693659,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Scopriamolo! Clicca una volta il bottone Distance To Parent sul nodo Trading Parameters!",
-                    "updated": 1619460737845
+                    "updated": 1619460737845,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Siccome hai aumentato la distanza che separa il nodo Trading Parameters dal nodo Backtesting Session, la distanza dei figli del nodo Trading Parameters è aumentata allo stesso modo!",
-                    "updated": 1619460842878
+                    "updated": 1619460842878,
+                    "style": "Note"
                 }
             ]
         },

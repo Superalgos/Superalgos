@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesStrings() {
-    thisObject = {
+    let thisObject = {
         allWordsToUpper: allWordsToUpper, 
         fromCamelCaseToUpperWithSpaces: fromCamelCaseToUpperWithSpaces,
         isCamelCase: isCamelCase,

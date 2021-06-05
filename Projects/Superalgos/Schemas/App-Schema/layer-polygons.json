@@ -1,0 +1,40 @@
+{
+    "type": "Layer Polygons",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Layer Polygon",
+            "relatedUiObject": "Layer Polygon",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Layer Polygons",
+            "label": "Add All Layer Polygons",
+            "relatedUiObject": "Layer Polygon",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Layer->"
+    },
+    "propertyNameAtParent": "layerPolygons",
+    "childrenNodesProperties": [
+        {
+            "name": "layerPolygons",
+            "type": "array",
+            "childType": "Layer Polygon"
+        }
+    ],
+    "icon": "under-construction"
+}

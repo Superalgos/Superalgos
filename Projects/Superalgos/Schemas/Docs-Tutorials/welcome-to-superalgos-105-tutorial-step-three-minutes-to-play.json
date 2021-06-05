@@ -1,0 +1,62 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 105,
+    "type": "Tutorial Step - Three Minutes to Play",
+    "definition": {
+        "text": "I'll give you a few minutes to play around with your live session, and when you are ready, we'll move on to other things!",
+        "icon": {
+            "name": "live-trading-session",
+            "project": "Superalgos"
+        },
+        "updated": 1610647035525,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ti lascio qualche minuto per divertirti con la tua live session, e quando sarai pronto passeremo ad altre cose!",
+                "updated": 1618071992282,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take some time to process what you've learned so far...",
+            "updated": 1610647327253,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi del tempo per elaborare le cose che hai imparato finora...",
+                    "updated": 1618072011982,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "Once you are ready to move on, feel free to stop the Live Trading Session and Data Tasks. You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely!",
+            "updated": 1610647503331,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta che sei pronto a proseguire, sentiti libero di fermare Live Trading Session e Data Tasks. Puoi lasciarle proseguire se preferisci, ma io non affiderei a tempo indefinito i miei sudati soldi alla strategia demo!",
+                    "updated": 1618072064872,
+                    "style": "Important"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "There's still a few more things I want to show you before I let you go! Bear with me!",
+            "updated": 1610711032226,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ci sono ancora un paio di cose che voglio mostrarti prima di concludere! Tieni duro!",
+                    "updated": 1618072086072,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

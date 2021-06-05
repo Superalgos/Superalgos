@@ -1,0 +1,34 @@
+{
+    "type": "TensorFlow Project",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Machine Learning",
+            "relatedUiObject": "Machine Learning",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Superalgos",
+            "autoAdd": true
+        }
+    ]
+}

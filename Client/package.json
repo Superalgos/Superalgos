@@ -1,5 +1,5 @@
 {
-  "name": "Client",
+  "name": "client",
   "version": "0.0.6",
   "description": "BackendServer",
   "main": "client.js",

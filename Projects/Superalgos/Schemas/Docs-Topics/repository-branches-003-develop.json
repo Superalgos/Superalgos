@@ -1,0 +1,21 @@
+{
+    "topic": "Repository Branches",
+    "pageNumber": "3",
+    "type": "Develop",
+    "definition": {
+        "text": "The Develop branch is the branch that is being used by developers involved in contributing to Superalgos. All the changes at this branch are sent to the Master branch everytime there is a new release. The Develop branch purpose is for accumulating changes at the codebase untiil the release date when all these changes are moved into the Master branch.",
+        "updated": 1622467883706
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Contributors working at this branch coordinate their here:",
+            "updated": 1622468223194
+        },
+        {
+            "style": "Link",
+            "text": "Telegram Developers Group->t.me/superalgosdevelop",
+            "updated": 1622468567484
+        }
+    ]
+}

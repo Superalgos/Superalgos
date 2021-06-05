@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesCoordinateTransformations() {
-    thisObject = {
+    let thisObject = {
         transformThisPoint: transformThisPoint,
         unTransformThisPoint: unTransformThisPoint
     }

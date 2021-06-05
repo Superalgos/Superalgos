@@ -22,6 +22,7 @@ exports.newSuperalgosGlobalsProcessVariables = function () {
     MAIN_LOOP_COUNTER                       This is the counter of main loops for a bot process.
     SOCIAL_BOTS_MODULE                      This is the module that controls social bots.
     SESSION_STATUS                          This tell us the status of the session at any given time.
+    SESSION_BEGIN                           This tell us the date time the session was begun.
     IS_SESSION_STOPPING                     This tell us if a session is in the process of being stopped.
     IS_SESSION_RESUMING                     This tell us if a session is resuming from the state at the previous execution.
     IS_SESSION_FIRST_LOOP                   This tell us if we are at the execution of the first loop of the bot related to this session.

@@ -5,7 +5,7 @@
     */
     const MODULE_NAME = "Trading Process"
 
-    thisObject = {
+    let thisObject = {
         start: start
     }
 

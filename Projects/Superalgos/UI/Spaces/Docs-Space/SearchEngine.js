@@ -21,7 +21,7 @@ function newSuperalgosDocsSearchEngine() {
         /* 
         This is a way to avoid indexing the docs, if the user does not want to.
         */
-        let docsSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('Docs Space')
+        let docsSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
         if (docsSpaceNode !== undefined) {
             if (docsSpaceNode.spaceSettings !== undefined) {
                 let indexContent = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(docsSpaceNode.spaceSettings.payload, 'indexContent')

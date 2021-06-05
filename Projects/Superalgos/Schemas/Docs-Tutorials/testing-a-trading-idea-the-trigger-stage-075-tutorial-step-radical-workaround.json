@@ -20,7 +20,8 @@
         },
         {
             "style": "Text",
-            "text": "This way, when the take position event validates true and the trading bot attempts to read the definitions of the open stage, it will understand that the rest of the strategy is not defined, and will close the strategy."
+            "text": "This way, when the Take Position Event validates true and the trading bot attempts to read the definitions of the Open Stage, it will understand that the rest of the strategy is not defined, and will close the strategy.",
+            "updated": 1622489825175
         }
     ]
 }

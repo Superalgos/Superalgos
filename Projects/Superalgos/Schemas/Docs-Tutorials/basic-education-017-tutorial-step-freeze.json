@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "La proprietà freeze ha senso in circostanze molto specifiche: quando le animazioni sono attive a livello del Design Space.",
-                "updated": 1619461541404
+                "updated": 1619461541404,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Il Design Space offre diverse personalizzazioni, tra le quali l'attivazione dell'animazione dell'universo. Quando è attiva, l'intero spazio diventa vivo!",
-                    "updated": 1619461604832
+                    "updated": 1619461604832,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Non approfondiremo la materia ora: non è parte del curriculum di educazione base!",
-                    "updated": 1619461641768
+                    "updated": 1619461641768,
+                    "style": "Note"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "L'opzione freeze blocca le connessioni del nodo con il padre e i propri figli: le linee di collegamento diventano blu. Quando le animazioni sono attive, questa opzione rilascia le risorse della CPU perchè il sistema smette di calcolare la posizione e lo stato del nodo.",
-                    "updated": 1619461763901
+                    "updated": 1619461763901,
+                    "style": "Text"
                 }
             ]
         }

@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesTutorial() {
-    thisObject = {
+    let thisObject = {
         saveTutorial: saveTutorial,
         loadTutorial: loadTutorial
     }

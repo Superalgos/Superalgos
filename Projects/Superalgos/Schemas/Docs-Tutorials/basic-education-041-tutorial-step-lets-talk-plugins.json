@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "I Plugins sono strutture di dati incluse nel sistema e che puoi integrare in ogni workspace usando l'apposita gerarchia.",
-                "updated": 1619554267111
+                "updated": 1619554267111,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "I Plugins sono creati per essere riutilizzabili. Per questo motivo sono progettati per essere integrati in qualsiasi workspace.",
-                    "updated": 1619554339495
+                    "updated": 1619554339495,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Espandi il nodo Plugins!",
-                    "updated": 1619554350367
+                    "updated": 1619554350367,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Come vedi dalla struttura della gerarchia, ci sono diversi tipi di plugins! Sono salvati in appositi files JSON in una cartella di riferimento. Dai un'occhiata!",
-                    "updated": 1619554435988
+                    "updated": 1619554435988,
+                    "style": "Text"
                 }
             ]
         },

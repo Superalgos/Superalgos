@@ -1,0 +1,59 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 112,
+    "type": "Tutorial Step - Get In Touch!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "telegram-bot"
+        },
+        "text": "Drop by to say hi, get help, and meet the Community! You may <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">join the new Discord Server</a> or the original Telegram groups below, where it all started!",
+        "updated": 1619810146066,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo il massimo impegno nell'aiutare gli utenti a migliorare e ridefinire il concetto di cosa sia possibile fare con Superalgos! Unisciti alla conversazione...",
+                "updated": 1618073819599,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgoscommunity\" target=\"_blank\" style=\"color:blue;\">Community Group</a> &mdash; Let's talk Superalgos!</li>",
+            "updated": 1610964967140
+        },
+        {
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgossupport\" target=\"_blank\" style=\"color:blue;\">Support Group</a> &mdash; Have an issue and need help?</li>",
+            "updated": 1610964976645
+        },
+        {
+            "style": "Text",
+            "text": "<li><a href=\"https://t.me/superalgosdevelop\" target=\"_blank\" style=\"color:blue;\">Develop Group</a> &mdash; Meet other developers!</li>"
+        },
+        {
+            "style": "Callout",
+            "text": "Join the <a href=\"https://t.me/superalgos\" target=\"_blank\" style=\"color:blue;\">Announcements Channel</a> to be the first to know about new releases, hot fixes, and important issues!",
+            "updated": 1610964709408,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti!",
+                    "updated": 1618073910521,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgos_es\" target=\"_blank\" style=\"color:blue;\">Grupo en Español</a> &mdash; Hablemos en español!</li>",
+            "updated": 1610964994878
+        },
+        {
+            "style": "Text",
+            "text": "<li><a href=\"https://t.me/superalgos_ru\" target=\"_blank\" style=\"color:blue;\">Группа на русском</a> &mdash; Давайте говорить по русски</li>"
+        }
+    ]
+}

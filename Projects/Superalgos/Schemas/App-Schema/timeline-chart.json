@@ -1,0 +1,66 @@
+{
+    "type": "Timeline Chart",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "rateScale",
+            "label": "Add Rate Scale",
+            "relatedUiObject": "Rate Scale",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "timeFrameScale",
+            "label": "Add Time Frame Scale",
+            "relatedUiObject": "Time Frame Scale",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "layerManager",
+            "label": "Add Layer Manager",
+            "relatedUiObject": "Layer Manager",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "isTitleAllwaysVisible": true,
+    "referencingRules": {
+        "compatibleTypes": "->Market->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Time Machine->"
+    },
+    "propertyNameAtParent": "timelineCharts",
+    "childrenNodesProperties": [
+        {
+            "name": "rateScale",
+            "type": "node",
+            "childType": "Rate Scale"
+        },
+        {
+            "name": "timeFrameScale",
+            "type": "node",
+            "childType": "Time Frame Scale"
+        },
+        {
+            "name": "layerManager",
+            "type": "node",
+            "childType": "Layer Manager",
+            "autoAdd": true
+        }
+    ]
+}

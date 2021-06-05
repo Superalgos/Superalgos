@@ -150,22 +150,22 @@ function newDailyFiles() {
       function createFileCursors() {
         try {
           /* Now we will get the daily files */
-          for (let i = 0; i < dailyFilePeriods.length; i++) {
-            let periodTime = dailyFilePeriods[i][0]
-            let periodName = dailyFilePeriods[i][1]
+          for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+            let periodTime = dailyTimeFramesArray[i][0]
+            let timeFrameLabel = dailyTimeFramesArray[i][1]
 
-            if (pDataset.config.validTimeFrames.includes(periodName) === false) {
+            if (pDataset.config.validTimeFrames.includes(timeFrameLabel) === false) {
               continue
             }
             if (timeFrames !== undefined) {
-              if (timeFrames.includes(periodName) === false) {
+              if (timeFrames.includes(timeFrameLabel) === false) {
                 continue
               }
             }
 
             let fileCursor = newFileCursor()
             fileCursor.eventHandler = thisObject.eventHandler // We share our event handler with each file cursor, so that they can raise events there when files are changed.s
-            fileCursor.initialize(fileCloud, pMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, periodName, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
+            fileCursor.initialize(fileCloud, pMine, pBot, pSession, pProduct, pDataset, exchange, pMarket, timeFrameLabel, periodTime, pDatetime, pTimeFrame, beginDateRange, endDateRange, pEventsServerClient, onInitialized)
             function onInitialized(err) {
               try {
                 switch (err.result) {
@@ -198,11 +198,11 @@ function newDailyFiles() {
 
       function loadThemAll() {
         try {
-          for (let i = 0; i < dailyFilePeriods.length; i++) {
-            let periodTime = dailyFilePeriods[i][0]
-            let periodName = dailyFilePeriods[i][1]
+          for (let i = 0; i < dailyTimeFramesArray.length; i++) {
+            let periodTime = dailyTimeFramesArray[i][0]
+            let timeFrameLabel = dailyTimeFramesArray[i][1]
 
-            if (pDataset.config.validTimeFrames.includes(periodName) === true) {
+            if (pDataset.config.validTimeFrames.includes(timeFrameLabel) === true) {
               let fileCursor = fileCursors.get(periodTime)
               if (fileCursor !== undefined) {
                 fileCursor.reload(onFileReceived)

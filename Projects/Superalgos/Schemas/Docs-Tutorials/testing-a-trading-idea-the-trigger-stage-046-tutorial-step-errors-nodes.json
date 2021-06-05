@@ -7,8 +7,8 @@
             "project": "Superalgos",
             "name": "bullet-error"
         },
-        "text": "Notice that the design space repositioned to the node most related to the error, in this case, a Condition node. This is a crucial piece of information!",
-        "updated": 1612696302333
+        "text": "Touch the error bullet again and notice how the design space repositiones at the node most related to the error, in this case, a Condition node. This is a crucial piece of information!",
+        "updated": 1622487759414
     },
     "paragraphs": [
         {

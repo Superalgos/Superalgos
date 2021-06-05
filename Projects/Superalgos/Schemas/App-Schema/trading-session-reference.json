@@ -1,0 +1,65 @@
+{
+    "type": "Trading Session Reference",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Trading Mine Products",
+            "relatedUiObject": "Trading Mine Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Trading Mine Products",
+            "label": "Add All Trading Mine Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Trading Mine Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Type",
+        "Use Child @marketDataProducts"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "alternativeIcons": "Use Reference Parent",
+    "referencingRules": {
+        "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Trading Products->"
+    },
+    "propertyNameAtParent": "tradingSessionReferences",
+    "childrenNodesProperties": [
+        {
+            "name": "dataProducts",
+            "type": "array",
+            "childType": "Data Product",
+            "autoAdd": false
+        },
+        {
+            "name": "tradingMineProducts",
+            "type": "array",
+            "childType": "Trading Mine Products",
+            "autoAdd": false
+        }
+    ]
+}

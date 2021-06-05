@@ -1,0 +1,25 @@
+{
+    "type": "Template Target",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "propertyNameAtParent": "templateTarget",
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Template Script->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->"
+    },
+    "childrenNodesProperties": []
+}

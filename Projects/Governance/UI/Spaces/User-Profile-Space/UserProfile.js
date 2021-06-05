@@ -117,11 +117,11 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function distributeVotingPower(node, votingPower) {
+    function distributeVotingPower(node, votingPower, switchPercentage) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.votingPower = node.payload.votingPower + votingPower
-        drawVotingPower(node, node.payload.votingPower)
+        drawVotingPower(node, node.payload.votingPower, switchPercentage)
         /*
         If there is a reference parent defined, this means that the voting power is 
         transfered to it and not distributed among children.
@@ -146,6 +146,14 @@ function newGovernanceUserProfileSpace() {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
+            /*
+            Before distributing the voting power, we will calculate how the power 
+            is going to be switched between all nodes. The first pass is about
+            scanning all sibling nodes to see which ones have a percentage defined
+            at their config, and check that all percentages don't add more than 100.
+            */
+            let totalPercentage = 0
+            let totalNodesWithoutPercentage = 0
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -155,7 +163,58 @@ function newGovernanceUserProfileSpace() {
                     case 'node': {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            distributeVotingPower(childNode, votingPower)
+                            let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                            if (percentage !== undefined && isNaN(percentage) !== true) {
+                                totalPercentage = totalPercentage + percentage
+                            } else {
+                                totalNodesWithoutPercentage++
+                            }
+                        }
+                    }
+                        break
+                    case 'array': {
+                        let propertyArray = node[property.name]
+                        if (propertyArray !== undefined) {
+
+                            for (let m = 0; m < propertyArray.length; m++) {
+                                let childNode = propertyArray[m]
+                                let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+            if (totalPercentage > 100) {
+                node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                return
+            }
+            let defaultPercentage = 0
+            if (totalNodesWithoutPercentage > 0) {
+                defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+            }
+            /*
+            Here we do the actual distribution.
+            */
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+
+                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+
+                switch (property.type) {
+                    case 'node': {
+                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            let childNode = node[property.name]
+                            let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                            if (percentage === undefined || isNaN(percentage) === true) {
+                                percentage = defaultPercentage
+                            }
+                            distributeVotingPower(childNode, votingPower * percentage / 100, percentage)
                         }
                     }
                         break
@@ -164,7 +223,11 @@ function newGovernanceUserProfileSpace() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                distributeVotingPower(childNode, votingPower / propertyArray.length)
+                                let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage) === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeVotingPower(childNode, votingPower * percentage / 100, percentage)
                             }
                         }
                         break
@@ -174,7 +237,7 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function drawVotingPower(node, votingPower) {
+    function drawVotingPower(node, votingPower, percentage) {
         votingPower = new Intl.NumberFormat().format(votingPower) + ' ' + 'Votes'
         if (node.payload !== undefined) {
             if (node.type === 'User Profile') {
@@ -192,15 +255,19 @@ function newGovernanceUserProfileSpace() {
                 node.type === 'Position Contribution Claim' ||
                 node.type === 'Asset Contribution Claim' ||
                 node.type === 'Feature Contribution Claim'
-            ) { 
+            ) {
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false
-            } else{
+            } else {
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
             }
 
             node.payload.uiObject.setValue(votingPower)
+
+            if (percentage !== undefined) {
+                node.payload.uiObject.setPercentage(percentage.toFixed(2))  
+            }
         }
     }
 

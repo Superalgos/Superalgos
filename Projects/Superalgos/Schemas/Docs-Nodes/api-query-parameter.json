@@ -12,8 +12,12 @@
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863199996
+            "text": "API Query Parameter Configuration",
+            "updated": 1622895734675
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

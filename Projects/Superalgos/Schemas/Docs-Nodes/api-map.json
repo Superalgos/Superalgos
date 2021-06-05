@@ -165,30 +165,37 @@
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863551147
+            "text": "API Map Configuration",
+            "updated": 1622895474056
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",
-            "text": "codeName: this must be the same codeName as the Data Mine codeName in order for the Install New Market procedure to link them properly at the API Map Reference node.",
-            "updated": 1622472871204
+            "text": "codeName: this must be the same codename as the Data Mine codename in order for the Install New Market procedure to link them properly at the API Map Reference node.",
+            "updated": 1622895563618
         },
         {
             "style": "List",
-            "text": "protocol: the protocol to be used to access the API. For now either http or https."
+            "text": "protocol: the protocol to be used to access the API. For now either http or https.",
+            "updated": 1622895574503
         },
         {
             "style": "List",
-            "text": "portNumber: the port at which the API server is listening."
+            "text": "portNumber: the port at which the API server is listening.",
+            "updated": 1622895581034
         },
         {
             "style": "List",
-            "text": "hostName: the domain name or IP address of the API server."
+            "text": "hostName: the domain name or IP address of the API server.",
+            "updated": 1622895586641
         },
         {
             "style": "List",
             "text": "path: the URL path to where the API is located within the remote server.",
-            "updated": 1621016495461
+            "updated": 1622895592146
         },
         {
             "style": "List",

@@ -17,8 +17,12 @@
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863171533
+            "text": "API Version Configuration",
+            "updated": 1622895641428
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

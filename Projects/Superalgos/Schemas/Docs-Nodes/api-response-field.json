@@ -7,8 +7,12 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622864255383
+            "text": "API Response Field Configuration",
+            "updated": 1622895885768
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

@@ -12,8 +12,12 @@
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622772725049
+            "text": "API Path Parameter Configuration",
+            "updated": 1622895766034
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

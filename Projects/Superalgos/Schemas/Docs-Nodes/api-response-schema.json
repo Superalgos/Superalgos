@@ -11,14 +11,32 @@
             "updated": 1622312357188
         },
         {
+            "style": "Text",
+            "text": "Here is an example of an API's response JSON:",
+            "updated": 1622894576735
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"status\": {\n        \"timestamp\": \"2018-06-02T22:51:28.209Z\",\n         \"elapsed\": 10\n    },\n    \"data\": [\n        {\n        \"id\": \"1e31218a-e44e-4285-820c-8282ee222035\",\n        \"symbol\": \"BTC\",\n        \"name\": \"Bitcoin\",\n        \"slug\": \"bitcoin\",\n        \"profile\": {...},\n        \"metrics\": {...}\n        }\n    ]\n}",
+            "updated": 1622894444830
+        },
+        {
+            "style": "Text",
+            "text": "The main object is the first set of curly brackets { } enclosing everything. As you can see, underneath that there are two object properties named status and data. Status is an object and contains the header information. Data is an array and holds the actual data we are after. As you API Response Field nodes to your API Response Schema node you will be mapping an API response similar to this one.",
+            "updated": 1622894937351
+        },
+        {
             "style": "Success",
-            "text": "When reading documentation, or looking at raw data held in JSON, it is important to remember that curly brackets { } define objects while square brackets [ ] define arrays.",
-            "updated": 1622863958740
+            "text": "When reading documentation, or looking at raw data held in JSON, it is important to remember that curly brackets { } define objects while square brackets [ ] define arrays."
         },
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863966010
+            "text": "API Response Schema Configuration",
+            "updated": 1622895860644
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

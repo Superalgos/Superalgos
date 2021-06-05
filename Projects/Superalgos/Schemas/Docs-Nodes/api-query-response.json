@@ -7,8 +7,12 @@
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Configuration Properties",
-            "updated": 1622863221142
+            "text": "API Query Response Configuration",
+            "updated": 1622895797460
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",

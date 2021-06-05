@@ -148,7 +148,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
 
     function updateStopLossTakeProfitFinalValue(node) {
         /*
-        We set the final value just before calcualting the new value, since the new calculated
+        We set the final value just before calculating the new value, since the new calculated
         value is going to be discarded if the position is closed after it is calculated, but
         during the same candle.
         */
@@ -158,7 +158,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     function updateStopLossTakeProfitBeginEnd(node) {
         /*
         Both the Stop Loss and the Take Profit have their own Begin and End.
-        Ther reason for this is because they represent targets to be checked 
+        The reason for this is because they represent targets to be checked
         at the next candle, so it does not apply that they share the begin and
         end of the position itself. 
         */

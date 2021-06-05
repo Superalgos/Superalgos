@@ -1067,7 +1067,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let project = projects[i]
 
                         const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
-                        console.log(folder)
 
                         fs.readdir(folder, (err, files) => {
                             if (err) {

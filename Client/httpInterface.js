@@ -1067,16 +1067,23 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let project = projects[i]
 
                         const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
+                        console.log(folder)
 
                         fs.readdir(folder, (err, files) => {
-                            for (let j = 0; j < files.length; j++) {
-                                let file = files[j]
-                                icons.push([project, file])
-                            }
+                            if (err) {
+                                console.log('[ERROR] Error reading IconNames.', err.stack)
+                                respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                return
+                            } else {
+                                for (let j = 0; j < files.length; j++) {
+                                    let file = files[j]
+                                    icons.push([project, file])
+                                }
 
-                            projectCounter++
-                            if (projectCounter === totalProjects) {
-                                respondWithContent(JSON.stringify(icons), httpResponse)
+                                projectCounter++
+                                if (projectCounter === totalProjects) {
+                                    respondWithContent(JSON.stringify(icons), httpResponse)
+                                }
                             }
                         })
                     }
@@ -1092,7 +1099,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
-                        respondWithContent(JSON.stringify(files), httpResponse)
+                        if (err) {
+                            console.log('[ERROR] Error reading PluginFileNames.', err.stack)
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            return
+                        } else {
+                            respondWithContent(JSON.stringify(files), httpResponse)
+                        }
                     })
                 }
                 break
@@ -1496,57 +1509,57 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
         function sendSchema(filePath, schemaType) {
             let fs = require('fs')
-                try {
-                    let folder = ''
-                    switch (schemaType) {
-                        case 'AppSchema': {
-                            folder = 'App-Schema'
-                            break
-                        }
-                        case 'DocsNodeSchema': {
-                            folder = 'Docs-Nodes'
-                            break
-                        }
-                        case 'DocsConceptSchema': {
-                            folder = 'Docs-Concepts'
-                            break
-                        }
-                        case 'DocsTopicSchema': {
-                            folder = 'Docs-Topics'
-                            break
-                        }
-                        case 'DocsTutorialSchema': {
-                            folder = 'Docs-Tutorials'
-                            break
-                        }
-                        case 'DocsReviewSchema': {
-                            folder = 'Docs-Reviews'
-                            break
-                        }
-                        case 'DocsBookSchema': {
-                            folder = 'Docs-Books'
-                            break
-                        }
+            try {
+                let folder = ''
+                switch (schemaType) {
+                    case 'AppSchema': {
+                        folder = 'App-Schema'
+                        break
                     }
-
-                    let schemaArray = []
-                    let fileList = fs.readdirSync(filePath + '/' + folder)
-                    for (let k = 0; k < fileList.length; k++) {
-                        let name = fileList[k]
-                        let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                        let schemaDocument = JSON.parse(fileContent)
-                        schemaArray.push(schemaDocument)
+                    case 'DocsNodeSchema': {
+                        folder = 'Docs-Nodes'
+                        break
                     }
-                    let schema = JSON.stringify(schemaArray)
-                    respondWithContent(schema, httpResponse)
-                } catch (err) {
-                    if (err.message.indexOf('no such file or directory') < 0) {
-                        console.log('Could not send Schema:', filePath, schemaType)
-                        console.log(err.stack)
+                    case 'DocsConceptSchema': {
+                        folder = 'Docs-Concepts'
+                        break
                     }
-                    respondWithContent("[]", httpResponse)
+                    case 'DocsTopicSchema': {
+                        folder = 'Docs-Topics'
+                        break
+                    }
+                    case 'DocsTutorialSchema': {
+                        folder = 'Docs-Tutorials'
+                        break
+                    }
+                    case 'DocsReviewSchema': {
+                        folder = 'Docs-Reviews'
+                        break
+                    }
+                    case 'DocsBookSchema': {
+                        folder = 'Docs-Books'
+                        break
+                    }
                 }
-            
+
+                let schemaArray = []
+                let fileList = fs.readdirSync(filePath + '/' + folder)
+                for (let k = 0; k < fileList.length; k++) {
+                    let name = fileList[k]
+                    let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
+                    let schemaDocument = JSON.parse(fileContent)
+                    schemaArray.push(schemaDocument)
+                }
+                let schema = JSON.stringify(schemaArray)
+                respondWithContent(schema, httpResponse)
+            } catch (err) {
+                if (err.message.indexOf('no such file or directory') < 0) {
+                    console.log('Could not send Schema:', filePath, schemaType)
+                    console.log(err.stack)
+                }
+                respondWithContent("[]", httpResponse)
+            }
+
         }
 
         function sendStyleSheet(fileName) {

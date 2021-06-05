@@ -403,6 +403,19 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
 
                 tradingSystem.values.push([node.id, value])
                 tradingSystem.formulas.set(node.id, value)
+            } else {
+
+                docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS LF Trading Bot Error - Formula Value Not A Number',
+                    placeholder: {}
+                }
+                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+
+                tradingSystem.addError([node.id, 'Formula needs to return a numeric value.', docs])
+                return
+
             }
         }
 

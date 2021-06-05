@@ -249,7 +249,7 @@ function newUiObject() {
 
         thisObject.uiObjectTitle = newUiObjectTitle()
         thisObject.uiObjectTitle.isVisibleFunction = thisObject.isVisibleFunction
-        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false,  true, true)
+        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
         thisObject.uiObjectTitle.fitFunction = thisObject.fitFunction
         thisObject.uiObjectTitle.initialize(thisObject.payload)
 
@@ -561,7 +561,7 @@ function newUiObject() {
         function chainDetachingPhysics() {
             if (isDragging !== true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) { return }
 
             let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
             let ratio = distanceToChainParent / previousDistanceToChainParent
@@ -667,7 +667,7 @@ function newUiObject() {
             if (thisObject.payload === undefined) { return }
             if (thisObject.payload.floatingObject.isFrozen === true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) { return }
 
             if (thisObject.payload.referenceParent === undefined) { return }
 
@@ -1885,15 +1885,24 @@ function newUiObject() {
                 label = label.substring(0, MAX_LABEL_LENGTH) + '...'
             }
 
-            if (thisObject.isOnFocus === true) {
+            if (thisObject.valueAtAngle === true && thisObject.payload.angle !== undefined) {
                 labelPoint = {
                     x: position.x - getTextWidth(label) / 2,
-                    y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
+                    y: position.y
                 }
+                labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
+                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset)) + lineSeparator * 1 
             } else {
-                labelPoint = {
-                    x: position.x - getTextWidth(label) / 2,
-                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - getTextWidth(label) / 2,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - getTextWidth(label) / 2,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
+                    }
                 }
             }
 

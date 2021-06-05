@@ -6,28 +6,29 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "<h4>Overview</h4>",
-            "updated": 1622299369556
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1622832251706
         },
         {
             "style": "Text",
-            "text": "Oftentimes, when building a strategy, the need for a place to store some data may arise. The User-Defined-Variables nodes are the correct place to do this. The children nodes, (User Defined variable nodes), of this node are unused by the base code of the Superalgos processes thus the data placed inside these variables will remain unchanged and available for the duration of the episode."
+            "text": "Oftentimes, when building a strategy, the need for a place to store some data may arise. The User Defined Variables nodes are the correct place to do this. The children nodes (User Defined variable nodes) of this node are unused by the base code of the Superalgos processes thus the data placed inside these variables will remain unchanged and available for the duration of the episode.",
+            "updated": 1622832401231
         },
         {
-            "style": "Text",
-            "text": "<h4>Additional Info</h4>",
-            "updated": 1622250099965
+            "style": "Title",
+            "text": "Additional Info",
+            "updated": 1622832255099
         },
         {
-            "style": "Text",
-            "text": "- Persistence: It should be noted that these variables will persist throughout the System's episode; not just at the stage or strategy layer from which they are set.",
-            "updated": 1622299441071
+            "style": "List",
+            "text": "Persistence: It should be noted that these variables will persist throughout the System's episode; not just at the stage or strategy layer from which they are set.",
+            "updated": 1622832233531
         },
         {
-            "style": "Text",
-            "text": "- State: A user defined variable is mutable.",
-            "updated": 1622250209793
+            "style": "List",
+            "text": "State: A user defined variable is mutable.",
+            "updated": 1622832241466
         }
     ]
 }

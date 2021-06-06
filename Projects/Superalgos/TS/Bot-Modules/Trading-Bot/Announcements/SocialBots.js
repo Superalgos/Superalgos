@@ -16,16 +16,15 @@ exports.newSuperalgosBotModulesSocialBots = function (processIndex) {
                 if (prop.toLowerCase().includes("Bots".toLowerCase())) {
                     for (let i = 0; i < TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop].length; i++) {
                         let socialBot = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots[prop][i]
+                        let config = socialBot.config
+                        let commands = socialBot.socialBotCommand
                         if (socialBot.type === "Telegram Bot") {
-                            let config = socialBot.config
                             socialBot.botInstance = TS.projects.superalgos.botModules.telegramBot.newSuperalgosBotModulesTelegramBot(processIndex)
-                            socialBot.botInstance.initialize(config.botToken, config.chatId)
+                            socialBot.botInstance.initialize(config, commands)
                         } else if (socialBot.type === "Discord Bot") {
-                            let config = socialBot.config
                             socialBot.botInstance = TS.projects.superalgos.botModules.discordBot.newSuperalgosBotModulesDiscordBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Slack Bot") {
-                            let config = socialBot.config
                             socialBot.botInstance = TS.projects.superalgos.botModules.slackBot.newSuperalgosBotModulesSlackBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         }

@@ -34,7 +34,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"token\": \"\"\n}"
+        "config": "{\n  \"tokens\": \"\"\n}"
     },
     "isHierarchyHead": true,
     "addLeftIcons": true,

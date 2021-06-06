@@ -34,7 +34,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 2,

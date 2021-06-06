@@ -14,9 +14,17 @@ function newGovernanceFunctionLibraryWeights() {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
 
-            if (node.payload.votes !== undefined) {
-                totalVotes = totalVotes + node.payload.votes
+            if (
+                node.type !== 'Pool Class' &&
+                node.type !== 'Asset Class' &&
+                node.type !== 'Feature Class' &&
+                node.type !== 'Position Class'
+            ) {
+                if (node.payload.votes !== undefined) {
+                    totalVotes = totalVotes + node.payload.votes
+                }
             }
+
             node.payload.weight = 0
             /*
             Now we will count the voting power of this node's children.
@@ -52,9 +60,19 @@ function newGovernanceFunctionLibraryWeights() {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
 
-            if (node.payload.votes !== undefined) {
-                node.payload.weight = node.payload.votes / totalVotes
+            if (
+                node.type !== 'Pool Class' &&
+                node.type !== 'Asset Class' &&
+                node.type !== 'Feature Class' &&
+                node.type !== 'Position Class'
+            ) {
+                if (node.payload.votes !== undefined) {
+                    if (node.payload.votes !== undefined) {
+                        node.payload.weight = node.payload.votes / totalVotes
+                    }
+                }
             }
+
             /*
             Now we will count the voting power of this node's children.
             */

@@ -51,6 +51,5 @@
             "childType": "Votes Switch",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

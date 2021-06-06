@@ -46,7 +46,6 @@
     "addLeftIcons": true,
     "isPinned": true,
     "positionLocked": true,
-    "icon": "bitcoin",
     "childrenNodesProperties": [
         {
             "name": "projectDefinition",

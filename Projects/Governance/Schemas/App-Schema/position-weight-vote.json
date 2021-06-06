@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Position Class->Position->"
     },
-    "propertyNameAtParent": "positionWeightVotes",
-    "icon": "bitfinex"
+    "propertyNameAtParent": "positionWeightVotes"
 }

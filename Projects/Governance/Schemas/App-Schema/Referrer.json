@@ -35,6 +35,5 @@
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "referrer",
-    "icon": "github-api"
+    "propertyNameAtParent": "referrer"
 }

@@ -1,0 +1,13 @@
+{
+    "type": "Referrer",
+    "definition": {
+        "text": "This node is used by users to reference other users defining in this way who was the user who brought them into the project. The referrer could have acted by word of mouth, or producing some marketing material with it's referral id. These references are later used at the token distribution process to reward referrers and also users declaring who these referrers are.",
+        "updated": 1622990015308
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

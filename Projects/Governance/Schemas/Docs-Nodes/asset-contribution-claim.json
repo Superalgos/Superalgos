@@ -1,0 +1,13 @@
+{
+    "type": "Asset Contribution Claim",
+    "definition": {
+        "text": "This node represents a claim by a user that has contributed in the creation or mantainance of an Asset, and has not yet be compensated in tokens enough accoring to the user's own beliefs. Anyone can make these claims, but it is the community that will activate them with votes, allowing or not the user to receive tokens through this claim. Users are expected to remove a claim once their are satisfied with the compensation or they gave up trying to convince the community to support their claim.",
+        "updated": 1622989779632
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

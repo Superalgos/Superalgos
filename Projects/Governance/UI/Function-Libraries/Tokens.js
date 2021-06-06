@@ -26,14 +26,14 @@ function newGovernanceFunctionLibraryTokens() {
     }
 
     function poolsDistribute(pools) {
-        let tokenFlow = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
-        distributeTokens(pools, tokenFlow)
+        let tokens = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
+        distributeTokens(pools, tokens)
     }
 
     function resetTokenFlow(node) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.tokenFlow = 0
+        node.payload.tokens = 0
         /*
         If there is a reference parent defined, this means that the token flow is 
         transfered to it and not distributed among children.
@@ -83,7 +83,7 @@ function newGovernanceFunctionLibraryTokens() {
         }
     }
 
-    function distributeTokens(node, tokenFlow) {
+    function distributeTokens(node, tokens) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         /*
@@ -97,7 +97,7 @@ function newGovernanceFunctionLibraryTokens() {
         if (
             schemaDocument.isHierarchyHead === true
         ) {
-            drawTokenFlow(node, tokenFlow)
+            drawTokenFlow(node, tokens)
         }
         /*
         We will also have tokens at nodes with weight.
@@ -107,15 +107,15 @@ function newGovernanceFunctionLibraryTokens() {
             node.payload.weight !== undefined &&
             node.payload.weight !== 0
         ) {
-            node.payload.tokenFlow = tokenFlow * node.payload.weight
-            drawTokenFlow(node, node.payload.tokenFlow, node.payload.weight)
+            node.payload.tokens = tokens * node.payload.weight
+            drawTokenFlow(node, node.payload.tokens, node.payload.weight)
         }
         /*
         If there is a reference parent defined, this means that the token flow is 
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            distributeTokens(node.payload.referenceParent, node.payload.tokenFlow)
+            distributeTokens(node.payload.referenceParent, node.payload.tokens)
             return
         }
         /*
@@ -135,7 +135,7 @@ function newGovernanceFunctionLibraryTokens() {
                     case 'node': {
                         if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            distributeTokens(childNode, tokenFlow)
+                            distributeTokens(childNode, tokens)
                         }
                     }
                         break
@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryTokens() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                distributeTokens(childNode, tokenFlow)
+                                distributeTokens(childNode, tokens)
                             }
                         }
                         break
@@ -154,15 +154,16 @@ function newGovernanceFunctionLibraryTokens() {
         }
     }
 
-    function drawTokenFlow(node, tokenFlow, weight) {
+    function drawTokenFlow(node, tokens, weight) {
+        let status
         if (weight !== undefined && weight !== 0) {
-            tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens' + ' - ' + 'Weight: ' + weight.toFixed(2)
+            status = new Intl.NumberFormat().format(tokens) + ' ' + 'SA Tokens Reward' + ' - ' + 'Weight: ' + weight.toFixed(2)
         } else {
-            tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens'
+            status = new Intl.NumberFormat().format(tokens) + ' ' + 'SA Tokens Reward'
         }
 
         if (node.payload !== undefined) {
-            node.payload.uiObject.setStatus(tokenFlow)
+            node.payload.uiObject.setStatus(status)
         }
     }
 }

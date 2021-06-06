@@ -27,7 +27,13 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             assets,
             positions
         )
-
+/*
+        UI.projects.governance.functionLibraries.claims.calculate(
+            features,
+            assets,
+            positions
+        )
+*/
         UI.projects.governance.functionLibraries.tokens.calculate(
             pools
         )

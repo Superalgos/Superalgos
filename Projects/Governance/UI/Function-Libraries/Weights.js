@@ -13,20 +13,20 @@ function newGovernanceFunctionLibraryWeights() {
     ) {
         /* Weight Calculation Follows */
         for (let i = 0; i < assets.length; i++) {
-            let asset = assets[i]
-            calculateForNode(asset)
+            let assetsNode = assets[i]
+            calculateForNode(assetsNode)
         }
 
         /* Weight Calculation Follows */
         for (let i = 0; i < features.length; i++) {
-            let feature = features[i]
-            calculateForNode(feature)
+            let featuresNode = features[i]
+            calculateForNode(featuresNode)
         }
 
         /* Weight Calculation Follows */
         for (let i = 0; i < positions.length; i++) {
-            let position = positions[i]
-            calculateForNode(position)
+            let positionsNode = positions[i]
+            calculateForNode(positionsNode)
         }
 
         /* Weight Calculation Follows */

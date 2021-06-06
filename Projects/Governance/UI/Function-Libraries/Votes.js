@@ -20,20 +20,20 @@ function newGovernanceFunctionLibraryVotes() {
 
         /* Reset Votes at Features */
         for (let i = 0; i < features.length; i++) {
-            let feature = features[i]
-            resetVotes(feature)
+            let featuresNode = features[i]
+            resetVotes(featuresNode)
         }
 
         /* Reset Votes at Features */
         for (let i = 0; i < assets.length; i++) {
-            let asset = assets[i]
-            resetVotes(asset)
+            let assetsNode = assets[i]
+            resetVotes(assetsNode)
         }
 
         /* Reset Votes at Features */
         for (let i = 0; i < positions.length; i++) {
-            let position = positions[i]
-            resetVotes(position)
+            let positionsNode = positions[i]
+            resetVotes(positionsNode)
         }
         /*
         We will first reset all the voting power, and then distribute it.
@@ -44,20 +44,11 @@ function newGovernanceFunctionLibraryVotes() {
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeVotes(userProfile)
+            distributeForProfile(userProfile)
         }
     }
 
-    function resetVotes(userProfile) {
-        resetVotingPower(userProfile)
-    }
-
-    function distributeVotes(userProfile) {
-        let votes = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
-        distributeVotingPower(userProfile, votes)
-    }
-
-    function resetVotingPower(node) {
+    function resetVotes(node) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.votes = 0
@@ -66,7 +57,7 @@ function newGovernanceFunctionLibraryVotes() {
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            resetVotingPower(node.payload.referenceParent)
+            resetVotes(node.payload.referenceParent)
             return
         }
         /*
@@ -94,7 +85,7 @@ function newGovernanceFunctionLibraryVotes() {
                     case 'node': {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            resetVotingPower(childNode)
+                            resetVotes(childNode)
                         }
                     }
                         break
@@ -103,7 +94,7 @@ function newGovernanceFunctionLibraryVotes() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                resetVotingPower(childNode)
+                                resetVotes(childNode)
                             }
                         }
                         break
@@ -113,11 +104,16 @@ function newGovernanceFunctionLibraryVotes() {
         }
     }
 
-    function distributeVotingPower(node, votes, switchPercentage) {
+    function distributeForProfile(userProfile) {
+        let votes = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
+        distributeVotes(userProfile, votes)
+    }
+
+    function distributeVotes(node, votes, switchPercentage) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         node.payload.votes = node.payload.votes + votes
-        drawVotingPower(node, node.payload.votes, switchPercentage)
+        drawVotes(node, node.payload.votes, switchPercentage)
         /*
         When we reach certain node types, we will halt the distribution, because thse are targets for 
         voting power.
@@ -136,7 +132,7 @@ function newGovernanceFunctionLibraryVotes() {
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            distributeVotingPower(node.payload.referenceParent, votes)
+            distributeVotes(node.payload.referenceParent, votes)
             return
         }
         /*
@@ -214,7 +210,7 @@ function newGovernanceFunctionLibraryVotes() {
                             if (percentage === undefined || isNaN(percentage) === true) {
                                 percentage = defaultPercentage
                             }
-                            distributeVotingPower(childNode, votes * percentage / 100, percentage)
+                            distributeVotes(childNode, votes * percentage / 100, percentage)
                         }
                     }
                         break
@@ -227,7 +223,7 @@ function newGovernanceFunctionLibraryVotes() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeVotingPower(childNode, votes * percentage / 100, percentage)
+                                distributeVotes(childNode, votes * percentage / 100, percentage)
                             }
                         }
                         break
@@ -237,7 +233,7 @@ function newGovernanceFunctionLibraryVotes() {
         }
     }
 
-    function drawVotingPower(node, votes, percentage) {
+    function drawVotes(node, votes, percentage) {
         votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
         if (node.payload !== undefined) {
             if (node.type === 'User Profile') {

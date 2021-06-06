@@ -28,14 +28,6 @@ function newGovernancePositionsSpace() {
 
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-
-        let positions = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
-
-        /* Weight Calculation Follows */
-        for (let i = 0; i < positions.length; i++) {
-            let position = positions[i]
-            UI.projects.governance.functionLibraries.weights.calculate(position)
-        }
     }
 
     function getContainer(point) {

@@ -37,7 +37,7 @@ function newGovernancePoolsSpace() {
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-        UI.projects.governance.functionLibraries.tokens.calculate()
+        UI.projects.governance.functionLibraries.distributionProcess.calculate()
     }
 
     function draw() {

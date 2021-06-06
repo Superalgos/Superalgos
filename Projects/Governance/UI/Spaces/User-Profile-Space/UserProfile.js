@@ -37,7 +37,7 @@ function newGovernanceUserProfileSpace() {
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-        UI.projects.governance.functionLibraries.votes.calculate()
+
     }
 
     function draw() {

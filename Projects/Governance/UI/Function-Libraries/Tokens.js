@@ -5,14 +5,9 @@ function newGovernanceFunctionLibraryTokens() {
 
     return thisObject
 
-    function calculate() {
-        let pools = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
-
-        /* Weight Calculation Follows */
-        for (let i = 0; i < pools.length; i++) {
-            let poolsNode = pools[i]
-            UI.projects.governance.functionLibraries.weights.calculate(poolsNode)
-        }
+    function calculate(
+        pools
+    ) {
         /*
         We will reset all the token flows, and then distribute it.
         */

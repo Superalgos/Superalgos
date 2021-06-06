@@ -26,14 +26,6 @@ function newGovernanceFeaturesSpace() {
 
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-
-        let features = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
-
-        /* Weight Calculation Follows */
-        for (let i = 0; i < features.length; i++) {
-            let feature = features[i]
-            UI.projects.governance.functionLibraries.weights.calculate(feature)
-        }
     }
 
     function getContainer(point) {

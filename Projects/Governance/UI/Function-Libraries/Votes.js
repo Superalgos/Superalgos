@@ -5,36 +5,36 @@ function newGovernanceFunctionLibraryVotes() {
 
     return thisObject
 
-    function calculate() {
-        let pools = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+    function calculate(
+        pools,
+        features,
+        assets,
+        positions,
+        userProfiles
+    ) {
         /* Reset Votes at Pools */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
             resetVotes(poolsNode)
         }
 
-        let features = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
         /* Reset Votes at Features */
         for (let i = 0; i < features.length; i++) {
             let feature = features[i]
             resetVotes(feature)
         }
 
-        let assets = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
         /* Reset Votes at Features */
         for (let i = 0; i < assets.length; i++) {
             let asset = assets[i]
             resetVotes(asset)
         }
 
-        let positions = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
         /* Reset Votes at Features */
         for (let i = 0; i < positions.length; i++) {
             let position = positions[i]
             resetVotes(position)
         }
-
-        let userProfiles = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         We will first reset all the voting power, and then distribute it.
         */
@@ -129,7 +129,7 @@ function newGovernanceFunctionLibraryVotes() {
             node.type === 'Pool' ||
             node.type === 'Position Contribution Claim' ||
             node.type === 'Asset Contribution Claim' ||
-            node.type === 'Feature Contribution Claim' 
+            node.type === 'Feature Contribution Claim'
         ) { return }
         /*
         If there is a reference parent defined, this means that the voting power is 

@@ -5,7 +5,39 @@ function newGovernanceFunctionLibraryWeights() {
 
     return thisObject
 
-    function calculate(node) {
+    function calculate(
+        pools,
+        features,
+        assets,
+        positions
+    ) {
+        /* Weight Calculation Follows */
+        for (let i = 0; i < assets.length; i++) {
+            let asset = assets[i]
+            calculateForNode(asset)
+        }
+
+        /* Weight Calculation Follows */
+        for (let i = 0; i < features.length; i++) {
+            let feature = features[i]
+            calculateForNode(feature)
+        }
+
+        /* Weight Calculation Follows */
+        for (let i = 0; i < positions.length; i++) {
+            let position = positions[i]
+            calculateForNode(position)
+        }
+
+        /* Weight Calculation Follows */
+        for (let i = 0; i < pools.length; i++) {
+            let poolsNode = pools[i]
+            calculateForNode(poolsNode)
+        }
+    }
+
+    function calculateForNode(node) {
+
         let totalVotes = 0
         countVotesAndResetWeights(node)
         applyWeightCalculation(node)

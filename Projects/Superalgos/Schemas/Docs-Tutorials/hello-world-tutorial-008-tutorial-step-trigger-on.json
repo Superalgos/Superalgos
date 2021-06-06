@@ -8,13 +8,29 @@
             "name": "trigger-on",
             "project": "Superalgos"
         },
-        "updated": 1614244953169
+        "updated": 1614244953169,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Reserviere Geldmittel!",
+                "updated": 1622978638588,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Trigger On event is about reserving (locking) your funds and making them available to the bot.",
-            "updated": 1614244945700
+            "updated": 1614244945700,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beim Ereignis Trigger On geht es darum, deine Mittel zu reservieren (zu sperren) und sie dem Bot zur Verfügung zu stellen.",
+                    "updated": 1622981206455,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -22,19 +38,51 @@
         },
         {
             "style": "Text",
-            "text": "What I need to do is:"
+            "text": "What I need to do is:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was ich tun muss, ist:",
+                    "updated": 1622978676342,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Define the TF"
+            "text": "Define the TF",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Definiere den TF (Time Frame)",
+                    "updated": 1622978697311,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Define the SMA50/200 cross"
+            "text": "Define the SMA50/200 cross",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Definiere das SMA50/200 Kreuz",
+                    "updated": 1622978711889,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To define a cross I use 2 conditions:"
+            "text": "To define a cross I use 2 conditions:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zur Definition, verwende ich zwei Bedingungen:",
+                    "updated": 1622981248271,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Javascript",

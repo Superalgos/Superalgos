@@ -39,8 +39,13 @@ function newGovernancePoolsSpace() {
 
         let pools = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
 
+        /* Weight Calculation Follows */
+        for (let i = 0; i < pools.length; i++) {
+            let poolsNode = pools[i]
+            UI.projects.governance.functionLibraries.weights.calculateWeights(poolsNode)
+        }
         /*
-        We will first reset all the token flows, and then distribute it.
+        We will reset all the token flows, and then distribute it.
         */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
@@ -117,8 +122,30 @@ function newGovernancePoolsSpace() {
     function distributeTokenFlow(node, tokenFlow) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.tokenFlow = node.payload.tokenFlow + tokenFlow
-        drawTokenFlow(node, node.payload.tokenFlow)
+        /*
+        Let's get the schemaDocument first
+        */
+        let schemaDocument = getSchemaDocument(node)
+        if (schemaDocument === undefined) { return }
+        /*
+        At hierarchy heads we will shouw how many tokens are comming in.
+        */
+        if (
+            schemaDocument.isHierarchyHead === true
+        ) {
+            drawTokenFlow(node, tokenFlow)
+        }
+        /*
+        We will also have tokens at nodes with weight.
+        */
+        if (
+            isNaN(node.payload.weight ) !== true && 
+            node.payload.weight !== undefined &&
+            node.payload.weight !== 0
+        ) {
+            node.payload.tokenFlow = tokenFlow * node.payload.weight
+            drawTokenFlow(node, node.payload.tokenFlow, node.payload.weight)
+        }
         /*
         If there is a reference parent defined, this means that the token flow is 
         transfered to it and not distributed among children.
@@ -128,18 +155,14 @@ function newGovernancePoolsSpace() {
             return
         }
         /*
-        When we reach certain node types, we will halt the distribution, because thse are targets for 
+        When we reach certain node types, we will halt the distribution, because these are targets for 
         token flow.
         */
         if (
             node.type === 'Asset' ||
             node.type === 'Feature'
         ) { return }
-        /*
-        If there is no reference parent we will redistribute token flow among children.
-        */
-        let schemaDocument = getSchemaDocument(node)
-        if (schemaDocument === undefined) { return }
+
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
@@ -158,7 +181,7 @@ function newGovernancePoolsSpace() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                distributeTokenFlow(childNode, tokenFlow / propertyArray.length)
+                                distributeTokenFlow(childNode, tokenFlow)
                             }
                         }
                         break
@@ -168,12 +191,14 @@ function newGovernancePoolsSpace() {
         }
     }
 
-    function drawTokenFlow(node, tokenFlow) {
-        tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens'
+    function drawTokenFlow(node, tokenFlow, weight) {
+        if (weight !== undefined && weight !== 0) {
+            tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens' + ' - ' + 'Weight: ' + weight.toFixed(2)
+        } else {
+            tokenFlow = new Intl.NumberFormat().format(tokenFlow) + ' ' + 'SA Tokens'
+        }
+
         if (node.payload !== undefined) {
-            if (node.type === 'Pools') {
-                return
-            }
             node.payload.uiObject.setStatus(tokenFlow)
         }
     }

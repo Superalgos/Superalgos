@@ -996,9 +996,29 @@
             ],
             "functionLibraries": [
                 {
+                    "name": "Votes",
+                    "propertyName": "votes",
+                    "functionName": "newGovernanceFunctionLibraryVotes"
+                },
+                {
+                    "name": "Tokens",
+                    "propertyName": "tokens",
+                    "functionName": "newGovernanceFunctionLibraryTokens"
+                },
+                {
                     "name": "Weights",
                     "propertyName": "weights",
                     "functionName": "newGovernanceFunctionLibraryWeights"
+                },
+                {
+                    "name": "Claims",
+                    "propertyName": "claims",
+                    "functionName": "newGovernanceFunctionLibraryClaims"
+                },
+                {
+                    "name": "Distribution Process",
+                    "propertyName": "distributionProcess",
+                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
                 }
             ],
             "utilities": [

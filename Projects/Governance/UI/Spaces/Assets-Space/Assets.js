@@ -32,7 +32,7 @@ function newGobernanceAssetsSpace() {
         /* Weight Calculation Follows */
         for (let i = 0; i < assets.length; i++) {
             let asset = assets[i]
-            UI.projects.governance.functionLibraries.weights.calculateWeights(asset)
+            UI.projects.governance.functionLibraries.weights.calculate(asset)
         }
     }
 

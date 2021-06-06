@@ -32,7 +32,7 @@ function newGovernanceFeaturesSpace() {
         /* Weight Calculation Follows */
         for (let i = 0; i < features.length; i++) {
             let feature = features[i]
-            UI.projects.governance.functionLibraries.weights.calculateWeights(feature)
+            UI.projects.governance.functionLibraries.weights.calculate(feature)
         }
     }
 

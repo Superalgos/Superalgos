@@ -34,7 +34,7 @@ function newGovernancePositionsSpace() {
         /* Weight Calculation Follows */
         for (let i = 0; i < positions.length; i++) {
             let position = positions[i]
-            UI.projects.governance.functionLibraries.weights.calculateWeights(position)
+            UI.projects.governance.functionLibraries.weights.calculate(position)
         }
     }
 

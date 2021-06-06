@@ -1,11 +1,11 @@
 function newGovernanceFunctionLibraryWeights() {
     let thisObject = {
-        calculateWeights: calculateWeights
+        calculate: calculate
     }
 
     return thisObject
 
-    function calculateWeights(node) {
+    function calculate(node) {
         let totalVotes = 0
         countVotesAndResetWeights(node)
         applyWeightCalculation(node)

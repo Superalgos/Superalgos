@@ -207,9 +207,8 @@ function newGovernanceFunctionLibraryClaims() {
 
     function drawClaims(node, shareCount, sharePercentage, awarded, awardedPercentage) {
         let satatus =
-            'Awarded: ' +
             new Intl.NumberFormat().format(awarded) +
-            ' ' + 'SA Tokens' + ' - ' +
+            ' ' + 'SA Tokens Awarded' + ' - ' +
             'From Reward: ' + awardedPercentage.toFixed(2) + '%' + ' - ' +
             'Shared Between: ' + shareCount + ' claims' + ' - ' +
             'Share of Claims: ' + sharePercentage.toFixed(2) + '%'

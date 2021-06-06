@@ -39,6 +39,5 @@
             "childType": "Position",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

@@ -35,6 +35,5 @@
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userVoteTransfers",
-    "icon": "user-profile"
+    "propertyNameAtParent": "userVoteTransfers"
 }

@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Asset Contribution Claim->"
     },
-    "propertyNameAtParent": "assetClaimVotes",
-    "icon": "EN"
+    "propertyNameAtParent": "assetClaimVotes"
 }

@@ -39,6 +39,5 @@
             "childType": "Asset",
             "autoAdd": false
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

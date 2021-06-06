@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Position->"
     },
-    "propertyNameAtParent": "positionContributionClaims",
-    "icon": "dogecoin"
+    "propertyNameAtParent": "positionContributionClaims"
 }

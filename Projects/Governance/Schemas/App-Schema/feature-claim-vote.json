@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Feature Contribution Claim->"
     },
-    "propertyNameAtParent": "featureClaimVotes",
-    "icon": "github-api"
+    "propertyNameAtParent": "featureClaimVotes"
 }

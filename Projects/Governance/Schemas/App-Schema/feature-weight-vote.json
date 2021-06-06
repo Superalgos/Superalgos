@@ -37,6 +37,5 @@
     "referencingRules": {
         "compatibleTypes": "->Feature Class->Feature->"
     },
-    "propertyNameAtParent": "featureWeightVotes",
-    "icon": "github-api"
+    "propertyNameAtParent": "featureWeightVotes"
 }

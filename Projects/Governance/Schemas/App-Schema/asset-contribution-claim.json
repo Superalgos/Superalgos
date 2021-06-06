@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Asset->"
     },
-    "propertyNameAtParent": "assetContributionClaims",
-    "icon": "tron"
+    "propertyNameAtParent": "assetContributionClaims"
 }

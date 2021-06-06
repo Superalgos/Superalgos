@@ -36,6 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->Feature->"
     },
-    "propertyNameAtParent": "featureContributionClaims",
-    "icon": "tron"
+    "propertyNameAtParent": "featureContributionClaims"
 }

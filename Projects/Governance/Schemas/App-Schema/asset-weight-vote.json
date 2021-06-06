@@ -38,6 +38,5 @@
     "referencingRules": {
         "compatibleTypes": "->Asset Class->Asset->"
     },
-    "propertyNameAtParent": "assetWeightVotes",
-    "icon": "EN"
+    "propertyNameAtParent": "assetWeightVotes"
 }

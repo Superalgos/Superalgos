@@ -8,33 +8,82 @@
             "name": "strategy",
             "project": "Superalgos"
         },
-        "updated": 1614241902261
+        "updated": 1614241902261,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lass uns die Mutter aller Strategien erstellen!",
+                "updated": 1622977892890
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "To backtest a strategy, first we need to write it or to have it clearly in our mind. So these are the cornerstones on which our test is based:",
-            "updated": 1614242397042
+            "updated": 1614242397042,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um eine Strategie backtesten zu können, müssen wir sie erst einmal schreiben oder klar im Kopf haben. Auf folgenden Eckpfeilern basiert unser Test:",
+                    "updated": 1622979087886
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Strategy uses SMA50 and SMA200"
+            "text": "Strategy uses SMA50 and SMA200",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Strategie verwendet SMA50 und SMA200",
+                    "updated": 1622977962657
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Strategy is based on 4H TF"
+            "text": "Strategy is based on 4H TF",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Strategie basiert auf 4h TF (Time Frame)",
+                    "updated": 1622979509680
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bot will buy the asset when SMA50 cross up SMA200"
+            "text": "Bot will buy the asset when SMA50 cross up SMA200",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Bot wird das Asset kaufen, wenn der SMA50 den SMA200 nach oben kreuzt",
+                    "updated": 1622978113525
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stop Loss is set at 20% from entry"
+            "text": "Stop Loss is set at 20% from entry",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stop Loss wird auf 20% vom Einstiegspunkt gesetzt",
+                    "updated": 1622978127244
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Take Profit is set at 100% or on SMA50 cross down SMA200"
+            "text": "Take Profit is set at 100% or on SMA50 cross down SMA200",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Take Profit wird auf 100% oder auf SMA50 kreuzt SMA200 nach unten gesetzt",
+                    "updated": 1622978244002
+                }
+            ]
         }
     ]
 }

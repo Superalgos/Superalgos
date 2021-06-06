@@ -8,31 +8,79 @@
             "name": "tutorial",
             "project": "Superalgos"
         },
-        "updated": 1614275495850
+        "updated": 1614275495850,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lass uns die Mutter aller Handelsstrategien aufbauen: Die Moving Average Überkreuzung!",
+                "updated": 1622970055812,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "For this tutorial I assume that",
-            "updated": 1614240501976
+            "updated": 1614240501976,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für dieses Lernprogramm gehe ich davon aus, dass",
+                    "updated": 1622970071369,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You have done the Welcome Tutorial in the Getting Started Workspace"
+            "text": "You have done the Welcome Tutorial in the Getting Started Workspace",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du das Willkommens-Tutorial im Workspace \"Erste Schritte\" absolviert haben",
+                    "updated": 1622970086389,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You are comfortable moving around the Workspace and the Charts"
+            "text": "You are comfortable moving around the Workspace and the Charts",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du dich sicher im Workspace und in den Charts bewegen kannst.",
+                    "updated": 1622970109192,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "You have a basic understanding about what is a Trading Bot and a strategy",
-            "updated": 1614275543824
+            "updated": 1614275543824,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "du hast ein grundlegendes Verständnis davon, was ein Trading Bot und eine Trading Strategie ist",
+                    "updated": 1622970162593,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4H TF, a classic!",
-            "updated": 1622385652232
+            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4h TF, a classic!",
+            "updated": 1622980039332,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden einen Bot bauen, der auf eine Simple Moving Average Überkreuzung zwischen SMA50 und SMA200 auf 4h TF(Time Frame) basierende Strategie backtestet, ein Klassiker!",
+                    "updated": 1622980080284,
+                    "style": "Note"
+                }
+            ]
         },
         {
             "style": "Text",

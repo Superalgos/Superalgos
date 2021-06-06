@@ -63,7 +63,7 @@ function newGovernancePoolsSpace() {
 
     function poolsDistribute(pools) {
         let tokenFlow = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
-        distributeTokenFlow(pools, tokenFlow)
+        distributeTokens(pools, tokenFlow)
     }
 
     function resetTokenFlow(node) {
@@ -119,7 +119,7 @@ function newGovernancePoolsSpace() {
         }
     }
 
-    function distributeTokenFlow(node, tokenFlow) {
+    function distributeTokens(node, tokenFlow) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         /*
@@ -151,7 +151,7 @@ function newGovernancePoolsSpace() {
         transfered to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
-            distributeTokenFlow(node.payload.referenceParent, tokenFlow)
+            distributeTokens(node.payload.referenceParent, node.payload.tokenFlow)
             return
         }
         /*
@@ -163,7 +163,6 @@ function newGovernancePoolsSpace() {
             node.type === 'Feature'
         ) { return }
 
-
         if (schemaDocument.childrenNodesProperties !== undefined) {
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
@@ -172,7 +171,7 @@ function newGovernancePoolsSpace() {
                     case 'node': {
                         if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
-                            distributeTokenFlow(childNode, tokenFlow)
+                            distributeTokens(childNode, tokenFlow)
                         }
                     }
                         break
@@ -181,7 +180,7 @@ function newGovernancePoolsSpace() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                distributeTokenFlow(childNode, tokenFlow)
+                                distributeTokens(childNode, tokenFlow)
                             }
                         }
                         break

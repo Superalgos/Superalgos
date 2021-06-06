@@ -8,17 +8,38 @@
             "project": "Superalgos"
         },
         "text": "So, we turned on the \"Trading Episode Counters\" and the \"Current Episode\" layers... let's take a look at the hierarchy...",
-        "updated": 1622541193554
+        "updated": 1622541193554,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben also die Zähler für die Handelsepisode und die Ebenen für die aktuelle Episode eingeschaltet... werfen wir einen Blick auf die Hierarchie...",
+                "updated": 1623013591957
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Track your way up the hierarchy to discover what exactly we were looking at all this time..."
+            "text": "Track your way up the hierarchy to discover what exactly we were looking at all this time...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verfolge ihren Weg in der Hierarchie nach oben, um herauszufinden, was genau wir uns die ganze Zeit angesehen haben...",
+                    "updated": 1623013610150
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Trading Episode Counters node of the hierachy... the one we turned on first! If you follow the hierarchy upstream, you will find the Trading Episode node, and if you keep going further upstream, you'll find the Trading Current node. Exactly! \"Current Episode\"!",
-            "updated": 1622541250322
+            "updated": 1622541250322,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Richtig! Am Anfang zeigten Periods, Strategies und Positions ihre Werte an, weil sie unter dem Knoten Trading Episode Counters der Hierarchie liegen... den wir zuerst eingeschaltet haben! Wenn du der Hierarchie stromaufwärts folgst, findest du den Knoten Trading Episode, und wenn du noch weiter stromaufwärts gehst, findest du den Knoten Trading Current. Ganz genau! Aktuelle Episode!",
+                    "updated": 1623013692101
+                }
+            ]
         }
     ]
 }

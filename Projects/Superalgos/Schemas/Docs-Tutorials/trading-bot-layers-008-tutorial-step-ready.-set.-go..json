@@ -8,20 +8,48 @@
             "name": "task"
         },
         "text": "Let's do some backtesting! This should be rather quick, as we are testing six months worth of historic data on daily files.",
-        "updated": 1617181836967
+        "updated": 1617181836967,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Machen wir einen Backtest! Dies sollte ziemlich schnell gehen, da wir historische Daten aus sechs Monaten auf täglicher Basis testen.",
+                "updated": 1623012202527
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session."
+            "text": "Running a trading task is quite similar to running a data mining task. The difference lies in that&mdash;after running the task&mdash;you also need to run the trading session.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Ausführen einer „Trading Task“ ist dem Ausführen einer Data-Mining-Aufgabe sehr ähnlich. Der Unterschied besteht darin, dass man, nachdem man die Aufgabe ausgeführt hat, auch die Trading Session ausführen muss.",
+                    "updated": 1623012215524
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Select Run on the Task menu and then select Run on the Backtesting Session menu."
+            "text": "Select Run on the Task menu and then select Run on the Backtesting Session menu.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wähle zunächst im Task Menü die Option Run und anschließend im Menü Backtesting Session die Option Run.",
+                    "updated": 1623012312585
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When the Backtesting Session informs it has finished,  then stop the task and click Next to continue."
+            "text": "When the Backtesting Session informs it has finished,  then stop the task and click Next to continue.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Backtesting Session meldet, dass sie beendet ist, dann stoppe die Task und klicke auf \"Weiter\", um fortzufahren.",
+                    "updated": 1623012332680
+                }
+            ]
         }
     ]
 }

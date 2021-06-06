@@ -1,0 +1,13 @@
+{
+    "type": "Asset",
+    "definition": {
+        "text": "An Asset is any artifact that belongs to the project. It can be a piece of software, a configuration, a plugin, some marketing material, a social media account, etc. Users votes on assets to influence their relative weight between each other. Those weight will then influence how many token will be given to the contributors who built or mantain that asset.",
+        "updated": 1622986734958
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

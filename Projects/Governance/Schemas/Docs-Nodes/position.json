@@ -1,0 +1,13 @@
+{
+    "type": "Position",
+    "definition": {
+        "text": "A position is a role a user can play within the project. Noone holds a position. Users can make claims that they spent time performing a role and they need community confirmation via getting votes at their claims, in order for them to receive tokens for playing that role. The amount of tokens to receive is also influenced by how the community voted the position itself and how much weight that position acquired relative to others.",
+        "updated": 1622987462908
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

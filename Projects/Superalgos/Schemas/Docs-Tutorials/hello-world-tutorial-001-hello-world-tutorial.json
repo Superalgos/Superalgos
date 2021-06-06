@@ -4,7 +4,14 @@
     "type": "Hello World Tutorial",
     "definition": {
         "text": "This tutorial is a flash course, cut-to-the-chase style, introducing you to the notion of building a simple Trading System. The tutorial assumes a basic understanding of how Trading Strategies are defined. That said, you may find it useful as a first step introduction too, particularly if you like direct, to-the-point information.",
-        "updated": 1617110220942
+        "updated": 1617110220942,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial ist ein Schnellkurs, der dich in die Idee einführt, ein einfaches Tradingsystem aufzubauen. Das Tutorial setzt ein grundlegendes Verständnis dafür voraus, wie Trading-Strategien definiert werden. Das heißt, du kannst es auch als eine allererste Einführung nützlich finden, besonders wenn du direkte, auf den Punkt gebrachte Informationen magst.",
+                "updated": 1622969782378
+            }
+        ]
     },
     "paragraphs": [
         {

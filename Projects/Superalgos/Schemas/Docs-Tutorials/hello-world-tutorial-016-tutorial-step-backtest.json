@@ -8,32 +8,74 @@
         "icon": {
             "name": "backtesting-session",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Stelle sicher, dass alle Parameter korrekt sind!",
+                "updated": 1622980368660
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Before running the backtest, make sure that the Trading Parameters node has consistent data. I already prepared everything for you, but take some time and notice that:",
-            "updated": 1622386208805
+            "updated": 1622386208805,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor du den Backtest ausführst, stelle sicher, dass der Knoten Trading Parameters konsistente Daten hat. Ich habe bereits alles für dich vorbereitet, aber nimm dir etwas Zeit und beachte, dass:",
+                    "updated": 1622980410674
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Session Base Asset is set to 0"
+            "text": "Session Base Asset is set to 0",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Session Base Asset auf 0 eingestellt ist",
+                    "updated": 1622980449763
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Session Quoted Asset is set to 1000 (That is 1000$ USDT in this case)",
-            "updated": 1622386176926
+            "updated": 1622386176926,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Session Quoted Asset auf 1000 eingestellt ist (das sind in diesem Fall 1000$ USDT)",
+                    "updated": 1622980491671
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Slippage is set to 0 because I'm backtesting small amounts and I can assume orders are filled with no slippage",
-            "updated": 1614267847410
+            "updated": 1614267847410,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Slippage auf 0 gesetzt ist, da ich kleine Beträge backteste und ich davon ausgehen kann, dass die Aufträge ohne Slippage ausgeführt werden",
+                    "updated": 1622980519600
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Are you ready? Run the backtest!",
-            "updated": 1614267899321
+            "updated": 1614267899321,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bist du bereit? Führe (\"Run\") den Backtest aus!",
+                    "updated": 1622980556540
+                }
+            ]
         }
     ]
 }

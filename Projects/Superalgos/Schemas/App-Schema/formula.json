@@ -28,7 +28,7 @@
     },
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->"
+        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->"
     },
     "propertyNameAtParent": "formula"
 }

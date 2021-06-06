@@ -8,18 +8,39 @@
             "name": "open-stage",
             "project": "Superalgos"
         },
-        "updated": 1614260398081
+        "updated": 1614260398081,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Open Stage ist der Zeitpunkt, an dem der Bot die Position einnimmt!",
+                "updated": 1622979315892
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The strategy I want to backtest is based on 4h TF and the strategy is Long. This means that bot will Buy the asset to later Sell it (at a better price we hope!). To keep things simple, all I have to do is to indicate the TF in the Target Rate node using my full balance in the Target Size in Quoted Asset.",
-            "updated": 1614333476016
+            "updated": 1614333476016,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Strategie, die ich backtesten möchte, basiert auf 4h TF und die Strategie ist Long (steigende Kurse). Das bedeutet, dass der Bot das Asset kaufen wird, um es später zu verkaufen (zu einem besseren Preis, wie wir hoffen!). Um die Dinge einfach zu halten, muss ich nur den TF im Target Rate-Knoten angeben, indem ich meinen vollen Saldo im Target Size in Quoted Asset verwende.",
+                    "updated": 1622979336945
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If our market is BTC/USDT then the Quoted Asset is USDT and Base Assest is BTC",
-            "updated": 1614260724325
+            "text": "If our market is BTC/USDT then the Quoted Asset is USDT and Base Asset is BTC",
+            "updated": 1622979463214,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn unser Markt BTC/USDT ist, dann ist das Quoted Asset USDT und Base Asset ist BTC.",
+                    "updated": 1622979556680
+                }
+            ]
         }
     ]
 }

@@ -8,17 +8,38 @@
         "icon": {
             "name": "stop",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zeit sich die Charts anzuschauen!",
+                "updated": 1622980596813
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "When backtest finishes I stop the whole hierarchy form the Testing Trading Tasks node. Expand the node and click on Stop All.",
-            "updated": 1614268732305
+            "updated": 1614268732305,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn der Backtest beendet ist, halte ich die gesamte Hierarchie über den Knoten Testing Trading Tasks an. Erweitere den Knoten und klicke auf Stop All.",
+                    "updated": 1622980659088
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Remember that it's good practice to keep hierarchies collapsed and to stop unuseful tasks to save resources!"
+            "text": "Remember that it's good practice to keep hierarchies collapsed and to stop unuseful tasks to save resources!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denk daran, dass es eine gute Praxis ist, Hierarchien zusammengeklappt zu halten und nicht benötigte Aufgaben zu stoppen, um Ressourcen zu sparen!",
+                    "updated": 1622980636929
+                }
+            ]
         },
         {
             "style": "Text",

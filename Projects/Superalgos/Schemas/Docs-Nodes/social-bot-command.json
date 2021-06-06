@@ -1,0 +1,107 @@
+{
+    "type": "Social Bot Command",
+    "definition": {
+        "text": "The Social Bot Command node is used to configure slash commands to be interpreted and executed by Superalgos.",
+        "updated": 1622960246688
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1622959780422
+        },
+        {
+            "style": "Text",
+            "text": "The Social Bot Command node is used to configure slash commands which when triggered by a user from the messaging application will be interpreted and executed by Superalgos.",
+            "updated": 1622960239968
+        },
+        {
+            "style": "List",
+            "text": "The configuration of the Social Bot Command node defines the slash command that is registered.",
+            "updated": 1622960297679
+        },
+        {
+            "style": "List",
+            "text": "The child Formula node defines the string which is evaluated and sent when the command is received."
+        },
+        {
+            "style": "Text",
+            "text": "The formula can contain any of the node paths from your Trading Engine and these can be entered exactly as the are within your Trading Strategy.",
+            "updated": 1622960375754
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example"
+        },
+        {
+            "style": "Text",
+            "text": "The below example will set up the slash command \"/counters\" which will send a message with the current Trading Episode Counters when received.",
+            "updated": 1622958631363
+        },
+        {
+            "style": "Text",
+            "text": "Social Bot Command Configuration:",
+            "updated": 1622959504089
+        },
+        {
+            "style": "Json",
+            "text": "{\n   \"name\": \"counters\"\n }",
+            "updated": 1622958753709
+        },
+        {
+            "style": "Text",
+            "text": "Child Node Formula:",
+            "updated": 1622959506802
+        },
+        {
+            "style": "Json",
+            "text": "\"SUPERALGOS COUNTERS\\n\" +\n \"\\nPeriods: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value +\n \"\\nStrategies: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.strategies.value +\n \"\\nPositions: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value +\n \"\\nOrders: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.orders.value +\n \"\\nHits: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.hits.value +\n \"\\nFails: \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.fails.value",
+            "updated": 1622959765017
+        },
+        {
+            "style": "Title",
+            "text": "Examples",
+            "updated": 1622959793276
+        },
+        {
+            "style": "Text",
+            "text": "Below are several example formulas and suggested command names."
+        },
+        {
+            "style": "Subtitle",
+            "text": "/balances"
+        },
+        {
+            "style": "Json",
+            "text": "let baseAsset = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName\n let quotedAsset = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName\n\n \"SUPERALGOS BALANCES\\n\" +\n \"\\nPair: \" + baseAsset + \"/\" + quotedAsset +\n \"\\nBase Asset: \" + tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value + \" \" + baseAsset +\n \"\\nQuoted Asset: \" + tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value + \" \" + quotedAsset",
+            "updated": 1622960177319
+        },
+        {
+            "style": "Subtitle",
+            "text": "/statistics",
+            "updated": 1622960154435
+        },
+        {
+            "style": "Json",
+            "text": "\"<b><u>SUPERALGOS STATISTICS</u></b>\\n\" +\n \"\\n<b>Days:</b> \" + (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value).toFixed(2) +\n \"\\n<b>Profit Loss:</b> \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value +\n \"\\n<b>ROI:</b> \" + (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value).toFixed(2) +\n \"\\n<b>Annualized Rate Of Return:</b> \" + (tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value).toFixed(2) +\n \"\\n<b>Hit Fail:</b> \" + tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value",
+            "updated": 1622960165589
+        },
+        {
+            "style": "Subtitle",
+            "text": "/uptime"
+        },
+        {
+            "style": "Json",
+            "text": "let sessionBegin = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_BEGIN\n\n let dateBegin = new Date(sessionBegin)\n let dateNow = new Date();\n\n let seconds = Math.floor((dateNow - (dateBegin))/1000)\n let minutes = Math.floor(seconds/60)\n let hours = Math.floor(minutes/60)\n let days = Math.floor(hours/24)\n\n hours = hours-(days*24)\n minutes = minutes-(days*24*60)-(hours*60)\n seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60)\n\n let uptime = days + \"D, \" + hours + \"H, \" + minutes + \"M, \" + seconds + \"S\"\n\n \"SUPERALGOS UPTIME\\n\\nUptime: \" + uptime",
+            "updated": 1622959839303
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

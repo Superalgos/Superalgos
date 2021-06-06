@@ -8,13 +8,27 @@
             "name": "charting-space",
             "project": "Superalgos"
         },
-        "updated": 1614269880685
+        "updated": 1614269880685,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Viel Spaß mit deinem Backtest!",
+                "updated": 1622980702656
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Now it's time to move to the Charting Space and (if not already running) fire up:",
-            "updated": 1614269938039
+            "updated": 1614269938039,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jetzt ist es an der Zeit, in den Charting Space zu wechseln und (falls noch nicht geschehen) starte:",
+                    "updated": 1622980744641
+                }
+            ]
         },
         {
             "style": "List",
@@ -43,7 +57,14 @@
         {
             "style": "Success",
             "text": "Take your time and explore the visual results. Apply the SMA indicator to the chart and make sure bot has taken position when expected",
-            "updated": 1614333706446
+            "updated": 1614333706446,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nimm dir Zeit und erkunde die visuellen Ergebnisse. Wende den SMA-Indikator auf den Chart an und vergewissere dich, dass der Bot die Position zum erwarteten Zeitpunkt eingenommen hat.",
+                    "updated": 1622980791002
+                }
+            ]
         }
     ]
 }

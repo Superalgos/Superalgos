@@ -37,34 +37,61 @@ function newGovernanceUserProfileSpace() {
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
-        let userProfiles = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let pools = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+        /* Reset Votes at Pools */
+        for (let i = 0; i < pools.length; i++) {
+            let poolsNode = pools[i]
+            resetVotes(poolsNode)
+        }
 
+        let features = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
+        /* Reset Votes at Features */
+        for (let i = 0; i < features.length; i++) {
+            let feature = features[i]
+            resetVotes(feature)
+        }
+
+        let assets = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
+        /* Reset Votes at Features */
+        for (let i = 0; i < assets.length; i++) {
+            let asset = assets[i]
+            resetVotes(asset)
+        }
+
+        let positions = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
+        /* Reset Votes at Features */
+        for (let i = 0; i < positions.length; i++) {
+            let position = positions[i]
+            resetVotes(position)
+        }
+
+        let userProfiles = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         We will first reset all the voting power, and then distribute it.
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            userProfileReset(userProfile)
+            resetVotes(userProfile)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            userProfileDistribute(userProfile)
+            distributeVotes(userProfile)
         }
     }
 
-    function userProfileReset(userProfile) {
+    function resetVotes(userProfile) {
         resetVotingPower(userProfile)
     }
 
-    function userProfileDistribute(userProfile) {
-        let votingPower = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
-        distributeVotingPower(userProfile, votingPower)
+    function distributeVotes(userProfile) {
+        let votes = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
+        distributeVotingPower(userProfile, votes)
     }
 
     function resetVotingPower(node) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.votingPower = 0
+        node.payload.votes = 0
         /*
         If there is a reference parent defined, this means that the voting power is 
         transfered to it and not distributed among children.
@@ -117,19 +144,11 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function distributeVotingPower(node, votingPower, switchPercentage) {
+    function distributeVotingPower(node, votes, switchPercentage) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
-        node.payload.votingPower = node.payload.votingPower + votingPower
-        drawVotingPower(node, node.payload.votingPower, switchPercentage)
-        /*
-        If there is a reference parent defined, this means that the voting power is 
-        transfered to it and not distributed among children.
-        */
-        if (node.payload.referenceParent !== undefined) {
-            distributeVotingPower(node.payload.referenceParent, votingPower)
-            return
-        }
+        node.payload.votes = node.payload.votes + votes
+        drawVotingPower(node, node.payload.votes, switchPercentage)
         /*
         When we reach certain node types, we will halt the distribution, because thse are targets for 
         voting power.
@@ -137,8 +156,17 @@ function newGovernanceUserProfileSpace() {
         if (
             node.type === 'Position' ||
             node.type === 'Asset' ||
-            node.type === 'Feature'
+            node.type === 'Feature' ||
+            node.type === 'Pool' 
         ) { return }
+        /*
+        If there is a reference parent defined, this means that the voting power is 
+        transfered to it and not distributed among children.
+        */
+        if (node.payload.referenceParent !== undefined) {
+            distributeVotingPower(node.payload.referenceParent, votes)
+            return
+        }
         /*
         If there is no reference parent we will redistribute voting power among children.
         */
@@ -214,7 +242,7 @@ function newGovernanceUserProfileSpace() {
                             if (percentage === undefined || isNaN(percentage) === true) {
                                 percentage = defaultPercentage
                             }
-                            distributeVotingPower(childNode, votingPower * percentage / 100, percentage)
+                            distributeVotingPower(childNode, votes * percentage / 100, percentage)
                         }
                     }
                         break
@@ -227,7 +255,7 @@ function newGovernanceUserProfileSpace() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeVotingPower(childNode, votingPower * percentage / 100, percentage)
+                                distributeVotingPower(childNode, votes * percentage / 100, percentage)
                             }
                         }
                         break
@@ -237,8 +265,8 @@ function newGovernanceUserProfileSpace() {
         }
     }
 
-    function drawVotingPower(node, votingPower, percentage) {
-        votingPower = new Intl.NumberFormat().format(votingPower) + ' ' + 'Votes'
+    function drawVotingPower(node, votes, percentage) {
+        votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
         if (node.payload !== undefined) {
             if (node.type === 'User Profile') {
                 return
@@ -263,10 +291,10 @@ function newGovernanceUserProfileSpace() {
                 node.payload.uiObject.valueAtAngle = true
             }
 
-            node.payload.uiObject.setValue(votingPower)
+            node.payload.uiObject.setValue(votes)
 
             if (percentage !== undefined) {
-                node.payload.uiObject.setPercentage(percentage.toFixed(2))  
+                node.payload.uiObject.setPercentage(percentage.toFixed(2))
             }
         }
     }

@@ -996,9 +996,9 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Accounts",
-                    "propertyName": "accounts",
-                    "functionName": "newEthereumFunctionLibraryAccounts"
+                    "name": "Weights",
+                    "propertyName": "weights",
+                    "functionName": "newGovernanceFunctionLibraryWeights"
                 }
             ],
             "utilities": [

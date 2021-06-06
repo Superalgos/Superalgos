@@ -1937,7 +1937,7 @@ function newUiObject() {
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
         if (radius > 6) {
-            const MAX_LABEL_LENGTH = 100
+            const MAX_LABEL_LENGTH = 120
 
             label = currentStatus
 

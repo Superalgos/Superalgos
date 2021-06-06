@@ -26,14 +26,6 @@ function newGobernanceAssetsSpace() {
 
     function physics() {
         if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
-
-        let assets = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
-
-        /* Weight Calculation Follows */
-        for (let i = 0; i < assets.length; i++) {
-            let asset = assets[i]
-            UI.projects.governance.functionLibraries.weights.calculateWeights(asset)
-        }
     }
 
     function getContainer(point) {

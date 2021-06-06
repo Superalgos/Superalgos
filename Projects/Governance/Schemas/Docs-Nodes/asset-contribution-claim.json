@@ -6,8 +6,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "style": "Include",
+            "text": "Governance->Concept->Claim->Claim Explained",
+            "updated": 1623007980090
         }
     ]
 }

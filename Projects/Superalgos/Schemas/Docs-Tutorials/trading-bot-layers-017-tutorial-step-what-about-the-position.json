@@ -7,21 +7,49 @@
             "project": "Superalgos",
             "name": "position"
         },
-        "text": "As you very clearly pointed, the episode counters showed a strategy, but also a position... what about that?"
+        "text": "As you very clearly pointed, the episode counters showed a strategy, but also a position... what about that?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie du festgestellt hast, zeigten die Episodenzähler eine Strategie, aber auch eine Position... was ist damit?",
+                "updated": 1623014668190
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Scroll down the Simulation Objects layer manager and turn on the \"Position Base Asset\" layer!",
-            "updated": 1622541528562
+            "updated": 1622541528562,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Scrolle im Simulationsobjekte Layer-Manager nach unten und schalte den Layer \"Position Base Asset\" ein!",
+                    "updated": 1623014685669
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nice! A green triangle means that the position was a hit! It would be red otherwise!"
+            "text": "Nice! A green triangle means that the position was a hit! It would be red otherwise!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sehr schön! Ein grünes Dreieck bedeutet, dass die Position ein Treffer war! Sonst wäre es rot!",
+                    "updated": 1623014705334
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The horizontal side of the triangle marks the Entry Target Rate. The vertical side marks the datetime the position was closed. The vertex away from the horizontal side is the Exit Target Rate."
+            "text": "The horizontal side of the triangle marks the Entry Target Rate. The vertical side marks the datetime the position was closed. The vertex away from the horizontal side is the Exit Target Rate.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die horizontale Seite des Dreiecks markiert den Einstiegszielkurs. Die vertikale Seite markiert das Datum, an dem die Position geschlossen wurde. Der Eckpunkt, der von der horizontalen Seite entfernt ist, ist die \"Exit Target Rate\".",
+                    "updated": 1623014744537
+                }
+            ]
         }
     ]
 }

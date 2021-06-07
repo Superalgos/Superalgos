@@ -948,6 +948,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
 
                     path = unescape(path)
+
                     respondWithImage(path, httpResponse)
                 }
                 break
@@ -1068,7 +1069,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
 
-                        fs.readdir(folder, (err, files) => {
+                        getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+
+                        function onFilesReady(files) {
                             for (let j = 0; j < files.length; j++) {
                                 let file = files[j]
                                 icons.push([project, file])
@@ -1078,7 +1081,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             if (projectCounter === totalProjects) {
                                 respondWithContent(JSON.stringify(icons), httpResponse)
                             }
-                        })
+                        }
                     }
                 }
                 break
@@ -1496,57 +1499,57 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
         function sendSchema(filePath, schemaType) {
             let fs = require('fs')
-                try {
-                    let folder = ''
-                    switch (schemaType) {
-                        case 'AppSchema': {
-                            folder = 'App-Schema'
-                            break
-                        }
-                        case 'DocsNodeSchema': {
-                            folder = 'Docs-Nodes'
-                            break
-                        }
-                        case 'DocsConceptSchema': {
-                            folder = 'Docs-Concepts'
-                            break
-                        }
-                        case 'DocsTopicSchema': {
-                            folder = 'Docs-Topics'
-                            break
-                        }
-                        case 'DocsTutorialSchema': {
-                            folder = 'Docs-Tutorials'
-                            break
-                        }
-                        case 'DocsReviewSchema': {
-                            folder = 'Docs-Reviews'
-                            break
-                        }
-                        case 'DocsBookSchema': {
-                            folder = 'Docs-Books'
-                            break
-                        }
+            try {
+                let folder = ''
+                switch (schemaType) {
+                    case 'AppSchema': {
+                        folder = 'App-Schema'
+                        break
                     }
-
-                    let schemaArray = []
-                    let fileList = fs.readdirSync(filePath + '/' + folder)
-                    for (let k = 0; k < fileList.length; k++) {
-                        let name = fileList[k]
-                        let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                        let schemaDocument = JSON.parse(fileContent)
-                        schemaArray.push(schemaDocument)
+                    case 'DocsNodeSchema': {
+                        folder = 'Docs-Nodes'
+                        break
                     }
-                    let schema = JSON.stringify(schemaArray)
-                    respondWithContent(schema, httpResponse)
-                } catch (err) {
-                    if (err.message.indexOf('no such file or directory') < 0) {
-                        console.log('Could not send Schema:', filePath, schemaType)
-                        console.log(err.stack)
+                    case 'DocsConceptSchema': {
+                        folder = 'Docs-Concepts'
+                        break
                     }
-                    respondWithContent("[]", httpResponse)
+                    case 'DocsTopicSchema': {
+                        folder = 'Docs-Topics'
+                        break
+                    }
+                    case 'DocsTutorialSchema': {
+                        folder = 'Docs-Tutorials'
+                        break
+                    }
+                    case 'DocsReviewSchema': {
+                        folder = 'Docs-Reviews'
+                        break
+                    }
+                    case 'DocsBookSchema': {
+                        folder = 'Docs-Books'
+                        break
+                    }
                 }
-            
+
+                let schemaArray = []
+                let fileList = fs.readdirSync(filePath + '/' + folder)
+                for (let k = 0; k < fileList.length; k++) {
+                    let name = fileList[k]
+                    let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
+                    let schemaDocument = JSON.parse(fileContent)
+                    schemaArray.push(schemaDocument)
+                }
+                let schema = JSON.stringify(schemaArray)
+                respondWithContent(schema, httpResponse)
+            } catch (err) {
+                if (err.message.indexOf('no such file or directory') < 0) {
+                    console.log('Could not send Schema:', filePath, schemaType)
+                    console.log(err.stack)
+                }
+                respondWithContent("[]", httpResponse)
+            }
+
         }
 
         function sendStyleSheet(fileName) {
@@ -1725,6 +1728,39 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             });
         } catch (err) {
             return []
+        }
+    }
+
+    function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
+        const { promisify } = require('util');
+        const { resolve } = require('path');
+        const fs = require('fs');
+        const readdir = promisify(fs.readdir);
+        const stat = promisify(fs.stat);
+
+        getFiles(dir)
+            .then(files => {
+                let splittedDir = dir.split('/')
+                let lastFolder = splittedDir[splittedDir.length - 2]
+                let pathAndNames = []
+                for (let i = 0; i < files.length; i++) {
+                    let file = files[i]
+                    let filesSplitted = file.split(lastFolder)
+                    let pathName = filesSplitted[1]
+                    pathName = pathName.substring(1, pathName.length)
+                    pathAndNames.push(pathName)
+                }
+                callback(pathAndNames)
+            })
+            .catch(e => console.error(e));
+
+        async function getFiles(dir) {
+            const subdirs = await readdir(dir);
+            const files = await Promise.all(subdirs.map(async (subdir) => {
+                const res = resolve(dir, subdir);
+                return (await stat(res)).isDirectory() ? getFiles(res) : res;
+            }));
+            return files.reduce((a, f) => a.concat(f), []);
         }
     }
 }

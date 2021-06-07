@@ -17,10 +17,10 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "referrer",
+            "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Referrer",
-            "relatedUiObject": "Referrer"
+            "label": "Add User Referrer",
+            "relatedUiObject": "User Referrer"
         },
         {
             "action": "Delete UI Object",

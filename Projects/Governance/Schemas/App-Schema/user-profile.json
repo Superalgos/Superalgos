@@ -27,10 +27,10 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "referrer",
+            "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Referrer",
-            "relatedUiObject": "Referrer"
+            "label": "Add User Referrer",
+            "relatedUiObject": "User Referrer"
         },
         {
             "action": "Delete UI Object",
@@ -66,9 +66,9 @@
             "autoAdd": false
         },
         {
-            "name": "referrer",
+            "name": "userReferrer",
             "type": "node",
-            "childType": "Referrer",
+            "childType": "User Referrer",
             "autoAdd": false
         }
     ]

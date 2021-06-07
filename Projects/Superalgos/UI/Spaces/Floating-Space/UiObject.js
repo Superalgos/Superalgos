@@ -469,6 +469,7 @@ function newUiObject() {
                 let nearby = nearbyFloatingObjects[i]
                 let distance = nearby[0]
                 let floatingObject = nearby[1]
+                if (floatingObject.payload === undefined) { continue }
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                     /* Discard App Schema defined objects with busy coonection ports */
@@ -614,6 +615,7 @@ function newUiObject() {
                 let nearby = nearbyFloatingObjects[i]
                 let distance = nearby[0]
                 let floatingObject = nearby[1]
+                if (floatingObject.payload === undefined) { continue }
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
                     if (schemaDocument.referencingRules.incompatibleTypes !== undefined) {
@@ -1891,7 +1893,7 @@ function newUiObject() {
                     y: position.y
                 }
                 labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
-                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset)) + lineSeparator * 1 
+                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset)) + lineSeparator * 1
             } else {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {

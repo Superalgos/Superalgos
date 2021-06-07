@@ -167,7 +167,7 @@ function newGovernanceFunctionLibraryClaims() {
                 let votesRatio = node.payload.referenceParent.payload.votes / node.payload.referenceParent.payload.claimsVotes
                 if (votesRatio > 1) { votesRatio = 1 }
                 /*
-                 Share Count means the amount to claims pointing to the same potential tokens reward.
+                    Share Count means the amount to claims pointing to the same potential tokens reward.
                 */
                 let shareCount = node.payload.referenceParent.payload.claimsCount
                 let sharePercentage = node.payload.votes * 100 / node.payload.referenceParent.payload.claimsVotes

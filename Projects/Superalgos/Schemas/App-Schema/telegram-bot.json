@@ -47,7 +47,7 @@
             "name": "socialBotCommand",
             "type": "array",
             "childType": "Social Bot Command",
-            "autoAdd": true
+            "autoAdd": false
         }
     ],
     "propertyNameAtParent": "telegramBots"

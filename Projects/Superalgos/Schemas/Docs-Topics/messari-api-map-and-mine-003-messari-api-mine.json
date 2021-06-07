@@ -1,0 +1,131 @@
+{
+    "topic": "Messari API Map and Mine",
+    "pageNumber": 3,
+    "type": "Messari API Mine",
+    "definition": {
+        "text": "This data mine processes data fetched from the Messsari API Map.",
+        "updated": 1623067039445
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Bot Products"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Asset Metrics",
+            "updated": 1623067631138
+        },
+        {
+            "style": "Text",
+            "text": "Saves raw API data into Superalgos compatible Multi-Time-Frame-Daily and Multi-Time-Frame-Market files."
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:",
+            "updated": 1623067652897
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Subtitle",
+            "text": "News",
+            "updated": 1623067696301
+        },
+        {
+            "style": "Text",
+            "text": "Collects fetched news stories into a Single-File data type format."
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:"
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Subtitle",
+            "text": "All-Time-High",
+            "updated": 1623067732191
+        },
+        {
+            "style": "Text",
+            "text": "Saves all time high data for the all time high indicator."
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:"
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Market Data"
+        },
+        {
+            "style": "Text",
+            "text": "Saves a variety of market data for the current asset."
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:"
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Supply",
+            "updated": 1623068607880
+        },
+        {
+            "style": "Text",
+            "text": "Saves a variety of supply data for the current asset.",
+            "updated": 1623068637139
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:"
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Blockchain Stats"
+        },
+        {
+            "style": "Text",
+            "text": "Saves a variety of blockchain statistics data for the current asset.",
+            "updated": 1623068649438
+        },
+        {
+            "style": "Text",
+            "text": "Processed Values:"
+        },
+        {
+            "style": "List",
+            "text": "needs listed"
+        },
+        {
+            "style": "Title",
+            "text": "Indicators"
+        },
+        {
+            "style": "List",
+            "text": "All Time High - Messari API Indicator",
+            "updated": 1623068679468
+        },
+        {
+            "style": "Title",
+            "text": ""
+        }
+    ]
+}

@@ -8,21 +8,49 @@
             "name": "data-mine",
             "project": "Superalgos"
         },
-        "updated": 1614241455319
+        "updated": 1614241455319,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nicht nur Workspaces können modifiziert werden.",
+                "updated": 1622977759915
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "SA is very modular and can be arranged the way we prefer for our needs.",
-            "updated": 1614241605095
+            "updated": 1614241605095,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "SA ist sehr modular und kann so angeordnet werden, wie wir es für unsere Bedürfnisse bevorzugen.",
+                    "updated": 1622977780236
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I prepared for you a very basic Workspace with a new Data Mine and arranged the nodes deleting all I don't need for this tutorial."
+            "text": "I prepared for you a very basic Workspace with a new Data Mine and arranged the nodes deleting all I don't need for this tutorial.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe für dich einen sehr einfachen Workspace mit einer neuen Data Mine vorbereitet und die Knoten angeordnet, wobei ich alles gelöscht habe, was ich für dieses Tutorial nicht benötige.",
+                    "updated": 1622977811209
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "In SA data mines can be added and removed but the data saved on your hard disk will not be deleted if you remove an indicator!"
+            "text": "In SA data mines can be added and removed but the data saved on your hard disk will not be deleted if you remove an indicator!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In SA können Data Mines hinzugefügt und entfernt werden, aber die auf der Festplatte gespeicherten Daten werden nicht gelöscht, wenn du einen Indikator entfernst!",
+                    "updated": 1622977843713
+                }
+            ]
         },
         {
             "style": "Text",

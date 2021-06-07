@@ -8,13 +8,27 @@
             "name": "close-stage",
             "project": "Superalgos"
         },
-        "updated": 1614261551174
+        "updated": 1614261551174,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Close Stage ist für das Schließen des Trades zuständig.",
+                "updated": 1622979775474
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In the previous stage (the Manage Stage) bot is checking if the current price has hit the SL or the TP. Once one of these two events has been hit, then the Close Stage take charge of closing the trade. The way it works is very similar to the Open Stage. Bot need to know at what candle should look",
-            "updated": 1614261954345
+            "updated": 1614261954345,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der vorherigen Phase (der Manage Stage) prüft der Bot, ob der aktuelle Preis den SL oder den TP getroffen hat. Sobald eines dieser beiden Ereignisse eingetreten ist, übernimmt die Close Stage die Aufgabe, die Position zu schließen. Die Funktionsweise ist sehr ähnlich wie bei der Open Stage. Der Bot muss wissen, auf welche Kerze er schauen soll.",
+                    "updated": 1622979799896
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -22,7 +36,14 @@
         },
         {
             "style": "Text",
-            "text": "And obviously as opposed to the Open Stage, here we Sell the asset so we need a Market Sell Order and what bot sells is the Quoted asset"
+            "text": "And obviously as opposed to the Open Stage, here we Sell the asset so we need a Market Sell Order and what bot sells is the Quoted asset",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Gegensatz zur Open Stage verkaufen wir hier das Asset, daher benötigen wir eine Market Sell Order und der Bot verkauft das quotierte Asset.",
+                    "updated": 1622979827422
+                }
+            ]
         },
         {
             "style": "Text",

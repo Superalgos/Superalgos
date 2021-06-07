@@ -1,5 +1,5 @@
 {
-    "type": "Referrer",
+    "type": "User Referrer",
     "menuItems": [
         {
             "action": "Configure",
@@ -35,5 +35,5 @@
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "referrer"
+    "propertyNameAtParent": "userReferrer"
 }

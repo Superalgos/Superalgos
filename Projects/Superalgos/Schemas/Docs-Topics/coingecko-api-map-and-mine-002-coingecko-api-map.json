@@ -36,9 +36,13 @@
             "updated": 1622688221280
         },
         {
+            "style": "Text",
+            "text": "Get high level information about current coin.",
+            "updated": 1623017321384
+        },
+        {
             "style": "Subtitle",
-            "text": "Raw Returned Values",
-            "updated": 1622688289637
+            "text": "Raw Returned Values"
         },
         {
             "style": "List",
@@ -70,8 +74,8 @@
         },
         {
             "style": "Note",
-            "text": "CoinGecko score is an aggregated score combining liquidity, community, and developer scores.",
-            "updated": 1622846885139
+            "text": "CoinGecko score is an aggregated score combining liquidity, community, developer, and public interest scores.",
+            "updated": 1622688833507
         },
         {
             "style": "List",

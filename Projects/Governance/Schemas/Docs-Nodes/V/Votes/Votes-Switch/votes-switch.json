@@ -1,0 +1,13 @@
+{
+    "type": "Votes Switch",
+    "definition": {
+        "text": "This node allow users to organize their streams of votes by splitting their voting power and passing the votes to their children. When no config is found they pass them evenly, and when a percentage config property is defined, they will use that as the percentage of the upstream to flow through this node.",
+        "updated": 1622988349664
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

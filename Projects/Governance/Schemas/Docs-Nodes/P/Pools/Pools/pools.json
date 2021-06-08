@@ -1,0 +1,13 @@
+{
+    "type": "Pools",
+    "definition": {
+        "text": "At this hierarchy is where Token distribution starts. All the tokens to be distributed at the next release start flowing from here down this hierarchy, until they reach individual pools. Nodes will received tokens acording to the votes / weight each one of them have.",
+        "updated": 1622985349549
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

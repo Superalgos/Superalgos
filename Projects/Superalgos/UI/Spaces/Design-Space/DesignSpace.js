@@ -38,7 +38,7 @@ function newSuperalgosDesignSpace() {
             /* Take types-icons relationships defined at the schema */
             for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
                 let project = PROJECTS_ARRAY[i]
-                
+
                 addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
                 addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
                 addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
@@ -78,21 +78,24 @@ function newSuperalgosDesignSpace() {
 
             for (let i = 0; i < iconsArray.length; i++) {
                 let project = iconsArray[i][0]
-                let name = iconsArray[i][1]
-                loadImage(project, name)
+                let path = iconsArray[i][1]
+                loadImage(project, path)
             }
 
-            function loadImage(project, name) {
+            function loadImage(project, path) {
                 imageLoadedCounter++
                 const PATH = 'Icons/' + project + '/'
                 let image = new Image()
                 image.onload = onImageLoad
-                image.fileName = name
+                image.fileName = path
 
                 function onImageLoad() {
                     image.canDrawIcon = true
                 }
-                image.src = PATH + name
+                image.src = PATH + path
+                let splittedPath = path.split('\\')
+                let name = splittedPath[splittedPath.length - 1]
+
                 let key = project + '-' + name.substring(0, name.length - 4)
                 thisObject.iconsByProjectAndName.set(key, image)
 

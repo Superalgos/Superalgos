@@ -1,0 +1,40 @@
+{
+    "type": "Position Claim Vote",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Reference Parent Find In Parents Node Type->User Profile",
+        "Use Reference Parent"
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Votes Switch->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Position Contribution Claim->"
+    },
+    "propertyNameAtParent": "positionClaimVotes" 
+}

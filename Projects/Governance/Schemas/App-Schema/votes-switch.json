@@ -1,0 +1,143 @@
+{
+    "type": "Votes Switch",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Votes Switch",
+            "relatedUiObject": "Votes Switch"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Pool Weight Vote",
+            "relatedUiObject": "Pool Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Weight Vote",
+            "relatedUiObject": "Position Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Weight Vote",
+            "relatedUiObject": "Asset Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Weight Vote",
+            "relatedUiObject": "Feature Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Claim Vote",
+            "relatedUiObject": "Position Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Claim Vote",
+            "relatedUiObject": "Asset Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Claim Vote",
+            "relatedUiObject": "Feature Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Vote Transfer",
+            "relatedUiObject": "User Vote Transfer"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Votes Distribution->Votes Switch->"
+    },
+    "propertyNameAtParent": "votesSwitch",
+    "childrenNodesProperties": [
+        {
+            "name": "votesSwitch",
+            "type": "array",
+            "childType": "Votes Switch",
+            "autoAdd": false
+        },
+        {
+            "name": "poolWeightVotes",
+            "type": "array",
+            "childType": "Pool Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "assetWeightVotes",
+            "type": "array",
+            "childType": "Asset Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureWeightVotes",
+            "type": "array",
+            "childType": "Feature Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "positionClaimVotes",
+            "type": "array",
+            "childType": "Position Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "assetClaimVotes",
+            "type": "array",
+            "childType": "Asset Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureClaimVotes",
+            "type": "array",
+            "childType": "Feature Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "positionWeightVotes",
+            "type": "array",
+            "childType": "Position Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "userVoteTransfers",
+            "type": "array",
+            "childType": "User Vote Transfer",
+            "autoAdd": false
+        }
+    ]
+}

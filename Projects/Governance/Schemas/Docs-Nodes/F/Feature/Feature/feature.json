@@ -1,0 +1,13 @@
+{
+    "type": "Feature",
+    "definition": {
+        "text": "A Feature is a functionality of the Superalgos software that matches a single use case. Users can vote on features to increase their relative weight to other features. These weight will ultimatelly influence how many tokens are given to the people implementing or mantaining these features.",
+        "updated": 1622986275998
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

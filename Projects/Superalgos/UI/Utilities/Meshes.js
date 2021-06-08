@@ -5,7 +5,15 @@ function newSuperalgosUtilitiesMeshes() {
 
     return thisObject
 
-    function findNodeInNodeMesh(node, nodeType, nodeName, connectedViaPayload, findInChildren, findInParents, findInReferenceParents) {
+    function findNodeInNodeMesh(
+        node,
+        nodeType,
+        nodeName,
+        connectedViaPayload,
+        findInChildren,
+        findInParents,
+        findInReferenceParents
+    ) {
         /*
         This function scans a node mesh for a certain node type and 
         returns the first instance found. Please specify either nodeType

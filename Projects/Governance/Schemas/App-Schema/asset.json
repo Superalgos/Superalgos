@@ -1,0 +1,59 @@
+{
+    "type": "Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Class",
+            "relatedUiObject": "Asset Class"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Asset Class->Asset->"
+    },
+    "propertyNameAtParent": "assets",
+    "childrenNodesProperties": [
+        {
+            "name": "assetClasses",
+            "type": "array",
+            "childType": "Asset Class",
+            "autoAdd": false
+        },
+        {
+            "name": "assets",
+            "type": "array",
+            "childType": "Asset",
+            "autoAdd": false
+        }
+    ]
+}

@@ -516,13 +516,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
                             let pageNumber = '00' + schemaDocument.pageNumber
                             let oldFilePath = filePath
+                            let newFilepath = filePath
                             switch (category) {
                                 case 'Topic': {
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
                                     extraFolder = cleanFileName(schemaDocument.topic)
-                                    filePath = filePath + '/' + extraFolder
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Tutorial': {
@@ -530,7 +531,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = cleanFileName(fileName)
 
                                     extraFolder = cleanFileName(schemaDocument.tutorial)
-                                    filePath = filePath + '/' + extraFolder
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Review': {
@@ -538,20 +539,23 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = cleanFileName(fileName)
 
                                     extraFolder = cleanFileName(schemaDocument.review)
-                                    filePath = filePath + '/' + extraFolder
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Node': {
                                     extraFolder = schemaDocument.type.split(' ')[0]
-                                    filePath = filePath + '/' + extraFolder
+                                    newFilepath = filePath + '/' + extraFolder
+                                    console.log(newFilepath)
+                                    break
                                 }
                                 case 'Concept': {
                                     extraFolder = schemaDocument.type.substring(0, 1)
-                                    filePath = filePath + '/' + extraFolder
+                                    newFilepath = filePath + '/' + extraFolder
+                                    break
                                 }
                             }
                             fileName = fileName + '.json'
-
+                            continue
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)
@@ -571,18 +575,18 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 schemaDocument.created = undefined
                                 let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                 try {
-                                    fs.mkdirSync(filePath)
+                                    fs.mkdirSync(newFilepath)
                                 } catch (err) {
                                     if (err.message.indexOf('file already exists') < 0) {
                                         throw (err)
                                     }
                                 }
-                                fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                 if (created === true) {
-                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                                 } else {
                                     if (updated === true) {
-                                        console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                        console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                     }
                                 }
                             } catch (err) {

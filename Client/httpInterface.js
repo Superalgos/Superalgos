@@ -522,7 +522,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    let extraDir = schemaDocument.topic.split(' ')[0]
                                     createNewDir(filePath + '/' + extraDir)
                                     extraFolder = extraDir + '/' + cleanFileName(schemaDocument.topic)
                                     newFilepath = filePath + '/' + extraFolder
@@ -532,7 +532,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    let extraDir = schemaDocument.tutorial.split(' ')[0]
                                     createNewDir(filePath + '/' + extraDir)
                                     extraFolder = extraDir + '/' + cleanFileName(schemaDocument.tutorial)
                                     newFilepath = filePath + '/' + extraFolder
@@ -542,7 +542,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    let extraDir = schemaDocument.review.split(' ')[0]
                                     createNewDir(filePath + '/' + extraDir)
                                     extraFolder = extraDir + '/' + cleanFileName(schemaDocument.review)
                                     newFilepath = filePath + '/' + extraFolder
@@ -561,8 +561,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     break
                                 }
                             }
-                            console.log(newFilepath)
-                            continue
+
                             fileName = fileName + '.json'
                             // if (schemaDocument.deleted === true) {
                             try {

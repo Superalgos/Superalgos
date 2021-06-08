@@ -505,71 +505,93 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         for (let i = 0; i < docsSchema.length; i++) {
                             let schemaDocument = docsSchema[i]
+                            /*
+                            For some type of schemas we will save the file at an extra
+                            folder derived from the document's type.
+                            */
+                            let extraFolder
                             let fileName = schemaDocument.type.toLowerCase()
                             for (let j = 0; j < 10; j++) {
                                 fileName = cleanFileName(fileName)
                             }
                             let pageNumber = '00' + schemaDocument.pageNumber
-
+                            let oldFilePath = filePath
                             switch (category) {
                                 case 'Topic': {
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    extraFolder = cleanFileName(schemaDocument.topic)
+                                    filePath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Tutorial': {
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    extraFolder = cleanFileName(schemaDocument.tutorial)
+                                    filePath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Review': {
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    extraFolder = cleanFileName(schemaDocument.review)
+                                    filePath = filePath + '/' + extraFolder
                                     break
+                                }
+                                case 'Node': {
+                                    extraFolder = schemaDocument.type.split(' ')[0]
+                                    filePath = filePath + '/' + extraFolder
+                                }
+                                case 'Concept': {
+                                    extraFolder = schemaDocument.type.substring(0, 1)
+                                    filePath = filePath + '/' + extraFolder
                                 }
                             }
                             fileName = fileName + '.json'
 
-                            if (schemaDocument.deleted === true) {
+                            // if (schemaDocument.deleted === true) {
+                            try {
+                                fs.unlinkSync(oldFilePath + '/' + fileName)
+                                console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
+                            } catch (err) {
+                                noErrorsDuringSaving = false
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            }
+                            //  } else {
+                            //      if (schemaDocument.updated === true || schemaDocument.created === true) {
+                            try {
+                                let created = schemaDocument.created
+                                let updated = schemaDocument.updated
+                                schemaDocument.updated = undefined
+                                schemaDocument.created = undefined
+                                let fileContent = JSON.stringify(schemaDocument, undefined, 4)
                                 try {
-                                    fs.unlinkSync(filePath + '/' + fileName)
-                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
+                                    fs.mkdirSync(filePath)
                                 } catch (err) {
-                                    noErrorsDuringSaving = false
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
-                                }
-                            } else {
-                                if (schemaDocument.updated === true || schemaDocument.created === true) {
-                                    try {
-                                        let created = schemaDocument.created
-                                        let updated = schemaDocument.updated
-                                        schemaDocument.updated = undefined
-                                        schemaDocument.created = undefined
-                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        try {
-                                            fs.mkdirSync(filePath)
-                                        } catch (err) {
-                                            if (err.message.indexOf('file already exists') < 0) {
-                                                throw (err)
-                                            }
-                                        }
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
-                                        if (created === true) {
-                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
-                                        } else {
-                                            if (updated === true) {
-                                                console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
-                                            }
-                                        }
-                                    } catch (err) {
-                                        noErrorsDuringSaving = false
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                                    if (err.message.indexOf('file already exists') < 0) {
+                                        throw (err)
                                     }
                                 }
+                                fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                if (created === true) {
+                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                                } else {
+                                    if (updated === true) {
+                                        console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                    }
+                                }
+                            } catch (err) {
+                                noErrorsDuringSaving = false
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                             }
+                            //    }
+                            //}
                         }
 
                         return noErrorsDuringSaving
@@ -1540,14 +1562,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let name = files[k]
                         let nameSplitted = name.split(folder)
                         let fileName = nameSplitted[1]
-                        for (let i=0; i<10; i++) {
+                        for (let i = 0; i < 10; i++) {
                             fileName = fileName.replace('\\', '/')
                         }
                         let fileToRead = filePath + folder + fileName
-                         
+
                         let fileContent = fs.readFileSync(fileToRead)
                         let schemaDocument = JSON.parse(fileContent)
-                        schemaDocument.filePath = fileName
                         schemaArray.push(schemaDocument)
                     }
                     let schema = JSON.stringify(schemaArray)

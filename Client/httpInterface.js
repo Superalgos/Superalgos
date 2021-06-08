@@ -1531,17 +1531,33 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         break
                     }
                 }
+                getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                function onFilesReady(files) {
 
-                let schemaArray = []
-                let fileList = fs.readdirSync(filePath + '/' + folder)
-                for (let k = 0; k < fileList.length; k++) {
-                    let name = fileList[k]
-                    let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                    let schemaDocument = JSON.parse(fileContent)
-                    schemaArray.push(schemaDocument)
+                    let schemaArray = []
+                    //                    let fileList = fs.readdirSync(filePath + '/' + folder)
+                    for (let k = 0; k < files.length; k++) {
+                        let name = files[k]
+                        let nameSplitted = name.split(folder)
+                        let fileName = nameSplitted[1]
+                        for (let i=0; i<10; i++) {
+                            fileName = fileName.replace('\\', '/')
+                        }
+                        let fileToRead = filePath + folder + fileName
+                         
+                        let fileContent = fs.readFileSync(fileToRead)
+                        let schemaDocument = JSON.parse(fileContent)
+                        schemaDocument.filePath = fileName
+                        schemaArray.push(schemaDocument)
+                    }
+                    let schema = JSON.stringify(schemaArray)
+                    respondWithContent(schema, httpResponse)
                 }
-                let schema = JSON.stringify(schemaArray)
-                respondWithContent(schema, httpResponse)
+
+                // console.log(filePath + '/' + folder)
+
+
+
             } catch (err) {
                 if (err.message.indexOf('no such file or directory') < 0) {
                     console.log('Could not send Schema:', filePath, schemaType)
@@ -1752,7 +1768,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 callback(pathAndNames)
             })
-            .catch(e => console.error(e));
+            .catch(e => {
+                callback([])
+            });
 
         async function getFiles(dir) {
             const subdirs = await readdir(dir);

@@ -522,7 +522,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = cleanFileName(schemaDocument.topic)
+                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.topic)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
@@ -530,7 +530,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = cleanFileName(schemaDocument.tutorial)
+                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.tutorial)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
@@ -538,12 +538,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = cleanFileName(schemaDocument.review)
+                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.review)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Node': {
-                                    extraFolder = schemaDocument.type.split(' ')[0]
+                                    extraFolder = schemaDocument.type.substring(0, 1) + '/' + schemaDocument.type.split(' ')[0]
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }

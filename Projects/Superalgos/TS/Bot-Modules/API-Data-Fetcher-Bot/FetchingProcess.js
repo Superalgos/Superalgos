@@ -346,8 +346,18 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 if (apiQueryParameter.config.isPageNumber === true) {
                                     pageNumberParameter = apiQueryParameter
                                 } else {
+                                    /*
+                                    Whatever is in Value is the default value.
+                                    */
                                     if (apiQueryParameter.config.codeName !== undefined && apiQueryParameter.config.value !== undefined) {
                                         parametersMap.set(apiQueryParameter.config.codeName, apiQueryParameter.config.value)
+                                    }
+                                    /*
+                                    If there is a replace action to be made, then that could replace the default value.
+                                    */
+                                    let replaceValue = checkReplaceBy(apiQueryParameter)
+                                    if (replaceValue !== undefined) {
+                                        parametersMap.set(apiQueryParameter.config.codeName, replaceValue)
                                     }
                                 }
                             }
@@ -393,21 +403,75 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                 if (pathString === "") { pathString = '/' }
                                 let apiPathParameter = value
                                 let parameterValue = key // This is the default value
-                                if (apiPathParameter.config.replaceBy !== undefined) {
-                                    switch (apiPathParameter.config.replaceBy) {
-                                        case '@BaseAsset': {
-                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
-                                            break
-                                        }
-                                        case '@QuotedAsset': {
-                                            parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-                                            break
-                                        }
-                                    }
+                                let replaceValue = checkReplaceBy(apiPathParameter)
+
+                                if (replaceValue !== undefined) {
+                                    parameterValue = replaceValue
                                 }
+
                                 pathString = pathString + separator + parameterValue
                                 separator = "/"
                             }
+                        }
+
+                        function checkReplaceBy(apiParameter) {
+                            let parameterValue
+                            let rawValue
+                            if (apiParameter.config.replaceBy !== undefined) {
+                                switch (apiParameter.config.replaceBy) {
+                                    case '@BaseAsset': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName
+                                        break
+                                    }
+                                    case '@BaseAssetNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@BaseAssetNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.name
+                                        parameterValue = rawValue.toLowerCase()
+                                        break
+                                    }
+                                    case '@QuotedAsset': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+                                        break
+                                    }
+                                    case '@QuotedAssetNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@QuotedAssetNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.name
+                                        parameterValue = rawValue.toLowerCase()
+                                        break
+                                    }
+                                    case '@Exchange': {
+                                        parameterValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+                                        break
+                                    }
+                                    case '@ExchangeNameUppercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                                        parameterValue = rawValue.toUpperCase()
+                                        break
+                                    }
+                                    case '@ExchangeNameLowercase': {
+                                        rawValue = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                                        parameterValue = rawValue.toLowerCase()
+                                        break
+                                    }
+                                    case '@BeginCurrentMinute': {
+                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+                                        break
+                                    }
+                                    case '@EndCurrentMinute': {
+                                        parameterValue = Math.trunc((new Date()).valueOf() / TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS) * TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS + TS.projects.superalgos.globals.timeConstants.ONE_MIN_IN_MILISECONDS - 1
+                                        break
+                                    }
+                                }
+                            }
+                            return parameterValue
                         }
 
                         async function fetchAllPages() {
@@ -653,7 +717,7 @@ exports.newSuperalgosBotModulesFetchingProcess = function (processIndex) {
                                                     resolve('NO_MORE_PAGES')
                                                 } else {
                                                     resolve('PAGE_FETCHED')
-                                                }  
+                                                }
                                                 /*
                                                 If we received an errror code, we abort the processing at this point.
                                                 */

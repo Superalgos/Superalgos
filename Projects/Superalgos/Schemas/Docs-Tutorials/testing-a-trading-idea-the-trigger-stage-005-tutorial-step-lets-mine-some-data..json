@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "If you didn't do the second tutorial in the series, select Run All Project Data Tasks on the Data Tasks node menu!"
+            "text": "If you didn't do the second tutorial in the series, select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
+            "updated": 1622462310245
         },
         {
             "style": "Note",

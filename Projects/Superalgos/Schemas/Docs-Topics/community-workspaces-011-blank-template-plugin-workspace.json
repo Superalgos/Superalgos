@@ -1,0 +1,38 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "11",
+    "type": "Blank Template Plugin Workspace",
+    "definition": {
+        "text": "This is a minimalist workspace you may use to start from a clean slate.",
+        "updated": 1622623695656
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Features",
+            "updated": 1622623856267
+        },
+        {
+            "style": "List",
+            "text": "The basic system components including the Masters Trading Mine and the Candles Data Mine."
+        },
+        {
+            "style": "List",
+            "text": "The BTC-USDT Market installed on the Binance exchange."
+        },
+        {
+            "style": "Success",
+            "text": "You may switch to a different market by changing the configuration of the assets under the Exchange Assets node, and you may switch to a different exchange by changing the configuration of the Crypto Exchange node. You may find the configuration of other exchanges in the Tested Exchanges topic.",
+            "updated": 1622626283772
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer"
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622624415709
+        }
+    ]
+}

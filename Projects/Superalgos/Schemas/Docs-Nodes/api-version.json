@@ -1,14 +1,14 @@
 {
     "type": "API Version",
     "definition": {
-        "text": "An API might have different versions. This node is used for specifying the version that it's children are defining. At the codeName property we expect the version string as needed on the URL when calling the API Server.",
-        "updated": 1621016746266
+        "text": "An API might have different versions. This node is used for specifying the version that it's children are defining. At the codeName property we expect the version string that will be needed in the URL when calling the API Server.",
+        "updated": 1622848609952
     },
     "paragraphs": [
         {
             "style": "Note",
-            "text": "We expect every API to have at leat one version.",
-            "updated": 1621951647515
+            "text": "We expect every API to have at least one version. Others may have three or more.",
+            "updated": 1622848637394
         },
         {
             "style": "Include",
@@ -17,7 +17,16 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "API Version Configuration",
+            "updated": 1622895641428
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "codeName: Define the version of the API this branch of the map will handle."
         }
     ]
 }

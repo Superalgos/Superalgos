@@ -1,18 +1,23 @@
 {
     "type": "API Endpoint",
     "definition": {
-        "text": "Endpoints are important aspects of interacting with server-side web APIs, as they specify where resources lie that can be accessed by third party software. Usually the access is via a URI to which HTTP requests are posted, and from which the response is thus expected.",
-        "updated": 1621017376741
+        "text": "Endpoints are important aspects of interacting with server-side web APIs, as they specify where resources can be accessed. Usually the access is via a URL to which HTTP requests are posted. Once these requests are posted correctly, the API will respond with the requested data.",
+        "updated": 1622854645690
     },
     "paragraphs": [
         {
             "style": "Subtitle",
-            "text": "How to use this node?",
-            "updated": 1621949863470
+            "text": "How to Use an Endpoint Node",
+            "updated": 1622854703461
         },
         {
             "style": "Text",
-            "text": "Read the docs of the API you are trying to map, and indentigy the commands that it support (endpoints)."
+            "text": "Read the docs of the API you are trying to map, and indentify which endpoints they support. From there you can choose which endpoint holds the information you are interested in and begin to map it. For a detailed description of how to do this, please read the following description. In addtion please see the API Map page as well as the Data Mining topic for other important concepts surrounding setting up an api map. ",
+            "updated": 1622855071509
+        },
+        {
+            "style": "Note",
+            "text": "The first page of the Data Mining topic is Data Mining - Introduction."
         },
         {
             "style": "Include",
@@ -21,7 +26,16 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "API Endpoint Configuration",
+            "updated": 1622895671396
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "codeName: Define the endpoint this branch of the map will handle."
         }
     ]
 }

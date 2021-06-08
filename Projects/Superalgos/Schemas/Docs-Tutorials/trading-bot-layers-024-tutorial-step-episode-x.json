@@ -13,8 +13,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the Episodes layer on!",
-            "updated": 1617184095329
+            "text": "Turn the \"Episodes\" layer on!",
+            "updated": 1622542043043
         },
         {
             "style": "Text",
@@ -22,7 +22,8 @@
         },
         {
             "style": "Note",
-            "text": "As usual, the plotter panels feature information that explained on the Trading Engine section of the documentation."
+            "text": "As usual, the plotter panels feature information that is explained on the Trading Engine section of the documentation.",
+            "updated": 1622542023901
         }
     ]
 }

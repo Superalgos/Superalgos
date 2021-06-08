@@ -1,14 +1,23 @@
 {
     "type": "API Query Parameter",
     "definition": {
-        "text": "This node represent a single query string parameter.",
-        "updated": 1621022326307
+        "text": "This node represent a single query parameter. For a full definition of what a query parameter is please see the API Query Parameters page.",
+        "updated": 1622771217708
     },
     "paragraphs": [
         {
+            "style": "Success",
+            "text": "Even if you are not using every query parameter offered for an endpoint.  For the sake of completness, it is a good idea to add it to the map and delete the value property.",
+            "updated": 1622765045028
+        },
+        {
+            "style": "Title",
+            "text": "API Query Parameter Configuration",
+            "updated": 1622895734675
+        },
+        {
             "style": "Subtitle",
-            "text": "Configuration",
-            "updated": 1621022390398
+            "text": "Properties"
         },
         {
             "style": "List",
@@ -16,8 +25,44 @@
         },
         {
             "style": "List",
-            "text": "value: It is the value to be used at this parameter. The API Map can define the value, that would be considered a default value. The same parameter defined at the Data Mine will have the actual value to be used replacing the default. If you are defining a API Map to be shared as a Plugin, you can avoid setting this property at the API Map level, and let the users set it at their Data Mine when they use your API Map. For completness, this parameter should be included at the the API Map even if the value property is not there.",
-            "updated": 1622160191941
+            "text": "isString: Define if the path parameter is a string or not."
+        },
+        {
+            "style": "List",
+            "text": "isOptional: Define if this path parameter is optional or not."
+        },
+        {
+            "style": "List",
+            "text": "description: Define a basic description of what this path parameter accomplishes."
+        },
+        {
+            "style": "List",
+            "text": "value: This is the value to be used by the parameter. ",
+            "updated": 1622764598076
+        },
+        {
+            "style": "Note",
+            "text": "The value you type into the API Map will be considered the default value. The same parameter can be dynamically pulled from a users system using the replaceBy property.  When the replaceBy property is used the default value will be overwritten.",
+            "updated": 1622771817973
+        },
+        {
+            "style": "List",
+            "text": "replaceBy: [Optional] This property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime.",
+            "updated": 1622863577107
+        },
+        {
+            "style": "Text",
+            "text": "Here is an example config setting a query option to false:",
+            "updated": 1622764541685
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"localization\",\n    \"isString\": false,\n    \"isOptional\": true,\n    \"description\": \"Trim down responce object\",\n    \"value\": false\n}",
+            "updated": 1622764527431
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->replaceBy Config Property->How To Use It"
         }
     ]
 }

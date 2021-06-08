@@ -1114,9 +1114,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 icons.push([project, file])
                             }
 
-                            projectCounter++
-                            if (projectCounter === totalProjects) {
-                                respondWithContent(JSON.stringify(icons), httpResponse)
+                                projectCounter++
+                                if (projectCounter === totalProjects) {
+                                    respondWithContent(JSON.stringify(icons), httpResponse)
+                                }
                             }
                         }
                     }
@@ -1132,7 +1133,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
-                        respondWithContent(JSON.stringify(files), httpResponse)
+                        if (err) {
+                            console.log('[ERROR] Error reading PluginFileNames.', err.stack)
+                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                            return
+                        } else {
+                            respondWithContent(JSON.stringify(files), httpResponse)
+                        }
                     })
                 }
                 break

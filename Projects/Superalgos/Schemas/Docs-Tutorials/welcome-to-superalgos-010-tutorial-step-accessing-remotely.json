@@ -1,0 +1,131 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Accessing Remotely?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network-node"
+        },
+        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Jika kamu menjalankan Client ini di mesin yang sama, saranku click Next dan skip step ini segera!",
+                "updated": 1614426991691,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step!",
+                "updated": 1614718112355,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si estas accediendo al cliente desde el mismo Equipo, puedes saltarte este paso!",
+                "updated": 1618433417604,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are accessing the Client from a remote machine, you must adjust the Network Node configuration before continuing.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menjalankan Client dari mesin remote, kamu harus mengkonfigurasi node Network sebelum melanjutkannya.",
+                    "updated": 1614427153780,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Se ti stai collegando al Client da remoto, devi configurare il Network Node prima di proseguire.",
+                    "updated": 1614718136636,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si está accediendo al Cliente desde un equipo remoto, debes configurar el Network Node antes de continuar.",
+                    "updated": 1618433278478,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Click Configure on the top-right corner of the  Network Node menu.",
+            "updated": 1610612485562,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Click Configure disebelah kanan atas dari node menu Network.",
+                    "updated": 1614427190110,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Clicca Configure nell'angolo in alto a destra del menu del Network Node.",
+                    "updated": 1614718181211,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haga clic en Configure en la esquina superior derecha del menú del Network Node.",
+                    "updated": 1618433342182,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Change the host parameter for the IP address of the machine running the backend.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Ubah host parameter IP Address dari mesin yang berjalan di backend.",
+                    "updated": 1614429595918,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Inserisci nel parametro host l'indirizzo IP della macchina su cui é in esecuzione il backend.",
+                    "updated": 1614718382791,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cambie el parámetro de host por la dirección IP del equipo que corre el backend.",
+                    "updated": 1618433315923,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Exit the configuration by removing the mouse pointer from the configuration bubble! If the configuration is correct, the error message in the Network Node should disappear in a minute!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Keluar dari konfigurasi dengan mengeluarkan pointer mouse dari gelembung konfigurasi!. JIka konfigurasi benar, pesan error di Network Node akan hilang dalam beberapa menit!",
+                    "updated": 1614429527142,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Esci dalla configurazione spostando il puntatore del mouse dalla bolla! Se i parametri sono corretti, il messaggio di errore nel Network Node dovrebbe scomparire nel giro di un minuto!",
+                    "updated": 1614718314979,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Salga de la configuración quitando el cursor de la burbuja de configuración. Si la configuración es correcta, el mensaje de error en el Network Node debería desaparecer en un instante.",
+                    "updated": 1618433403504,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

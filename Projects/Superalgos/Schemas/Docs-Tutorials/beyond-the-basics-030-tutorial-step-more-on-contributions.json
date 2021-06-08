@@ -1,6 +1,6 @@
 {
     "tutorial": "Beyond the Basics",
-    "pageNumber": "30",
+    "pageNumber": 30,
     "type": "Tutorial Step - More on Contributions",
     "definition": {
         "text": "I can't stress enough how important it is for the project that users contribute whatever they build with Superalgos!",
@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "È cruciale per il progetto che ognuno contribuisca come può a Superalgos!",
-                "updated": 1619638010453
+                "updated": 1619638010453,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Se scegli di partecipare al progetto e alla Community, puoi prendere parte allo sforzo collettivo di migliorare Superalgos. E se non sei interessato al lavoro di gruppo, puoi comunque diventare un utente esperto e costruire cose utili a chi verrà dopo di te!",
-                    "updated": 1619638095140
+                    "updated": 1619638095140,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "How to Contribute to Superalgos è il topic che copre i dettagli su come contribuire a Trading Systems, Data Mines, icone, Docs, traduzioni, eccetera. Ricorda: tutti i contributi sono incentivati con il token Superalgos!",
-                    "updated": 1619638154537
+                    "updated": 1619638154537,
+                    "style": "Success"
                 }
             ]
         }

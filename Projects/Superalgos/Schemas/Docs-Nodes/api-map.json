@@ -7,20 +7,151 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The way to create an API Map is to read the API's documentation and for each command and their responses, generate the node structure that represents it.",
-            "updated": 1621016234649
-        },
-        {
-            "style": "Subtitle",
-            "text": "How is it used?"
+            "text": "The way to create an API Map is to read the API's documentation for each endpoint as well as the Data Mining Topic. These sources will provide you with all the information you need to make a successful API Map.",
+            "updated": 1622847308932
         },
         {
             "style": "Text",
-            "text": "To use an API Map users need to setup a Task for an API Data Fetcher Bot. This set up is done automatically as part of the Install New Market procedure if an API Map is detected at the Worksapce. From within that Task, a reference to an API Map is established. "
+            "text": "The basic way you can think about an API Map is as a representation of the URL link needed to request information from the API as well as the layout of the data returned by the API. This means that an API Map hold all the information needed to request data and decipher the data once it is returned.",
+            "updated": 1622847337343
+        },
+        {
+            "style": "Title",
+            "text": "How are API Maps used?",
+            "updated": 1622847013897
+        },
+        {
+            "style": "Text",
+            "text": "API Maps are used by API Data Fetcher Bots to request and save the data from an API. In order to do this a user needs to set up a task to run the bot. This set up is done automatically as part of the Install Market procedure if both an API Map and its data mine is detected within the Worksapce. From within that Task, a reference to the API Map is established.",
+            "updated": 1622847596702
         },
         {
             "style": "Text",
             "text": "When the Task is run, the UI will send to the Task Server all the definitions inside the API Map so that the API Data Fetcher Bot can use them to connect to the API Server, fetch data from it, and correctly interpret the responses."
+        },
+        {
+            "style": "Title",
+            "text": "How to Read an API Request URL",
+            "updated": 1622847733042
+        },
+        {
+            "style": "Text",
+            "text": "The API you are trying to map should have it's API Endpoints documented. If not, check any examples they may provide for how to request the data and see if there are inner folders below the main folder of the API Enpoint. Each one of these folders are an API Path Parameter that needs to be defined.",
+            "updated": 1622847657548
+        },
+        {
+            "style": "Text",
+            "text": "Here are some examples of API request URLs:"
+        },
+        {
+            "style": "Javascript",
+            "text": " https://api.coingecko.com/api/v3/coins/bitcoin?"
+        },
+        {
+            "style": "Javascript",
+            "text": "https://data.messari.io/api/v1/assets/btc?fields=id,slug,symbol,metrics/market_data",
+            "updated": 1622848130436
+        },
+        {
+            "style": "Subtitle",
+            "text": "Sections of an API Request URL"
+        },
+        {
+            "style": "Text",
+            "text": "Let's break down one of these URLs and identify each part of it."
+        },
+        {
+            "style": "List",
+            "text": "Internet Protocol: This is the section on the very front of almost any internet link you will see."
+        },
+        {
+            "style": "Javascript",
+            "text": " https"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the protocol config property in the main API Map node.",
+            "updated": 1622847750228
+        },
+        {
+            "style": "List",
+            "text": "Root Domain Name: This is the section of the URL that is before the first backslash:"
+        },
+        {
+            "style": "Javascript",
+            "text": " data.messari.io"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the hostName config property in the main API Map node.",
+            "updated": 1622847770913
+        },
+        {
+            "style": "List",
+            "text": "API Path: This is the section that defines the main path to the API:"
+        },
+        {
+            "style": "Javascript",
+            "text": " api"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the path config property in the main API Map node.",
+            "updated": 1622847800732
+        },
+        {
+            "style": "List",
+            "text": "API Version Number: This is the section that defines the API version to which you are making requests."
+        },
+        {
+            "style": "Javascript",
+            "text": " v1"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the codeName config property in the API Version node.",
+            "updated": 1622847982153
+        },
+        {
+            "style": "List",
+            "text": "API Endpoint: This is the section that tells the API what kind of data you wish to request.",
+            "updated": 1622847877226
+        },
+        {
+            "style": "Javascript",
+            "text": "assets"
+        },
+        {
+            "style": "Note",
+            "text": "You define this using the config codeName property of the API Endpoint node.",
+            "updated": 1622847959761
+        },
+        {
+            "style": "List",
+            "text": "Path Parameters: These are the remaning sections of the path before the question mark they further narrow down what data you wish to request from the API.  In this case we want to receive data about bitcoin:",
+            "updated": 1622848189591
+        },
+        {
+            "style": "Javascript",
+            "text": " btc"
+        },
+        {
+            "style": "Note",
+            "text": "You define each of these using the codeName config property in the API Path Parameter node.",
+            "updated": 1622848212517
+        },
+        {
+            "style": "List",
+            "text": "Query Parameters: These are all the sections after the question mark. They are often used to pair down the amount of data returned by the API so that you only receive what you are interested in:",
+            "updated": 1622848284105
+        },
+        {
+            "style": "Javascript",
+            "text": "fields=id,slug,symbol,metrics/market_data"
+        },
+        {
+            "style": "Note",
+            "text": "You define these using the codeName and value config properties of the API Query Parameter node."
         },
         {
             "style": "Include",
@@ -34,28 +165,51 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "API Map Configuration",
+            "updated": 1622895474056
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties"
         },
         {
             "style": "List",
-            "text": "protocol: the protocol to be used to access the API. For now either http or https."
+            "text": "codeName: this must be the same codename as the Data Mine codename in order for the Install New Market procedure to link them properly at the API Map Reference node.",
+            "updated": 1622895563618
         },
         {
             "style": "List",
-            "text": "portNumber: the port at which the API server is listening."
+            "text": "protocol: the protocol to be used to access the API. For now either http or https.",
+            "updated": 1622895574503
         },
         {
             "style": "List",
-            "text": "hostName: the domain name or IP address of the API server."
+            "text": "portNumber: the port at which the API server is listening.",
+            "updated": 1622895581034
+        },
+        {
+            "style": "List",
+            "text": "hostName: the domain name or IP address of the API server.",
+            "updated": 1622895586641
         },
         {
             "style": "List",
             "text": "path: the URL path to where the API is located within the remote server.",
-            "updated": 1621016495461
+            "updated": 1622895592146
         },
         {
             "style": "List",
-            "text": "millisecondsBetweenCalls: [Optional] the number of milliseconds to wait before calling the remote host. This is particuary usefull if there is pagination, so that there is a delay before requesting each page."
+            "text": "millisecondsBetweenCalls: [Optional] the number of milliseconds to wait before calling the remote host. This is particuary useful if there is pagination, so that there is a delay before requesting each page.",
+            "updated": 1622863477228
+        },
+        {
+            "style": "Text",
+            "text": "Here is an example API Map config:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"CoinGecko\",\n    \"protocol\": \"https\",\n    \"portNumber\": \"\",\n    \"hostName\": \"api.coingecko.com\",\n    \"path\": \"api\",\n    \"millisecondsBetweenCalls\": 4000\n}",
+            "updated": 1622863537968
         }
     ]
 }

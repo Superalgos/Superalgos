@@ -1,7 +1,7 @@
 {
     "topic": "Community Workspaces",
     "pageNumber": "7",
-    "type": "BB Top Bounce Plugin Workspace",
+    "type": "BB Top Bounce Demo Plugin Workspace",
     "definition": {
         "text": "This workspace features the BTC-USDT - BB Top Bounce - BBTB Trading System setup for backtesting in Binance and the USDT/BTC market.",
         "updated": 1616149302461
@@ -18,12 +18,13 @@
         },
         {
             "style": "Title",
-            "text": "Brought to you by",
+            "text": "Maintainer",
             "updated": 1616153683894
         },
         {
-            "style": "List",
-            "text": "@julian-molina"
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622623292203
         }
     ]
 }

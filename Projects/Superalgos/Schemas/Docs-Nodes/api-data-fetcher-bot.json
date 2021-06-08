@@ -1,14 +1,14 @@
 {
     "type": "API Data Fetcher Bot",
     "definition": {
-        "text": "It is a type of bot that can fetch data from any API on the internet as long as it is provided with a API Map at runtime.",
-        "updated": 1621022644745
+        "text": "This bot can fetch data from any API on the internet as long as it is provided with an API Map at runtime.",
+        "updated": 1622895037822
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "An API Data Fetcher Bots is similar to a Sensor Bot, except that the second need dev users to code an algo for extracting the data, while the first one can do it without coding, just using an API Map.",
-            "updated": 1621969800744
+            "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a dev users to code an algorithm to extract the data, while an API Data Fetcher Bot can do it without coding using an API Map.",
+            "updated": 1622895168429
         },
         {
             "style": "Include",
@@ -21,7 +21,18 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "API Data Fetcher Bot Configuration",
+            "updated": 1622895379480
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1622895415959
+        },
+        {
+            "style": "List",
+            "text": "codeName Define the name of the bot that will be used in the code.",
+            "updated": 1622895425847
         }
     ]
 }

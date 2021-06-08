@@ -1,8 +1,8 @@
 {
     "type": "API Query Responses",
     "definition": {
-        "text": "API calls producee responses. Under this section they are defined.",
-        "updated": 1621020920908
+        "text": "API calls produce responses. Under this node you can define how your map will interpret different responces from the API.",
+        "updated": 1622862463288
     },
     "paragraphs": [
         {
@@ -11,8 +11,14 @@
             "updated": 1621952454860
         },
         {
+            "style": "Success",
+            "text": "A few common examples are: 200 meaning successful response, 404 meaning page not found and 429 meaning api rate limit exceeded.",
+            "updated": 1622862627312
+        },
+        {
             "style": "Text",
-            "text": "Each child of this node is a different response code / status from the API Server. Users need to add at least the most common response code (200) in order to start testing this API Endpoint. After that is recommended to add all other response codes as well, otherwise the API Data Fetcher Bot will stop when an unhandled response code is received."
+            "text": "Each child of this node will handle a different response code / status from the API Server. Users need to add at least the most common response code (200) in order to start testing this API Endpoint. After that is recommended to add all other response codes as well, otherwise the API Data Fetcher Bot will stop when an unhandled response code is received.",
+            "updated": 1622862684442
         }
     ]
 }

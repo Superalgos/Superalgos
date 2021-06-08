@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to the Simulation Objects layer manager and turn on the Strategies and Trigger Stages layers."
+            "text": "Go to the Simulation Objects layer manager and turn on the \"Strategies\" and \"Trigger Stages\" layers.",
+            "updated": 1622487006173
         },
         {
             "style": "Note",

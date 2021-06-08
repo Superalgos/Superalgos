@@ -1,0 +1,28 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Welcome Start Data Mining Console",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1616697118370,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Este Paso reproduce un video a pantalla completa\n",
+                "updated": 1618434564631,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-start-data-mining-console.gif"
+        }
+    ]
+}

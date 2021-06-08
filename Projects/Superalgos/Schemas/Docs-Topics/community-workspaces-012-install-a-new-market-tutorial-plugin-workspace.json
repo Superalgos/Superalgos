@@ -1,0 +1,29 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "12",
+    "type": "Install a New Market Tutorial Plugin Workspace",
+    "definition": {
+        "text": "This workspace features a tutorial that teaches you how to work with different markets.",
+        "updated": 1622624869211
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1622624397458
+        },
+        {
+            "style": "Text",
+            "text": "Install a New Market Tutorial"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer"
+        },
+        {
+            "style": "Link",
+            "text": "@julianmolina (Telegram)->t.me/julianmolina",
+            "updated": 1622624415709
+        }
+    ]
+}

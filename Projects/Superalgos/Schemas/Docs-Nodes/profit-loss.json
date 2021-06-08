@@ -31,7 +31,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    sessionParameters.sessionBaseAsset.config.initialBalance\n    \ntradingEngine.current.tradingEpisode.episodeQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    sessionParameters.sessionQuotedAsset.config.initialBalance",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    sessionParameters.sessionBaseAsset.config.initialBalance\n    \ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    sessionParameters.sessionQuotedAsset.config.initialBalance",
             "updated": 1609880593226
         },
         {
@@ -45,7 +45,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance\n    \ntradingEngine.current.position.positionQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance",
+            "text": "tradingEngine.tradingCurrent.position.positionBaseAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionBaseAsset.beginBalance\n    \ntradingEngine.tradingCurrent.position.positionQuotedAsset.profitLoss.value =\n    tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value -\n    tradingEngine.tradingCurrent.position.positionQuotedAsset.beginBalance",
             "updated": 1609880668611
         },
         {

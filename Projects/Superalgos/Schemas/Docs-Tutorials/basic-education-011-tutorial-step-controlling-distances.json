@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "L'opzione successiva nel menù controlla la distanza del nodo dal proprio padre. Cliccando sul pulsante, cicli tra le varie opzioni.",
-                "updated": 1619460455860
+                "updated": 1619460455860,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "La distanza di un nodo dal padre è definita relativamente alla distanza del padre dal suo stesso padre (il \"nonno\" del nodo). Le opzioni sono:",
-                    "updated": 1619460512182
+                    "updated": 1619460512182,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Rosa: 0.25X",
-                    "updated": 1619460519997
+                    "updated": 1619460519997,
+                    "style": "List"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Arancione: 0.5X",
-                    "updated": 1619460530100
+                    "updated": 1619460530100,
+                    "style": "List"
                 }
             ]
         },
@@ -60,7 +64,8 @@
                 {
                     "language": "IT",
                     "text": "Verde: 1X",
-                    "updated": 1619460537594
+                    "updated": 1619460537594,
+                    "style": "List"
                 }
             ]
         },
@@ -71,7 +76,8 @@
                 {
                     "language": "IT",
                     "text": "Blu: 1.5X",
-                    "updated": 1619460541700
+                    "updated": 1619460541700,
+                    "style": "List"
                 }
             ]
         },
@@ -82,7 +88,8 @@
                 {
                     "language": "IT",
                     "text": "Rosso: 2X",
-                    "updated": 1619460546342
+                    "updated": 1619460546342,
+                    "style": "List"
                 }
             ]
         },
@@ -94,7 +101,8 @@
                 {
                     "language": "IT",
                     "text": "Se scegliamo l'opzione verde, la distanza del nodo dal padre sarà la stessa che separa il nodo padre dal proprio nodo padre!",
-                    "updated": 1619460620886
+                    "updated": 1619460620886,
+                    "style": "Text"
                 }
             ]
         }

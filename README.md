@@ -337,11 +337,16 @@ Docker container images can be found at https://github.com/users/Superalgos/pack
 
 If you wish to run Superalgos over docker platform, follow these steps.
 
+**Note:** This has not been extensively tested yet. If you run into troubles, please contact us at the [Superalgos Support Group](https://t.me/superalgossupport).
+
 ## 1. Install Docker
 
 Follow the link to [install docker](https://docs.docker.com/engine/install/).
 
 ## 2. Run
+
+
+### Option A. Using pre-built container
 
 You will need to create local storage directories beforehand, by example with `mkdir Data-Storage Log-Files My-Workspaces`
 
@@ -364,7 +369,12 @@ To see console logs you can use `docker logs superalgos -f`
 
 When you're done just exec `docker kill superalgos`
 
-**Note:** This has not been extensively tested yet. If you run into troubles, please contact us at the [Superalgos Support Group](https://t.me/superalgossupport).
+### Option B. Build container locally using docker-compose
+
+Follow the link to [install docker-compose](https://docs.docker.com/compose/install/)
+
+Run `docker-compose -f Docker/docker-compose.yml up`
+
 
 # What is Superalgos?
 

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Se tutto è andato bene, dovresti aver ricevuto una conferma che la Contributions Branch è cambiata! Fantastico!",
-                "updated": 1619633713475
+                "updated": 1619633713475,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "La prossima cosa da fare è cambiare la Current Branch, ma dobbiamo prima controllare un paio di cose!",
-                    "updated": 1619633736968
+                    "updated": 1619633736968,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Se hai fatto il fork di Superalgos prima del 6 aprile 2021, segui le istruzioni su questa pagine per creare il branch Plugins-Docs. Altrimenti continua!",
-                    "updated": 1619633825511
+                    "updated": 1619633825511,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Quando cambi branch, l'app esegue una serie di comandi Git che scaricano il software dal branch Plugins-Docs del tuo fork! Il software corrente viene quindi rimpiazzato su disco. Per questo motivo, dovrai chiudere l'app dopo aver cambiato. Ma prima di continuare vediamo un altro paio di cose!",
-                    "updated": 1619634001960
+                    "updated": 1619634001960,
+                    "style": "Text"
                 }
             ]
         }

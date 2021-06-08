@@ -1,23 +1,42 @@
 {
     "type": "API Query Response",
     "definition": {
-        "text": "This node enables the definition of a particular response of the API call. ",
-        "updated": 1621021001505
+        "text": "This node enables the definition of a particular response from the API call.",
+        "updated": 1622862747985
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "API Query Response Configuration",
+            "updated": 1622895797460
+        },
+        {
             "style": "Subtitle",
-            "text": "Configuration",
-            "updated": 1621021155356
+            "text": "Properties"
         },
         {
             "style": "List",
-            "text": "codeName: At the codeName property, the API Fetcher Bot will expect to find the http response code for the API call. You will need to have at least one of these nodes with a codeName = \"200\" that is the standard code for success."
+            "text": "codeName: At the codeName property, the API Fetcher Bot will expect to find the http response code from the API call handled by this node. You will need to have at least one of these nodes with a codeName = \"200\" (that is the standard code for success).",
+            "updated": 1622862811491
+        },
+        {
+            "style": "List",
+            "text": "isError: Define if the status code should be considered an error or not.",
+            "updated": 1622862913882
         },
         {
             "style": "Success",
-            "text": "If you wish to be able to react to other error codes, you should also have more of these nodes with the codeName of each of the status you want to cover. If the API Data Fetcher Bot receives a response code that has not been defined, it will stop there the processing.",
-            "updated": 1621952346052
+            "text": "If you wish to be able to react to other error codes, you should also have more of these nodes with the codeName of each status you want to cover. If the API Data Fetcher Bot receives a response code that has not been defined, it will stop processing and error out.",
+            "updated": 1622862870506
+        },
+        {
+            "style": "Text",
+            "text": "Here is an example API Query Response config:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"200\",\n    \"isError\": false\n}",
+            "updated": 1622863659433
         }
     ]
 }

@@ -1,24 +1,32 @@
 {
     "type": "API Response Field",
     "definition": {
-        "text": "The API responds with a JSON object. Each property of the object is mapped as node of this type. This node can have children of the same type allowing users to map a complex data structure.",
-        "updated": 1621021740145
+        "text": "The API responds with a JSON object. Each property of the object is mapped as a node of this type. This node can have children of the same type allowing users to map a complex data structure.",
+        "updated": 1622864246927
     },
     "paragraphs": [
         {
+            "style": "Title",
+            "text": "API Response Field Configuration",
+            "updated": 1622895885768
+        },
+        {
             "style": "Subtitle",
-            "text": "Configuration",
-            "updated": 1621021763335
+            "text": "Properties"
         },
         {
             "style": "List",
-            "text": "codeName: The codeName needs to be the exact name of the property at the response JSON object holding the value. For the first object, since it is a special case, we usually use the codeName of rootObject.",
-            "updated": 1621021843683
+            "text": "codeName: The codeName needs to be the exact name of the property held in the response JSON object. ",
+            "updated": 1622864298993
+        },
+        {
+            "style": "Note",
+            "text": "For the first object, since it is a special case, we usually use the codeName of rootObject."
         },
         {
             "style": "List",
-            "text": "fieldType: This property declares if the data is number, a string an object or an array, those are the 4 possible values.",
-            "updated": 1621022104672
+            "text": "fieldType: This property declares if the data is  a number, string, object, or array.",
+            "updated": 1622864334731
         },
         {
             "style": "List",
@@ -26,7 +34,8 @@
         },
         {
             "style": "Subtitle",
-            "text": "Field Type Possible Values"
+            "text": "Possible Values for Field Type Property",
+            "updated": 1622864403887
         },
         {
             "style": "Text",

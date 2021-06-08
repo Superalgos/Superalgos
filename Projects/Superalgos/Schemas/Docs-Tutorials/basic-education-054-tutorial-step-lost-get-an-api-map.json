@@ -1,0 +1,30 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 54,
+    "type": "Tutorial Step - Lost? Get an API Map!",
+    "definition": {
+        "text": "Are you wondering how to get data from sources other than exchanges in CCXT? Messari? Twitter? We've got you covered!",
+        "updated": 1622645027378,
+        "icon": {
+            "name": "api-map",
+            "project": "Superalgos"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos enables you to fetch data from any API on the Internet, and you don't need to code to do it! Instead, you may design an API Map or use the ones shipping with the system!",
+            "updated": 1622645477339
+        },
+        {
+            "style": "Note",
+            "text": "An API Map is a set of definitions dictating how a bot can access a particular API and how to interpret the responses from the server.",
+            "updated": 1622645609009
+        },
+        {
+            "style": "Callout",
+            "text": "Dive into this section of the Data Mining topic when you are ready to explore the API landscape!",
+            "updated": 1622645435555
+        }
+    ]
+}

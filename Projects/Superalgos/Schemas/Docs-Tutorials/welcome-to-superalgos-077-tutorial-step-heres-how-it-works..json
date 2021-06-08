@@ -1,0 +1,46 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 77,
+    "type": "Tutorial Step - Here's How it Works...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Got it? The Trading Bot places the Limit Buy Order at the fourth support level! What's the logic behind this?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Hai capito? Il Trading Bot piazza i Limit Buy Order al quarto livello di supporto! Qual'è la logica di questa scelta?",
+                "updated": 1618064697343,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's sort of arbitrary, but the strategy defines a falling knife as the price action capable of breaching at least three support levels and getting to the fourth during a single minute. Statistically, such events—in this time frame—produce more bounces than continuations. They may be caused by large market orders that temporarily increase the bid/ask spread in the order book.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È una scelta più o meno arbitraria, ma la strategia definisce come \"falling knife\" la price action che riesce a rompere almeno tre livelli di supporto e raggiungere il quarto nel giro di un singolo minuto. Statisticamente, questi eventi (su questo time frame) producono più rimbalzi che proseguimenti. Possono essere causati da market orders di grandi dimensioni che aumentano temporaneamente il bid/ask spread nell'order book.",
+                    "updated": 1618064825884,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a minute to verify that buy orders are placed at the fourth support level!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quarto supporto!",
+                    "updated": 1618064944102,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

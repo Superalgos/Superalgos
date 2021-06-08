@@ -1,0 +1,29 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "7",
+    "type": "McGinley Moving Average",
+    "definition": {
+        "text": "The McGinley Dynamic indicator is a type of moving average that was designed to track the market better than existing moving average indicators. It is a technical indicator that improves upon moving average lines by adjusting for shifts in market speed.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "McGinley - (Investopedia)->www.investopedia.com/terms/m/mcginley-dynamic.asp"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

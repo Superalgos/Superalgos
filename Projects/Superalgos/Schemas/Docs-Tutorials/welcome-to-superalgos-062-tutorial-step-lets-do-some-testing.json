@@ -1,0 +1,60 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 62,
+    "type": "Tutorial Step - Let's Do Some Testing!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "testing-trading-tasks"
+        },
+        "text": "We are back on the Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Rieccoci nella gerarchia Network. Ora ti mostro una delle risorse chiave per testare le strategie di un Trading Bot.",
+                "updated": 1618057404730,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But before you run your first Backtesting Session, let's go on a quick scouting mission to grasp how the Testing Trading Tasks node is set up.",
+            "updated": 1610638880718,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ma prima di lanciare la nostra prima Backtesting Session, lanciamoci in una piccola esplorazione per capire come è configurato il nodo delle Testing Trading Tasks.",
+                    "updated": 1618057489202,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Expand the Testing Trading Tasks node and look at the structure of offspring nodes... Looks familiar?",
+            "updated": 1616427797952,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Espandi il nodo delle Testing Trading Tasks e guarda come è strutturato...ti ricorda qualcosa?",
+                    "updated": 1618057585015,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Indeed! It resembles the Data Tasks section: tasks are organized by exchange, market, and trading mine, so that you may test any number of strategies optimized for different markets, on multiple exchanges.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Esatto! Assomiglia alla sezione dei Data Tasks: le task sono organizzate per exchange, mercato e Trading Mine, cosicchè tu possa testare diverse strategie per mercati differenti e su exchange diversi.",
+                    "updated": 1618057668667,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

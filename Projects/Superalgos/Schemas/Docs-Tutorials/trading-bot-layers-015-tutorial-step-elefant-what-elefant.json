@@ -12,12 +12,13 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to the Simulation Objects layer manager and turn on the Strategies layer."
+            "text": "Go to the Simulation Objects layer manager and turn on the \"Strategies\" layer.",
+            "updated": 1622541366457
         },
         {
             "style": "Text",
-            "text": "What's that? It's a strategy! We are in a simulation! The Strategies layer marks the span of time on which a strategy is active. ",
-            "updated": 1617182688542
+            "text": "What's that? It's a strategy! We are in a simulation! The \"Strategies\" layer marks the span of time on which a strategy is active.",
+            "updated": 1622541358704
         },
         {
             "style": "Success",

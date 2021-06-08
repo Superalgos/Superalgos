@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Proviamo il terzo esempio! Nota le references che vanno dai Polygon Vertices ai punti sotto il nodo Chart Points!",
-                "updated": 1619503169774
+                "updated": 1619503169774,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Fai un backup del nodo Shapes e ripristinalo senza cancellare l'originale. Poi ripeti l'operazione, cancellando prima il nodo originale.",
-                    "updated": 1619503205236
+                    "updated": 1619503205236,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Nota che, nel primo caso, le references si sono trasformate in reference esterne! Nel secondo caso, invece, sono rimaste interne!",
-                    "updated": 1619503254934
+                    "updated": 1619503254934,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Ricorda che le references rimangono interne solo cancellando la struttura originale prima del ripristino!",
-                    "updated": 1619503283883
+                    "updated": 1619503283883,
+                    "style": "Success"
                 }
             ]
         }

@@ -1,0 +1,61 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 115,
+    "type": "Tutorial Step - My Only Friend, The End!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage-event"
+        },
+        "text": "Ok, my friend, this is the end! I hope you've enjoyed the show and that I've managed to get you hooked to Superalgos!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok amico mio, siamo alla fine! Spero ti sia goduto lo spettacolo e che sia riuscito a coinvolgerti in Superalgos!",
+                "updated": 1618074673420,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "There's no doubt in my mind that you haven't seen anything like Superalgos before, have you?",
+            "updated": 1611589835629,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sono certo che tu non abbia mai visto niente di simile a Superalgos, o sbaglio?",
+                    "updated": 1618074705467,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "If you're ready to keep going, my friend the Basic Education Tutorial will complete your understanding on some basic aspects of the system you need to master before you set out to learn how to build Trading Systems!",
+            "updated": 1616706394194,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se sei pronto per continuare, il mio amico Basic Education Tutorial integrerà concetti su alcuni aspetti base del sistema che devi conoscere bene prima di costruire i Trading Systems! ",
+                    "updated": 1618074793359,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "We're done! Click Next to finish with me and click Play on the next tutorial when you are ready!",
+            "updated": 1616706565119,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Abbiamo finito! Clicca Next per terminare e clicca Play sul tutorial successivo quando sei pronto!",
+                    "updated": 1618074823724,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

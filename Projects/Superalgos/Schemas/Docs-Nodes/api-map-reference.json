@@ -1,13 +1,18 @@
 {
     "type": "API Map Reference",
     "definition": {
-        "text": "This node allows users to define a reference to an API Map, so that when the bot is ran, it uses that API Map to exctract data from.",
-        "updated": 1621023375333
+        "text": "This node allows users to define a reference to an API Map. When the bot is run, it will use the referenced API Map to extract data from the API.",
+        "updated": 1622896481536
     },
     "paragraphs": [
         {
+            "style": "Important",
+            "text": "For this node to be correctly installed and a reference established to the API Data Mine using the Install New Market procedure, both the Data Mine and the API Data Map needs to have exactly the same config property codeName, otherwise, this node will be created but you will have to establish the reference manually.",
+            "updated": 1622896540326
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "For a more indepth description of what an API Map is please see the API Map page."
         }
     ]
 }

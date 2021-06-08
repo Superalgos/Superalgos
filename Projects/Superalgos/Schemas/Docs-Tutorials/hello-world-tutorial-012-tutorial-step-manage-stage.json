@@ -8,18 +8,39 @@
             "name": "manage-stage",
             "project": "Superalgos"
         },
-        "updated": 1614261028631
+        "updated": 1614261028631,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Gewinn mitnehmen (Take Profit) oder einen Verlust begrenzen (Stop Loss)?!",
+                "updated": 1622979661677
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In this stage bot check if the price has hit Take Profit (TP) or Stop Loss (SL). Initial conditions for my strategy was to set a SL at 20% from entry and a TP at 100% or when MA50 cross under MA200.",
-            "updated": 1614333590591
+            "updated": 1614333590591,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In dieser Phase prüft der Bot, ob der Preis Take Profit (TP) oder Stop Loss (SL) erreicht hat. Die anfänglichen Bedingungen für meine Strategie waren, einen SL bei 20% vom Einstieg zu setzen und einen TP bei 100% oder wenn MA50 unter MA200 kreuzt.",
+                    "updated": 1622979639862
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Stop Loss formula:",
-            "updated": 1614333601220
+            "updated": 1614333601220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stop Loss Formel:",
+                    "updated": 1622979677028
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -29,7 +50,14 @@
         {
             "style": "Text",
             "text": "Take Profit formula is a little bit more elaborate:",
-            "updated": 1614333616750
+            "updated": 1614333616750,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Take Profit Formel ist ein wenig aufwendiger:",
+                    "updated": 1622979702092
+                }
+            ]
         },
         {
             "style": "Javascript",

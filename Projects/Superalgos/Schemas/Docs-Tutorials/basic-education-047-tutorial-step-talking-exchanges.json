@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Visto che ho parlato di testare exchanges, vediamo un attimo come Superalgos li gestisce e quali puoi usare...",
-                "updated": 1619590965438
+                "updated": 1619590965438,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Superalgos usa CCXT, una libreria open-source che propone uno standard per chiamate agli API degli exchange. Il sistema è compatibile con exchange che seguono questo standard:",
-                    "updated": 1619591042345
+                    "updated": 1619591042345,
+                    "style": "Text"
                 }
             ]
         },
@@ -43,7 +45,8 @@
                 {
                     "language": "IT",
                     "text": "Purtroppo non è abbastanza apparire in quella lista. Molti exchange non sono in effetti compatibili! Per questo motivo, la community testa attivamente varo exchanges, documentando quali possono essere usati in Superalgos e come. Questo è il topic dei Docs che tratta l'argomento. Leggi il TOC per vedere quali exchange sono stati testati.",
-                    "updated": 1619591237097
+                    "updated": 1619591237097,
+                    "style": "Note"
                 }
             ]
         }

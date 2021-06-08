@@ -1,0 +1,57 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 10,
+    "type": "CoinbasePro Test Status",
+    "definition": {
+        "text": "Coinbase Pro is not fully tested for data mining nor for live trading.",
+        "updated": 1616005773803
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. Backtesting and Paper trading are functional. The data mining process is extremely slow when retrieving full history due to API limits but it is adequate for live trading purposes.",
+            "updated": 1617935711274
+        },
+        {
+            "style": "List",
+            "text": "Market History: Full extent is unknown, however it is at least 2020-01-01.",
+            "updated": 1617935743856
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Partial. With a proper key configuration placing orders is possible. Currently, closing orders is not fully functional, so all types of trading strategies may not be fully functional.",
+            "updated": 1617935811860
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data fetching extremely slow due to API restrictions, see config.",
+            "updated": 1616005813658
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"coinbasepro\",\n    \"API\": [\n        {\n            \"method\": \"fetch_ohlcv\",\n            \"limit\": 300\n        }\n    ]\n}",
+            "updated": 1617935879109
+        },
+        {
+            "style": "Title",
+            "text": "API Key Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"APIKEY\",\n    \"secret\": \"SECRETKEY\",\n    \"password\": \"PASSPHRASE\"\n}"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

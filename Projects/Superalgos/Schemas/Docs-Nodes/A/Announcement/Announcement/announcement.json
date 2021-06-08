@@ -1,0 +1,34 @@
+{
+    "type": "Announcement",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Announcement node is used to configure the default text content of the message which will be sent by any Social Bots configured under the Trading Session.",
+            "updated": 1619262133229
+        },
+        {
+            "style": "Text",
+            "text": "The Announcement node can also optionally contain children nodes to define more specific announcement formula (content) and announcement conditions.",
+            "updated": 1619262375139
+        },
+        {
+            "style": "List",
+            "text": "An Announcement Formula child node contains the Javascript text string formula which defines the content of the message that will be sent.",
+            "updated": 1619261939276
+        },
+        {
+            "style": "List",
+            "text": "An Announcement Condition child node defines the condition when the message will be sent.",
+            "updated": 1619261952452
+        },
+        {
+            "style": "Warning",
+            "text": "If the announcement formula child node is <u>not configured</u>, or; if there is an <u>error evaulating</u> the announcement formula or announcement condition then the default text configuration of the parent announcement node itself is sent instead.",
+            "updated": 1619262444866
+        }
+    ],
+    "definition": {
+        "text": "An Announcement node is used to define the content and conditions with which messages are sent by Social Bots.",
+        "updated": 1619262332641
+    }
+}

@@ -555,41 +555,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             fileName = fileName + '.json'
-                            
-                            // if (schemaDocument.deleted === true) {
-                            try {
-                                fs.unlinkSync(oldFilePath + '/' + fileName)
-                                //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
-                            } catch (err) {
-                                noErrorsDuringSaving = false
-                                console.log('[ERROR] httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
-                                console.log('[ERROR] httpInterface -> Docs -> Delete -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
-                                console.log('[ERROR] httpInterface -> Docs -> Delete -> err.stack = ' + err.stack)
-                            }
-                            //  } else {
-                            //      if (schemaDocument.updated === true || schemaDocument.created === true) {
-                            try {
-                                let created = schemaDocument.created
-                                let updated = schemaDocument.updated
-                                schemaDocument.updated = undefined
-                                schemaDocument.created = undefined
-                                let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                createNewDir(newFilepath)
-                                fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
-                                if (created === true) {
-                                    //  console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
-                                } else {
-                                    if (updated === true) {
-                                        //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+
+                            if (schemaDocument.deleted === true) {
+                                try {
+                                    fs.unlinkSync(newFilepath + '/' + fileName)
+                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
+                                } catch (err) {
+                                    noErrorsDuringSaving = false
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> err.stack = ' + err.stack)
+                                }
+                            } else {
+                                if (schemaDocument.updated === true || schemaDocument.created === true) {
+                                    try {
+                                        let created = schemaDocument.created
+                                        let updated = schemaDocument.updated
+                                        schemaDocument.updated = undefined
+                                        schemaDocument.created = undefined
+                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        createNewDir(newFilepath)
+                                        fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
+                                        if (created === true) {
+                                            console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
+                                        } else {
+                                            if (updated === true) {
+                                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                            }
+                                        }
+                                    } catch (err) {
+                                        noErrorsDuringSaving = false
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                                     }
                                 }
-                            } catch (err) {
-                                noErrorsDuringSaving = false
-                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
-                                console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                             }
-                            //    }
-                            //}
 
                             function createNewDir(path) {
                                 try {

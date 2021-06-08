@@ -1,0 +1,29 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "9",
+    "type": "Weighted Moving Average",
+    "definition": {
+        "text": "A Weighted Moving Average puts more weight on recent data and less on past data. This is done by multiplying each bar’s price by a weighting factor. Because of its unique calculation, WMA will follow prices more closely than a corresponding Simple Moving Average.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "WMA - (Fidelity)->www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/wma"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

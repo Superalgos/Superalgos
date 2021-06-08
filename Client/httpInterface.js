@@ -1083,6 +1083,37 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'DirContent':
+                {
+                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
+                    const fs = require('fs')
+
+                    let icons = []
+                    let totalProjects = projects.length
+                    let projectCounter = 0
+
+                    for (let i = 0; i < projects.length; i++) {
+                        let project = projects[i]
+
+                        const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
+
+                        getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+
+                        function onFilesReady(files) {
+                            for (let j = 0; j < files.length; j++) {
+                                let file = files[j]
+                                icons.push([project, file])
+                            }
+
+                            projectCounter++
+                            if (projectCounter === totalProjects) {
+                                respondWithContent(JSON.stringify(icons), httpResponse)
+                            }
+                        }
+                    }
+                }
+                break
+
             case 'IconNames':
                 {
                     let projects = getDirectories(global.env.PATH_TO_PROJECTS)
@@ -1795,6 +1826,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let pathName = filesSplitted[1]
                     pathName = pathName.substring(1, pathName.length)
                     pathAndNames.push(pathName)
+                    console.log(pathName)
                 }
                 callback(pathAndNames)
             })

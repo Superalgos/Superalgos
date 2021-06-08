@@ -1,0 +1,43 @@
+{
+    "type": "Assets",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Class",
+            "relatedUiObject": "Asset Class"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset",
+            "relatedUiObject": "Asset"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "assetClasses",
+            "type": "array",
+            "childType": "Asset Class",
+            "autoAdd": false
+        },
+        {
+            "name": "assets",
+            "type": "array",
+            "childType": "Asset",
+            "autoAdd": false
+        }
+    ]
+}

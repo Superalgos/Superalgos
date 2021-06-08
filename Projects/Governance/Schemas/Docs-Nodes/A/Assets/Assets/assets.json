@@ -1,0 +1,13 @@
+{
+    "type": "Assets",
+    "definition": {
+        "text": "These hierarchies define the different assets Superalgos as a project has accumulated over time. Assets could be anything tangible and not only software modules. ",
+        "updated": 1622986422593
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

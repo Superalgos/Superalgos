@@ -982,5 +982,121 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "UI": {
+            "globals": [
+                {
+                    "name": "ChainIds",
+                    "propertyName": "chainIds",
+                    "functionName": "newEthereumGlobalsChainIds"
+                }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Votes",
+                    "propertyName": "votes",
+                    "functionName": "newGovernanceFunctionLibraryVotes"
+                },
+                {
+                    "name": "Tokens",
+                    "propertyName": "tokens",
+                    "functionName": "newGovernanceFunctionLibraryTokens"
+                },
+                {
+                    "name": "Weights",
+                    "propertyName": "weights",
+                    "functionName": "newGovernanceFunctionLibraryWeights"
+                },
+                {
+                    "name": "Claims",
+                    "propertyName": "claims",
+                    "functionName": "newGovernanceFunctionLibraryClaims"
+                },
+                {
+                    "name": "Distribution Process",
+                    "propertyName": "distributionProcess",
+                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Route To Client",
+                    "propertyName": "routeToClient",
+                    "functionName": "newEthereumUtilitiesRouteToClient"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "User Profile Space",
+                    "folderName": "User-Profile-Space",
+                    "propertyName": "userProfileSpace",
+                    "functionName": "newGovernanceUserProfileSpace",
+                    "initializationIndex": 0,
+                    "animationPhysicsIndex": 0,
+                    "animationDrawIndex": 0,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Assets Space",
+                    "folderName": "Assets-Space",
+                    "propertyName": "assetsSpace",
+                    "functionName": "newGobernanceAssetsSpace",
+                    "initializationIndex": 1,
+                    "animationPhysicsIndex": 1,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                },
+                {
+                    "name": "Features Space",
+                    "folderName": "Features-Space",
+                    "propertyName": "featuresSpace",
+                    "functionName": "newGovernanceFeaturesSpace",
+                    "initializationIndex": 2,
+                    "animationPhysicsIndex": 2,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
+                },
+                {
+                    "name": "Positions Space",
+                    "folderName": "Positions-Space",
+                    "propertyName": "positionsSpace",
+                    "functionName": "newGovernancePositionsSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 3,
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
+                },
+                {
+                    "name": "Pools Space",
+                    "folderName": "Pools-Space",
+                    "propertyName": "poolsSpace",
+                    "functionName": "newGovernancePoolsSpace",
+                    "initializationIndex": 4,
+                    "animationPhysicsIndex": 4,
+                    "animationDrawIndex": 4,
+                    "onMouseWheelIndex": 4,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
+                }
+            ]
+        },
+        "TS": {},
+        "CL": {}
     }
 ]

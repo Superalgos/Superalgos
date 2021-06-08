@@ -1,0 +1,75 @@
+{
+    "type": "User Profile",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "contributionClaims",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Contribution Claims",
+            "relatedUiObject": "Contribution Claims"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votesDistribution",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Votes Distribution",
+            "relatedUiObject": "Votes Distribution"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userReferrer",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Referrer",
+            "relatedUiObject": "User Referrer"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"codeName\": \"\"\n}"
+    },
+    "isTitleAllwaysVisible": false,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "contributionClaims",
+            "type": "node",
+            "childType": "Contribution Claims",
+            "autoAdd": false
+        },
+        {
+            "name": "votesDistribution",
+            "type": "node",
+            "childType": "Votes Distribution",
+            "autoAdd": false
+        },
+        {
+            "name": "userReferrer",
+            "type": "node",
+            "childType": "User Referrer",
+            "autoAdd": false
+        }
+    ]
+}

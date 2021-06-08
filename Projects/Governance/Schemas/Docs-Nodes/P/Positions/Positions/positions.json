@@ -1,0 +1,13 @@
+{
+    "type": "Positions",
+    "definition": {
+        "text": "These hierarchies are used to define different position or roles contributors can take at the project organization chart. Once defined, users can claim having spent time at an specific position or role and when those claims are supported by votes, they receive  tokens according to the position relative weight.",
+        "updated": 1622987207926
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -122,7 +122,7 @@ function newUiObjectTitle() {
                     }
                     case 'Use Reference Parent Type': {
                         let nodeToUse = thisObject.payload.node.payload.referenceParent
-                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined) {
                             thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.type
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.type
                         }
@@ -164,6 +164,23 @@ function newUiObjectTitle() {
                         }
                         break
                     }
+                    case 'Use Reference Parent Parent Parent Parent': {
+                        let nodeToUse = thisObject.payload.node.payload.referenceParent
+                        if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                            nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode
+                            if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode
+                                if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                    nodeToUse = thisObject.payload.node.payload.referenceParent.payload.parentNode.payload.parentNode.payload.parentNode
+                                    if (nodeToUse !== undefined && nodeToUse.payload !== undefined && nodeToUse.payload.node.name !== "New " + nodeToUse.payload.node.type && nodeToUse.payload.node.name !== "My " + nodeToUse.payload.node.type) {
+                                        thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.payload.title
+                                        thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.payload.node.name
+                                    }
+                                }
+                            }
+                        }
+                        break
+                    }
                     default: {
                         if (titleReference.indexOf('Use Child @') === 0) {
                             let propertyName = titleReference.substring(titleReference.indexOf('@') + 1, titleReference.length)
@@ -171,6 +188,36 @@ function newUiObjectTitle() {
                             if (childNode === undefined) { break }
                             thisObject.payload.title = thisObject.payload.title + separator + childNode.name
                             thisObject.payload.node.name = thisObject.payload.node.name + separator + childNode.name
+                        }
+                        if (titleReference.indexOf('Find In Parents Node Type->') === 0) {
+                            let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
+                            let nodeToUse = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(
+                                thisObject.payload.node,
+                                nodeType,
+                                undefined,
+                                true,
+                                false,
+                                true,
+                                false
+                            )
+                            if (nodeToUse === undefined) { break }
+                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.name
+                            thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.name
+                        }
+                        if (titleReference.indexOf('Reference Parent Find In Parents Node Type->') === 0) {
+                            let nodeType = titleReference.substring(titleReference.indexOf('->') + 2, titleReference.length)
+                            let nodeToUse = UI.projects.superalgos.utilities.meshes.findNodeInNodeMesh(
+                                thisObject.payload.referenceParent,
+                                nodeType,
+                                undefined,
+                                true,
+                                false,
+                                true,
+                                false
+                            )
+                            if (nodeToUse === undefined) { break }
+                            thisObject.payload.title = thisObject.payload.title + separator + nodeToUse.name
+                            thisObject.payload.node.name = thisObject.payload.node.name + separator + nodeToUse.name
                         }
                     }
                 }

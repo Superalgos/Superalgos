@@ -1,0 +1,13 @@
+{
+    "type": "Features",
+    "definition": {
+        "text": "As a software, Superalgos has features. This type hierarchies is used to describe the software's features with the objective to allow users to vote on those features and by doing so influencing how many tokens will receive contributors that mantain those features or, if the feature is yet to be added, the token it will receive whoeven contribute it to the project.",
+        "updated": 1622986032804
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

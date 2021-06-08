@@ -509,13 +509,11 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             For some type of schemas we will save the file at an extra
                             folder derived from the document's type.
                             */
-                            let extraFolder
                             let fileName = schemaDocument.type.toLowerCase()
                             for (let j = 0; j < 10; j++) {
                                 fileName = cleanFileName(fileName)
                             }
                             let pageNumber = '00' + schemaDocument.pageNumber
-                            let oldFilePath = filePath
                             let newFilepath = filePath
                             switch (category) {
                                 case 'Topic': {

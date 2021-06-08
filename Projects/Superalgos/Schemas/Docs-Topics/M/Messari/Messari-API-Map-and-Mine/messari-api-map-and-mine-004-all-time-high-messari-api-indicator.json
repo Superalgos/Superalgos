@@ -1,0 +1,40 @@
+{
+    "topic": "Messari API Map and Mine",
+    "pageNumber": 4,
+    "type": "All Time High - Messari API Indicator",
+    "definition": {
+        "text": "Displays and plots the all time high of the current asset.",
+        "updated": 1623067987267
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Plotter panel holds the following values:",
+            "updated": 1623068006305
+        },
+        {
+            "style": "List",
+            "text": "Rate: The highest recorded price of the current asset.",
+            "updated": 1623068342701
+        },
+        {
+            "style": "List",
+            "text": "Date at: date the last all time high occured.",
+            "updated": 1623068385383
+        },
+        {
+            "style": "List",
+            "text": "Days Since:  days since all time high.",
+            "updated": 1623068160790
+        },
+        {
+            "style": "List",
+            "text": "Percent Down: Pecentage down since all time high.",
+            "updated": 1623068139620
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

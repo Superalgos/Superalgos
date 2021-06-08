@@ -12,6 +12,12 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Social Bot Command",
+            "relatedUiObject": "Social Bot Command",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Send Telegram Test Message",
             "label": "Send Telegram Test Message",
             "iconPathOn": "test-entity",
@@ -36,6 +42,13 @@
     "attachingRules": {
         "compatibleTypes": "->Social Bots->"
     },
-    "childrenNodesProperties": [],
+    "childrenNodesProperties": [
+        {
+            "name": "socialBotCommand",
+            "type": "array",
+            "childType": "Social Bot Command",
+            "autoAdd": false
+        }
+    ],
     "propertyNameAtParent": "telegramBots"
 }

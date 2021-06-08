@@ -1,0 +1,47 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 59,
+    "type": "Tutorial Step - Back in Time",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "time-machine"
+        },
+        "text": "This is the Charting Space hierarchy setup of the Time Machine we've been playing with on the charts.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Questa è la configurazione gerarchica del Charting Space della Time Machine che abbiamo usato prima.",
+                "updated": 1615964231849,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Spend a few minutes exploring these definitions! Take a peek at different node's menus!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Usa qualche minuto per esplorare queste definizioni e dare un'occhiata al menù dei differenti nodi!",
+                    "updated": 1615964274059,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I hope the structure of nodes is intuitive enough to grasp how powerful the concept of the Design Space is. You set up a time machine by adding Timeline Chart nodes and the desired scales. Then set up layer managers and layers referencing the corresponding Data Mine Products so that the desired data becomes available on a particular layer manager on the charts. It's like the Legoland® of trading charts! You'll learn to cutomize charts later on!",
+            "updated": 1622200261142,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Spero che la struttura dei nodi sia abbastanza intuitiva da rendere l'idea di quanto sia potente il concetto di Design Space. Configuri una time machine aggiungendo i nodi del Timeline Chart e le relative scale, poi i layer managers e i loro layer collegati ai propri Data Mine Products, in modo che i dati richiesti diventino disponibili in uno specifico layer manager sui grafici. È una specie di Legoland® dei grafici! ",
+                    "updated": 1618648744986,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

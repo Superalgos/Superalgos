@@ -1,0 +1,21 @@
+{
+    "topic": "Community Workspaces",
+    "pageNumber": "9",
+    "type": "Machine Learning Demo Plugin Workspace",
+    "definition": {
+        "text": "The workspace features the basic setup to start exploring the integration of the TensorFlow Project.",
+        "updated": 1616693308998
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer",
+            "updated": 1616693330070
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina",
+            "updated": 1622625062405
+        }
+    ]
+}

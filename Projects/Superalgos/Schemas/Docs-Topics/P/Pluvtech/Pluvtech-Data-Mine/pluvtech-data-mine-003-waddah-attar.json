@@ -1,0 +1,29 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "3",
+    "type": "Waddah Attar",
+    "definition": {
+        "text": "The Waddah Attar Indicator may help identify the likely trend and/or turning points in the market.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Text",
+            "text": "Merges the Bollinger Bands and MACD together in a special way. This allows it to identify the start of the price explosion situations with very high accuracy. These explosions happen every day and sometimes multiple times a day. By using the Waddah Attar Explosion indicator you can know when this explosion begins and when they end with a high degree of success."
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

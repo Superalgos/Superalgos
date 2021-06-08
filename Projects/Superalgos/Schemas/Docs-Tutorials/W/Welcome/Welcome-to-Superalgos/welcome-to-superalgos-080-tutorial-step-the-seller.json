@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 80,
+    "type": "Tutorial Step - The Seller",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "execution-algorithm"
+        },
+        "text": "We are now in the Close Stage. I thought it would be interesting to tell you more about execution algorithms, with another example.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora siamo nel Close Stage. Pensavo sarebbe stato interessante dirti di più sugli Execution Algorithm con un altro esempio.",
+                "updated": 1618065500220,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "An Execution Algorithm may handle multiple orders, of all types. In this case, multiple limit sell orders are defined.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Un Execution Algorithm può gestire più ordini di ogni tipo. In questo caso, vari limit sell orders sono definiti.",
+                    "updated": 1618065545085,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Select Configure on the menu of the algorithm and reflect on the implications of this definition!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Seleziona Configure dal menu dell'algoritmo e rifletti sulle implicazioni di questa definizione!",
+                    "updated": 1618065569642,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Both the open stage, where you define how to take a position, and the close stage, where you define how to exit, may feature multiple execution algorithms, each of them handling a certain amount of capital.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Sia l'Open Stage, dove definisci come aprire una posizione, che il Close Stage, dove invece definisci come chiuderla, possono contenere diversi Execution Algorithm, ognuno dei quali gestisce un certo capitale.",
+                    "updated": 1618065707647,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

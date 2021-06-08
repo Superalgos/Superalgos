@@ -1,0 +1,84 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 89,
+    "type": "Tutorial Step - Enough Chit Chat!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "production-trading-tasks"
+        },
+        "text": "Ok, my friend... It's time for the real deal! Are you ready for a little Live Trading Session?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ok, amico mio...è ora di entrare in azione! Sei pronto a una piccola Live Trading Session?",
+                "updated": 1618068381473,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'll help you with the three main requirements:",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ti aiuterò con i tre requisiti principali:",
+                    "updated": 1618068402523,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Check your parameters, in particular, decide how much capital you wish to assign to the session.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Controlla i parametri: in particolar modo decidi bene quanto capitale assegnare alla sessione",
+                    "updated": 1618068548173,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Set up an Exchange Account Key so that the app may access your account at the exchange.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prepara un Exchange Account Key: necessaria perchè l'app possa accedere al tuo account sull'exchange.",
+                    "updated": 1618068559526,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Ensure a live data feed, that is, the data mining operation with the indicators required by the Trading System must be running and up to date.",
+            "updated": 1610642474628,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Garantisci un live data feed: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
+                    "updated": 1618068565912,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going. You will at least learn how things work!",
+            "updated": 1622232287190,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se per un qualunque motivo non sei pronto a fare live trading, non preccuparti! Prosegui pure.",
+                    "updated": 1618068597799,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

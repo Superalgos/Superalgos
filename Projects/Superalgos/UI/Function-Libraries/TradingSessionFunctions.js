@@ -156,6 +156,7 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
+            'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)

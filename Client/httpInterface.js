@@ -545,7 +545,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 case 'Node': {
                                     extraFolder = schemaDocument.type.split(' ')[0]
                                     newFilepath = filePath + '/' + extraFolder
-                                    console.log(newFilepath)
                                     break
                                 }
                                 case 'Concept': {
@@ -555,7 +554,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             }
                             fileName = fileName + '.json'
-                            continue
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)

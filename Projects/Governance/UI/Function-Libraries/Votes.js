@@ -159,6 +159,7 @@ function newGovernanceFunctionLibraryVotes() {
                     case 'node': {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
                             let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                             if (percentage !== undefined && isNaN(percentage) !== true) {
                                 totalPercentage = totalPercentage + percentage
@@ -171,9 +172,9 @@ function newGovernanceFunctionLibraryVotes() {
                     case 'array': {
                         let propertyArray = node[property.name]
                         if (propertyArray !== undefined) {
-
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
+                                if (childNode === undefined) { continue }
                                 let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
@@ -206,6 +207,7 @@ function newGovernanceFunctionLibraryVotes() {
                     case 'node': {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
                             let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                             if (percentage === undefined || isNaN(percentage) === true) {
                                 percentage = defaultPercentage
@@ -219,6 +221,7 @@ function newGovernanceFunctionLibraryVotes() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
+                                if (childNode === undefined) { continue }
                                 let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage

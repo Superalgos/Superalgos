@@ -521,48 +521,41 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 case 'Topic': {
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
-
-                                    let extraDir = schemaDocument.topic.split(' ')[0]
-                                    createNewDir(filePath + '/' + extraDir)
-                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.topic)
-                                    newFilepath = filePath + '/' + extraFolder
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.topic)
                                     break
                                 }
                                 case 'Tutorial': {
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
-
-                                    let extraDir = schemaDocument.tutorial.split(' ')[0]
-                                    createNewDir(filePath + '/' + extraDir)
-                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.tutorial)
-                                    newFilepath = filePath + '/' + extraFolder
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.tutorial)
                                     break
                                 }
                                 case 'Review': {
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
-
-                                    let extraDir = schemaDocument.review.split(' ')[0]
-                                    createNewDir(filePath + '/' + extraDir)
-                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.review)
-                                    newFilepath = filePath + '/' + extraFolder
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.review)
                                     break
                                 }
                                 case 'Node': {
-                                    let extraDir = schemaDocument.type.substring(0, 1)
-                                    createNewDir(filePath + '/' + extraDir)
-                                    extraFolder = extraDir + '/' + schemaDocument.type.split(' ')[0]
-                                    newFilepath = filePath + '/' + extraFolder
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.type)
                                     break
                                 }
                                 case 'Concept': {
-                                    extraFolder = schemaDocument.type.substring(0, 1)
-                                    newFilepath = filePath + '/' + extraFolder
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.type)
                                     break
                                 }
                             }
 
+                            function createPrefixDirectories(filePath, schemaTextToUse) {
+                                let firstLetter = schemaTextToUse.substring(0, 1)
+                                createNewDir(filePath + '/' + firstLetter)
+                                let extraWord = schemaTextToUse.split(' ')[0]
+                                createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
+                                return filePath + '/' + firstLetter + '/' + extraWord + '/' + cleanFileName(schemaTextToUse)
+                            }
+
                             fileName = fileName + '.json'
+                            continue
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)
@@ -587,7 +580,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     //  console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                                 } else {
                                     if (updated === true) {
-                                       //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                        //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                     }
                                 }
                             } catch (err) {

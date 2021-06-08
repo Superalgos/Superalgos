@@ -1085,31 +1085,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'DirContent':
                 {
-                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    const fs = require('fs')
+                    const folderPath = unescape(requestParameters[2])
+                    const folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
 
-                    let icons = []
-                    let totalProjects = projects.length
-                    let projectCounter = 0
+                    getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
-                    for (let i = 0; i < projects.length; i++) {
-                        let project = projects[i]
-
-                        const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
-
-                        getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
-
-                        function onFilesReady(files) {
-                            for (let j = 0; j < files.length; j++) {
-                                let file = files[j]
-                                icons.push([project, file])
-                            }
-
-                            projectCounter++
-                            if (projectCounter === totalProjects) {
-                                respondWithContent(JSON.stringify(icons), httpResponse)
-                            }
-                        }
+                    function onFilesReady(files) {
+                        respondWithContent(JSON.stringify(files), httpResponse)
                     }
                 }
                 break
@@ -1117,8 +1099,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             case 'IconNames':
                 {
                     let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    const fs = require('fs')
-
                     let icons = []
                     let totalProjects = projects.length
                     let projectCounter = 0
@@ -1133,6 +1113,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         function onFilesReady(files) {
                             for (let j = 0; j < files.length; j++) {
                                 let file = files[j]
+                                for (let i = 0; i < 10; i++) {
+                                    file = file.replace('/', '\\')
+                                }
                                 icons.push([project, file])
                             }
 

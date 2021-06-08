@@ -505,68 +505,105 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         for (let i = 0; i < docsSchema.length; i++) {
                             let schemaDocument = docsSchema[i]
+                            /*
+                            For some type of schemas we will save the file at an extra
+                            folder derived from the document's type.
+                            */
+                            let extraFolder
                             let fileName = schemaDocument.type.toLowerCase()
                             for (let j = 0; j < 10; j++) {
                                 fileName = cleanFileName(fileName)
                             }
                             let pageNumber = '00' + schemaDocument.pageNumber
-
+                            let oldFilePath = filePath
+                            let newFilepath = filePath
                             switch (category) {
                                 case 'Topic': {
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    let extraDir = schemaDocument.topic.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.topic)
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Tutorial': {
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    let extraDir = schemaDocument.tutorial.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.tutorial)
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Review': {
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+
+                                    let extraDir = schemaDocument.review.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.review)
+                                    newFilepath = filePath + '/' + extraFolder
+                                    break
+                                }
+                                case 'Node': {
+                                    let extraDir = schemaDocument.type.substring(0, 1)
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + schemaDocument.type.split(' ')[0]
+                                    newFilepath = filePath + '/' + extraFolder
+                                    break
+                                }
+                                case 'Concept': {
+                                    extraFolder = schemaDocument.type.substring(0, 1)
+                                    newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                             }
-                            fileName = fileName + '.json'
 
-                            if (schemaDocument.deleted === true) {
-                                try {
-                                    fs.unlinkSync(filePath + '/' + fileName)
-                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
-                                } catch (err) {
-                                    noErrorsDuringSaving = false
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            fileName = fileName + '.json'
+                            // if (schemaDocument.deleted === true) {
+                            try {
+                                fs.unlinkSync(oldFilePath + '/' + fileName)
+                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
+                            } catch (err) {
+                                noErrorsDuringSaving = false
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            }
+                            //  } else {
+                            //      if (schemaDocument.updated === true || schemaDocument.created === true) {
+                            try {
+                                let created = schemaDocument.created
+                                let updated = schemaDocument.updated
+                                schemaDocument.updated = undefined
+                                schemaDocument.created = undefined
+                                let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                createNewDir(newFilepath)
+                                fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
+                                if (created === true) {
+                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
+                                } else {
+                                    if (updated === true) {
+                                        console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                    }
                                 }
-                            } else {
-                                if (schemaDocument.updated === true || schemaDocument.created === true) {
-                                    try {
-                                        let created = schemaDocument.created
-                                        let updated = schemaDocument.updated
-                                        schemaDocument.updated = undefined
-                                        schemaDocument.created = undefined
-                                        let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        try {
-                                            fs.mkdirSync(filePath)
-                                        } catch (err) {
-                                            if (err.message.indexOf('file already exists') < 0) {
-                                                throw (err)
-                                            }
-                                        }
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
-                                        if (created === true) {
-                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
-                                        } else {
-                                            if (updated === true) {
-                                                console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
-                                            }
-                                        }
-                                    } catch (err) {
-                                        noErrorsDuringSaving = false
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            } catch (err) {
+                                noErrorsDuringSaving = false
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                            }
+                            //    }
+                            //}
+
+                            function createNewDir(path) {
+                                try {
+                                    fs.mkdirSync(path)
+                                } catch (err) {
+                                    if (err.message.indexOf('file already exists') < 0) {
+                                        throw (err)
                                     }
                                 }
                             }
@@ -1531,17 +1568,32 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         break
                     }
                 }
+                getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                function onFilesReady(files) {
 
-                let schemaArray = []
-                let fileList = fs.readdirSync(filePath + '/' + folder)
-                for (let k = 0; k < fileList.length; k++) {
-                    let name = fileList[k]
-                    let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                    let schemaDocument = JSON.parse(fileContent)
-                    schemaArray.push(schemaDocument)
+                    let schemaArray = []
+                    //                    let fileList = fs.readdirSync(filePath + '/' + folder)
+                    for (let k = 0; k < files.length; k++) {
+                        let name = files[k]
+                        let nameSplitted = name.split(folder)
+                        let fileName = nameSplitted[1]
+                        for (let i = 0; i < 10; i++) {
+                            fileName = fileName.replace('\\', '/')
+                        }
+                        let fileToRead = filePath + folder + fileName
+
+                        let fileContent = fs.readFileSync(fileToRead)
+                        let schemaDocument = JSON.parse(fileContent)
+                        schemaArray.push(schemaDocument)
+                    }
+                    let schema = JSON.stringify(schemaArray)
+                    respondWithContent(schema, httpResponse)
                 }
-                let schema = JSON.stringify(schemaArray)
-                respondWithContent(schema, httpResponse)
+
+                // console.log(filePath + '/' + folder)
+
+
+
             } catch (err) {
                 if (err.message.indexOf('no such file or directory') < 0) {
                     console.log('Could not send Schema:', filePath, schemaType)
@@ -1752,7 +1804,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 callback(pathAndNames)
             })
-            .catch(e => console.error(e));
+            .catch(e => {
+                callback([])
+            });
 
         async function getFiles(dir) {
             const subdirs = await readdir(dir);

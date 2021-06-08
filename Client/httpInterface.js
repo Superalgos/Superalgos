@@ -522,7 +522,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.topic)
+                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.topic)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
@@ -530,7 +532,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.tutorial)
+                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.tutorial)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
@@ -538,12 +542,16 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
 
-                                    extraFolder = schemaDocument.type.split(' ')[0] + '/' + cleanFileName(schemaDocument.review)
+                                    let extraDir = schemaDocument.type.split(' ')[0]
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + cleanFileName(schemaDocument.review)
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
                                 case 'Node': {
-                                    extraFolder = schemaDocument.type.substring(0, 1) + '/' + schemaDocument.type.split(' ')[0]
+                                    let extraDir = schemaDocument.type.substring(0, 1)
+                                    createNewDir(filePath + '/' + extraDir)
+                                    extraFolder = extraDir + '/' + schemaDocument.type.split(' ')[0]
                                     newFilepath = filePath + '/' + extraFolder
                                     break
                                 }
@@ -553,14 +561,16 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     break
                                 }
                             }
+                            console.log(newFilepath)
+                            continue
                             fileName = fileName + '.json'
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)
-                                console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
+                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
                             } catch (err) {
                                 noErrorsDuringSaving = false
-                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
                                 console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
                                 console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                             }
@@ -572,13 +582,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 schemaDocument.updated = undefined
                                 schemaDocument.created = undefined
                                 let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                try {
-                                    fs.mkdirSync(newFilepath)
-                                } catch (err) {
-                                    if (err.message.indexOf('file already exists') < 0) {
-                                        throw (err)
-                                    }
-                                }
+                                createNewDir(newFilepath)
                                 fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                 if (created === true) {
                                     console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
@@ -589,11 +593,21 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 }
                             } catch (err) {
                                 noErrorsDuringSaving = false
-                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
+                                console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
                                 console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
                             }
                             //    }
                             //}
+
+                            function createNewDir(path) {
+                                try {
+                                    fs.mkdirSync(path)
+                                } catch (err) {
+                                    if (err.message.indexOf('file already exists') < 0) {
+                                        throw (err)
+                                    }
+                                }
+                            }
                         }
 
                         return noErrorsDuringSaving

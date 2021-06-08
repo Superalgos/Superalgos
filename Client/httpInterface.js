@@ -555,7 +555,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             fileName = fileName + '.json'
-                            continue
+                            
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)

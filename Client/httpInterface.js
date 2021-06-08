@@ -566,7 +566,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             // if (schemaDocument.deleted === true) {
                             try {
                                 fs.unlinkSync(oldFilePath + '/' + fileName)
-                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
+                                //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
                             } catch (err) {
                                 noErrorsDuringSaving = false
                                 console.log('[ERROR] httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
@@ -584,10 +584,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 createNewDir(newFilepath)
                                 fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                 if (created === true) {
-                                   // console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
+                                    //  console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                                 } else {
                                     if (updated === true) {
-                                        //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
+                                       //console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                     }
                                 }
                             } catch (err) {
@@ -1114,10 +1114,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 icons.push([project, file])
                             }
 
-                                projectCounter++
-                                if (projectCounter === totalProjects) {
-                                    respondWithContent(JSON.stringify(icons), httpResponse)
-                                }
+                            projectCounter++
+                            if (projectCounter === totalProjects) {
+                                respondWithContent(JSON.stringify(icons), httpResponse)
                             }
                         }
                     }
@@ -1133,13 +1132,10 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
-                        if (err) {
-                            console.log('[ERROR] Error reading PluginFileNames.', err.stack)
-                            respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
-                            return
-                        } else {
-                            respondWithContent(JSON.stringify(files), httpResponse)
+                        if (files === undefined) {
+                            files = []
                         }
+                        respondWithContent(JSON.stringify(files), httpResponse)
                     })
                 }
                 break

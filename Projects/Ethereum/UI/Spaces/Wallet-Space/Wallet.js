@@ -12,6 +12,7 @@ function newEthereumWalletSpace() {
 
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.isDraggeable = false
 
     let lastTryToReconnectDatetime
 
@@ -148,6 +149,8 @@ function newEthereumWalletSpace() {
     }
 
     function getContainer(point) {
+
+        return undefined // since this space does not draw anything we return here
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             thisObject.container.space = MODULE_NAME

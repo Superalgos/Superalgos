@@ -380,7 +380,7 @@ function newCanvas() {
             return
         }
         /* When the Docs is Visible, we do not process key down events of the Designer Space. */
-        if (UI.projects.education.spaces.docsSpace.isVisible === true) {
+        if (UI.projects.education !== undefined && UI.projects.education.spaces.docsSpace.isVisible === true) {
             return
         }
         thisObject.mouse.event = event
@@ -388,8 +388,8 @@ function newCanvas() {
 
         checkMediaRecording(event)
 
-        event.x = thisObject.mouse.position.x 
-        event.y = thisObject.mouse.position.y 
+        event.x = thisObject.mouse.position.x
+        event.y = thisObject.mouse.position.y
 
         UI.projects.superalgos.spaces.chartingSpace.onKeyPressed(event)
 
@@ -716,10 +716,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseDownMap.get(j)
@@ -819,10 +824,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
@@ -930,10 +940,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseOverMap.get(j)
@@ -987,10 +1002,15 @@ function newCanvas() {
             and we are going to query each space to see if they have the container that is at
             the mouse position. We will order firt the spaces by the sequence order defined
             at the project schema specifically for this mouse event.
+
+            The order of the projects for events evaluations has intentionally been inverted,
+            because the latest project is drwan the last, on top of the others, that means that
+            events should belong to the last first.
             */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
 
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = projectInstance.events.onMouseWheelMap.get(j)

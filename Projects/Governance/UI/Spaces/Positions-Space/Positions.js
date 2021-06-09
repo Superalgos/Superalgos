@@ -12,8 +12,7 @@ function newGovernancePositionsSpace() {
 
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
-
-    let lastTryToReconnectDatetime
+    thisObject.container.isDraggeable = false
 
     return thisObject
 
@@ -31,6 +30,8 @@ function newGovernancePositionsSpace() {
     }
 
     function getContainer(point) {
+
+        return undefined // since this space does not draw anything we return here
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             thisObject.container.space = MODULE_NAME

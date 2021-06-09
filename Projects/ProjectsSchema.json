@@ -225,7 +225,7 @@
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 5,
+                    "onMouseClickIndex": 4,
                     "onMouseDownIndex": 6
                 },
                 {
@@ -237,7 +237,7 @@
                     "animationPhysicsIndex": 5,
                     "animationDrawIndex": 4,
                     "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 2,
+                    "onMouseClickIndex": 1,
                     "onMouseDownIndex": 2
                 },
                 {
@@ -250,7 +250,7 @@
                     "animationDrawIndex": 6,
                     "onMouseWheelIndex": 3,
                     "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 3,
+                    "onMouseClickIndex": 2,
                     "onMouseDownIndex": 3
                 },
                 {
@@ -263,7 +263,7 @@
                     "animationDrawIndex": 2,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
-                    "onMouseClickIndex": 1,
+                    "onMouseClickIndex": 0,
                     "onMouseDownIndex": 1
                 },
                 {
@@ -276,7 +276,7 @@
                     "animationDrawIndex": 3,
                     "onMouseWheelIndex": 2,
                     "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 4,
+                    "onMouseClickIndex": 3,
                     "onMouseDownIndex": 4
                 },
                 {
@@ -288,8 +288,8 @@
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 6,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
                     "onMouseDownIndex": 5
                 },
                 {
@@ -302,7 +302,7 @@
                     "animationDrawIndex": 5,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 0,
+                    "onMouseClickIndex": 6,
                     "onMouseDownIndex": 0
                 },
                 {

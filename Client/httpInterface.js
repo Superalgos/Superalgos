@@ -1818,10 +1818,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 let pathAndNames = []
                 for (let i = 0; i < files.length; i++) {
                     let file = files[i]
-                    console.log('file', file)
-                    console.log('lastFolder', lastFolder)
                     let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
-                    console.log('pathName', pathName)
                     pathName = pathName.substring(1, pathName.length)
                     pathAndNames.push(pathName)
                 }

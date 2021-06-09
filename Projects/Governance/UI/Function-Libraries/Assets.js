@@ -15,7 +15,7 @@ function newGovernanceFunctionLibraryAssets() {
             node.payload.uiObject.setErrorMessage("folderPath Config Property undefined.")
             return
         }
-
+        node.payload.uiObject.setInfoMessage("Hold on while we install all the assets inside the this path: " + folderPath + ". This might take a minute or two.")
         httpRequest(undefined, 'DirContent' + '/' + folderPath, onResponse)
 
         function onResponse(err, data) {
@@ -24,11 +24,15 @@ function newGovernanceFunctionLibraryAssets() {
                 return
             }
             let filePathArray = JSON.parse(data)
+            let totalAssets = 0
             for (let i = 0; i < filePathArray.length; i++) {
                 let filePath = filePathArray[i]
+                if (filePath.indexOf('node_modules') >= 0) { continue }
                 let foldersArray = removeFirstFromArray(filePath.split('\\'))
+                totalAssets++
                 createNodesFromPath(node, foldersArray)
             }
+            node.payload.uiObject.setInfoMessage("A total of : " + totalAssets + " assets have been installed.")
         }
 
         function removeFirstFromArray(array) {

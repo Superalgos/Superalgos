@@ -49,11 +49,11 @@
         },
         {
             "style": "Json",
-            "text": "docs.goto Superalgos->Node->Task"
+            "text": "docs.goto Foundations->Node->Task"
         },
         {
             "style": "Json",
-            "text": "docs.goto Superalgos->Topic->Docs Text Style->Anchor 1",
+            "text": "docs.goto Foundations->Topic->Docs Text Style->Anchor 1",
             "updated": 1609158328191
         }
     ]

@@ -1,0 +1,47 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 10,
+    "type": "Tutorial Step - 1, 2, 3, Counting!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "trading-episode-counters"
+        },
+        "text": "Let's test the first Layer in the Trading Engine Layer Manager: \"Trading Episode Counters\".",
+        "updated": 1622541030903,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lass uns den ersten Layer im Trading Engine Layer Manager testen: \"Trading Episode Counters\".",
+                "updated": 1623012562920,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Turn the layer on and slide your mouse pointer over the chart, from the far left to the far right-hand side of your screen!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalte den Layer ein und fahre mit dem Mauszeiger über den Chart, von ganz links nach ganz rechts auf deinem Bildschirm!",
+                    "updated": 1623012556935,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "See what happens with the various counters on the hierarchy below... that is, Periods, Strategies, Positions, and so on! You should see something similar to what I show in the video on the next step...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schau dir an, was mit den verschiedenen Zählern in der Hierarchie darunter passiert... nämlich Periods, Strategy, Position, und so weiter! Du solltest etwas ähnliches sehen, wie ich es im Video im nächsten Schritt zeige…",
+                    "updated": 1623012613201,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

@@ -651,7 +651,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -666,7 +666,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -779,7 +779,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 } else {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Update Failed',
                                         anchor: undefined,
@@ -842,7 +842,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'Switching Branches - Current Branch Not Changed',
                                         anchor: undefined,

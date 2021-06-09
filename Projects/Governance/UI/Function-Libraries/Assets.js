@@ -9,7 +9,7 @@ function newGovernanceFunctionLibraryAssets() {
         node,
         rootNodes
     ) {
-        let folderPath = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'folderPath')
+        let folderPath = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'folderPath')
 
         if (folderPath === undefined || folderPath === "") {
             node.payload.uiObject.setErrorMessage("folderPath Config Property undefined.")
@@ -71,7 +71,7 @@ function newGovernanceFunctionLibraryAssets() {
                         case 'node': {
                             let childNode = node[property.name]
                             if (childNode !== undefined) {
-                                let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'codeName')
+                                let codeName = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'codeName')
                                 if (nextItem === codeName) {
                                     exist = true
                                     createNodesFromPath(childNode, pathArray)
@@ -85,7 +85,7 @@ function newGovernanceFunctionLibraryAssets() {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
                                     if (childNode !== undefined) {
-                                        let codeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'codeName')
+                                        let codeName = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'codeName')
                                         if (nextItem === codeName) {
                                             exist = true
                                             createNodesFromPath(childNode, pathArray)
@@ -103,7 +103,7 @@ function newGovernanceFunctionLibraryAssets() {
                 /*
                 The last element of the path is an Asset.
                 */
-                let childNode = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
+                let childNode = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
                 childNode.config = JSON.stringify({ codeName: nextItem })
                 childNode.name = nextItem
 
@@ -111,7 +111,7 @@ function newGovernanceFunctionLibraryAssets() {
                 /*
                 All previous elements are an Asset Class.
                 */
-                let childNode = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset Class')
+                let childNode = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset Class')
                 childNode.config = JSON.stringify({ codeName: nextItem })
                 childNode.name = nextItem
                 createNodesFromPath(childNode, pathArray)

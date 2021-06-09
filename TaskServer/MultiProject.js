@@ -101,7 +101,7 @@ exports.newMultiProject = function () {
             }
         }
 
-        TS.projects.superalgos.globals.taskConstants.PROJECTS_SCHEMA = PROJECTS_SCHEMA
+        TS.projects.foundations.globals.taskConstants.PROJECTS_SCHEMA = PROJECTS_SCHEMA
 
     }
 }

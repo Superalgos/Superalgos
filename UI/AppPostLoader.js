@@ -229,7 +229,7 @@ function newAppPostLoader() {
         window.addEventListener('keydown', window.manageBackRefresh)
 
         function saveWorkspace() {
-            UI.projects.superalgos.spaces.designSpace.workspace.save()
+            UI.projects.foundations.spaces.designSpace.workspace.save()
         }
     }
 }

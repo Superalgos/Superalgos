@@ -105,7 +105,7 @@ function newGovernanceFunctionLibraryVotes() {
     }
 
     function distributeForProfile(userProfile) {
-        let votes = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
+        let votes = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(userProfile.payload, 'tokens')
         distributeVotes(userProfile, votes)
     }
 
@@ -160,7 +160,7 @@ function newGovernanceFunctionLibraryVotes() {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
                             if (childNode === undefined) { continue }
-                            let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                             if (percentage !== undefined && isNaN(percentage) !== true) {
                                 totalPercentage = totalPercentage + percentage
                             } else {
@@ -175,7 +175,7 @@ function newGovernanceFunctionLibraryVotes() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
-                                let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -208,7 +208,7 @@ function newGovernanceFunctionLibraryVotes() {
                         if (node.type === 'User Profile' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
                             if (childNode === undefined) { continue }
-                            let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                             if (percentage === undefined || isNaN(percentage) === true) {
                                 percentage = defaultPercentage
                             }
@@ -222,7 +222,7 @@ function newGovernanceFunctionLibraryVotes() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
-                                let percentage = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }

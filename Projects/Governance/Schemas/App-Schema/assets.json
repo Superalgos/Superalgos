@@ -2,6 +2,23 @@
     "type": "Assets",
     "menuItems": [
         {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Install Assets",
+            "actionProject": "Governance", 
+            "label": "Install Assets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
@@ -26,6 +43,12 @@
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"folderPath\": \"\"\n}"
+    },
     "childrenNodesProperties": [
         {
             "name": "assetClasses",

@@ -9,6 +9,16 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Install Assets",
+            "actionProject": "Governance", 
+            "label": "Install Assets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Add UI Object",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
@@ -34,7 +44,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\n\"folderPath\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 2,

@@ -18,9 +18,11 @@ function newGovernanceActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Create Wallet Account': {
-                UI.projects.ethereum.functionLibraries.accounts.createWalletAccount(action.node)
-                break
+            case 'Install Assets': {
+                {
+                    UI.projects.governance.functionLibraries.assets.installAssets(action.node, action.rootNodes)
+                    break
+                }
             }
         }
     }

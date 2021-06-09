@@ -969,7 +969,7 @@
             "spaces": []
         },
         "TS": {
-            "globals":[],
+            "globals": [],
             "functionLibraries": [],
             "utilities": [],
             "botModules": [
@@ -987,14 +987,13 @@
         "name": "Governance",
         "propertyName": "governance",
         "UI": {
-            "globals": [
-                {
-                    "name": "ChainIds",
-                    "propertyName": "chainIds",
-                    "functionName": "newEthereumGlobalsChainIds"
-                }
-            ],
+            "globals": [],
             "functionLibraries": [
+                {
+                    "name": "Assets",
+                    "propertyName": "assets",
+                    "functionName": "newGovernanceFunctionLibraryAssets"
+                },
                 {
                     "name": "Votes",
                     "propertyName": "votes",
@@ -1021,13 +1020,7 @@
                     "functionName": "newGovernanceFunctionLibraryDistributionProcess"
                 }
             ],
-            "utilities": [
-                {
-                    "name": "Route To Client",
-                    "propertyName": "routeToClient",
-                    "functionName": "newEthereumUtilitiesRouteToClient"
-                }
-            ],
+            "utilities": [],
             "spaces": [
                 {
                     "name": "User Profile Space",

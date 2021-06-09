@@ -1085,12 +1085,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
             case 'DirContent':
                 {
-                    const folderPath = unescape(requestParameters[2])
+                    let folderPath = unescape(requestParameters[2])
+                    if (requestParameters[3] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[5]
+                    }
+
                     const folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
 
                     getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
                     function onFilesReady(files) {
+                        console.log(files)
                         respondWithContent(JSON.stringify(files), httpResponse)
                     }
                 }
@@ -1805,11 +1818,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 let pathAndNames = []
                 for (let i = 0; i < files.length; i++) {
                     let file = files[i]
-                    let filesSplitted = file.split(lastFolder)
-                    let pathName = filesSplitted[1]
+                    console.log('file', file)
+                    console.log('lastFolder', lastFolder)
+                    let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
+                    console.log('pathName', pathName)
                     pathName = pathName.substring(1, pathName.length)
                     pathAndNames.push(pathName)
-                    console.log(pathName)
                 }
                 callback(pathAndNames)
             })

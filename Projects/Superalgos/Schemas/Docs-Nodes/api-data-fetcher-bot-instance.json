@@ -1,0 +1,14 @@
+{
+    "type": "API Data Fetcher Bot Instance",
+    "definition": {
+        "text": "This node represents an instance of an API Data Fetcher Bot. ",
+        "updated": 1621023247380
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Please see the API Data Fetcher Bot page for a more indepth description of how this bot works.",
+            "updated": 1622896001076
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "4",
+    "type": "MACD - Pluvtech's Version",
+    "definition": {
+        "text": "Moving average convergence divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security’s price.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "MACD - (investopedia)->www.investopedia.com/terms/m/macd.asp"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

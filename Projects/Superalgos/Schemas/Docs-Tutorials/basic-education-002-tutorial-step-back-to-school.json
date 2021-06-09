@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ho sentito che il mio amico, Welcome Tutorial, ti ha fatto fare un giro e stupito con qualche banale trucchetto...che esibizionista!",
-                "updated": 1619458689320
+                "updated": 1619458689320,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Beh, ora è il momento di fare sul serio!",
-                    "updated": 1619458717851
+                    "updated": 1619458717851,
+                    "style": "Note"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Imparare Superalgos è impegantivo! Non perchè sia difficile, ma perchè il sistema è vasto, molto flessibile e costruito secondo un nuovo paradigma che non è scontato all'inizio...",
-                    "updated": 1619458791004
+                    "updated": 1619458791004,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Ma non preoccuparti! Se presti attenzione e segui i tutorial, imparerai tutto in un battibaleno! In ogni caso, sappi che molte persone rileggono i tutorial più di una volta!",
-                    "updated": 1619458852073
+                    "updated": 1619458852073,
+                    "style": "Callout"
                 }
             ]
         }

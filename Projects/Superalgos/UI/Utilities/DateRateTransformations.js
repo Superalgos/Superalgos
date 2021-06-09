@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesDateRateTransformations() {
-    thisObject = {
+    let thisObject = {
         getDateFromPointAtBrowserCanvas: getDateFromPointAtBrowserCanvas,
         getDateFromPointAtChartsSpace: getDateFromPointAtChartsSpace,
         getDateFromPointAtContainer: getDateFromPointAtContainer,

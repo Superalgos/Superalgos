@@ -1,0 +1,234 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "17",
+    "type": "Problems Saving The Workspace or Plugins",
+    "definition": {
+        "text": "Are you having problems saving your Workspace? Did your changes in the workspace dissapear? Was the workspace reset? Or you believe the changes were lost? Are you confused on how the system handles the persistance of changes? Is your Workspace not saving your changes?",
+        "updated": 1620849519292
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Don't panic. Here you will find everything you need to know on how the system deals with persisting changes.",
+            "updated": 1620845748071
+        },
+        {
+            "style": "Text",
+            "text": "There are 3 concepts you will need to understand in order to learn how we handle changes and how we save them.",
+            "updated": 1620846415625
+        },
+        {
+            "style": "Title",
+            "text": "Worksapces"
+        },
+        {
+            "style": "Text",
+            "text": "A workspace is a collection of data structures represented by nodes at the designer. They are stored at a single file.",
+            "updated": 1620846397585
+        },
+        {
+            "style": "Title",
+            "text": "Plugins"
+        },
+        {
+            "style": "Text",
+            "text": "Plugins are data structures located in files, which were developed by contributors and shared with the community as a plugin. The Plugins files are in folder inside the Projects folder. ",
+            "updated": 1620846521820
+        },
+        {
+            "style": "Title",
+            "text": "Plugins Workspaces"
+        },
+        {
+            "style": "Text",
+            "text": "These are a special type of plugins, since they are at the same time a workspace. When we talk about Plugins, we refer to non-workspaces plugins.",
+            "updated": 1620846458077
+        },
+        {
+            "style": "Title",
+            "text": "How does all of this works?"
+        },
+        {
+            "style": "Text",
+            "text": "We will explore this at the following section.",
+            "updated": 1620846805227
+        },
+        {
+            "style": "Subtitle",
+            "text": "Which workspace is loaded at startup?"
+        },
+        {
+            "style": "Text",
+            "text": "Everytime you run Superalgos the system will try to load the latest loaded workspace. It remembers the last workspace because it stores at the browser's local storage the name of the lastest succesfully loaded workspace."
+        },
+        {
+            "style": "Note",
+            "text": "This means that if you want Superalgos to forget the latesst loaded workspace you can do that by deleting the local storage variable at the browser.",
+            "updated": 1620846746582
+        },
+        {
+            "style": "Subtitle",
+            "text": "What happens when there is no previous loaded workspace?",
+            "updated": 1620846920729
+        },
+        {
+            "style": "Text",
+            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the'default'workspace, which is the Getting Started Plugin Workspace.",
+            "updated": 1620846971983
+        },
+        {
+            "style": "Note",
+            "text": "This means that if you delete the latest workspace file from the My Workspaces folder, you will force the system to laod the defual workspace. "
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I create a new workspace?",
+            "updated": 1620847261059
+        },
+        {
+            "style": "Text",
+            "text": "The first time you run Superalgos it will load the Getting Started Plugin Workspace. The system will try to save the loaded workspace every minute. But Plugin Workspaces can no be replaced by the one loaded, instead a copy of it is created at the My Workspaces folder with the name of the node of type Workspace, which represents the whole workspace. The way to create a new workspace is by renaming the workspace node and saving after that. "
+        },
+        {
+            "style": "Note",
+            "text": "To save you can just wait one minute for the system to auto save or you can hit CTRL + SHIFT + S"
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I access a modified / renamed workspace?",
+            "updated": 1620847383290
+        },
+        {
+            "style": "Text",
+            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also sacan all the My Workspaces folder and add those files to the bottom of the left side panel."
+        },
+        {
+            "style": "Note",
+            "text": "To access a saved or renames workspace open the left side panel and scroll to the botton, after the list of Plugin Worksapces finishes, you will see the ones saved / renamed by you."
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I recover the system if my latest workspace is not loading?",
+            "updated": 1620847636703
+        },
+        {
+            "style": "Text",
+            "text": "It might happen that the file got corrupted, or the system version changed and is not recognizing your file format. What you need to do is to move your workspace file out of the My Workspaces folder so that the system loads the default workspace, which will be the Getting Started Plugin Workspace. ",
+            "updated": 1620847650616
+        },
+        {
+            "style": "Note",
+            "text": "Then you can check with a text editor your latest workspace file or read the README file of the new version of the software for instructions on how to migrate your workspace to the latest version."
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I recover the system if I made a change at the workspace and now it does not run data mining, backtesting or trading tasks?",
+            "updated": 1620847825416
+        },
+        {
+            "style": "Text",
+            "text": "If you are using a Plugin Workspace, the way to revover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Worksapces folder overwritting any changes you made. From there all tasks should run well."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Is it there an auto save feature?",
+            "updated": 1620847897572
+        },
+        {
+            "style": "Text",
+            "text": "Yes there is, and it is always on."
+        },
+        {
+            "style": "Note",
+            "text": "The system will try to auto save the current loaded workspace every minute or so. If it can, it briefly displays a note at the slider bar."
+        },
+        {
+            "style": "Success",
+            "text": "You can manually save the workspace at any time with CTRL + SHIFT + S",
+            "updated": 1620847931560
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I create backups of my Workspace?",
+            "updated": 1620847976159
+        },
+        {
+            "style": "Text",
+            "text": "If you change the name of the Workspace node (which represents the Workspace), the next time you save it, or it is auto saved, will be with the new name, not deleting the previous file."
+        },
+        {
+            "style": "Success",
+            "text": "That menas that for instance, if you add version 1, 2, 3 to the end of the workspace node's name, you will be creating several backups of your works.",
+            "updated": 1620848010694
+        },
+        {
+            "style": "Success",
+            "text": "Another technique is to use the Backup icon at the workspace node.",
+            "updated": 1620848060973
+        },
+        {
+            "style": "Subtitle",
+            "text": "How do I add plugins to my worksapce?",
+            "updated": 1620848171711
+        },
+        {
+            "style": "Text",
+            "text": "To add plugins you need to set them up at the Plugins hierarchy."
+        },
+        {
+            "style": "Text",
+            "text": "In the workspace there are 2 types of hierarchies:",
+            "updated": 1620848235418
+        },
+        {
+            "style": "List",
+            "text": "a) Plugins: like for example Data Mines, Trading Systems, and others.",
+            "updated": 1620848280450
+        },
+        {
+            "style": "List",
+            "text": "b) Not Plugins: like the Network, Crypto Ecosystem and other.",
+            "updated": 1620848288818
+        },
+        {
+            "style": "Success",
+            "text": "Plugins within the workspace are recognized because the ring sorrounding the head of the hiererchy is closed. Not Plugins have that ring with openings.",
+            "updated": 1620848300738
+        },
+        {
+            "style": "Subtitle",
+            "text": "Why my changes were not saved?"
+        },
+        {
+            "style": "Text",
+            "text": "Maybe because you made changes to a Plugin."
+        },
+        {
+            "style": "Important",
+            "text": "Changes to Plugins are not saved at the workspace. If yo want a change you make to a Plugin loaded into your workspace to be persisted you need to generate a backup of that plugin (with the Backup icon) and save it at the plugins folder. If you replace the current plugin file then your changes will be loaded next time you load the workspace that contains that plugin; if you save it with a different name then you will need to lset them up at the workspace using the Plugins hierarchy.",
+            "updated": 1620848508320
+        },
+        {
+            "style": "Subtitle",
+            "text": "How can I modify a Plugin and have the changes persisted?",
+            "updated": 1620848582919
+        },
+        {
+            "style": "Text",
+            "text": "There are two ways. One is by backing up the modified Plugin and replacing the original Plugin file with the modified one. The second way is to incorporating the Plugin as non-plugin data structure.",
+            "updated": 1620848879457
+        },
+        {
+            "style": "Important",
+            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, bacuase it was not loaded as part of the mechanism defined by the Pluigins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remeber you tell the system which plugins to load at the Plugins Hiererchy."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

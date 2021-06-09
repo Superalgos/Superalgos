@@ -1,0 +1,29 @@
+{
+    "type": "Project Data Products",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "alternativeIcons": "Use Reference Parent Parent",
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Project Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Data Mines Data->"
+    },
+    "propertyNameAtParent": "projectDataProducts",
+    "childrenNodesProperties": [],
+    "icon": "bitcoin"
+}

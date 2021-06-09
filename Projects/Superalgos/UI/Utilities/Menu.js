@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesMenu() {
-    thisObject = {
+    let thisObject = {
         menuClickOfNodeArray: menuClickOfNodeArray,
         menuClick: menuClick
     }

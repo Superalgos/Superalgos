@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryTaskFunctions() {
-    thisObject = {
+    let thisObject = {
         syncronizeTaskWithBackEnd: syncronizeTaskWithBackEnd,
 
         runTask: runTask,
@@ -109,10 +109,11 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
 
         let taskLightingPath = '->Task->' +
             'Sensor Bot Instance->' +
+            'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->Time Frames Filter->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Sensor Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Sensor Process Instance->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -127,13 +128,17 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
-            'Output Dataset->Dataset Definition->Product Definition->' +
+            'Output Dataset->Dataset Definition->Product Definition->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->' +
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
             'Process Dependencies->' +
             'Status Dependency->Status Report->Process Definition->' +
             'Data Mine Data Dependencies->Bot Data Dependencies->' +
             'Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->Data Dependency Folder->' +
             'Data Dependency->Dataset Definition->Product Definition->' +
             'Record Definition->Record Property->Record Formula->' +
+            'API Response Field Reference->' +
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->' +
+            'API Response Schema->API Query Response->API Query Responses->API Endpoint->' +
             'Data Building Procedure->' +
             'Procedure Initialization->Procedure Javascript Code->' +
             'Procedure Loop->Procedure Javascript Code->' +
@@ -144,11 +149,15 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Execution Finished Event->' +
             'Execution Started Event->Execution Finished Event->Process Definition->' +
             'Sensor Bot->' +
-            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
+            'API Data Fetcher Bot->' +
             'Indicator Bot->' +
             'Trading Bot->' +
             'Learning Bot->' +
-            'Data Mine->Trading Mine->Learning Mine->'
+            'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
+            'Data Mine->Trading Mine->Learning Mine->' +
+            'API Map Reference->' +
+            'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
 
         let taskDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -158,7 +167,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Project Data Products->Project Trading Products->Project Learning Products->' +
             'Exchange Data Products->Exchange Trading Products->Exchange Learning Products->' +
             'Market Data Products->Market Trading Products->Market Learning Products->' +
-            'Market->Market Base Asset->Market Quoted Asset->Asset->' + 
+            'Market->Market Base Asset->Market Quoted Asset->Asset->' +
             'Exchange Markets->Crypto Exchange->' +
             'Data Mine Products->Bot Products->' +
             'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
@@ -169,9 +178,10 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             'Market Data Tasks->Market Trading Tasks->Market Learning Tasks->Market->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->' +
             'Task Manager->Task->' +
-            'Indicator Bot Instance->Sensor Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
-            'Indicator Process Instance->Sensor Process Instance->Trading Process Instance->Learning Process Instance->' +
+            'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Learning Bot Instance->' +
+            'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Back Learning Session->Live Learning Session->' +
+            'API Map Reference->' +
             'Market->' +
             'Process Definition->'
 
@@ -186,7 +196,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             let project = {
                 name: projectDefinition.name,
                 schema: SCHEMAS_BY_PROJECT.get(projectDefinition.name).array.appSchema
-            } 
+            }
             projectSchemas.push(project)
         }
         let event = {
@@ -744,6 +754,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
             let mine = node.payload.referenceParent
 
             addTasksForBotArray(mine.sensorBots)
+            addTasksForBotArray(mine.apiDataFetcherBots)
             addTasksForBotArray(mine.indicatorBots)
             addTasksForBotArray(mine.tradingBots)
             addTasksForBotArray(mine.learningBots)
@@ -760,6 +771,15 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                             let task = addTask(taskManager)
 
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Sensor Bot Instance')
+                            botInstance.name = bot.name
+
+                            addProcessInstance(task, bot, botInstance)
+                            break
+                        }
+                        case 'API Data Fetcher Bot': {
+                            let task = addTask(taskManager)
+
+                            botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'API Data Fetcher Bot Instance')
                             botInstance.name = bot.name
 
                             addProcessInstance(task, bot, botInstance)
@@ -784,13 +804,13 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                             break
                         }
                         case 'Learning Bot': {
-                            let task 
+                            let task
                             /*
                             For Learning Bots we will add two Tasks, each one with a different
                             Session Type.
                             */
                             task = addTask(taskManager)
-                            task.name = 'Back '  + task.name 
+                            task.name = 'Back ' + task.name
 
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Back ' + bot.name
@@ -798,7 +818,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                             addProcessInstance(task, bot, botInstance, 'Back Learning Session')
 
                             task = addTask(taskManager)
-                            task.name = 'Live '  + task.name 
+                            task.name = 'Live ' + task.name
 
                             botInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(task, 'Learning Bot Instance')
                             botInstance.name = 'Live ' + bot.name
@@ -808,7 +828,7 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                         }
                     }
 
-                    function addTask(taskManager){
+                    function addTask(taskManager) {
                         let task = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(taskManager, 'Task')
 
                         if (systemNode !== undefined) {
@@ -829,6 +849,26 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                     processInstance.payload.referenceParent = process
                                     break
                                 }
+                                case 'API Data Fetcher Bot': {
+                                    processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'API Data Fetcher Process Instance')
+                                    processInstance.payload.referenceParent = process
+
+                                    /*
+                                    We will locate and reference the API MAP that has the same codeName than the data mine.
+                                    */
+                                    let apiMaps = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
+                                    for (let i = 0; i < apiMaps.length; i++) {
+                                        let apiMap = apiMaps[i]
+                                        let apiMapCodeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(apiMap.payload, 'codeName')
+                                        let mineCodeName = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(mine.payload, 'codeName')
+
+                                        if (apiMapCodeName === mineCodeName) {
+                                            processInstance.apiMapReference.payload.referenceParent = apiMap
+                                            break
+                                        }
+                                    }
+                                    break
+                                }
                                 case 'Indicator Bot': {
                                     processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Indicator Process Instance')
                                     processInstance.payload.referenceParent = process
@@ -837,17 +877,17 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                 case 'Trading Bot': {
                                     processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Trading Process Instance')
                                     processInstance.payload.referenceParent = process
-    
+
                                     if (node.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload === undefined) { return }
                                     if (node.payload.parentNode.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload.parentNode.payload === undefined) { return }
                                     if (node.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
                                     if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) { return }
-    
+
                                     let environment = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
                                     let session
-    
+
                                     switch (environment.type) {
                                         case 'Testing Trading Tasks': {
                                             addSession('Backtesting Session')
@@ -859,14 +899,14 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                         }
                                     }
                                     break
-    
+
                                     function addSession(sessionType) {
                                         session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")
                                         session.config = JSON.stringify(config)
-    
+
                                         for (let m = 0; m < rootNodes.length; m++) {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Trading Engine' && rootNode.isPlugin === true) {
@@ -880,18 +920,18 @@ function newSuperalgosFunctionLibraryTaskFunctions() {
                                 case 'Learning Bot': {
                                     processInstance = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(botInstance, 'Learning Process Instance')
                                     processInstance.payload.referenceParent = process
-    
+
                                     let session
                                     addSession(sessionType)
                                     break
-    
+
                                     function addSession(sessionType) {
                                         session = UI.projects.superalgos.functionLibraries.uiObjectsFromNodes.addUIObject(processInstance, sessionType)
                                         session.name = task.name
                                         let config = JSON.parse(session.config)
                                         config.folderName = session.name.split(" ").join("-")
                                         session.config = JSON.stringify(config)
-    
+
                                         for (let m = 0; m < rootNodes.length; m++) {
                                             let rootNode = rootNodes[m]
                                             if (rootNode.type === 'Learning Engine' && rootNode.isPlugin === true) {

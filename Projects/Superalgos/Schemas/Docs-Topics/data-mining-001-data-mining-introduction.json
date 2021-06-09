@@ -1,0 +1,46 @@
+{
+    "topic": "Data Mining",
+    "pageNumber": 1,
+    "type": "Data Mining - Introduction",
+    "definition": {
+        "text": "Data Mining in Superalgos means extracting data from external sources and processing that data in order to have it ready for consumption by trading strategies.",
+        "updated": 1622200589433
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos offers an extensive set of Data Mining tools. These tools allow users to fetch data from external sources, process that data into more elaborate datasets, plot the datasets within the Charting Space, feed ML Bot's models, and ultimately consume the data within their trading strategies.",
+            "updated": 1622200769538
+        },
+        {
+            "style": "Title",
+            "text": "The Big Picture",
+            "updated": 1622188702833
+        },
+        {
+            "style": "Text",
+            "text": "All of the data inside the Superalgos system has an origin somewhere outside the system, usually somewhere on the Internet. There are currently 3 ways to bring data into the system:",
+            "updated": 1622200785987
+        },
+        {
+            "style": "List",
+            "text": "By coding an Algorithm: with this method, users who have developer skills can extract data from any source imaginable. The way to do it is by implementing a new process within the already existing Sensor Bot. In other words, the sensor bot allows users to write code that extracts data from different places outside of the system. This method is ideal for when it is not possible to use the second method listed below. An example of such algorithms is the Historic-OHLCVs which uses the CCXT open source library to extract one minute candles from any exchange supported by that library.",
+            "updated": 1622201355726
+        },
+        {
+            "style": "List",
+            "text": "Without coding an Algorithm: (available since Beta 10) via the API Data Fetcher Bot. This method involves designing an API Map which is later feed to an API Data Fetcher Bot at runtime.  From there it can fetch data from APIs without needing the user to write a single line of code.",
+            "updated": 1622201515378
+        },
+        {
+            "style": "List",
+            "text": "External processing: it is also possible to gather data and process it outside the system. Once data has been processed in this manner, it can be put in the right folder, with the right format, and the system will pick it up from there. This use case is not the most popular, but it is a valid possibility.",
+            "updated": 1622201656015
+        },
+        {
+            "style": "Text",
+            "text": "Once data is within the system, it is then processed for different reasons by Indicator Bots. Some of the processed data might be plotted, some might feed machine learning bots, and some might be consumed by a Trading Strategy.",
+            "updated": 1622201764822
+        }
+    ]
+}

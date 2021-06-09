@@ -12,19 +12,28 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Make sure the following layers are turned on in each of the layer managers:"
+            "text": "Turn on the following layers in each of the layer managers (fell free to close all plotter panels):",
+            "updated": 1622549690952
         },
         {
             "style": "List",
-            "text": "Masters Data: Candles and Bollinger Bands."
+            "text": "Candles Data: \"Candles\".",
+            "updated": 1622549387433
         },
         {
             "style": "List",
-            "text": "Simulation Objects: Strategies, Market Buy Orders, Market Sell Orders, Position Base Asset, Stop Loss, and Take Profit."
+            "text": "Bollinger Data: \"Bollinger Bands\".",
+            "updated": 1622549394686
         },
         {
             "style": "List",
-            "text": "Trading System: Trading System Errors and Trading System Warnings."
+            "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", and \"Take Profit\".",
+            "updated": 1622549420151
+        },
+        {
+            "style": "List",
+            "text": "Trading System: \"Trading System Errors\" and \"Trading System Warnings\".",
+            "updated": 1622549431740
         },
         {
             "style": "Success",

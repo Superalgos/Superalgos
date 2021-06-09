@@ -7,12 +7,14 @@
             "project": "Superalgos",
             "name": "dataset-definition"
         },
-        "text": "Superalgos processes time frames below one hour in Daily Files, meaning that the data corresponding to one day is stored in one file."
+        "text": "Superalgos processes time frames below one hour in \"Daily Files\", meaning that the data corresponding to one day is stored in one file.",
+        "updated": 1622544106578
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In contrast, data for timeframes of one hour and above are stored in Market Files, meaning that data corresponding to the whole market is stored in one file."
+            "text": "In contrast, data for timeframes of one hour and above are stored in \"Market Files\", meaning that data corresponding to the whole market is stored in one file.",
+            "updated": 1622544118279
         },
         {
             "style": "Text",

@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibrarySuperScriptsFunctions() {
-    thisObject = {
+    let thisObject = {
         runSuperScript: runSuperScript
     }
 

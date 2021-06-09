@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Per inserire un plugin nel Workspace devi selezionare l' opzione per aggiungere i plugins mancanti sul nodo del tipo corrispondente!",
-                "updated": 1619589885057
+                "updated": 1619589885057,
+                "style": "Definition"
             }
         ]
     },
@@ -26,19 +27,21 @@
                 {
                     "language": "IT",
                     "text": "Provaci! Seleziona Add Missing Trading Systems nel nodo Plugin Trading Systems!",
-                    "updated": 1619589922157
+                    "updated": 1619589922157,
+                    "style": "Callout"
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "New Plugin File nodes are created for every plugin in the \\Plugins\\Trading-Systems folder! You may delete the Plugin File nodes you don't need and keep the ones you do need! Now you may pin the Plugin File Position node where you wish to place the actual plugin data structure!",
-            "updated": 1615927372538,
+            "text": "New Plugin File nodes are created for every plugin in \\Plugins\\Trading-Systems. You may delete the Plugin File nodes you don't need and keep the ones you do need! Then, you may add and pin the Plugin File Position node where you wish to place the actual plugin!",
+            "updated": 1622376327556,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Per ogni plugin nella cartella \\Plugins\\Trading-Systems, viene creato un nodo Plugin File! Cancella i nodi che non ti servono, e magari fissare il nodo Plugin File Position nel punto in cui vuoi piazzare la struttura!",
-                    "updated": 1619590168274
+                    "updated": 1619590168274,
+                    "style": "Text"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "I Plugins verranno riaggiunti la prossima volta che carichi il workspace.",
-                    "updated": 1619590143992
+                    "updated": 1619590143992,
+                    "style": "Success"
                 }
             ]
         }

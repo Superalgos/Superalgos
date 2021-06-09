@@ -1,0 +1,73 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 82,
+    "type": "Tutorial Step - Let's Take a Peek...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "limit-sell-order"
+        },
+        "text": "Before we leave the trading system, let's take a quick look into one of these orders and see what may be of interest.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prima di abbandonare il trading system, diamo un'occhiata veloce a uno di questi ordini e vediamo cosa c'è di interessante.",
+                "updated": 1618066037707,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Expand Profit 0.6 and check the formula of the Order Rate node.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Espandi Profit 0.6 e osserva la formula nel nodo Order Rate.",
+                    "updated": 1618066067329,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Let's focus on this misterious bit of the formula:",
+            "updated": 1610642070428,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Analizziamo questa parte misteriosa:<br>",
+                    "updated": 1618067107241,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "tradingEngine.tradingCurrent.",
+            "updated": 1616429707529
+        },
+        {
+            "style": "Text",
+            "text": "position.exitTargetRate.value"
+        },
+        {
+            "style": "Text",
+            "text": "&nbsp;",
+            "updated": 1610642114068
+        },
+        {
+            "style": "Text",
+            "text": "The formula is fetching the value of the Exit Target Rate, defined elsewhere. Let's not focus on what this target rate may be. Instead, let's take a look at the mechanism by which a Trading System may have access to information processed by the Trading Bot.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La formula recupera il valore dell'Exit Target Rate, definito altrove. Non soffermiamoci su cosa sia questo target rate: piuttosto, diamo un'occhiata al meccanismo con il quale il Trading System ha acceso alle informazioni processate dal Trading Bot.",
+                    "updated": 1618067231613,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

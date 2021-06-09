@@ -1,0 +1,141 @@
+{
+    "type": "Plotter Module",
+    "childrenNodesProperties": [
+        {
+            "name": "plotterModuleJavascriptCode",
+            "type": "node",
+            "childType": "Plotter Module Javascript Code"
+        },
+        {
+            "name": "shapes",
+            "type": "node",
+            "childType": "Shapes",
+            "autoAdd": true
+        },
+        {
+            "name": "panels",
+            "type": "array",
+            "childType": "Plotter Panel",
+            "autoAdd": true
+        },
+        {
+            "name": "nodesValues",
+            "type": "node",
+            "childType": "Nodes Values",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesHighlights",
+            "type": "node",
+            "childType": "Nodes Highlights",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesErrors",
+            "type": "node",
+            "childType": "Nodes Errors",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesWarnings",
+            "type": "node",
+            "childType": "Nodes Warnings",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesInfos",
+            "type": "node",
+            "childType": "Nodes Infos",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesStatus",
+            "type": "node",
+            "childType": "Nodes Status",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesProgress",
+            "type": "node",
+            "childType": "Nodes Progress",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesRunning",
+            "type": "node",
+            "childType": "Nodes Running",
+            "autoAdd": false
+        },
+        {
+            "name": "nodesAnnouncements",
+            "type": "node",
+            "childType": "Nodes Announcements",
+            "autoAdd": false
+        },
+        {
+            "name": "recordValues",
+            "type": "node",
+            "childType": "Record Values",
+            "autoAdd": false
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "shapes",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Shapes",
+            "relatedUiObject": "Shapes"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "plotterModuleJavascriptCode",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Javascript Code",
+            "relatedUiObject": "Plotter Module Javascript Code"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Plotter Panel",
+            "relatedUiObject": "Plotter Panel"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"Module-Name\", \n  \"icon\": \"histogram|band|moving-average|oscillator|trend\"\n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Plotter->"
+    },
+    "propertyNameAtParent": "modules"
+}

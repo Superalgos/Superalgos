@@ -36,7 +36,7 @@
         },
         {
             "style": "Text",
-            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Period-Daily and Multi-Period-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles."
+            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Time-Frame-Daily and Multi-Time-Frame-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles."
         },
         {
             "style": "Text",

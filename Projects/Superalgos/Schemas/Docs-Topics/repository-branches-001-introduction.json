@@ -1,0 +1,15 @@
+{
+    "topic": "Repository Branches",
+    "pageNumber": "1",
+    "type": "Introduction",
+    "definition": {
+        "text": "The Superalgos Repository has 4 main branches, each one with it's own purpose: Master, Develop, Plugins-Docs and Next-Version.",
+        "updated": 1622467436519
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

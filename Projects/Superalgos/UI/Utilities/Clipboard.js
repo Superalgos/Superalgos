@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesClipboard() {
-    thisObject = {
+    let thisObject = {
         fallbackCopyTextToClipboard: fallbackCopyTextToClipboard,
         copyTextToClipboard: copyTextToClipboard
     }

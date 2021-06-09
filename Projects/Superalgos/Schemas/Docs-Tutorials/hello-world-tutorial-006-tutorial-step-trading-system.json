@@ -8,31 +8,73 @@
             "name": "trading-system-reference",
             "project": "Superalgos"
         },
-        "updated": 1614242955916
+        "updated": 1614242955916,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das Trading System ist bereits aufgesetzt. Lass es uns anschauen!",
+                "updated": 1622978283268
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The strategy is already deployed. So let's have a look around to understand it!",
-            "updated": 1614243171735
+            "updated": 1614243171735,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ie Strategie ist bereits umgesetzt. Schauen wir sie uns einmal an, um sie zu verstehen!",
+                    "updated": 1622978294304
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As you cand see, a Trading System has 2 main offsprings:"
+            "text": "As you cand see, a Trading System has 2 main offsprings:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie du sehen kannst, hat ein Tradingsystem zwei Hauptnachfolger:",
+                    "updated": 1622978319793
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Dynamic Indicators: This lets you build On-The-Fly indicators",
-            "updated": 1614243245995
+            "updated": 1614243245995,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dynamic Indicators (\"Dynamische Indikatoren\"): Damit kannst du On-The-Fly-Indikatoren erstellen",
+                    "updated": 1622978351655
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Strategy: Is where we define parameters, conditions and formulas for our strategy",
-            "updated": 1614243343779
+            "updated": 1614243343779,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Strategy (\"Handelsstrategie\"): Hier definieren wir Parameter, Bedingungen und Formeln für unsere Strategie",
+                    "updated": 1622978372386
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This tutorial doesn't cover definitions or concepts used in SA. This tutorial is only about how to deploy a strategy!"
+            "text": "This tutorial doesn't cover definitions or concepts used in SA. This tutorial is only about how to deploy a strategy!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieses Tutorial behandelt keine Definitionen oder Konzepte, die in SA verwendet werden. In diesem Tutorial geht es nur darum, wie man eine Strategie einsetzt!",
+                    "updated": 1622978385419
+                }
+            ]
         }
     ]
 }

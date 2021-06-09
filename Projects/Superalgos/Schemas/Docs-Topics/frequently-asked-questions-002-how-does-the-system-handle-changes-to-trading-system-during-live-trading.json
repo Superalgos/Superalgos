@@ -1,0 +1,20 @@
+{
+    "topic": "Frequently Asked Questions",
+    "pageNumber": "2",
+    "type": "How does the system handle changes to trading system during live trading?",
+    "definition": {
+        "text": "You need to restart the Trading Session and sometimes the Task in order for the Bot to get the new definitions.",
+        "updated": 1622293227672
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Users cannot change the definitions and feed them to a running bot in real time. If the definitions are at the Trading System level, or the Session Parameters level, you can change them and they will be sent to the running Task the next time you stop and run the Trading Session again.",
+            "updated": 1622293262444
+        },
+        {
+            "style": "Text",
+            "text": "It the definitions are at the Task level or upwards, like a change of market, you will need to stop the Task and run it again in order to be recognized."
+        }
+    ]
+}

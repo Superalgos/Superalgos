@@ -1,0 +1,101 @@
+{
+    "topic": "TS API Data Fetcher Bot Error",
+    "pageNumber": "9",
+    "type": "TS API Data Fetcher Bot Error - Unexpected API Response Code",
+    "definition": {
+        "text": "The API response included a response / status code that was not expected by the API Map definitions. Each API Query Response node at the API Endpoint needs to have a config property called codeName with a value equals to the response code sent by the API server. For instance, 200 is the standard OK response, but the server might have another code or this call might have produced an unconventional response from the API server with a different response code that the API Map did not expect. To solve this issue, you need to add a new a new API Query Response node with a config property equal to the code received (you can see it in the details below) in order for the API Data Fetcher Bot to know what to do when this happens. You also need to define this node children.",
+        "updated": 1621860822884
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Unexpected API Response Code",
+            "updated": 1621860374194
+        },
+        {
+            "style": "Title",
+            "text": "Error Info"
+        },
+        {
+            "style": "Text",
+            "text": "In the following section, you will find the information recorded when the error occurred."
+        },
+        {
+            "style": "Text",
+            "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
+            "updated": 1611680880668
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Message"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Message of the Exception that occured at the API Data Fetcher Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorMessage"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Stack"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Stack of the Exception that occured at the API Data Fetcher Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorStack"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the Error Code of the Exception that occured at the API Data Fetcher Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorCode"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Error Details"
+        },
+        {
+            "style": "Text",
+            "text": "The following are all the Error details of the Exception that occured at the API Data Fetcher Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "errorDetails"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Name"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the node's name of the Node most related to this error:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeName"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Code"
+        },
+        {
+            "style": "Text",
+            "text": "The following is the code stored at the node that produced the error at the API Data Fetcher Bot:"
+        },
+        {
+            "style": "Placeholder",
+            "text": "nodeCode"
+        }
+    ]
+}

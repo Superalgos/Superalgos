@@ -1,0 +1,75 @@
+{
+    "type": "Layer Manager",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Layer",
+            "relatedUiObject": "Layer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Bot Layers",
+            "relatedUiObject": "Bot Layers",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Mine Layers",
+            "label": "Add All Mine Layers",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Data Mine Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "title": [
+        "Use Reference Parent"
+    ],
+    "initialValues": {
+        "config": "{ \n\"visibleLayers\": 5\n}"
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Timeline Chart->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
+    },
+    "propertyNameAtParent": "layerManager",
+    "childrenNodesProperties": [
+        {
+            "name": "layers",
+            "type": "array",
+            "childType": "Layer",
+            "autoAdd": false
+        },
+        {
+            "name": "botLayers",
+            "type": "array",
+            "childType": "Bot Layers",
+            "autoAdd": false
+        }
+    ]
+}

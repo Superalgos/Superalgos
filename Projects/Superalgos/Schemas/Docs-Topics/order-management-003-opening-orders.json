@@ -218,7 +218,7 @@
         },
         {
             "style": "Javascript",
-            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngine.current.tradingEpisode.episodeQuotedAsset.balance.value",
+            "text": "tradingEngineOrder.orderQuotedAsset.size.value =\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value",
             "updated": 1610220358264
         },
         {

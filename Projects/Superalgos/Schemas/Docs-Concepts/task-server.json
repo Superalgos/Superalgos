@@ -1,0 +1,18 @@
+{
+    "type": "Task Server",
+    "definition": {
+        "text": "The Task Server is one of the 3 main software components of Superalgos. The purpose of the Task Server is to run a Task. Tasks are defined at a Workspace at the UI. For running a Task, the Task Server receives at runtime all the needed definitions from the UI.",
+        "updated": 1621954996474
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "For developers: When reading through the code you should notice extensive use of the TS object. The TS object  is the root object of a data structure available at runtime within the Task Server.",
+            "updated": 1622896987189
+        },
+        {
+            "style": "Text",
+            "text": "For a description of how to debug a task being run on the task server please see the Debugging a Task page."
+        }
+    ]
+}

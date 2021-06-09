@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryWorkspaceFunctions() {
-    thisObject = {
+    let thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects
     }
 

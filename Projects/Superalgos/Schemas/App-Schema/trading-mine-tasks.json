@@ -1,0 +1,71 @@
+{
+    "type": "Trading Mine Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Task Managers",
+            "label": "Run All Task Managers",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Task Managers",
+            "label": "Stop All Task Managers",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Task Manager",
+            "relatedUiObject": "Task Manager",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add All Tasks",
+            "label": "Add All Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Task",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Trading Mine->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Trading Tasks->"
+    },
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "propertyNameAtParent": "tradingMineTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "taskManagers",
+            "type": "array",
+            "childType": "Task Manager",
+            "monitorChildrenRunning": true
+        }
+    ]
+}

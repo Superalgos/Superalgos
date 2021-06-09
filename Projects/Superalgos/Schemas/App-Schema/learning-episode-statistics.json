@@ -1,0 +1,52 @@
+{
+    "type": "Learning Episode Statistics",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Learning Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Defined Statistic",
+            "relatedUiObject": "User Defined Statistic",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Learning Episode->"
+    },
+    "propertyNameAtParent": "learningEpisodeStatistics",
+    "childrenNodesProperties": [
+        {
+            "name": "hitFail",
+            "type": "node",
+            "childType": "Hit Fail",
+            "autoAdd": true
+        },
+        {
+            "name": "days",
+            "type": "node",
+            "childType": "Days",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedStatistics",
+            "type": "array",
+            "childType": "User Defined Statistic",
+            "autoAdd": true
+        }
+    ]
+}

@@ -681,7 +681,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                                 const octokit = new Octokit({
                                     auth: token,
-                                    userAgent: 'Superalgos Beta 9'
+                                    userAgent: 'Superalgos Beta 10'
                                 })
 
                                 const repo = 'Superalgos'
@@ -1112,7 +1112,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let fs = require('fs')
 
                     try {
-                        let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started.json'
+                        let filePath = global.env.PATH_TO_DEFAULT_WORKSPACE + '/Getting-Started-Tutorials.json'
                         fs.readFile(filePath, onFileRead)
                     } catch (e) {
                         console.log('[ERROR] Error reading the Workspace.', e)
@@ -1496,27 +1496,13 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
         function sendSchema(filePath, schemaType) {
             let fs = require('fs')
-
-            if (schemaType === 'AppSchema') {
-                let fileName = 'AppSchema.json'
-                try {
-                    filePath = filePath + fileName
-                    fs.readFile(filePath, onFileRead)
-                } catch (e) {
-                    console.log('[ERROR] Error reading the ' + fileName, e)
-                }
-
-                function onFileRead(err, schema) {
-                    if (err) {
-                        respondWithContent(undefined, httpResponse)
-                    } else {
-                        respondWithContent(schema, httpResponse)
-                    }
-                }
-            } else {
                 try {
                     let folder = ''
                     switch (schemaType) {
+                        case 'AppSchema': {
+                            folder = 'App-Schema'
+                            break
+                        }
                         case 'DocsNodeSchema': {
                             folder = 'Docs-Nodes'
                             break
@@ -1560,7 +1546,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
                     respondWithContent("[]", httpResponse)
                 }
-            }
+            
         }
 
         function sendStyleSheet(fileName) {

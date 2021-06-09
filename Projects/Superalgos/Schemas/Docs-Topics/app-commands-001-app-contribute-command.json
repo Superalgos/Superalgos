@@ -9,25 +9,32 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This command will send all the changes you have made both at Docs pages but also at any file within the Superalgos Repository to your fork at Github.com and from there to the main Superalgos Repository. It will do it specifically from the Current Branch to the Contributions Branch mentioned at the footer of this page. ",
-            "updated": 1615288848213
+            "text": "This command will send all changes you have made in Docs pages but also on any file within the Superalgos folder (except for My-Workspaces, Data-Storage, and My-Logs folders) to your fork at Github.com. It will also send them from your fork to the main Superalgos Repository. It will do it specifically from the Current Branch to the Contributions Branch mentioned at the footer of this page.",
+            "updated": 1622028842412
+        },
+        {
+            "style": "Warning",
+            "text": "Never use your Superalgos folder to store personal files, as the whole folder but the few exceptions mentioned above are subject to be sent over the Internet to a public site.",
+            "updated": 1622029162278
         },
         {
             "style": "Important",
-            "text": "Contributions in most cases needs to come from the develop branch to the develop branch unless you have previously agreed with team members that you will send a contribution from master to master."
+            "text": "In most cases, contributions must go from the develop branch to the develop branch, or from the plugins-docs branch to the plugins-docs branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
+            "updated": 1622028905753
         },
         {
             "style": "Text",
-            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead all contributions are expected to go to the develop branch, where there are many users testing that branch every day, and the contribution will reach the master branch at the next relrease.",
-            "updated": 1615288915134
+            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop or the plugins-docs branches, where many users are testing that branch every day. Contributions of plugins and Docs may reach the master branch often. Contributions to the develop branch will reach the master branch on the next release.",
+            "updated": 1622029260459
         },
         {
             "style": "Note",
-            "text": "It is also very unlikely that contributions coming from the master branch will be merged into the develop branch, since that can usually lead to merging conflicts. "
+            "text": "It is also very unlikely that contributions coming from the master branch will be merged into the develop branch, since that can usually lead to merging conflicts.",
+            "updated": 1622029116935
         },
         {
-            "style": "Text",
-            "text": "So be sure that your Current Branch is develop and the Contribution Branch is develop before submitting your contribution. "
+            "style": "Success",
+            "text": "Check the footer of the Docs to verify what branches you are operating with before submitting your contributions!"
         },
         {
             "style": "Title",
@@ -198,6 +205,26 @@
             "style": "Success",
             "text": "If you did install Git and you are experiencing the issue described above, restarting your PC may help things sort themselves out.",
             "updated": 1610910739376
+        },
+        {
+            "style": "Subtitle",
+            "text": "Linux and iOS",
+            "updated": 1621085154588
+        },
+        {
+            "style": "Success",
+            "text": "Input your personal authentication token (PAT) in place of your password and hit enter.  ",
+            "updated": 1621085095513
+        },
+        {
+            "style": "Text",
+            "text": "If you don't want to keep entering in your token then you can have git cach your credentials:",
+            "updated": 1621085196186
+        },
+        {
+            "style": "Link",
+            "text": "How to Cache your Git Credentials->docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git",
+            "updated": 1621085386878
         },
         {
             "style": "Text",

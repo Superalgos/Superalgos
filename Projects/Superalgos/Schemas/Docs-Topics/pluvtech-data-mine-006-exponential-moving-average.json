@@ -1,0 +1,29 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "6",
+    "type": "Exponential Moving Average",
+    "definition": {
+        "text": "The EMA is a type of weighted moving average (WMA) that gives more weighting or importance to recent price data.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "EMA - (Investopedia)->www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

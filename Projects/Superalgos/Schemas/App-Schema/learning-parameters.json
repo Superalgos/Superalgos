@@ -1,0 +1,58 @@
+{
+    "type": "Learning Parameters",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Parameters",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Back Learning Session->Live Learning Session->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "learningAlgorithm",
+            "type": "node",
+            "childType": "Learning Algorithm",
+            "autoAdd": true
+        },
+        {
+            "name": "timeRange",
+            "type": "node",
+            "childType": "Time Range",
+            "autoAdd": true
+        },
+        {
+            "name": "timeFrame",
+            "type": "node",
+            "childType": "Time Frame",
+            "autoAdd": true
+        },
+        {
+            "name": "heartbeats",
+            "type": "node",
+            "childType": "Heartbeats",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedParameters",
+            "type": "node",
+            "childType": "User Defined Parameters",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "learningParameters"
+}

@@ -1,0 +1,50 @@
+{
+    "type": "API Response Schema",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "apiResponseFields",
+            "label": "Add API Response Field",
+            "relatedUiObject": "API Response Field",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"nodePath\": \"apiResponseReceivedObject.data\"}"
+    },
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->API Query Response->"
+    },
+    "propertyNameAtParent": "apiResponseSchema",
+    "childrenNodesProperties": [
+        {
+            "name": "apiResponseFields",
+            "type": "node",
+            "childType": "API Response Field",
+            "autoAdd": false
+        }
+    ],
+    "icon": "bitcoin"
+}

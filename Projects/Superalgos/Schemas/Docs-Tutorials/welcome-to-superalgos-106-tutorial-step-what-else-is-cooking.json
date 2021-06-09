@@ -1,0 +1,73 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 106,
+    "type": "Tutorial Step - What Else Is Cooking?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "ethereum"
+        },
+        "text": "Superalgos is a multi-project platform, and —after TensorFlow— the Ethereum integration is next in line...",
+        "updated": 1616695001060,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Superalgos è un progetto multi-piattaforma. Dopo quella con TensorFlow, lo step successivo è l'integrazione con Ethereum.",
+                "updated": 1618073342659,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "What does integrating Ethereum mean, you ask? It means that—in future versions—you will be able to:",
+            "updated": 1610719381268,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Che cosa significa integrare Ethereum? Significa che, nelle future versioni, potrai:",
+                    "updated": 1618073374905,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Connect to an Ethereum node right from within Superalgos using the visual interface.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Connetterti a un nodo Ethereum direttamente da Superalgos usando l'interfaccia grafica.",
+                    "updated": 1618073396110,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Mine blockchain data to access coin and contract information for all Ethereum-based projects, including De-Fi or what have you, visualizing data on the charts, building indicators, and leveraging the rest of the Superalgos infrastructure.",
+            "updated": 1611584299475,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ottenere dati on-chain e accedere a informazioni su token e contratti di tutti i progetti basati su Ethereum, inclusi quelli De-Fi, visualizzando dati sui grafici, creando indicatori e sfruttando il resto delle funzioni di Superalgos.",
+                    "updated": 1618073500896,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Use the data to trade by consuming related indicators from within trading systems!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Usa i dati per fare trading utilizzando i relativi indicatori dal tuo trading system!",
+                    "updated": 1618073540467,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

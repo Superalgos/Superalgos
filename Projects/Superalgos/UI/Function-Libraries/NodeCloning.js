@@ -4,7 +4,7 @@ function newSuperalgosFunctionLibraryNodeCloning() {
     const logger = newWebDebugLog()
     
 
-    thisObject = {
+    let thisObject = {
         getNodeClone: getNodeClone
     }
     return thisObject

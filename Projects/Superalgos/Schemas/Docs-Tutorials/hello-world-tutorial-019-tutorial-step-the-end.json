@@ -8,26 +8,67 @@
         "icon": {
             "name": "hits",
             "project": "Superalgos"
-        }
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist der letzte Schritt in diesem Tutorial, aber ein erster großer Schritt für dich!",
+                "updated": 1622980855701,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Now that you have seen how fast and easy is to deploy simple strategies in SA, I leave you with some hints you can explore.",
-            "updated": 1614270919320
+            "updated": 1614270919320,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nachdem du nun gesehen hast, wie schnell und einfach es ist, einfache Strategien in SA einzusetzen, lasse ich dich mit einigen Tipps zurück, die du erforschen kannst.",
+                    "updated": 1622980866244,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Maybe you can add a new indicator and use its properties like an additional filter for the Trigger Stage"
+            "text": "Maybe you can add a new indicator and use its properties like an additional filter for the Trigger Stage.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vielleicht kannst du einen neuen Indikator hinzufügen und seine Eigenschaften wie einen zusätzlichen Filter für die Trigger Stage verwenden",
+                    "updated": 1622981671905,
+                    "style": "Text"
+                }
+            ],
+            "updated": 1622980962381
         },
         {
             "style": "Text",
-            "text": "Or you can modify the SL so to have a trailing one istead of being fixed."
+            "text": "Or you can modify the SL so to have a trailing one istead of being fixed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Oder du kannst den SL so modifizieren, dass er einen Trailing hat, anstatt fest zu sein.",
+                    "updated": 1622980929319,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Thank you for your time. You can read a more in depth article here: http://bit.ly/9808usHelloWorld",
-            "updated": 1614271289324
+            "updated": 1614271289324,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vielen Dank für deine Zeit. Hier findest du einen ausführlicheren Artikel: http://bit.ly/9808usHelloWorld",
+                    "updated": 1622980916321,
+                    "style": "Note"
+                }
+            ]
         }
     ]
 }

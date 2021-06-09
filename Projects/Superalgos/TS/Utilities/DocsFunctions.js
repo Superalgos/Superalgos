@@ -6,7 +6,15 @@ exports.newSuperalgosUtilitiesDocsFunctions = function () {
 
     return thisObject
 
-    function buildPlaceholder(docs, error, nodeName, nodeCode, nodeConfig, nodeValue, contextInfo) {
+    function buildPlaceholder(
+        docs,
+        error,
+        nodeName,
+        nodeCode,
+        nodeConfig,
+        nodeValue,
+        contextInfo
+    ) {
         if (error !== undefined) {
             if (error.message !== undefined) {
                 docs.placeholder.errorMessage = {

@@ -1,0 +1,35 @@
+{
+    "type": "API Query Responses",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add API Query Response",
+            "relatedUiObject": "API Query Response",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->API Endpoint->"
+    },
+    "propertyNameAtParent": "apiQueryResponses",
+    "childrenNodesProperties": [
+        {
+            "name": "apiQueryResponses",
+            "type": "array",
+            "childType": "API Query Response",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

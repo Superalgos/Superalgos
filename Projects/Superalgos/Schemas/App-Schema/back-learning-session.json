@@ -1,0 +1,101 @@
+{
+    "type": "Back Learning Session",
+    "menuItems": [
+        {
+            "action": "Run Learning Session",
+            "label": "Run",
+            "workingLabel": "Run Request Sent",
+            "workDoneLabel": "Session Running",
+            "workFailedLabel": "Session Cannot be Run",
+            "secondaryAction": "Stop Learning Session",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Session Stopped",
+            "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Resume Learning Session",
+            "label": "Resume",
+            "workingLabel": "Resume Request Sent",
+            "workDoneLabel": "Session Running",
+            "workFailedLabel": "Session Cannot be Resumed",
+            "secondaryAction": "Stop Learning Session",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Session Stopped",
+            "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "resume",
+            "iconPathOff": "resume",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Learning Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
+    },
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Trading System->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Learning Process Instance->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "learningParameters",
+            "type": "node",
+            "childType": "Learning Parameters",
+            "autoAdd": true
+        },
+        {
+            "name": "learningSystemReference",
+            "type": "node",
+            "childType": "Learning System Reference",
+            "autoAdd": true
+        },
+        {
+            "name": "learningEngineReference",
+            "type": "node",
+            "childType": "Learning Engine Reference",
+            "autoAdd": true
+        },
+        {
+            "name": "socialBots",
+            "type": "node",
+            "childType": "Social Bots"
+        }
+    ],
+    "propertyNameAtParent": "session"
+}

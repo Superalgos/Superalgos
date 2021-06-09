@@ -3,8 +3,8 @@
     "pageNumber": 45,
     "type": "Tutorial Step - Error Details",
     "definition": {
-        "text": "So, what's in those bullets? Point the mouse at one of the error bullets in the top row and see what happens!",
-        "updated": 1612632114380,
+        "text": "So, what's in those bullets? Place the mouse at one of the error bullets in the top row and see what happens!",
+        "updated": 1622487609515,
         "icon": {
             "name": "bullet-error",
             "project": "Superalgos"

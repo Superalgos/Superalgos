@@ -1,0 +1,34 @@
+{
+    "type": "Chart Points",
+    "level": 4,
+    "propertyNameAtParent": "chartPoints",
+    "attachingRules": {
+        "compatibleTypes": "->Shapes->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "points",
+            "type": "array",
+            "childType": "Point",
+            "autoAdd": true
+        }
+    ],
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Point",
+            "relatedUiObject": "Point"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesDownload() {
-    thisObject = {
+    let thisObject = {
         downloadText: downloadText,
         downloadCanvas: downloadCanvas,
         downloadPanorama: downloadPanorama,

@@ -12,7 +12,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Open the node's menu and click on the Copy Node Path button!"
+            "text": "Acess the node's menu and click on the \"Copy Node Path\" button!",
+            "updated": 1622547599361
         },
         {
             "style": "Text",

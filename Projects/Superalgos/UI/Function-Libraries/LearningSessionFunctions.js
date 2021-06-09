@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryLearningSessionFunctions() {
-    thisObject = {
+    let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
@@ -129,7 +129,7 @@ function newSuperalgosFunctionLibraryLearningSessionFunctions() {
             'Back Learning Session->Live Learning Session->' +
             'Learning Parameters->' +
             'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
-            'Social Bots->Telegram Bot->'
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 

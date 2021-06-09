@@ -1,0 +1,24 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Magical Machines",
+    "definition": {
+        "text": "You've seen these portals to another dimension before! Now let's take a closer look at the magical Time Machine.",
+        "icon": {
+            "name": "time-machine",
+            "project": "Superalgos"
+        },
+        "updated": 1617634105980
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You might have noticed each dashboard has a Time Machine attached to it. You have already encountered time machines in previous tutorials. But today we are going to be working with them a lot more closely. ",
+            "updated": 1619405810806
+        },
+        {
+            "style": "Callout",
+            "text": "Take a minute and read their documentation page to get a better idea of what they do."
+        }
+    ]
+}

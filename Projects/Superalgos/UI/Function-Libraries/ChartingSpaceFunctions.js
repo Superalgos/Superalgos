@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryChartingSpaceFunctions() {
-    thisObject = {
+    let thisObject = {
         addAllLayerPanels: addAllLayerPanels,
         addAllLayerPolygons: addAllLayerPolygons,
         addAllMineLayers: addAllMineLayers,

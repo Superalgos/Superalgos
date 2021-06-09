@@ -1,0 +1,35 @@
+{
+    "type": "Dtype",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"value\": \"float32|int32|bool|complex64|string\" \n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Dense Layer->"
+    },
+    "propertyNameAtParent": "dtype",
+    "childrenNodesProperties": [],
+    "icon": "tensorflow"
+}

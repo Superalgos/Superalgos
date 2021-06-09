@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Ricordi che ho detto che i file plugin vengono ricreati ogni volta che ricarichi il Workspace? Questo ha delle conseguenze immediate...",
-                "updated": 1619590273553
+                "updated": 1619590273553,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Le gerarchie incluse come plugins non sono salvate a livello del workspace, quindi i cambiamenti che applichi ai loro oggetti non sono persistenti. Se vuoi modificare un plugin e mantenere i cambiamenti in futuro, devi clonarlo o fare il backup e lavorare sulla copia.",
-                    "updated": 1619590378028
+                    "updated": 1619590378028,
+                    "style": "Warning"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Nei prossimi step vedremo più in dettaglio quanto detto!",
-                    "updated": 1619590413453
+                    "updated": 1619590413453,
+                    "style": "Success"
                 }
             ]
         }

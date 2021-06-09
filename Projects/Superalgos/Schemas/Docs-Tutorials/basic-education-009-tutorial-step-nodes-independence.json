@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri!",
-                "updated": 1619460136934
+                "updated": 1619460136934,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Puoi controllare la posizione di ogni nodo dal suo menù. Nè il padre nè i fratelli influenzano la posizione, a parte per un'eccezione:",
-                    "updated": 1619460176032
+                    "updated": 1619460176032,
+                    "style": "Text"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
-                    "updated": 1619460209880
+                    "updated": 1619460209880,
+                    "style": "Callout"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello!",
-                    "updated": 1619460248115
+                    "updated": 1619460248115,
+                    "style": "Success"
                 }
             ]
         },

@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Di default, i nodi sono bloccati in una simmetria rotazionale intorno al nodo padre. La simmetria può coprire 360 gradi o meno, in base alle impostazioni!",
-                "updated": 1619459700633
+                "updated": 1619459700633,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Cliccando il pulsante Angle to Parent nel menù del nodo, cicli attraverso cinque impostazioni: 360, 180, 90, 45 o disabilitato.",
-                    "updated": 1619459742464
+                    "updated": 1619459742464,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Dai un'occhiata alle impostazioni attive su ognuno dei nodi figli del nodo Backtesting Session: il nodo Trading Parameters, Trading System Reference e Trading Engine Reference. Sono tutti su 180 gradi, giusto?",
-                    "updated": 1619459812078
+                    "updated": 1619459812078,
+                    "style": "Callout"
                 }
             ]
         }

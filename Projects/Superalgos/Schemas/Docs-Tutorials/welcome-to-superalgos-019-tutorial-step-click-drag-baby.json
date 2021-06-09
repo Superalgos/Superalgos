@@ -1,0 +1,107 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Click & Drag Baby!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hand-drag"
+        },
+        "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Voglio mostrarti qualcosa, mentre l'operazione di data mining è in corso. Ti insegnerò a camminare nel giro di un attimo!",
+                "updated": 1614788444726,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik!",
+                "updated": 1616698440258,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Quiero enseñarte algo mientras avanza la operación de  Data Mining. Te enseñaré a moverte... ¡en unos segundos!",
+                "updated": 1618435437797,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Just click and drag with your mouse!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "É facile: clicca e trascina usando il mouse!",
+                    "updated": 1614788236203,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Cukup click dan drag mouse-mu!",
+                    "updated": 1616698465027,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Simplemente haz hacer clic y arrastrar con el ratón.",
+                    "updated": 1618435534077,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Easy, right? Great! However, the design space is a huge place and I wouldn't want you to get tendinitis dragging your way around like this.",
+            "updated": 1610613840200,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Semplice, no? Ad ogni modo, il Design Space è molto esteso e non vorrai farti venire la tendinite cliccando e trascinando in giro in questo modo.",
+                    "updated": 1614789321190,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Mudah bukan? Bagus! Design space area yang luas, dan aku tidak enak jika melajarkanmu hal yang rumit dengan mendrag seperti ini. ",
+                    "updated": 1616698595115,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el espacio de diseño es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
+                    "updated": 1618435473213,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "I'll teach you a couple more tricks in the next couple of steps.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nei prossimi step ti insegnerò un altro paio di trucchetti.",
+                    "updated": 1614788431318,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan melajarkan beberapa trik lanjutan di step berikutnya",
+                    "updated": 1616698622895,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te enseñaré un par de trucos más en los siguientes pasos.",
+                    "updated": 1618435496165,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

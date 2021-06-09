@@ -1,0 +1,62 @@
+{
+    "type": "Kernel",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "kernelInitializer",
+            "label": "Add Kernel Initializer",
+            "relatedUiObject": "Kernel Initializer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "kernelConstraint",
+            "label": "Add Kernel Constraint",
+            "relatedUiObject": "Kernel Constraint",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "kernelRegularizer",
+            "label": "Add Kernel Regularizer",
+            "relatedUiObject": "Kernel Regularizer",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Dense Layer->"
+    },
+    "propertyNameAtParent": "kernel",
+    "childrenNodesProperties": [
+        {
+            "name": "kernelInitializer",
+            "type": "node",
+            "childType": "Kernel Initializer"
+        },
+        {
+            "name": "kernelConstraint",
+            "type": "node",
+            "childType": "Kernel Constraint"
+        },
+        {
+            "name": "kernelRegularizer",
+            "type": "node",
+            "childType": "Kernel Regularizer"
+        }
+    ],
+    "icon": "tensorflow"
+}

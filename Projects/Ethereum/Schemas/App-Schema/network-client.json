@@ -1,0 +1,38 @@
+{
+    "type": "Network Client",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Network Node->"
+    },
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"host\": \"localhost\", \n\"httpPort\": \"8545\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Blockchain Network->"
+    },
+    "propertyNameAtParent": "networkClients",
+    "icon": "ethereum"
+}

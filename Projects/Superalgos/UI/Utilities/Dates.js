@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesDates() {
-    thisObject = {
+    let thisObject = {
         formatDate: formatDate
     }
 

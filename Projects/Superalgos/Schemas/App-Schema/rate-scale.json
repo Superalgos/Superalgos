@@ -1,0 +1,34 @@
+{
+    "type": "Rate Scale",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"autoMinScale\": true,\n\"autoMaxScale\": true,\n\"minValue\": 0,\n\"maxValue\": 25000\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Time Machine->Timeline Chart->"
+    },
+    "propertyNameAtParent": "rateScale"
+}

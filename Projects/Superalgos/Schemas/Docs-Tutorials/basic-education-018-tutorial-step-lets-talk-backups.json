@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "I Backups sono molto potenti, e hanno diversi casi d' uso! Quando clicchi sul pulsante del backup, il nodo e i suoi figli sono salvati in un file JSON!",
-                "updated": 1619465895765
+                "updated": 1619465895765,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Puoi fare il backup di una struttura di nodi per salvare il tuo lavoro o mantenere una copia della struttura.",
-                    "updated": 1619465931399
+                    "updated": 1619465931399,
+                    "style": "Text"
                 }
             ]
         },
@@ -38,7 +40,8 @@
                 {
                     "language": "IT",
                     "text": "Fai un backup del nodo Trading System e controlla la tua cartella Downloads!",
-                    "updated": 1619465951034
+                    "updated": 1619465951034,
+                    "style": "Callout"
                 }
             ]
         },
@@ -50,7 +53,8 @@
                 {
                     "language": "IT",
                     "text": "Il file viene scaricato dal browser e salvato nella cartella Downloads di default. Se fai più backup dello stesso nodo, i file salvati e rinominati con numeri in sequenza.",
-                    "updated": 1619466028542
+                    "updated": 1619466028542,
+                    "style": "Note"
                 }
             ]
         }

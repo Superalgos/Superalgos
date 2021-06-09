@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesHierarchy() {
-    thisObject = {
+    let thisObject = {
         getHiriarchyMap: getHiriarchyMap,
         getHiriarchyHead: getHiriarchyHead,
         getNodeNameTypePath: getNodeNameTypePath

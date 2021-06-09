@@ -100,8 +100,58 @@
         },
         {
             "style": "Subtitle",
-            "text": "Changing Node's Configurations",
-            "updated": 1613846731449
+            "text": "Pressing Keys on the Design Space",
+            "updated": 1620866371352
+        },
+        {
+            "style": "Text",
+            "text": "It is also possible to press any combination of keys within the Design Space. The format works the same as above but the key press will happen within the context of the design space.",
+            "updated": 1620866727876
+        },
+        {
+            "style": "Javascript",
+            "text": "\"keyPressed\": {\n\"shiftKey\": true,\n\"ctrlKey\": true,\n\"metaKey\": true,\n\"key\": \"R\"\n}",
+            "updated": 1620866699727
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Toggling Map View",
+            "updated": 1620866823195
+        },
+        {
+            "style": "Text",
+            "text": "In order to switch between regular and map view, you can use the following configuration."
+        },
+        {
+            "style": "Javascript",
+            "text": "\"toggleMapView\": {\n        \"view\": \"On\"\n    }",
+            "updated": 1620867055273
+        },
+        {
+            "style": "Text",
+            "text": "Valid options are:",
+            "updated": 1620867068878
+        },
+        {
+            "style": "List",
+            "text": "\"On\""
+        },
+        {
+            "style": "List",
+            "text": "\"Off\""
+        },
+        {
+            "style": "Note",
+            "text": "When this configuration is active within a tutorial step, the user will be unable to switch between views manually.",
+            "updated": 1620867158361
+        },
+        {
+            "style": "Subtitle",
+            "text": "Changing Node's Configurations"
         },
         {
             "style": "Text",

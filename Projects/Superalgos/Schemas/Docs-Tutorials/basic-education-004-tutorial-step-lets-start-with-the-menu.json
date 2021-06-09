@@ -13,7 +13,8 @@
             {
                 "language": "IT",
                 "text": "Il lato sinistro del menù di un nodo è generalmente sempre uguale. Il lato destro, invece, è specifico per ogni tipo di nodo!",
-                "updated": 1619459213047
+                "updated": 1619459213047,
+                "style": "Definition"
             }
         ]
     },
@@ -26,7 +27,8 @@
                 {
                     "language": "IT",
                     "text": "Diamo un'occhiata al lato sinistro!",
-                    "updated": 1619459263897
+                    "updated": 1619459263897,
+                    "style": "Note"
                 }
             ]
         },
@@ -37,7 +39,8 @@
                 {
                     "language": "IT",
                     "text": "Il design space è basato sul paradigma di un workspace auto-organizzato, in cui i nodi tendono a trovare la propria posizione guidati da specifiche proprietà che puoi controllare dal menù di ogni nodo.",
-                    "updated": 1619459329778
+                    "updated": 1619459329778,
+                    "style": "Text"
                 }
             ]
         },
@@ -49,7 +52,8 @@
                 {
                     "language": "IT",
                     "text": "Clicca il pulsante \"pin\" nell'angolo in alto a sinistra del nodo Session Base Asset. Ora trascina il nodo e rilascialo! Poi trascina e rilascia un qualsiasi altro nodo senza cliccare \"pin\". Vedi la differenza?",
-                    "updated": 1619459430359
+                    "updated": 1619459430359,
+                    "style": "Callout"
                 }
             ]
         }

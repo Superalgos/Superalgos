@@ -58,7 +58,7 @@ function newSuperalgosDocsContextMenu() {
             showHTMLTextArea()
 
             function showHTMLTextArea() {
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph === undefined) { return }
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph === undefined) { return }
 
                 /* 
                 When in editing mode, some type of paragraphs need to extend
@@ -67,196 +67,196 @@ function newSuperalgosDocsContextMenu() {
                 add an extra style class.
                 */
                 let extraClassName = ''
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('definition') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('definition') >= 0) {
                     extraClassName = ' ' + ''
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('title') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('title') >= 0) {
                     extraClassName = ' ' + 'docs-h3'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('subtitle') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('subtitle') >= 0) {
                     extraClassName = ' ' + 'docs-h4'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('note') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('note') >= 0) {
                     extraClassName = ' ' + 'docs-alert-note'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('success') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('success') >= 0) {
                     extraClassName = ' ' + 'docs-alert-success'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('important') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('important') >= 0) {
                     extraClassName = ' ' + 'docs-alert-important'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('warning') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('warning') >= 0) {
                     extraClassName = ' ' + 'docs-alert-warning'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('error') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('error') >= 0) {
                     extraClassName = ' ' + 'docs-alert-error'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('javascript') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('javascript') >= 0) {
                     extraClassName = ' ' + 'language-javascript'
                 }
-                if (UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('json') >= 0) {
+                if (UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id.indexOf('json') >= 0) {
                     extraClassName = ' ' + 'language-json'
                 }
 
-                UI.projects.superalgos.spaces.docsSpace.textArea = document.createElement('textarea');
-                UI.projects.superalgos.spaces.docsSpace.textArea.id = "UI.projects.superalgos.spaces.docsSpace.textArea";
-                UI.projects.superalgos.spaces.docsSpace.textArea.spellcheck = false;
-                UI.projects.superalgos.spaces.docsSpace.textArea.className = "docs-text-area" + extraClassName
-                UI.projects.superalgos.spaces.docsSpace.textArea.style.height = selectedParagraphHeight
-                UI.projects.superalgos.spaces.docsSpace.textArea.value = selectedParagraphData
-                UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.innerHTML = ""
-                UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.appendChild(UI.projects.superalgos.spaces.docsSpace.textArea)
-                UI.projects.superalgos.spaces.docsSpace.textArea.style.display = 'block'
-                UI.projects.superalgos.spaces.docsSpace.textArea.focus()
+                UI.projects.education.spaces.docsSpace.textArea = document.createElement('textarea');
+                UI.projects.education.spaces.docsSpace.textArea.id = "UI.projects.education.spaces.docsSpace.textArea";
+                UI.projects.education.spaces.docsSpace.textArea.spellcheck = false;
+                UI.projects.education.spaces.docsSpace.textArea.className = "docs-text-area" + extraClassName
+                UI.projects.education.spaces.docsSpace.textArea.style.height = selectedParagraphHeight
+                UI.projects.education.spaces.docsSpace.textArea.value = selectedParagraphData
+                UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.innerHTML = ""
+                UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.appendChild(UI.projects.education.spaces.docsSpace.textArea)
+                UI.projects.education.spaces.docsSpace.textArea.style.display = 'block'
+                UI.projects.education.spaces.docsSpace.textArea.focus()
                 removeContextMenuFromScreen()
-                UI.projects.superalgos.spaces.docsSpace.enterEditMode()
+                UI.projects.education.spaces.docsSpace.enterEditMode()
             }
         }
 
         function deleteParagraph() {
             if (selectedParagraphIndex === undefined) { return }
             if (selectedParagraphIndex === 0) { return }
-            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
+            UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.paragraphs.splice(selectedParagraphIndex, 1)
             removeContextMenuFromScreen()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+            UI.projects.education.spaces.docsSpace.documentPage.render()
         }
 
         function toJavascript() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Javascript')
         }
 
         function toJson() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Json')
         }
 
         function toText() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Text')
         }
 
         function toTitle() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Title')
         }
 
         function toSubtitle() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Subtitle')
         }
 
         function toNote() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Note')
         }
 
         function toWarning() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Warning')
         }
 
         function toError() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Error')
         }
 
         function toImportant() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Important')
         }
 
         function toSuccess() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Success')
         }
 
         function toCallout() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Callout')
         }
 
         function toSummary() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Summary')
         }
 
         function toSection() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Section')
         }
 
         function toList() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'List')
         }
 
         function toTable() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Table')
         }
 
         function toHierarchy() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Hierarchy')
         }
 
         function toGif() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Gif')
         }
 
         function toPng() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Png')
         }
 
         function toAnchor() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Anchor')
         }
 
         function toBlock() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Block')
         }
 
         function toInclude() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Include')
         }
 
         function toPlaceholder() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Placeholder')
         }
 
         function toChapter() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Chapter')
         }
 
         function toWebPageLink() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Link')
         }
 
         function toYouTubeVideo() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             replaceStyle(docSchemaParagraph, 'Youtube')
         }
 
         function copyLink() {
-            let docSchemaParagraph = UI.projects.superalgos.spaces.docsSpace.paragraphMap.get(UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph.id)
+            let docSchemaParagraph = UI.projects.education.spaces.docsSpace.paragraphMap.get(UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph.id)
             let clipboard
             switch (docSchemaParagraph.style) {
                 case 'Anchor': {
-                    clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = "docs.goto " + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 case 'Block': {
-                    clipboard = UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
+                    clipboard = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type + '->' + docSchemaParagraph.text
                     break
                 }
                 default: {
@@ -271,10 +271,10 @@ function newSuperalgosDocsContextMenu() {
 
         function replaceStyle(docSchemaParagraph, style) {
             if (docSchemaParagraph.style !== style) {
-                UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
                 docSchemaParagraph.style = style
                 removeContextMenuFromScreen()
-                UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+                UI.projects.education.spaces.docsSpace.documentPage.render()
             }
         }
     }
@@ -313,7 +313,7 @@ function newSuperalgosDocsContextMenu() {
         /*
         Get the dimenssions of the current paragraph to help us to define the dimenssions of the text area.
         */
-        UI.projects.superalgos.spaces.docsSpace.contextMenu.selectedParagraph = paragraphNode
+        UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
         if (selectedParagraphHeight < 30) { selectedParagraphHeight = 30 }
         /*
@@ -393,19 +393,19 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-table') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseTable(paragraphNode)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParseTable(paragraphNode)
             return true
         }
         if (paragraphNode.id.indexOf('-hierarchy') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseHierarchy(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParseHierarchy(paragraphNode.innerHTML)
             return true
         }
         if (paragraphNode.id.indexOf('-gif') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseGIF(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParseGIF(paragraphNode.innerHTML)
             return true
         }
         if (paragraphNode.id.indexOf('-png') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParsePNG(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParsePNG(paragraphNode.innerHTML)
             return true
         }
         if (paragraphNode.id.indexOf('-javascript') >= 0) {
@@ -449,11 +449,11 @@ function newSuperalgosDocsContextMenu() {
             return true
         }
         if (paragraphNode.id.indexOf('-link') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseLink(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParseLink(paragraphNode.innerHTML)
             return true
         }
         if (paragraphNode.id.indexOf('-youtube') >= 0) {
-            selectedParagraphData = UI.projects.superalgos.utilities.docs.reverseParseYoutube(paragraphNode.innerHTML)
+            selectedParagraphData = UI.projects.education.utilities.docs.reverseParseYoutube(paragraphNode.innerHTML)
             return true
         }
     }

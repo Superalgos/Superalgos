@@ -1,4 +1,4 @@
-exports.newSuperalgosUtilitiesDocsFunctions = function () {
+exports.newEducationUtilitiesDocsFunctions = function () {
 
     let thisObject = {
         buildPlaceholder: buildPlaceholder

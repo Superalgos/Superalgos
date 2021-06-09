@@ -245,7 +245,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                     placeholder: {}
                 }
 
-                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, value, undefined)
+                TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, value, undefined)
 
                 badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetRate, docs)
             }

@@ -358,7 +358,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
                 type: 'TS LF Learning Bot Error - Evaluating Condition Error',
                 placeholder: {}
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeName, code, undefined)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, nodeName, code, undefined)
         }
 
         learningSystem.conditions.set(node.id, value)
@@ -398,7 +398,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
                 type: 'TS LF Learning Bot Error - Evaluating Formula Error',
                 placeholder: {}
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
 
         if (errorMessage !== undefined) {
@@ -415,7 +415,7 @@ exports.newSuperalgosBotModulesLearningSystem = function (processIndex) {
                         type: 'TS LF Learning Bot Error - Formula Value Not A Number',
                         placeholder: {}
                     }
-                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
 
                     learningSystem.addError([node.id, 'Formula needs to return a numeric value.', docs])
                     return

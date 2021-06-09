@@ -25,10 +25,10 @@ function newSuperalgosDocsMainSearchPage() {
         HTML = HTML + '<center><div class="docs-font-normal docs-search-box"><input class="docs-search-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></input></div></center>'
         HTML = HTML + '</div>'
         let docsContentDiv = document.getElementById('docs-content-div')
-        docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
+        docsContentDiv.innerHTML = HTML + UI.projects.education.spaces.docsSpace.footer.addFooter()
 
-        UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
-        UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+        UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
+        UI.projects.education.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
     }
 
     function addSearchHeader() {
@@ -46,17 +46,17 @@ function newSuperalgosDocsMainSearchPage() {
 
     function detectEnterOnSearchBox() {
         const element = document.getElementsByClassName("docs-search-input")[0]
-        if (UI.projects.superalgos.spaces.docsSpace.commandInterface.command !== undefined) {
-            element.value = UI.projects.superalgos.spaces.docsSpace.commandInterface.command
+        if (UI.projects.education.spaces.docsSpace.commandInterface.command !== undefined) {
+            element.value = UI.projects.education.spaces.docsSpace.commandInterface.command
         }
         element.addEventListener("keyup", function (event) {
             if (event.key === "Enter" || event.keyCode === 13) {
-                UI.projects.superalgos.spaces.docsSpace.exitEditMode()
-                UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered = undefined
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
-                UI.projects.superalgos.spaces.docsSpace.contextMenu.removeContextMenuFromScreen()
-                UI.projects.superalgos.spaces.docsSpace.commandInterface.command = element.value.trim()
-                UI.projects.superalgos.spaces.docsSpace.commandInterface.detectCommands()
+                UI.projects.education.spaces.docsSpace.exitEditMode()
+                UI.projects.education.spaces.docsSpace.currentBookBeingRendered = undefined
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = undefined
+                UI.projects.education.spaces.docsSpace.contextMenu.removeContextMenuFromScreen()
+                UI.projects.education.spaces.docsSpace.commandInterface.command = element.value.trim()
+                UI.projects.education.spaces.docsSpace.commandInterface.detectCommands()
             }
         });
     }

@@ -459,7 +459,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 sizePlaced: tradingEngineStage.stageBaseAsset.sizePlaced.value,
                                 targetSize: tradingEngineStage.stageBaseAsset.targetSize.value
                             }
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
@@ -505,7 +505,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 sizePlaced: tradingEngineStage.stageQuotedAsset.sizePlaced.value,
                                 targetSize: tradingEngineStage.stageQuotedAsset.targetSize.value
                             }
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
@@ -542,7 +542,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 orderQuotedAssetSize: tradingEngineOrder.orderQuotedAsset.size.value,
                                 episodeQuotedAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value
                             }
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
@@ -572,7 +572,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
                                 orderBaseAssetSize: tradingEngineOrder.orderBaseAsset.size.value,
                                 episodeBaseAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value
                             }
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addWarning(
                                 [
@@ -711,7 +711,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
             return true
@@ -744,7 +744,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
@@ -771,7 +771,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
@@ -807,7 +807,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
@@ -878,7 +878,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
         }
@@ -1110,7 +1110,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         contextInfo = {
             exitType: tradingEngineOrder.exitType.value
         }
-        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
         tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 
@@ -1192,7 +1192,7 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
             contextInfo = {
                 exitType: tradingEngineOrder.exitType.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addInfo([tradingSystemOrder.id, message, docs])
 

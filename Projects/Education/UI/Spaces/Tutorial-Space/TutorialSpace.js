@@ -1,4 +1,4 @@
-function newSuperalgosTutorialSpace() {
+function newEducationTutorialSpace() {
     const MODULE_NAME = 'Tutorial Space'
     let thisObject = {
         stop: stop,
@@ -291,13 +291,13 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This forces the tutorial to open the documentation panel.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.open()
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.open()
                 }
                 if (config.controlDocs.panel === "Close") {
                     /*
                     This forces the tutorial to close the documentation panel.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                 }
                 if (
                     config.controlDocs.page !== undefined &&
@@ -311,7 +311,7 @@ function newSuperalgosTutorialSpace() {
                     /*
                     This produces the Docs to laod the specified page.
                     */
-                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type, config.controlDocs.page.anchor)
+                    UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type, config.controlDocs.page.anchor)
                 }
             }
         }
@@ -700,7 +700,7 @@ function newSuperalgosTutorialSpace() {
                 return
             }
             let position = nodeConfig.position
-            if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+            if (UI.projects.education.spaces.docsSpace.isVisible === true) {
                 position = 'Left'
             }
 
@@ -1212,7 +1212,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         newConfig = currentNode.config
-        newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.superalgos.spaces.docsSpace.language
+        newDocument = JSON.stringify(schemaDocument) + ' - ' + UI.projects.education.spaces.docsSpace.language
 
         if (newConfig === currentConfig && newDocument === currentDocument) { return }
         currentConfig = newConfig
@@ -1226,13 +1226,13 @@ function newSuperalgosTutorialSpace() {
 
         if (nodeConfig.controlDocs !== undefined) {
             if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+                UI.projects.education.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
             }
             if (nodeConfig.controlDocs.searchPage === true) {
-                UI.projects.superalgos.spaces.docsSpace.searchPage()
+                UI.projects.education.spaces.docsSpace.searchPage()
             }
         } else {
-            UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
+            UI.projects.education.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
         }
 
         function syncConfigIconWithDocumentIcon() {
@@ -1318,11 +1318,11 @@ function newSuperalgosTutorialSpace() {
                 if (fullscreenMode === false) {
                     if (schemaDocument.definition.icon === undefined || schemaDocument.definition.icon.name === '') {
                         /* When there is no image, we will render a Summary instead of a Table */
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
                     } else {
                         html = html + '<table class="tutorial-definitionTable">'
@@ -1336,11 +1336,11 @@ function newSuperalgosTutorialSpace() {
                         html = html + '</td>'
                         html = html + '<td>'
 
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(schemaDocument.definition)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
 
                         html = html + '<strong class="tutorial-font-bold-small">' + text + '</strong>'
                         html = html + '</td>'
@@ -1354,102 +1354,102 @@ function newSuperalgosTutorialSpace() {
                 let paragraph = schemaDocument.paragraphs[i]
                 switch (paragraph.style) {
                     case 'Summary': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-summary">' + text + '</div>'
                         break
                     }
                     case 'Title': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<h2 class="tutorial-font-medium">' + text + '</h2>'
                         break
                     }
                     case 'Gif': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<div id="tutorialGifDiv" width="200" width="290"/>'
                         newGifName = text
                         break
                     }
                     case 'Text': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small">' + text + '</div>'
                         break
                     }
                     case 'Json': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<pre><code class="language-json">' + text + '</code></pre>'
                         break
                     }
                     case 'Javascript': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         html = html + '<pre><code class="language-javascript">' + text + '</code></pre>'
                         break
                     }
                     case 'List': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addBold(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addBold(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-list"><ul><li>' + text + '</li></ul></div>'
                         break
                     }
                     case 'Callout': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-bold-small tutorial-callout" > ' + text + '</div>'
                         break
                     }
                     case 'Link': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
                         let splittedText = text.split('->')
                         html = html + '<a class="tutorial-font-small tutorial-external-link" href="' + 'https://' + splittedText[1] + '" target="_blank">' + splittedText[0] + '</a>'
                         break
                     }
                     case 'Note': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-info" role="alert"><i class="tutorial-fa tutorial-info-circle"></i> <b>Note:</b> ' + text + '</div>'
                         break
                     }
                     case 'Success': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-success" role="alert"><i class="tutorial-fa tutorial-check-square-o"></i> <b>Tip:</b> ' + text + '</div>'
                         break
                     }
                     case 'Important': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-important" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Important:</b> ' + text + '</div>'
                         break
                     }
                     case 'Warning': {
-                        let text = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(paragraph)
-                        text = UI.projects.superalgos.utilities.docs.addKeyboard(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToCamelCase(text)
-                        text = UI.projects.superalgos.utilities.docs.addCodeToWhiteList(text)
-                        text = UI.projects.superalgos.utilities.docs.addToolTips(text)
+                        let text = UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph)
+                        text = UI.projects.education.utilities.docs.addKeyboard(text)
+                        text = UI.projects.education.utilities.docs.addCodeToCamelCase(text)
+                        text = UI.projects.education.utilities.docs.addCodeToWhiteList(text)
+                        text = UI.projects.education.utilities.docs.addToolTips(text)
                         html = html + '<div class="tutorial-font-small tutorial-alert-warning" role="alert"><i class="tutorial-fa tutorial-warning"></i> <b>Warning:</b> ' + text + '</div>'
                         break
                     }

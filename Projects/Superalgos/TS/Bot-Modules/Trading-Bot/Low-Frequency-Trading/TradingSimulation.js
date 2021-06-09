@@ -225,7 +225,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                         candleIndex: tradingEngine.tradingCurrent.tradingEpisode.candle.index.value,
                         cycle: tradingEngine.tradingCurrent.tradingEpisode.cycle.value
                     }
-                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                     tradingSystem.addInfo([tradingSystem.id, infoMessage, docs])
 
@@ -577,7 +577,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                                 sessionBaseAssetMinimumBalance: sessionParameters.sessionBaseAsset.config.minimumBalance
                             }
 
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -603,7 +603,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                                 sessionBaseAssetMaximumBalance: sessionParameters.sessionBaseAsset.config.maximumBalance
                             }
 
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -629,7 +629,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                                 sessionQuotedAssetMinimumBalance: sessionParameters.sessionQuotedAsset.config.minimumBalance
                             }
 
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -655,7 +655,7 @@ exports.newSuperalgosBotModulesTradingSimulation = function (processIndex) {
                                 sessionQuotedAssetMaximumBalance: sessionParameters.sessionQuotedAsset.config.maximumBalance
                             }
 
-                            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                             tradingSystem.addError([tradingSystem.id, errorMessage, docs])
                             TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

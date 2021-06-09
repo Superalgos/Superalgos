@@ -68,14 +68,14 @@ function newNodesWarnings() {
                 applyValue(nodeId, value, docs)
             }
 
-            if (UI.projects.superalgos.spaces.docsSpace.sidePanelTab.isOpen === true) {
+            if (UI.projects.education.spaces.docsSpace.sidePanelTab.isOpen === true) {
                 if (
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project !== docs.project ||
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category !== docs.category ||
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type !== docs.type ||
-                    UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== nodeId
+                    UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project !== docs.project ||
+                    UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category !== docs.category ||
+                    UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type !== docs.type ||
+                    UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== nodeId
                 ) {
-                    UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                    UI.projects.education.spaces.docsSpace.navigateTo(
                         docs.project,
                         docs.category,
                         docs.type,
@@ -86,7 +86,7 @@ function newNodesWarnings() {
                 }
 
             } else {
-                UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(
+                UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(
                     docs.project,
                     docs.category,
                     docs.type,

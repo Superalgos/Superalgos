@@ -31,7 +31,7 @@ exports.newSuperalgosUtilitiesErrorHandlingFunctions = function () {
             type: 'TS ' + source + ' Error - ' + message,
             placeholder: {}
         }
-        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(
+        TS.projects.education.utilities.docsFunctions.buildPlaceholder(
             docs,
             err,
             node.name,

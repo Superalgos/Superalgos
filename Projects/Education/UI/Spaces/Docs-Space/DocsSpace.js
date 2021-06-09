@@ -1,4 +1,4 @@
-function newSuperalgosDocSpace() {
+function newEducationDocSpace() {
     const MODULE_NAME = 'Doc Space'
     let thisObject = {
         isVisible: undefined,
@@ -88,10 +88,10 @@ function newSuperalgosDocSpace() {
             Getting the used preferred languague
             */
             if (window.localStorage.getItem('Current Branch') !== null && window.localStorage.getItem('Current Branch') !== undefined && window.localStorage.getItem('Current Branch') !== 'undefined') {
-                UI.projects.superalgos.spaces.docsSpace.currentBranch = window.localStorage.getItem('Current Branch')
+                UI.projects.education.spaces.docsSpace.currentBranch = window.localStorage.getItem('Current Branch')
             } else {
-                window.localStorage.setItem('Current Branch', UI.projects.superalgos.globals.docs.DEFAULT_CURRENT_BRANCH)
-                UI.projects.superalgos.spaces.docsSpace.currentBranch = UI.projects.superalgos.globals.docs.DEFAULT_CURRENT_BRANCH
+                window.localStorage.setItem('Current Branch', UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH)
+                UI.projects.education.spaces.docsSpace.currentBranch = UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH
             }
         }
 
@@ -100,10 +100,10 @@ function newSuperalgosDocSpace() {
             Getting the used preferred languague
             */
             if (window.localStorage.getItem('Contributions Branch') !== null && window.localStorage.getItem('Contributions Branch') !== undefined && window.localStorage.getItem('Contributions Branch') !== 'undefined') {
-                UI.projects.superalgos.spaces.docsSpace.contributionsBranch = window.localStorage.getItem('Contributions Branch')
+                UI.projects.education.spaces.docsSpace.contributionsBranch = window.localStorage.getItem('Contributions Branch')
             } else {
-                window.localStorage.setItem('Contributions Branch', UI.projects.superalgos.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
-                UI.projects.superalgos.spaces.docsSpace.contributionsBranch = UI.projects.superalgos.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
+                window.localStorage.setItem('Contributions Branch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
+                UI.projects.education.spaces.docsSpace.contributionsBranch = UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
             }
         }
 
@@ -112,10 +112,10 @@ function newSuperalgosDocSpace() {
             Getting the used preferred languague
             */
             if (window.localStorage.getItem('Docs Language') !== null && window.localStorage.getItem('Docs Language') !== undefined && window.localStorage.getItem('Docs Language') !== 'undefined') {
-                UI.projects.superalgos.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
+                UI.projects.education.spaces.docsSpace.language = window.localStorage.getItem('Docs Language')
             } else {
-                window.localStorage.setItem('Docs Language', UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE)
-                UI.projects.superalgos.spaces.docsSpace.language = UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE
+                window.localStorage.setItem('Docs Language', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
+                UI.projects.education.spaces.docsSpace.language = UI.projects.education.globals.docs.DEFAULT_LANGUAGE
             }
         }
 
@@ -187,17 +187,17 @@ function newSuperalgosDocSpace() {
 
     function changeCurrentBranch(branch) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
-        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
+        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                UI.projects.superalgos.spaces.docsSpace.currentBranch = branch
+                UI.projects.education.spaces.docsSpace.currentBranch = branch
                 window.localStorage.setItem('Current Branch', branch)
-                UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Changed')
+                UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
-                UI.projects.superalgos.spaces.docsSpace.navigateTo(
+                UI.projects.education.spaces.docsSpace.navigateTo(
                     data.docs.project,
                     data.docs.category,
                     data.docs.type,
@@ -210,20 +210,20 @@ function newSuperalgosDocSpace() {
     }
 
     function changeContributionsBranch(branch) {
-        UI.projects.superalgos.spaces.docsSpace.contributionsBranch = branch
-        window.localStorage.setItem('Contributions Branch', UI.projects.superalgos.spaces.docsSpace.contributionsBranch)
-        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        UI.projects.education.spaces.docsSpace.contributionsBranch = branch
+        window.localStorage.setItem('Contributions Branch', UI.projects.education.spaces.docsSpace.contributionsBranch)
+        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Contributions Branch Changed')
     }
 
     function changeLanguage(pLanguage) {
-        UI.projects.superalgos.spaces.docsSpace.language = pLanguage
-        window.localStorage.setItem('Docs Language', UI.projects.superalgos.spaces.docsSpace.language)
-        let languageLabel = UI.projects.superalgos.utilities.languages.getLaguageLabel(UI.projects.superalgos.spaces.docsSpace.language)
-        UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
+        UI.projects.education.spaces.docsSpace.language = pLanguage
+        window.localStorage.setItem('Docs Language', UI.projects.education.spaces.docsSpace.language)
+        let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
+        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
     }
 
     function sharePage() {
-        let clipboard = "docs.goto " + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type
+        let clipboard = "docs.goto " + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type
         UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
     }
 
@@ -235,7 +235,7 @@ function newSuperalgosDocSpace() {
         would like to close the editor. ESC key exits edit mode.    
         */
         if (event.key === 'Escape') {
-            UI.projects.superalgos.spaces.docsSpace.exitEditMode()
+            UI.projects.education.spaces.docsSpace.exitEditMode()
         }
     }
 
@@ -249,24 +249,24 @@ function newSuperalgosDocSpace() {
     function exitEditMode() {
         if (EDITOR_ON_FOCUS === true) {
             thisObject.documentPage.exitEditMode()
-            UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+            UI.projects.education.spaces.docsSpace.documentPage.render()
             EDITOR_ON_FOCUS = false
         }
     }
 
     function onOpening() {
         thisObject.isVisible = true
-        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered === undefined) {
+        if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered === undefined) {
             thisObject.mainSearchPage.render()
 
         } else {
-            UI.projects.superalgos.spaces.docsSpace.navigateTo(
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.project,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.category,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.type,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.nodeId,
-                UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.placeholder
+            UI.projects.education.spaces.docsSpace.navigateTo(
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project,
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category,
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type,
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor,
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId,
+                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.placeholder
             )
         }
     }
@@ -293,25 +293,25 @@ function newSuperalgosDocSpace() {
     }
 
     function searchPage() {
-        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = undefined
+        UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = undefined
         thisObject.mainSearchPage.render()
     }
 
     function navigateTo(project, category, type, anchor, nodeId, placeholder) {
 
         EDITOR_ON_FOCUS = false // forced exit
-        UI.projects.superalgos.spaces.docsSpace.paragraphMap = new Map()
+        UI.projects.education.spaces.docsSpace.paragraphMap = new Map()
 
         getReadyToNavigate(project, category, type, anchor, nodeId, placeholder)
 
-        UI.projects.superalgos.spaces.docsSpace.documentPage.render()
+        UI.projects.education.spaces.docsSpace.documentPage.render()
 
         /*
         Here we will check if we need to position the page at a particular anchor or at the top.
         */
-        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor !== undefined) {
-            scrollToElement('docs-anchor-' + UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
-            UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered.anchor = undefined
+        if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor !== undefined) {
+            scrollToElement('docs-anchor-' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor.toLowerCase().replaceAll(' ', '-'))
+            UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.anchor = undefined
         } else {
             scrollToElement('docs-space-div')
         }
@@ -319,12 +319,12 @@ function newSuperalgosDocSpace() {
 
     function getReadyToNavigate(project, category, type, anchor, nodeId, placeholder) {
         /* Replace the current object with this */
-        if (UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
-            UI.projects.superalgos.spaces.docsSpace.previousDocumentBeingRendered = JSON.parse(JSON.stringify(UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered))
+        if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered !== undefined) {
+            UI.projects.education.spaces.docsSpace.previousDocumentBeingRendered = JSON.parse(JSON.stringify(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered))
         }
 
         if (category === 'Book') {
-            UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered = {
+            UI.projects.education.spaces.docsSpace.currentBookBeingRendered = {
                 project: project,
                 category: category,
                 type: type.replace('AMPERSAND', '\''),
@@ -334,7 +334,7 @@ function newSuperalgosDocSpace() {
             }
         }
 
-        UI.projects.superalgos.spaces.docsSpace.currentDocumentBeingRendered = {
+        UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
             type: type.replace('AMPERSAND', '\''),
@@ -345,7 +345,7 @@ function newSuperalgosDocSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = UI.projects.superalgos.globals.docs.DOCS_SPACE_WIDTH
+        thisObject.container.frame.width = UI.projects.education.globals.docs.DOCS_SPACE_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

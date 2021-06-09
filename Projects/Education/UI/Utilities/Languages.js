@@ -1,4 +1,4 @@
-function newSuperalgosUtilitiesLanguages() {
+function newEducationUtilitiesLanguages() {
     let thisObject = {
         getLaguageLabel: getLaguageLabel
     }

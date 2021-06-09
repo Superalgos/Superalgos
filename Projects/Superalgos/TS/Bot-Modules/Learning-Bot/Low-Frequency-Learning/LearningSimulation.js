@@ -263,7 +263,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                         candleIndex: learningEngine.learningCurrent.learningEpisode.candle.index.value,
                         cycle: learningEngine.learningCurrent.learningEpisode.cycle.value
                     }
-                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
                     learningSystem.addInfo([learningSystem.id, infoMessage, docs])
 

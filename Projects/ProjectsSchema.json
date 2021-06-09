@@ -5,11 +5,6 @@
         "UI": {
             "globals": [
                 {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newSuperalgosGlobalsDocs"
-                },
-                {
                     "name": "Zoom",
                     "propertyName": "zoom",
                     "functionName": "newSuperalgosGlobalsZoom"
@@ -209,19 +204,9 @@
                     "functionName": "newSuperalgosUtilitiesStrings"
                 },
                 {
-                    "name": "Languages",
-                    "propertyName": "languages",
-                    "functionName": "newSuperalgosUtilitiesLanguages"
-                },
-                {
                     "name": "Git Branches",
                     "propertyName": "gitBranches",
                     "functionName": "newSuperalgosUtilitiesGitBranches"
-                },
-                {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newSuperalgosUtilitiesDocs"
                 },
                 {
                     "name": "Status Bar",
@@ -238,10 +223,10 @@
                     "initializationIndex": 0,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
-                    "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 8,
-                    "onMouseClickIndex": 8,
-                    "onMouseDownIndex": 8
+                    "onMouseWheelIndex": 5,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Top Space",
@@ -249,11 +234,11 @@
                     "propertyName": "topSpace",
                     "functionName": "newSuperalgosTopSpace",
                     "initializationIndex": 1,
-                    "animationPhysicsIndex": 7,
-                    "animationDrawIndex": 5,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
+                    "animationPhysicsIndex": 5,
+                    "animationDrawIndex": 4,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
                 },
                 {
                     "name": "Cockpit Space",
@@ -263,10 +248,10 @@
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 6,
-                    "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 5,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
                 },
                 {
                     "name": "Design Space",
@@ -277,9 +262,9 @@
                     "animationPhysicsIndex": 3,
                     "animationDrawIndex": 2,
                     "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 3
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
                 },
                 {
                     "name": "Panel Space",
@@ -289,10 +274,10 @@
                     "initializationIndex": 4,
                     "animationPhysicsIndex": 4,
                     "animationDrawIndex": 3,
-                    "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 },
                 {
                     "name": "Charting Space",
@@ -302,10 +287,10 @@
                     "initializationIndex": 5,
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
-                    "onMouseWheelIndex": 5,
+                    "onMouseWheelIndex": 4,
                     "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 7
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Side Space",
@@ -313,44 +298,18 @@
                     "propertyName": "sideSpace",
                     "functionName": "newSuperalgosSideSpace",
                     "initializationIndex": 6,
-                    "animationPhysicsIndex": 8,
-                    "animationDrawIndex": 8,
-                    "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 2
-                },
-                {
-                    "name": "Docs Space",
-                    "folderName": "Docs-Space",
-                    "propertyName": "docsSpace",
-                    "functionName": "newSuperalgosDocSpace",
-                    "initializationIndex": 7,
-                    "animationPhysicsIndex": 5,
-                    "animationDrawIndex": 7,
+                    "animationPhysicsIndex": 6,
+                    "animationDrawIndex": 5,
                     "onMouseWheelIndex": 1,
-                    "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 1
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
                 },
                 {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
                     "functionName": "newSuperalgosChatSpace"
-                },
-                {
-                    "name": "Tutorial Space",
-                    "folderName": "Tutorial-Space",
-                    "propertyName": "tutorialSpace",
-                    "functionName": "newSuperalgosTutorialSpace",
-                    "initializationIndex": 8,
-                    "animationPhysicsIndex": 6,
-                    "animationDrawIndex": 4,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 0,
-                    "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 0
                 }
             ]
         },
@@ -491,12 +450,6 @@
                     "propertyName": "miscellaneousFunctions",
                     "functionName": "newSuperalgosUtilitiesMiscellaneousFunctions",
                     "fileName": "MiscellaneousFunctions.js"
-                },
-                {
-                    "name": "Docs Functions",
-                    "propertyName": "docsFunctions",
-                    "functionName": "newSuperalgosUtilitiesDocsFunctions",
-                    "fileName": "DocsFunctions.js"
                 },
                 {
                     "name": "Error Handling Functions",
@@ -1090,6 +1043,76 @@
             ]
         },
         "TS": {},
+        "CL": {}
+    },
+    {
+        "name": "Education",
+        "propertyName": "education",
+        "UI": {
+            "globals": [
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationGlobalsDocs"
+                }
+            ],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Languages",
+                    "propertyName": "languages",
+                    "functionName": "newEducationUtilitiesLanguages"
+                },
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationUtilitiesDocs"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "Docs Space",
+                    "folderName": "Docs-Space",
+                    "propertyName": "docsSpace",
+                    "functionName": "newEducationDocSpace",
+                    "initializationIndex": 0,
+                    "animationPhysicsIndex": 0,
+                    "animationDrawIndex": 0,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Tutorial Space",
+                    "folderName": "Tutorial-Space",
+                    "propertyName": "tutorialSpace",
+                    "functionName": "newEducationTutorialSpace",
+                    "initializationIndex": 1,
+                    "animationPhysicsIndex": 1,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        },
+        "TS": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Docs Functions",
+                    "propertyName": "docsFunctions",
+                    "functionName": "newEducationUtilitiesDocsFunctions",
+                    "fileName": "DocsFunctions.js"
+                }
+            ],
+            "taskModules": [],
+            "processModules": [],
+            "botModules": []
+        },
         "CL": {}
     }
 ]

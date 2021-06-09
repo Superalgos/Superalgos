@@ -50,8 +50,8 @@ function newCanvas() {
 
     function finalize() {
         try {
-            UI.projects.superalgos.spaces.tutorialSpace.finalize()
-            UI.projects.superalgos.spaces.docsSpace.finalize()
+            UI.projects.education.spaces.tutorialSpace.finalize()
+            UI.projects.education.spaces.docsSpace.finalize()
             //thisObject.chatSpace.finalize()
             UI.projects.superalgos.spaces.sideSpace.finalize()
             UI.projects.superalgos.spaces.chartingSpace.finalize()
@@ -380,7 +380,7 @@ function newCanvas() {
             return
         }
         /* When the Docs is Visible, we do not process key down events of the Designer Space. */
-        if (UI.projects.superalgos.spaces.docsSpace.isVisible === true) {
+        if (UI.projects.education.spaces.docsSpace.isVisible === true) {
             return
         }
         thisObject.mouse.event = event

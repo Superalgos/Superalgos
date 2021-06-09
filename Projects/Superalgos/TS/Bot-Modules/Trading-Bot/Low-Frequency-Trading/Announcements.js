@@ -57,7 +57,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                         placeholder: {}
                     }
 
-                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementCondition.name, announcement.announcementCondition.code, undefined, undefined, undefined)
+                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementCondition.name, announcement.announcementCondition.code, undefined, undefined, undefined)
 
                     tradingSystem.addError([announcement.announcementCondition.id, err.message, docs])
                 }
@@ -82,7 +82,7 @@ exports.newSuperalgosBotModulesAnnouncements = function (processIndex) {
                             placeholder: {}
                         }
 
-                        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementFormula.name, announcement.announcementFormula.code, undefined, undefined, undefined)
+                        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, announcement.announcementFormula.name, announcement.announcementFormula.code, undefined, undefined, undefined)
 
                         tradingSystem.addError([announcement.announcementFormula.id, err.message, docs])
                     }

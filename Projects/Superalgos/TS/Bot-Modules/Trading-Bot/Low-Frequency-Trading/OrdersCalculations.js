@@ -174,7 +174,7 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
                 actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
                 orderRate: tradingEngineOrder.rate.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addWarning(
                 [
@@ -214,7 +214,7 @@ exports.newSuperalgosBotModulesOrdersCalculations = function (processIndex) {
                 actualRate: tradingEngineOrder.orderStatistics.actualRate.value,
                 orderRate: tradingEngineOrder.rate.value
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
             tradingSystem.addWarning(
                 [

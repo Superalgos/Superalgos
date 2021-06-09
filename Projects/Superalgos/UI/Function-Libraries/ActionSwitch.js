@@ -529,37 +529,37 @@ function newSuperalgosActionSwitch() {
                 break
             case 'Play Tutorial':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.playTutorial(action.node)
+                    UI.projects.education.spaces.tutorialSpace.playTutorial(action.node)
                 }
                 break
             case 'Play Tutorial Topic':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.playTutorialTopic(action.node)
+                    UI.projects.education.spaces.tutorialSpace.playTutorialTopic(action.node)
                 }
                 break
             case 'Play Tutorial Step':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.playTutorialStep(action.node)
+                    UI.projects.education.spaces.tutorialSpace.playTutorialStep(action.node)
                 }
                 break
             case 'Resume Tutorial':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorial(action.node)
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorial(action.node)
                 }
                 break
             case 'Resume Tutorial Topic':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorialTopic(action.node)
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorialTopic(action.node)
                 }
                 break
             case 'Resume Tutorial Step':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.resumeTutorialStep(action.node)
+                    UI.projects.education.spaces.tutorialSpace.resumeTutorialStep(action.node)
                 }
                 break
             case 'Reset Tutorial Progress':
                 {
-                    UI.projects.superalgos.spaces.tutorialSpace.resetTutorialProgress(action.node)
+                    UI.projects.education.spaces.tutorialSpace.resetTutorialProgress(action.node)
                 }
                 break
             case 'Send Webhook Test Message':
@@ -634,7 +634,7 @@ function newSuperalgosActionSwitch() {
                 {
                     let definition = getSchemaDocument(action.node)
                     if (definition !== undefined) {
-                        UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project, 'Node', action.node.type)
+                        UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(action.node.project, 'Node', action.node.type)
                     }
                 }
                 break

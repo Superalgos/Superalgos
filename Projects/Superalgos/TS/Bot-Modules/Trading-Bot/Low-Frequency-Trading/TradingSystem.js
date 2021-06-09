@@ -338,7 +338,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                 type: 'TS LF Trading Bot Error - Evaluating Condition Error',
                 placeholder: {}
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, nodeName, code, undefined)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, nodeName, code, undefined)
         }
 
         tradingSystem.conditions.set(node.id, value)
@@ -378,7 +378,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                 type: 'TS LF Trading Bot Error - Evaluating Formula Error',
                 placeholder: {}
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
 
         if (errorMessage !== undefined) {
@@ -395,7 +395,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                         type: 'TS LF Trading Bot Error - Formula Value Not A Number',
                         placeholder: {}
                     }
-                    TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
 
                     tradingSystem.addError([node.id, 'Formula needs to return a numeric value.', docs])
                     return
@@ -411,7 +411,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
                     type: 'TS LF Trading Bot Error - Formula Value Not A Number',
                     placeholder: {}
                 }
-                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
+                TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, node.name, node.code, undefined, value)
 
                 tradingSystem.addError([node.id, 'Formula needs to return a numeric value.', docs])
                 return
@@ -439,7 +439,7 @@ exports.newSuperalgosBotModulesTradingSystem = function (processIndex) {
             type: 'TS LF Trading Bot Error - Evaluating User Code Error',
             placeholder: {}
         }
-        TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
+        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
       }
 
       if (errorMessage !== undefined) {

@@ -85,7 +85,7 @@ exports.newSuperalgosBotModulesTradingExecution = function (processIndex) {
                     placeholder: {}
                 }
 
-                TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err)
+                TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err)
 
                 tradingSystem.addError([executionNode.id, message, docs])
             }

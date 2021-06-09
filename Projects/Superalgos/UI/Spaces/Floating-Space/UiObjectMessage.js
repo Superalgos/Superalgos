@@ -88,10 +88,10 @@ function newUiObjectMessage() {
         if (thisObject.isVisibleFunction(checkPoint) === true) {
             if (thisObject.docs !== undefined) {
 
-                if (UI.projects.superalgos.spaces.docsSpace.sidePanelTab.isOpen === true) {
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                if (UI.projects.education.spaces.docsSpace.sidePanelTab.isOpen === true) {
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                 } else {
-                    UI.projects.superalgos.spaces.docsSpace.openSpaceAreaAndNavigateTo(
+                    UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(
                         thisObject.docs.project,
                         thisObject.docs.category,
                         thisObject.docs.type,

@@ -23,12 +23,12 @@ function newSuperalgosDocsSearchResultsPage() {
         buildHTML()
 
         function buildResultsArray() {
-            for (let i = 0; i < UI.projects.superalgos.spaces.docsSpace.searchEngine.docsIndex.length; i++) {
-                let documentIndex = UI.projects.superalgos.spaces.docsSpace.searchEngine.docsIndex[i]
+            for (let i = 0; i < UI.projects.education.spaces.docsSpace.searchEngine.docsIndex.length; i++) {
+                let documentIndex = UI.projects.education.spaces.docsSpace.searchEngine.docsIndex[i]
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.superalgos.spaces.docsSpace.commandInterface.command.toLowerCase())
+                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
@@ -210,7 +210,7 @@ function newSuperalgosDocsSearchResultsPage() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
             let HTML = ''
             HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
-            HTML = HTML + UI.projects.superalgos.spaces.docsSpace.mainSearchPage.addSearchHeader()
+            HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
 
             // Tabs
             HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
@@ -251,7 +251,7 @@ function newSuperalgosDocsSearchResultsPage() {
                             let nodeType = pathStep[1]
                             let nodeProject = pathStep[2]
                             let nodeId = pathStep[3]
-                            let link = ' > <a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
+                            let link = ' > <a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
@@ -289,10 +289,10 @@ function newSuperalgosDocsSearchResultsPage() {
                             mainLink = result.documentIndex.docsSchemaDocument.type
                         }
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
+                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + UI.projects.education.utilities.docs.getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
                     } else {
                         HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }
@@ -320,10 +320,10 @@ function newSuperalgosDocsSearchResultsPage() {
             }
 
             let docsContentDiv = document.getElementById('docs-content-div')
-            docsContentDiv.innerHTML = HTML + UI.projects.superalgos.spaces.docsSpace.footer.addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.education.spaces.docsSpace.footer.addFooter()
 
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
-            UI.projects.superalgos.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+            UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
+            UI.projects.education.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
         }
     }
 }

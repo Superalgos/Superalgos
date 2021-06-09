@@ -1,4 +1,4 @@
-function newSuperalgosUtilitiesDocs() {
+function newEducationUtilitiesDocs() {
     let thisObject = {
         buildOrderedPageIndex: buildOrderedPageIndex,
         addWarningIfTranslationIsOutdated: addWarningIfTranslationIsOutdated,
@@ -94,7 +94,7 @@ function newSuperalgosUtilitiesDocs() {
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
             if (translation.updated === undefined) { continue }
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
+            if (translation.language === UI.projects.education.spaces.docsSpace.language) {
                 if (paragraph.updated < translation.updated) {
                     return ''
                 } else {
@@ -111,17 +111,17 @@ function newSuperalgosUtilitiesDocs() {
         if (paragraph.translations.length === 0) { return paragraph.text }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) { return translation.text }
+            if (translation.language === UI.projects.education.spaces.docsSpace.language) { return translation.text }
         }
         return paragraph.text
     }
 
     function setTextBasedOnLanguage(paragraph, text) {
-        if (UI.projects.superalgos.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
+        if (UI.projects.education.spaces.docsSpace.language === UI.projects.education.globals.docs.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
 
                 /* This will make the Client to save this in a file overwritting the previous version*/
-                UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
 
                 paragraph.text = text
                 paragraph.updated = (new Date()).valueOf()
@@ -142,11 +142,11 @@ function newSuperalgosUtilitiesDocs() {
         }
         for (let i = 0; i < paragraph.translations.length; i++) {
             let translation = paragraph.translations[i]
-            if (translation.language === UI.projects.superalgos.spaces.docsSpace.language) {
+            if (translation.language === UI.projects.education.spaces.docsSpace.language) {
                 if (translation.text !== text) {
 
                     /* This will make the Client to save this in a file overwritting the previous version*/
-                    UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+                    UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
 
                     translation.text = text
                     translation.updated = (new Date()).valueOf()
@@ -155,14 +155,14 @@ function newSuperalgosUtilitiesDocs() {
             }
         }
         let translation = {
-            language: UI.projects.superalgos.spaces.docsSpace.language,
+            language: UI.projects.education.spaces.docsSpace.language,
             text: text,
             updated: (new Date()).valueOf()
         }
         paragraph.translations.push(translation)
 
         /* This will make the Client to save this in a file overwritting the previous version*/
-        UI.projects.superalgos.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
+        UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
         return
     }
 
@@ -489,25 +489,25 @@ function newSuperalgosUtilitiesDocs() {
 
             let found = false
 
-            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase4) === true) {
+            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase4) === true) {
                 changedText = changedText + phrase4.replace(cleanPhrase4, '<i>' + cleanPhrase4 + '</i>') + ' '
                 i = i + 3
                 found = true
             }
 
-            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase3) === true) {
+            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase3) === true) {
                 changedText = changedText + phrase3.replace(cleanPhrase3, '<i>' + cleanPhrase3 + '</i>') + ' '
                 i = i + 2
                 found = true
             }
 
-            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase2) === true) {
+            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase2) === true) {
                 changedText = changedText + phrase2.replace(cleanPhrase2, '<i>' + cleanPhrase2 + '</i>') + ' '
                 i = i + 1
                 found = true
             }
 
-            if (found === false && UI.projects.superalgos.spaces.docsSpace.menuLabelsMap.get(cleanPhrase1) === true) {
+            if (found === false && UI.projects.education.spaces.docsSpace.menuLabelsMap.get(cleanPhrase1) === true) {
                 changedText = changedText + phrase1.replace(cleanPhrase1, '<i>' + cleanPhrase1 + '</i>') + ' '
                 i = i + 0
                 found = true
@@ -523,8 +523,8 @@ function newSuperalgosUtilitiesDocs() {
 
     function addToolTips(text, excludedType) {
 
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
-        const LINK_ONLY_HTML = '<div onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
+        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
+        const LINK_ONLY_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''
         text = tagDefinedTypes(text, excludedType)
@@ -586,7 +586,7 @@ function newSuperalgosUtilitiesDocs() {
                 return text
             }
 
-            let definition = UI.projects.superalgos.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
+            let definition = UI.projects.education.utilities.docs.getTextBasedOnLanguage(docsSchemaDocument.definition)
             if (definition === undefined || definition === "") {
                 let tooltip = LINK_ONLY_HTML
                     .replace('CATEGORY', category)

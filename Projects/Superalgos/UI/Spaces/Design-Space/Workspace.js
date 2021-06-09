@@ -109,7 +109,7 @@ function newWorkspace() {
                 UI.projects.superalgos.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
                 setTimeout(theEnd, 100)
                 function theEnd() {
-                    UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished)
+                    UI.projects.education.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished)
 
                     function onIndexingFinished() {
                         setupEventsServerClients()
@@ -270,7 +270,7 @@ function newWorkspace() {
                     UI.projects.superalgos.utilities.statusBar.changeStatus('Saving Workspace ' + thisObject.workspaceNode.name + '.')
                     workingAtTask = 0
 
-                    UI.projects.superalgos.spaces.docsSpace.sidePanelTab.close()
+                    UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close()
                     UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
                     saveWorkspace(takeAction)
@@ -288,7 +288,7 @@ function newWorkspace() {
 
                         async function takeAction() {
                             thisObject.isInitialized = false
-                            UI.projects.superalgos.spaces.tutorialSpace.stop()
+                            UI.projects.education.spaces.tutorialSpace.stop()
 
                             let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Superalgos', callBackFunction: onDeleted })
                             if (result === false) {
@@ -378,8 +378,8 @@ function newWorkspace() {
                         workingAtTask = 0
 
                         function takeAction() {
-                            UI.projects.superalgos.spaces.docsSpace.reset()
-                            UI.projects.superalgos.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished) // The docs needs to index the loaded workspace.
+                            UI.projects.education.spaces.docsSpace.reset()
+                            UI.projects.education.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished) // The docs needs to index the loaded workspace.
                             function onIndexingFinished() {
                                 UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
                                 thisObject.isInitialized = true

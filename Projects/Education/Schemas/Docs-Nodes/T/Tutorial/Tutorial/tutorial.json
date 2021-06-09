@@ -107,7 +107,7 @@
         },
         {
             "style": "Json",
-            "text": "\"icon\": {\n        \"name\": \"balance\",\n        \"project\": \"Foundation\"\n    }",
+            "text": "\"icon\": {\n        \"name\": \"balance\",\n        \"project\": \"Foundations\"\n    }",
             "updated": 1613840669552
         },
         {
@@ -200,7 +200,7 @@
         },
         {
             "style": "Json",
-            "text": "\"docs\": {\n        \"project\": \"Foundation\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Scales' Best-Kept Secrets\"\n    }",
+            "text": "\"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Scales' Best-Kept Secrets\"\n    }",
             "updated": 1613842164831
         },
         {
@@ -283,7 +283,7 @@
         },
         {
             "style": "Json",
-            "text": "\"controlDocs\": {\n        \"panel\": \"Open\",\n        \"page\": {\n            \"project\": \"Foundation\",\n            \"category\": \"Topic\",\n            \"type\": \"Syntax Overview\",\n            \"anchor\": \"Previous Property\"\n            }\n         }",
+            "text": "\"controlDocs\": {\n        \"panel\": \"Open\",\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"Topic\",\n            \"type\": \"Syntax Overview\",\n            \"anchor\": \"Previous Property\"\n            }\n         }",
             "updated": 1617649170254
         },
         {

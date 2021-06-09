@@ -1198,7 +1198,7 @@ function newEducationTutorialSpace() {
                     {
                         style: "Json",
                         text: ' \"docs\": { \n' +
-                            '\"project\": \"Foundation\",\n' +
+                            '\"project\": \"Foundations\",\n' +
                             '\"category\": \"Tutorial\",\n' +
                             '\"type\": \"Tutorial Step - Bla Bla\"\n' +
                             '}'

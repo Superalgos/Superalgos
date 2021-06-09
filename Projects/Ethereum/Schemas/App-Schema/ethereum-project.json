@@ -52,7 +52,7 @@
             "name": "projectDefinition",
             "type": "node",
             "childType": "Project Definition",
-            "project": "Superalgos",
+            "project": "Foundations",
             "autoAdd": true
         }
     ]

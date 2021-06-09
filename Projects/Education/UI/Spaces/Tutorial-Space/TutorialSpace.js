@@ -170,10 +170,10 @@ function newEducationTutorialSpace() {
                 config.toggleMapView !== undefined
             ) {
                 if (config.toggleMapView.view === "On") {
-                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
+                    UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                 } else
                     if (config.toggleMapView.view === "Off") {
-                        UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                        UI.projects.foundations.spaces.floatingSpace.inMapMode = false
                     }
             }
         }
@@ -194,11 +194,11 @@ function newEducationTutorialSpace() {
                 }
                 if (totalZoomSteps > 0) {
                     if (currentZoomStep < totalZoomSteps) {
-                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                        UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
                     }
                 } else {
                     if (currentZoomStep > totalZoomSteps) {
-                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                        UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
                     }
                 }
             }
@@ -208,7 +208,7 @@ function newEducationTutorialSpace() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
             if (config.viewportZoomAtCenter !== undefined) {
-                UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
+                UI.projects.foundations.spaces.chartingSpace.viewport.zoomAtCenter(config.viewportZoomAtCenter)
             }
         }
 
@@ -331,7 +331,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
                 }
                 return
             }
@@ -340,7 +340,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.superalgos.spaces.sideSpace.sidePanelTab.open()
+                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.open()
                 }
                 return
             }
@@ -363,7 +363,7 @@ function newEducationTutorialSpace() {
                         /*
                         This forces the tutorial to close the charting space and to keep it closed.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toTop()
+                        UI.projects.foundations.spaces.cockpitSpace.toTop()
                         return
                     }
                     case "toMiddle": {
@@ -371,14 +371,14 @@ function newEducationTutorialSpace() {
                         This forces the tutorial to share the screen half with the designer and half 
                         with the charting space and force it in that way.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toMiddle()
+                        UI.projects.foundations.spaces.cockpitSpace.toMiddle()
                         return
                     }
                     case "toBottom": {
                         /*
                         This forces the tutorial to fully open the charting space and to keep it open.
                         */
-                        UI.projects.superalgos.spaces.cockpitSpace.toBottom()
+                        UI.projects.foundations.spaces.cockpitSpace.toBottom()
                         return
                     }
                 }
@@ -407,7 +407,7 @@ function newEducationTutorialSpace() {
                                         currentNode.payload.referenceParent.payload.floatingObject.unCollapseParent()
                                     }
                                     if (positionAtNodeCounter < 100) {
-                                        UI.projects.superalgos.spaces.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
+                                        UI.projects.foundations.spaces.floatingSpace.positionAtNode(currentNode.payload.referenceParent)
                                     }
                                 }
                                 if (
@@ -559,7 +559,7 @@ function newEducationTutorialSpace() {
                                     config.keyPressedTimeMachineReferenceParent !== undefined
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.foundations.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             timeMachineKeyPressedCounter++
                                             if (timeMachineKeyPressedCounter === 10) {
@@ -579,9 +579,9 @@ function newEducationTutorialSpace() {
                                     config.viewportCenterReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.foundations.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined && viewportCentered === false) {
-                                            UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                            UI.projects.foundations.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                             viewportCentered = true
                                         }
                                     }
@@ -590,7 +590,7 @@ function newEducationTutorialSpace() {
                                     config.repositionAtTimeMachineReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.foundations.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
@@ -599,12 +599,12 @@ function newEducationTutorialSpace() {
                                                         delta: -1
                                                     }
                                                     for (let i = 0; i < 100; i++) {
-                                                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                                                        UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     }
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.foundations.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 60): {
@@ -619,11 +619,11 @@ function newEducationTutorialSpace() {
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 90): {
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.foundations.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 120): {
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.zoomAtCenter(8)
+                                                    UI.projects.foundations.spaces.chartingSpace.viewport.zoomAtCenter(8)
                                                     break
                                                 }
                                             }
@@ -634,7 +634,7 @@ function newEducationTutorialSpace() {
                                     config.repositionAtTimeMachineNoZoomReferenceParent === true
                                 ) {
                                     if (currentNode.payload.referenceParent.type === 'Time Machine') {
-                                        let timeMachine = UI.projects.superalgos.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
+                                        let timeMachine = UI.projects.foundations.spaces.chartingSpace.findTimeMachine(currentNode.payload.referenceParent)
                                         if (timeMachine !== undefined) {
                                             repositionAtTimeMachineCounter++
                                             switch (true) {
@@ -643,12 +643,12 @@ function newEducationTutorialSpace() {
                                                         let event = {
                                                             delta: -1
                                                         }
-                                                        UI.projects.superalgos.spaces.chartingSpace.viewport.onMouseWheel(event)
+                                                        UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
                                                     }
                                                     break
                                                 }
                                                 case (repositionAtTimeMachineCounter === 30): {
-                                                    UI.projects.superalgos.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
+                                                    UI.projects.foundations.spaces.chartingSpace.viewport.displaceToContainer(timeMachine.container)
                                                     break
                                                 }
                                             }
@@ -770,7 +770,7 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Skipped'
         }
-        UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance(true)
     }
 
@@ -787,10 +787,10 @@ function newEducationTutorialSpace() {
             Reseet the Status of Current and Previous Node
             so that RESUME goes to the right node.
             */
-            UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+            UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
             previousNode = navigationStack[navigationStack.length - 3]
             if (previousNode !== undefined) {
-                UI.projects.superalgos.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
+                UI.projects.foundations.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
             }
             previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
@@ -827,7 +827,7 @@ function newEducationTutorialSpace() {
         let tutorial = {
             status: 'Done'
         }
-        UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+        UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance()
     }
 
@@ -920,7 +920,7 @@ function newEducationTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -935,7 +935,7 @@ function newEducationTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         navigationStack = []
         node.payload.uiObject.isPlaying = true
@@ -997,7 +997,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.superalgos.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
+                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialStep.payload, tutorial)
             }
 
             for (let i = 0; i < node.tutorialTopics.length; i++) {
@@ -1005,7 +1005,7 @@ function newEducationTutorialSpace() {
                 let tutorial = {
                     status: 'Reset'
                 }
-                UI.projects.superalgos.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
+                UI.projects.foundations.utilities.tutorial.saveTutorial(tutorialTopic.payload, tutorial)
                 resetNextNode(tutorialTopic)
             }
         }
@@ -1075,7 +1075,7 @@ function newEducationTutorialSpace() {
                             let tutorial = {
                                 status: undefined
                             }
-                            UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
+                            UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
                             currentNode = tutorialStep
                             currentStatus = 'Playing Step'
                             navigationStack.push(currentNode)
@@ -1111,7 +1111,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)
@@ -1150,7 +1150,7 @@ function newEducationTutorialSpace() {
                         let tutorial = {
                             status: undefined
                         }
-                        UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        UI.projects.foundations.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
                         currentNode = tutorialTopic
                         currentStatus = 'Playing Topic'
                         navigationStack.push(currentNode)
@@ -1187,7 +1187,7 @@ function newEducationTutorialSpace() {
                     text: "If you are a new user then please refresh the UI with F5."
                 },
                 icon: {
-                    project: "Superalgos",
+                    project: "Foundations",
                     name: "warning"
                 },
                 paragraphs: [
@@ -1198,7 +1198,7 @@ function newEducationTutorialSpace() {
                     {
                         style: "Json",
                         text: ' \"docs\": { \n' +
-                            '\"project\": \"Superalgos\",\n' +
+                            '\"project\": \"Foundation\",\n' +
                             '\"category\": \"Tutorial\",\n' +
                             '\"type\": \"Tutorial Step - Bla Bla\"\n' +
                             '}'
@@ -1243,7 +1243,7 @@ function newEducationTutorialSpace() {
             if (nodeConfig.icon === undefined) {
                 nodeConfig.icon = {
                     name: nodeConfig.image, // This property comes from the migration 
-                    project: 'Superalgos'
+                    project: 'Foundations'
                 }
 
                 nodeConfig.image = undefined // Removing this legacy property.

@@ -1,0 +1,25 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 30,
+    "type": "Tutorial Step - Verify the Layers",
+    "definition": {
+        "text": "As you may have noticed, the layers that were added match the Bot Products under the Candles Data Mine Products node.",
+        "updated": 1620048469797,
+        "icon": {
+            "name": "layer",
+            "project": "Foundations"
+        }
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a few minutes and check between the Bot Products offspring nodes and your new layers. They Match!",
+            "updated": 1620559042193
+        },
+        {
+            "style": "Note",
+            "text": "You can have more fine tuned control over the layers available in your charts by adding or deleting individual layers.  Your charts are truly yours! ",
+            "updated": 1621522922044
+        }
+    ]
+}

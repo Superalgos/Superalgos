@@ -1,4 +1,4 @@
-function newSuperalgosDocsMainSearchPage() {
+function newFoundationsDocsMainSearchPage() {
     let thisObject = {
         addSearchHeader: addSearchHeader,
         detectEnterOnSearchBox: detectEnterOnSearchBox,

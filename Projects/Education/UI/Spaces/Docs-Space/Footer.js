@@ -1,4 +1,4 @@
-function newSuperalgosDocsFooter() {
+function newFoundationsDocsFooter() {
     let thisObject = {
         addFooter: addFooter,
         initialize: initialize,
@@ -39,10 +39,10 @@ function newSuperalgosDocsFooter() {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.education.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
         }
 
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'Reviews' + '\')"><button>REVIEWS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'Community Data Mines' + '\')"><button>DATA MINES</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'First Steps Tutorials' + '\')"><button>TUTORIALS</button></span>'
-        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'User Manual' + '\')"><button>USER MANUAL</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Reviews' + '\')"><button>REVIEWS</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'Community Data Mines' + '\')"><button>DATA MINES</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'First Steps Tutorials' + '\')"><button>TUTORIALS</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + 'Foundations' + '\', \'' + 'Book' + '\', \'' + 'User Manual' + '\')"><button>USER MANUAL</button></span>'
 
         HTML = HTML + '</div>'
 
@@ -161,7 +161,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Choose the Current Branch</h4>'
-        HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.education.spaces.docsSpace.currentBranch) + '</code> branch. Switch to:'
+        HTML = HTML + 'You are currently running on the <code class="docs-footer-code">' + UI.projects.foundations.utilities.gitBranches.getBranchLabel(UI.projects.education.spaces.docsSpace.currentBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
@@ -172,7 +172,7 @@ function newSuperalgosDocsFooter() {
 
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Contributions Branch</h4>'
-        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.superalgos.utilities.gitBranches.getBranchLabel(UI.projects.education.spaces.docsSpace.contributionsBranch) + '</code> branch. Switch to:'
+        HTML = HTML + 'You are currently contributing to the <code class="docs-footer-code">' + UI.projects.foundations.utilities.gitBranches.getBranchLabel(UI.projects.education.spaces.docsSpace.contributionsBranch) + '</code> branch. Switch to:'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'

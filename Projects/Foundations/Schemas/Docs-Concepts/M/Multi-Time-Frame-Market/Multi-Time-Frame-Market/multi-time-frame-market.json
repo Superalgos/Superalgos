@@ -1,0 +1,14 @@
+{
+    "type": "Multi-Time-Frame-Market",
+    "definition": {
+        "text": "This refers to the Dataset Type that contain files for each Time Frame from 1hs up to 24hs and each file contains the data of the whole market.",
+        "updated": 1622051703688
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Data Mining - Dataset Types->Dataset List",
+            "updated": 1622052621552
+        }
+    ]
+}

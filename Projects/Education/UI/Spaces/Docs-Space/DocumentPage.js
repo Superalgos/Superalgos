@@ -1,4 +1,4 @@
-function newSuperalgosDocsDocumentPage() {
+function newFoundationsDocsDocumentPage() {
     let thisObject = {
         docsSchemaDocument: undefined,
         exitEditMode: exitEditMode,
@@ -114,10 +114,10 @@ function newSuperalgosDocsDocumentPage() {
         async function repositionWorkspace() {
             let node
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category === 'Workspace') {
-                node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
+                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
             }
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== undefined) {
-                node = await UI.projects.superalgos.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
+                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
             }
             if (node === undefined) { return }
 
@@ -126,7 +126,7 @@ function newSuperalgosDocsDocumentPage() {
             setTimeout(positionAtNode, 1000, node) // In case the branch which contains the node is collapsed.
             function positionAtNode(node) {
                 let xOffset = -UI.projects.education.globals.docs.DOCS_SPACE_WIDTH / 2
-                UI.projects.superalgos.spaces.floatingSpace.positionAtNode(node, xOffset)
+                UI.projects.foundations.spaces.floatingSpace.positionAtNode(node, xOffset)
             }
         }
 
@@ -289,9 +289,9 @@ function newSuperalgosDocsDocumentPage() {
                 /* We will test if we can draw an image here or not*/
                 let testElement
                 if (docsSchemaDocument.definition.icon !== undefined) {
-                    testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
+                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
                 } else {
-                    testElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, type)
+                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, type)
                 }
 
                 /* 
@@ -765,7 +765,7 @@ function newSuperalgosDocsDocumentPage() {
                             equal to the Node Type.
                             */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                            imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                            imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
                                 console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
@@ -773,14 +773,14 @@ function newSuperalgosDocsDocumentPage() {
                         } else {
                             if (imageItem.icon === undefined) {
                                 /* This is the default behavious */
-                                imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
-                                imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
+                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
@@ -805,20 +805,20 @@ function newSuperalgosDocsDocumentPage() {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
                             if (appSchemaDocument.icon === undefined) {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                                collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
-                                collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
-                            collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
+                            collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
                                 console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
@@ -842,7 +842,7 @@ function newSuperalgosDocsDocumentPage() {
 
                 function addProjectImage() {
                     let imageName = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
-                    let imageElement = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
+                    let imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
                     imageElement.width = "50"
                     imageElement.height = "50"
 
@@ -868,12 +868,12 @@ function newSuperalgosDocsDocumentPage() {
 
                         function getIcon() {
                             if (menuItem.relatedUiObject !== undefined) {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.relatedUiObject)
+                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.relatedUiObject)
                             } else {
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.iconPathOn)
+                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, menuItem.iconPathOn)
                                 } else {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'bitcoin')
+                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
                                 }
                             }
                         }
@@ -898,9 +898,9 @@ function newSuperalgosDocsDocumentPage() {
 
                         function getIcon() {
                             if (childrenNodesProperty.project !== undefined) {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
+                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
-                                return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
+                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }
@@ -948,11 +948,11 @@ function newSuperalgosDocsDocumentPage() {
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
                                 if (splittedListItem.length === 1) {
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
+                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
                                     let nodeType = splittedListItem[1]
-                                    return UI.projects.superalgos.spaces.designSpace.getIconByProjectAndType(project, nodeType)
+                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, nodeType)
                                 }
                             }
                         }
@@ -976,7 +976,7 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < imageArray.length; i++) {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
-                        let collectionImage = UI.projects.superalgos.spaces.designSpace.getIconByProjectAndName('Superalgos', 'configuration')
+                        let collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
                         if (collectionImage === undefined) {
                             continue
                         }
@@ -1073,7 +1073,7 @@ function newSuperalgosDocsDocumentPage() {
                     for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
 
-                        let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
+                        let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(childrenNodesProperty.name)
 
                         HTML = HTML + '<button id="docs-children-nodes-property-' + i + '" type="button" class="docs-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(name, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
@@ -1256,12 +1256,12 @@ function newSuperalgosDocsDocumentPage() {
                     they are using and sample values for each one.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1288,7 +1288,7 @@ function newSuperalgosDocsDocumentPage() {
                     propertyMap.forEach(displayProperty)
                     function displayProperty(valueArray, mapKey, map) {
 
-                        let name = UI.projects.superalgos.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
+                        let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
 
                         HTML = HTML + '<button id="docs-config-property-' + mapKey.toLowerCase() + '" type="button" class="docs-collapsible-element"><img class="docs-configuration-property-image">' + name + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-content">'
@@ -1367,12 +1367,12 @@ function newSuperalgosDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1463,12 +1463,12 @@ function newSuperalgosDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode !== null) {
-                            let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
+                            let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode, appSchemaDocument.type)
                             allNodesFound = allNodesFound.concat(nodeArray)
                         }
                     }
@@ -1902,7 +1902,7 @@ function newSuperalgosDocsDocumentPage() {
 
                             let imageItem = {
                                 div: 'hierarchy-image-div-' + hierarchyImagesArray.length,
-                                project: 'Superalgos'
+                                project: 'Foundations'
                             }
 
                             switch (matrixRow[j]) {
@@ -2086,7 +2086,7 @@ function newSuperalgosDocsDocumentPage() {
                     /*
                     Adding paragarphs is only possible in the default language.
                     */
-                    if (UI.projects.education.spaces.docsSpace.language === UI.projects.superalgos.globals.docs.DEFAULT_LANGUAGE) {
+                    if (UI.projects.education.spaces.docsSpace.language === UI.projects.foundations.globals.docs.DEFAULT_LANGUAGE) {
                         /*
                         We will update the one paragraph we have and we will add the rest. 
                         */

@@ -1,0 +1,48 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Set Up the Token!",
+    "definition": {
+        "text": "After you hit the Generate Token button, you'll get your precious token! Don't leave the page as you won't ever see it again!",
+        "icon": {
+            "name": "github-api",
+            "project": "Foundations"
+        },
+        "updated": 1610815737032,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Dopo aver premuto il tasto Generate Token, otterrai il tuo token! Non lasciare la pagina perchè non lo vedrai mai più!",
+                "updated": 1619638408223,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Copy the token, open the Github API node config, and paste it between the double quotes of the token parameter. Fill in the username parameter with your GitHub.com user, not your email!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Copia il token, apri la config del nodo Githup API, e incollalo tra le virgolette del token parameter. Riempi il parametro user con il tuo utente GitHub.com (non la mail)!",
+                    "updated": 1619638498454,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos stores the token in the workspace file, just like your Exchange Account Key. The token is used to autheticate with GitHub.com's API to create the Pull Request. It is never sent or stored anywhere else.",
+            "updated": 1610817098653,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos salva il token nel file workspace, come la tua Exchange Account Key. Il token viene usato per autenticarti con l'API di GitHub.com e creare la Pull Request. Non è mai inviato nè salvato altrove.",
+                    "updated": 1619638547007,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

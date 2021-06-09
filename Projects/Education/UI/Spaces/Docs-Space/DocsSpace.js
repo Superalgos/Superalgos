@@ -65,13 +65,13 @@ function newEducationDocSpace() {
         setupActiveBranch()
         setupContributionsBranch()
 
-        thisObject.searchEngine = newSuperalgosDocsSearchEngine()
-        thisObject.mainSearchPage = newSuperalgosDocsMainSearchPage()
-        thisObject.searchResultsPage = newSuperalgosDocsSearchResultsPage()
-        thisObject.documentPage = newSuperalgosDocsDocumentPage()
-        thisObject.footer = newSuperalgosDocsFooter()
-        thisObject.commandInterface = newSuperalgosDocsCommmandInterface()
-        thisObject.contextMenu = newSuperalgosDocsContextMenu()
+        thisObject.searchEngine = newFoundationsDocsSearchEngine()
+        thisObject.mainSearchPage = newFoundationsDocsMainSearchPage()
+        thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
+        thisObject.documentPage = newFoundationsDocsDocumentPage()
+        thisObject.footer = newFoundationsDocsFooter()
+        thisObject.commandInterface = newFoundationsDocsCommmandInterface()
+        thisObject.contextMenu = newFoundationsDocsContextMenu()
 
         thisObject.searchEngine.initialize()
         thisObject.mainSearchPage.initialize()
@@ -187,7 +187,7 @@ function newEducationDocSpace() {
 
     function changeCurrentBranch(branch) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
-        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Changing Current Branch')
+        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
@@ -195,7 +195,7 @@ function newEducationDocSpace() {
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
                 window.localStorage.setItem('Current Branch', branch)
-                UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Current Branch Changed')
+                UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
                     data.docs.project,
@@ -212,19 +212,19 @@ function newEducationDocSpace() {
     function changeContributionsBranch(branch) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
         window.localStorage.setItem('Contributions Branch', UI.projects.education.spaces.docsSpace.contributionsBranch)
-        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
     }
 
     function changeLanguage(pLanguage) {
         UI.projects.education.spaces.docsSpace.language = pLanguage
         window.localStorage.setItem('Docs Language', UI.projects.education.spaces.docsSpace.language)
         let languageLabel = UI.projects.education.utilities.languages.getLaguageLabel(UI.projects.education.spaces.docsSpace.language)
-        UI.projects.education.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'Docs In ' + languageLabel)
+        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
     }
 
     function sharePage() {
         let clipboard = "docs.goto " + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + '->' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type
-        UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
+        UI.projects.foundations.utilities.clipboard.copyTextToClipboard(clipboard)
     }
 
     function onKeyDown(event) {

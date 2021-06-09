@@ -19,7 +19,7 @@ function newEducationActionSwitch() {
     async function executeAction(action) {
         switch (action.name) {
             case 'Action Name': {
-                // Example: return UI.projects.superalgos.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
+                // Example: return UI.projects.foundations.functionLibraries.onFocus.getNodeThatIsOnFocus(action.node)
             }
         }
     }

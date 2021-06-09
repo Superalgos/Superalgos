@@ -48,14 +48,14 @@
             "name": "processes",
             "type": "array",
             "childType": "Process Definition",
-            "project": "Superalgos",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "products",
             "type": "array",
             "childType": "Product Definition",
-            "project": "Superalgos",
+            "project": "Foundations",
             "autoAdd": true
         }
     ],

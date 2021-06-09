@@ -49,7 +49,7 @@ if (os.platform() == "win32") {
     let version = os.version();
     if (version.includes("Ubuntu")) {
         // Paths and Icon for Ubuntu shortcuts
-        let icon = path.join( __dirname,"..", "/Projects/Superalgos/Icons/superalgos.png");
+        let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
 
         // Create .desktop shortcut file
         fs.writeFileSync( `${name}.desktop`, 

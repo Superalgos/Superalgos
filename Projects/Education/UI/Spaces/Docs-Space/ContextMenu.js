@@ -1,4 +1,4 @@
-function newSuperalgosDocsContextMenu() {
+function newFoundationsDocsContextMenu() {
     let thisObject = {
         selectedParagraph: undefined,
         getSelection: getSelection,
@@ -265,7 +265,7 @@ function newSuperalgosDocsContextMenu() {
                 }
             }
 
-            UI.projects.superalgos.utilities.clipboard.copyTextToClipboard(clipboard)
+            UI.projects.foundations.utilities.clipboard.copyTextToClipboard(clipboard)
             removeContextMenuFromScreen()
         }
 

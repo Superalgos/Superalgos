@@ -445,7 +445,7 @@ function newEducationUtilitiesDocs() {
         let result = ''
         for (let i = 0; i < splittedText.length; i++) {
             let word = splittedText[i]
-            if (UI.projects.superalgos.utilities.strings.isCamelCase(word) === true) {
+            if (UI.projects.foundations.utilities.strings.isCamelCase(word) === true) {
                 word = '<code class="docs-code">' + word + '</code>'
             }
             if (i === 0) {

@@ -57,7 +57,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
+        "config": "{\"icon\": {\"name\": \"\",\"project\": \"Foundation\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Foundation\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Foundation\",\"category\": \"\",\"type\": \"\"}}}"
     },
     "isTitleAllwaysVisible": true,
     "isHierarchyHead": true,

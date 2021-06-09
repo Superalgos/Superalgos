@@ -1,4 +1,4 @@
-function newSuperalgosDocsSearchEngine() {
+function newFoundationsDocsSearchEngine() {
     let thisObject = {
         docsIndex: undefined,
         setUpSearchEngine: setUpSearchEngine,
@@ -21,10 +21,10 @@ function newSuperalgosDocsSearchEngine() {
         /* 
         This is a way to avoid indexing the docs, if the user does not want to.
         */
-        let docsSpaceNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
+        let docsSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
         if (docsSpaceNode !== undefined) {
             if (docsSpaceNode.spaceSettings !== undefined) {
-                let indexContent = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(docsSpaceNode.spaceSettings.payload, 'indexContent')
+                let indexContent = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(docsSpaceNode.spaceSettings.payload, 'indexContent')
                 if (indexContent === false) {
                     callbackFunction()
                     return
@@ -243,7 +243,7 @@ function newSuperalgosDocsSearchEngine() {
                     documentIndex.phraseCount[style] = stylePhraseCount
                 }
 
-                text = UI.projects.superalgos.utilities.strings.replaceSpecialCharactersForSpaces(text)
+                text = UI.projects.foundations.utilities.strings.replaceSpecialCharactersForSpaces(text)
 
                 let splittedText = text.split(' ')
 
@@ -257,7 +257,7 @@ function newSuperalgosDocsSearchEngine() {
                             } else {
                                 phrase = phrase + ' ' + word
                             }
-                            let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(phrase)
+                            let key = UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(phrase)
 
                             let thisPhraseCount = stylePhraseCount.get(key)
                             if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
@@ -275,12 +275,12 @@ function newSuperalgosDocsSearchEngine() {
         /*
         We will scan the whole workspace and create an array with all of its nodes.
         */
-        let rootNodes = UI.projects.superalgos.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
         let allNodesFound = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode !== null) {
-                let nodeArray = UI.projects.superalgos.utilities.branches.nodeBranchToArray(rootNode)
+                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode)
                 allNodesFound = allNodesFound.concat(nodeArray)
             }
         }
@@ -296,7 +296,7 @@ function newSuperalgosDocsSearchEngine() {
                 let node = allNodesFound[i]
 
                 if (node.project === project) {
-                    let nodeNameTypePath = UI.projects.superalgos.utilities.hierarchy.getNodeNameTypePath(node)
+                    let nodeNameTypePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node)
 
                     let docsSchemaDocument = {
                         nodeId: node.id,

@@ -1,4 +1,4 @@
-function newSuperalgosDocsSearchResultsPage() {
+function newFoundationsDocsSearchResultsPage() {
     let thisObject = {
         render: render,
         initialize: initialize,
@@ -28,29 +28,29 @@ function newSuperalgosDocsSearchResultsPage() {
                 let documentPoints = 0
 
                 for (const style in documentIndex.phraseCount) {
-                    let key = UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase())
+                    let key = UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase())
                     let thisPhraseCount = documentIndex.phraseCount[style].get(key)
                     if (thisPhraseCount === undefined) {
                         thisPhraseCount = 0
                     }
 
                     if (documentIndex.docsSchemaDocument.type !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
+                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 100
                         }
                     }
                     if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
+                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
                     if (documentIndex.docsSchemaDocument.tutorial !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.tutorial.toLowerCase())) {
+                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.tutorial.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }
                     if (documentIndex.docsSchemaDocument.review !== undefined) {
-                        if (key === UI.projects.superalgos.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.review.toLowerCase())) {
+                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.review.toLowerCase())) {
                             documentPoints = documentPoints + thisPhraseCount * 200
                         }
                     }

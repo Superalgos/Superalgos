@@ -26,7 +26,7 @@ function newGovernanceFeaturesSpace() {
     }
 
     function physics() {
-        if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
     }
 
     function getContainer(point) {

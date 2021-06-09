@@ -269,6 +269,15 @@ function newSuperalgosFunctionLibraryUiObjectsFromNodes() {
         if (node.project === undefined) {
             node.project = 'Superalgos'
         }
+        /* Migration code from beta 10 to beta 11 */
+        if (
+            node.type === 'Tutorial' ||
+            node.type === 'Tutorial Topic' ||
+            node.type === 'Tutorial Step' 
+            ){
+                node.project = "Education"
+            }
+            
 
         /* 
         This function can be called with a positionOffset to change the node

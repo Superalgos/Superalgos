@@ -7,7 +7,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Data Mine",
+            "relatedUiObject": "User Profile",
             "actionFunction": "payload.executeAction"
         },
         {

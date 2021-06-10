@@ -26,7 +26,7 @@ function newFoundationsUtilitiesPlugins() {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
             if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File')
+                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Foundations')
                 child.name = fileName
             }
         }

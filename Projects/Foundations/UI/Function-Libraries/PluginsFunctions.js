@@ -29,15 +29,17 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
     }
 
     function addMissingPluginTypes(node, rootNodes) {
+        let project = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'codeName')
+        if (project === undefined || project === undefined) { return }
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
-
+            if (projectDefinition.name !== project) { continue }
             if (projectDefinition.plugins === undefined) { continue }
             for (let i = 0; i < projectDefinition.plugins.length; i++) {
                 let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
                 if (UI.projects.foundations.utilities.children.isMissingChildrenByType(node, pluginType) === true) {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType)
+                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, project)
                 }
             }
         }

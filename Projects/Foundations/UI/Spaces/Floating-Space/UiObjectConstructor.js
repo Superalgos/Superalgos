@@ -490,7 +490,7 @@ function newUiObjectConstructor() {
                 }
 
                 if (newMenuItem.actionProject === undefined) {
-                    newMenuItem.actionProject = 'Foundations'
+                    newMenuItem.actionProject = payload.node.project
                 }
 
                 menuItemsInitialValues.push(newMenuItem)

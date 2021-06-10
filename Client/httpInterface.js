@@ -1070,13 +1070,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'ProjectNames':
-                {
-                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    respondWithContent(JSON.stringify(projects), httpResponse)
-                }
-                break
-
             case 'Schema':
                 {
                     sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])

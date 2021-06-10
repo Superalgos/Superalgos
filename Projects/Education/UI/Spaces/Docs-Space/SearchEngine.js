@@ -38,8 +38,8 @@ function newFoundationsDocsSearchEngine() {
         setUpWorkspaceSchemas()
         thisObject.docsIndex = []
 
-        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-            let project = PROJECTS_ARRAY[j]
+        for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+            let project = PROJECTS_SCHEMA[j].name
 
             let documentIndex
 
@@ -287,8 +287,8 @@ function newFoundationsDocsSearchEngine() {
         /*
         We will create a document for each node, so that can later be indexed into the search engine.
         */
-        for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-            let project = PROJECTS_ARRAY[j]
+        for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+            let project = PROJECTS_SCHEMA[j].name
             SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema = []
             SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema = new Map()
 

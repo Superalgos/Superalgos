@@ -64,8 +64,8 @@ function newWorkspace() {
             UI.projects.foundations.utilities.statusBar.changeStatus("Initializing...")
 
             /* Set up the action switches map */
-            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
-                let project = PROJECTS_ARRAY[i]
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
                 let actionSwitch = eval('new' + project + 'ActionSwitch()')
                 actionSwitchesByProject.set(project, actionSwitch)
             }

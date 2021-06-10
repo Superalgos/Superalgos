@@ -9,8 +9,8 @@ function newFoundationsFunctionLibrarySocialBotsFunctions() {
 
     function sendTelegramTestMessage(node, callBackFunction) {
 
-        let botToken = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'botToken')
-        let chatId = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'chatId')
+        let botToken = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'botToken')
+        let chatId = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'chatId')
 
         if (botToken === undefined) {
             node.payload.uiObject.setErrorMessage('botToken parameter not defined.')
@@ -75,7 +75,7 @@ function newFoundationsFunctionLibrarySocialBotsFunctions() {
 
     function sendDiscordTestMessage(node, callBackFunction) {
 
-        let webhookURL = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'webhookURL')
+        let webhookURL = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'webhookURL')
 
         if (webhookURL === undefined) {
             node.payload.uiObject.setErrorMessage('webhookURL parameter not defined.')
@@ -131,7 +131,7 @@ function newFoundationsFunctionLibrarySocialBotsFunctions() {
 
     function sendSlackTestMessage(node, callBackFunction) {
 
-        let webhookURL = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'webhookURL')
+        let webhookURL = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'webhookURL')
 
         if (webhookURL === undefined) {
             node.payload.uiObject.setErrorMessage('webhookURL parameter not defined.')

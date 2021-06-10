@@ -26,7 +26,7 @@ function newGovernanceFunctionLibraryTokens() {
     }
 
     function poolsDistribute(pools) {
-        let tokens = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
+        let tokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
         distributeTokens(pools, tokens)
     }
 

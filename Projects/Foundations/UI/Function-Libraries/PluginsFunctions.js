@@ -29,7 +29,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
     }
 
     function addMissingPluginTypes(node, rootNodes) {
-        let project = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'codeName')
+        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
         if (project === undefined || project === undefined) { return }
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]

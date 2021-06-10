@@ -128,7 +128,7 @@ function newLayersPanel() {
     function readObjectState() {
         let storedValue
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'visibleLayers')
+        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'visibleLayers')
 
         if (isNaN(storedValue) || storedValue === null || storedValue === undefined) {
             // not using this value
@@ -147,7 +147,7 @@ function newLayersPanel() {
             }
         }
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'panelLocation')
+        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'panelLocation')
 
         if (storedValue === null || storedValue === undefined) {
             // not using this value

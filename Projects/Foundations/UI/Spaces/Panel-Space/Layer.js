@@ -334,7 +334,7 @@ function newLayer() {
 
     function checkStatusAtShutDown() {
         /* Mechanism to recover a layer that was left loading the last time the browser was shut dowm. */
-        let storedValue = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'status')
+        let storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'status')
         if (storedValue !== undefined) {
             if (storedValue === LAYER_STATUS.LOADING) {
                 resetProgressBars()
@@ -499,7 +499,7 @@ function newLayer() {
                     if (thisObject.panels.length > 0) {
                         panelsVisibleButton = newPanelsVisibleButton()
 
-                        let storedValue = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'showPanels')
+                        let storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'showPanels')
                         if (storedValue !== undefined) {
                             if (storedValue === true || storedValue === false) {
                                 panelsVisibleButton.showPanels = storedValue
@@ -519,7 +519,7 @@ function newLayer() {
     function statusPhysics() {
         /* We retrieve the stored status at the config. */
         try {
-            let storedValue = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'status')
+            let storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'status')
 
             if (storedValue !== undefined) {
                 if (storedValue !== thisObject.status) {
@@ -665,13 +665,13 @@ function newLayer() {
 
         UI.projects.foundations.utilities.drawPrint.roundedCornersBackground(params)
 
-        let parentLabel1FontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label1FontSize')
-        let parentlabelTwoFontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'labelTwoFontSize')
-        let parentLabel3FontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload.parentNode.payload, 'label3FontSize')
+        let parentLabel1FontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'label1FontSize')
+        let parentlabelTwoFontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'labelTwoFontSize')
+        let parentLabel3FontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload.parentNode.payload, 'label3FontSize')
 
-        let label1FontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label1FontSize')
-        let labelTwoFontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'labelTwoFontSize')
-        let label3FontSize = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'label3FontSize')
+        let label1FontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'label1FontSize')
+        let labelTwoFontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'labelTwoFontSize')
+        let label3FontSize = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'label3FontSize')
 
         if (parentLabel1FontSize !== undefined) {
             label1FontSize = parentLabel1FontSize

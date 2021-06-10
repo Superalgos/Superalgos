@@ -28,6 +28,10 @@ function newFoundationsUtilitiesPlugins() {
             if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
                 let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Foundations')
                 child.name = fileName
+                child.config = JSON.stringify({
+                    project: node.project,
+                    fileName: fileName
+                })
             }
         }
     }

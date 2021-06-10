@@ -36,8 +36,8 @@ function newFoundationsDesignSpace() {
 
         function buildIconByProjectAndTypeMap() {
             /* Take types-icons relationships defined at the schema */
-            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
-                let project = PROJECTS_ARRAY[i]
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
 
                 addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
                 addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)

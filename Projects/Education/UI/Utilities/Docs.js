@@ -549,8 +549,8 @@ function newEducationUtilitiesDocs() {
             let found = false
             let docsSchemaDocument
 
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                let project = PROJECTS_ARRAY[j]
+            for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+                let project = PROJECTS_SCHEMA[j].name
                 docsSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema.get(type)
                 if (docsSchemaDocument !== undefined) {
                     found = true
@@ -651,8 +651,8 @@ function newEducationUtilitiesDocs() {
             let found = false
 
             for (let j = MAX_NUMBER_OF_WORDS - 1; j >= 0; j--) {
-                for (let p = 0; p < PROJECTS_ARRAY.length; p++) {
-                    let project = PROJECTS_ARRAY[p]
+                for (let p = 0; p < PROJECTS_SCHEMA.length; p++) {
+                    let project = PROJECTS_SCHEMA[p].name
 
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsNodeSchema, 'Node')
                     searchInSchema(SCHEMAS_BY_PROJECT.get(project).map.docsConceptSchema, 'Concept')

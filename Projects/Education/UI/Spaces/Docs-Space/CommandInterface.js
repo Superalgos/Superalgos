@@ -486,9 +486,9 @@ function newFoundationsDocsCommmandInterface() {
             let requestsSent = 0
             let responseCount = 0
             let okResponses = 0
-            for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
+            for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
                 let docsSchema
-                let project = PROJECTS_ARRAY[j]
+                let project = PROJECTS_SCHEMA[j].name
 
                 docsSchema = SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema
                 httpRequest(JSON.stringify(docsSchema), 'Docs/Save-Node-Schema/' + project, onResponse)
@@ -538,8 +538,8 @@ function newFoundationsDocsCommmandInterface() {
                 Since all the changes where saved, we need to remove the change flags at the different shcema documents.
                 We also need to remove from the arrays the deleted items.
                 */
-                for (let j = 0; j < PROJECTS_ARRAY.length; j++) {
-                    let project = PROJECTS_ARRAY[j]
+                for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+                    let project = PROJECTS_SCHEMA[j].name
                     let documents
 
                     /* Nodes */

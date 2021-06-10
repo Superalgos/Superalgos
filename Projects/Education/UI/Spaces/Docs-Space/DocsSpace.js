@@ -135,8 +135,8 @@ function newEducationDocSpace() {
             app schemas into a single map, that will allow us to know when a phrase
             is a label of a menu and then change its style.
             */
-            for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
-                let project = PROJECTS_ARRAY[i]
+            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                let project = PROJECTS_SCHEMA[i].name
                 let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
 
                 for (let j = 0; j < appSchemaArray.length; j++) {

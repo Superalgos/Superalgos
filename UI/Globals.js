@@ -1,7 +1,6 @@
 /* Global Constatns */
 
 let canvas
-let PROJECTS_ARRAY
 let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
 /* New Root object*/

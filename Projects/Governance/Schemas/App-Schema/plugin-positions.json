@@ -1,9 +1,9 @@
 {
-    "type": "Plugin User Profiles",
+    "type": "Plugin Positions",
     "menuItems": [
         {
-            "action": "Add Missing Plugin User Profiles",
-            "label": "Add Missing User Profiles",
+            "action": "Add Missing Plugin Positions",
+            "label": "Add Missing Positions",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
@@ -22,7 +22,7 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginUserProfiles",
+    "propertyNameAtParent": "pluginPositions",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

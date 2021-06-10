@@ -212,6 +212,11 @@
                     "name": "Status Bar",
                     "propertyName": "statusBar",
                     "functionName": "newFoundationsUtilitiesStatusBar"
+                },
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newFoundationsUtilitiesPlugins"
                 }
             ],
             "spaces": [

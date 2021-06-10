@@ -1,9 +1,9 @@
 {
-    "type": "Plugin User Profiles",
+    "type": "Plugin Pools",
     "menuItems": [
         {
-            "action": "Add Missing Plugin User Profiles",
-            "label": "Add Missing User Profiles",
+            "action": "Add Missing Plugin Pools",
+            "label": "Add Missing Pools",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
@@ -22,7 +22,7 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginUserProfiles",
+    "propertyNameAtParent": "pluginPools",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

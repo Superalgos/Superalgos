@@ -62,6 +62,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     if (plugins.pluginProjects === undefined) { continue }
                     for (let j = 0; j < plugins.pluginProjects.length; j++) {
                         let project = plugins.pluginProjects[j]
+                        /*
+                        Foundations Plugin Types
+                        */
                         if (project.pluginDataMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginDataMines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginDataMines.pluginFiles, 'Data-Mines')
@@ -98,6 +101,29 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginApiMaps.pluginFiles.length
                             pluginAllTheseFiles(project.pluginApiMaps.pluginFiles, 'API-Maps')
                         }
+                        /*
+                        Governance Plugin Types
+                        */
+                        if (project.pluginUserProfiles !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginUserProfiles.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginUserProfiles.pluginFiles, 'User-Profiles')
+                        }
+                        if (project.pluginPools !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPools.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPools.pluginFiles, 'Pools')
+                        }
+                        if (project.pluginFeatures !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginFeatures.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginFeatures.pluginFiles, 'Features')
+                        }
+                        if (project.pluginAssets !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginAssets.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginAssets.pluginFiles, 'Assets')
+                        }
+                        if (project.pluginPositions !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPositions.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPositions.pluginFiles, 'Positions')
+                        }
                     }
                 }
             }
@@ -113,7 +139,14 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 for (let i = 0; i < pluginFiles.length; i++) {
                     let pluginFile = pluginFiles[i]
                     let name = pluginFile.name
-                    httpRequest(undefined, 'LoadPlugin' + '/' + 'Foundations' + '/' + pluginType + '/' + name + '.json', onFileReceived)
+                    let project = "Foundations"
+                    try {
+                        let config = JSON.parse(pluginFile.config)
+                        project = config.project
+                        name = config.fileName
+                    } catch (err) { }
+
+                    httpRequest(undefined, 'LoadPlugin' + '/' + project + '/' + pluginType + '/' + name + '.json', onFileReceived)
 
                     function onFileReceived(err, text, response) {
 

@@ -290,17 +290,17 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
         let networkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(taskManager, 'Network Node', undefined, true, false, true, false)
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'host') === undefined) {
+        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'host') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid Host property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'webPort') === undefined) {
+        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'webPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webPort property at its config.')
             return
         }
 
-        if (UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(networkNode.payload, 'webSocketsPort') === undefined) {
+        if (UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(networkNode.payload, 'webSocketsPort') === undefined) {
             node.payload.uiObject.setErrorMessage('Network Node needs to have a valid webSocketsPort property at its config.')
             return
         }
@@ -609,7 +609,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, project)
                             projectTasks.payload.referenceParent = projectDefinition
                         }
@@ -640,7 +640,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                     let cryptoExchanges = cryptoEcosystem.cryptoExchanges[j]
                     for (let k = 0; k < cryptoExchanges.exchanges.length; k++) {
                         let cryptoExchange = cryptoExchanges.exchanges[k]
-                        if (UI.projects.foundations.utilities.children.isMissingChildren(node, cryptoExchange, true) === true) {
+                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchangeTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             exchangeTasks.payload.referenceParent = cryptoExchange
                         }
@@ -672,7 +672,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         for (let i = 0; i < markets.length; i++) {
             let market = markets[i]
 
-            if (UI.projects.foundations.utilities.children.isMissingChildren(node, market, true) === true) {
+            if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, market, true) === true) {
                 let marketDataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 marketDataTasks.payload.referenceParent = market
             }
@@ -697,7 +697,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             if (rootNode.type === rootNodeType) {
                 let mine = rootNode
 
-                if (UI.projects.foundations.utilities.children.isMissingChildren(node, mine, true) === true) {
+                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, mine, true) === true) {
                     let dataMineTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, newNodeType)
                     dataMineTasks.payload.referenceParent = mine
                 }
@@ -859,8 +859,8 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     let apiMaps = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
                                     for (let i = 0; i < apiMaps.length; i++) {
                                         let apiMap = apiMaps[i]
-                                        let apiMapCodeName = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(apiMap.payload, 'codeName')
-                                        let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(mine.payload, 'codeName')
+                                        let apiMapCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')
+                                        let mineCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(mine.payload, 'codeName')
 
                                         if (apiMapCodeName === mineCodeName) {
                                             processInstance.apiMapReference.payload.referenceParent = apiMap

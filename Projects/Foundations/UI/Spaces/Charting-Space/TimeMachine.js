@@ -707,7 +707,7 @@ function newTimeMachine() {
         position = UI.projects.foundations.utilities.coordinateTransformations.transformThisPoint(position, thisObject.container)
 
         let label = thisObject.payload.node.name
-        let description = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(thisObject.payload, 'description')
+        let description = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'description')
 
         if (description !== undefined) {
             label = description

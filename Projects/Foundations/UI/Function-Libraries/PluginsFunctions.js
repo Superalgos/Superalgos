@@ -1,44 +1,20 @@
 function newFoundationsFunctionLibraryPluginsFunctions() {
     let thisObject = {
-        pluginMissingProjects: pluginMissingProjects,
-        pluginMissingDataMines: pluginMissingDataMines,
-        pluginMissingTradingMines: pluginMissingTradingMines,
-        pluginMissingTradingSystems: pluginMissingTradingSystems,
-        pluginMissingTradingEngines: pluginMissingTradingEngines,
-        pluginMissingLearningMines: pluginMissingLearningMines,
-        pluginMissingLearningSystems: pluginMissingLearningSystems,
-        pluginMissingLearningEngines: pluginMissingLearningEngines,
-        pluginMissingTutorials: pluginMissingTutorials,
-        pluginMissingApiMaps: pluginMissingApiMaps
+        addMissingPluginProjects: addMissingPluginProjects,
+        addMissingPluginTypes: addMissingPluginTypes,
+        addMissingPluginDataMines: addMissingPluginDataMines,
+        addMissingPluginTradingMines: addMissingPluginTradingMines,
+        addMissingPluginTradingSystems: addMissingPluginTradingSystems,
+        addMissingPluginTradingEngines: addMissingPluginTradingEngines,
+        addMissingPluginLearningMines: addMissingPluginLearningMines,
+        addMissingPluginLearningSystems: addMissingPluginLearningSystems,
+        addMissingPluginLearningEngines: addMissingPluginLearningEngines,
+        addMissingPluginTutorials: addMissingPluginTutorials,
+        addMissingPluginApiMaps: addMissingPluginApiMaps
     }
     return thisObject
 
-    function getPluginFileNames(projectName, pluginType, callBack) {
-        httpRequest(undefined, 'PluginFileNames/' + projectName + '/' + pluginType, onResponse)
-
-        function onResponse(err, data) {
-            if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log('Failed to Fetch Plugin ' + pluginType + ' from the Client')
-                return
-            }
-
-            let pluginFileNames = JSON.parse(data)
-            callBack(pluginFileNames)
-        }
-    }
-
-    function addPluginFileIfNeeded(node, fileNames) {
-        for (let i = 0; i < fileNames.length; i++) {
-            let fileName = fileNames[i]
-            fileName = fileName.replace('.json', '')
-            if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File')
-                child.name = fileName
-            }
-        }
-    }
-
-    function pluginMissingProjects(node, rootNodes) {
+    function addMissingPluginProjects(node, rootNodes) {
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -52,27 +28,25 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function getProjectName(node) {
-        /* Validations to see if we can do this or not. */
-        if (node.payload === undefined) { return }
-        if (node.payload.uiObject === undefined) { return }
+    function addMissingPluginTypes(node, rootNodes) {
+        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+        if (project === undefined || project === "") { return }
+        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
+            let projectDefinition = PROJECTS_SCHEMA[k]
+            if (projectDefinition.name !== project) { continue }
+            if (projectDefinition.plugins === undefined) { continue }
+            for (let i = 0; i < projectDefinition.plugins.length; i++) {
+                let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
 
-        if (node.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('You need to have a Plugin Project node as a parent to execute this action.')
-            return
+                if (UI.projects.foundations.utilities.children.isMissingChildrenByType(node, pluginType) === true) {
+                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType, undefined, project)
+                }
+            }
         }
-        if (node.payload.parentNode.payload === undefined) {
-            node.payload.uiObject.setErrorMessage('You need to have a Plugin Project node as a parent to execute this action.')
-            return
-        }
-        let pluginProject = node.payload.parentNode
-        let config = JSON.parse(pluginProject.config)
-
-        return config.codeName
     }
 
-    function pluginMissingDataMines(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginDataMines(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -80,15 +54,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Data-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingMines(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginTradingMines(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -96,15 +70,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingSystems(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginTradingSystems(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -112,15 +86,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTradingEngines(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginTradingEngines(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -128,15 +102,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Trading-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingLearningMines(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginLearningMines(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -144,15 +118,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Mines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingLearningSystems(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginLearningSystems(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -160,15 +134,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Systems', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingLearningEngines(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginLearningEngines(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -176,15 +150,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Learning-Engines', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingTutorials(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginTutorials(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -192,15 +166,15 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Tutorials', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 
-    function pluginMissingApiMaps(node, rootNodes) {
-        let projectName = getProjectName(node)
+    function addMissingPluginApiMaps(node, rootNodes) {
+        let projectName = UI.projects.foundations.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
                 node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
@@ -208,10 +182,10 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             }
         }
 
-        getPluginFileNames(projectName, 'API-Maps', onNamesArrived)
+        UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'API-Maps', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
         }
     }
 }

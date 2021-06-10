@@ -2,6 +2,13 @@
     "type": "Plugin File",
     "menuItems": [
         {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "pluginFilePosition",
@@ -19,6 +26,12 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"codeName\": \"\"\n}"
+    },
     "addLeftIcons": true,
     "level": 2,
     "propertyNameAtParent": "pluginFiles",

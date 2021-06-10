@@ -212,6 +212,11 @@
                     "name": "Status Bar",
                     "propertyName": "statusBar",
                     "functionName": "newFoundationsUtilitiesStatusBar"
+                },
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newFoundationsUtilitiesPlugins"
                 }
             ],
             "spaces": [
@@ -247,7 +252,7 @@
                     "functionName": "newFoundationsCockpitSpace",
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 6,
+                    "animationDrawIndex": 5,
                     "onMouseWheelIndex": 3,
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 2,
@@ -299,7 +304,7 @@
                     "functionName": "newFoundationsSideSpace",
                     "initializationIndex": 6,
                     "animationPhysicsIndex": 6,
-                    "animationDrawIndex": 5,
+                    "animationDrawIndex": 6,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 6,
@@ -853,7 +858,18 @@
                 }
             ]
         },
-        "CL": {}
+        "CL": {},
+        "plugins": [
+            "Data Mines",
+            "Trading Mines",
+            "Learning Mines",
+            "Trading Systems",
+            "Learning Systems",
+            "Trading Engines",
+            "Learning Engines",
+            "Tutorials",
+            "API Maps"
+        ]
     },
     {
         "name": "Ethereum",
@@ -971,6 +987,11 @@
                     "name": "Distribution Process",
                     "propertyName": "distributionProcess",
                     "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                },
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
                 }
             ],
             "utilities": [],
@@ -1043,7 +1064,14 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "CL": {},
+        "plugins": [
+            "User Profiles",
+            "Pools",
+            "Assets",
+            "Features",
+            "Positions"
+        ]
     },
     {
         "name": "Education",

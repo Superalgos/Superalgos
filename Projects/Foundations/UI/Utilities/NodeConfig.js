@@ -1,7 +1,7 @@
 function newFoundationsUtilitiesNodeConfig() {
     let thisObject = {
         savePropertyAtNodeConfig: savePropertyAtNodeConfig,
-        loadPropertyFromNodeConfig: loadPropertyFromNodeConfig
+        loadConfigProperty: loadConfigProperty
     }
 
     return thisObject
@@ -16,7 +16,7 @@ function newFoundationsUtilitiesNodeConfig() {
         }
     }
 
-    function loadPropertyFromNodeConfig(payload, propertyName) {
+    function loadConfigProperty(payload, propertyName) {
         try {
             let config = JSON.parse(payload.node.config)
             return config[propertyName]

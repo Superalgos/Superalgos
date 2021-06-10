@@ -9,8 +9,8 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
+            "action": "Add Missing Plugin Types",
+            "label": "Add Missing Plugin Types",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction"
         },
@@ -90,6 +90,36 @@
             "type": "node",
             "childType": "Plugin API Maps",
             "autoAdd": false
+        },
+        {
+            "name": "pluginUserProfiles",
+            "type": "node",
+            "childType": "Plugin User Profiles",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginPools",
+            "type": "node",
+            "childType": "Plugin Pools",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginAssets",
+            "type": "node",
+            "childType": "Plugin Assets",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginFeatures",
+            "type": "node",
+            "childType": "Plugin Features",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginPositions",
+            "type": "node",
+            "childType": "Plugin Positions",
+            "autoAdd": false
         }
     ],
     "alternativeIcons": [
@@ -100,6 +130,18 @@
         {
             "codeName": "Ethereum",
             "iconName": "ethereum"
+        },
+        {
+            "codeName": "TensorFlow",
+            "iconName": "tensorflow"
+        },
+        {
+            "codeName": "Education",
+            "iconName": "education"
+        },
+        {
+            "codeName": "Governance",
+            "iconName": "governance"
         }
     ]
 }

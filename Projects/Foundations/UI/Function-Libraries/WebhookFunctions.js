@@ -6,8 +6,8 @@ function newFoundationsFunctionLibraryWebhookFunctions() {
     return thisObject
 
     function sendTestMessage(node, callBackFunction) {
-        let testMessage = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'testMessage')
-        let letURL = UI.projects.foundations.utilities.nodeConfig.loadPropertyFromNodeConfig(node.payload, 'webhookURL')
+        let testMessage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'testMessage')
+        let letURL = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'webhookURL')
 
         httpRequest(testMessage, letURL, onResponse)
 

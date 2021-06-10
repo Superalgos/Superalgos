@@ -853,7 +853,18 @@
                 }
             ]
         },
-        "CL": {}
+        "CL": {},
+        "plugins": [
+            "Data Mines",
+            "Trading Mines",
+            "Learning Mines",
+            "Trading Systems",
+            "Learning Systems",
+            "Trading Engines",
+            "Learning Engines",
+            "Tutorials",
+            "API Maps"
+        ]
     },
     {
         "name": "Ethereum",
@@ -1043,7 +1054,14 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "CL": {},
+        "plugins": [
+            "User Profiles",
+            "Pools",
+            "Assets",
+            "Features",
+            "Positions"
+        ]
     },
     {
         "name": "Education",

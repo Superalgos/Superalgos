@@ -643,6 +643,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginProjects(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Plugin Types':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginTypes(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Plugin Data Mines':
                 {
                     UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)

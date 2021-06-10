@@ -72,6 +72,49 @@ function newFoundationsUtilitiesNodeChildren() {
             return true
         }
     }
+    
+    function isMissingChildrenByName(startingNode, nodeName) {
+        /*
+        This functioin scan all the children of a node and returns true or false
+        depending if the node has a children with a certain name.  
+        */
+        if (startingNode === undefined) { return }
+
+        let schemaDocument = getSchemaDocument(startingNode)
+        if (schemaDocument === undefined) { return }
+
+        /* We scan through this node children */
+        if (schemaDocument.childrenNodesProperties !== undefined) {
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+
+                switch (property.type) {
+                    case 'node': {
+                        let child = startingNode[property.name]
+                        if (child !== undefined) {
+                            if (child.name === nodeName) {
+                                return false
+                            }
+                        }
+                    }
+                        break
+                    case 'array': {
+                        let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray !== undefined) {
+                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
+                                let arrayItem = startingNodePropertyArray[m]
+                                if (arrayItem.name === nodeName) {
+                                    return false
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+            return true
+        }
+    }
 
     function findChildReferencingThisNode(startingNode, checkNode) {
         /*
@@ -198,46 +241,4 @@ function newFoundationsUtilitiesNodeChildren() {
         }
     }
 
-    function isMissingChildrenByName(startingNode, nodeName) {
-        /*
-        This functioin scan all the children of a node and returns true or false
-        depending if the node has a children with a certain name.  
-        */
-        if (startingNode === undefined) { return }
-
-        let schemaDocument = getSchemaDocument(startingNode)
-        if (schemaDocument === undefined) { return }
-
-        /* We scan through this node children */
-        if (schemaDocument.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                let property = schemaDocument.childrenNodesProperties[i]
-
-                switch (property.type) {
-                    case 'node': {
-                        let child = startingNode[property.name]
-                        if (child !== undefined) {
-                            if (child.name === nodeName) {
-                                return false
-                            }
-                        }
-                    }
-                        break
-                    case 'array': {
-                        let startingNodePropertyArray = startingNode[property.name]
-                        if (startingNodePropertyArray !== undefined) {
-                            for (let m = 0; m < startingNodePropertyArray.length; m++) {
-                                let arrayItem = startingNodePropertyArray[m]
-                                if (arrayItem.name === nodeName) {
-                                    return false
-                                }
-                            }
-                        }
-                        break
-                    }
-                }
-            }
-            return true
-        }
-    }
 }

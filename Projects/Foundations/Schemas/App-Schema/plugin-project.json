@@ -9,8 +9,8 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
+            "action": "Add Missing Plugin Types",
+            "label": "Add Missing Plugin Types",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction"
         },
@@ -100,6 +100,18 @@
         {
             "codeName": "Ethereum",
             "iconName": "ethereum"
+        },
+        {
+            "codeName": "TensorFlow",
+            "iconName": "tensorflow"
+        },
+        {
+            "codeName": "Education",
+            "iconName": "education"
+        },
+        {
+            "codeName": "Governance",
+            "iconName": "governance"
         }
     ]
 }

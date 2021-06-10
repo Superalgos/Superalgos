@@ -982,6 +982,11 @@
                     "name": "Distribution Process",
                     "propertyName": "distributionProcess",
                     "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                },
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
                 }
             ],
             "utilities": [],

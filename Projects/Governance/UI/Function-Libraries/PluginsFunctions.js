@@ -1,7 +1,5 @@
-function newFoundationsFunctionLibraryPluginsFunctions() {
+function newGovernanceFunctionLibraryPluginsFunctions() {
     let thisObject = {
-        addMissingPluginProjects: addMissingPluginProjects,
-        addMissingPluginTypes: addMissingPluginTypes,
         addMissingPluginDataMines: addMissingPluginDataMines,
         addMissingPluginTradingMines: addMissingPluginTradingMines,
         addMissingPluginTradingSystems: addMissingPluginTradingSystems,
@@ -35,35 +33,6 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
             if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, fileName) === true) {
                 let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File')
                 child.name = fileName
-            }
-        }
-    }
-
-    function addMissingPluginProjects(node, rootNodes) {
-        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
-            let projectDefinition = PROJECTS_SCHEMA[k]
-            let project = projectDefinition.name
-            if (UI.projects.foundations.utilities.children.isMissingChildrenByName(node, project) === true) {
-                let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin Project')
-                child.name = project
-                let config = JSON.parse(child.config)
-                config.codeName = project
-                child.config = JSON.stringify(config)
-            }
-        }
-    }
-
-    function addMissingPluginTypes(node, rootNodes) {
-        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
-            let projectDefinition = PROJECTS_SCHEMA[k]
-
-            if (projectDefinition.plugins === undefined) { continue }
-            for (let i = 0; i < projectDefinition.plugins.length; i++) {
-                let pluginType = "Plugin" + " " + projectDefinition.plugins[i]
-
-                if (UI.projects.foundations.utilities.children.isMissingChildrenByType(node, pluginType) === true) {
-                    UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, pluginType)
-                }
             }
         }
     }

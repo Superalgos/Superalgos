@@ -1,15 +1,15 @@
 function newFoundationsFunctionLibraryPluginsFunctions() {
     let thisObject = {
-        pluginMissingProjects: pluginMissingProjects,
-        pluginMissingDataMines: pluginMissingDataMines,
-        pluginMissingTradingMines: pluginMissingTradingMines,
-        pluginMissingTradingSystems: pluginMissingTradingSystems,
-        pluginMissingTradingEngines: pluginMissingTradingEngines,
-        pluginMissingLearningMines: pluginMissingLearningMines,
-        pluginMissingLearningSystems: pluginMissingLearningSystems,
-        pluginMissingLearningEngines: pluginMissingLearningEngines,
-        pluginMissingTutorials: pluginMissingTutorials,
-        pluginMissingApiMaps: pluginMissingApiMaps
+        addMissingPluginProjects: addMissingPluginProjects,
+        addMissingPluginDataMines: addMissingPluginDataMines,
+        addMissingPluginTradingMines: addMissingPluginTradingMines,
+        addMissingPluginTradingSystems: addMissingPluginTradingSystems,
+        addMissingPluginTradingEngines: addMissingPluginTradingEngines,
+        addMissingPluginLearningMines: addMissingPluginLearningMines,
+        addMissingPluginLearningSystems: addMissingPluginLearningSystems,
+        addMissingPluginLearningEngines: addMissingPluginLearningEngines,
+        addMissingPluginTutorials: addMissingPluginTutorials,
+        addMissingPluginApiMaps: addMissingPluginApiMaps
     }
     return thisObject
 
@@ -38,7 +38,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingProjects(node, rootNodes) {
+    function addMissingPluginProjects(node, rootNodes) {
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -71,7 +71,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         return config.codeName
     }
 
-    function pluginMissingDataMines(node, rootNodes) {
+    function addMissingPluginDataMines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -87,7 +87,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingTradingMines(node, rootNodes) {
+    function addMissingPluginTradingMines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -103,7 +103,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingTradingSystems(node, rootNodes) {
+    function addMissingPluginTradingSystems(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -119,7 +119,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingTradingEngines(node, rootNodes) {
+    function addMissingPluginTradingEngines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -135,7 +135,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingLearningMines(node, rootNodes) {
+    function addMissingPluginLearningMines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -151,7 +151,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingLearningSystems(node, rootNodes) {
+    function addMissingPluginLearningSystems(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -167,7 +167,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingLearningEngines(node, rootNodes) {
+    function addMissingPluginLearningEngines(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -183,7 +183,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingTutorials(node, rootNodes) {
+    function addMissingPluginTutorials(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {
@@ -199,7 +199,7 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         }
     }
 
-    function pluginMissingApiMaps(node, rootNodes) {
+    function addMissingPluginApiMaps(node, rootNodes) {
         let projectName = getProjectName(node)
         if (projectName === "" || projectName === undefined) {
             if (node.payload.parentNode !== undefined) {

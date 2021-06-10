@@ -478,7 +478,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             for (let i = 0; i < learningSessionsCreatedArray.length; i++) {
                                 let session = learningSessionsCreatedArray[i]
-                                if (UI.projects.foundations.utilities.children.isMissingChildren(marketLearningProducts, session, true) === true) {
+                                if (UI.projects.foundations.utilities.children.isMissingChildrenById(marketLearningProducts, session, true) === true) {
                                     UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')
                                 }
                             }
@@ -533,7 +533,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             for (let i = 0; i < tradingSessionsCreatedArray.length; i++) {
                                 let session = tradingSessionsCreatedArray[i]
-                                if (UI.projects.foundations.utilities.children.isMissingChildren(marketTradingProducts, session, true) === true) {
+                                if (UI.projects.foundations.utilities.children.isMissingChildrenById(marketTradingProducts, session, true) === true) {
                                     UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketTradingProducts, session, 'Trading Session Reference')
                                 }
                             }

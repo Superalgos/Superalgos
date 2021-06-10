@@ -129,7 +129,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     if (environment.id !== node.payload.referenceParent.id) { continue }
                     let market = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
-                    if (UI.projects.foundations.utilities.children.isMissingChildren(node, session, true) === true) {
+                    if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, session, true) === true) {
                         createTimeMachine(node, session, market.payload.referenceParent, networkNode, rootNodes)
                     }
                 }
@@ -320,13 +320,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 let testingTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Testing Trading Tasks', node, true)
                 let productionTradingTasks = UI.projects.foundations.utilities.branches.findInBranch(networkNode, 'Production Trading Tasks', node, true)
 
-                if (UI.projects.foundations.utilities.children.isMissingChildren(node, testingTradingTasks, true) === true) {
+                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = testingTradingTasks
                     dashboard.name = testingTradingTasks.type + ' ' + networkNode.name
                 }
 
-                if (UI.projects.foundations.utilities.children.isMissingChildren(node, productionTradingTasks, true) === true) {
+                if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, productionTradingTasks, true) === true) {
                     let dashboard = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     dashboard.payload.referenceParent = productionTradingTasks
                     dashboard.name = productionTradingTasks.type + ' ' + networkNode.name
@@ -345,7 +345,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 if (rootNode.type === project + ' Project') {
                     let projectDefinition = rootNode.projectDefinition
                     if (projectDefinition !== undefined) {
-                        if (UI.projects.foundations.utilities.children.isMissingChildren(node, projectDefinition, true) === true) {
+                        if (UI.projects.foundations.utilities.children.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
                             projectTasks.payload.referenceParent = projectDefinition
                         }

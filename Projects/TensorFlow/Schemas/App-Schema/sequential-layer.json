@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "typeOfLayer",
             "label": "Add Activation Layers",
@@ -11,6 +12,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "typeOfLayer",
             "label": "Add Basic Layers",
@@ -19,6 +21,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "typeOfLayer",
             "label": "Add Convolutional Layers",
@@ -27,6 +30,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "optimizer",
             "label": "Add Optimizer",
@@ -11,6 +12,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "lossFunction",
             "label": "Add Loss Function",
@@ -19,6 +21,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "metrics",
             "label": "Add Metrics",
@@ -27,6 +30,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -13,4 +13,7 @@ services:
       - ../Data-Storage:/app/Data-Storage
       - ../Log-Files:/app/Log-Files
       - ../My-Workspaces:/app/My-Workspaces
+    environment:
+      - PUID: '1000'
+      - GUID: '1000'
     restart: on-failure

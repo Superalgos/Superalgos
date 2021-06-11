@@ -2086,7 +2086,7 @@ function newFoundationsDocsDocumentPage() {
                     /*
                     Adding paragarphs is only possible in the default language.
                     */
-                    if (UI.projects.education.spaces.docsSpace.language === UI.projects.foundations.globals.docs.DEFAULT_LANGUAGE) {
+                    if (UI.projects.education.spaces.docsSpace.language === UI.projects.education.globals.docs.DEFAULT_LANGUAGE) {
                         /*
                         We will update the one paragraph we have and we will add the rest. 
                         */

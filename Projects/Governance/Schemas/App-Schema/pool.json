@@ -45,7 +45,7 @@
         "compatibleTypes": "->Pool Class->Pool->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Positions->Assets->Features->"
+        "compatibleTypes": "->Pools->Positions->Assets->Features->"
     },
     "propertyNameAtParent": "pools",
     "childrenNodesProperties": [

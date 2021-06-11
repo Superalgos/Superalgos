@@ -55,7 +55,7 @@
         "compatibleTypes": "->Assets->Asset Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
+        "compatibleTypes": "->Assets->"
     },
     "propertyNameAtParent": "assetClasses",
     "childrenNodesProperties": [

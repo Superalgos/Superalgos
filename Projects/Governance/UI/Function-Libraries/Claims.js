@@ -99,6 +99,7 @@ function newGovernanceFunctionLibraryClaims() {
                 node.payload.votes !== undefined &&
                 node.payload.votes > 0 &&
                 node.payload.referenceParent !== undefined &&
+                node.payload.referenceParent.payload !== undefined &&
                 node.payload.referenceParent.payload.votes !== undefined &&
                 node.payload.referenceParent.payload.votes > 0 &&
                 node.payload.referenceParent.payload.weight !== undefined &&
@@ -152,6 +153,7 @@ function newGovernanceFunctionLibraryClaims() {
                 node.payload.votes !== undefined &&
                 node.payload.votes > 0 &&
                 node.payload.referenceParent !== undefined &&
+                node.payload.referenceParent.payload !== undefined &&
                 node.payload.referenceParent.payload.votes !== undefined &&
                 node.payload.referenceParent.payload.votes > 0 &&
                 node.payload.referenceParent.payload.weight !== undefined &&

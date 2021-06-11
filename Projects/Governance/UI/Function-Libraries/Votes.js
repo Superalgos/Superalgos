@@ -53,22 +53,31 @@ function newGovernanceFunctionLibraryVotes() {
         if (node.payload === undefined) { return }
         node.payload.votes = 0
         /*
-        If there is a reference parent defined, this means that the voting power is 
-        transfered to it and not distributed among children.
-        */
-        if (node.payload.referenceParent !== undefined) {
-            resetVotes(node.payload.referenceParent)
-            return
-        }
-        /*
         When we reach certain node types, we will halt the distribution, because thse are targets for 
         voting power.
         */
         if (
             node.type === 'Position' ||
             node.type === 'Asset' ||
-            node.type === 'Feature'
+            node.type === 'Feature' ||
+            node.type === 'Pool' ||
+            node.type === 'Position Contribution Claim' ||
+            node.type === 'Asset Contribution Claim' ||
+            node.type === 'Feature Contribution Claim'
         ) { return }
+        /*
+        If there is a reference parent defined, this means that the voting power is 
+        transfered to it and not distributed among children.
+        */
+        if (
+            node.payload.referenceParent !== undefined &&
+            node.type !== 'Asset Class' &&
+            node.type !== 'Feature Class' &&
+            node.type !== 'Position Class'
+        ) {
+            resetVotes(node.payload.referenceParent)
+            return
+        }
         /*
         If there is no reference parent we will redistribute voting power among children.
         */
@@ -131,7 +140,12 @@ function newGovernanceFunctionLibraryVotes() {
         If there is a reference parent defined, this means that the voting power is 
         transfered to it and not distributed among children.
         */
-        if (node.payload.referenceParent !== undefined) {
+        if (
+            node.payload.referenceParent !== undefined &&
+            node.type !== 'Asset Class' &&
+            node.type !== 'Feature Class' &&
+            node.type !== 'Position Class'
+        ) {
             distributeVotes(node.payload.referenceParent, votes)
             return
         }

@@ -22,11 +22,13 @@ jobs:
         REGISTRY="ghcr.io"
         IMAGE="${REGISTRY}/${{ steps.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }},${IMAGE}:latest"
-        if [[ $(dirname ${{ github.ref }}) = "refs/heads" ]]; then
-          TAGS="${TAGS},${IMAGE}:$(basename ${{ github.ref.lowecase }})"
-        elif [[ $(dirname ${{ github.ref }}) = "refs/tags" ]]; then
-          RELEASE=$(basename ${{ github.ref.lowercase }})
-          RELEASE=${RELEASE#"superalgos-"}
+        REF="${{ github.ref.lowercase }}"
+        PREFIX="$(dirname $REF)"
+        SUFFIX="$(basename $REF)"
+        if [[ $PREFIX = "refs/heads" ]]; then
+          TAGS="${TAGS},${IMAGE}:${SUFFIX}"
+        elif [[ $PREFIX = "refs/tags" ]]; then
+          RELEASE=${SUFFIX#"superalgos-"}
           TAGS="${TAGS},${IMAGE}:${RELEASE}"
         fi
         echo ::set-output name=tags::${TAGS}

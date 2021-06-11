@@ -10,6 +10,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "contributionClaims",
             "actionFunction": "payload.executeAction",
@@ -18,6 +19,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "votesDistribution",
             "actionFunction": "payload.executeAction",
@@ -26,6 +28,7 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
@@ -34,6 +37,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

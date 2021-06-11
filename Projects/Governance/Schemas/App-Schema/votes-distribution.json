@@ -10,12 +10,14 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Votes Switch",
             "relatedUiObject": "Votes Switch"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
@@ -24,6 +26,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

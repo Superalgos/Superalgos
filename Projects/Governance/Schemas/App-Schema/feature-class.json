@@ -10,18 +10,21 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Class",
             "relatedUiObject": "Feature Class"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature",
             "relatedUiObject": "Feature"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

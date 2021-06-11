@@ -10,18 +10,21 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Contributions Folder",
             "relatedUiObject": "Feature Contributions Folder"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Contribution Claim",
             "relatedUiObject": "Feature Contribution Claim"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

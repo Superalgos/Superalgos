@@ -1,6 +1,6 @@
 {
-    "topic": "Debugging Superalgos",
-    "pageNumber": "9",
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "2",
     "type": "Debugging - Setting up your IDE",
     "definition": {
         "text": "Toggling Breakpoints is telling the program where to slow down - Where we'd like to take control",

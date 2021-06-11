@@ -1,6 +1,6 @@
 {
-    "topic": "Debugging Superalgos",
-    "pageNumber": "11",
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "4",
     "type": "Debugging - Let The Hunt Begin!",
     "definition": {
         "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward.",

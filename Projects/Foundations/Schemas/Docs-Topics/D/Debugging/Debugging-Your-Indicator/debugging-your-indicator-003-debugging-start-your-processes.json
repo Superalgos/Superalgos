@@ -1,6 +1,6 @@
 {
-    "topic": "Debugging Superalgos",
-    "pageNumber": "10",
+    "topic": "Debugging Your Indicator",
+    "pageNumber": "3",
     "type": "Debugging - Start Your Processes",
     "definition": {
         "text": "Start the Task in Debug mode while running a debug session in your IDE.",

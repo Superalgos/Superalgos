@@ -1,6 +1,6 @@
 {
-    "topic": "Debugging Your Indicator",
-    "pageNumber": "1",
+    "topic": "Debugging Superalgos",
+    "pageNumber": "8",
     "type": "Debugging - First Step",
     "definition": {
         "text": "Using an Integrated development environment (IDE) will help you catch bugs.",

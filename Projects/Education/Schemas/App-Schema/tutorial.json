@@ -24,12 +24,14 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "label": "Add Tutorial Step",
             "relatedUiObject": "Tutorial Step",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "label": "Add Tutorial Topic",
             "relatedUiObject": "Tutorial Topic",
             "actionFunction": "payload.executeAction"
@@ -45,6 +47,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

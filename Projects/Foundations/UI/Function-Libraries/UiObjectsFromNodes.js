@@ -142,8 +142,12 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                     let project = "Foundations"
                     try {
                         let config = JSON.parse(pluginFile.config)
-                        project = config.project
-                        name = config.fileName
+                        if (config.project !== undefined) {
+                            project = config.project
+                        }
+                        if (config.fileName !== undefined) {
+                            name = config.fileName
+                        }
                     } catch (err) { }
 
                     httpRequest(undefined, 'LoadPlugin' + '/' + project + '/' + pluginType + '/' + name + '.json', onFileReceived)

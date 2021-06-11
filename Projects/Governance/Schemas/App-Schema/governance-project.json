@@ -3,42 +3,36 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add Pools",
             "relatedUiObject": "Pools",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add Assets",
             "relatedUiObject": "Assets",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add Features",
             "relatedUiObject": "Features",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add Positions",
             "relatedUiObject": "Positions",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add User Profile",
             "relatedUiObject": "User Profile",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

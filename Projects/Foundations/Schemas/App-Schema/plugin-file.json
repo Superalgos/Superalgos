@@ -36,7 +36,7 @@
     "level": 2,
     "propertyNameAtParent": "pluginFiles",
     "attachingRules": {
-        "compatibleTypes": "->Plugin Tutorials->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Learning Engines->Plugin Learning Systems->Plugin Learning Mines->Plugin Data Mines->Plugin User Profiles->Plugin Pools->Plugin Assets->Plugin Features->Plugin Positions->"
+        "compatibleTypes": "->Plugin Tutorials->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Learning Engines->Plugin Learning Systems->Plugin Learning Mines->Plugin Data Mines->"
     },
     "childrenNodesProperties": [
         {

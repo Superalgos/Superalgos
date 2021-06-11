@@ -10,28 +10,24 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "label": "Add Asset Contributions Folder",
             "relatedUiObject": "Asset Contributions Folder",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Contributions Folder",
             "relatedUiObject": "Feature Contributions Folder"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Contributions Folder",
             "relatedUiObject": "Position Contributions Folder"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

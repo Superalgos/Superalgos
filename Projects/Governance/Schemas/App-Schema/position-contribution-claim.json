@@ -10,7 +10,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Governance",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

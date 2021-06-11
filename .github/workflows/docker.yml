@@ -22,7 +22,7 @@ jobs:
         REGISTRY="ghcr.io"
         IMAGE="${REGISTRY}/${{ steps.repository.outputs.lowercase }}"
         TAGS="${IMAGE}:${{ github.sha }},${IMAGE}:latest"
-        REF="${{ github.ref.lowercase }}"
+        REF=${{ github.ref.lowercase }}
         PREFIX="$(dirname $REF)"
         SUFFIX="$(basename $REF)"
         if [[ $PREFIX = "refs/heads" ]]; then

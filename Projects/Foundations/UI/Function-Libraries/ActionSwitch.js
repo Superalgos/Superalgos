@@ -119,7 +119,11 @@ function newFoundationsActionSwitch() {
                 break
             case 'Share':
                 {
-                    let text = JSON.stringify(UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true))
+                    let text = JSON.stringify(
+                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, true, false, true, true, true),
+                        undefined,
+                        4
+                    )
 
                     let nodeName = action.node.name
                     if (nodeName === undefined) {
@@ -134,7 +138,10 @@ function newFoundationsActionSwitch() {
                 break
             case 'Backup':
                 {
-                    let text = JSON.stringify(UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true))
+                    let text = JSON.stringify(
+                        UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(action.node, false, false, true, true, true),
+                        undefined,
+                        4)
 
                     let nodeName = action.node.name
                     if (nodeName === undefined) {
@@ -149,7 +156,11 @@ function newFoundationsActionSwitch() {
                 break
             case 'Clone':
                 {
-                    let text = JSON.stringify(UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone(action.node))
+                    let text = JSON.stringify(
+                        UI.projects.foundations.functionLibraries.nodeCloning.getNodeClone(action.node),
+                        undefined,
+                        4
+                    )
 
                     let nodeName = action.node.name
                     if (nodeName === undefined) {

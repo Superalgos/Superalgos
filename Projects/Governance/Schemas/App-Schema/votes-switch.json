@@ -88,7 +88,7 @@
             "autoAdd": false
         },
         {
-            "name": "userProfileotesSwitch",
+            "name": "userProfileVotesSwitch",
             "type": "array",
             "childType": "User Profile Votes Switch",
             "autoAdd": false

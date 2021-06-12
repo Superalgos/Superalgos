@@ -70,7 +70,7 @@
     "attachingRules": {
         "compatibleTypes": "->Claim Votes Switch->Votes Switch->"
     },
-    "propertyNameAtParent": "claimVsotesSwitch",
+    "propertyNameAtParent": "claimVotesSwitch",
     "childrenNodesProperties": [
         {
             "name": "claimVotesSwitch",

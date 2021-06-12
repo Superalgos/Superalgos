@@ -18,12 +18,16 @@ function newGovernanceActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Install Assets': {
+            case 'Install Assets':
                 {
                     UI.projects.governance.functionLibraries.assets.installAssets(action.node, action.rootNodes)
                     break
                 }
-            }
+            case 'Install Votes':
+                {
+                    UI.projects.governance.functionLibraries.votes.installVotes(action.node, action.rootNodes)
+                    break
+                }
             case 'Add Missing Plugin User Profiles':
                 {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginUserProfiles(action.node, action.rootNodes)

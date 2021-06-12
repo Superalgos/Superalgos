@@ -1,5 +1,5 @@
 {
-    "type": "Votes Switch",
+    "type": "Claim Votes Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -21,13 +21,6 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Votes Switch",
-            "relatedUiObject": "Votes Switch"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
             "label": "Add Claim Votes Switch",
             "relatedUiObject": "Claim Votes Switch"
         },
@@ -35,15 +28,22 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Weight Votes Switch",
-            "relatedUiObject": "Weight Votes Switch"
+            "label": "Add Position Claim Vote",
+            "relatedUiObject": "Position Claim Vote"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add User Profile Votes Switch",
-            "relatedUiObject": "User Profile Votes Switch"
+            "label": "Add Asset Claim Vote",
+            "relatedUiObject": "Asset Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Claim Vote",
+            "relatedUiObject": "Feature Claim Vote"
         },
         {
             "action": "Delete UI Object",
@@ -64,17 +64,14 @@
     },
     "addLeftIcons": true,
     "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Votes Distribution->Votes Switch->"
+    "referencingRules": {
+        "compatibleTypes": "->Pools->Pool Class->Assets->Asset Class->Features->Feature Class->Positions->Position Class->"
     },
-    "propertyNameAtParent": "votesSwitch",
+    "attachingRules": {
+        "compatibleTypes": "->Claim Votes Switch->Votes Switch->"
+    },
+    "propertyNameAtParent": "claimVsotesSwitch",
     "childrenNodesProperties": [
-        {
-            "name": "votesSwitch",
-            "type": "array",
-            "childType": "Votes Switch",
-            "autoAdd": false
-        },
         {
             "name": "claimVotesSwitch",
             "type": "array",
@@ -82,15 +79,21 @@
             "autoAdd": false
         },
         {
-            "name": "weightVotesSwitch",
+            "name": "positionClaimVotes",
             "type": "array",
-            "childType": "Weight Votes Switch",
+            "childType": "Position Claim Vote",
             "autoAdd": false
         },
         {
-            "name": "userProfileotesSwitch",
+            "name": "assetClaimVotes",
             "type": "array",
-            "childType": "User Profile Votes Switch",
+            "childType": "Asset Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureClaimVotes",
+            "type": "array",
+            "childType": "Feature Claim Vote",
             "autoAdd": false
         }
     ]

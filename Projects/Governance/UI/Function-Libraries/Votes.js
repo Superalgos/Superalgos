@@ -1,6 +1,7 @@
 function newGovernanceFunctionLibraryVotes() {
     let thisObject = {
-        calculate: calculate
+        calculate: calculate,
+        installVotes: installVotes
     }
 
     return thisObject
@@ -46,148 +47,134 @@ function newGovernanceFunctionLibraryVotes() {
             let userProfile = userProfiles[i]
             distributeForProfile(userProfile)
         }
-    }
 
-    function resetVotes(node) {
-        if (node === undefined) { return }
-        if (node.payload === undefined) { return }
-        node.payload.votes = 0
-        /*
-        When we reach certain node types, we will halt the distribution, because thse are targets for 
-        voting power.
-        */
-        if (
-            node.type === 'Position' ||
-            node.type === 'Asset' ||
-            node.type === 'Feature' ||
-            node.type === 'Pool' ||
-            node.type === 'Position Contribution Claim' ||
-            node.type === 'Asset Contribution Claim' ||
-            node.type === 'Feature Contribution Claim'
-        ) { return }
-        /*
-        If there is a reference parent defined, this means that the voting power is 
-        transfered to it and not distributed among children.
-        */
-        if (
-            node.payload.referenceParent !== undefined &&
-            node.type !== 'Asset Class' &&
-            node.type !== 'Feature Class' &&
-            node.type !== 'Position Class'
-        ) {
-            resetVotes(node.payload.referenceParent)
-            return
-        }
-        /*
-        If there is no reference parent we will redistribute voting power among children.
-        */
-        let schemaDocument = getSchemaDocument(node)
-        if (schemaDocument === undefined) { return }
+        function resetVotes(node) {
+            if (node === undefined) { return }
+            if (node.payload === undefined) { return }
+            node.payload.votes = 0
+            /*
+            When we reach certain node types, we will halt the distribution, because thse are targets for 
+            voting power.
+            */
+            if (
+                node.type === 'Position' ||
+                node.type === 'Asset' ||
+                node.type === 'Feature' ||
+                node.type === 'Pool' ||
+                node.type === 'Position Contribution Claim' ||
+                node.type === 'Asset Contribution Claim' ||
+                node.type === 'Feature Contribution Claim'
+            ) { return }
+            /*
+            If there is a reference parent defined, this means that the voting power is 
+            transfered to it and not distributed among children.
+            */
+            if (
+                node.payload.referenceParent !== undefined &&
+                node.type !== 'Votes Switch' &&
+                node.type !== 'Claim Votes Switch' &&
+                node.type !== 'Weight Votes Switch' &&
+                node.type !== 'User Profile Votes Switch'
+            ) {
+                resetVotes(node.payload.referenceParent)
+                return
+            }
+            /*
+            If there is no reference parent we will redistribute voting power among children.
+            */
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument === undefined) { return }
 
-        if (schemaDocument.childrenNodesProperties !== undefined) {
-            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                let property = schemaDocument.childrenNodesProperties[i]
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
-                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
 
-                switch (property.type) {
-                    case 'node': {
-                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
-                            let childNode = node[property.name]
-                            resetVotes(childNode)
-                        }
-                    }
-                        break
-                    case 'array': {
-                        let propertyArray = node[property.name]
-                        if (propertyArray !== undefined) {
-                            for (let m = 0; m < propertyArray.length; m++) {
-                                let childNode = propertyArray[m]
+                    switch (property.type) {
+                        case 'node': {
+                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                                let childNode = node[property.name]
                                 resetVotes(childNode)
                             }
                         }
-                        break
+                            break
+                        case 'array': {
+                            let propertyArray = node[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+                                    let childNode = propertyArray[m]
+                                    resetVotes(childNode)
+                                }
+                            }
+                            break
+                        }
                     }
                 }
             }
         }
-    }
 
-    function distributeForProfile(userProfile) {
-        let votes = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
-        distributeVotes(userProfile, votes)
-    }
-
-    function distributeVotes(node, votes, switchPercentage) {
-        if (node === undefined) { return }
-        if (node.payload === undefined) { return }
-        node.payload.votes = node.payload.votes + votes
-        drawVotes(node, node.payload.votes, switchPercentage)
-        /*
-        When we reach certain node types, we will halt the distribution, because thse are targets for 
-        voting power.
-        */
-        if (
-            node.type === 'Position' ||
-            node.type === 'Asset' ||
-            node.type === 'Feature' ||
-            node.type === 'Pool' ||
-            node.type === 'Position Contribution Claim' ||
-            node.type === 'Asset Contribution Claim' ||
-            node.type === 'Feature Contribution Claim'
-        ) { return }
-        /*
-        If there is a reference parent defined, this means that the voting power is 
-        transfered to it and not distributed among children.
-        */
-        if (
-            node.payload.referenceParent !== undefined &&
-            node.type !== 'Asset Class' &&
-            node.type !== 'Feature Class' &&
-            node.type !== 'Position Class'
-        ) {
-            distributeVotes(node.payload.referenceParent, votes)
-            return
+        function distributeForProfile(userProfile) {
+            let votes = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+            distributeVotes(userProfile, votes)
         }
-        /*
-        If there is no reference parent we will redistribute voting power among children.
-        */
-        let schemaDocument = getSchemaDocument(node)
-        if (schemaDocument === undefined) { return }
 
-        if (schemaDocument.childrenNodesProperties !== undefined) {
+        function distributeVotes(node, votes, switchPercentage) {
+            if (node === undefined) { return }
+            if (node.payload === undefined) { return }
+            node.payload.votes = node.payload.votes + votes
+            drawVotes(node, node.payload.votes, switchPercentage)
             /*
-            Before distributing the voting power, we will calculate how the power 
-            is going to be switched between all nodes. The first pass is about
-            scanning all sibling nodes to see which ones have a percentage defined
-            at their config, and check that all percentages don't add more than 100.
+            When we reach certain node types, we will halt the distribution, because thse are targets for 
+            voting power.
             */
-            let totalPercentage = 0
-            let totalNodesWithoutPercentage = 0
-            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                let property = schemaDocument.childrenNodesProperties[i]
+            if (
+                node.type === 'Position' ||
+                node.type === 'Asset' ||
+                node.type === 'Feature' ||
+                node.type === 'Pool' ||
+                node.type === 'Position Contribution Claim' ||
+                node.type === 'Asset Contribution Claim' ||
+                node.type === 'Feature Contribution Claim'
+            ) { return }
+            /*
+            If there is a reference parent defined, this means that the voting power is 
+            transfered to it and not distributed among children.
+            */
+            if (
+                node.payload.referenceParent !== undefined &&
+                node.type !== 'Votes Switch' &&
+                node.type !== 'Claim Votes Switch' &&
+                node.type !== 'Weight Votes Switch' &&
+                node.type !== 'User Profile Votes Switch'
+            ) {
+                distributeVotes(node.payload.referenceParent, votes)
+                return
+            }
+            /*
+            If there is no reference parent we will redistribute voting power among children.
+            */
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument === undefined) { return }
 
-                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                /*
+                Before distributing the voting power, we will calculate how the power 
+                is going to be switched between all nodes. The first pass is about
+                scanning all sibling nodes to see which ones have a percentage defined
+                at their config, and check that all percentages don't add more than 100.
+                */
+                let totalPercentage = 0
+                let totalNodesWithoutPercentage = 0
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
 
-                switch (property.type) {
-                    case 'node': {
-                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage !== undefined && isNaN(percentage) !== true) {
-                                totalPercentage = totalPercentage + percentage
-                            } else {
-                                totalNodesWithoutPercentage++
-                            }
-                        }
-                    }
-                        break
-                    case 'array': {
-                        let propertyArray = node[property.name]
-                        if (propertyArray !== undefined) {
-                            for (let m = 0; m < propertyArray.length; m++) {
-                                let childNode = propertyArray[m]
+                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+
+                    switch (property.type) {
+                        case 'node': {
+                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                                let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -197,44 +184,45 @@ function newGovernanceFunctionLibraryVotes() {
                                 }
                             }
                         }
-                        break
-                    }
-                }
-            }
-            if (totalPercentage > 100) {
-                node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
-                return
-            }
-            let defaultPercentage = 0
-            if (totalNodesWithoutPercentage > 0) {
-                defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
-            }
-            /*
-            Here we do the actual distribution.
-            */
-            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                let property = schemaDocument.childrenNodesProperties[i]
-
-                if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
-
-                switch (property.type) {
-                    case 'node': {
-                        if (node.type === 'User Profile' && property.name === "votesDistribution") {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage === undefined || isNaN(percentage) === true) {
-                                percentage = defaultPercentage
+                            break
+                        case 'array': {
+                            let propertyArray = node[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+                                    let childNode = propertyArray[m]
+                                    if (childNode === undefined) { continue }
+                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                    if (percentage !== undefined && isNaN(percentage) !== true) {
+                                        totalPercentage = totalPercentage + percentage
+                                    } else {
+                                        totalNodesWithoutPercentage++
+                                    }
+                                }
                             }
-                            distributeVotes(childNode, votes * percentage / 100, percentage)
+                            break
                         }
                     }
-                        break
-                    case 'array': {
-                        let propertyArray = node[property.name]
-                        if (propertyArray !== undefined) {
-                            for (let m = 0; m < propertyArray.length; m++) {
-                                let childNode = propertyArray[m]
+                }
+                if (totalPercentage > 100) {
+                    node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                    return
+                }
+                let defaultPercentage = 0
+                if (totalNodesWithoutPercentage > 0) {
+                    defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                }
+                /*
+                Here we do the actual distribution.
+                */
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
+
+                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+
+                    switch (property.type) {
+                        case 'node': {
+                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                                let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
@@ -243,45 +231,176 @@ function newGovernanceFunctionLibraryVotes() {
                                 distributeVotes(childNode, votes * percentage / 100, percentage)
                             }
                         }
-                        break
+                            break
+                        case 'array': {
+                            let propertyArray = node[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+                                    let childNode = propertyArray[m]
+                                    if (childNode === undefined) { continue }
+                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                    if (percentage === undefined || isNaN(percentage) === true) {
+                                        percentage = defaultPercentage
+                                    }
+                                    distributeVotes(childNode, votes * percentage / 100, percentage)
+                                }
+                            }
+                            break
+                        }
                     }
+                }
+            }
+        }
+
+        function drawVotes(node, votes, percentage) {
+            votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
+            if (node.payload !== undefined) {
+                if (node.type === 'User Profile') {
+                    return
+                }
+                if (
+                    node.type === 'Position' ||
+                    node.type === 'Position Class' ||
+                    node.type === 'Pool' ||
+                    node.type === 'Tokens Switch' ||
+                    node.type === 'Asset' ||
+                    node.type === 'Asset Class' ||
+                    node.type === 'Feature' ||
+                    node.type === 'Feature Class' ||
+                    node.type === 'Position Contribution Claim' ||
+                    node.type === 'Asset Contribution Claim' ||
+                    node.type === 'Feature Contribution Claim'
+                ) {
+                    node.payload.uiObject.valueAngleOffset = 0
+                    node.payload.uiObject.valueAtAngle = false
+                } else {
+                    node.payload.uiObject.valueAngleOffset = 180
+                    node.payload.uiObject.valueAtAngle = true
+                }
+
+                node.payload.uiObject.setValue(votes)
+
+                if (percentage !== undefined) {
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2))
                 }
             }
         }
     }
 
-    function drawVotes(node, votes, percentage) {
-        votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
-        if (node.payload !== undefined) {
-            if (node.type === 'User Profile') {
-                return
-            }
+    function installVotes(node, rootNodes) {
+        if (node.payload === undefined) { return }
+        if (node.payload.referenceParent === undefined) {
+            node.payload.uiObject.setErrorMessage('To install votes you need a Reference Parent')
+            return
+        }
+        scanNodeBranch(node, node.payload.referenceParent)
+
+        function scanNodeBranch(originNode, destinationNode) {
             if (
-                node.type === 'Position' ||
-                node.type === 'Position Class' ||
-                node.type === 'Pool' ||
-                node.type === 'Tokens Switch' ||
-                node.type === 'Asset' ||
-                node.type === 'Asset Class' ||
-                node.type === 'Feature' ||
-                node.type === 'Feature Class' ||
-                node.type === 'Position Contribution Claim' ||
-                node.type === 'Asset Contribution Claim' ||
-                node.type === 'Feature Contribution Claim'
+                destinationNode.type === 'Pool' ||
+                destinationNode.type === 'Asset' ||
+                destinationNode.type === 'Feature' ||
+                destinationNode.type === 'Position'
             ) {
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = false
+                originNode.name = destinationNode.name + ' ' + destinationNode.type + ' ' + ' Vote'
             } else {
-                node.payload.uiObject.valueAngleOffset = 180
-                node.payload.uiObject.valueAtAngle = true
+                originNode.name = destinationNode.name + ' ' + destinationNode.type
             }
 
-            node.payload.uiObject.setValue(votes)
+            let schemaDocument = getSchemaDocument(destinationNode)
+            if (schemaDocument === undefined) { return }
 
-            if (percentage !== undefined) {
-                node.payload.uiObject.setPercentage(percentage.toFixed(2))
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
+
+                    switch (property.type) {
+                        case 'node': {
+
+                            let destinationNodeChild = destinationNode[property.name]
+
+                            let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
+                            let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+
+                            if (
+                                destinationNodeChild.type === 'Pool' ||
+                                destinationNodeChild.type === 'Asset' ||
+                                destinationNodeChild.type === 'Feature' ||
+                                destinationNodeChild.type === 'Position'
+                            ) {
+                                originNodeChild.payload.referenceParent = destinationNodeChild
+                            }
+
+                            scanNodeBranch(originNodeChild, destinationNodeChild)
+                        }
+                            break
+                        case 'array': {
+                            let propertyArray = destinationNode[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+
+                                    let destinationNodeChild = propertyArray[m]
+
+                                    let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
+                                    let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+
+                                    if (
+                                        destinationNodeChild.type === 'Pool' ||
+                                        destinationNodeChild.type === 'Asset' ||
+                                        destinationNodeChild.type === 'Feature' ||
+                                        destinationNodeChild.type === 'Position'
+                                    ) {
+                                        originNodeChild.payload.referenceParent = destinationNodeChild
+                                    }
+
+                                    scanNodeBranch(originNodeChild, destinationNodeChild)
+                                }
+                            }
+                            break
+                        }
+                    }
+                }
             }
         }
-    }
 
+        function getOriginNodeChildType(destinationNode) {
+            let originNodeType
+
+            switch (destinationNode.type) {
+                case 'Pool Class': {
+                    originNodeType = 'Weight Votes Switch'
+                    break
+                }
+                case 'Asset Class': {
+                    originNodeType = 'Weight Votes Switch'
+                    break
+                }
+                case 'Feature Class': {
+                    originNodeType = 'Weight Votes Switch'
+                    break
+                }
+                case 'Position Class': {
+                    originNodeType = 'Weight Votes Switch'
+                    break
+                }
+                case 'Pool': {
+                    originNodeType = 'Pool Weight Vote'
+                    break
+                }
+                case 'Asset': {
+                    originNodeType = 'Asset Weight Vote'
+                    break
+                }
+                case 'Feature': {
+                    originNodeType = 'Feature Weight Vote'
+                    break
+                }
+                case 'Position Class': {
+                    originNodeType = 'Position Weight Vote'
+                    break
+                }
+            }
+            return originNodeType
+        }
+    }
 }

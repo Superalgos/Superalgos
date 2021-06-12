@@ -395,7 +395,7 @@ function newGovernanceFunctionLibraryVotes() {
                     originNodeType = 'Feature Weight Vote'
                     break
                 }
-                case 'Position Class': {
+                case 'Position': {
                     originNodeType = 'Position Weight Vote'
                     break
                 }

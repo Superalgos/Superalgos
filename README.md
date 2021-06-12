@@ -373,8 +373,23 @@ When you're done just exec `docker kill superalgos`
 
 Follow the link to [install docker-compose](https://docs.docker.com/compose/install/)
 
-Run `docker-compose -f Docker/docker-compose.yml up`
+Run `docker-compose -f Docker/docker-compose.yml up`.
 
+## Configure the Container Environment
+
+### Available image tags
+
+To avoid breaking changes, the `shasum hash` and the `release` tags are the best to use. These will generally ensure you are always running the same code. The other tags will change which code they are pointing to more frequently and without notice.
+
+- `latest` : the absolute latest build
+- `master` : the latest master branch build
+- `develop` : the latest develop branch build
+- `<shasum hash>` : a specific git commit hash
+- `<release>` : corresponds with a Github Release (git tag), i.e. `beta-10`
+
+### Environment variables
+
+`PUID` and `GUID` environment variables can be used to help avoid permissions issues in the mounted volumes between the container environment and the local OS environment. The default `PUID` and `GUID` is `1000`. You can view the current user's PUID and GUID with the `id` command.
 
 # What is Superalgos?
 

@@ -1,5 +1,5 @@
 {
-    "type": "Pool",
+    "type": "User Profile Votes Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -9,18 +9,27 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "action": "Install Votes",
+            "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
-            "label": "Add Pool Class",
-            "relatedUiObject": "Pool Class"
+            "label": "Install Votes",
+            "relatedUiObject": "Weight Votes Switch",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Pool",
-            "relatedUiObject": "Pool"
+            "label": "Add User Profile Votes Switch",
+            "relatedUiObject": "User Profile Votes Switch"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Profile Vote",
+            "relatedUiObject": "User Profile Vote"
         },
         {
             "action": "Delete UI Object",
@@ -41,24 +50,24 @@
     },
     "addLeftIcons": true,
     "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Pool Class->Pool->"
-    },
     "referencingRules": {
-        "compatibleTypes": "->Pools->Positions->Assets->Features->"
+        "compatibleTypes": "->Pools->Pool Class->Assets->Asset Class->Features->Feature Class->Positions->Position Class->"
     },
-    "propertyNameAtParent": "pools",
+    "attachingRules": {
+        "compatibleTypes": "->User Profile Votes Switch->Votes Switch->"
+    },
+    "propertyNameAtParent": "userProfileVotesSwitch",
     "childrenNodesProperties": [
         {
-            "name": "poolClasses",
+            "name": "userProfileotesSwitch",
             "type": "array",
-            "childType": "Pool Class",
+            "childType": "User Profile Votes Switch",
             "autoAdd": false
         },
         {
-            "name": "pools",
+            "name": "userProfileVote",
             "type": "array",
-            "childType": "Pool",
+            "childType": "User Profile Vote",
             "autoAdd": false
         }
     ]

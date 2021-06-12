@@ -47,10 +47,18 @@ function newGovernanceFunctionLibraryWeights() {
             if (node.payload === undefined) { return }
 
             if (
-                node.type !== 'Pool Class' &&
-                node.type !== 'Asset Class' &&
-                node.type !== 'Feature Class' &&
-                node.type !== 'Position Class'
+                (node.type !== 'Pool Class' &&
+                    node.type !== 'Asset Class' &&
+                    node.type !== 'Feature Class' &&
+                    node.type !== 'Position Class') ||
+                (
+                    node.type === 'Asset Class' &&
+                    node.payload.referenceParent !== undefined
+                ) ||
+                (
+                    node.type === 'Feature Class' &&
+                    node.payload.referenceParent !== undefined
+                )
             ) {
                 if (node.payload.votes !== undefined) {
                     totalVotes = totalVotes + node.payload.votes
@@ -93,10 +101,18 @@ function newGovernanceFunctionLibraryWeights() {
             if (node.payload === undefined) { return }
 
             if (
-                node.type !== 'Pool Class' &&
-                node.type !== 'Asset Class' &&
-                node.type !== 'Feature Class' &&
-                node.type !== 'Position Class'
+                (node.type !== 'Pool Class' &&
+                    node.type !== 'Asset Class' &&
+                    node.type !== 'Feature Class' &&
+                    node.type !== 'Position Class') ||
+                (
+                    node.type === 'Asset Class' &&
+                    node.payload.referenceParent !== undefined
+                ) ||
+                (
+                    node.type === 'Feature Class' &&
+                    node.payload.referenceParent !== undefined
+                )
             ) {
                 if (node.payload.votes !== undefined) {
                     if (node.payload.votes !== undefined) {

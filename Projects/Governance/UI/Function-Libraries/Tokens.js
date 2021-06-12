@@ -26,8 +26,17 @@ function newGovernanceFunctionLibraryTokens() {
     }
 
     function poolsDistribute(pools) {
-        let tokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
-        distributeTokens(pools, tokens)
+        if (pools.payload === undefined) { return }
+        let tokens = pools.payload.tokens
+
+        /* Check if this Pools has already been processed by it's reference child.*/
+        if (tokens !== undefined && tokens > 0) { return }
+
+        let confiTokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
+        if (confiTokens !== undefined) {
+            tokens = confiTokens
+            distributeTokens(pools, tokens)
+        }
     }
 
     function resetTokenFlow(node) {

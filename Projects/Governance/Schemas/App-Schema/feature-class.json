@@ -45,7 +45,7 @@
         "compatibleTypes": "->Features->Feature Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Position Class->Position->"
+        "compatibleTypes": "->Features->"
     },
     "propertyNameAtParent": "featureClasses",
     "childrenNodesProperties": [

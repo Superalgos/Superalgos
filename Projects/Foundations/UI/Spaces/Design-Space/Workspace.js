@@ -420,7 +420,7 @@ function newWorkspace() {
         to prevent later saving it corrupting the original file.
         */
         if (stringifyReadyNodes.length > 0) {
-            return JSON.stringify(workspace)
+            return JSON.stringify(workspace, undefined, 4)
         } else {
             return
         }

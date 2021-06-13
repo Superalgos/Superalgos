@@ -33,13 +33,20 @@ function newGovernanceFunctionLibraryClaims() {
         /* Claim Count Follows */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfilesNode = userProfiles[i]
+            if (userProfilesNode.payload === undefined) { continue }
+            userProfilesNode.payload.claims = {
+                awarded: {
+                    tokens: 0
+                },
+                count: 0
+            }
             countForNode(userProfilesNode.contributionClaims)
         }
 
         /* Claim Calculation Follows */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfilesNode = userProfiles[i]
-            calculateForNode(userProfilesNode.contributionClaims)
+            calculateForNode(userProfilesNode.contributionClaims, userProfilesNode)
         }
     }
 
@@ -99,6 +106,7 @@ function newGovernanceFunctionLibraryClaims() {
         ) {
             if (node.payload.claims === undefined) {
                 node.payload.claims = {
+                    count: 0,
                     awarded: {
                         tokens: 0,
                         percentage: 0
@@ -154,7 +162,7 @@ function newGovernanceFunctionLibraryClaims() {
         }
     }
 
-    function calculateForNode(node) {
+    function calculateForNode(node, userProfilesNode) {
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
 
@@ -197,7 +205,10 @@ function newGovernanceFunctionLibraryClaims() {
                     )
                 node.payload.claims.awarded.percentage = node.payload.claims.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
 
-                drawClaims(node)
+                userProfilesNode.payload.claims.awarded.tokens = userProfilesNode.payload.claims.awarded.tokens + node.payload.claims.awarded.tokens
+                userProfilesNode.payload.claims.count++
+
+                drawClaims(node, userProfilesNode)
             }
         }
 
@@ -210,7 +221,7 @@ function newGovernanceFunctionLibraryClaims() {
                 switch (property.type) {
                     case 'node': {
                         let childNode = node[property.name]
-                        calculateForNode(childNode)
+                        calculateForNode(childNode, userProfilesNode)
                     }
                         break
                     case 'array': {
@@ -218,7 +229,7 @@ function newGovernanceFunctionLibraryClaims() {
                         if (propertyArray !== undefined) {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
-                                calculateForNode(childNode)
+                                calculateForNode(childNode, userProfilesNode)
                             }
                         }
                         break
@@ -228,13 +239,20 @@ function newGovernanceFunctionLibraryClaims() {
         }
     }
 
-    function drawClaims(node) {
+    function drawClaims(node, userProfilesNode) {
         let satatus =
             new Intl.NumberFormat().format(node.payload.claims.awarded.tokens) +
             ' ' + 'SA Tokens Awarded' + ' - ' +
             'From Reward: ' + node.payload.claims.awarded.percentage.toFixed(2) + '%' + ' - ' +
             'Shared Between: ' + node.payload.claims.share.count + ' claims' + ' - ' +
             'Share of Claims: ' + node.payload.claims.share.percentage.toFixed(2) + '%'
+
         node.payload.uiObject.setStatus(satatus)
+
+        satatus = new Intl.NumberFormat().format(userProfilesNode.payload.claims.awarded.tokens) +
+            ' ' + 'SA Tokens Awarded' +
+            ' from ' + userProfilesNode.payload.claims.count + ' Claims'
+
+        userProfilesNode.payload.uiObject.setValue(satatus)
     }
 }

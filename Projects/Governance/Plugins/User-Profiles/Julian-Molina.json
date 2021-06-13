@@ -218,8 +218,8 @@
                                 "id": "ab4d6901-a84c-44d3-a97a-7bc14de9ff31",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24963.166666666664,
-                                        "y": 24097.33110373638
+                                        "x": 25113.166666666664,
+                                        "y": 23837.523482601046
                                     },
                                     "targetPosition": {
                                         "x": 24813.166666666664,
@@ -238,6 +238,37 @@
                                         "type": "Position Contribution Claim",
                                         "name": "Project Leader Superalgos",
                                         "id": "a2bb4366-f480-4685-80b0-e40af9cddd8c"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Position Claim Vote",
+                                "name": "Luis-Fernando-Molina Project Leader Superalgos",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "2248b955-af4b-42e6-9649-9b6a689d0ade",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 24663.166666666664,
+                                        "y": 24097.33110373638
+                                    },
+                                    "targetPosition": {
+                                        "x": 24813.166666666664,
+                                        "y": 23837.523482601046
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Position Contribution Claim",
+                                        "name": "Project Leader Superalgos",
+                                        "id": "be2aedec-06fd-41fa-8599-08105931f75f"
                                     }
                                 }
                             }

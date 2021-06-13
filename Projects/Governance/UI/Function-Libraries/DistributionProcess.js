@@ -33,6 +33,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         )
 
         UI.projects.governance.functionLibraries.userrReferrals.calculate(
+            pools,
             userProfiles
         )
         

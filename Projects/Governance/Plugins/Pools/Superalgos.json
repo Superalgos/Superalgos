@@ -424,40 +424,9 @@
                         {
                             "type": "Pool",
                             "name": "User Referrals",
-                            "config": "{\n    \"description\": \"\"\n}",
+                            "config": "{\n    \"codeName\": \"User-Referrals\"\n}",
                             "project": "Governance",
-                            "poolClasses": [
-                                {
-                                    "type": "Pool Class",
-                                    "name": "Note: Increases when referrer uses the system",
-                                    "config": "{\n  \"description\": \"\", \"relativeWeight\": 0 \n}",
-                                    "project": "Governance",
-                                    "poolClasses": [],
-                                    "pools": [],
-                                    "id": "f06bba01-2b98-4fd3-949a-7038b7f6e96a",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24323.080856734938,
-                                            "y": 31257.85618141008
-                                        },
-                                        "targetPosition": {
-                                            "x": 24511.87697404989,
-                                            "y": 31024.71239297299
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
+                            "poolClasses": [],
                             "pools": [],
                             "id": "639a6504-a0d0-4d7e-ad99-80ba5115ac72",
                             "savedPayload": {

@@ -165,9 +165,8 @@ function newGovernanceFunctionLibraryUserReferrals() {
         }
 
         function drawUserReferrals(node) {
-            const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
-
             if (node.payload !== undefined) {
+                const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false
@@ -178,11 +177,10 @@ function newGovernanceFunctionLibraryUserReferrals() {
         }
 
         function drawUserProfiles(node) {
-            const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
-            const awardedTokens = new Intl.NumberFormat().format(node.payload.referring.awarded.tokens)
-            const referralPower = new Intl.NumberFormat().format(node.payload.referring.referralsPower)
-
             if (node.payload !== undefined) {
+                const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
+                const awardedTokens = new Intl.NumberFormat().format(node.payload.referring.awarded.tokens)
+                const referralPower = new Intl.NumberFormat().format(node.payload.referring.referralsPower)
 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false

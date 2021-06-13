@@ -1,25 +1,25 @@
 {
     "type": "Assets",
-    "name": "TensorFlow-Project-Custom-Code",
+    "name": "Governance-Project-Custom-Code",
     "config": "{\n}",
     "project": "Governance",
     "assetClasses": [
         {
             "type": "Asset Class",
             "name": "Custom-Code",
-            "config": "{\n    \"folderPath\": \"TensorFlow/Bots-Plotters-Code\"\n}",
+            "config": "{\n    \"folderPath\": \"Governance/Bots-Plotters-Code\"\n}",
             "project": "Governance",
             "assetClasses": [],
             "assets": [],
-            "id": "ba028206-77f2-4640-a7a7-07095d2c435b",
+            "id": "d55a3282-8afb-4901-9adb-4dc469e11bdc",
             "savedPayload": {
                 "position": {
-                    "x": 42687.25,
-                    "y": 46607.25
+                    "x": 42656.25,
+                    "y": 46605.75
                 },
                 "targetPosition": {
-                    "x": 42687.25,
-                    "y": 46307.25
+                    "x": 42656.25,
+                    "y": 46305.75
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -36,15 +36,15 @@
         }
     ],
     "assets": [],
-    "id": "472acb7c-0b6b-4179-8487-2107becb204e",
+    "id": "4535435c-5e1b-452a-9cf2-fafc42843bf8",
     "savedPayload": {
         "position": {
-            "x": 42687.25,
-            "y": 46307.25
+            "x": 42656.25,
+            "y": 46305.75
         },
         "targetPosition": {
-            "x": 42687.25,
-            "y": 46307.25
+            "x": 42656.25,
+            "y": 46305.75
         },
         "floatingObject": {
             "isPinned": false,

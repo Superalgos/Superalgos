@@ -1,25 +1,25 @@
 {
     "type": "Assets",
-    "name": "TensorFlow-Project-Custom-Code",
+    "name": "Ethereum-Project-Plugins",
     "config": "{\n}",
     "project": "Governance",
     "assetClasses": [
         {
             "type": "Asset Class",
-            "name": "Custom-Code",
-            "config": "{\n    \"folderPath\": \"TensorFlow/Bots-Plotters-Code\"\n}",
+            "name": "Plugins",
+            "config": "{\n    \"folderPath\": \"Ethereum/Plugins\"\n}",
             "project": "Governance",
             "assetClasses": [],
             "assets": [],
-            "id": "ba028206-77f2-4640-a7a7-07095d2c435b",
+            "id": "d5c50738-1748-41cc-8bb7-97d12c238700",
             "savedPayload": {
                 "position": {
-                    "x": 42687.25,
-                    "y": 46607.25
+                    "x": 19333,
+                    "y": 46577.75
                 },
                 "targetPosition": {
-                    "x": 42687.25,
-                    "y": 46307.25
+                    "x": 19333,
+                    "y": 46277.75
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -36,15 +36,15 @@
         }
     ],
     "assets": [],
-    "id": "472acb7c-0b6b-4179-8487-2107becb204e",
+    "id": "9b3fe189-a52c-4f0e-ab96-aae142d26de6",
     "savedPayload": {
         "position": {
-            "x": 42687.25,
-            "y": 46307.25
+            "x": 19333,
+            "y": 46277.75
         },
         "targetPosition": {
-            "x": 42687.25,
-            "y": 46307.25
+            "x": 19333,
+            "y": 46277.75
         },
         "floatingObject": {
             "isPinned": false,

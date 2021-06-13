@@ -25,7 +25,7 @@ function newGovernanceFunctionLibraryVotes() {
             resetVotes(featuresNode)
         }
 
-        /* Reset Votes at Features */
+        /* Reset Votes at Assets */
         for (let i = 0; i < assets.length; i++) {
             let assetsNode = assets[i]
             resetVotes(assetsNode)
@@ -53,7 +53,7 @@ function newGovernanceFunctionLibraryVotes() {
             if (node.payload === undefined) { return }
             node.payload.votes = 0
             /*
-            When we reach certain node types, we will halt the distribution, because thse are targets for 
+            When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.
             */
             if (
@@ -125,7 +125,7 @@ function newGovernanceFunctionLibraryVotes() {
             node.payload.votes = node.payload.votes + votes
             drawVotes(node, node.payload.votes, switchPercentage)
             /*
-            When we reach certain node types, we will halt the distribution, because thse are targets for 
+            When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.
             */
             if (

@@ -52,7 +52,7 @@ function newGovernanceFunctionLibraryTokens() {
             return
         }
         /*
-        When we reach certain node types, we will halt the distribution, because thse are targets for 
+        When we reach certain node types, we will halt the distribution, because these are targets for 
         token flow.
         */
         if (

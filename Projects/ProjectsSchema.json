@@ -992,6 +992,11 @@
                     "name": "Plugins Functions",
                     "propertyName": "pluginsFunctions",
                     "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
+                },
+                {
+                    "name": "User Referrals",
+                    "propertyName": "userrReferrals",
+                    "functionName": "newGovernanceFunctionLibraryUserReferrals"
                 }
             ],
             "utilities": [],

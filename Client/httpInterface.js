@@ -1100,7 +1100,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 
                     function onFilesReady(files) {
-                        console.log(files)
                         respondWithContent(JSON.stringify(files), httpResponse)
                     }
                 }

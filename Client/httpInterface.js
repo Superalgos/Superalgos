@@ -1090,8 +1090,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     if (requestParameters[5] !== undefined) {
                         folderPath = folderPath + '/' + requestParameters[5]
                     }
-
-                    const folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
+                    let folder
+                    if (requestParameters[2] === 'Root') {
+                        folder = folderPath.replace('Root', '../Superalgos/')
+                    } else {
+                        folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
+                    }
 
                     getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
 

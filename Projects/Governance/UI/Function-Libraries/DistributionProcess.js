@@ -31,6 +31,10 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         UI.projects.governance.functionLibraries.tokens.calculate(
             pools
         )
+
+        UI.projects.governance.functionLibraries.userrReferrals.calculate(
+            userProfiles
+        )
         
         UI.projects.governance.functionLibraries.claims.calculate(
             features,

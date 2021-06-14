@@ -117,7 +117,13 @@ function newGovernanceFunctionLibraryUserReferrals() {
 
         function distributeForProfile(userProfile) {
             if (userProfile === undefined || userProfile.payload === undefined) { return }
-            let referringPower = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+            let referringPower 
+            if (userProfile.payload.blockchainTokens === undefined) {
+                referringPower = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+            } else {
+                referringPower = userProfile.payload.blockchainTokens
+            }
+
             let referringCount = 0
             userProfile.payload.referring.ownPower = referringPower
             distributeUserReferrals(userProfile, referringPower, referringCount)
@@ -157,6 +163,8 @@ function newGovernanceFunctionLibraryUserReferrals() {
         }
 
         function calculateAwardedForProfile(userProfile) {
+            if (userProfile.payload === undefined) { return }
+
             let totalPowerRewardRation = tokensReward / totalReferralsPower
             if (totalPowerRewardRation < 1) { totalPowerRewardRation = 1 }
 

@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Luis-Fernando-Molina",
-    "config": "{\n    \"tokens\": 10000000\n}",
+    "config": "{\n    \"tokens\": 10000000,\n\"blockchainAccount\": \"0x9546eAA9380A224a56d7067D712296E9D40d40e1\"\n}",
     "project": "Governance",
     "contributionClaims": {
         "type": "Contribution Claims",

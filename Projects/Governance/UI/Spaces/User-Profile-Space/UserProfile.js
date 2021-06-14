@@ -39,6 +39,40 @@ function newGovernanceUserProfileSpace() {
 
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
+        /*
+        We will get all the user Profiles tokens from the blockchain, making a call
+        every 5 seconds so as not to exceed the rate limit.
+        */
+        let timer = 0
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload === undefined) { continue }
+
+            if (userProfile.payload.blockchainTokens === undefined) {
+                let blockchainAccount = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'blockchainAccount')
+                if (blockchainAccount !== undefined && blockchainAccount !== "") {
+                    setTimeout(getBlockchainTokens, timer, userProfile)
+                    timer = timer + 5000
+                }
+            }
+        }
+
+        function getBlockchainTokens(userProfile) {
+            let blockchainAccount = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'blockchainAccount')
+            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+
+            fetch(url).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                console.log(data)
+                userProfile.payload.uiObject.setInfoMessage(data)
+                userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+            }).catch(function (err) {
+                userProfile.payload.uiObject.setErrorMessage(err.message)
+            });
+        }
     }
 
     function draw() {

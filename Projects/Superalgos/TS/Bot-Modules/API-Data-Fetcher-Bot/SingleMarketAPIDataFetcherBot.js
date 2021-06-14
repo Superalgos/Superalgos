@@ -21,7 +21,7 @@ exports.newSuperalgosBotModulesSingleMarketAPIDataFetcherBot = function (process
                 return
             }
 
-            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            /* Here we setup the path prefix that will be used when writing data or logs to disk. */
             TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
 
             /*

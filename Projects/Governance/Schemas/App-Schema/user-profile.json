@@ -36,6 +36,13 @@
             "relatedUiObject": "User Referrer"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Signature",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Signature",
+            "relatedUiObject": "Add Signature"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,

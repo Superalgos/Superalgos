@@ -14,6 +14,8 @@ function newGovernanceUserProfileSpace() {
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.isDraggeable = false
 
+    waitingForResponses = 0
+
     return thisObject
 
     function initialize() {
@@ -40,7 +42,7 @@ function newGovernanceUserProfileSpace() {
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
-
+        if (waitingForResponses !== 0) { return }
         /*
         We will get all the user Profiles tokens from the blockchain, making a call
         every 5 seconds so as not to exceed the rate limit.
@@ -62,6 +64,7 @@ function newGovernanceUserProfileSpace() {
         function getBlockchainTokens(userProfile) {
             let blockchainAccount = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'blockchainAccount')
             const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+            waitingForResponses++
 
             fetch(url).then(function (response) {
                 return response.json();
@@ -69,8 +72,12 @@ function newGovernanceUserProfileSpace() {
                 console.log(data)
                 userProfile.payload.uiObject.setInfoMessage(data)
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+                waitingForResponses--
             }).catch(function (err) {
+                userProfile.payload.blockchainTokens = 0
+                console.log(err)
                 userProfile.payload.uiObject.setErrorMessage(err.message)
+                waitingForResponses--
             });
         }
     }

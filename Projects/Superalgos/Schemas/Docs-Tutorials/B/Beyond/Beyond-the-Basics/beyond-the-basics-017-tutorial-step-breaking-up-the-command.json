@@ -3,7 +3,7 @@
     "pageNumber": 17,
     "type": "Tutorial Step - Breaking Up The Command",
     "definition": {
-        "text": "Before you get on with writting your awesome review, let me parse the command so that you understand what you just did!",
+        "text": "Before you get on with writing your awesome review, let me parse the command so that you understand what you just did!",
         "icon": {
             "name": "copy-path",
             "project": "Superalgos"

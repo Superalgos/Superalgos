@@ -45,7 +45,7 @@
         },
         {
             "style": "Note",
-            "text": "When the Backtesting Session informs it has finished,  then stop the task and click Next to continue.",
+            "text": "When the Backtesting Session informs it has finished, stop the task and click Next to continue.",
             "translations": [
                 {
                     "language": "DE",

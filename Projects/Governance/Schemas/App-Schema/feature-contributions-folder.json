@@ -42,7 +42,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Feature Contributions Folder->"
+        "compatibleTypes": "->Claims Program->Feature Contributions Folder->"
     },
     "propertyNameAtParent": "featureContributionsFolder",
     "childrenNodesProperties": [

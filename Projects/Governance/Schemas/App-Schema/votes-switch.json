@@ -65,7 +65,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Votes Distribution->Votes Switch->"
+        "compatibleTypes": "->Voting Program->Votes Switch->"
     },
     "propertyNameAtParent": "votesSwitch",
     "childrenNodesProperties": [

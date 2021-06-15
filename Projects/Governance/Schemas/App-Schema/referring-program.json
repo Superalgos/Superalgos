@@ -1,5 +1,5 @@
 {
-    "type": "Position Contributions Folder",
+    "type": "Referral Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,16 +11,11 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position Contributions Folder",
-            "relatedUiObject": "Position Contributions Folder"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Position Contribution Claim",
-            "relatedUiObject": "Position Contribution Claim"
+            "label": "Add User Referrer",
+            "relatedUiObject": "User Referrer"
         },
         {
             "action": "Delete UI Object",
@@ -39,24 +34,18 @@
     "initialValues": {
         "config": "{}"
     },
-    "addLeftIcons": true,
-    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Claims Program->Position Contributions Folder->"
+        "compatibleTypes": "->Token Switch->"
     },
-    "propertyNameAtParent": "positionContributionsFolder",
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "referralProgram",
     "childrenNodesProperties": [
         {
-            "name": "positionContributionsFolder",
-            "type": "array",
-            "childType": "Position Contributions Folder",
-            "autoAdd": false
-        },
-        {
-            "name": "positionContributionClaims",
-            "type": "array",
-            "childType": "Position Contribution Claim",
-            "autoAdd": false
+            "name": "userReferrer",
+            "type": "node",
+            "childType": "User Referrer",
+            "autoAdd": true
         }
     ]
 }

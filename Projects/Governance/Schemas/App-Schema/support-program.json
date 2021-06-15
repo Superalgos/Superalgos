@@ -1,5 +1,5 @@
 {
-    "type": "Votes Distribution",
+    "type": "Support Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,18 +11,11 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Votes Switch",
-            "relatedUiObject": "Votes Switch"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "userReferrer",
+            "propertyToCheckFor": "userSupport",
             "actionFunction": "payload.executeAction",
-            "label": "Add User Referrer",
-            "relatedUiObject": "User Referrer"
+            "label": "Add User Support",
+            "relatedUiObject": "User Support"
         },
         {
             "action": "Delete UI Object",
@@ -42,16 +35,16 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Token Switch->"
     },
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "votesDistribution",
+    "propertyNameAtParent": "supportProgram",
     "childrenNodesProperties": [
         {
-            "name": "votesSwitch",
+            "name": "userSupports",
             "type": "array",
-            "childType": "Votes Switch",
+            "childType": "User Support",
             "autoAdd": false
         }
     ]

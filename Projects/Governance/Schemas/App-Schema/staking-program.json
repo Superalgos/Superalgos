@@ -1,5 +1,5 @@
 {
-    "type": "User Referrer",
+    "type": "Staking Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -19,22 +19,16 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "title": [
-        "Use Reference Parent"
-    ],
     "editors": {
         "config": true
     },
     "initialValues": {
         "config": "{}"
     },
-    "addLeftIcons": true,
-    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->"
+        "compatibleTypes": "->Token Switch->"
     },
-    "referencingRules": {
-        "compatibleTypes": "->User Profile->"
-    },
-    "propertyNameAtParent": "userReferrer"
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "stakingProgram"
 }

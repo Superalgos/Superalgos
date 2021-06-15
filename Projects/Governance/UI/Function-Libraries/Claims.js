@@ -40,13 +40,13 @@ function newGovernanceFunctionLibraryClaims() {
                 },
                 count: 0
             }
-            countForNode(userProfilesNode.contributionClaims)
+            countForNode(userProfilesNode.claimsProgram)
         }
 
         /* Claim Calculation Follows */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfilesNode = userProfiles[i]
-            calculateForNode(userProfilesNode.contributionClaims, userProfilesNode)
+            calculateForNode(userProfilesNode.claimsProgram, userProfilesNode)
         }
     }
 
@@ -102,7 +102,7 @@ function newGovernanceFunctionLibraryClaims() {
             node.type !== 'Asset Contributions Folder' &&
             node.type !== 'Feature Contributions Folder' &&
             node.type !== 'Position Contributions Folder' &&
-            node.type !== 'Contribution Claims'
+            node.type !== 'Claims Program'
         ) {
             if (node.payload.claims === undefined) {
                 node.payload.claims = {
@@ -170,7 +170,7 @@ function newGovernanceFunctionLibraryClaims() {
             node.type !== 'Asset Contributions Folder' &&
             node.type !== 'Feature Contributions Folder' &&
             node.type !== 'Position Contributions Folder' &&
-            node.type !== 'Contribution Claims'
+            node.type !== 'Claims Program'
         ) {
             if (
                 node.payload.claims !== undefined &&

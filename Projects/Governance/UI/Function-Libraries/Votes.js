@@ -89,11 +89,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 resetVotes(childNode)
                             }
@@ -176,11 +176,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
@@ -224,11 +224,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')

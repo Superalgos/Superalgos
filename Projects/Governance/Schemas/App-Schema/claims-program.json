@@ -1,5 +1,5 @@
 {
-    "type": "Contribution Claims",
+    "type": "Claims Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -47,11 +47,11 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Token Switch->"
     },
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "contributionClaims",
+    "propertyNameAtParent": "claimsProgram",
     "childrenNodesProperties": [
         {
             "name": "assetContributionsFolder",

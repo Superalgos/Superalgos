@@ -118,7 +118,7 @@ function newGovernanceFunctionLibraryVotes() {
             if (userProfile.payload === undefined) { return }
             let votes
             if (userProfile.payload.blockchainTokens === undefined) {
-                votes = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+                return
             } else {
                 votes = userProfile.payload.blockchainTokens
             }

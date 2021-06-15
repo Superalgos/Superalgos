@@ -53,18 +53,58 @@ function newGovernanceUserProfileSpace() {
             if (userProfile.payload === undefined) { continue }
 
             if (userProfile.payload.blockchainTokens === undefined) {
-                let blockchainAccount = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'blockchainAccount')
-                if (blockchainAccount !== undefined && blockchainAccount !== "") {
-                    setTimeout(getBlockchainTokens, timer, userProfile)
+                //userProfile.payload.blockchainTokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+                getBlockchainAccount(userProfile)
+            }
+        }
+
+        function getBlockchainAccount(userProfile) {
+            let signature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            if (signature === undefined || signature === "") { return }
+
+            let request = {
+                url: 'WEB3',
+                params: {
+                    method: "recoverAddress",
+                    signature: JSON.stringify(signature)
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    userProfile.payload.uiObject.setErrorMessage('Call via HTTP Interface failed.')
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    userProfile.payload.uiObject.setErrorMessage('Call to WEB3 Server failed. ' + response.error)
+                    console.log('Call to WEB3 Server failed. ' + response.error)
+                    return
+                }
+
+                let blockchainAccount = response.address
+                if (
+                    blockchainAccount !== undefined &&
+                    blockchainAccount !== "" &&
+                    userProfile.payload.blockchainTokens === undefined
+                ) {
+                    waitingForResponses++
+                    userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
+                    setTimeout(getBlockchainTokens, timer, userProfile, blockchainAccount)
                     timer = timer + 5000
                 }
             }
         }
 
-        function getBlockchainTokens(userProfile) {
-            let blockchainAccount = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'blockchainAccount')
+        function getBlockchainTokens(userProfile, blockchainAccount) {
+            console.log('blockchainAccount ', blockchainAccount)
             const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=0xfb981ed9a92377ca4d75d924b9ca06df163924fd&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
-            waitingForResponses++
 
             fetch(url).then(function (response) {
                 return response.json();
@@ -74,9 +114,9 @@ function newGovernanceUserProfileSpace() {
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                 waitingForResponses--
             }).catch(function (err) {
-                userProfile.payload.blockchainTokens = 0
-                console.log(err)
-                userProfile.payload.uiObject.setErrorMessage(err.message)
+                const message = err.message + ' - ' + 'Can not access BSC SCAN servers. Using tokens Config Property instead of blockchain data.'
+                console.log(message)
+                userProfile.payload.uiObject.setErrorMessage(message, 1000)
                 waitingForResponses--
             });
         }

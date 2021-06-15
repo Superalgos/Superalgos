@@ -997,6 +997,11 @@
                     "name": "User Referrals",
                     "propertyName": "userrReferrals",
                     "functionName": "newGovernanceFunctionLibraryUserReferrals"
+                },
+                {
+                    "name": "Profile Constructor",
+                    "propertyName": "profileConstructor",
+                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
                 }
             ],
             "utilities": [],

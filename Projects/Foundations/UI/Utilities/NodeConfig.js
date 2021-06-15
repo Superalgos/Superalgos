@@ -1,12 +1,12 @@
 function newFoundationsUtilitiesNodeConfig() {
     let thisObject = {
-        savePropertyAtNodeConfig: savePropertyAtNodeConfig,
+        saveConfigProperty: saveConfigProperty,
         loadConfigProperty: loadConfigProperty
     }
 
     return thisObject
 
-    function savePropertyAtNodeConfig(payload, propertyName, value) {
+    function saveConfigProperty(payload, propertyName, value) {
         try {
             let config = JSON.parse(payload.node.config)
             config[propertyName] = value

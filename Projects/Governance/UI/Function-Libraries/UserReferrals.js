@@ -117,9 +117,9 @@ function newGovernanceFunctionLibraryUserReferrals() {
 
         function distributeForProfile(userProfile) {
             if (userProfile === undefined || userProfile.payload === undefined) { return }
-            let referringPower 
+            let referringPower
             if (userProfile.payload.blockchainTokens === undefined) {
-                referringPower = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
+                return
             } else {
                 referringPower = userProfile.payload.blockchainTokens
             }

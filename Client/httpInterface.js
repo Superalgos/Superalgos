@@ -132,6 +132,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'signData': {
+
+                                    let serverResponse = await WEB3_SERVER.signData(
+                                        params.privateKey,
+                                        params.data
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                case 'recoverAddress': {
+
+                                    let serverResponse = await WEB3_SERVER.recoverAddress(
+                                        params.signature
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 default: {
                                     respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }

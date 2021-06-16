@@ -53,7 +53,6 @@ function newGovernanceUserProfileSpace() {
             if (userProfile.payload === undefined) { continue }
 
             if (userProfile.payload.blockchainTokens === undefined) {
-                //userProfile.payload.blockchainTokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
                 getBlockchainAccount(userProfile)
             }
         }
@@ -114,7 +113,7 @@ function newGovernanceUserProfileSpace() {
                 userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
                 waitingForResponses--
             }).catch(function (err) {
-                const message = err.message + ' - ' + 'Can not access BSC SCAN servers. Using tokens Config Property instead of blockchain data.'
+                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
                 console.log(message)
                 userProfile.payload.uiObject.setErrorMessage(message, 1000)
                 waitingForResponses--

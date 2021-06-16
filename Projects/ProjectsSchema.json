@@ -964,6 +964,11 @@
                     "functionName": "newGovernanceFunctionLibraryAssets"
                 },
                 {
+                    "name": "TokenPower",
+                    "propertyName": "tokenPower",
+                    "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
                     "name": "Votes",
                     "propertyName": "votes",
                     "functionName": "newGovernanceFunctionLibraryVotes"

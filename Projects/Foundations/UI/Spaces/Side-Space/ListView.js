@@ -124,7 +124,7 @@ function newListView() {
 
     function onMouseWheel(event) {
 
-        if (IS_MAC) {
+        if (IS_MAC && Math.abs(event.wheelDelta) < MAC_MOUSE_WHEEL_INFINITE_SCROLL_THRESHOLD) {
             let sensitivity
             if (event.delta < 0) {
                 if (event.shiftKey === true) {

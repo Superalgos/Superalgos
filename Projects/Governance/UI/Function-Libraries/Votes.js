@@ -268,7 +268,16 @@ function newGovernanceFunctionLibraryVotes() {
         function drawVotes(node, votes, percentage) {
             votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
             if (node.payload !== undefined) {
-                if (node.type === 'User Profile') {
+
+                if (node.type === 'Voting Program') {
+                    node.payload.uiObject.statusAngleOffset = 0
+                    node.payload.uiObject.statusAtAngle = false
+
+                    node.payload.uiObject.setStatus("Votes = Tokens Power")
+
+                    if (percentage !== undefined) {
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    }
                     return
                 }
                 if (
@@ -286,9 +295,13 @@ function newGovernanceFunctionLibraryVotes() {
                 ) {
                     node.payload.uiObject.valueAngleOffset = 0
                     node.payload.uiObject.valueAtAngle = false
+                    node.payload.uiObject.percentageAngleOffset = 0
+                    node.payload.uiObject.percentageAtAngle = false
                 } else {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
                 }
 
                 node.payload.uiObject.setValue(votes)

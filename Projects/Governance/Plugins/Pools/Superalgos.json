@@ -424,7 +424,7 @@
                         {
                             "type": "Pool",
                             "name": "User Referrals",
-                            "config": "{\n    \"codeName\": \"User-Referrals\"\n}",
+                            "config": "{\n    \"codeName\": \"Referral-Program\"\n}",
                             "project": "Governance",
                             "poolClasses": [],
                             "pools": [],

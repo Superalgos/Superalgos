@@ -23,15 +23,30 @@ function newGovernanceFunctionLibraryUserReferrals() {
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            resetUserReferrals(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+
+            resetUserReferrals(userProfile.tokenSwitch.referralProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeForProfile(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+
+            distributeForReferralProgram(userProfile.tokenSwitch.referralProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            calculateAwardedForProfile(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+
+            calculateForReferralProgram(userProfile.tokenSwitch.referralProgram)
         }
 
         function findPool(node) {
@@ -46,7 +61,7 @@ function newGovernanceFunctionLibraryUserReferrals() {
                 node.type === 'Pool'
             ) {
                 let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
-                if (codeName === "User-Referrals") {
+                if (codeName === "Referral-Program") {
                     tokensReward = node.payload.tokens
                     return
                 }
@@ -96,8 +111,19 @@ function newGovernanceFunctionLibraryUserReferrals() {
             If the node is a User Profile, we will check if it has a User Referrer child defined.
             */
             if (
-                node.userReferrer !== undefined &&
-                node.type === 'User Profile'
+                node.type === 'User Profile' &&
+                node.tokenSwitch !== undefined &&
+                node.tokenSwitch.referralProgram !== undefined
+            ) {
+                resetUserReferrals(node.tokenSwitch.referralProgram)
+                return
+            }
+            /*
+            If the node is a Referral Program, we will check if it has a User Referrer child defined.
+            */
+            if (
+                node.type === 'Referral Program' &&
+                node.userReferrer !== undefined
             ) {
                 resetUserReferrals(node.userReferrer)
                 return
@@ -107,26 +133,20 @@ function newGovernanceFunctionLibraryUserReferrals() {
             transfered to it.
             */
             if (
-                node.payload.referenceParent !== undefined &&
-                node.type === 'User Referrer'
+                node.type === 'User Referrer' &&
+                node.payload.referenceParent !== undefined
             ) {
                 resetUserReferrals(node.payload.referenceParent)
                 return
             }
         }
 
-        function distributeForProfile(userProfile) {
-            if (userProfile === undefined || userProfile.payload === undefined) { return }
-            let referringPower
-            if (userProfile.payload.blockchainTokens === undefined) {
-                return
-            } else {
-                referringPower = userProfile.payload.blockchainTokens
-            }
-
+        function distributeForReferralProgram(referralProgram) {
+            if (referralProgram === undefined || referralProgram.payload === undefined) { return }
+            let referringPower = referralProgram.payload.tokenPower
             let referringCount = 0
-            userProfile.payload.referring.ownPower = referringPower
-            distributeUserReferrals(userProfile, referringPower, referringCount)
+            referralProgram.payload.referring.ownPower = referringPower
+            distributeUserReferrals(referralProgram, referringPower, referringCount)
         }
 
         function distributeUserReferrals(node, referringPower, referringCount) {
@@ -142,10 +162,10 @@ function newGovernanceFunctionLibraryUserReferrals() {
             node.payload.referring.referralsPower = node.payload.referring.combinedPower - node.payload.referring.ownPower
             totalReferralsPower = totalReferralsPower + node.payload.referring.referralsPower
             if (
-                node.userReferrer !== undefined &&
-                node.type === 'User Profile'
+                node.type === 'Referral Program' &&
+                node.userReferrer !== undefined
             ) {
-                distributeUserReferrals(node.userReferrer, referringPower, 1, 0)
+                distributeUserReferrals(node.userReferrer, referringPower / 10, 1, 0)
                 return
             }
             /*
@@ -153,45 +173,55 @@ function newGovernanceFunctionLibraryUserReferrals() {
             transfered to it.
             */
             if (
-                node.payload.referenceParent !== undefined &&
-                node.type === 'User Referrer'
+                node.type === 'User Referrer' &&
+                node.payload.referenceParent !== undefined
             ) {
                 drawUserReferrals(node)
-                distributeUserReferrals(node.payload.referenceParent, referringPower / 10, 1)
+                distributeUserReferrals(node.payload.referenceParent, referringPower, 1)
                 return
             }
         }
 
-        function calculateAwardedForProfile(userProfile) {
-            if (userProfile.payload === undefined) { return }
+        function calculateForReferralProgram(referralProgram) {
+            if (referralProgram.payload === undefined) { return }
 
-            let totalPowerRewardRation = tokensReward / totalReferralsPower
-            if (totalPowerRewardRation < 1) { totalPowerRewardRation = 1 }
+            let totalPowerRewardRatio = tokensReward / totalReferralsPower
+            if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
-            userProfile.payload.referring.awarded.tokens = userProfile.payload.referring.referralsPower * totalPowerRewardRation
-            drawUserProfiles(userProfile)
+            referralProgram.payload.referring.awarded.tokens = referralProgram.payload.referring.referralsPower * totalPowerRewardRatio
+            drawReferralProgram(referralProgram)
         }
 
         function drawUserReferrals(node) {
             if (node.payload !== undefined) {
-                const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
+                const ownPowerText = new Intl.NumberFormat().format(node.payload.referring.ownPower)
+                const referralsPowerText = new Intl.NumberFormat().format(node.payload.referring.referralsPower)
+                const combinedPowerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
 
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = false
+                node.payload.uiObject.valueAngleOffset = 180
+                node.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setStatus(powerText + ' ' + 'Combined Referring Power')
-                return
+                node.payload.uiObject.setValue( combinedPowerText + ' ' + 'Referring Power')
+
+                node.payload.uiObject.statusAngleOffset = 0
+                node.payload.uiObject.statusAtAngle = false
+
+                node.payload.uiObject.setStatus(ownPowerText + ' own RP + ' + referralsPowerText + ' inherited RP = ' + combinedPowerText + ' ' + ' Total RP')
             }
         }
 
-        function drawUserProfiles(node) {
+        function drawReferralProgram(node) {
             if (node.payload !== undefined) {
                 const powerText = new Intl.NumberFormat().format(node.payload.referring.combinedPower)
                 const awardedTokens = new Intl.NumberFormat().format(node.payload.referring.awarded.tokens)
                 const referralPower = new Intl.NumberFormat().format(node.payload.referring.referralsPower)
 
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = false
+                node.payload.uiObject.statusAngleOffset = 0
+                node.payload.uiObject.statusAtAngle = false
+
+                node.payload.uiObject.setStatus("Referring Power = Token Power / 10")
+
+                return
 
                 if (
                     (

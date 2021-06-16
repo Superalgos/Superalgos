@@ -240,6 +240,8 @@ function newGovernanceFunctionLibraryTokenPower() {
                 node.payload.uiObject.setValue(tokenPower)
 
                 if (percentage !== undefined) {
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
                     node.payload.uiObject.setPercentage(percentage.toFixed(2))
                 }
             }

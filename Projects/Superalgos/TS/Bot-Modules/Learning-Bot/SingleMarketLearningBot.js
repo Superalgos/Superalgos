@@ -20,7 +20,7 @@
                 return
             }
 
-            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            /* Here we setup the path prefix that will be used when writing data or logs to disk. */
             TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
 
             session.initialize(callBackFunction)
@@ -72,6 +72,7 @@
                     /* Checking if we need to need to emit any event */
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Idle' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === false) {
                         TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS = 'Running'
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_BEGIN = new Date()
                     }
 
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Running' && TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {

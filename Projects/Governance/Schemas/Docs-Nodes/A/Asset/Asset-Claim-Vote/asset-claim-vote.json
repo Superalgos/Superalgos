@@ -1,0 +1,13 @@
+{
+    "type": "Asset Claim Vote",
+    "definition": {
+        "text": "This node is used to pass votes, via a reference, to an Asset Contribution Claim made by a user, in order to support that claim and allow the user making the claim to receive tokens for contributing either with the creation of that an asset or it's mantainance.",
+        "updated": 1622988917379
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "type": "Bot Data Dependencies",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Dependency",
+            "relatedUiObject": "Data Dependency",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Dependency Product Folder",
+            "relatedUiObject": "Dependency Product Folder",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Data Mine Data Dependencies->"
+    },
+    "propertyNameAtParent": "botDataDependencies",
+    "childrenNodesProperties": [
+        {
+            "name": "dataDependencies",
+            "type": "array",
+            "childType": "Data Dependency",
+            "autoAdd": false
+        },
+        {
+            "name": "dataDependencyFolders",
+            "type": "array",
+            "childType": "Data Dependency Folder",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "type": "Exchange Account Key",
+    "definition": {
+        "text": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Exchange Account Key"
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name or label of your key, as supplied by the exchange."
+        },
+        {
+            "style": "List",
+            "text": "secret is the secret key supplied by the exchange."
+        },
+        {
+            "style": "List",
+            "text": "uid is the uid supplied by the exchange. This is not required for all exchanges."
+        },
+        {
+            "style": "List",
+            "text": "password is the password or passphrase supplied at the creation of the key and secret. This is not required for all exchanges."
+        },
+        {
+            "style": "Warning",
+            "text": "To keep your exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing."
+        }
+    ]
+}

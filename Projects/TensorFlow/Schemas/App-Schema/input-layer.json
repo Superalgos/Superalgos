@@ -1,0 +1,68 @@
+{
+    "type": "Input Layer",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "inputShape",
+            "label": "Add Input Shape",
+            "relatedUiObject": "Input Shape",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "batchImputShape",
+            "label": "Add Batch Input Shape",
+            "relatedUiObject": "Batch Input Shape",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "inputFeatures",
+            "label": "Add Input Features",
+            "relatedUiObject": "Input Features",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Sequential layer->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Sequential Model->"
+    },
+    "propertyNameAtParent": "inputLayer",
+    "childrenNodesProperties": [
+        {
+            "name": "inputShape",
+            "type": "node",
+            "childType": "Input Shape"
+        },
+        {
+            "name": "batchInputShape",
+            "type": "node",
+            "childType": "Batch Input Shape"
+        },
+        {
+            "name": "inputFeatures",
+            "type": "node",
+            "childType": "Input Features"
+        }
+    ],
+    "icon": "tensorflow"
+}

@@ -1,5 +1,5 @@
 function newNodeChildren() {
-    thisObject = {
+    let thisObject = {
         childrenCount: childrenCount
     }
 

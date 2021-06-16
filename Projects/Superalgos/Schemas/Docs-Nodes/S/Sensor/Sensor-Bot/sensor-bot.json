@@ -1,0 +1,58 @@
+{
+    "type": "Sensor Bot",
+    "definition": {
+        "text": "A sensor bot extracts raw data from external sources where a certain specific extracting algorithm needs to be coded, and stores it in a dataset that other bots may consume.",
+        "updated": 1621691864710
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "When there is no need for a special algorithm to be coded, Superalgos users run an API Data Fetcher Bot, which uses an API Map to describe the API itself and the bot allows fetching data without the need to code an algorithm at all.",
+            "updated": 1621692364436
+        },
+        {
+            "style": "Title",
+            "text": "Current Implementation"
+        },
+        {
+            "style": "Text",
+            "text": "There are only two processes coded for the Sensor Bot so far:",
+            "updated": 1621692240145
+        },
+        {
+            "style": "List",
+            "text": "Historic-OHLCVs: It can specifically fetch 1 minute candles from exchanges supported by the CCXT open source library."
+        },
+        {
+            "style": "List",
+            "text": "Check Webhooks: It checks for information that arrived at the client comming from webhook calls from external systems."
+        },
+        {
+            "style": "Text",
+            "text": "More processes might be coded in the future as the system grows. "
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot Configuration",
+            "updated": 1609790137912
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609790143486
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the bot as used within the code of the system. This will also be used as the folder name at the Data-Storage folder structure.",
+            "updated": 1621692071539
+        }
+    ]
+}

@@ -19,7 +19,8 @@ function newWorkspace() {
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
-        getHierarchyHeadsByType: getHierarchyHeadsByType,
+        getHierarchyHeadByNodeType: getHierarchyHeadByNodeType,
+        getHierarchyHeadsByNodeType: getHierarchyHeadsByNodeType, 
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
         getNodeByShortcutKey: getNodeByShortcutKey,
         getNodeById: getNodeById,
@@ -112,12 +113,16 @@ function newWorkspace() {
 
                     function onIndexingFinished() {
                         setupEventsServerClients()
-                        setTimeout(runTasksAndSessions, 10000) 
+                        runTasksAndSessions()
+
                         thisObject.enabled = true
                         UI.projects.superalgos.spaces.cockpitSpace.initializePosition()
                         CAN_SPACES_DRAW = true
 
                         thisObject.isInitialized = true
+
+                        playTutorials()
+
                         savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                         UI.projects.superalgos.utilities.statusBar.changeStatus("Displaying the UI...")
                     }
@@ -132,6 +137,9 @@ function newWorkspace() {
         executeAction({ name: 'Syncronize Tasks', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Superalgos' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Superalgos' })
+    }
+
+    function playTutorials() {
         executeAction({ name: 'Play Tutorials', project: 'Superalgos' })
     }
 
@@ -377,6 +385,7 @@ function newWorkspace() {
                                 thisObject.isInitialized = true
                                 saveWorkspace()
                                 runTasksAndSessions()
+                                playTutorials()
                             }
                         }
                         break
@@ -505,7 +514,7 @@ function newWorkspace() {
         }
     }
 
-    function getHierarchyHeadsByType(nodeType) {
+    function getHierarchyHeadByNodeType(nodeType) {
         let hierarchyHeads = getHierarchyHeads()
         if (hierarchyHeads === undefined) { return }
         for (let i = 0; i < hierarchyHeads.length; i++) {
@@ -514,6 +523,19 @@ function newWorkspace() {
                 return hierarchyHead
             }
         }
+    }
+
+    function getHierarchyHeadsByNodeType(nodeType) {
+        let hierarchyHeads = getHierarchyHeads()
+        let resultArray = []
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.type === nodeType) {
+                resultArray.push(hierarchyHead)
+            }
+        }
+        return resultArray
     }
 
     function replaceWorkspaceByLoadingOne(project, name) {

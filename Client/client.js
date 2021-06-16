@@ -127,7 +127,7 @@ try {
     console.log('Http Interface .............................................. Listening at port ' + global.env.HTTP_INTERFACE_PORT)
 
     console.log('')
-    console.log("You are running Superalgos Beta 9")
+    console.log("You are running Superalgos Beta 10")
     console.log('')
     console.log("What's new? The following was implemented here:")
     console.log('')

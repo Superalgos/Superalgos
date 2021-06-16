@@ -148,7 +148,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
 
     function updateStopLossTakeProfitFinalValue(node) {
         /*
-        We set the final value just before calcualting the new value, since the new calculated
+        We set the final value just before calculating the new value, since the new calculated
         value is going to be discarded if the position is closed after it is calculated, but
         during the same candle.
         */
@@ -158,7 +158,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
     function updateStopLossTakeProfitBeginEnd(node) {
         /*
         Both the Stop Loss and the Take Profit have their own Begin and End.
-        Ther reason for this is because they represent targets to be checked 
+        The reason for this is because they represent targets to be checked
         at the next candle, so it does not apply that they share the begin and
         end of the position itself. 
         */
@@ -178,7 +178,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value = phase
     }
 
-    function initialTargets(tradingSystemStageNode, tradingEngineStageNode) {
+    function initialTargets(tradingSystemStageNode, tradingEngineStageNode, stageName) {
 
         if (tradingSystemStageNode.initialTargets === undefined) {
             const message = 'Initial Targets Node Missing'
@@ -194,7 +194,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
         }
 
         setTargetRate()
-        setTargetSize()
+        return setTargetSize(stageName)
 
         function setTargetRate() {
             if (tradingSystemStageNode.initialTargets.targetRate === undefined) {
@@ -262,7 +262,7 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
             }
         }
 
-        function setTargetSize() {
+        function setTargetSize(stageName) {
             /* Basic Validation */
             if (
                 tradingSystemStageNode.initialTargets.targetSizeInBaseAsset !== undefined &&
@@ -298,6 +298,9 @@ exports.newSuperalgosBotModulesTradingPosition = function (processIndex) {
                         badDefinitionUnhandledException(undefined, message, tradingSystemStageNode.initialTargets.targetSizeInBaseAsset, docs)
                     }
                     if (value === 0) {
+                        if (stageName === 'Close Stage') {
+                            return false;
+                        }
                         const message = 'Target Size Value Zero'
 
                         let docs = {

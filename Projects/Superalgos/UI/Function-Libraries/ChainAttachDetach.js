@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryChainAttachDetach() {
-    thisObject = {
+    let thisObject = {
         chainDetachNode: chainDetachNode,
         chainAttachNode: chainAttachNode
     }
@@ -53,6 +53,7 @@ function newSuperalgosFunctionLibraryChainAttachDetach() {
                                                         let arrayItem = nodePropertyArray[j]
                                                         if (arrayItem.id === node.id) {
                                                             nodePropertyArray.splice(j, 1)
+                                                            j--
                                                         }
                                                     }
                                                 }

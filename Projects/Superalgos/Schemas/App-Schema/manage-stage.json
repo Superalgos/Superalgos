@@ -1,0 +1,57 @@
+{
+    "type": "Manage Stage",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Items",
+            "relatedUiObject": "Manage Stage",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Strategy->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "managedStopLoss",
+            "type": "node",
+            "childType": "Managed Stop Loss",
+            "autoAdd": true
+        },
+        {
+            "name": "managedTakeProfit",
+            "type": "node",
+            "childType": "Managed Take Profit",
+            "autoAdd": true
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement"
+        },
+        {
+            "name": "userDefinedCode",
+            "type": "node",
+            "childType": "User Defined Code",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "manageStage"
+}

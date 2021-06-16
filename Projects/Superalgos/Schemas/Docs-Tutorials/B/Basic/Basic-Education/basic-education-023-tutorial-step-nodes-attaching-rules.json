@@ -1,0 +1,62 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Nodes' Attaching Rules",
+    "definition": {
+        "text": "Click the help button on the Trading Parameters node to access the node's Docs page. I'm going to show you something...",
+        "icon": {
+            "name": "help",
+            "project": "Superalgos"
+        },
+        "updated": 1615580946356,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Clicca il pulsante Help nel menu dei Trading Parameters per accedere alla pagina Docs del nodo. Ti mostrerò una cosa...",
+                "updated": 1619500388726,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Scroll the page all the way to the bottom until you find the \"Trading Parameters Attaching Rules\" title.",
+            "updated": 1622372858654,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Scorri la pagina fino in fondo, finchè trovi il titolo \"Trading Parameters Attaching Rules\"!",
+                    "updated": 1619500470210,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Each node may be attached to certain node types. These attaching rules are listed on the node's page in the Docs.",
+            "updated": 1615583315164,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ogni nodo può essere attaccato solo a certi tipi di nodo. Questi criteri sono elencati nella pagina Docs di ogni nodo.",
+                    "updated": 1619500530342,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "When there are several nodes that may accept the connection, each candidate displays a grey ring indicating their readiness to take the attachment. Only the candidate closer to the node to be attached is highlighted in orange.",
+            "updated": 1615582903959,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quando più nodi possono accettare la connessione, ogni candidato mostra un cerchio grigio. Solo il candidato più vicino al nodo da collegare sarà evidenziato in arancione.",
+                    "updated": 1619500597194,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

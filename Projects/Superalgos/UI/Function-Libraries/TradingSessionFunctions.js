@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryTradingSessionFunctions() {
-    thisObject = {
+    let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
@@ -56,9 +56,35 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
 
         let eventsServerClient = UI.projects.superalgos.spaces.designSpace.workspace.eventsServerClients.get(networkNode.id)
 
-        node.payload.uiObject.run(eventsServerClient, callBackFunction)
-
         let key = node.name + '-' + node.type + '-' + node.id
+
+        /* Setup Listener to check Parent Task Status of the Session */
+        let eventSubscriptionIdOnStatus
+        let eventHandlerKey = "Task Client - " + node.payload.parentNode.payload.parentNode.payload.parentNode.id
+
+        eventsServerClient.listenToEvent(eventHandlerKey, 'Task Status', undefined, node.id, onResponse, onStatus)
+
+        function onResponse(message) {
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
+
+        function onStatus(message) {
+            eventsServerClient.stopListening(eventHandlerKey, eventSubscriptionIdOnStatus, node.id)
+
+            /* If Task is Not Running Display Error */
+            if (message.event.status === 'Task Process Not Running') {
+                node.payload.uiObject.setErrorMessage('Parent Task Not Running.')
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            } else {
+                node.payload.uiObject.run(eventsServerClient, callBackFunction)
+            }
+        }
+
+        /* Raise Event to Check Task Status */
+        let eventKey = {}
+        eventKey.taskId = node.payload.parentNode.payload.parentNode.payload.parentNode.id
+
+        eventsServerClient.raiseEvent("Task Manager", 'Task Status', eventKey)
 
         let lightingPath = '' +
             'Trading System->' +
@@ -69,7 +95,6 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Manage Stage->' +
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
-            'Close Stage Event->' +
             'Situation->Condition->Javascript Code->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
@@ -77,11 +102,13 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
             'Order Rate->Formula->' +
             'Create Order Event->Cancel Order Event->' +
+            'Close Stage Event->' +
             'Announcement->Announcement Formula->Announcement Condition->' +
             'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +
-            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
+            'User Defined Code->Javascript Code->'
 
         let tradingSystem = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -119,7 +146,8 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Begin->End->Exit Type->Status->Begin Rate->End Rate->Stage Base Asset->Stage Quoted Asset->Size Placed->Target Size->Size Filled->Fees Paid->Stage Defined In->' +
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
-            'Index->Situation Name->Formula->Periods->'
+            'Index->Situation Name->Formula->Periods->' +
+            'User Defined Variables->User Defined Variable->'
 
         let tradingEngine = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -127,8 +155,9 @@ function newSuperalgosFunctionLibraryTradingSessionFunctions() {
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
             'Trading Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
-            'Exchange Account Asset->Asset->' +
-            'Social Bots->Telegram Bot->'
+            'Social Bots->Telegram Bot->Discord Bot->Slack Bot->' +
+            'Social Bot Command->Formula->' +
+            'Exchange Account Asset->Asset->'
 
         let session = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 

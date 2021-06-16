@@ -1,0 +1,49 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Improving a Plugin",
+    "definition": {
+        "text": "Let's say you are a developer and are testing a new exchange. You wish to modify the Sensor Bot to introduce a new feature or param.",
+        "icon": {
+            "name": "sensor-bot",
+            "project": "Superalgos"
+        },
+        "updated": 1615996858987,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Mettiamo che sei uno sviluppatore che testa un nuovo exchange, e vuoi modificare il Sensor Bot introducendo un nuovo parametro.",
+                "updated": 1619590703521,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Sensor Bot is part of the Candles Data Mine, which is usually included as a plugin in most plugin workspaces. In such a case, you must proceed like in the previous case: delete the Plugin File node corresponding to the Candles data mine and restore the data mine file from the Plugins\\Data-Mines folder as if it was a backup.",
+            "updated": 1622377634945,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quel bot è parte del Master Data Mine, che è incluso come plugin nella maggior parte dei plugin workspace. In questo caso, procedi come nel caso precedente: cancella il nodo Plugin File del Mastart Data Mine e ripristina il file dalla cartella Plugins\\Data-Mines come fosse un Backup.",
+                    "updated": 1619590793878,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Once you finish, take a backup of the modified Candles Data Mine node and use the backup file to replace the Candles plugin file! Make sure you give it the same name! Then, submit a PR to contribute the improvements on the bot!",
+            "updated": 1622377657281,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta finito, fai un backup del nuovo nodo Masters Data Mine e usalo per rimpiazzare il plugin file Masters! Assicurati di dargli lo stesso nome. Poi, apri una Pull Request per contribuire al miglioramento del bot!",
+                    "updated": 1619590866081,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

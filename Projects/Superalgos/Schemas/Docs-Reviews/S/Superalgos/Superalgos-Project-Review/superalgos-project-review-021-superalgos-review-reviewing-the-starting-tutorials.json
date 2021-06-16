@@ -1,0 +1,15 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 21,
+    "type": "Superalgos Review - Reviewing the starting tutorials",
+    "definition": {
+        "text": "Superalgos tutorial review\n\nIn general the tutorial is really clear, and takes you through the motions. As such a vast systems it naturally takes some time to absorb. As a point of improvement, it would be nice to have some more overview of how the certain elements work together. Taking starters through the logical steps: 1. Where does the market data come in, 2. How is that data interpreted and translated into indicators, 3. How can the system act on those indicators, 4. How do these actions feeback into the markets to execute trades. If the tutorial could be structured according to those steps, it mentally takes a beginner through all the motions and makes them understand the flow. Maybe this is premature and the following tutorials are structured like this, however making this larger flow already clear in the beginning allows users to place their actions in one of those 4 categories, providing a sense of where in the process you are interacting. ",
+        "updated": 1622820283052
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Left click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

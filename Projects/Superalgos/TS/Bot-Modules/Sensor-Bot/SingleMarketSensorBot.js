@@ -21,7 +21,7 @@
                 return
             }
 
-            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            /* Here we setup the path prefix that will be used when writing data or logs to disk. */
             TS.projects.superalgos.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
 
             /*
@@ -36,7 +36,7 @@
             } else {
                 /*
                 Here we will need to scan the PROJECTS SCHEMA in order to find the botModule 
-                defined for this Sensor Bot.
+                defined for this Bot.
                 */
                 let botModuleDefinition = TS.projects.superalgos.functionLibraries.taskFunctions.getBotModuleByName(
                     TS.projects.superalgos.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.botModule

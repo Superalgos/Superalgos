@@ -1,0 +1,250 @@
+{
+    "type": "Reusable Snippets",
+    "definition": {
+        "text": "This page lists snippets of text required in multiple pages. Keeping snippets in a central location makes maintenance easier and avoids duplicating content. Each snippet is arranged under a block featuring the same name as the title displayed before the snippet. To use these snippets, include the corresponding block on the destination page.",
+        "updated": 1610121599173
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Note for Hierarchy Tables",
+            "updated": 1610049150289
+        },
+        {
+            "style": "Block",
+            "text": "Note for Hierarchy Tables"
+        },
+        {
+            "style": "Note",
+            "text": "This page discusses the top-level information about the section of the hierarchy represented in the below table. Click on any of the nodes to get the details, including particulars on their configuration, when applicable.",
+            "updated": 1610124674614
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1610121260808
+        },
+        {
+            "style": "Title",
+            "text": "Note for Hierarchy Tables No Discussion",
+            "updated": 1611254828783
+        },
+        {
+            "style": "Block",
+            "text": "Note for Hierarchy Tables No Discussion",
+            "updated": 1611254840023
+        },
+        {
+            "style": "Note",
+            "text": "Click on any of the nodes to get the details, including particulars on their configuration, when applicable.",
+            "updated": 1611254904577
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1611254890702
+        },
+        {
+            "style": "Title",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Block",
+            "text": "Important for Live Sessions"
+        },
+        {
+            "style": "Important",
+            "text": "Running a live session requires the setup of a key reference at the Task. It also requires a live data feed, meaning that the corresponding Sensor Bot Instance, along with all indicators used by the referenced Trading System, must be up and running. Finally, a live session also requires at least 48 hours of historic market data. Bear in mind that the Trading System may require even more historic market data to properly analyze the market depending on the indicators used.",
+            "updated": 1610106222219
+        },
+        {
+            "style": "Block",
+            "text": "Dummy"
+        },
+        {
+            "style": "Title",
+            "text": "Deleting Node Warning",
+            "updated": 1610122599631
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Block",
+            "text": "Deleting Node Warning",
+            "updated": 1610122587231
+        },
+        {
+            "style": "Warning",
+            "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
+            "updated": 1610122503324
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1610122641114
+        },
+        {
+            "style": "Title",
+            "text": "Read Whole Page Warning",
+            "updated": 1611675615893
+        },
+        {
+            "style": "Block",
+            "text": "Read Whole Page Warning",
+            "updated": 1611675626970
+        },
+        {
+            "style": "Warning",
+            "text": "Trading, trading with bots, and trading with Community-shared trading systems entail risks. Make sure you read the whole page, including the warnings at the bottom of the page. You should fully understand how this trading system works so that you may make your own informed decisions as of how to use it. Use this trading system at your own risk.",
+            "updated": 1611675586788
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1611675545647
+        },
+        {
+            "style": "Title",
+            "text": "Live Trading Warning",
+            "updated": 1611675667792
+        },
+        {
+            "style": "Block",
+            "text": "Live Trading Warning",
+            "updated": 1611675680690
+        },
+        {
+            "style": "Warning",
+            "text": "Superalgos is a piece of computer software. Like with any software, errors may occur at any point, including errors that may cause you to lose money. You are responsible for taking all precautions you may deem appropriate before trading live. Even if you take all possible precautionary measures, things may still go wrong and errors may occur. By using this software to trade live despite the warnings, you acknowledge that you are aware of the inherent risks in trading and in using software for that purpose. The Superalgos project offers the software AS IS, with no explicit or implied warranties of any kind. The project, the software, the superalgos.org website, this documentation, and the Community do not offer financial advice. Although the strategies shipping with the system may be fully functional, Superalgos does not make any express or implied recommendation as to how you should use them. We share strategies for educational purposes only. Trade under your responsibility and at your own risk. The use of the software is subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\">LICENSE</a>.",
+            "updated": 1611675794734
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1611675552888
+        },
+        {
+            "style": "Title",
+            "text": "Trading System Disclaimer",
+            "updated": 1611675873043
+        },
+        {
+            "style": "Block",
+            "text": "Trading System Disclaimer",
+            "updated": 1611675912784
+        },
+        {
+            "style": "Important",
+            "text": "THIS IS NOT FINANCIAL ADVICE. ALTHOUGH STRATEGIES SHIPPING WITH SUPERALGOS MAY BE FULLY FUNCTIONAL, SUPERALGOS DOES NOT MAKE ANY EXPRESS OR IMPLIED RECOMMENDATION AS OF HOW YOU SHOULD USE THEM. WE SHARE STRATEGIES FOR EDUCATIONAL PURPOSES ONLY. TRADE AT YOUR OWN RISK.<br/><br/><b>Performance in backtesting is not an indication of live trading performance.</b> Live performance may vary in relation to performance in backtesting, for better or for worse, most likely for worse. This happens because the design of trading strategies is done after the fact, with the hindsight of what happened in a certain range of the market. Patterns upon which strategies may be based on may keep occurring or not. Trading strategies attempt to interpret patterns and predict what may follow, but they are far from being perfect or accurate. The best-case scenario is a strategy being right more times than it is wrong.<br/><br/><b>Live performance is not an indication of future performance. </b>Similarly, even when a strategy has delivered a certain performance trading live, there is no guarantee of what performance the strategy may achieve in the future. Live performance results are certainly more valuable than backtesting or simulated performance but still can’t predict the future.<br/><br/><b>Trading strategies lose effectiveness with time. </b>How much time? No-one knows. Markets evolve, change, go through different cycles, both long and short-term, some of which may not have been tested. That is true for all markets, let alone crypto, which is a very young market, still in its very early stages. Crypto markets change dramatically fast, as the market cap increases, more pro-traders enter the space, more smart money pours larger capitals, more bots take over operations of ever-increasing volumes, more complexity is added to the ecosystem with the availability of derivative markets, and so on.",
+            "updated": 1611676109591
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1616149124238
+        },
+        {
+            "style": "Title",
+            "text": "Contributions Reminder"
+        },
+        {
+            "style": "Block",
+            "text": "Contributions Reminder"
+        },
+        {
+            "style": "Title",
+            "text": "Switch Branches and Update Before You Start",
+            "updated": 1620501837377
+        },
+        {
+            "style": "Note",
+            "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
+            "updated": 1620501903096
+        },
+        {
+            "style": "Subtitle",
+            "text": "Switch Branches",
+            "updated": 1620501916113
+        },
+        {
+            "style": "Text",
+            "text": "To switch to the plugins-docs or the develop branch:",
+            "updated": 1620501928162
+        },
+        {
+            "style": "List",
+            "text": "Go to the footer of this page."
+        },
+        {
+            "style": "List",
+            "text": "Select Plugins-Docs or Develop under the Contributions Branch title.",
+            "updated": 1620501942290
+        },
+        {
+            "style": "List",
+            "text": "Then select Plugins-Docs or Develop under the Choose the Current Branch title.",
+            "updated": 1620501951286
+        },
+        {
+            "style": "List",
+            "text": "Follow the instructions to close and restart the app.",
+            "updated": 1613810110150
+        },
+        {
+            "style": "Subtitle",
+            "text": "Update to the Latest Version"
+        },
+        {
+            "style": "List",
+            "text": "Run the App Update Command"
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        },
+        {
+            "style": "List",
+            "text": "Close the app and restart."
+        },
+        {
+            "style": "Title",
+            "text": "Beyond the Basics Tutorial"
+        },
+        {
+            "style": "Text",
+            "text": "Before you go any further, do the Beyond the Basics tutorial in the Getting Started plugin workspace so that you learn the basics on how to deal with contributions from within the app. The tutorial will help you get your setup right so that contributions are seamless.",
+            "updated": 1613828879531
+        },
+        {
+            "style": "Block",
+            "text": "Dummy",
+            "updated": 1613588341297
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "WIP"
+        },
+        {
+            "style": "Text",
+            "text": "WIP"
+        },
+        {
+            "style": "Text",
+            "text": "WIP"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

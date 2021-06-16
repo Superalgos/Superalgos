@@ -29,6 +29,7 @@ function newUiObject() {
         hasWarning: undefined,
         hasInfo: undefined,
         valueAtAngle: true,
+        valueAngleOffset: 0,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -248,7 +249,7 @@ function newUiObject() {
 
         thisObject.uiObjectTitle = newUiObjectTitle()
         thisObject.uiObjectTitle.isVisibleFunction = thisObject.isVisibleFunction
-        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false,  true, true)
+        thisObject.uiObjectTitle.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
         thisObject.uiObjectTitle.fitFunction = thisObject.fitFunction
         thisObject.uiObjectTitle.initialize(thisObject.payload)
 
@@ -468,6 +469,7 @@ function newUiObject() {
                 let nearby = nearbyFloatingObjects[i]
                 let distance = nearby[0]
                 let floatingObject = nearby[1]
+                if (floatingObject.payload === undefined) { continue }
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
                     /* Discard App Schema defined objects with busy coonection ports */
@@ -560,7 +562,7 @@ function newUiObject() {
         function chainDetachingPhysics() {
             if (isDragging !== true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) { return }
 
             let distanceToChainParent = Math.sqrt(Math.pow(thisObject.payload.position.x - thisObject.payload.targetPosition.x, 2) + Math.pow(thisObject.payload.position.y - thisObject.payload.targetPosition.y, 2))
             let ratio = distanceToChainParent / previousDistanceToChainParent
@@ -613,6 +615,7 @@ function newUiObject() {
                 let nearby = nearbyFloatingObjects[i]
                 let distance = nearby[0]
                 let floatingObject = nearby[1]
+                if (floatingObject.payload === undefined) { continue }
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0 || compatibleTypes === "->*Any Node*->") {
                     if (schemaDocument.referencingRules.incompatibleTypes !== undefined) {
@@ -666,7 +669,7 @@ function newUiObject() {
             if (thisObject.payload === undefined) { return }
             if (thisObject.payload.floatingObject.isFrozen === true) { return }
             if (rightDragging === false) { return }
-            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) {return}
+            if (UI.projects.superalgos.spaces.floatingSpace.settings.detachUsingMouse !== true) { return }
 
             if (thisObject.payload.referenceParent === undefined) { return }
 
@@ -1827,18 +1830,18 @@ function newUiObject() {
                         x: position.x - getTextWidth(label) / 2,
                         y: position.y
                     }
-                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle))
-                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle))
+                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
+                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
                 } else {
                     if (thisObject.isOnFocus === true) {
                         labelPoint = {
                             x: position.x - getTextWidth(label) / 2,
-                            y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
+                            y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
                         }
                     } else {
                         labelPoint = {
                             x: position.x - getTextWidth(label) / 2,
-                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
                         }
                     }
                 }
@@ -1884,15 +1887,24 @@ function newUiObject() {
                 label = label.substring(0, MAX_LABEL_LENGTH) + '...'
             }
 
-            if (thisObject.isOnFocus === true) {
+            if (thisObject.valueAtAngle === true && thisObject.payload.angle !== undefined) {
                 labelPoint = {
                     x: position.x - getTextWidth(label) / 2,
-                    y: position.y + radius * 2 / 3 + lineSeparator * 5 + 30
+                    y: position.y
                 }
+                labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
+                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset)) + lineSeparator * 1
             } else {
-                labelPoint = {
-                    x: position.x - getTextWidth(label) / 2,
-                    y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 5
+                if (thisObject.isOnFocus === true) {
+                    labelPoint = {
+                        x: position.x - getTextWidth(label) / 2,
+                        y: position.y + radius * 2 / 3 + lineSeparator * 6 + 30
+                    }
+                } else {
+                    labelPoint = {
+                        x: position.x - getTextWidth(label) / 2,
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 6
+                    }
                 }
             }
 
@@ -1927,7 +1939,7 @@ function newUiObject() {
         browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
 
         if (radius > 6) {
-            const MAX_LABEL_LENGTH = 100
+            const MAX_LABEL_LENGTH = 120
 
             label = currentStatus
 
@@ -1939,12 +1951,12 @@ function newUiObject() {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
                         x: position.x - getTextWidth(label) / 2,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 3 + 30
+                        y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
                     }
                 } else {
                     labelPoint = {
                         x: position.x - getTextWidth(label) / 2,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 3
+                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
                     }
                 }
 

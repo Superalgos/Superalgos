@@ -1,2 +1,0 @@
-# Allow typescript rules in any package to reference this file
-exports_files(["tsconfig.json"])

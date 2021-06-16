@@ -1,0 +1,47 @@
+{
+    "type": "Layer Manager",
+    "definition": {
+        "text": "The layer manager determines which layers will be visible on the corresponding timeline chart."
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, you use the layers manager node to configure which data products you wish to be made available for visualization purposes on the charts, in particular, on a specific timeline chart to which the layers manager node is attached to."
+        },
+        {
+            "style": "Note",
+            "text": "The Layer Manager node usually references a Trading Mine Products or Data Mine Products node in the Data Storage section of the Network Node. Once the reference is established, you may use the Add All Mine Layers button to add the layers corresponding to the referenced node.",
+            "updated": 1619094934893
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Layer Manager Configuration",
+            "updated": 1609784094455
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609784101355
+        },
+        {
+            "style": "List",
+            "text": "visibleLayers keeps track of how many layers the managers is rolled to, that is, how many layers it is displaying."
+        },
+        {
+            "style": "List",
+            "text": "panelLocation keeps track of the position of the panel relative to the four screen corners."
+        },
+        {
+            "style": "List",
+            "text": "labelTwoFontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
+        }
+    ]
+}

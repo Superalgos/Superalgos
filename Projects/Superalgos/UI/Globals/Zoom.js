@@ -1,5 +1,5 @@
 function newSuperalgosGlobalsZoom() {
-    thisObject = {
+    let thisObject = {
         DOUBLE_CLICK_ZOOM_OUT_LEVEL: 0,
         DOUBLE_CLICK_ZOOM_IN_LEVEL: 6,
         DOUBLE_CLICK_ZOOM_IN_IN_LEVEL: 7,

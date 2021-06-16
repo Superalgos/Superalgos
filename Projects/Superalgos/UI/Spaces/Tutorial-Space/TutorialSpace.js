@@ -131,6 +131,7 @@ function newSuperalgosTutorialSpace() {
         }
 
         keyPressed()
+        toggleMapView()
         checkPressButton()
         checkGif()
         checkImage()
@@ -162,6 +163,20 @@ function newSuperalgosTutorialSpace() {
             }
         }
 
+        function toggleMapView() {
+            if (currentNode === undefined) { return }
+            let config = JSON.parse(currentNode.config)
+            if (
+                config.toggleMapView !== undefined
+            ) {
+                if (config.toggleMapView.view === "On") {
+                    UI.projects.superalgos.spaces.floatingSpace.inMapMode = true
+                } else
+                    if (config.toggleMapView.view === "Off") {
+                        UI.projects.superalgos.spaces.floatingSpace.inMapMode = false
+                    }
+            }
+        }
         function checkViewportZoom() {
             if (currentNode === undefined) { return }
             let config = JSON.parse(currentNode.config)
@@ -764,7 +779,20 @@ function newSuperalgosTutorialSpace() {
         resetAfterButtonPressed()
         checkForceFocus()
         if (navigationStack.length > 1) {
-            let previousNode = navigationStack[navigationStack.length - 2]
+            let tutorial = {
+                status: undefined
+            }
+            let previousNode
+            /* 
+            Reseet the Status of Current and Previous Node
+            so that RESUME goes to the right node.
+            */
+            UI.projects.superalgos.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
+            previousNode = navigationStack[navigationStack.length - 3]
+            if (previousNode !== undefined) {
+                UI.projects.superalgos.utilities.tutorial.saveTutorial(previousNode.payload, tutorial)
+            }
+            previousNode = navigationStack[navigationStack.length - 2]
             switch (previousNode.type) {
                 case 'Tutorial': {
                     currentNode = previousNode
@@ -892,7 +920,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -907,7 +935,7 @@ function newSuperalgosTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true ) { return }
+        if (UI.projects.superalgos.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         navigationStack = []
         node.payload.uiObject.isPlaying = true
@@ -1030,7 +1058,6 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
-
         function findNextNode(node) {
             if (node.tutorialSteps !== undefined) {
                 for (let i = 0; i < node.tutorialSteps.length; i++) {
@@ -1049,11 +1076,11 @@ function newSuperalgosTutorialSpace() {
                                 status: undefined
                             }
                             UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialStep.payload, tutorial)
+                            currentNode = tutorialStep
+                            currentStatus = 'Playing Step'
+                            navigationStack.push(currentNode)
                             if (tutorial.status !== 'Done') {
-                                currentNode = tutorialStep
-                                currentStatus = 'Playing Step'
                                 advanced = true
-                                navigationStack.push(currentNode)
                                 findTutorialNode(currentNode)
                                 return
                             }
@@ -1085,11 +1112,11 @@ function newSuperalgosTutorialSpace() {
                             status: undefined
                         }
                         UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        navigationStack.push(currentNode)
                         if (tutorial.status !== 'Done') {
-                            currentNode = tutorialTopic
-                            currentStatus = 'Playing Topic'
                             advanced = true
-                            navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
                         }
@@ -1124,11 +1151,11 @@ function newSuperalgosTutorialSpace() {
                             status: undefined
                         }
                         UI.projects.superalgos.utilities.tutorial.loadTutorial(tutorialTopic.payload, tutorial)
+                        currentNode = tutorialTopic
+                        currentStatus = 'Playing Topic'
+                        navigationStack.push(currentNode)
                         if (tutorial.status !== 'Done') {
-                            currentNode = tutorialTopic
-                            currentStatus = 'Playing Topic'
                             advanced = true
-                            navigationStack.push(currentNode)
                             findTutorialNode(currentNode)
                             return
                         }
@@ -1151,13 +1178,13 @@ function newSuperalgosTutorialSpace() {
             return
         }
 
-        let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsTutorialSchema.get(nodeConfig.docs.type)
+        let schemaDocument = SCHEMAS_BY_PROJECT.get(nodeConfig.docs.project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         if (schemaDocument === undefined) {
             schemaDocument = {
                 type: 'Tutorial',
                 definition: {
-                    text: "You need to reference a page at the docs at the config of this node. Use the docs property for that."
+                    text: "If you are a new user then please refresh the UI with F5."
                 },
                 icon: {
                     project: "Superalgos",
@@ -1166,7 +1193,7 @@ function newSuperalgosTutorialSpace() {
                 paragraphs: [
                     {
                         style: "Title",
-                        text: "Example"
+                        text: "Reference Missing"
                     },
                     {
                         style: "Json",
@@ -1178,8 +1205,8 @@ function newSuperalgosTutorialSpace() {
                     },
                     {
                         style: "Note",
-                        text: "If you did, then that page was not found."
-                    },
+                        text: "Add at the config a reference to a Tutorial Page."
+                    }
                 ]
             }
         }
@@ -1200,7 +1227,7 @@ function newSuperalgosTutorialSpace() {
         if (nodeConfig.controlDocs !== undefined) {
             if (nodeConfig.controlDocs.closeTutorialEditor !== true) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo(nodeConfig.docs.project, 'Tutorial', nodeConfig.docs.type)
-            } 
+            }
             if (nodeConfig.controlDocs.searchPage === true) {
                 UI.projects.superalgos.spaces.docsSpace.searchPage()
             }

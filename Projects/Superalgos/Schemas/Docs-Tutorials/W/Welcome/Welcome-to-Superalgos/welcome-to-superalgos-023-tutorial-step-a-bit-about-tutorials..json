@@ -1,0 +1,102 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 23,
+    "type": "Tutorial Step - A Bit About Tutorials...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Before we get back to business, let me tell you a few things about how we&mdash;tutorials&mdash;work.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Prima di tornare al lavoro, lascia che ti spieghi un paio di cose su come funzioniamo noi tutorial.",
+                "updated": 1614790205512,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kembali ke hal ini, Biarkan saya memberitahumu cara kerja dari tutorial ini.",
+                "updated": 1616699795511,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, Nosotros! (los tutoriales) funcionamos.",
+                "updated": 1618436347889,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "In brief, you're the boss!",
+            "updated": 1616415192952,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Per farla breve, sei tu il capo!",
+                    "updated": 1618646159860,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Secara singkat: Kamu adalah Bossnya!",
+                    "updated": 1616766454759,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "En resumen, tu eres el Jefe!",
+                    "updated": 1618436575558,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom section of the design space. Select Resume on the menu to start where you left, or on the first step you  skipped. Select Play to start from the beginning!",
+            "updated": 1616415232478,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": " Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
+                    "updated": 1616766476966,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes detener un tutorial y saltarte pasos -o temas enteros- en cualquier momento. Una vez que estés listo para retomar la lección, búscanos en la sección inferior del Design space.. Selecciona Resume en el menú para continuar donde lo dejaste, o en el primer paso que te saltaste. Selecciona Play para empezar desde el principio.",
+                    "updated": 1618436484170,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's try that! Click the Stop button below, and once I'm gone, open my menu and select Resume.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Provaci! Premi il pulsante Stop qui sotto, e una volta che sono sparito apri il mio menu e seleziona Resume.",
+                    "updated": 1614790103478,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ID",
+                    "text": "Ayo dicoba! Click tombol Stop, dan ketika saya hilang, buka menu dan pilih Resume.",
+                    "updated": 1616700065579,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Vamos a probar algo!. Haz clic en el botón Stop de abajo, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
+                    "updated": 1618437777462,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

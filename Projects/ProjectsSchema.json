@@ -120,6 +120,11 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newSuperalgosFunctionLibraryWorkspaceFunctions"
+                },
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSuperalgosFunctionLibrarySocialBotsFunctions"
                 }
             ],
             "utilities": [
@@ -450,6 +455,12 @@
                     "fileName": "DataDependenciesFunctions.js"
                 },
                 {
+                    "name": "From One Min To Multi Time Frame Functions",
+                    "propertyName": "fromOneMinToMultiTimeFrameFunctions",
+                    "functionName": "newSuperalgosFunctionLibrariesFromOneMinToMultiTimeFrameFunctions",
+                    "fileName": "FromOneMinToMultiTimeFrameFunctions.js"
+                },
+                {
                     "name": "Process Files Functions",
                     "propertyName": "processFilesFunctions",
                     "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
@@ -486,6 +497,12 @@
                     "propertyName": "docsFunctions",
                     "functionName": "newSuperalgosUtilitiesDocsFunctions",
                     "fileName": "DocsFunctions.js"
+                },
+                {
+                    "name": "Error Handling Functions",
+                    "propertyName": "errorHandlingFunctions",
+                    "functionName": "newSuperalgosUtilitiesErrorHandlingFunctions",
+                    "fileName": "ErrorHandlingFunctions.js"
                 }
             ],
             "taskModules": [
@@ -556,13 +573,6 @@
                     "botType": "Sensor Bot"
                 },
                 {
-                    "name": "Single Market Sensor Bot",
-                    "propertyName": "singleMarketSensorBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
-                    "fileName": "SingleMarketSensorBot.js",
-                    "folderName": "Sensor-Bot/"
-                },
-                {
                     "name": "Exchange Raw Data Historic OHLCVs",
                     "propertyName": "historicOHLCVs",
                     "functionName": "newSuperalgosBotModulesHistoricOHLCVs",
@@ -577,6 +587,21 @@
                     "folderName": "Sensor-Bot/Webhooks"
                 },
                 {
+                    "name": "Single Market API Data Fetcher Bot",
+                    "propertyName": "singleMarketAPIDataFetcherBot",
+                    "functionName": "newSuperalgosBotModulesSingleMarketAPIDataFetcherBot",
+                    "fileName": "SingleMarketAPIDataFetcherBot.js",
+                    "folderName": "API-Data-Fetcher-Bot",
+                    "botType": "API Data Fetcher Bot"
+                },
+                {
+                    "name": "API Data Fetcher Fetching Process",
+                    "propertyName": "fetchingProcess",
+                    "functionName": "newSuperalgosBotModulesFetchingProcess",
+                    "fileName": "FetchingProcess.js",
+                    "folderName": "API-Data-Fetcher-Bot"
+                },
+                {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
                     "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",
@@ -585,45 +610,59 @@
                     "botType": "Indicator Bot"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Daily",
-                    "propertyName": "candlesVolumesMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily",
-                    "fileName": "CandlesVolumesMultiPeriodDaily.js",
+                    "name": "Candles Volumes Multi Time Frame Daily",
+                    "propertyName": "candlesVolumesMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiTimeFrameDaily",
+                    "fileName": "CandlesVolumesMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Market",
-                    "propertyName": "candlesVolumesMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket",
-                    "fileName": "CandlesVolumesMultiPeriodMarket.js",
+                    "name": "Candles Volumes Multi Time Frame Market",
+                    "propertyName": "candlesVolumesMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiTimeFrameMarket",
+                    "fileName": "CandlesVolumesMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Daily",
-                    "propertyName": "bollingerBandsMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodDaily",
-                    "fileName": "BollingerBandsMultiPeriodDaily.js",
+                    "name": "Bollinger Bands Multi Time Frame Daily",
+                    "propertyName": "bollingerBandsMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiTimeFrameDaily",
+                    "fileName": "BollingerBandsMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Market",
-                    "propertyName": "bollingerBandsMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodMarket",
-                    "fileName": "BollingerBandsMultiPeriodMarket.js",
+                    "name": "Bollinger Bands Multi Time Frame Market",
+                    "propertyName": "bollingerBandsMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiTimeFrameMarket",
+                    "fileName": "BollingerBandsMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Period Market",
-                    "propertyName": "multiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodMarket",
-                    "fileName": "MultiPeriodMarket.js",
+                    "name": "Multi Time Frame Market",
+                    "propertyName": "multiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Period Daily",
-                    "propertyName": "multiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodDaily",
-                    "fileName": "MultiPeriodDaily.js",
+                    "name": "Multi Time Frame Daily",
+                    "propertyName": "multiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Market",
+                    "propertyName": "fromOneMinToMultiTimeFrameMarket",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiTimeFrameMarket",
+                    "fileName": "FromOneMinToMultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Daily",
+                    "propertyName": "fromOneMinToMultiTimeFrameDaily",
+                    "functionName": "newSuperalgosBotModulesFromOneMinToMultiTimeFrameDaily",
+                    "fileName": "FromOneMinToMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
@@ -660,6 +699,20 @@
                     "propertyName": "telegramBot",
                     "functionName": "newSuperalgosBotModulesTelegramBot",
                     "fileName": "TelegramBot.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSuperalgosBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": "Trading-Bot/Announcements"
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSuperalgosBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
                     "folderName": "Trading-Bot/Announcements"
                 },
                 {
@@ -929,5 +982,121 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "UI": {
+            "globals": [
+                {
+                    "name": "ChainIds",
+                    "propertyName": "chainIds",
+                    "functionName": "newEthereumGlobalsChainIds"
+                }
+            ],
+            "functionLibraries": [
+                {
+                    "name": "Votes",
+                    "propertyName": "votes",
+                    "functionName": "newGovernanceFunctionLibraryVotes"
+                },
+                {
+                    "name": "Tokens",
+                    "propertyName": "tokens",
+                    "functionName": "newGovernanceFunctionLibraryTokens"
+                },
+                {
+                    "name": "Weights",
+                    "propertyName": "weights",
+                    "functionName": "newGovernanceFunctionLibraryWeights"
+                },
+                {
+                    "name": "Claims",
+                    "propertyName": "claims",
+                    "functionName": "newGovernanceFunctionLibraryClaims"
+                },
+                {
+                    "name": "Distribution Process",
+                    "propertyName": "distributionProcess",
+                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Route To Client",
+                    "propertyName": "routeToClient",
+                    "functionName": "newEthereumUtilitiesRouteToClient"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "User Profile Space",
+                    "folderName": "User-Profile-Space",
+                    "propertyName": "userProfileSpace",
+                    "functionName": "newGovernanceUserProfileSpace",
+                    "initializationIndex": 0,
+                    "animationPhysicsIndex": 0,
+                    "animationDrawIndex": 0,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Assets Space",
+                    "folderName": "Assets-Space",
+                    "propertyName": "assetsSpace",
+                    "functionName": "newGobernanceAssetsSpace",
+                    "initializationIndex": 1,
+                    "animationPhysicsIndex": 1,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                },
+                {
+                    "name": "Features Space",
+                    "folderName": "Features-Space",
+                    "propertyName": "featuresSpace",
+                    "functionName": "newGovernanceFeaturesSpace",
+                    "initializationIndex": 2,
+                    "animationPhysicsIndex": 2,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
+                },
+                {
+                    "name": "Positions Space",
+                    "folderName": "Positions-Space",
+                    "propertyName": "positionsSpace",
+                    "functionName": "newGovernancePositionsSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 3,
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
+                },
+                {
+                    "name": "Pools Space",
+                    "folderName": "Pools-Space",
+                    "propertyName": "poolsSpace",
+                    "functionName": "newGovernancePoolsSpace",
+                    "initializationIndex": 4,
+                    "animationPhysicsIndex": 4,
+                    "animationDrawIndex": 4,
+                    "onMouseWheelIndex": 4,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
+                }
+            ]
+        },
+        "TS": {},
+        "CL": {}
     }
 ]

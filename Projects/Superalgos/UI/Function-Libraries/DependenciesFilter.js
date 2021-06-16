@@ -12,7 +12,7 @@ function newSuperalgosFunctionLibraryDependenciesFilter() {
     It is important to note that all nodes that are not of the type
     Javascript Code or Formula are going to be ignored.
     */
-    thisObject = {
+    let thisObject = {
         createDependencyFilter: createDependencyFilter
     }
 

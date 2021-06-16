@@ -1,0 +1,31 @@
+{
+    "type": "APIs",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Github API",
+            "relatedUiObject": "Github API",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "githubAPI",
+            "type": "node",
+            "childType": "Github API"
+        }
+    ],
+    "isPersonalData": true
+}

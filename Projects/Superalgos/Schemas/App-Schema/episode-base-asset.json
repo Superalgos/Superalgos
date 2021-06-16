@@ -1,0 +1,88 @@
+{
+    "type": "Episode Base Asset",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Trading Parameters",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Episode->"
+    },
+    "propertyNameAtParent": "episodeBaseAsset",
+    "childrenNodesProperties": [
+        {
+            "name": "balance",
+            "type": "node",
+            "childType": "Balance",
+            "autoAdd": true
+        },
+        {
+            "name": "beginBalance",
+            "type": "node",
+            "childType": "Begin Balance",
+            "autoAdd": true
+        },
+        {
+            "name": "endBalance",
+            "type": "node",
+            "childType": "End Balance",
+            "autoAdd": true
+        },
+        {
+            "name": "hits",
+            "type": "node",
+            "childType": "Hits",
+            "autoAdd": true
+        },
+        {
+            "name": "fails",
+            "type": "node",
+            "childType": "Fails",
+            "autoAdd": true
+        },
+        {
+            "name": "hitRatio",
+            "type": "node",
+            "childType": "Hit Ratio",
+            "autoAdd": true
+        },
+        {
+            "name": "profitLoss",
+            "type": "node",
+            "childType": "Profit Loss",
+            "autoAdd": true
+        },
+        {
+            "name": "ROI",
+            "type": "node",
+            "childType": "ROI",
+            "autoAdd": true
+        },
+        {
+            "name": "annualizedRateOfReturn",
+            "type": "node",
+            "childType": "Annualized Rate Of Return",
+            "autoAdd": true
+        },
+        {
+            "name": "hitFail",
+            "type": "node",
+            "childType": "Hit Fail",
+            "autoAdd": true
+        }
+    ]
+}

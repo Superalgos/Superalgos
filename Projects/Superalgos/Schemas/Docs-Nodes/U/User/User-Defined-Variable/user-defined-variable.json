@@ -1,0 +1,14 @@
+{
+    "type": "User Defined Variable",
+    "definition": {
+        "text": "The User-Defined-Variable is a mutable storage container for whatever arbitrary data the user may want to manage while running a Trading System.",
+        "updated": 1622299578764
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These variables can be easily set or get by using the Copy Node Path in the node's popup modal.",
+            "updated": 1622299861437
+        }
+    ]
+}

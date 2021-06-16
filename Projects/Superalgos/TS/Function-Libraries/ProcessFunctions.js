@@ -24,44 +24,61 @@ exports.newSuperalgosFunctionLibrariesProcessFunctions = function () {
             /* 
             If the process is finishing with an error, we report it to the UI 
             and return to the process caller with a FAIL.
+            
+            If the docs object was created by an inner module, we will take it and 
+            use it, otherwise we will consider this is a process level error and
+            we will generate the docs object right here.
             */
-            let docs = {
-                project: 'Superalgos',
-                category: 'Topic',
-                type: 'TS Process Error - Unexpected Error',
-                placeholder: {}
-            }
+            if (error.docs !== undefined) {
 
-            if (error.message !== undefined) {
-                docs.placeholder.errorMessage = {
-                    style: 'Error',
-                    text: error.message
+                TS.projects.superalgos.functionLibraries.processFunctions.processError
+                    (
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY,
+                        error.node,
+                        error.message,
+                        error.docs
+                    )
+
+            } else {
+                let docs = {
+                    project: 'Superalgos',
+                    category: 'Topic',
+                    type: 'TS Process Error - Unexpected Error',
+                    placeholder: {}
                 }
-            }
-            if (error.stack !== undefined) {
-                docs.placeholder.errorStack = {
-                    style: 'Javascript',
-                    text: error.stack
+
+                if (error.message !== undefined) {
+                    docs.placeholder.errorMessage = {
+                        style: 'Error',
+                        text: error.message
+                    }
                 }
-            }
-            if (error.code !== undefined) {
-                docs.placeholder.errorCode = {
+                if (error.stack !== undefined) {
+                    docs.placeholder.errorStack = {
+                        style: 'Javascript',
+                        text: error.stack
+                    }
+                }
+                if (error.code !== undefined) {
+                    docs.placeholder.errorCode = {
+                        style: 'Json',
+                        text: error.code
+                    }
+                }
+                docs.placeholder.errorDetails = {
                     style: 'Json',
-                    text: error.code
+                    text: JSON.stringify(error, undefined, 4)
                 }
-            }
-            docs.placeholder.errorDetails = {
-                style: 'Json',
-                text: JSON.stringify(error, undefined, 4)
-            }
 
-            TS.projects.superalgos.functionLibraries.processFunctions.processError
-                (
-                    TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY,
-                    undefined,
-                    "An unexpected error caused the Process to stop.",
-                    docs
-                )
+                TS.projects.superalgos.functionLibraries.processFunctions.processError
+                    (
+                        TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_KEY,
+                        undefined,
+                        "An unexpected error caused the Process to stop.",
+                        docs
+                    )
+
+            }
 
             callBackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         } else {

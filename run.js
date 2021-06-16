@@ -11,7 +11,7 @@ if (
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:          Beta 9')
+    console.log('VERSION:          Beta 10')
     console.log('')
     console.log('WEB:              https://www.superalgos.org')
     console.log('')
@@ -80,16 +80,26 @@ if (optionsAccepted === 0) {
 console.log('')
 console.log('')
 
-try {
-    const { fork } = require('child_process')
-    fork('./Client/client.js', process.argv, options)
-} catch (err) {
-    console.log('')
-    console.log('Fail to create Client Process.')
-    console.log('')
+const fs = require('fs')
+const path = './Client/node_modules'
+if ( fs.existsSync(path) ) {
 
-    fatalErrorHelp()
+    try {
+        const { fork } = require('child_process')
+        fork('./Client/client.js', process.argv, options)
+    } catch (err) {
+        console.log('')
+        console.log('Fail to create Client Process.')
+        console.log('')
+
+        fatalErrorHelp()
+    }
+} else {
+    console.log('')
+    console.log('ERROR: node_modules does not exist. Try running node setup to solve this issue. Then try again.')
+    console.log('')
 }
+
 
 function fatalErrorHelp() {
     console.log('')

@@ -1,0 +1,80 @@
+{
+    "type": "Time Machine",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "timeScale",
+            "label": "Add Time Scale",
+            "relatedUiObject": "Time Scale",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "rateScale",
+            "label": "Add Rate Scale",
+            "relatedUiObject": "Rate Scale",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "timeFrameScale",
+            "label": "Add Time Frame Scale",
+            "relatedUiObject": "Time Frame Scale",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Timeline Chart",
+            "relatedUiObject": "Timeline Chart",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "isTitleAllwaysVisible": true,
+    "referencingRules": {
+        "compatibleTypes": "->Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Dashboard->Template Structure->"
+    },
+    "propertyNameAtParent": "timeMachines",
+    "childrenNodesProperties": [
+        {
+            "name": "timeScale",
+            "type": "node",
+            "childType": "Time Scale",
+            "autoAdd": true
+        },
+        {
+            "name": "rateScale",
+            "type": "node",
+            "childType": "Rate Scale",
+            "autoAdd": true
+        },
+        {
+            "name": "timeFrameScale",
+            "type": "node",
+            "childType": "Time Frame Scale",
+            "autoAdd": true
+        },
+        {
+            "name": "timelineCharts",
+            "type": "array",
+            "childType": "Timeline Chart",
+            "autoAdd": false
+        }
+    ]
+}

@@ -28,7 +28,7 @@ function newTimeFrameScale() {
 
     let filePeriodIndex = FILES_PERIOD_DEFAULT_VALUE
     let timeFrameIndex = TIME_PERIOD_DEFAULT_VALUE
-    let timeFramesMasterArray = [marketFilesPeriods, dailyFilePeriods]
+    let timeFramesMasterArray = [marketTimeFramesArray, dailyTimeFramesArray]
     let timeFrameLabel = '24-hs'
 
     let onMouseWheelEventSubscriptionId

@@ -1,0 +1,42 @@
+{
+    "type": "Learning Mines Data",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Project Learning Products",
+            "relatedUiObject": "Project Learning Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add Missing Project Learning Products",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Project Learning Products",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Data Storage->"
+    },
+    "propertyNameAtParent": "learningMinesData",
+    "childrenNodesProperties": [
+        {
+            "name": "projectLearningProducts",
+            "type": "array",
+            "childType": "Project Learning Products"
+        }
+    ]
+}

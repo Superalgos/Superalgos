@@ -407,8 +407,8 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                     /* Finding the Current Element on Market Files */
                     if (TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
-                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyFilePeriods().length; j++) {
-                            let mapKey = TS.projects.superalgos.globals.timeFrames.dailyFilePeriods()[j][1]
+                        for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray().length; j++) {
+                            let mapKey = TS.projects.superalgos.globals.timeFrames.dailyTimeFramesArray()[j][1]
                             let propertyName = 'at' + mapKey.replace('-', '')
                             let thisChart = chart[propertyName]
 
@@ -416,7 +416,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                             for (let k = 0; k < dataDependencies.length; k++) {
                                 let dataDependencyNode = dataDependencies[k]
-                                if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Daily') { continue }
+                                if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Time-Frame-Daily') { continue }
                                 let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                                 let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                                 if (thisChart[pluralVariableName] !== undefined) {
@@ -430,8 +430,8 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
                     }
 
                     /* Finding the Current Element on Market Files */
-                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketFilesPeriods().length; j++) {
-                        let mapKey = TS.projects.superalgos.globals.timeFrames.marketFilesPeriods()[j][1]
+                    for (let j = 0; j < TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray().length; j++) {
+                        let mapKey = TS.projects.superalgos.globals.timeFrames.marketTimeFramesArray()[j][1]
                         let propertyName = 'at' + mapKey.replace('-', '')
                         let thisChart = chart[propertyName]
 
@@ -439,7 +439,7 @@ exports.newSuperalgosBotModulesLearningSimulation = function (processIndex) {
 
                         for (let k = 0; k < dataDependencies.length; k++) {
                             let dataDependencyNode = dataDependencies[k]
-                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Period-Market') { continue }
+                            if (dataDependencyNode.referenceParent.config.codeName !== 'Multi-Time-Frame-Market') { continue }
                             let singularVariableName = dataDependencyNode.referenceParent.parentNode.config.singularVariableName
                             let pluralVariableName = dataDependencyNode.referenceParent.parentNode.config.pluralVariableName
                             if (thisChart[pluralVariableName] !== undefined) {

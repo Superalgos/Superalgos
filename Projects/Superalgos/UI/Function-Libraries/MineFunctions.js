@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryMineFunctions() {
-    thisObject = {
+    let thisObject = {
         addAllOutputDatasets: addAllOutputDatasets,
         addAllDataDependencies: addAllDataDependencies, 
         addAllDataMineDataDependencies: addAllDataMineDataDependencies
@@ -65,6 +65,7 @@ function newSuperalgosFunctionLibraryMineFunctions() {
         */
         let dataMine = node.payload.referenceParent
         scanBotArray(dataMine.sensorBots)
+        scanBotArray(dataMine.apiDataFetcherBots)
         scanBotArray(dataMine.indicatorBots)
         scanBotArray(dataMine.tradingBots)
         scanBotArray(dataMine.learningBots)

@@ -1353,4 +1353,3 @@ exports.newSuperalgosBotModulesTradingOrders = function (processIndex) {
         throw 'Error Already Recorded'
     }
 }
-

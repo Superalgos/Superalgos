@@ -42,7 +42,7 @@ function newSuperalgosDocsCommmandInterface() {
             }
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadsByType('APIs')
+            let apisNode = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.superalgos.spaces.docsSpace.navigateTo('Superalgos', 'Topic', 'App Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return

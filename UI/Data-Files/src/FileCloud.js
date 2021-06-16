@@ -21,12 +21,12 @@ function newFileCloud () {
     fileStorage = newFileStorage(pHost, pPort)
   }
 
-  function getFile (pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
+  function getFile (pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
     try {
       const MAX_RETRIES = 3
-      getFileRecursively(0, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction)
+      getFileRecursively(0, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction)
 
-      function getFileRecursively (pRetryCounter, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
+      function getFileRecursively (pRetryCounter, pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
         try {
           let fileName
           let filePath
@@ -83,7 +83,7 @@ function newFileCloud () {
             logger.write('[ERROR] getFile -> getFileRecursively -> pDataset = ' + JSON.stringify(pDataset))
             logger.write('[ERROR] getFile -> getFileRecursively -> pExchange = ' + JSON.stringify(pExchange))
             logger.write('[ERROR] getFile -> getFileRecursively -> pMarket = ' + JSON.stringify(pMarket))
-            logger.write('[ERROR] getFile -> getFileRecursively -> pPeriodName = ' + JSON.stringify(pPeriodName))
+            logger.write('[ERROR] getFile -> getFileRecursively -> ptimeFrameLabel = ' + JSON.stringify(ptimeFrameLabel))
 
             throw ('Inconsistant data received.')
           }
@@ -118,7 +118,7 @@ function newFileCloud () {
             filePath = filePath.replace('@Exchange', pExchange.config.codeName)
           }
 
-          filePath = filePath.replace('@Period', pPeriodName)
+          filePath = filePath.replace('@TimeFrame', ptimeFrameLabel)
           filePath = filePath.replace('@Dataset', pDataset.config.codeName)
           filePath = filePath.replace('@Product', pProduct.config.codeName)
 
@@ -163,7 +163,7 @@ function newFileCloud () {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> MAX_RETRIES = ' + MAX_RETRIES) }
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> pRetryCounter = ' + pRetryCounter) }
 
-                    getFileRecursively(pRetryCounter + 1, pMine, pBot, pDataset, pExchange, pMarket, pPeriodName, pDatetime, pSequence, pDataRange, callBackFunction)
+                    getFileRecursively(pRetryCounter + 1, pMine, pBot, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, callBackFunction)
                     return
                   } else {
                     if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Could not get this file from storage. ') }

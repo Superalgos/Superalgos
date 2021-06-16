@@ -1,0 +1,82 @@
+{
+    "type": "Market",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "baseAsset",
+            "label": "Add Base Asset",
+            "relatedUiObject": "Market Base Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "quotedAsset",
+            "label": "Add Quoted Asset",
+            "relatedUiObject": "Market Quoted Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Install Market",
+            "label": "Install Market",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Uninstall Market",
+            "label": "Uninstall Market",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "childrenNodesProperties": [
+        {
+            "name": "baseAsset",
+            "type": "node",
+            "childType": "Market Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "quotedAsset",
+            "type": "node",
+            "childType": "Market Quoted Asset",
+            "autoAdd": true
+        }
+    ],
+    "addLeftIcons": true,
+    "isTitleAllwaysVisible": true,
+    "level": 4,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type the name of the market\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Markets->"
+    },
+    "propertyNameAtParent": "markets"
+}

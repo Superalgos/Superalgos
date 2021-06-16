@@ -1,5 +1,5 @@
 function newSuperalgosUtilitiesFolders() {
-    thisObject = {
+    let thisObject = {
         asymetricalFolderStructureCloning: asymetricalFolderStructureCloning
     }
 

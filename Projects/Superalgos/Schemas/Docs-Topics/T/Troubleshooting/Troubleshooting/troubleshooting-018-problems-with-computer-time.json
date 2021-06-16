@@ -1,0 +1,52 @@
+{
+    "topic": "Troubleshooting",
+    "pageNumber": "18",
+    "type": "Problems With Computer Time",
+    "definition": {
+        "text": "Some exchanges force the computer that is running your bot to be highly syncronized with thier servers, and to achieve that you need that machine's time to keep itself syncronized with an Internet Time Server.",
+        "updated": 1622140103759
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How to identify this problem?",
+            "updated": 1622140152661
+        },
+        {
+            "style": "Text",
+            "text": "If you receive an error like this, you are having this type of problem:"
+        },
+        {
+            "style": "Javascript",
+            "text": "['2021-05-27T15:24:15.339Z',246,'Exchange API','[ERROR] createOrder -> \nError = binance {\"code\":-1021,\n\"msg\":\"Timestamp for this request is outside of the recvWindow.\"}'] \n@ Masters-Low-Frequency-Trading",
+            "updated": 1622140198558
+        },
+        {
+            "style": "Title",
+            "text": "How to solve this problem?",
+            "updated": 1622140378812
+        },
+        {
+            "style": "Text",
+            "text": "You can use the server time.nist.gov that has proven to work in this situation. Look for the place at your OS where you can change the Internet Time Settings and use that server there."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Docker Users"
+        },
+        {
+            "style": "Text",
+            "text": "Sometimes Docker might not be in sync even though the underlaying OS it is. To fix this, you can run this command, which will force Docker to restart and wsl to pickup the correct time from the OS.",
+            "updated": 1622140496709
+        },
+        {
+            "style": "Javascript",
+            "text": "wsl --shutdown",
+            "updated": 1622140514881
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

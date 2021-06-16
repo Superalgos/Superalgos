@@ -1,0 +1,50 @@
+{
+    "type": "Data Building Procedure",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "initialization",
+            "label": "Add Procedure Initialization",
+            "relatedUiObject": "Procedure Initialization",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "loop",
+            "label": "Add Procedure Loop",
+            "relatedUiObject": "Procedure Loop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Product Definition->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "loop",
+            "type": "node",
+            "childType": "Procedure Loop",
+            "autoAdd": true
+        },
+        {
+            "name": "initialization",
+            "type": "node",
+            "childType": "Procedure Initialization",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "dataBuilding"
+}

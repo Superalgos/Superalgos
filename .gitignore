@@ -6,5 +6,8 @@ debug.log
 *.db
 Projects/Superalgos/Icons/Thumbs.db
 *.bat
+!launch-windows.bat
+!create-shortcut-windows.bat
+!uninstall-shortcut-windows.bat
 *.exe
-
+node_modules

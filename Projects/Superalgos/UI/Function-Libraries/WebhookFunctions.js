@@ -1,5 +1,5 @@
 function newSuperalgosFunctionLibraryWebhookFunctions() {
-    thisObject = {
+    let thisObject = {
         sendTestMessage: sendTestMessage
     }
 

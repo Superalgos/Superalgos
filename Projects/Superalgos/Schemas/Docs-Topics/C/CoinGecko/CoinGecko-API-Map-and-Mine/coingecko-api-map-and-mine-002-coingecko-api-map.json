@@ -1,0 +1,102 @@
+{
+    "topic": "CoinGecko API Map and Mine",
+    "pageNumber": 2,
+    "type": "CoinGecko API Map",
+    "definition": {
+        "text": "The current CoinGecko API Map accesses the following endpoints of the CoinGecko API.",
+        "updated": 1622686989766
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Documentation for the CoinGecko API can be found at the following link:",
+            "updated": 1622687107891
+        },
+        {
+            "style": "Link",
+            "text": "www.coingecko.com/en/api->www.coingecko.com/en/api",
+            "updated": 1622687459394
+        },
+        {
+            "style": "Text",
+            "text": "The base request URL is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "https://api.coingecko.com/api/v3/"
+        },
+        {
+            "style": "Title",
+            "text": "Mapped Endpoints",
+            "updated": 1622687143514
+        },
+        {
+            "style": "Json",
+            "text": "/coins/{id}",
+            "updated": 1622688221280
+        },
+        {
+            "style": "Subtitle",
+            "text": "Raw Returned Values",
+            "updated": 1622688289637
+        },
+        {
+            "style": "List",
+            "text": "id: name of returned coin (string).",
+            "updated": 1622688305150
+        },
+        {
+            "style": "List",
+            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number)."
+        },
+        {
+            "style": "List",
+            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number).",
+            "updated": 1622688575235
+        },
+        {
+            "style": "List",
+            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number).",
+            "updated": 1622688586166
+        },
+        {
+            "style": "List",
+            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number).",
+            "updated": 1622688666930
+        },
+        {
+            "style": "List",
+            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number)."
+        },
+        {
+            "style": "Note",
+            "text": "CoinGecko score is an aggregated score combining liquidity, community, developer, and public interest scores.",
+            "updated": 1622688833507
+        },
+        {
+            "style": "List",
+            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number).",
+            "updated": 1622688975074
+        },
+        {
+            "style": "List",
+            "text": "community_score: Community strength score given by the CoinGecko platform (number).",
+            "updated": 1622689004490
+        },
+        {
+            "style": "List",
+            "text": "developer_score: Developer strength score given by the CoinGecko platform (number).",
+            "updated": 1622689029728
+        },
+        {
+            "style": "List",
+            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number).",
+            "updated": 1622689104410
+        },
+        {
+            "style": "List",
+            "text": "last_updated: Date content of current responce was last updated (string).",
+            "updated": 1622689075868
+        }
+    ]
+}

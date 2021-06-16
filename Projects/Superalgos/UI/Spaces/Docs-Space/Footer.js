@@ -38,6 +38,12 @@ function newSuperalgosDocsFooter() {
         if (UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered !== undefined) {
             HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.project + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.category + '\', \'' + UI.projects.superalgos.spaces.docsSpace.currentBookBeingRendered.type + '\')"><button>TO BOOK</button></span>'
         }
+
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'Reviews' + '\')"><button>REVIEWS</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'Community Data Mines' + '\')"><button>DATA MINES</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'First Steps Tutorials' + '\')"><button>TUTORIALS</button></span>'
+        HTML = HTML + '<span style="float: right; display: inline-block;" onClick="UI.projects.superalgos.spaces.docsSpace.navigateTo(\'' + 'Superalgos' + '\', \'' + 'Book' + '\', \'' + 'User Manual' + '\')"><button>USER MANUAL</button></span>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '</div>'
@@ -93,6 +99,18 @@ function newSuperalgosDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'DE\')"><img src="Images/Languages/DE.png" title="German" class="docs-footer-language'
+        if (languageCode === 'DE') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
+        HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'FR\')"><img src="Images/Languages/FR.png" title="French" class="docs-footer-language'
+        if (languageCode === 'FR') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '<a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeLanguage(\'CN\')"><img src="Images/Languages/CN.png" title="Simplified Chinese-Mandarin" class="docs-footer-language'
         if (languageCode === 'CN') { 
             HTML = HTML + '-selected'
@@ -138,7 +156,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>About Your Deployment</h4>'
-        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development.'
+        HTML = HTML + 'Superalgos may run from different branches in the repository. The <code class="docs-footer-code">Master</code> branch features the stable version, and the <code class="docs-footer-code">Develop</code> branch the version in development. Use the <code class="docs-footer-code">Plugins-Docs</code> branch to contribute plugins and to the Docs.'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -147,7 +165,8 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'plugins-docs\')">Plugins/Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeCurrentBranch(\'next-version\')">Next-Version</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
@@ -157,7 +176,9 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'plugins-docs\')">Plugins/Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
+        HTML = HTML + '<li><a href="#" onClick="UI.projects.superalgos.spaces.docsSpace.changeContributionsBranch(\'next-version\')">Next-Version</a></li>'
+
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
@@ -180,6 +201,11 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Join the Conversation</h4>'
+        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels, or you may join the original individual Telegram groups listed to the right.</p>'
+        HTML = HTML + '</div>'
+
+        HTML = HTML + '<div class="docs-footer-cell">'
+        HTML = HTML + '<h4>In Telegram</h4>'
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://t.me/superalgoscommunity" target="_blank">Community Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgossupport" target="_blank">Technical Support Group</a></li>'
@@ -188,12 +214,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgosdocs" target="_blank">Docs Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgosuxui" target="_blank">UX/UI Design Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgoscollaborations" target="_blank">Collaborations Group</a></li>'
-        HTML = HTML + '</ul>'
-        HTML = HTML + '</div>'
-
-        HTML = HTML + '<div class="docs-footer-cell">'
-        HTML = HTML + '<h4>In Your Language</h4>'
-        HTML = HTML + '<ul>'
+        HTML = HTML + '<li><a href="https://t.me/superalgoscodebase" target="_blank">Codebase Learning Group</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos_es" target="_blank">Hablemos en Español!</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos_ru" target="_blank">Говорим по русски!</a></li>'
         HTML = HTML + '</ul>'
@@ -204,7 +225,7 @@ function newSuperalgosDocsFooter() {
         HTML = HTML + '<ul>'
         HTML = HTML + '<li><a href="https://t.me/superalgos" target="_blank">Official Announcements</a></li>'
         HTML = HTML + '<li><a href="https://superalgos.org" target="_blank">Features and Functionality</a></li>'
-        HTML = HTML + '<li><a href="https://github.com/Superalgos/Superalgos" target="_blank">Main Repository</a></li>'
+        HTML = HTML + '<li><a href="https://github.com/Superalgos/Superalgos" target="_blank">Main Github Repository</a></li>'
         HTML = HTML + '<li><a href="https://www.youtube.com/c/superalgos" target="_blank">Subscribe in YouTube</a></li>'
         HTML = HTML + '<li><a href="https://twitter.com/superalgos" target="_blank">Follow us on Twitter</a></li>'
         HTML = HTML + '<li><a href="https://www.facebook.com/superalgos" target="_blank">Connect on Facebook</a></li>'

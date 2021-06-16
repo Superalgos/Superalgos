@@ -35,8 +35,8 @@ function newPlotter() {
     let marketFile                                                      // This is the current Market File being plotted.
     let fileCursor                                                      // This is the current File Cursor being used to retrieve Daily Files.
 
-    let marketFiles                                                     // This object will provide the different Market Files at different Time Periods.
-    let dailyFiles                                                      // This object will provide the different File Cursors at different Time Periods.
+    let marketFiles                                                     // This object will provide the different Market Files at different Time Frames.
+    let dailyFiles                                                      // This object will provide the different File Cursors at different Time Frames.
 
     let productDefinition                                               // Here we store a snapshot of the product definition which references this plotter.
 
@@ -109,7 +109,7 @@ function newPlotter() {
             /* We need a Market File in order to calculate the Y scale, since this scale depends on actual data. */
             marketFile = marketFiles.getFile(ONE_DAY_IN_MILISECONDS)  // This file is the one processed faster.
 
-            /* Now we set the right files according to current Period. */
+            /* Now we set the right files according to current Time Frame. */
             marketFile = marketFiles.getFile(pTimeFrame)
             fileCursor = dailyFiles.getFileCursor(pTimeFrame)
 

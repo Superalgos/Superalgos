@@ -1,0 +1,76 @@
+{
+    "type": "Close Stage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Items",
+            "relatedUiObject": "Close Stage",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{\n\"roundingErrorCorrectionFactor\": 1.01, \n\"absoluteDustInBaseAsset\": 0,\n\"absoluteDustInQuotedAsset\": 0 \n}"
+    },
+    "editors": {
+        "config": true
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Strategy->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "initialTargets",
+            "type": "node",
+            "childType": "Initial Targets",
+            "autoAdd": true
+        },
+        {
+            "name": "closeExecution",
+            "type": "node",
+            "childType": "Close Execution",
+            "autoAdd": true
+        },
+        {
+            "name": "closeStageEvent",
+            "type": "node",
+            "childType": "Close Stage Event",
+            "autoAdd": true
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement"
+        },
+        {
+            "name": "userDefinedCode",
+            "type": "node",
+            "childType": "User Defined Code",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "closeStage"
+}

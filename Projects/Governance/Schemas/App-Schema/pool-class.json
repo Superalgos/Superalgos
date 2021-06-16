@@ -1,0 +1,62 @@
+{
+    "type": "Pool Class",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Pool Class",
+            "relatedUiObject": "Pool Class"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Pool",
+            "relatedUiObject": "Pool"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Pools->Pool Class->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Position Class->Position->"
+    },
+    "propertyNameAtParent": "poolClasses",
+    "childrenNodesProperties": [
+        {
+            "name": "poolClasses",
+            "type": "array",
+            "childType": "Pool Class",
+            "autoAdd": false
+        },
+        {
+            "name": "pools",
+            "type": "array",
+            "childType": "Pool",
+            "autoAdd": false
+        }
+    ]
+}

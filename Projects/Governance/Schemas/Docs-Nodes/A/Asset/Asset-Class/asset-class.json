@@ -1,0 +1,13 @@
+{
+    "type": "Asset Class",
+    "definition": {
+        "text": "This node acts as a folder helping organize the different assets of a certain Assets hierarchy. It can receive votes, and when it does, it distribute them among it's children.",
+        "updated": 1622986499181
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Client",
+  "name": "client",
   "version": "0.0.6",
   "description": "BackendServer",
   "main": "client.js",
@@ -14,6 +14,6 @@
     "rimraf": "^3.0.2",
     "simple-git": "^2.31.0",
     "web3": "^1.3.0",
-    "ws": "^7.1.2"
+    "ws": "^7.4.6"
   }
 }

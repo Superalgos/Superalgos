@@ -1,0 +1,41 @@
+{
+    "type": "Session Base Asset",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "initialValues": {
+        "config": "{\n\"initialBalance\": 1,\n\"minimumBalance\": 0.5\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Exchange Account Asset->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Trading Parameters->"
+    },
+    "alternativeIcons": "Use Reference Grandparent",
+    "title": [
+        "Use Reference Grandparent"
+    ],
+    "propertyNameAtParent": "sessionBaseAsset"
+}

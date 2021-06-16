@@ -126,7 +126,7 @@ function newTimeScale() {
     }
 
     function onMouseWheel(event, autoScale) {
-        if (IS_MAC && Math.abs(event.wheelDelta) < MAC_MOUSE_WHEEL_INFINITE_SCROLL_THRESHOLD) {
+        if (IS_MAC) {
             let sensitivity
             if (event.delta < 0) {
                 if (event.shiftKey === true) {

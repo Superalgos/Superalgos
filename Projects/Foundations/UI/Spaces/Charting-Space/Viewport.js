@@ -206,7 +206,7 @@ function newViewport() {
         if ((event.ctrlKey === true || event.metaKey === true)) { return }
         let morePower = 1
 
-        if (IS_MAC && Math.abs(event.wheelDelta) < MAC_MOUSE_WHEEL_INFINITE_SCROLL_THRESHOLD) {
+        if (IS_MAC) {
             let sensitivity
             if (event.delta < 0) {
                 if (event.shiftKey === true) {

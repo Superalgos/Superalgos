@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Task.js"
+            "program": "/home/pi/Superalgos/TaskServer/Task.js"
         }
     ]
 }

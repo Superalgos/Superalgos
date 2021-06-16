@@ -41,11 +41,23 @@ function newGovernanceFunctionLibraryVotes() {
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            resetVotes(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram.payload === undefined) { continue }
+
+            resetVotes(userProfile.tokenSwitch.votingProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeForProfile(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram.payload === undefined) { continue }
+
+            userProfile.tokenSwitch.votingProgram.payload.votes = userProfile.tokenSwitch.votingProgram.payload.tokenPower
+
+            distributeForVotingProgram(userProfile.tokenSwitch.votingProgram)
         }
 
         function resetVotes(node) {
@@ -114,16 +126,10 @@ function newGovernanceFunctionLibraryVotes() {
             }
         }
 
-        function distributeForProfile(userProfile) {
-            if (userProfile.payload === undefined) { return }
-            let votes
-            if (userProfile.payload.blockchainTokens === undefined) {
-                return
-            } else {
-                votes = userProfile.payload.blockchainTokens
-            }
-
-            distributeVotes(userProfile, votes)
+        function distributeForVotingProgram(votingProgram) {
+            if (votingProgram.payload === undefined) { return }
+            let votes = votingProgram.payload.votes
+            distributeVotes(votingProgram, votes)
         }
 
         function distributeVotes(node, votes, switchPercentage) {

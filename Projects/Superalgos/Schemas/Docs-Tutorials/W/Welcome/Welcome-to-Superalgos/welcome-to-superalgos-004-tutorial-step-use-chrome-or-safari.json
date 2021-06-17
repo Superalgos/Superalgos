@@ -27,6 +27,11 @@
                 "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser!",
                 "updated": 1614712122833,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
+                "updated": 1623950198517
             }
         ]
     },
@@ -52,6 +57,11 @@
                     "text": "É noto che i vari browsers presentano delle differenze tra loro, e siamo al corrente che alcuni di questi non supportano certe funzionalità. Se sei su Chrome o Safari, clicca Next per proseguire. Altrimenti:",
                     "updated": 1614712436380,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Il est connu que les navigateurs se comportent différemment, et nous connaissons certaines fonctionnalités qui fonctionnent sur certains mais pas d'autres... Si vous êtes sur Chrome ou Safari, cliquez sur Suivant et continuez. Sinon, procédez comme suit :",
+                    "updated": 1623950316276
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "text": "copia l'URL;",
                     "updated": 1614712466087,
                     "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "copier le current URL",
+                    "updated": 1623950336897
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "text": "chiudi il browser, ma senza chiudere il tutorial;",
                     "updated": 1614717123837,
                     "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "fermer le present navigateur, sans user le tutoriel",
+                    "updated": 1623950409166
                 }
             ]
         },
@@ -127,6 +147,11 @@
                     "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
                     "updated": 1614717129520,
                     "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé !",
+                    "updated": 1623950524635
                 }
             ]
         },
@@ -151,6 +176,11 @@
                     "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers!",
                     "updated": 1614712645613,
                     "style": "Warning"
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur !",
+                    "updated": 1623950564757
                 }
             ]
         }

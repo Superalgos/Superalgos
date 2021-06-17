@@ -26,6 +26,11 @@
                 "text": "Superalgos permette di accedere al Client in esecuzione su un dispositivo collegandosi attraverso il browser da un'altra macchina della rete.",
                 "updated": 1614717921223,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Superalgos permet d'exécuter le Client sur une machine et d'y accéder via le navigateur depuis une autre machine du réseau.",
+                "updated": 1623952405992
             }
         ],
         "updated": 1616410688496
@@ -52,6 +57,11 @@
                     "text": "Molti utenti scelgono di eseguire il Client sul cloud, su computer a scheda singola come il Raspberry Pi o su PC dedicati che possono lasciare sempre attivi quando fanno trading live. Il Network Node My Computer rappresenta la macchina su cui il Client é in esecuzione.",
                     "updated": 1614717893341,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le nuage, sur des machines à carte unique comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils négocient en direct. Le nœud de réseau My Computer représente la machine sur laquelle le Client est exécuté.",
+                    "updated": 1623952548227
                 }
             ]
         },

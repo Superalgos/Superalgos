@@ -98,6 +98,13 @@
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
 
             logError("getOrder -> Error = " + err.message);
+            if ( /[0-9a-z]+ NotFound/.test(err.message) ) {
+                logInfo("getOrder -> NotFound, so order is actually closed.")
+                order = {
+                    status: 'NotFound'
+                }
+                return order
+            }
         }
     }
 

@@ -107,27 +107,31 @@ function newUniqueId() {
 }
 
 function splitTextIntoPhrases(text, wordsPerLine) {
-    let splittedLabel = text.split(' ')
-    let phrases = []
-    let phrase = ''
-    let wordCount = 0
-    for (let i = 0; i < splittedLabel.length; i++) {
-        phrase = phrase + splittedLabel[i]
-        wordCount++
+    try {
+        let splittedLabel = text.split(' ')
+        let phrases = []
+        let phrase = ''
+        let wordCount = 0
+        for (let i = 0; i < splittedLabel.length; i++) {
+            phrase = phrase + splittedLabel[i]
+            wordCount++
 
-        if (i < splittedLabel.length - 1 && wordCount < wordsPerLine) {
-            phrase = phrase + ' '
+            if (i < splittedLabel.length - 1 && wordCount < wordsPerLine) {
+                phrase = phrase + ' '
+            }
+            if (wordCount >= wordsPerLine) {
+                phrases.push(phrase)
+                phrase = ''
+                wordCount = 0
+            }
         }
-        if (wordCount >= wordsPerLine) {
+        if (wordCount > 0) {
             phrases.push(phrase)
-            phrase = ''
-            wordCount = 0
         }
+        return phrases
+    } catch (err) {
+        console.log(err.stack)
     }
-    if (wordCount > 0) {
-        phrases.push(phrase)
-    }
-    return phrases
 }
 
 function getTextWidth(text) {

@@ -14,7 +14,8 @@ function newGovernanceUserProfileSpace() {
     thisObject.container.initialize(MODULE_NAME)
     thisObject.container.isDraggeable = false
 
-    waitingForResponses = 0
+    let waitingForResponses = 0
+    let timer = 0
 
     return thisObject
 
@@ -47,7 +48,6 @@ function newGovernanceUserProfileSpace() {
         We will get all the user Profiles tokens from the blockchain, making a call
         every 5 seconds so as not to exceed the rate limit.
         */
-        let timer = 0
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }

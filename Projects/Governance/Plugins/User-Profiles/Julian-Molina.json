@@ -21,8 +21,8 @@
                 "id": "0d0b04ff-034b-4b02-8351-67d621d514c0",
                 "savedPayload": {
                     "position": {
-                        "x": 25503.74798740812,
-                        "y": 23618.43086266558
+                        "x": 25532.618466191747,
+                        "y": 23465.846712854385
                     },
                     "targetPosition": {
                         "x": 25233.45732703739,
@@ -42,6 +42,31 @@
                         "name": "Jeremy",
                         "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
                     }
+                }
+            },
+            "tokensAwarded": {
+                "type": "Tokens Awarded",
+                "name": "New Tokens Awarded",
+                "project": "Governance",
+                "id": "208f866a-459d-4dd8-93ea-1a2b8bfa3dac",
+                "savedPayload": {
+                    "position": {
+                        "x": 25402.453344456477,
+                        "y": 23736.137373225112
+                    },
+                    "targetPosition": {
+                        "x": 25233.45732703739,
+                        "y": 23488.265740930314
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {}
                 }
             },
             "id": "a9ddce61-97b0-47e8-ad6c-e9438aca3913",
@@ -208,7 +233,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         "id": "86a8ca4c-76d4-4eb0-9acb-5650095c6667",

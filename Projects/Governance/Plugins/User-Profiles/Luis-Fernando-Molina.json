@@ -21,8 +21,8 @@
                 "id": "c96ae419-54ad-4d70-94fe-38833288d471",
                 "savedPayload": {
                     "position": {
-                        "x": 30785.098889480818,
-                        "y": 23025.90611888476
+                        "x": 30660.151752050326,
+                        "y": 22933.690934849117
                     },
                     "targetPosition": {
                         "x": 30550.54944474041,
@@ -42,6 +42,31 @@
                         "name": "Julian-Molina",
                         "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
                     }
+                }
+            },
+            "tokensAwarded": {
+                "type": "Tokens Awarded",
+                "name": "New Tokens Awarded",
+                "project": "Governance",
+                "id": "56ac3eb9-2d72-4a8d-99bc-3221819ce995",
+                "savedPayload": {
+                    "position": {
+                        "x": 30847.198692607948,
+                        "y": 23168.240379589526
+                    },
+                    "targetPosition": {
+                        "x": 30550.54944474041,
+                        "y": 23212.953059442378
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {}
                 }
             },
             "id": "43a24543-03cf-4511-b670-63566159dbd7",
@@ -1473,7 +1498,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",

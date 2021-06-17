@@ -156,9 +156,9 @@ function newGovernanceFunctionLibraryUserReferrals() {
             if (referralProgram === undefined || referralProgram.payload === undefined) { return }
             /*
             Here we will convert Token Power into Referral Power. 
-            As per system rules referringPower = tokensPower / 10
+            As per system rules referringPower = tokensPower
             */
-            let referringPower = referralProgram.payload.tokenPower / 10
+            let referringPower = referralProgram.payload.tokenPower
             /*
             We will also reseet the count of referrals here.
             */
@@ -241,12 +241,41 @@ function newGovernanceFunctionLibraryUserReferrals() {
         }
 
         function calculateForReferralProgram(referralProgram) {
+            /*
+            Here we will calculate which share of the Referral Program Pool this user will get in tokens.
+            To do that, we use the incomingPower, to se which proportion of the accumulatedIncomingReferralPower
+            represents.
+            */
             if (referralProgram.payload === undefined) { return }
+            /*
+            If the accumulatedIncomingReferralPower is not grater the amount of tokens at the Referral Program Pool, then
+            this user will get the exact amount of tokens from the pool as incomingPower he has. 
 
-            let totalPowerRewardRatio = referralProgramPoolTokenReward / accumulatedIncomingReferralPower
+            If the accumulatedIncomingReferralPower is  grater the amount of tokens at the Referral Program Pool, then
+            the amount ot tokens to be received is a proportional to the share of incomingPower in accumulatedIncomingReferralPower.
+            */
+            let totalPowerRewardRatio = accumulatedIncomingReferralPower / referralProgramPoolTokenReward
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
+            if (referralProgram.tokensAwarded === undefined || referralProgram.tokensAwarded.payload === undefined) {
+                referralProgram.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Referral Program Pool.")
+                return
+            }
             referralProgram.payload.referrals.awarded.tokens = referralProgram.payload.referrals.incomingPower * totalPowerRewardRatio
+            /*
+            As per the system rules, the Referral Program will not give tokens to users that do not ha their own Referrer set up,
+            unless it has a big amount of tokens (this last condition is for the edge case where a user it at the top of the 
+            referral pyramid.)        
+            */
+            if (
+                referralProgram.payload.referrals.ownPower < 1000000 &&
+                (referralProgram.userReferrer === undefined || referralProgram.userReferrer.payload.referenceParent === undefined)
+            ) {
+
+                referralProgram.payload.uiObject.setErrorMessage("In order to be awarded " + referralProgram.payload.referrals.awarded.tokens + " SA Tokens from your referrals, you need first to define yourself who your referrer is.")
+                referralProgram.payload.referrals.awarded.tokens = 0
+            }
+
             drawReferralProgram(referralProgram)
         }
 
@@ -274,30 +303,16 @@ function newGovernanceFunctionLibraryUserReferrals() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus("Referring Power = Token Power / 10")
+                node.payload.uiObject.setStatus("Referring Power = Token Power")
+            }
+            if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                return
+                const tokensAwardedText = new Intl.NumberFormat().format(node.payload.referrals.awarded.tokens)
 
-                if (
-                    (
-                        node.userReferrer !== undefined &&
-                        node.userReferrer.payload !== undefined &&
-                        node.userReferrer.payload.referenceParent !== undefined)
-                    ||
-                    node.payload.referrals.outgoingPower >= 10000000
-                ) {
-                    let status =
-                        powerText + ' ' + 'Combined Referring Power' + ' - ' +
-                        node.payload.referrals.count + ' Referrals' + ' - ' +
-                        referralPower + ' Referrals Power' + ' - ' +
-                        awardedTokens + ' ' + 'SA Tokens Awarded'
+                node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
+                node.tokensAwarded.payload.uiObject.statusAtAngle = false
 
-                    node.payload.uiObject.setStatus(status)
-                    return
-                } else {
-                    node.payload.referrals.awarded.tokens = 0
-                    node.payload.uiObject.setStatus(awardedTokens + ' SA Tokens not Awarded, because you have not defined your referrer yet.')
-                }
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
             }
         }
     }

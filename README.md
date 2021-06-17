@@ -1,8 +1,10 @@
-# Superalgos Beta 10 - Getting Started Guide
+# Superalgos Beta 10
 
 Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) token</a> to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
-Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
+Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. 
+
+> Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 

@@ -52,7 +52,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.utilities.nodeConfig.savePropertyAtNodeConfig(node.payload,'showPanels', true)"
+            "text": "UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload,'showPanels', true)"
         },
         {
             "style": "Text",

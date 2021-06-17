@@ -13,6 +13,10 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
 
+        UI.projects.governance.functionLibraries.tokenPower.calculate(
+            userProfiles
+        )
+
         UI.projects.governance.functionLibraries.votes.calculate(
             pools,
             features,

@@ -11,7 +11,7 @@ function newEthereumFunctionLibraryAccounts() {
 
         let params = {
             method: 'createWalletAccount',
-            entropy: walletAccountNode.id
+            entropy: walletAccountNode.id + (new Date()).valueOf()
         }
 
         let url = 'WEB3' // we don't need to ask this to any specific superalgos node.

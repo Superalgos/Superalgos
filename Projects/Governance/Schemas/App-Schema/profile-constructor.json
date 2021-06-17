@@ -1,5 +1,5 @@
 {
-    "type": "User Referrer",
+    "type": "Profile Constructor",
     "menuItems": [
         {
             "action": "Configure",
@@ -7,6 +7,16 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
+        },
+        {
+            "action": "Build Profile",
+            "actionProject": "Governance", 
+            "label": "Build Profile",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction"
         },
         {
             "action": "Delete UI Object",
@@ -19,22 +29,16 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "title": [
-        "Use Reference Parent"
-    ],
+    "isHierarchyHead": true,
     "editors": {
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{ \"githubUsername\": \"\"}"
     },
     "addLeftIcons": true,
     "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Referral Program->"
-    },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
-    },
-    "propertyNameAtParent": "userReferrer"
+    }
 }

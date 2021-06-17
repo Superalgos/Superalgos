@@ -42,7 +42,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Contribution Claims->Asset Contributions Folder->"
+        "compatibleTypes": "->Claims Program->Asset Contributions Folder->"
     },
     "propertyNameAtParent": "assetContributionsFolder",
     "childrenNodesProperties": [

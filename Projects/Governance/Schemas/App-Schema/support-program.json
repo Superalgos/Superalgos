@@ -1,5 +1,5 @@
 {
-    "type": "Position Contributions Folder",
+    "type": "Support Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,15 +12,17 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position Contributions Folder",
-            "relatedUiObject": "Position Contributions Folder"
+            "label": "Add User Support",
+            "relatedUiObject": "User Support"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position Contribution Claim",
-            "relatedUiObject": "Position Contribution Claim"
+            "label": "Add Tokens Awarded",
+            "relatedUiObject": "Tokens Awarded"
         },
         {
             "action": "Delete UI Object",
@@ -39,24 +41,24 @@
     "initialValues": {
         "config": "{}"
     },
-    "addLeftIcons": true,
-    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Claims Program->Position Contributions Folder->"
+        "compatibleTypes": "->Token Switch->"
     },
-    "propertyNameAtParent": "positionContributionsFolder",
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "supportProgram",
     "childrenNodesProperties": [
         {
-            "name": "positionContributionsFolder",
+            "name": "userSupports",
             "type": "array",
-            "childType": "Position Contributions Folder",
+            "childType": "User Support",
             "autoAdd": false
         },
         {
-            "name": "positionContributionClaims",
-            "type": "array",
-            "childType": "Position Contribution Claim",
-            "autoAdd": false
+            "name": "tokensAwarded",
+            "type": "node",
+            "childType": "Tokens Awarded",
+            "autoAdd": true
         }
     ]
 }

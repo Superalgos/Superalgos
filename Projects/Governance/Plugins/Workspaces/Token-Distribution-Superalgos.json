@@ -198,9 +198,9 @@
             "name": "Julian-Molina",
             "config": "{\n    \"codeName\": \"\",\n    \"tokens\": 500000\n}",
             "project": "Governance",
-            "contributionClaims": {
-                "type": "Contribution Claims",
-                "name": "New Contribution Claims",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
                 "config": "{}",
                 "project": "Governance",
                 "assetContributionsFolder": [
@@ -385,9 +385,9 @@
                     }
                 }
             },
-            "votesDistribution": {
-                "type": "Votes Distribution",
-                "name": "New Votes Distribution",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
                 "config": "{\n\"codeName\": \"\"\n}",
                 "project": "Governance",
                 "votesSwitch": [

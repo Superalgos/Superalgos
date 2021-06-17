@@ -1,5 +1,5 @@
 {
-    "type": "Votes Switch",
+    "type": "Claims Program",
     "menuItems": [
         {
             "action": "Configure",
@@ -9,41 +9,34 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Votes",
-            "actionProject": "Governance",
-            "actionFunction": "payload.executeAction",
-            "label": "Install Votes",
-            "relatedUiObject": "Weight Votes Switch",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "label": "Add Asset Contributions Folder",
+            "relatedUiObject": "Asset Contributions Folder",
+            "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Votes Switch",
-            "relatedUiObject": "Votes Switch"
+            "label": "Add Feature Contributions Folder",
+            "relatedUiObject": "Feature Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Claim Votes Switch",
-            "relatedUiObject": "Claim Votes Switch"
+            "label": "Add Position Contributions Folder",
+            "relatedUiObject": "Position Contributions Folder"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokensAwarded",
             "actionFunction": "payload.executeAction",
-            "label": "Add Weight Votes Switch",
-            "relatedUiObject": "Weight Votes Switch"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "label": "Add User Profile Votes Switch",
-            "relatedUiObject": "User Profile Votes Switch"
+            "label": "Add Tokens Awarded",
+            "relatedUiObject": "Tokens Awarded"
         },
         {
             "action": "Delete UI Object",
@@ -62,36 +55,36 @@
     "initialValues": {
         "config": "{}"
     },
-    "addLeftIcons": true,
-    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Voting Program->Votes Switch->"
+        "compatibleTypes": "->Token Switch->"
     },
-    "propertyNameAtParent": "votesSwitch",
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "claimsProgram",
     "childrenNodesProperties": [
         {
-            "name": "votesSwitch",
+            "name": "assetContributionsFolder",
             "type": "array",
-            "childType": "Votes Switch",
+            "childType": "Asset Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "claimVotesSwitch",
+            "name": "featureContributionsFolder",
             "type": "array",
-            "childType": "Claim Votes Switch",
+            "childType": "Feature Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "weightVotesSwitch",
+            "name": "positionContributionsFolder",
             "type": "array",
-            "childType": "Weight Votes Switch",
+            "childType": "Position Contributions Folder",
             "autoAdd": false
         },
         {
-            "name": "userProfileVotesSwitch",
-            "type": "array",
-            "childType": "User Profile Votes Switch",
-            "autoAdd": false
+            "name": "tokensAwarded",
+            "type": "node",
+            "childType": "Tokens Awarded",
+            "autoAdd": true
         }
     ]
 }

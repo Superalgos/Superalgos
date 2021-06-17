@@ -41,11 +41,23 @@ function newGovernanceFunctionLibraryVotes() {
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            resetVotes(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram.payload === undefined) { continue }
+
+            resetVotes(userProfile.tokenSwitch.votingProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeForProfile(userProfile)
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenSwitch.votingProgram.payload === undefined) { continue }
+
+            userProfile.tokenSwitch.votingProgram.payload.votes = userProfile.tokenSwitch.votingProgram.payload.tokenPower
+
+            distributeForVotingProgram(userProfile.tokenSwitch.votingProgram)
         }
 
         function resetVotes(node) {
@@ -89,11 +101,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 resetVotes(childNode)
                             }
@@ -114,9 +126,10 @@ function newGovernanceFunctionLibraryVotes() {
             }
         }
 
-        function distributeForProfile(userProfile) {
-            let votes = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
-            distributeVotes(userProfile, votes)
+        function distributeForVotingProgram(votingProgram) {
+            if (votingProgram.payload === undefined) { return }
+            let votes = votingProgram.payload.votes
+            distributeVotes(votingProgram, votes)
         }
 
         function distributeVotes(node, votes, switchPercentage) {
@@ -169,11 +182,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
@@ -217,11 +230,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
@@ -255,7 +268,16 @@ function newGovernanceFunctionLibraryVotes() {
         function drawVotes(node, votes, percentage) {
             votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
             if (node.payload !== undefined) {
-                if (node.type === 'User Profile') {
+
+                if (node.type === 'Voting Program') {
+                    node.payload.uiObject.statusAngleOffset = 0
+                    node.payload.uiObject.statusAtAngle = false
+
+                    node.payload.uiObject.setStatus("Votes = Tokens Power")
+
+                    if (percentage !== undefined) {
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    }
                     return
                 }
                 if (
@@ -273,9 +295,13 @@ function newGovernanceFunctionLibraryVotes() {
                 ) {
                     node.payload.uiObject.valueAngleOffset = 0
                     node.payload.uiObject.valueAtAngle = false
+                    node.payload.uiObject.percentageAngleOffset = 0
+                    node.payload.uiObject.percentageAtAngle = false
                 } else {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
                 }
 
                 node.payload.uiObject.setValue(votes)

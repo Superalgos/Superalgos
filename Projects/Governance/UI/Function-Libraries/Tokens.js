@@ -71,7 +71,7 @@ function newGovernanceFunctionLibraryTokens() {
 
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'Pools' && property.name === "votesDistribution") {
+                        if (node.type === 'Pools' && property.name === "votingProgram") {
                             let childNode = node[property.name]
                             resetTokenFlow(childNode)
                         }
@@ -142,7 +142,7 @@ function newGovernanceFunctionLibraryTokens() {
 
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'Pools' && property.name === "votesDistribution") {
+                        if (node.type === 'Pools' && property.name === "votingProgram") {
                             let childNode = node[property.name]
                             distributeTokens(childNode, tokens)
                         }

@@ -6,6 +6,8 @@ exports.newWeb3Server = function newWeb3Server() {
         getNetworkClientStatus: getNetworkClientStatus,
         createWalletAccount: createWalletAccount,
         getWalletBalances: getWalletBalances,
+        signData: signData,
+        recoverAddress: recoverAddress,
         initialize: initialize,
         finalize: finalize,
         run: run
@@ -56,7 +58,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 return status
             }
         } catch (err) {
-            return { error: 'Could not connect to ' + key + '. ' + err.message + '.' }
+            return { error: 'Could not connect to ' + key + '. ' + err.stack + '.' }
         }
     }
 
@@ -73,7 +75,7 @@ exports.newWeb3Server = function newWeb3Server() {
             }
 
         } catch (err) {
-            return { error: 'Could not create the account. ' + err.message }
+            return { error: 'Could not create the account. ' + err.stack }
         }
     }
 
@@ -116,22 +118,22 @@ exports.newWeb3Server = function newWeb3Server() {
                     for (let j = 0; j < walletAccount.tokenBalances.length; j++) {
                         let tokenBalance = walletAccount.tokenBalances[j]
 
-                        if (tokenBalance.referenceParent === undefined) { continue }  
-                        if (tokenBalance.referenceParent.parentNode === undefined) { continue } 
-                        if (tokenBalance.referenceParent.smartContracts === undefined) { continue } 
+                        if (tokenBalance.referenceParent === undefined) { continue }
+                        if (tokenBalance.referenceParent.parentNode === undefined) { continue }
+                        if (tokenBalance.referenceParent.smartContracts === undefined) { continue }
 
                         if (tokenBalance.referenceParent.config.codeName === undefined) {
                             tokenBalance.error = 'Reference Parent without config.codeName defined.'
                             continue
-                        }  
+                        }
 
                         if (tokenBalance.referenceParent.smartContracts.config.address === undefined) {
                             tokenBalance.error = 'Reference Parent Smart Contract without config.address defined.'
                             continue
-                        } 
+                        }
 
                         let tokenContractAddress = tokenBalance.referenceParent.smartContracts.config.address
-                         // The minimum ABI to get ERC20 Token balance
+                        // The minimum ABI to get ERC20 Token balance
                         let minABI = [
                             // balanceOf
                             {
@@ -152,8 +154,8 @@ exports.newWeb3Server = function newWeb3Server() {
                         ];
 
                         let contract = new web3.eth.Contract(minABI, tokenContractAddress);
-                         
-                        try { 
+
+                        try {
                             tokenBalance.value = await contract.methods.balanceOf(walletAccount.config.address).call()
                         } catch (err) {
                             if (err.message.indexOf('Provided address') >= 0) {
@@ -170,7 +172,7 @@ exports.newWeb3Server = function newWeb3Server() {
                 return responseData
             }
         } catch (err) {
-            return { error: 'Could not connect to ' + key + '. ' + err.message + '.' }
+            return { error: 'Could not connect to ' + key + '. ' + err.stack + '.' }
         }
     }
 
@@ -200,6 +202,41 @@ exports.newWeb3Server = function newWeb3Server() {
                 web3Map.set(key, web3)
                 return web3
             }
+        }
+    }
+
+    async function signData(privateKey, data) {
+        try {
+
+            let web3 = new Web3()
+            let signature = web3.eth.accounts.sign(data, privateKey)
+
+            return {
+                signature: signature,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not sign the data. ' + err.stack }
+        }
+    }
+
+    async function recoverAddress(signature) {
+        try {
+
+            console.log("STRING:", signature)
+            let signatureObject = JSON.parse(signature)
+            console.log("OBJECT:", signatureObject)
+            let web3 = new Web3()
+            let address = web3.eth.accounts.recover(signatureObject)
+
+            return {
+                address: address,
+                result: 'Ok'
+            }
+
+        } catch (err) {
+            return { error: 'Could not recover address. ' + err.stack }
         }
     }
 }

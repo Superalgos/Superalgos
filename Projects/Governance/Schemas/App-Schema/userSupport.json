@@ -1,5 +1,5 @@
 {
-    "type": "User Referrer",
+    "type": "User Support",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,10 +31,10 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->"
+        "compatibleTypes": "->support Program->"
     },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userReferrer"
+    "propertyNameAtParent": "userSupports"
 }

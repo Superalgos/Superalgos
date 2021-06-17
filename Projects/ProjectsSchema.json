@@ -964,6 +964,11 @@
                     "functionName": "newGovernanceFunctionLibraryAssets"
                 },
                 {
+                    "name": "TokenPower",
+                    "propertyName": "tokenPower",
+                    "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
                     "name": "Votes",
                     "propertyName": "votes",
                     "functionName": "newGovernanceFunctionLibraryVotes"
@@ -997,6 +1002,11 @@
                     "name": "User Referrals",
                     "propertyName": "userrReferrals",
                     "functionName": "newGovernanceFunctionLibraryUserReferrals"
+                },
+                {
+                    "name": "Profile Constructor",
+                    "propertyName": "profileConstructor",
+                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
                 }
             ],
             "utilities": [],

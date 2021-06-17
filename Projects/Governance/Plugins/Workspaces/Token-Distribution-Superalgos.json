@@ -194,309 +194,6 @@
             }
         },
         {
-            "type": "User Profile",
-            "name": "Julian-Molina",
-            "config": "{\n    \"codeName\": \"\",\n    \"tokens\": 500000\n}",
-            "project": "Governance",
-            "claimsProgram": {
-                "type": "Claims Program",
-                "name": "New Claims Program",
-                "config": "{}",
-                "project": "Governance",
-                "assetContributionsFolder": [
-                    {
-                        "type": "Asset Contributions Folder",
-                        "name": "Tutorials",
-                        "config": "{}",
-                        "project": "Governance",
-                        "assetContributionsFolder": [
-                            {
-                                "type": "Asset Contributions Folder",
-                                "name": "Tutorials Created",
-                                "config": "{}",
-                                "project": "Governance",
-                                "assetContributionsFolder": [],
-                                "assetContributionClaims": [
-                                    {
-                                        "type": "Asset Contribution Claim",
-                                        "name": "",
-                                        "config": "{\n  \"description\": \"\"\n}",
-                                        "project": "Governance",
-                                        "id": "b62215fd-405b-4b81-a446-d667de2fd23b",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 26082.78190893733,
-                                                "y": 22758.100619195047
-                                            },
-                                            "targetPosition": {
-                                                "x": 25822.974287801997,
-                                                "y": 22908.100619195047
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {},
-                                            "referenceParent": {
-                                                "type": "Asset",
-                                                "name": "Getting Started Tutorial",
-                                                "id": "6c3f251e-cb80-42b7-935b-23bcbe218f97"
-                                            }
-                                        }
-                                    }
-                                ],
-                                "id": "30c01eef-80cf-4fb8-9231-af6694be0af9",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 25822.974287801997,
-                                        "y": 22908.100619195047
-                                    },
-                                    "targetPosition": {
-                                        "x": 25563.166666666664,
-                                        "y": 23058.100619195047
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Asset Contributions Folder",
-                                "name": "Tutorials Mantainance",
-                                "config": "{}",
-                                "project": "Governance",
-                                "assetContributionsFolder": [],
-                                "assetContributionClaims": [
-                                    {
-                                        "type": "Asset Contribution Claim",
-                                        "name": "",
-                                        "config": "{\n  \"description\": \"\"\n}",
-                                        "project": "Governance",
-                                        "id": "4a841aaa-0730-4783-91be-87d718ee4e15",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 26082.78190893733,
-                                                "y": 23358.100619195047
-                                            },
-                                            "targetPosition": {
-                                                "x": 25822.974287801997,
-                                                "y": 23208.100619195047
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {},
-                                            "referenceParent": {
-                                                "type": "Asset",
-                                                "name": "Getting Started Tutorial",
-                                                "id": "6c3f251e-cb80-42b7-935b-23bcbe218f97"
-                                            }
-                                        }
-                                    }
-                                ],
-                                "id": "03cd14ee-432e-4c7c-b2b0-79dc24d07820",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 25822.974287801997,
-                                        "y": 23208.100619195047
-                                    },
-                                    "targetPosition": {
-                                        "x": 25563.166666666664,
-                                        "y": 23058.100619195047
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            }
-                        ],
-                        "assetContributionClaims": [],
-                        "id": "9318707a-afa0-4c84-8028-473eb448f96b",
-                        "savedPayload": {
-                            "position": {
-                                "x": 25563.166666666664,
-                                "y": 23058.100619195047
-                            },
-                            "targetPosition": {
-                                "x": 25263.166666666664,
-                                "y": 23058.100619195047
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
-                "featureContributionsFolder": [],
-                "positionContributionsFolder": [],
-                "id": "43a4118b-fc68-46a9-a7d8-fa4baafa5ad6",
-                "savedPayload": {
-                    "position": {
-                        "x": 25263.166666666664,
-                        "y": 23058.100619195047
-                    },
-                    "targetPosition": {
-                        "x": 24963.166666666664,
-                        "y": 23058.100619195047
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "votingProgram": {
-                "type": "Voting Program",
-                "name": "New Voting Program",
-                "config": "{\n\"codeName\": \"\"\n}",
-                "project": "Governance",
-                "votesSwitch": [
-                    {
-                        "type": "Votes Switch",
-                        "name": "Test",
-                        "config": "{\n  \"description\": \"\"\n}",
-                        "project": "Governance",
-                        "votesSwitch": [],
-                        "claimVotesSwitch": [],
-                        "weightVotesSwitch": [],
-                        "userProfileVotesSwitch": [],
-                        "id": "f4127f8b-eb94-4e5e-aea9-71ea43ba5b5b",
-                        "savedPayload": {
-                            "position": {
-                                "x": 24663.166666666664,
-                                "y": 23577.715861465713
-                            },
-                            "targetPosition": {
-                                "x": 24813.166666666664,
-                                "y": 23317.90824033038
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
-                "id": "84b2e7e0-577a-4edc-98fd-003905decb99",
-                "savedPayload": {
-                    "position": {
-                        "x": 24813.166666666664,
-                        "y": 23317.90824033038
-                    },
-                    "targetPosition": {
-                        "x": 24963.166666666664,
-                        "y": 23058.100619195047
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "userReferrer": {
-                "type": "User Referrer",
-                "name": "",
-                "config": "{\n  \"description\": \"\"\n}",
-                "project": "Governance",
-                "id": "edf7bcda-23f6-49bb-b9b2-9a34edcb4a40",
-                "savedPayload": {
-                    "position": {
-                        "x": 24813.166666666664,
-                        "y": 22798.292998059715
-                    },
-                    "targetPosition": {
-                        "x": 24963.166666666664,
-                        "y": 23058.100619195047
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {}
-                }
-            },
-            "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11",
-            "savedPayload": {
-                "position": {
-                    "x": 24963.166666666664,
-                    "y": 23058.100619195047
-                },
-                "targetPosition": {
-                    "x": 24963.166666666664,
-                    "y": 23058.100619195047
-                },
-                "floatingObject": {
-                    "isPinned": false,
-                    "isFrozen": false,
-                    "isCollapsed": true,
-                    "angleToParent": 1,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        },
-        {
             "type": "Positions",
             "name": "Superalgos",
             "project": "Governance",
@@ -1172,8 +869,36 @@
                                 "id": "8d15645e-8cdf-4aba-a8d0-e8a4aeeae35f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\"}",
+                                "project": "Foundations",
+                                "id": "d13c2f5a-b48c-4c67-ae0a-c5c49c27868b",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,

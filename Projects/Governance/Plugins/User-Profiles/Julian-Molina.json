@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Julian-Molina",
-    "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x10184d43fb7d1d78250be4b393f776a2577cac64e4c16b991e241ffa0efaf461\",\n        \"s\": \"0x17416d7a714bc692d546c3c25e8019e4aa1fb7c739d850cbf2c82219612639f4\",\n        \"signature\": \"0x10184d43fb7d1d78250be4b393f776a2577cac64e4c16b991e241ffa0efaf46117416d7a714bc692d546c3c25e8019e4aa1fb7c739d850cbf2c82219612639f41c\"\n    }\n}",
+    "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\n        \"s\": \"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\n        \"signature\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"\n    }\n}",
     "project": "Governance",
     "tokenSwitch": {
         "type": "Token Switch",
@@ -274,7 +274,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

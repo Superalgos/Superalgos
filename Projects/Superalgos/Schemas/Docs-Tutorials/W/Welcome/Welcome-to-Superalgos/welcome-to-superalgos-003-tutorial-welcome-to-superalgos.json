@@ -26,6 +26,11 @@
                 "text": "Sono un tutorial interattivo, il primo di una serie progettata per rendere più facile la tua introduzione a Superalgos e per insegnarti tutti i concetti base!",
                 "updated": 1614711302828,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Je suis un tutorial interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques !",
+                "updated": 1623944615774
             }
         ]
     },

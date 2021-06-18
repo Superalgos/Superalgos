@@ -1,5 +1,4 @@
 const { execSync } = require("child_process");
-const      os      = require("os"); 
 
 const npmNeededVersion = '5'
 const nodeNeededVersion = '12'

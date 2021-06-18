@@ -6,7 +6,7 @@
         "code": true
     },
     "initialValues": {
-        "code": "// Type you code"
+        "code": "// Type your code"
     },
     "attachingRules": {
         "compatibleTypes": "->Condition->User Defined Code->"

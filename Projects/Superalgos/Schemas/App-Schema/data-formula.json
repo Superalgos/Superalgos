@@ -6,7 +6,7 @@
         "formula": true
     },
     "initialValues": {
-        "code": "// Type you code"
+        "code": "// Type your code"
     },
     "attachingRules": {
         "compatibleTypes": "->Panel Data->"

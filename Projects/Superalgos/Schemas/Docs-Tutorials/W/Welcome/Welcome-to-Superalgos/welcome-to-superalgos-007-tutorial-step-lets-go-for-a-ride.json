@@ -26,6 +26,11 @@
                 "text": "Prima che ti mostri il resto del menu, diamo un'occhiata un'altra gerarchia: il Network.",
                 "updated": 1614717275389,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
+                "updated": 1623951418764
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "La gerarchia Network é il centro di controllo del sistema. Qui puoi controllare i Data Tasks, i Testing Trading Tasks e i Production Trading Tasks.",
                     "updated": 1614717446087,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
+                    "updated": 1623952138963
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Espandi la gerarchia e dacci un occhiata!",
                     "updated": 1614717504312,
                     "style": "Callout"
+                },
+                {
+                    "language": "FR",
+                    "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
+                    "updated": 1623952177269
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "Hai visto i nodi di cui parlavo prima? Forte! Siamo qui per iniziare la nostra prima operazione di data mining.",
                     "updated": 1618645279020,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
+                    "updated": 1623952241074
                 }
             ]
         },
@@ -118,6 +138,11 @@
                     "text": "Pero antes de empezar, tengo una pregunta para ti, estas accediendo al cliete de forma remota? ",
                     "updated": 1618432190261,
                     "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Mais avant de commencer, j'ai une petite question pour vous : accédez-vous au Client a distance?",
+                    "updated": 1623952297046
                 }
             ]
         }

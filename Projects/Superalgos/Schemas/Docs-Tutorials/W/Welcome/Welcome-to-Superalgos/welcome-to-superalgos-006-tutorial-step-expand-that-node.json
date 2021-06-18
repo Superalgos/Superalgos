@@ -26,6 +26,11 @@
                 "text": "Ogni nodo ha un menu. Il bottone in basso a sinistra espande o comprime la struttura dei nodi sotto il nodo corrente.",
                 "updated": 1614713202090,
                 "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Chaque nœud dispose d'un menu. Le bouton situé en bas à gauche permet de développer et de réduire la structure des nœuds situés sous le nœud actuel.",
+                "updated": 1623951244249
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "text": "Prova a cliccare il bottone per espandere!",
                     "updated": 1614713217883,
                     "style": "Callout"
+                },
+                {
+                    "language": "FR",
+                    "text": "Allez-y et cliquez sur le bouton d'expansion !",
+                    "updated": 1623951533708
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "text": "Il nodo Tutorial ha diversi discendenti, e questi ne hanno altri a loro volta. Ecco perché é una gerarchia!",
                     "updated": 1614713286305,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Le noeud Tutorial contient plusieurs ramifications, et celles-ci possedent a leur tour plusieurs autres ramifications. C'est pourquoi il s'agit d'une hiérarchie !",
+                    "updated": 1623951690741
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "text": "Le rappresentazioni visive strutturate di informazioni sono la chiave di come Superalgos gestisce operazioni di trading complesse, flessibili e scalabili.",
                     "updated": 1614717222097,
                     "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Les représentations visuelles structurées de l'information sont au cœur de la manière dont Superalgos gère la complexité qui sous-tend les opérations de trading flexibles et évolutives.",
+                    "updated": 1623951745486
                 }
             ]
         }

@@ -29,8 +29,8 @@
             },
             {
                 "language": "FR",
-                "text": "Je suis un tutorial interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques !",
-                "updated": 1623944615774
+                "text": "Je suis un tutoriel interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques!",
+                "updated": 1623946542352
             }
         ]
     },
@@ -56,6 +56,11 @@
                     "text": "Ti farò un'introduzione, mostrandoti gli strumenti che ti aiuteranno a prendere confidenza, e ti aiuterò a scoprire tutte le cose grandiose che Superalgos può fare per te.",
                     "updated": 1614711533001,
                     "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Je vais vous aider à démarrer, en vous montrant les outils qui vous aideront à vous déplacer facilement, et vous aider à découvrir toutes les choses que Superalgos vous faciliter.",
+                    "updated": 1623945805888
                 }
             ]
         },
@@ -80,6 +85,11 @@
                     "text": "Sono lo strumento definitivo per scoprire Superalgos! Avventurarti alla sua scoperta in qualsiasi altro modo é un errore: nessun altro strumento ti aiuterà a farlo più in fretta. Ti assicuro che risponderò alla maggior parte delle tue domande!",
                     "updated": 1614711851139,
                     "style": "Callout"
+                },
+                {
+                    "language": "FR",
+                    "text": "Les tutoriels sont l'ultime outil d'initiation à Superalgos ! Commencer à utiliser Superalgos d'une autre manière serait une erreur, car aucune autre ressource ne vous permettra d'être opérationnel plus rapidement. Nous vous recommandons de suivre tous les tutoriels avant d'essayer de mettre en œuvre vos propres idées !",
+                    "updated": 1623946050005
                 }
             ],
             "updated": 1616410377766
@@ -105,6 +115,11 @@
                     "text": "Premi sempre Next per continuare!",
                     "updated": 1614711933264,
                     "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "S'il vous plaît, cliquez toujours sur Suivant pour continuer !",
+                    "updated": 1623950092303
                 }
             ]
         }

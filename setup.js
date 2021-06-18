@@ -1,6 +1,10 @@
 const path = require("path");
 const process = require("process");
 const { exec } = require("child_process");
+const systemCheck = require('./Launch-Scripts/system-check')
+
+// Check system is set up correctly 
+systemCheck();
 
 // Handle adding shortcuts
 if (process.argv.includes("noShortcuts")) {

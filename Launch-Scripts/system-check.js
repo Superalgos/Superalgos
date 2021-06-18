@@ -18,20 +18,25 @@ function systemCheck () {
 
         // Check needed versions against those that are installed
         if ( npmVersion[0] < npmNeededVersion ) {
-            console.log("ERROR: the version of npm you have installed is out of date. Please update your installation of npm and try again.")
-            process.exit()
+            console.log('');
+            console.log("ERROR: the version of npm you have installed is out of date. Please update your installation of npm and try again.");
+            console.log('');
+            process.exit();
         }
         
         if ( nodeVersion[0] < nodeNeededVersion ) {
-            console.log("ERROR: the version of node you have installed is out of date. Please update your installation of node and try again.")
-            process.exit()
+            console.log('');
+            console.log("ERROR: the version of node you have installed is out of date. Please update your installation of node and try again.");
+            console.log('');
+            process.exit();
         }
 
         if ( gitVersion[0] < gitNeededVersion ) {
-            console.log("ERROR: the version of git you have installed is out of date. Please update your installation of git and try again.")
-            process.exit()
+            console.log('');
+            console.log("ERROR: the version of git you have installed is out of date. Please update your installation of git and try again.");
+            console.log('');
+            process.exit();
         }
-  
     
     } catch (error) {
         console.log('');

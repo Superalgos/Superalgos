@@ -32,7 +32,7 @@
         },
         {
             "style": "Callout",
-            "text": "Monitor the processes for all indicators in the Sparta and Masters data mines. When all of them reach 100%, then stop the data mining operation and click Next to continue.",
+            "text": "Monitor the processes for all indicators in the Sparta and Masters data mines. When all of them reach 100%, stop the data mining operation and click Next to continue.",
             "translations": [
                 {
                     "language": "DE",

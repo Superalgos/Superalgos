@@ -1,7 +1,7 @@
 function newGovernanceFunctionLibraryClaims() {
     let thisObject = {
         calculate: calculate,
-        installClaims: installClaims
+        installMissingClaims: installMissingClaims
     }
 
     return thisObject
@@ -257,10 +257,10 @@ function newGovernanceFunctionLibraryClaims() {
         }
     }
 
-    function installClaims(node, rootNodes) {
+    function installMissingClaims(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage('To install claims you need a Reference Parent')
+            node.payload.uiObject.setErrorMessage('To Install Missing Claims you need a Reference Parent')
             return
         }
         scanNodeBranch(node, node.payload.referenceParent)
@@ -289,16 +289,12 @@ function newGovernanceFunctionLibraryClaims() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                            let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                            if (
-                                destinationNodeChild.type === 'Asset' ||
-                                destinationNodeChild.type === 'Feature' ||
-                                destinationNodeChild.type === 'Position'
-                            ) {
-                                originNodeChild.payload.referenceParent = destinationNodeChild
+                            if (originNodeChild === undefined) {
+                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-
+                            originNodeChild.payload.referenceParent = destinationNodeChild
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -310,16 +306,12 @@ function newGovernanceFunctionLibraryClaims() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                    let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                                    if (
-                                        destinationNodeChild.type === 'Asset' ||
-                                        destinationNodeChild.type === 'Feature' ||
-                                        destinationNodeChild.type === 'Position'
-                                    ) {
-                                        originNodeChild.payload.referenceParent = destinationNodeChild
+                                    if (originNodeChild === undefined) {
+                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-
+                                    originNodeChild.payload.referenceParent = destinationNodeChild
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }

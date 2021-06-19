@@ -1514,19 +1514,161 @@
             "name": "New Claims Program",
             "config": "{}",
             "project": "Governance",
-            "assetContributionsFolder": [
+            "assetContributionsFolder": [],
+            "featureContributionsFolder": [
                 {
-                    "type": "Asset Contributions Folder",
-                    "name": "New Asset Contributions Folder",
+                    "type": "Feature Contributions Folder",
+                    "name": "Superalgos Feature Class",
                     "config": "{}",
                     "project": "Governance",
-                    "assetContributionsFolder": [],
-                    "assetContributionClaims": [],
-                    "id": "182c7646-a839-4a71-84b7-3bf154b93371",
+                    "featureContributionsFolder": [
+                        {
+                            "type": "Feature Contributions Folder",
+                            "name": "Visual Debugger Feature Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureContributionsFolder": [],
+                            "featureContributionClaims": [],
+                            "id": "842754e5-a050-40dd-b9dc-e799df666dfe",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 34699.91303591268,
+                                    "y": 38376.04719845434
+                                },
+                                "targetPosition": {
+                                    "x": 34546.043252690906,
+                                    "y": 38118.51256037378
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Feature Class",
+                                    "name": "Visual Debugger",
+                                    "id": "0e329071-a542-405f-ae8c-2933098759c1"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Feature Contributions Folder",
+                            "name": "Charting System Feature Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureContributionsFolder": [],
+                            "featureContributionClaims": [],
+                            "id": "d9c25551-bcfd-459a-a773-e073f414438c",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 34348.66163490899,
+                                    "y": 38344.434000174864
+                                },
+                                "targetPosition": {
+                                    "x": 34546.043252690906,
+                                    "y": 38118.51256037378
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Feature Class",
+                                    "name": "Charting System",
+                                    "id": "7edc83c0-74fc-4427-816d-4db5d840577f"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Feature Contributions Folder",
+                            "name": "Data Mining Feature Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureContributionsFolder": [],
+                            "featureContributionClaims": [],
+                            "id": "ebad23ed-1a02-4edf-a9d7-fc4b2fd0dacb",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 34270.18492092547,
+                                    "y": 38000.60505087761
+                                },
+                                "targetPosition": {
+                                    "x": 34546.043252690906,
+                                    "y": 38118.51256037378
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Feature Class",
+                                    "name": "Data Mining",
+                                    "id": "025c0e15-ad8d-49ae-b501-577bb82c207d"
+                                }
+                            }
+                        },
+                        {
+                            "type": "Feature Contributions Folder",
+                            "name": "Visual Designer Feature Class",
+                            "config": "{}",
+                            "project": "Governance",
+                            "featureContributionsFolder": [],
+                            "featureContributionClaims": [],
+                            "id": "942d8eea-3303-4d6f-af60-374e59cf715d",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 34572.93504536193,
+                                    "y": 37819.72027217521
+                                },
+                                "targetPosition": {
+                                    "x": 34546.043252690906,
+                                    "y": 38118.51256037378
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Feature Class",
+                                    "name": "Visual Designer",
+                                    "id": "18584f3f-6e48-4a68-89f1-0268185156e9"
+                                }
+                            }
+                        }
+                    ],
+                    "featureContributionClaims": [],
+                    "id": "f8a482c4-dee0-475a-831b-7514fd255ba6",
                     "savedPayload": {
                         "position": {
-                            "x": 34902.043252690906,
-                            "y": 38030.51256037378
+                            "x": 34546.043252690906,
+                            "y": 38118.51256037378
                         },
                         "targetPosition": {
                             "x": 30023.521626345453,
@@ -1551,7 +1693,6 @@
                     }
                 }
             ],
-            "featureContributionsFolder": [],
             "positionContributionsFolder": [],
             "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
             "savedPayload": {

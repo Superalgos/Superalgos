@@ -9,10 +9,10 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Claims",
+            "action": "Install Missing Claims",
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
-            "label": "Install Claims",
+            "label": "Install Missing Claims",
             "relatedUiObject": "Feature Contribution Claim",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install"

@@ -28,9 +28,9 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.votes.installVotes(action.node, action.rootNodes)
                     break
                 }
-            case 'Install Claims':
+            case 'Install Missing Claims':
                 {
-                    UI.projects.governance.functionLibraries.claims.installClaims(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.claims.installMissingClaims(action.node, action.rootNodes)
                     break
                 }
             case 'Build Profile':

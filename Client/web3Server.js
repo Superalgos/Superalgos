@@ -223,10 +223,7 @@ exports.newWeb3Server = function newWeb3Server() {
 
     async function recoverAddress(signature) {
         try {
-
-            console.log("STRING:", signature)
             let signatureObject = JSON.parse(signature)
-            console.log("OBJECT:", signatureObject)
             let web3 = new Web3()
             let address = web3.eth.accounts.recover(signatureObject)
 

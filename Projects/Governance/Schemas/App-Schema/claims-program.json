@@ -11,23 +11,23 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "label": "Add Asset Contributions Folder",
-            "relatedUiObject": "Asset Contributions Folder",
+            "label": "Add Asset Claims Folder",
+            "relatedUiObject": "Asset Claims Folder",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature Contributions Folder",
-            "relatedUiObject": "Feature Contributions Folder"
+            "label": "Add Feature Claims Folder",
+            "relatedUiObject": "Feature Claims Folder"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Position Contributions Folder",
-            "relatedUiObject": "Position Contributions Folder"
+            "label": "Add Position Claims Folder",
+            "relatedUiObject": "Position Claims Folder"
         },
         {
             "action": "Add UI Object",
@@ -63,21 +63,21 @@
     "propertyNameAtParent": "claimsProgram",
     "childrenNodesProperties": [
         {
-            "name": "assetContributionsFolder",
+            "name": "assetClaimsFolders",
             "type": "array",
-            "childType": "Asset Contributions Folder",
+            "childType": "Asset Claims Folder",
             "autoAdd": false
         },
         {
-            "name": "featureContributionsFolder",
+            "name": "featureClaimsFolders",
             "type": "array",
-            "childType": "Feature Contributions Folder",
+            "childType": "Feature Claims Folder",
             "autoAdd": false
         },
         {
-            "name": "positionContributionsFolder",
+            "name": "positionClaimsFolders",
             "type": "array",
-            "childType": "Position Contributions Folder",
+            "childType": "Position Claims Folder",
             "autoAdd": false
         },
         {

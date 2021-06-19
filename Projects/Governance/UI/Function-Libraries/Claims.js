@@ -99,9 +99,9 @@ function newGovernanceFunctionLibraryClaims() {
             if (node.payload === undefined) { return }
 
             if (
-                node.type !== 'Asset Contributions Folder' &&
-                node.type !== 'Feature Contributions Folder' &&
-                node.type !== 'Position Contributions Folder' &&
+                node.type !== 'Asset Claims Folder' &&
+                node.type !== 'Feature Claims Folder' &&
+                node.type !== 'Position Claims Folder' &&
                 node.type !== 'Claims Program'
             ) {
                 if (node.payload.claims === undefined) {
@@ -167,9 +167,9 @@ function newGovernanceFunctionLibraryClaims() {
             if (node.payload === undefined) { return }
 
             if (
-                node.type !== 'Asset Contributions Folder' &&
-                node.type !== 'Feature Contributions Folder' &&
-                node.type !== 'Position Contributions Folder' &&
+                node.type !== 'Asset Claims Folder' &&
+                node.type !== 'Feature Claims Folder' &&
+                node.type !== 'Position Claims Folder' &&
                 node.type !== 'Claims Program'
             ) {
                 if (
@@ -327,15 +327,15 @@ function newGovernanceFunctionLibraryClaims() {
 
             switch (destinationNode.type) {
                 case 'Asset Class': {
-                    originNodeType = 'Asset Contributions Folder'
+                    originNodeType = 'Asset Claims Folder'
                     break
                 }
                 case 'Feature Class': {
-                    originNodeType = 'Feature Contributions Folder'
+                    originNodeType = 'Feature Claims Folder'
                     break
                 }
                 case 'Position Class': {
-                    originNodeType = 'Position Contributions Folder'
+                    originNodeType = 'Position Claims Folder'
                     break
                 }
                 case 'Asset': {

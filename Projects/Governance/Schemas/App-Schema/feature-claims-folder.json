@@ -1,5 +1,5 @@
 {
-    "type": "Asset Contributions Folder",
+    "type": "Feature Claims Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -13,7 +13,7 @@
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
             "label": "Install Missing Claims",
-            "relatedUiObject": "Asset Contribution Claim",
+            "relatedUiObject": "Feature Contribution Claim",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install"
         },
@@ -21,15 +21,15 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Contributions Folder",
-            "relatedUiObject": "Asset Contributions Folder"
+            "label": "Add Feature Claims Folder",
+            "relatedUiObject": "Feature Claims Folder"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Contribution Claim",
-            "relatedUiObject": "Asset Contribution Claim"
+            "label": "Add Feature Contribution Claim",
+            "relatedUiObject": "Feature Contribution Claim"
         },
         {
             "action": "Delete UI Object",
@@ -51,23 +51,23 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Claims Program->Asset Contributions Folder->"
+        "compatibleTypes": "->Claims Program->Feature Claims Folder->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Asset Class->"
+        "compatibleTypes": "->Feature Class->"
     },
-    "propertyNameAtParent": "assetContributionsFolder",
+    "propertyNameAtParent": "featureClaimsFolders",
     "childrenNodesProperties": [
         {
-            "name": "assetContributionsFolder",
+            "name": "featureClaimsFolders",
             "type": "array",
-            "childType": "Asset Contributions Folder",
+            "childType": "Feature Claims Folder",
             "autoAdd": false
         },
         {
-            "name": "assetContributionClaims",
+            "name": "featureContributionClaims",
             "type": "array",
-            "childType": "Asset Contribution Claim",
+            "childType": "Feature Contribution Claim",
             "autoAdd": false
         }
     ]

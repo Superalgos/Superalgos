@@ -32,7 +32,7 @@ function newUiObject() {
         valueAngleOffset: 0,
         percentageAtAngle: true,
         percentageAngleOffset: 0,
-        statusAtAngle: true,
+        statusAtAngle: false,
         statusAngleOffset: 0,
         run: run,
         stop: stop,

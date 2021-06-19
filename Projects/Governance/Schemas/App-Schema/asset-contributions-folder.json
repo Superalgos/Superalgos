@@ -9,6 +9,15 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Install Claims",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Claims",
+            "relatedUiObject": "Asset Contribution Claim",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install"
+        },
+        {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -43,6 +52,9 @@
     "level": 2,
     "attachingRules": {
         "compatibleTypes": "->Claims Program->Asset Contributions Folder->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Asset Class->"
     },
     "propertyNameAtParent": "assetContributionsFolder",
     "childrenNodesProperties": [

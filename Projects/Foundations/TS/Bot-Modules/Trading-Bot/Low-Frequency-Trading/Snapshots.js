@@ -197,7 +197,8 @@ exports.newFoundationsBotModulesSnapshots = function (processIndex) {
         if (nodeWithCode.code === undefined) { return }
 
         try {
-            let instructionsArray = nodeWithCode.code.split(' ')
+            const code = nodeWithCode.code
+            let instructionsArray = code.split(' ')
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
                 instruction = instruction.replace('(', '')

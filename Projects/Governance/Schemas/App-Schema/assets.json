@@ -9,9 +9,9 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Assets",
+            "action": "Install Missing Assets",
             "actionProject": "Governance", 
-            "label": "Install Assets",
+            "label": "Install Missing Assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",

@@ -18,14 +18,14 @@ function newGovernanceActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
-            case 'Install Assets':
+            case 'Install Missing Assets':
                 {
-                    UI.projects.governance.functionLibraries.assets.installAssets(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.assets.installMissingAssets(action.node, action.rootNodes)
                     break
                 }
-            case 'Install Votes':
+            case 'Install Missing Votes':
                 {
-                    UI.projects.governance.functionLibraries.votes.installVotes(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.votes.installMissingVotes(action.node, action.rootNodes)
                     break
                 }
             case 'Install Missing Claims':

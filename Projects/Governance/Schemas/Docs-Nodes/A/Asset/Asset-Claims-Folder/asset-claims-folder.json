@@ -1,8 +1,8 @@
 {
-    "type": "Position Contributions Folder",
+    "type": "Asset Claims Folder",
     "definition": {
-        "text": "This folder type of node, help users organize their Position contributions claims.",
-        "updated": 1622989549721
+        "text": "This folder type of node, help users organize their Asset contributions claims.",
+        "updated": 1622989520560
     },
     "paragraphs": [
         {

@@ -184,9 +184,9 @@
             "name": "New Claims Program",
             "config": "{}",
             "project": "Governance",
-            "assetContributionsFolder": [],
-            "featureContributionsFolder": [],
-            "positionContributionsFolder": [],
+            "assetClaimsFolders": [],
+            "featureClaimsFolders": [],
+            "positionClaimsFolders": [],
             "id": "bec9399a-9f85-4cb5-bff4-9938a3bc7ac4",
             "savedPayload": {
                 "position": {

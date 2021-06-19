@@ -1589,20 +1589,20 @@
             "name": "New Claims Program",
             "config": "{}",
             "project": "Governance",
-            "assetContributionsFolder": [],
-            "featureContributionsFolder": [
+            "assetClaimsFolders": [],
+            "featureClaimsFolders": [
                 {
-                    "type": "Feature Contributions Folder",
+                    "type": "Feature Claims Folder",
                     "name": "Superalgos Feature Class",
                     "config": "{}",
                     "project": "Governance",
-                    "featureContributionsFolder": [
+                    "featureClaimsFolders": [
                         {
-                            "type": "Feature Contributions Folder",
+                            "type": "Feature Claims Folder",
                             "name": "Data Mining Feature Class",
                             "config": "{}",
                             "project": "Governance",
-                            "featureContributionsFolder": [],
+                            "featureClaimsFolders": [],
                             "featureContributionClaims": [
                                 {
                                     "type": "Feature Contribution Claim",
@@ -1665,11 +1665,11 @@
                             }
                         },
                         {
-                            "type": "Feature Contributions Folder",
+                            "type": "Feature Claims Folder",
                             "name": "Charting System Feature Class",
                             "config": "{}",
                             "project": "Governance",
-                            "featureContributionsFolder": [],
+                            "featureClaimsFolders": [],
                             "featureContributionClaims": [],
                             "id": "e745f3cd-4cd9-421b-b9ab-f62650fb56f8",
                             "savedPayload": {
@@ -1700,11 +1700,11 @@
                             }
                         },
                         {
-                            "type": "Feature Contributions Folder",
+                            "type": "Feature Claims Folder",
                             "name": "Visual Designer Feature Class",
                             "config": "{}",
                             "project": "Governance",
-                            "featureContributionsFolder": [],
+                            "featureClaimsFolders": [],
                             "featureContributionClaims": [],
                             "id": "3ae7f0f9-be37-4e6c-b3b1-4343e51f80a9",
                             "savedPayload": {
@@ -1735,11 +1735,11 @@
                             }
                         },
                         {
-                            "type": "Feature Contributions Folder",
+                            "type": "Feature Claims Folder",
                             "name": "Visual Debugger Feature Class",
                             "config": "{}",
                             "project": "Governance",
-                            "featureContributionsFolder": [],
+                            "featureClaimsFolders": [],
                             "featureContributionClaims": [],
                             "id": "d8ab7844-f98f-4ce1-a634-c0ff98af28ca",
                             "savedPayload": {
@@ -1800,7 +1800,7 @@
                     }
                 }
             ],
-            "positionContributionsFolder": [],
+            "positionClaimsFolders": [],
             "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
             "savedPayload": {
                 "position": {

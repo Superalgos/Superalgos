@@ -1,5 +1,5 @@
 {
-    "type": "Feature Contributions Folder",
+    "type": "Feature Claims Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -9,11 +9,20 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Install Missing Claims",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Missing Claims",
+            "relatedUiObject": "Feature Contribution Claim",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install"
+        },
+        {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Feature Contributions Folder",
-            "relatedUiObject": "Feature Contributions Folder"
+            "label": "Add Feature Claims Folder",
+            "relatedUiObject": "Feature Claims Folder"
         },
         {
             "action": "Add UI Object",
@@ -42,14 +51,17 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Claims Program->Feature Contributions Folder->"
+        "compatibleTypes": "->Claims Program->Feature Claims Folder->"
     },
-    "propertyNameAtParent": "featureContributionsFolder",
+    "referencingRules": {
+        "compatibleTypes": "->Feature Class->"
+    },
+    "propertyNameAtParent": "featureClaimsFolders",
     "childrenNodesProperties": [
         {
-            "name": "featureContributionsFolder",
+            "name": "featureClaimsFolders",
             "type": "array",
-            "childType": "Feature Contributions Folder",
+            "childType": "Feature Claims Folder",
             "autoAdd": false
         },
         {

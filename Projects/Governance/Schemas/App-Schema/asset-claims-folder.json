@@ -1,5 +1,5 @@
 {
-    "type": "Asset Contributions Folder",
+    "type": "Asset Claims Folder",
     "menuItems": [
         {
             "action": "Configure",
@@ -9,11 +9,20 @@
             "iconPathOff": "configuration"
         },
         {
+            "action": "Install Missing Claims",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Missing Claims",
+            "relatedUiObject": "Asset Contribution Claim",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install"
+        },
+        {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Asset Contributions Folder",
-            "relatedUiObject": "Asset Contributions Folder"
+            "label": "Add Asset Claims Folder",
+            "relatedUiObject": "Asset Claims Folder"
         },
         {
             "action": "Add UI Object",
@@ -42,14 +51,17 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Claims Program->Asset Contributions Folder->"
+        "compatibleTypes": "->Claims Program->Asset Claims Folder->"
     },
-    "propertyNameAtParent": "assetContributionsFolder",
+    "referencingRules": {
+        "compatibleTypes": "->Asset Class->"
+    },
+    "propertyNameAtParent": "assetClaimsFolders",
     "childrenNodesProperties": [
         {
-            "name": "assetContributionsFolder",
+            "name": "assetClaimsFolders",
             "type": "array",
-            "childType": "Asset Contributions Folder",
+            "childType": "Asset Claims Folder",
             "autoAdd": false
         },
         {

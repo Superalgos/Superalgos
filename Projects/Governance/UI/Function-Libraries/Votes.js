@@ -1,7 +1,7 @@
 function newGovernanceFunctionLibraryVotes() {
     let thisObject = {
         calculate: calculate,
-        installVotes: installVotes
+        installMissingVotes: installMissingVotes
     }
 
     return thisObject
@@ -313,7 +313,7 @@ function newGovernanceFunctionLibraryVotes() {
         }
     }
 
-    function installVotes(node, rootNodes) {
+    function installMissingVotes(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('To install votes you need a Reference Parent')
@@ -346,17 +346,12 @@ function newGovernanceFunctionLibraryVotes() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                            let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                            if (
-                                destinationNodeChild.type === 'Pool' ||
-                                destinationNodeChild.type === 'Asset' ||
-                                destinationNodeChild.type === 'Feature' ||
-                                destinationNodeChild.type === 'Position'
-                            ) {
-                                originNodeChild.payload.referenceParent = destinationNodeChild
+                            if (originNodeChild === undefined) {
+                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-
+                            originNodeChild.payload.referenceParent = destinationNodeChild
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -368,17 +363,12 @@ function newGovernanceFunctionLibraryVotes() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                    let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                                    if (
-                                        destinationNodeChild.type === 'Pool' ||
-                                        destinationNodeChild.type === 'Asset' ||
-                                        destinationNodeChild.type === 'Feature' ||
-                                        destinationNodeChild.type === 'Position'
-                                    ) {
-                                        originNodeChild.payload.referenceParent = destinationNodeChild
+                                    if (originNodeChild === undefined) {
+                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-
+                                    originNodeChild.payload.referenceParent = destinationNodeChild
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }

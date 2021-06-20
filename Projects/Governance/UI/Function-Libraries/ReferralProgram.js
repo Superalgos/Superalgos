@@ -23,10 +23,10 @@ function newGovernanceFunctionLibraryReferralProgram() {
          */
         let accumulatedIncomingReferralPower = 0
 
-        /* Scan Pools Until finding the User-Referrlas Pool */
+        /* Scan Pools Until finding the Referrla-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            findPool(poolsNode)
+            referralProgramPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Referral-Program")
         }
         if (referralProgramPoolTokenReward === undefined || referralProgramPoolTokenReward === 0) { return }
         /*
@@ -48,7 +48,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
             if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
             if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
 
-            distributeForReferralProgram(userProfile.tokenSwitch.referralProgram)
+            distributeReferralProgram(userProfile.tokenSwitch.referralProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -57,52 +57,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
             if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
             if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
 
-            calculateForReferralProgram(userProfile.tokenSwitch.referralProgram)
-        }
-
-        function findPool(node) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-
-            /*
-            When we reach certain node types, we will halt the distribution, because these are targets for 
-            voting outgoingPower.
-            */
-            if (
-                node.type === 'Pool'
-            ) {
-                let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
-                if (codeName === "Referral-Program") {
-                    referralProgramPoolTokenReward = node.payload.tokens
-                    return
-                }
-            }
-            let schemaDocument = getSchemaDocument(node)
-            if (schemaDocument === undefined) { return }
-
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            findPool(childNode)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    findPool(childNode)
-                                }
-                            }
-                            break
-                        }
-                    }
-                }
-            }
+            calculateReferralProgram(userProfile.tokenSwitch.referralProgram)
         }
 
         function resetUserReferrals(node) {
@@ -152,7 +107,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
             }
         }
 
-        function distributeForReferralProgram(referralProgram) {
+        function distributeReferralProgram(referralProgram) {
             if (referralProgram === undefined || referralProgram.payload === undefined) { return }
             /*
             Here we will convert Token Power into Referral Power. 
@@ -240,7 +195,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
             }
         }
 
-        function calculateForReferralProgram(referralProgram) {
+        function calculateReferralProgram(referralProgram) {
             /*
             Here we will calculate which share of the Referral Program Pool this user will get in tokens.
             To do that, we use the incomingPower, to se which proportion of the accumulatedIncomingReferralPower

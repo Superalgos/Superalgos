@@ -393,8 +393,8 @@
                     "pools": [
                         {
                             "type": "Pool",
-                            "name": "Usage",
-                            "config": "{}",
+                            "name": "Mentorship Program",
+                            "config": "{\n    \"codeName\": \"Mentorship-Program\"\n}",
                             "project": "Governance",
                             "poolClasses": [],
                             "pools": [],
@@ -612,7 +612,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

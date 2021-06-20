@@ -57,7 +57,7 @@ function newGovernanceFunctionLibraryVotes() {
 
             userProfile.tokenSwitch.votingProgram.payload.votes = userProfile.tokenSwitch.votingProgram.payload.tokenPower
 
-            distributeForVotingProgram(userProfile.tokenSwitch.votingProgram)
+            distributeVotingProgram(userProfile.tokenSwitch.votingProgram)
         }
 
         function resetVotes(node) {
@@ -126,7 +126,7 @@ function newGovernanceFunctionLibraryVotes() {
             }
         }
 
-        function distributeForVotingProgram(votingProgram) {
+        function distributeVotingProgram(votingProgram) {
             if (votingProgram.payload === undefined) { return }
             let votes = votingProgram.payload.votes
             distributeVotes(votingProgram, votes)

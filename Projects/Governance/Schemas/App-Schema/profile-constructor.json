@@ -10,7 +10,7 @@
         },
         {
             "action": "Build Profile",
-            "actionProject": "Governance", 
+            "actionProject": "Governance",
             "label": "Build Profile",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
@@ -40,5 +40,6 @@
     "level": 2,
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
-    }
+    },
+    "isPersonalData": true
 }

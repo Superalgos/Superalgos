@@ -1004,12 +1004,23 @@
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
                 },
                 {
+                    "name": "Mentorship Program",
+                    "propertyName": "mentorshipProgram",
+                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
+                },
+                {
                     "name": "Profile Constructor",
                     "propertyName": "profileConstructor",
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
                 }
             ],
-            "utilities": [],
+            "utilities": [
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "functionName": "newFoundationsUtilitiesPools"
+                }
+            ],
             "spaces": [
                 {
                     "name": "User Profile Space",

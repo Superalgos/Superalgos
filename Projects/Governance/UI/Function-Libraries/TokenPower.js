@@ -17,7 +17,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeForProfile(userProfile)
+            distributeProfile(userProfile)
         }
 
         function resetTokenPower(node) {
@@ -67,7 +67,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             }
         }
 
-        function distributeForProfile(userProfile) {
+        function distributeProfile(userProfile) {
             if (userProfile.payload === undefined) { return }
             let tokenPower
             if (userProfile.payload.blockchainTokens === undefined) {

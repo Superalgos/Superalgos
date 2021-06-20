@@ -423,7 +423,7 @@
                         },
                         {
                             "type": "Pool",
-                            "name": "User Referrals",
+                            "name": "Referral Program",
                             "config": "{\n    \"codeName\": \"Referral-Program\"\n}",
                             "project": "Governance",
                             "poolClasses": [],

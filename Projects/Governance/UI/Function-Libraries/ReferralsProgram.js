@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryUserReferrals() {
+function newGovernanceFunctionLibraryReferralProgram() {
     let thisObject = {
         calculate: calculate
     }

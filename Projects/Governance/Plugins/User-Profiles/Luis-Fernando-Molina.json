@@ -432,7 +432,7 @@
                                                         },
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "User Referrals Pool",
+                                                            "name": "Referral Program Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "33a03a57-6811-4cad-94af-14a0597e9fb3",
@@ -456,7 +456,7 @@
                                                                 "uiObject": {},
                                                                 "referenceParent": {
                                                                     "type": "Pool",
-                                                                    "name": "User Referrals",
+                                                                    "name": "Referral Program",
                                                                     "id": "639a6504-a0d0-4d7e-ad99-80ba5115ac72"
                                                                 }
                                                             }

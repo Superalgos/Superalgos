@@ -73,20 +73,20 @@ function newGovernanceFunctionLibraryReferralProgram() {
                     percentage: 0
                 }
             }
-            /*
-            If the node is a User Profile, we will check if it has a User Referrer child defined.
-            */
             if (
                 node.type === 'User Profile' &&
-                node.tokenSwitch !== undefined &&
-                node.tokenSwitch.referralProgram !== undefined
+                node.tokenSwitch !== undefined
             ) {
-                reserReferralProgram(node.tokenSwitch.referralProgram)
+                reserReferralProgram(node.tokenSwitch)
                 return
             }
-            /*
-            If the node is a Referral Program, we will check if it has a User Referrer child defined.
-            */
+            if (
+                node.type === 'Token Switch' &&
+                node.referralProgram !== undefined
+            ) {
+                reserReferralProgram(node.referralProgram)
+                return
+            }
             if (
                 node.type === 'Referral Program' &&
                 node.userReferrer !== undefined
@@ -94,10 +94,6 @@ function newGovernanceFunctionLibraryReferralProgram() {
                 reserReferralProgram(node.userReferrer)
                 return
             }
-            /*
-            If there is a reference parent defined, this means that the referral outgoingPower is 
-            transfered to it.
-            */
             if (
                 node.type === 'User Referrer' &&
                 node.payload.referenceParent !== undefined
@@ -198,7 +194,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
         function calculateReferralProgram(referralProgram) {
             /*
             Here we will calculate which share of the Referral Program Pool this user will get in tokens.
-            To do that, we use the incomingPower, to se which proportion of the accumulatedIncomingReferralPower
+            To do that, we use the incomingPower, to see which proportion of the accumulatedIncomingReferralPower
             represents.
             */
             if (referralProgram.payload === undefined) { return }

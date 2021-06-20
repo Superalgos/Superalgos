@@ -82,7 +82,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -97,7 +97,95 @@
             "name": "New Mentorship Program",
             "config": "{}",
             "project": "Governance",
-            "userMentors": [],
+            "userMentors": [
+                {
+                    "type": "User Mentor",
+                    "name": "Julian-Molina",
+                    "config": "{}",
+                    "project": "Governance",
+                    "id": "97483d0f-35ec-4471-a981-0d22565e0d63",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30862.495633423034,
+                            "y": 23307.14665723229
+                        },
+                        "targetPosition": {
+                            "x": 30608.478373654547,
+                            "y": 23466.75628018689
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {},
+                        "referenceParent": {
+                            "type": "User Profile",
+                            "name": "Julian-Molina",
+                            "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                        }
+                    }
+                },
+                {
+                    "type": "User Mentor",
+                    "name": "Jeremy",
+                    "config": "{}",
+                    "project": "Governance",
+                    "id": "8adecfda-c803-400c-acde-c34bda09e39b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30900.956747309094,
+                            "y": 23533.512560373787
+                        },
+                        "targetPosition": {
+                            "x": 30608.478373654547,
+                            "y": 23466.75628018689
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {},
+                        "referenceParent": {
+                            "type": "User Profile",
+                            "name": "Jeremy",
+                            "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
+                        }
+                    }
+                }
+            ],
+            "tokensAwarded": {
+                "type": "Tokens Awarded",
+                "name": "New Tokens Awarded",
+                "project": "Governance",
+                "id": "09648f99-1bf8-4d53-9d20-f15cc8c71508",
+                "savedPayload": {
+                    "position": {
+                        "x": 30768.08799660915,
+                        "y": 23720.77353995538
+                    },
+                    "targetPosition": {
+                        "x": 30608.478373654547,
+                        "y": 23466.75628018689
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {}
+                }
+            },
             "id": "8af4af68-62bf-4ad2-bf84-f1124cba0abf",
             "savedPayload": {
                 "position": {
@@ -401,7 +489,7 @@
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "Usage Pool",
+                                                            "name": "Mentorship Program Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "a32cb176-83c0-4800-b630-01f1df6d2301",
@@ -425,7 +513,7 @@
                                                                 "uiObject": {},
                                                                 "referenceParent": {
                                                                     "type": "Pool",
-                                                                    "name": "Usage",
+                                                                    "name": "Mentorship Program",
                                                                     "id": "60712b3c-ee76-40ba-8de2-e03aa61f6dde"
                                                                 }
                                                             }

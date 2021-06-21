@@ -9,7 +9,8 @@ function newFoundationsUtilitiesMandatoryProgram() {
         pools,
         userProfiles,
         programPropertyName,
-        programName
+        programName,
+        programNodeType
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
@@ -18,7 +19,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         */
         let mentorshipProgramPoolTokenReward
         /*
-        In order to be able to calculate the share of the Mentorships Program Pool for each User Profile,
+        In order to be able to calculate the share of the Program Pool for each User Profile,
         we need to accumulate all the Icomming Mentorship Power that each User Profile at their Mentorship Program
         node has, because with that Incoming Power is that each Mentorship Program node gets a share of 
         the pool.
@@ -101,7 +102,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 return
             }
             if (
-                node.type === 'Mentorship Program' &&
+                node.type === programNodeType &&
                 node.userMentors !== undefined
             ) {
                 for (let i = 0; i < node.userMentors.length; i++) {
@@ -185,7 +186,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (node.payload[programPropertyName] === undefined) { return }
 
             switch (node.type) {
-                case 'Mentorship Program': {
+                case programNodeType: {
                     /*
                     This is the point where we increase to our local count of mentorships whatever it comes
                     at the count parameters. If we are processing the User Profile of this Mentorship Program

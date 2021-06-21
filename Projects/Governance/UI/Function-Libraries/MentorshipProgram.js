@@ -13,7 +13,8 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
             pools,
             userProfiles,
             "mentorshipProgram",
-            "Mentorship-Program"
+            "Mentorship-Program",
+            "Mentorship Program"
         )
     }
 }

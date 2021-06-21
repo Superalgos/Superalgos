@@ -43,7 +43,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
             if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
 
-            reserMentorshipProgram(userProfile.tokenSwitch[programPropertyName])
+            reserProgram(userProfile.tokenSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -52,17 +52,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
             if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
 
-            validateMentorshipProgram(userProfile.tokenSwitch[programPropertyName])
-        }
-        for (let i = 0; i < userProfiles.length; i++) {
-            let userProfile = userProfiles[i]
-
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
-
-            distributeMentorshipProgram(userProfile.tokenSwitch[programPropertyName])
+            validateProgram(userProfile.tokenSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -72,10 +62,20 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
             if (userProfile.tokenSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
 
-            calculateMentorshipProgram(userProfile.tokenSwitch[programPropertyName])
+            distributeProgram(userProfile.tokenSwitch[programPropertyName])
+        }
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenSwitch === undefined) { continue }
+            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+
+            calculateProgram(userProfile.tokenSwitch[programPropertyName])
         }
 
-        function reserMentorshipProgram(node) {
+        function reserProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
             node.payload[programPropertyName] = {
@@ -92,14 +92,14 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.type === 'User Profile' &&
                 node.tokenSwitch !== undefined
             ) {
-                reserMentorshipProgram(node.tokenSwitch)
+                reserProgram(node.tokenSwitch)
                 return
             }
             if (
                 node.type === 'Token Switch' &&
                 node[programPropertyName] !== undefined
             ) {
-                reserMentorshipProgram(node[programPropertyName])
+                reserProgram(node[programPropertyName])
                 return
             }
             if (
@@ -107,7 +107,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.userMentors !== undefined
             ) {
                 for (let i = 0; i < node.userMentors.length; i++) {
-                    reserMentorshipProgram(node.userMentors[i])
+                    reserProgram(node.userMentors[i])
                 }
                 return
             }
@@ -115,12 +115,12 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.type === 'User Mentor' &&
                 node.payload.referenceParent !== undefined
             ) {
-                reserMentorshipProgram(node.payload.referenceParent)
+                reserProgram(node.payload.referenceParent)
                 return
             }
         }
 
-        function validateMentorshipProgram(node) {
+        function validateProgram(node) {
             /*
             This program is not going to run unless the Profile has Tokens, and for 
             that users needs to execute the setup procedure of signing their Github
@@ -158,13 +158,13 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
         }
 
-        function distributeMentorshipProgram(mentorshipProgram) {
-            if (mentorshipProgram === undefined || mentorshipProgram.payload === undefined) { return }
+        function distributeProgram(programNode) {
+            if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into programPowerName. 
             As per system rules mentoshipPower = tokensPower
             */
-            let mentoshipPower = mentorshipProgram.payload.tokenPower
+            let mentoshipPower = programNode.payload.tokenPower
             /*
             We will also reseet the count of mentorships here.
             */
@@ -172,9 +172,9 @@ function newFoundationsUtilitiesMandatoryProgram() {
             /*
             The Own Power is the power generated by the same User Profile tokens, not inherited from others.
             */
-            mentorshipProgram.payload[programPropertyName].ownPower = mentoshipPower
+            programNode.payload[programPropertyName].ownPower = mentoshipPower
 
-            distributeProgramPower(mentorshipProgram, mentoshipPower, count)
+            distributeProgramPower(programNode, mentoshipPower, count)
         }
 
         function distributeProgramPower(
@@ -250,13 +250,13 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
         }
 
-        function calculateMentorshipProgram(mentorshipProgram) {
+        function calculateProgram(programNode) {
             /*
             Here we will calculate which share of the Program Pool this user will get in tokens.
             To do that, we use the incomingPower, to see which proportion of the accumulatedIncomingProgramPower
             represents.
             */
-            if (mentorshipProgram.payload === undefined) { return }
+            if (programNode.payload === undefined) { return }
             /*
             If the accumulatedIncomingProgramPower is not grater the amount of tokens at the Program Pool, then
             this user will get the exact amount of tokens from the pool as incomingPower he has. 
@@ -267,13 +267,13 @@ function newFoundationsUtilitiesMandatoryProgram() {
             let totalPowerRewardRatio = accumulatedIncomingProgramPower / mentorshipProgramPoolTokenReward
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
-            if (mentorshipProgram.tokensAwarded === undefined || mentorshipProgram.tokensAwarded.payload === undefined) {
-                mentorshipProgram.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+            if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
+                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            mentorshipProgram.payload[programPropertyName].awarded.tokens = mentorshipProgram.payload[programPropertyName].incomingPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].awarded.tokens = programNode.payload[programPropertyName].incomingPower * totalPowerRewardRatio
 
-            drawMentorshipProgram(mentorshipProgram)
+            drawProgram(programNode)
         }
 
         function drawUserMentor(node) {
@@ -293,7 +293,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
         }
 
-        function drawMentorshipProgram(node) {
+        function drawProgram(node) {
             if (node.payload !== undefined) {
 
                 const ownPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].ownPower)

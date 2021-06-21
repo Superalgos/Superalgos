@@ -12,8 +12,8 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add User Support",
-            "relatedUiObject": "User Support"
+            "label": "Add User Supporter",
+            "relatedUiObject": "User Supporter"
         },
         {
             "action": "Add UI Object",
@@ -49,9 +49,9 @@
     "propertyNameAtParent": "supportProgram",
     "childrenNodesProperties": [
         {
-            "name": "userSupports",
+            "name": "userSupporters",
             "type": "array",
-            "childType": "User Support",
+            "childType": "User Supporter",
             "autoAdd": false
         },
         {

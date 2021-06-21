@@ -1004,6 +1004,11 @@
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
                 },
                 {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"

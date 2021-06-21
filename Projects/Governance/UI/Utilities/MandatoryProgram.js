@@ -18,7 +18,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         of the Program. This will come from a Pool that is configured wiht a codeName config property
         with the value programName
         */
-        let mentorshipProgramPoolTokenReward
+        let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
         we need to accumulate all the Icomming programPowerName that each User Profile at their Program
@@ -30,11 +30,11 @@ function newFoundationsUtilitiesMandatoryProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            mentorshipProgramPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programName)
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programName)
         }
-        if (mentorshipProgramPoolTokenReward === undefined || mentorshipProgramPoolTokenReward === 0) { return }
+        if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
         /*
-        We will first reset all the mentorship outgoingPower, and then distribute it.
+        We will first reset all the program outgoingPower, and then distribute it.
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -137,7 +137,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             As per the system rules, the Program will not give tokens 
             to users that do not have their own user nodes set up, unless it has a big 
             amount of tokens (this last condition is for the edge case where a user it 
-            at the top of the mentorship pyramid.)        
+            at the top of the program pyramid.)        
             */
             if (
                 node.payload.parentNode.payload.parentNode.payload.blockchainTokens < 1000000 &&
@@ -166,7 +166,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             */
             let mentoshipPower = programNode.payload.tokenPower
             /*
-            We will also reseet the count of mentorships here.
+            We will also reseet the count of descendents from here.
             */
             let count = 0
             /*
@@ -189,7 +189,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             switch (node.type) {
                 case programNodeType: {
                     /*
-                    This is the point where we increase to our local count of mentorships whatever it comes
+                    This is the point where we increase to our local count of descendents whatever it comes
                     at the count parameters. If we are processing the User Profile of this Program
                     then we will add zero, otherwise, 1.
                     */
@@ -264,7 +264,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             If the accumulatedIncomingProgramPower is  grater the amount of tokens at the Program Pool, then
             the amount ot tokens to be received is a proportional to the share of incomingPower in accumulatedIncomingProgramPower.
             */
-            let totalPowerRewardRatio = accumulatedIncomingProgramPower / mentorshipProgramPoolTokenReward
+            let totalPowerRewardRatio = accumulatedIncomingProgramPower / programPoolTokenReward
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {

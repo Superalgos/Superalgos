@@ -14,16 +14,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "<hr>",
-            "updated": 1614264382973
-        },
-        {
-            "style": "Subtitle",
             "text": "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\" -Thomas Edison"
-        },
-        {
-            "style": "Subtitle",
-            "text": "<hr>"
         },
         {
             "style": "Text",
@@ -42,7 +33,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/0_download-visual-studio.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/download-visual-studio.png",
             "updated": 1623414213827
         },
         {

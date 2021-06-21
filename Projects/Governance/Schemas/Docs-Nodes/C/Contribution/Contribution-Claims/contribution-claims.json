@@ -1,5 +1,5 @@
 {
-    "type": "Contribution Claims",
+    "type": "Claims Program",
     "definition": {
         "text": "This node helps define the section of the User Profiel hierarchy that is going to be used to define the claims users make for the contributions they have done. These claims need later to be voted by other users in order to be considered during the token distribution process.",
         "updated": 1622989461838

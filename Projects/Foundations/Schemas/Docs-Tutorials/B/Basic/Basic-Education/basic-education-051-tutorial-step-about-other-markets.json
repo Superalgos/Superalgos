@@ -1,0 +1,62 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 51,
+    "type": "Tutorial Step - About Other Markets",
+    "definition": {
+        "text": "You may work with any of the markets listed at the exchange! Take a look at the setup in the Exchange Markets node!",
+        "icon": {
+            "name": "market",
+            "project": "Foundations"
+        },
+        "updated": 1616176775093,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Puoi lavorare con ogni market presente sull'exchange! Dai un'occhiata al setup del nodo Exchange Markets.",
+                "updated": 1619591894634,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm not going to explain how to set up new markets as the topic is covered in the Install a New Market Tutorial in the Install a New Market Tutorial Plugin Workspace. I just wanted to let you know that it's easy!",
+            "updated": 1622635572968,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non tratterò la cosa nel dettaglio, perchè ci penserà il tutorial Install a New Market Tutorial nel Tested Exchanges Plugin Workspace. Voglio solo dirti quanto sia facile!",
+                    "updated": 1619591965876,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Take a look at the menu of the BTC/USDT Market! Notice the \"Install Market\" and \"Uninstall Market\" buttons! That's how you do it!",
+            "updated": 1622378122769,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Guarda il menù del market BTC\\USDT, e trova i pulsanti Install Market e Uninstall Market. Ecco come si fa!",
+                    "updated": 1619592006493,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "I'll leave it at that and let you do the Install a New Market Tutorial when the time is right!",
+            "updated": 1616176871622,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non mi addentro oltre, lo farà Install a New Market Tutorial in seguito!",
+                    "updated": 1619592082998,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

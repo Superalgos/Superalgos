@@ -1,0 +1,85 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Let's Get On With It!",
+    "definition": {
+        "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
+        "updated": 1616098998366,
+        "icon": {
+            "name": "mouse-right-click",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "E se i nodi sono troppo lontani tra loro, magari in due diverse gerarchie? Guarda il video per imparare un paio di trucchi!",
+                "updated": 1619501705796,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "These UI tricks may make your life easier:",
+            "updated": 1615807543929,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Questi trucchi ti faciliteranno:",
+                    "updated": 1619501769226,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from node to node.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Usa la mappa del design space tante volte quante serve per trovare il percorso tra i nodi.",
+                    "updated": 1619501801090,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fissa il nodo che sposterai, così da poterlo lasciare in qualunque momento quando avrai bisogno di aprire il design space per cercare direzioni.",
+                    "updated": 1619501872996,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Cmd + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "updated": 1615807572088,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Usa Ctrl / Cmd + tasti freccia per trascinare il nodo attraverso lo schermo dopo averci cliccato sopra. Tieni premuti i tasti e il nodo volerà!",
+                    "updated": 1619501949818,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Rimuovi il pin una volta stabilita la reference, così da rimandare il nodo al suo posto.",
+                    "updated": 1619501980789,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

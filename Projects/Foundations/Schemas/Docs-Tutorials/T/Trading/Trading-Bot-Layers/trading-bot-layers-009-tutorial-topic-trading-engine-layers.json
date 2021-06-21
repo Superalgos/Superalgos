@@ -1,0 +1,58 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 9,
+    "type": "Tutorial Topic - Trading Engine Layers",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "trading-engine"
+        },
+        "text": "You are familiar with the concept of the Trading Engine, right? I will teach you which layers affect which sections of the hierarchy so that you may access the info!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Du bist mit dem Konzept der Trading Engine vertraut, richtig? Ich werde dir beibringen, welche Layer welche Bereiche der Hierarchie beeinflussen, damit du auf die Informationen zugreifen kannst!",
+                "updated": 1623012463880,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I'm assuming you've done the Welcome tutorial... Remember when you split the screen in half? You slid the mouse pointer over the candles on the chart, and for each candle, you could see the value of certain nodes in the trading engine hierarchy, right?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gehe davon aus, dass du das Willkommenstutorial gemacht hast... Erinnerst du dich, als du den Bildschirm in zwei Hälften geteilt hast? Du hast den Mauszeiger über die Kerzen im Chart gleiten lassen und für jede Kerze konntest du den Wert bestimmter Knoten in der Hierarchie der Trading Engine sehen, richtig?",
+                    "updated": 1623012496814,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Well, that's what it's all about! When you turn a certain layer on, you turn on the visualization of values for a certain section of the hierarchy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nun, genau darum geht es! Wenn du einen bestimmten Layer einschaltest, schaltest du die Visualisierung von Werten für einen bestimmten Abschnitt der Hierarchie ein.",
+                    "updated": 1623012414141,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Let's take a closer look!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schauen wir uns das mal genauer an!",
+                    "updated": 1623012425935,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

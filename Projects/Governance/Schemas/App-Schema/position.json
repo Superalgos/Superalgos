@@ -10,18 +10,21 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Position",
             "relatedUiObject": "Position"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Class",
             "relatedUiObject": "Position Class"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

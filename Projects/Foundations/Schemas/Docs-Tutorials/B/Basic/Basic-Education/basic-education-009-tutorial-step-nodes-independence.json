@@ -1,0 +1,65 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Node's Independence",
+    "definition": {
+        "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
+        "updated": 1615319889017,
+        "icon": {
+            "name": "set-angle-to-parent-node-to-90-degrees",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri!",
+                "updated": 1619460136934,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception:",
+            "updated": 1615459643749,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi controllare la posizione di ogni nodo dal suo menù. Nè il padre nè i fratelli influenzano la posizione, a parte per un'eccezione:",
+                    "updated": 1619460176032,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
+                    "updated": 1619460209880,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling!",
+            "updated": 1615322906744,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello!",
+                    "updated": 1619460248115,
+                    "style": "Success"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

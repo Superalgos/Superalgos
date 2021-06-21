@@ -71,14 +71,14 @@ function moveToUserPosition(container, currentDate, currentRate, coordinateSyste
         y: currentRate
     }
 
-    /* Put this point in the coordinate system of the UI.projects.superalgos.spaces.chartingSpace.viewport */
+    /* Put this point in the coordinate system of the UI.projects.foundations.spaces.chartingSpace.viewport */
     targetPoint = coordinateSystem.transformThisPoint(targetPoint)
-    targetPoint = UI.projects.superalgos.utilities.coordinateTransformations.transformThisPoint(targetPoint, container)
+    targetPoint = UI.projects.foundations.utilities.coordinateTransformations.transformThisPoint(targetPoint, container)
 
     let displaceVector
 
-    let targetNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(targetPoint)
-    let mouseNoZoom = UI.projects.superalgos.spaces.chartingSpace.viewport.unTransformThisPoint(mousePosition)
+    let targetNoZoom = UI.projects.foundations.spaces.chartingSpace.viewport.unTransformThisPoint(targetPoint)
+    let mouseNoZoom = UI.projects.foundations.spaces.chartingSpace.viewport.unTransformThisPoint(mousePosition)
 
     displaceVector = {
         x: mouseNoZoom.x - targetNoZoom.x,
@@ -107,27 +107,32 @@ function newUniqueId() {
 }
 
 function splitTextIntoPhrases(text, wordsPerLine) {
-    let splittedLabel = text.split(' ')
-    let phrases = []
-    let phrase = ''
-    let wordCount = 0
-    for (let i = 0; i < splittedLabel.length; i++) {
-        phrase = phrase + splittedLabel[i]
-        wordCount++
+    try {
+        let splittedLabel = text.split(' ')
+        let phrases = []
+        let phrase = ''
+        let wordCount = 0
+        for (let i = 0; i < splittedLabel.length; i++) {
+            phrase = phrase + splittedLabel[i]
+            wordCount++
 
-        if (i < splittedLabel.length - 1 && wordCount < wordsPerLine) {
-            phrase = phrase + ' '
+            if (i < splittedLabel.length - 1 && wordCount < wordsPerLine) {
+                phrase = phrase + ' '
+            }
+            if (wordCount >= wordsPerLine) {
+                phrases.push(phrase)
+                phrase = ''
+                wordCount = 0
+            }
         }
-        if (wordCount >= wordsPerLine) {
+        if (wordCount > 0) {
             phrases.push(phrase)
-            phrase = ''
-            wordCount = 0
         }
+        return phrases
+    } catch (err) {
+        console.log(err.stack)
+        return []
     }
-    if (wordCount > 0) {
-        phrases.push(phrase)
-    }
-    return phrases
 }
 
 function getTextWidth(text) {

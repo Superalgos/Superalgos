@@ -1,0 +1,132 @@
+{
+    "type": "Crypto Exchange",
+    "menuItems": [
+        {
+            "action": "Configure Thise",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeAssets",
+            "label": "Add Exchange Assets",
+            "relatedUiObject": "Exchange Assets",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeMarkets",
+            "label": "Add Exchange Markets",
+            "relatedUiObject": "Exchange Markets",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeAccounts",
+            "label": "Add Exchange Accounts",
+            "relatedUiObject": "Exchange Accounts",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 2,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type the name of the exchange\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Exchanges->"
+    },
+    "propertyNameAtParent": "exchanges",
+    "childrenNodesProperties": [
+        {
+            "name": "exchangeAssets",
+            "type": "node",
+            "childType": "Exchange Assets",
+            "autoAdd": true
+        },
+        {
+            "name": "exchangeMarkets",
+            "type": "node",
+            "childType": "Exchange Markets",
+            "autoAdd": true
+        },
+        {
+            "name": "exchangeAccounts",
+            "type": "node",
+            "childType": "Exchange Accounts",
+            "autoAdd": true
+        }
+    ],
+    "alternativeIcons": [
+        {
+            "codeName": "bitfinex",
+            "iconName": "bitfinex"
+        },
+        {
+            "codeName": "binance",
+            "iconName": "binance"
+        },
+        {
+            "codeName": "kucoin",
+            "iconName": "kucoin"
+        },
+        {
+            "codeName": "bittrex",
+            "iconName": "bittrex"
+        },
+        {
+            "codeName": "kraken",
+            "iconName": "kraken"
+        },
+        {
+            "codeName": "poloniex",
+            "iconName": "poloniex"
+        },
+        {
+            "codeName": "upbit",
+            "iconName": "upbit"
+        },
+        {
+            "codeName": "bitmex",
+            "iconName": "bitmex"
+        },
+        {
+            "codeName": "liquid",
+            "iconName": "liquid"
+        },
+        {
+            "codeName": "hitbtc",
+            "iconName": "hitbtc"
+        },
+        {
+            "codeName": "luno",
+            "iconName": "luno"
+        },
+        {
+            "codeName": "okex",
+            "iconName": "okex"
+        },
+        {
+            "codeName": "okex5",
+            "iconName": "okex"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Single-File",
+    "definition": {
+        "text": "This Dataset contains only one file with all the data in there.",
+        "updated": 1622052957531
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Data Mining - Dataset Types->Dataset List",
+            "updated": 1622052974559
+        }
+    ]
+}

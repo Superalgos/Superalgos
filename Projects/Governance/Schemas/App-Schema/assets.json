@@ -2,19 +2,39 @@
     "type": "Assets",
     "menuItems": [
         {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Install Missing Assets",
+            "actionProject": "Governance", 
+            "label": "Install Missing Assets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Asset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset Class",
             "relatedUiObject": "Asset Class"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Asset",
             "relatedUiObject": "Asset"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -26,6 +46,12 @@
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\"folderPath\": \"\"\n}"
+    },
     "childrenNodesProperties": [
         {
             "name": "assetClasses",

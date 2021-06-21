@@ -146,7 +146,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.uiObject.setErrorMessage("In order to enable this program you need to add User Mentor nodes and reference a User Profile from each one.")
+                node.payload.uiObject.setErrorMessage("In order to enable this program you need to add " + userNodeType + " nodes and reference a User Profile from each one.")
             } else {
                 node.payload[programPropertyName].isActive = true
             }
@@ -231,7 +231,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 case userNodeType: {
                     node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower / node.payload.parentNode[usersArrayPropertyName].length
 
-                    drawUserMentor(node)
+                    drawUserNode(node)
                     if (node.payload.referenceParent !== undefined) {
                         distributeProgramPower(node.payload.referenceParent, mentoshipPower / 10, 0)
                     }
@@ -278,7 +278,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             drawProgram(programNode)
         }
 
-        function drawUserMentor(node) {
+        function drawUserNode(node) {
             if (node.payload !== undefined) {
 
                 const outgoingPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].outgoingPower)

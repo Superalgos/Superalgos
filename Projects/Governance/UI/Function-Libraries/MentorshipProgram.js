@@ -16,7 +16,8 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
             "Mentorship-Program",
             "Mentorship Program",
             "Mentorship Power",
-            "userMentors"
+            "userMentors",
+            "User Mentor"
         )
     }
 }

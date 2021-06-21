@@ -12,7 +12,8 @@ function newFoundationsUtilitiesMandatoryProgram() {
         programName,
         programNodeType,
         programPowerName,
-        usersArrayPropertyName
+        usersArrayPropertyName,
+        userNodeType
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
@@ -113,7 +114,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 return
             }
             if (
-                node.type === 'User Mentor' &&
+                node.type === userNodeType &&
                 node.payload.referenceParent !== undefined
             ) {
                 reserProgram(node.payload.referenceParent)
@@ -227,7 +228,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     }
                     break
                 }
-                case 'User Mentor': {
+                case userNodeType: {
                     node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower / node.payload.parentNode[usersArrayPropertyName].length
 
                     drawUserMentor(node)

@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Play Tutorial Topic",
+            "actionProject": "Foundations",
             "label": "Play",
             "iconPathOn": "play",
             "iconPathOff": "play",
@@ -10,6 +11,7 @@
         },
         {
             "action": "Resume Tutorial Topic",
+            "actionProject": "Foundations",
             "label": "Resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",

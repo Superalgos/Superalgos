@@ -1019,6 +1019,11 @@
                     "name": "Pools",
                     "propertyName": "pools",
                     "functionName": "newFoundationsUtilitiesPools"
+                },
+                {
+                    "name": "Program",
+                    "propertyName": "program",
+                    "functionName": "newFoundationsUtilitiesProgram"
                 }
             ],
             "spaces": [

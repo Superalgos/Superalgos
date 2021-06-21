@@ -101,7 +101,7 @@
                 {
                     "type": "User Mentor",
                     "name": "Julian-Molina",
-                    "config": "{}",
+                    "config": "{\n    \"percentage\": 90\n}",
                     "project": "Governance",
                     "id": "97483d0f-35ec-4471-a981-0d22565e0d63",
                     "savedPayload": {

@@ -45,7 +45,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
             if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
 
-            reserProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            resetProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
@@ -77,7 +77,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
 
-        function reserProgram(node) {
+        function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
             node.payload[programPropertyName] = {
@@ -95,14 +95,14 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.type === 'User Profile' &&
                 node.tokenPowerSwitch !== undefined
             ) {
-                reserProgram(node.tokenPowerSwitch)
+                resetProgram(node.tokenPowerSwitch)
                 return
             }
             if (
                 node.type === 'Token Power Switch' &&
                 node[programPropertyName] !== undefined
             ) {
-                reserProgram(node[programPropertyName])
+                resetProgram(node[programPropertyName])
                 return
             }
             if (
@@ -110,7 +110,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node[usersArrayPropertyName] !== undefined
             ) {
                 for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
-                    reserProgram(node[usersArrayPropertyName][i])
+                    resetProgram(node[usersArrayPropertyName][i])
                 }
                 return
             }
@@ -118,7 +118,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.type === userNodeType &&
                 node.payload.referenceParent !== undefined
             ) {
-                reserProgram(node.payload.referenceParent)
+                resetProgram(node.payload.referenceParent)
                 return
             }
         }
@@ -183,7 +183,8 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function distributeProgramPower(
             node,
             mentoshipPower,
-            count
+            count,
+            percentage
         ) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
@@ -223,16 +224,49 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
 
                     if (node[usersArrayPropertyName] !== undefined) {
+                        /*
+                        Before distributing the program power, we will calculate how the power 
+                        is going to be switched between all nodes. The first pass is about
+                        scanning all sibling nodes to see which ones have a percentage defined
+                        at their config, and check that all percentages don't add more than 100.
+                        */
+                        let totalPercentage = 0
+                        let totalNodesWithoutPercentage = 0
                         for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
-                            distributeProgramPower(node[usersArrayPropertyName][i], mentoshipPower / node[usersArrayPropertyName].length, 0)
+                            let childNode = node[usersArrayPropertyName][i]
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                            if (percentage !== undefined && isNaN(percentage) !== true) {
+                                totalPercentage = totalPercentage + percentage
+                            } else {
+                                totalNodesWithoutPercentage++
+                            }
+                        }
+                        if (totalPercentage > 100) {
+                            node.payload.uiObject.setErrorMessage('Program Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                            return
+                        }
+                        let defaultPercentage = 0
+                        if (totalNodesWithoutPercentage > 0) {
+                            defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                        }
+                        /*
+                        Here we do the actual distribution.
+                        */
+                        for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                            let childNode = node[usersArrayPropertyName][i]
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                            if (percentage === undefined || isNaN(percentage) === true) {
+                                percentage = defaultPercentage
+                            }
+                            distributeProgramPower(childNode, mentoshipPower * percentage / 100, 0, percentage)
                         }
                     }
                     break
                 }
                 case userNodeType: {
-                    node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower / node.payload.parentNode[usersArrayPropertyName].length
+                    node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower * percentage / 100
 
-                    drawUserNode(node)
+                    drawUserNode(node, percentage)
                     if (node.payload.referenceParent !== undefined) {
                         distributeProgramPower(node.payload.referenceParent, mentoshipPower / 10, 0)
                     }
@@ -279,7 +313,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             drawProgram(programNode)
         }
 
-        function drawUserNode(node) {
+        function drawUserNode(node, percentage) {
             if (node.payload !== undefined) {
 
                 const outgoingPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].outgoingPower)
@@ -288,6 +322,11 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.valueAtAngle = true
 
                 node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName)
+
+                node.payload.uiObject.percentageAngleOffset = 180
+                node.payload.uiObject.percentageAtAngle = true
+
+                node.payload.uiObject.setPercentage(percentage)
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false

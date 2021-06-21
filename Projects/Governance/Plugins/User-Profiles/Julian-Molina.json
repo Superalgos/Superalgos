@@ -3,9 +3,9 @@
     "name": "Julian-Molina",
     "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\n        \"s\": \"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\n        \"signature\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"\n    }\n}",
     "project": "Governance",
-    "tokenSwitch": {
-        "type": "Token Switch",
-        "name": "New Token Switch",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
         "config": "{}",
         "project": "Governance",
         "referralProgram": {

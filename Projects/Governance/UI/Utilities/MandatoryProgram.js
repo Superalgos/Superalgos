@@ -41,40 +41,40 @@ function newFoundationsUtilitiesMandatoryProgram() {
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
 
-            reserProgram(userProfile.tokenSwitch[programPropertyName])
+            reserProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
 
-            validateProgram(userProfile.tokenSwitch[programPropertyName])
+            validateProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
 
-            distributeProgram(userProfile.tokenSwitch[programPropertyName])
+            distributeProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
 
-            calculateProgram(userProfile.tokenSwitch[programPropertyName])
+            calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
 
         function reserProgram(node) {
@@ -92,13 +92,13 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
             if (
                 node.type === 'User Profile' &&
-                node.tokenSwitch !== undefined
+                node.tokenPowerSwitch !== undefined
             ) {
-                reserProgram(node.tokenSwitch)
+                reserProgram(node.tokenPowerSwitch)
                 return
             }
             if (
-                node.type === 'Token Switch' &&
+                node.type === 'Token Power Switch' &&
                 node[programPropertyName] !== undefined
             ) {
                 reserProgram(node[programPropertyName])
@@ -238,12 +238,12 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     break
                 }
                 case 'User Profile': {
-                    if (node.tokenSwitch !== undefined) {
-                        distributeProgramPower(node.tokenSwitch, mentoshipPower, 0)
+                    if (node.tokenPowerSwitch !== undefined) {
+                        distributeProgramPower(node.tokenPowerSwitch, mentoshipPower, 0)
                     }
                     break
                 }
-                case 'Token Switch': {
+                case 'Token Power Switch': {
                     if (node[programPropertyName] !== undefined) {
                         distributeProgramPower(node[programPropertyName], mentoshipPower, 1)
                     }

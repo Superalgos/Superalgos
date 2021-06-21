@@ -35,7 +35,7 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->Token Switch->"
+        "compatibleTypes": "->Token Power Switch->"
     },
     "addLeftIcons": true,
     "level": 1,

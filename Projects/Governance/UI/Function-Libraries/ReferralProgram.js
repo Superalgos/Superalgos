@@ -35,29 +35,29 @@ function newGovernanceFunctionLibraryReferralProgram() {
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram.payload === undefined) { continue }
 
-            reserReferralProgram(userProfile.tokenSwitch.referralProgram)
+            reserReferralProgram(userProfile.tokenPowerSwitch.referralProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram.payload === undefined) { continue }
 
-            distributeReferralProgram(userProfile.tokenSwitch.referralProgram)
+            distributeReferralProgram(userProfile.tokenPowerSwitch.referralProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            if (userProfile.tokenSwitch === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram === undefined) { continue }
-            if (userProfile.tokenSwitch.referralProgram.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.referralProgram.payload === undefined) { continue }
 
-            calculateReferralProgram(userProfile.tokenSwitch.referralProgram)
+            calculateReferralProgram(userProfile.tokenPowerSwitch.referralProgram)
         }
 
         function reserReferralProgram(node) {
@@ -75,13 +75,13 @@ function newGovernanceFunctionLibraryReferralProgram() {
             }
             if (
                 node.type === 'User Profile' &&
-                node.tokenSwitch !== undefined
+                node.tokenPowerSwitch !== undefined
             ) {
-                reserReferralProgram(node.tokenSwitch)
+                reserReferralProgram(node.tokenPowerSwitch)
                 return
             }
             if (
-                node.type === 'Token Switch' &&
+                node.type === 'Token Power Switch' &&
                 node.referralProgram !== undefined
             ) {
                 reserReferralProgram(node.referralProgram)
@@ -177,12 +177,12 @@ function newGovernanceFunctionLibraryReferralProgram() {
                     break
                 }
                 case 'User Profile': {
-                    if (node.tokenSwitch !== undefined) {
-                        distributeReferralPower(node.tokenSwitch, referringPower, 0)
+                    if (node.tokenPowerSwitch !== undefined) {
+                        distributeReferralPower(node.tokenPowerSwitch, referringPower, 0)
                     }
                     break
                 }
-                case 'Token Switch': {
+                case 'Token Power Switch': {
                     if (node.referralProgram !== undefined) {
                         distributeReferralPower(node.referralProgram, referringPower, 1)
                     }

@@ -1,5 +1,5 @@
 {
-    "type": "Token Switch",
+    "type": "Token Power Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -84,7 +84,7 @@
     "attachingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "tokenSwitch",
+    "propertyNameAtParent": "tokenPowerSwitch",
     "childrenNodesProperties": [
         {
             "name": "referralProgram",

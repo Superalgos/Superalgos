@@ -11,7 +11,8 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
     ) {
         UI.projects.governance.utilities.mandatoryProgram.run(
             pools,
-            userProfiles
+            userProfiles,
+            "mentorshipProgram"
         )
     }
 }

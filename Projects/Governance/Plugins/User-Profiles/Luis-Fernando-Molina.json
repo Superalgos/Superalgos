@@ -990,7 +990,7 @@
                                                     "poolWeightVotes": [
                                                         {
                                                             "type": "Pool Weight Vote",
-                                                            "name": "Stacking Pool",
+                                                            "name": "Stacking-Program Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
                                                             "id": "40d246e2-1cd8-4e8e-a9d9-33a3256f1f75",
@@ -1014,7 +1014,7 @@
                                                                 "uiObject": {},
                                                                 "referenceParent": {
                                                                     "type": "Pool",
-                                                                    "name": "Stacking",
+                                                                    "name": "Stacking-Program",
                                                                     "id": "ea79efd3-c3d9-4c80-a1d0-1cab106e0242"
                                                                 }
                                                             }
@@ -2002,11 +2002,36 @@
                 }
             }
         },
-        "stakingProgram": {
+        "stackingProgram": {
             "type": "Staking Program",
             "name": "New Staking Program",
             "config": "{}",
             "project": "Governance",
+            "tokensAwarded": {
+                "type": "Tokens Awarded",
+                "name": "New Tokens Awarded",
+                "project": "Governance",
+                "id": "928e9ccb-1e90-48a9-af77-b3089225fc4f",
+                "savedPayload": {
+                    "position": {
+                        "x": 29846.901110519182,
+                        "y": 23025.90611888476
+                    },
+                    "targetPosition": {
+                        "x": 30081.45055525959,
+                        "y": 23212.953059442378
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {}
+                }
+            },
             "id": "b046f4e4-40b1-4e47-8fed-75a6a5c6029d",
             "savedPayload": {
                 "position": {

@@ -1,0 +1,49 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Trigger Off",
+    "definition": {
+        "text": "If you do not need a condition just set it to False or True!",
+        "icon": {
+            "name": "trigger-off",
+            "project": "Foundations"
+        },
+        "updated": 1614333368044,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn du keine Bedingung benötigst setze es einfach auf „False“ oder „True“!",
+                "updated": 1622978946854,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "For my backtest I don't need a Trigger Off condition so I just write false in Javascript code",
+            "updated": 1614334212315,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für meinen Backtest benötige ich keine Trigger Off Bedingung, also schreibe ich einfach False in den Javascript-Code",
+                    "updated": 1622978973861,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember that Conditions can be only True or False. When I write some Javascript code inside these type of nodes, they must evaluate True or False because essentially what I'm writing is a test.",
+            "updated": 1614245807894,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denke daran, dass Bedingungen nur True oder False sein können. Wenn ich Javascript-Code innerhalb dieser Art von Knoten schreibe, müssen sie True oder False auswerten, weil das, was ich schreibe, im Wesentlichen ein Test ist.",
+                    "updated": 1622978923884,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

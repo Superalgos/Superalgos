@@ -132,6 +132,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'signData': {
+
+                                    let serverResponse = await WEB3_SERVER.signData(
+                                        params.privateKey,
+                                        params.data
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                case 'recoverAddress': {
+
+                                    let serverResponse = await WEB3_SERVER.recoverAddress(
+                                        params.signature
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 default: {
                                     respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }
@@ -651,7 +670,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -666,7 +685,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -779,7 +798,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 } else {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Update Failed',
                                         anchor: undefined,
@@ -842,7 +861,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'Switching Branches - Current Branch Not Changed',
                                         anchor: undefined,
@@ -1070,24 +1089,44 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'ProjectNames':
-                {
-                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    respondWithContent(JSON.stringify(projects), httpResponse)
-                }
-                break
-
             case 'Schema':
                 {
                     sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
                 }
                 break
 
+            case 'DirContent':
+                {
+                    let folderPath = unescape(requestParameters[2])
+                    if (requestParameters[3] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[5]
+                    }
+                    let folder
+                    if (requestParameters[2] === 'Root') {
+                        folder = folderPath.replace('Root', '../Superalgos/')
+                    } else {
+                        folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
+                    }
+
+                    getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+
+                    function onFilesReady(files) {
+                        respondWithContent(JSON.stringify(files), httpResponse)
+                    }
+                }
+                break
+
             case 'IconNames':
                 {
                     let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    const fs = require('fs')
-
                     let icons = []
                     let totalProjects = projects.length
                     let projectCounter = 0
@@ -1102,6 +1141,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         function onFilesReady(files) {
                             for (let j = 0; j < files.length; j++) {
                                 let file = files[j]
+                                for (let i = 0; i < 10; i++) {
+                                    file = file.replace('/', '\\')
+                                }
                                 icons.push([project, file])
                             }
 
@@ -1791,8 +1833,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 let pathAndNames = []
                 for (let i = 0; i < files.length; i++) {
                     let file = files[i]
-                    let filesSplitted = file.split(lastFolder)
-                    let pathName = filesSplitted[1]
+                    let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
                     pathName = pathName.substring(1, pathName.length)
                     pathAndNames.push(pathName)
                 }

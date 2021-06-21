@@ -1,0 +1,101 @@
+{
+    "type": "First Steps Tutorials",
+    "definition": {
+        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
+        "updated": 1610915328705
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How to Use This Book",
+            "updated": 1610955545072
+        },
+        {
+            "style": "Text",
+            "text": "Tutorials provide the ultimate hands-on learning experience. Doing all existing tutorials has proven to be the most effective way to tackle the learning curve."
+        },
+        {
+            "style": "Success",
+            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
+            "updated": 1617036749800
+        },
+        {
+            "style": "Text",
+            "text": "When you need a quick refresher, you may always go back and redo the whole tutorial or a few steps. Because tutorials are made of searchable pages, you may also scan the content without actually doing the tutorial."
+        },
+        {
+            "style": "Text",
+            "text": "The recommended order is given by the list below, but the truth is doing all tutorials is what matters, regardless of the order.",
+            "updated": 1617036785768
+        },
+        {
+            "style": "Title",
+            "text": "List of Plugin Workspaces and Tutorials"
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
+            "updated": 1617105574778
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
+            "updated": 1610955413534
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
+            "updated": 1617207891956
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Foundations->Tutorial->Basic Education->This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
+            "updated": 1617208207170
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Foundations->Tutorial->Beyond the Basics->This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
+            "updated": 1617208248309
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Foundations->Tutorial->Trading Bot Layers->This tutorial walks you through the layers made available by the Trading Bot on the charts, in particular, the layers associated with all types of Trading Sessions. You will run a backtest of the BTC-USDT - Weak-hands Buster - WHB trading system and explore some of the trades while learning how to use the layers.",
+            "updated": 1617208309588
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Foundations->Tutorial->Hello World Tutorial->This tutorial is a flash course, cut-to-the-chase style, introducing you to the notion of building a simple Trading System. The tutorial assumes a basic understanding of how Trading Strategies are defined. That said, you may find it useful as a first step introduction too, particularly if you like direct, to-the-point information.",
+            "updated": 1617208438763
+        },
+        {
+            "style": "Chapter",
+            "text": "VI->Foundations->Tutorial->Intro to Trading Systems->This tutorial is the first in a series of tutorials that teach you how to build trading systems. The series goes deep into multiple topics and takes you through a progression that intends to match basic trading knowledge with particular Superalgos implementations. This first tutorial covers theoretical concepts, explains how trading systems are structured in Superalgos, and highlights how you need to frame your strategies to make the most out of the trading framework built-in the system.",
+            "updated": 1617208471535
+        },
+        {
+            "style": "Chapter",
+            "text": "VII->Foundations->Tutorial->Defining a Trading Idea->This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
+            "updated": 1617208506342
+        },
+        {
+            "style": "Chapter",
+            "text": "VIII->Foundations->Tutorial->Testing a Trading Idea - The Trigger Stage->This tutorial walks you through the implementation of the trading idea defined in the previous tutorial, covering the definitions of the Trigger Stage.",
+            "updated": 1617208539216
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Tutorial->Testing a Trading Idea - The Other Stages->This tutorial completes the implementation of the trading idea formulated in the previous tutorials, covering the definitions of the Open Stage, Manage Stage, and Close Stage.",
+            "updated": 1617208575390
+        },
+        {
+            "style": "Chapter",
+            "text": "X->Foundations->Tutorial->Install a New Market->This tutorial covers the process of installing a new market. The process automates the creation of data and trading tasks, as well as charts for the said Market.",
+            "updated": 1617208663643
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Foundations->Tutorial->Setting Up a New Chart->This tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
+            "updated": 1621991930816
+        }
+    ]
+}

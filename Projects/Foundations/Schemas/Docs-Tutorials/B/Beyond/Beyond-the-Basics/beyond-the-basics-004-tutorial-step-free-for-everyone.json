@@ -1,0 +1,62 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Free For Everyone?",
+    "definition": {
+        "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help!",
+        "updated": 1610713937383,
+        "icon": {
+            "name": "help",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Superalgos è un progetto basato sulla Community! Rendiamo il software disponibile a tutti gratuitamente, ma chiediamo qualcosa in cambio...il tuo aiuto!",
+                "updated": 1619631895640,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "How can Superalgos be free? What's the catch? We get those questions often! This is the short story...",
+            "updated": 1610967035192,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Come fa Superalgos ad essere gratis? Dove sta il trucco? Ecco la storia...",
+                    "updated": 1619631920615,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Superalgos started with a group of friends joining forces to automate their crypto trading!",
+            "updated": 1611594348026,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos è iniziato con un gruppo di amici che hanno unito le forze per automatizzare il loro trading di crypto!",
+                    "updated": 1619631952862,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The friends soon realized that to compete with top market players a huge software infrastructure was required. The system needed to be on par or better than commercial and proprietary software available to firms. Such requirements could not be fulfilled by a small team —at least not in a reasonable timeframe.",
+            "updated": 1616871844068,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Gli amici presto realizzarono che per competere con i top del mercato era necessaria una notevole infrastruttura software, che fosse al pari o migliore dei software proprietari usati dalle aziende. Un lavoro simile non poteva essere portato a termine da un piccolo team, almeno non in un intervallo di tempo ragionevole.",
+                    "updated": 1619632081107,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

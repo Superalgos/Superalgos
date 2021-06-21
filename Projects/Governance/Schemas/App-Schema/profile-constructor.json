@@ -1,0 +1,45 @@
+{
+    "type": "Profile Constructor",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Build Profile",
+            "actionProject": "Governance",
+            "label": "Build Profile",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \"githubUsername\": \"\"}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "isPersonalData": true
+}

@@ -1,0 +1,119 @@
+{
+    "topic": "Debugging Your Indicator",
+    "pageNumber": 2,
+    "type": "Debugging - Setting up your IDE",
+    "definition": {
+        "text": "The first step is to set up Visual Studio Code so that it has access to the Superalgos directory and that it knows what file to run, attach to and monitor for debugging.",
+        "updated": 1623402147604,
+        "translations": [
+            {
+                "language": "CN",
+                "text": "Toggling Breakpoints is telling the the program where to slow down - Where we'd like to take control.",
+                "updated": 1614338778954,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Overview",
+            "updated": 1623402158529
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos has three core components, the Client, TS and the UI.",
+            "updated": 1623402455917
+        },
+        {
+            "style": "Success",
+            "text": "Hover over (or click) each word above above to learn more regarding each component.",
+            "updated": 1623402349861
+        },
+        {
+            "style": "Text",
+            "text": "For debugging purposes we already want to have the Client and UI running. This process details how to set up Visual Studio Code to run a debug instance of the TS.",
+            "updated": 1623404705493
+        },
+        {
+            "style": "Text",
+            "text": "First we need to set up our Visual Studio Code workspace so we can see the Superalgos directory.",
+            "updated": 1623404725437
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Visual Studio Code",
+            "updated": 1623402750807
+        },
+        {
+            "style": "Text",
+            "text": "Start up Visual Studio Code and click on the Explorer icon to open the Explorer left hand panel."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/open-explorer.png",
+            "updated": 1623407107099
+        },
+        {
+            "style": "Text",
+            "text": "As we are just running the TS in debug mode, we start with the \"TaskServer\" folder.",
+            "updated": 1623404758089
+        },
+        {
+            "style": "Text",
+            "text": "Click on the Add Folder button and open the \"TaskServer\" folder (../Superalgos/TaskServer) to add this to your Visual Studio Code workspace."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/open-folder.png",
+            "updated": 1623407112534
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/taskserver-folder.png",
+            "updated": 1623407118113
+        },
+        {
+            "style": "Text",
+            "text": "Next we add the \"Projects\" folder so that we can analyse the rest of the Superalgos files.",
+            "updated": 1623405000959
+        },
+        {
+            "style": "Text",
+            "text": "Right-click in the empty space of the Explorer left-hand panel and click on Add Folder to Workspace and also add the \"Projects\" (../Superalgos/Projects) folder to your workspace."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/add-folder.png",
+            "updated": 1623407412773
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/projects-folder.png",
+            "updated": 1623407419399
+        },
+        {
+            "style": "Text",
+            "text": "The Explorer left-hand panel should now have the two folders \"TaskServer\" and \"Projects\" like below.",
+            "updated": 1623408055408
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/explorer-folders.png",
+            "updated": 1623408036777
+        },
+        {
+            "style": "Text",
+            "text": "If this matches let's save our Workspace so the next time we open Visual Studio Code this loads automatically. Click on File then Save Workspace As and give it a name.",
+            "updated": 1623408092688
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/save-workspace.png"
+        },
+        {
+            "style": "Text",
+            "text": "Awesome! That's all there is to setting up Visual Studio Code so it can access the Superalgos directory. Next we are going to dive into the code and talk about breakpoints."
+        }
+    ]
+}

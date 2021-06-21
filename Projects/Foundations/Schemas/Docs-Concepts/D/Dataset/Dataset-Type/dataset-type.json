@@ -1,0 +1,14 @@
+{
+    "type": "Dataset Type",
+    "definition": {
+        "text": "Superalgos organizes information in several different Dataset Types. Multi-Time-Frame-Daily and Multi-Time-Frame-Market are the two most common Dataset Types.",
+        "updated": 1622052231312
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Data Mining - Dataset Types->Dataset List",
+            "updated": 1622052633591
+        }
+    ]
+}

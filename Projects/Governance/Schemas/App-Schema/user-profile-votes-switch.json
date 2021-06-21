@@ -1,0 +1,74 @@
+{
+    "type": "User Profile Votes Switch",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Install Missing Votes",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Missing Votes",
+            "relatedUiObject": "Weight Votes Switch",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Profile Votes Switch",
+            "relatedUiObject": "User Profile Votes Switch"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Profile Vote",
+            "relatedUiObject": "User Profile Vote"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Foundations",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Pools->Pool Class->Assets->Asset Class->Features->Feature Class->Positions->Position Class->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->User Profile Votes Switch->Votes Switch->"
+    },
+    "propertyNameAtParent": "userProfileVotesSwitch",
+    "childrenNodesProperties": [
+        {
+            "name": "userProfileVotesSwitch",
+            "type": "array",
+            "childType": "User Profile Votes Switch",
+            "autoAdd": false
+        },
+        {
+            "name": "userProfileVote",
+            "type": "array",
+            "childType": "User Profile Vote",
+            "autoAdd": false
+        }
+    ]
+}

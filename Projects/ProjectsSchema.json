@@ -999,9 +999,14 @@
                     "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
                 },
                 {
-                    "name": "User Referrals",
-                    "propertyName": "userrReferrals",
-                    "functionName": "newGovernanceFunctionLibraryUserReferrals"
+                    "name": "Referral Program",
+                    "propertyName": "referralProgram",
+                    "functionName": "newGovernanceFunctionLibraryReferralProgram"
+                },
+                {
+                    "name": "Mentorship Program",
+                    "propertyName": "mentorshipProgram",
+                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
                 },
                 {
                     "name": "Profile Constructor",
@@ -1009,7 +1014,13 @@
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
                 }
             ],
-            "utilities": [],
+            "utilities": [
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "functionName": "newFoundationsUtilitiesPools"
+                }
+            ],
             "spaces": [
                 {
                     "name": "User Profile Space",

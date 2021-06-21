@@ -10,18 +10,19 @@ function newFoundationsUtilitiesMandatoryProgram() {
         userProfiles,
         programPropertyName,
         programName,
-        programNodeType
+        programNodeType,
+        programPowerName
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
-        of the Mentorship Program. This will come from a Pool that is configured wiht a codeName config property
+        of the Program. This will come from a Pool that is configured wiht a codeName config property
         with the value programName
         */
         let mentorshipProgramPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Icomming Mentorship Power that each User Profile at their Mentorship Program
-        node has, because with that Incoming Power is that each Mentorship Program node gets a share of 
+        we need to accumulate all the Icomming programPowerName that each User Profile at their Program
+        node has, because with that Incoming Power is that each Program node gets a share of 
         the pool.
          */
         let accumulatedIncomingProgramPower = 0
@@ -133,7 +134,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 return
             }
             /*
-            As per the system rules, the Mentorship Program will not give tokens 
+            As per the system rules, the Program will not give tokens 
             to users that do not have their own user nodes set up, unless it has a big 
             amount of tokens (this last condition is for the edge case where a user it 
             at the top of the mentorship pyramid.)        
@@ -160,7 +161,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function distributeMentorshipProgram(mentorshipProgram) {
             if (mentorshipProgram === undefined || mentorshipProgram.payload === undefined) { return }
             /*
-            Here we will convert Token Power into Mentorship Power. 
+            Here we will convert Token Power into programPowerName. 
             As per system rules mentoshipPower = tokensPower
             */
             let mentoshipPower = mentorshipProgram.payload.tokenPower
@@ -189,7 +190,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 case programNodeType: {
                     /*
                     This is the point where we increase to our local count of mentorships whatever it comes
-                    at the count parameters. If we are processing the User Profile of this Mentorship Program
+                    at the count parameters. If we are processing the User Profile of this Program
                     then we will add zero, otherwise, 1.
                     */
                     node.payload[programPropertyName].count = node.payload[programPropertyName].count + count
@@ -199,7 +200,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     */
                     node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + mentoshipPower
                     /*
-                    We need to adjust the balance that holds the accumulationt of all incomingPower of all Mentorship Program
+                    We need to adjust the balance that holds the accumulationt of all incomingPower of all Program
                     nodes. To do this we will substratct the current incomingPower, bacause it is going to be recalculated
                     inmediatelly after this, and then we will add it again after the recalcualtion.
                     */
@@ -214,7 +215,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     node.payload[programPropertyName].incomingPower = node.payload[programPropertyName].outgoingPower - node.payload[programPropertyName].ownPower
                     /*
                     Now that we have the incomingPower calculated again, we can add it again to the balance of all the incomingPower
-                    of all Mentorship Program nodes.
+                    of all Program nodes.
                     */
                     accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
 
@@ -251,23 +252,23 @@ function newFoundationsUtilitiesMandatoryProgram() {
 
         function calculateMentorshipProgram(mentorshipProgram) {
             /*
-            Here we will calculate which share of the Mentorship Program Pool this user will get in tokens.
+            Here we will calculate which share of the Program Pool this user will get in tokens.
             To do that, we use the incomingPower, to see which proportion of the accumulatedIncomingProgramPower
             represents.
             */
             if (mentorshipProgram.payload === undefined) { return }
             /*
-            If the accumulatedIncomingProgramPower is not grater the amount of tokens at the Mentorship Program Pool, then
+            If the accumulatedIncomingProgramPower is not grater the amount of tokens at the Program Pool, then
             this user will get the exact amount of tokens from the pool as incomingPower he has. 
 
-            If the accumulatedIncomingProgramPower is  grater the amount of tokens at the Mentorship Program Pool, then
+            If the accumulatedIncomingProgramPower is  grater the amount of tokens at the Program Pool, then
             the amount ot tokens to be received is a proportional to the share of incomingPower in accumulatedIncomingProgramPower.
             */
             let totalPowerRewardRatio = accumulatedIncomingProgramPower / mentorshipProgramPoolTokenReward
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
             if (mentorshipProgram.tokensAwarded === undefined || mentorshipProgram.tokensAwarded.payload === undefined) {
-                mentorshipProgram.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Mentorship Program Pool.")
+                mentorshipProgram.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
             mentorshipProgram.payload[programPropertyName].awarded.tokens = mentorshipProgram.payload[programPropertyName].incomingPower * totalPowerRewardRatio
@@ -283,7 +284,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setValue(outgoingPowerText + ' ' + 'Mentorship Power')
+                node.payload.uiObject.setValue(outgoingPowerText + ' ' + programPowerName)
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false

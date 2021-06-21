@@ -82,6 +82,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             if (node.payload === undefined) { return }
             node.payload[programPropertyName] = {
                 count: 0,
+                percentage: 0,
                 outgoingPower: 0,
                 ownPower: 0,
                 incomingPower: 0,

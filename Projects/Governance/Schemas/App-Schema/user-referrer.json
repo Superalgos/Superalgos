@@ -36,5 +36,5 @@
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userReferrer"
+    "propertyNameAtParent": "userReferrers"
 }

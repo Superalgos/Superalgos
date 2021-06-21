@@ -13,37 +13,39 @@
             "name": "New Referral Program",
             "config": "{}",
             "project": "Governance",
-            "userReferrer": {
-                "type": "User Referrer",
-                "name": "Julian-Molina",
-                "config": "{}",
-                "project": "Governance",
-                "id": "c96ae419-54ad-4d70-94fe-38833288d471",
-                "savedPayload": {
-                    "position": {
-                        "x": 30660.151752050326,
-                        "y": 22933.690934849117
-                    },
-                    "targetPosition": {
-                        "x": 30550.54944474041,
-                        "y": 23212.953059442378
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {},
-                    "referenceParent": {
-                        "type": "User Profile",
-                        "name": "Julian-Molina",
-                        "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+            "userReferrers": [
+                {
+                    "type": "User Referrer",
+                    "name": "Julian-Molina",
+                    "config": "{}",
+                    "project": "Governance",
+                    "id": "fb0a076c-b0a8-4f16-9a47-10a3f3489a0a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30660.151752050326,
+                            "y": 22933.690934849117
+                        },
+                        "targetPosition": {
+                            "x": 30550.54944474041,
+                            "y": 23212.953059442378
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {},
+                        "referenceParent": {
+                            "type": "User Profile",
+                            "name": "Julian-Molina",
+                            "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                        }
                     }
                 }
-            },
+            ],
             "tokensAwarded": {
                 "type": "Tokens Awarded",
                 "name": "New Tokens Awarded",
@@ -82,7 +84,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

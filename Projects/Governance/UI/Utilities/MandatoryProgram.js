@@ -356,7 +356,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
-                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Mentees.')
+                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')
             }
         }
     }

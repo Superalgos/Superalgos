@@ -1021,9 +1021,9 @@
                     "functionName": "newFoundationsUtilitiesPools"
                 },
                 {
-                    "name": "Program",
-                    "propertyName": "program",
-                    "functionName": "newFoundationsUtilitiesProgram"
+                    "name": "Mandatory Program",
+                    "propertyName": "mandatoryProgram",
+                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
                 }
             ],
             "spaces": [

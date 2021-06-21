@@ -575,8 +575,8 @@
                     "pools": [
                         {
                             "type": "Pool",
-                            "name": "Stacking",
-                            "config": "{\n  \"description\": \"\"\n}",
+                            "name": "Stacking-Program",
+                            "config": "{\n    \"codeName\": \"Staking-Program\"\n}",
                             "project": "Governance",
                             "poolClasses": [],
                             "pools": [],

@@ -58,7 +58,7 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "stakingProgram",
+            "propertyToCheckFor": "stackingProgram",
             "label": "Add Staking Program",
             "relatedUiObject": "Staking Program"
         },
@@ -117,7 +117,7 @@
             "autoAdd": true
         },
         {
-            "name": "stakingProgram",
+            "name": "stackingProgram",
             "type": "node",
             "childType": "Staking Program",
             "autoAdd": true

@@ -11,7 +11,8 @@ function newFoundationsUtilitiesMandatoryProgram() {
         programPropertyName,
         programName,
         programNodeType,
-        programPowerName
+        programPowerName,
+        usersArrayPropertyName
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
@@ -104,10 +105,10 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
             if (
                 node.type === programNodeType &&
-                node.userMentors !== undefined
+                node[usersArrayPropertyName] !== undefined
             ) {
-                for (let i = 0; i < node.userMentors.length; i++) {
-                    reserProgram(node.userMentors[i])
+                for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                    reserProgram(node[usersArrayPropertyName][i])
                 }
                 return
             }
@@ -141,7 +142,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             */
             if (
                 node.payload.parentNode.payload.parentNode.payload.blockchainTokens < 1000000 &&
-                (node.userMentors === undefined || hasUsersDefined(node.userMentors) === false)
+                (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
                 node.payload.uiObject.setErrorMessage("In order to enable this program you need to add User Mentor nodes and reference a User Profile from each one.")
@@ -219,15 +220,15 @@ function newFoundationsUtilitiesMandatoryProgram() {
                     */
                     accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
 
-                    if (node.userMentors !== undefined) {
-                        for (let i = 0; i < node.userMentors.length; i++) {
-                            distributeProgramPower(node.userMentors[i], mentoshipPower / node.userMentors.length, 0)
+                    if (node[usersArrayPropertyName] !== undefined) {
+                        for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                            distributeProgramPower(node[usersArrayPropertyName][i], mentoshipPower / node[usersArrayPropertyName].length, 0)
                         }
                     }
                     break
                 }
                 case 'User Mentor': {
-                    node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower / node.payload.parentNode.userMentors.length
+                    node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower / node.payload.parentNode[usersArrayPropertyName].length
 
                     drawUserMentor(node)
                     if (node.payload.referenceParent !== undefined) {

@@ -1004,6 +1004,11 @@
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
                 },
                 {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
@@ -1019,6 +1024,11 @@
                     "name": "Pools",
                     "propertyName": "pools",
                     "functionName": "newFoundationsUtilitiesPools"
+                },
+                {
+                    "name": "Mandatory Program",
+                    "propertyName": "mandatoryProgram",
+                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
                 }
             ],
             "spaces": [

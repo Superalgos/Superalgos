@@ -11,8 +11,6 @@
         {
             "action": "Add UI Object",
             "actionProject": "Foundations",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "userReferrer",
             "actionFunction": "payload.executeAction",
             "label": "Add User Referrer",
             "relatedUiObject": "User Referrer"
@@ -44,15 +42,15 @@
         "config": "{}"
     },
     "attachingRules": {
-        "compatibleTypes": "->Token Switch->"
+        "compatibleTypes": "->Token Power Switch->"
     },
     "addLeftIcons": true,
     "level": 1,
     "propertyNameAtParent": "referralProgram",
     "childrenNodesProperties": [
         {
-            "name": "userReferrer",
-            "type": "node",
+            "name": "userReferrers",
+            "type": "array",
             "childType": "User Referrer",
             "autoAdd": true
         },

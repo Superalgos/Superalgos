@@ -401,8 +401,8 @@
                             "id": "60712b3c-ee76-40ba-8de2-e03aa61f6dde",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25130.086277076116,
-                                    "y": 31080.643930047634
+                                    "x": 25177.761863855485,
+                                    "y": 31018.51189569167
                                 },
                                 "targetPosition": {
                                     "x": 24917.954242720152,
@@ -431,8 +431,38 @@
                             "id": "639a6504-a0d0-4d7e-ad99-80ba5115ac72",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24840.308529189395,
+                                    "x": 24995.59995625091,
                                     "y": 31158.28964357839
+                                },
+                                "targetPosition": {
+                                    "x": 24917.954242720152,
+                                    "y": 30868.51189569167
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Pool",
+                            "name": "Support-Program",
+                            "config": "{\n\"codeName\": \"Support-Program\"\n}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [],
+                            "id": "18fa6e35-77df-4446-87a9-9d3e6b83eb05",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 24767.954242720152,
+                                    "y": 31128.319516827003
                                 },
                                 "targetPosition": {
                                     "x": 24917.954242720152,

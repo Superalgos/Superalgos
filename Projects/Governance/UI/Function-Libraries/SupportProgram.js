@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryMentorshipProgram() {
+function newGovernanceFunctionLibrarySupportProgram() {
     let thisObject = {
         calculate: calculate
     }
@@ -12,12 +12,12 @@ function newGovernanceFunctionLibraryMentorshipProgram() {
         UI.projects.governance.utilities.mandatoryProgram.run(
             pools,
             userProfiles,
-            "mentorshipProgram",
-            "Mentorship-Program",
-            "Mentorship Program",
-            "Mentorship Power",
-            "userMentors",
-            "User Mentor"
+            "supportProgram",
+            "Support-Program",
+            "Support Program",
+            "Support Power",
+            "userSupporters",
+            "User Supporter"
         )
     }
 }

@@ -1,0 +1,34 @@
+{
+    "tutorial": "Defining a Trading Idea",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Breakdown of the BBs",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-candles"
+        },
+        "text": "Weak-hands Buster is based on the idea that a breakdown of the BB may predict a deepening of a downtrend and some reversals."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I just brought you to April 10th, 2020 to check a case of a breakdown of the bands. See what happens at the following candles:"
+        },
+        {
+            "style": "List",
+            "text": "04 hs: A candle closes below the lower band at 7.176 USDT."
+        },
+        {
+            "style": "List",
+            "text": "05 hs: A second candle closes below the band at 7.140 USDT."
+        },
+        {
+            "style": "List",
+            "text": "06 hs: A more serious drop follows, accentuating the price action seen earlier."
+        },
+        {
+            "style": "List",
+            "text": "16 hs: Ten hours after the first breakdown, the lowest hourly close of the day marks 6.766 USDT, more than 6% below."
+        }
+    ]
+}

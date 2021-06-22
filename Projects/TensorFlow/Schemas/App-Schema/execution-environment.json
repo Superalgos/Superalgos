@@ -3,7 +3,6 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add WebGL Backend",
@@ -12,7 +11,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add NodeJS Backend",
@@ -21,7 +19,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add WASM Backend",
@@ -30,7 +27,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "backend",
             "label": "Add CPU Backend",
@@ -39,7 +35,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "environmentFlags",
             "label": "Add Environment Flags",
@@ -48,7 +43,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

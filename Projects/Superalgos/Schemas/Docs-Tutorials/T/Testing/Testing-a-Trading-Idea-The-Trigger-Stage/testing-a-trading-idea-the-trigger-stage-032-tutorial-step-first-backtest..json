@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 32,
+    "type": "Tutorial Step - First Backtest...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "backtesting-session"
+        },
+        "text": "Now that we have these basic definitions in place, we may do a first backtest."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are not ready to the test the idea as we've only defined the trigger on and trigger off events. We just want to make sure we got the definitions right."
+        },
+        {
+            "style": "Callout",
+            "text": "Although the strategy will eventually include logic relating to the 1H chart, the current definitions involve the 24H chart only."
+        },
+        {
+            "style": "Text",
+            "text": "We are going to run a backtesting session between January 1st and October 1st, 2020, on the 24H time frame. Take a look at the Time Range and Time Frame parameters and make sure they match the above!"
+        }
+    ]
+}

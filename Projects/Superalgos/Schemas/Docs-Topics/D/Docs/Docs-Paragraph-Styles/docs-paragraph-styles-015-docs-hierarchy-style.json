@@ -1,0 +1,46 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 15,
+    "type": "Docs Hierarchy Style",
+    "definition": {
+        "text": "It is possible to inject into a docs page, a hierarchy of nodes, starting on a node specified and letting the system to figure out which are it's decendents."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When you edit a paragraph of hierarchy style, the system expects you to follow this syntax:"
+        },
+        {
+            "style": "Json",
+            "text": "Project->Node Type->Levels"
+        },
+        {
+            "style": "List",
+            "text": "Project: refers to any of the projects already integrated into Superalgos, including Superalgos itself."
+        },
+        {
+            "style": "List",
+            "text": "Node Type: any valid node type in the context of the project specified."
+        },
+        {
+            "style": "List",
+            "text": "Levels: the number of generations downstream, starting from the node type specified, that will be rendered at the docs page. The maximun number of levels is 8."
+        },
+        {
+            "style": "Title",
+            "text": "Example:"
+        },
+        {
+            "style": "Javascript",
+            "text": "Superalgos->Task->5"
+        },
+        {
+            "style": "Text",
+            "text": "produces the following at the docs page:"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Task->5"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "type": "Data Tasks",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Having access to quality information is a crucial element of trading. For that reason, Superalgos strives to give users full control over how, where, and when data is processed. You will use this section of the network hierarchy to exert that control.",
+            "updated": 1609613582225
+        },
+        {
+            "style": "Text",
+            "text": "Data mining is done through tasks running instances of sensor and indicator bots. The data structure under this node allows organizing the data mining operation by project, exchange, market, and data mine.",
+            "updated": 1609618336656
+        },
+        {
+            "style": "Text",
+            "text": "The setup of the data mining operation may be done using the Install Market function of the market you wish to install as defined in the Crypto Ecosystem hierarchy under the exchange markets node.",
+            "updated": 1609618361260
+        },
+        {
+            "style": "Text",
+            "text": "You may also set up data mining tasks by using the different functions in this section of the hierarchy, starting with the options in the menu of this node. This route offers finer control over what tasks you set up, and how."
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Deleting Node Warning",
+            "updated": 1610122758940
+        }
+    ],
+    "definition": {
+        "text": "Data tasks referes to data-mining, that is, the activity of processing data. You need to process data to feed charts, and so that your trading systems may make decisions based on quality information.",
+        "updated": 1609618235002
+    }
+}

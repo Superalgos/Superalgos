@@ -14,7 +14,10 @@ function newAppPostLoader() {
 
     function start() {
         try {
-  
+            /* Moving PROJECTS_ARRAY to the global variable */
+            PROJECTS_ARRAY = window.PROJECTS
+            window.PROJECTS = undefined
+
             setBrowserEvents()
             setupProjectsSchema()
 
@@ -32,8 +35,8 @@ function newAppPostLoader() {
                 let totalWebServerCalls = 0
                 let webServerResponses = 0
 
-                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                    let project = PROJECTS_SCHEMA[i].name
+                for (let i = 0; i < PROJECTS_ARRAY.length; i++) {
+                    let project = PROJECTS_ARRAY[i]
                     let schemas = {
                         array: {
                             appSchema: [],
@@ -226,7 +229,7 @@ function newAppPostLoader() {
         window.addEventListener('keydown', window.manageBackRefresh)
 
         function saveWorkspace() {
-            UI.projects.foundations.spaces.designSpace.workspace.save()
+            UI.projects.superalgos.spaces.designSpace.workspace.save()
         }
     }
 }

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 27,
+    "type": "Tutorial Step - Position Management",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "manage-stage"
+        },
+        "text": "We finished the definitions required to take a position and we are ready to define the initial stop loss and take profit targets!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's remember what we had decided our targets would be while developing the idea."
+        },
+        {
+            "style": "List",
+            "text": "For downtrends: we will set 3% stop loss and 10% take profit targets."
+        },
+        {
+            "style": "Callout",
+            "text": "Collapse the open stage node as we are not going to touch it for a while. <br/><br/>Now expand the Manage Stage node and take a look inside!"
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 /* Global Constatns */
 
 let canvas
+let PROJECTS_ARRAY
 let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
 /* New Root object*/
@@ -202,9 +203,9 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
 
 
-let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the UI.projects.superalgos.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the UI.projects.superalgos.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000000
 
 const TOP_MARGIN = 0

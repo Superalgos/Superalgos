@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 77,
+    "type": "Tutorial Step - Are Errors Gone?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-strategy"
+        },
+        "text": "Ok! As expected, we can see that the strategy closes after the trigger stage closes! The video in the next step shows what I see!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's unpack what happens after the trigger stage closes!"
+        },
+        {
+            "style": "Callout",
+            "text": "Can you see the strategy triggering five times in a row starting on Feb 28th, at 9 hs?"
+        },
+        {
+            "style": "Text",
+            "text": "This happens because as soon as the strategy closes, the bot goes back to evaluating the Trigger On Event. That is what it usually does after a position is closed... look for more trading opportunities! This behavior is part of the normal functioning of the system, and a consequence of not defining the open, close, and manage stages.",
+            "updated": 1610471951252
+        }
+    ]
+}

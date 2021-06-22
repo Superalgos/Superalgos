@@ -1,0 +1,101 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 4,
+    "type": "Ichimoku Cloud - Zeus Indicator",
+    "definition": {
+        "text": "One-glance equilibrium chart.",
+        "updated": 1611673922795
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Ichimoku Cloud on the Charts",
+            "updated": 1611673941748
+        },
+        {
+            "style": "Text",
+            "text": "According to Wikipedia, “Ichimoku Kinko Hyo translates to one glance equilibrium chart or instant look at the balance chart and is sometimes referred to as one glance cloud chart based on the unique clouds that feature in Ichimoku charting. Ichimoku is a moving average-based trend identification system and because it contains more data points than standard candlestick charts, it provides a clearer picture of potential price action.”"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/ichimoku-cloud.png",
+            "updated": 1611674208206
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The Ichimoku Cloud is a collection of technical indicators that show support and resistance levels, as well as momentum and trend direction. It does this by taking multiple averages and plotting them on the chart. It also uses these figures to compute a cloud which attempts to forecast where the price may find support or resistance in the future.”"
+        },
+        {
+            "style": "Text",
+            "text": "Standard parameters for the indicator are set for a crypto market:"
+        },
+        {
+            "style": "List",
+            "text": "Value for Conversion Line Periods = 20"
+        },
+        {
+            "style": "List",
+            "text": "value for Base Line Periods = 30"
+        },
+        {
+            "style": "List",
+            "text": "Value for Lagging Span 2 Periods = 120"
+        },
+        {
+            "style": "List",
+            "text": "Value for Displacement = 60"
+        },
+        {
+            "style": "Text",
+            "text": "I made it easy to change the parameters needed for the calculation as per your needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “Ichimoku” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/ichimoku-setting-parameters.png",
+            "updated": 1611674262861
+        },
+        {
+            "style": "Title",
+            "text": "Ichimoku Cloud Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are four properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Ichimoku | ichimoku | conversionLine, baseLine, leadLine1, leadLine2 |",
+            "updated": 1611674317041
+        },
+        {
+            "style": "Text",
+            "text": "Please note that Lead Line 1 & 2 are plotted on the chart in the future. To avoid misconfiguration when writing strategies, values of Lead Line 1 & 2 are synced with the current candle close so there is no need to call past values of the 2 properties when compared to current price action."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/ichimoku-synced-values.png",
+            "updated": 1611674350570
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "Basic strategies can be built by checking if the price is above the cloud:"
+        },
+        {
+            "style": "List",
+            "text": "Price is above Lead Line 1 & 2 and above the Conversion Line."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.candle.close > chart.at04hs.ichimoku.leadLine1 &&\nchart.at04hs.candle.close > chart.at04hs.ichimoku.leadLine2 &&\nchart.at04hs.ichimoku.conversionLine > chart.at04hs.ichimoku.baseLine",
+            "updated": 1611674385686
+        }
+    ]
+}

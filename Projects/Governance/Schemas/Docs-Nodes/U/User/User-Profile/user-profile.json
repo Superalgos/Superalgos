@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "definition": {
-        "text": "At these hierarchies, users define their profile, which essentially means declaring which are their Claims Program, and which is the way they would like to distribute their voting power. From each user profile starts a stream of votes that flows through switches that split these streams according to the user preferences and end up at other hierarchies's nodes, who are the recipient of these votes. ",
+        "text": "At these hierarchies, users define their profile, which essentially means declaring which are their contribution claims, and which is the way they would like to distribute their voting power. From each user profile starts a stream of votes that flows through switches that split these streams according to the user preferences and end up at other hierarchies's nodes, who are the recipient of these votes. ",
         "updated": 1622988108578
     },
     "paragraphs": [

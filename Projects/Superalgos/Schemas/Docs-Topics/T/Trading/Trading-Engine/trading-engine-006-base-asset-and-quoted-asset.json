@@ -1,0 +1,169 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "6",
+    "type": "Base Asset and Quoted Asset",
+    "definition": {
+        "text": "Keep track of accounts denominated in the base asset and the quoted asset, in multiple contexts. On this page: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
+        "updated": 1611258310236
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Because the system aims to be as flexible as possible, the trading engine keeps the accounts relative to both the base asset and the quoted asset. This allows the user to set up the trading system with whatever logic is required and decide which set of accounts suits the intent—the goal—of the trading strategy.",
+            "updated": 1611258333516
+        },
+        {
+            "style": "Callout",
+            "text": "Notice that—usually—the accounts denominated in one asset will be valid, while the accounts denominated in the other asset will likely make no sense."
+        },
+        {
+            "style": "Text",
+            "text": "Which set of accounts you will monitor to track the performance of the episode depends on how you define your trading system."
+        },
+        {
+            "style": "Text",
+            "text": "For example, If you are trading the BTC/USDT market and developed a trading system to accumulate USDT, then the set of accounts that will make sense for you is the one denominated in the quoted asset, that is, in USDT. This is why:"
+        },
+        {
+            "style": "Text",
+            "text": "Your strategy will likely buy BTC (the base asset) expecting the price to go up while the position is open, in order to sell BTC at a higher rate and end up with more USDT (the quoted asset) than you started with."
+        },
+        {
+            "style": "Title",
+            "text": "Example",
+            "updated": 1611258412121
+        },
+        {
+            "style": "Text",
+            "text": "Let’s say you buy 10,000 USDT worth of BTC. BTC price increases by 10%, so you sell the whole amount of BTC to close the position and end up with 10,900 USDT (exchange fees are deducted from the balance)."
+        },
+        {
+            "style": "Text",
+            "text": "In terms of the base asset, your begin balance is 0 BTC and your end balance is 0.00000012 BTC, as the exchange left some BTC dust in the account due to rate conversion limitations. Also in terms of the base asset, your profit loss for the position is...",
+            "updated": 1611258453118
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Json",
+            "text": "0.00000012 BTC - 0 BTC = 0.00000012 BTC",
+            "updated": 1611258465358
+        },
+        {
+            "style": "Text",
+            "text": "ROI and other metrics may be derived from these initial observations as well. Needless to say, such metrics are irrelevant to the intent of the strategy, which is to accumulate USDT."
+        },
+        {
+            "style": "Text",
+            "text": "Now, in terms of the quoted asset, your begin balance is 10,000 USDT and your end balance is 10,900 USDT (exchange fees are deducted from the balance). Also in terms of the quoted asset, your profit loss for the position is...",
+            "updated": 1619116331161
+        },
+        {
+            "style": "Json",
+            "text": "10,900 USDT - 10,000 USDT = 900 USDT"
+        },
+        {
+            "style": "Text",
+            "text": "It should be clear by now that these are the metrics relevant to the intent of the strategy."
+        },
+        {
+            "style": "Note",
+            "text": "With other types of strategies, for example, those in which the intent is to accumulate both assets, both sets of metrics may be relevant. Also, the consolidated metrics provided in the context of statistics may be relevant too.",
+            "updated": 1611258499505
+        },
+        {
+            "style": "Text",
+            "text": "The concepts relative to base and quoted asset, such as the balance of each asset and the performance metrics computed from the perspective of each asset, are tracked in multiple contexts simultaneously."
+        },
+        {
+            "style": "Text",
+            "text": "What follows are the definitions of the base and quoted asset in each of the contexts that the concepts are tracked."
+        },
+        {
+            "style": "Title",
+            "text": "Episode Base Asset",
+            "updated": 1611258577948
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Episode Base Asset->Definition",
+            "updated": 1611258580907
+        },
+        {
+            "style": "Title",
+            "text": "Episode Quoted Asset",
+            "updated": 1611258588997
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Episode Quoted Asset->Definition",
+            "updated": 1611258592849
+        },
+        {
+            "style": "Title",
+            "text": "Position Base Asset",
+            "updated": 1611258602952
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position Base Asset->Definition",
+            "updated": 1611258605932
+        },
+        {
+            "style": "Title",
+            "text": "Position Quoted Asset",
+            "updated": 1611258616805
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Position Quoted Asset->Definition",
+            "updated": 1611258619810
+        },
+        {
+            "style": "Title",
+            "text": "Stage Base Asset",
+            "updated": 1611258630368
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Stage Base Asset->Definition",
+            "updated": 1611258633312
+        },
+        {
+            "style": "Title",
+            "text": "Stage Quoted Asset",
+            "updated": 1611258644044
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Stage Quoted Asset->Definition",
+            "updated": 1611258647352
+        },
+        {
+            "style": "Title",
+            "text": "Order Base Asset",
+            "updated": 1611258657391
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Base Asset->Definition",
+            "updated": 1611258660759
+        },
+        {
+            "style": "Title",
+            "text": "Order Quoted Asset",
+            "updated": 1611258669352
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Order Quoted Asset->Definition",
+            "updated": 1611258672239
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

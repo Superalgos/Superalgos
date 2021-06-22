@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 72,
+    "type": "Tutorial Step - Take Position Event",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "take-position-event"
+        },
+        "text": "Let's do a quick check on the take position event and then address the elephant in the room: we have errors!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We mentioned earlier that when either the take position event or the trigger off event validates true, the trigger stage closes."
+        },
+        {
+            "style": "Callout",
+            "text": "Well, we can see the Trigger Stage closing on Feb 28th, at 9 hs... right after two consecutive hourly closes below the lower band! So far so good!"
+        },
+        {
+            "style": "Warning",
+            "text": "But we have errors immediately after that! Can you figure out what's going on?"
+        }
+    ]
+}

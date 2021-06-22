@@ -10,7 +10,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -26,15 +25,15 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\n  \"description\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->"
+        "compatibleTypes": "->User Profile->"
     },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userReferrers"
+    "propertyNameAtParent": "userReferrer"
 }

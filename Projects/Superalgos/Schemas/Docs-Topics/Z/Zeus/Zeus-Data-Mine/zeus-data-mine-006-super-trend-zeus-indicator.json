@@ -1,0 +1,113 @@
+{
+    "topic": "Zeus Data Mine",
+    "pageNumber": 6,
+    "type": "Super Trend - Zeus Indicator",
+    "definition": {
+        "text": "The Super Trend indicator identifies market trends.",
+        "updated": 1611674886554
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Super Trend On the Charts",
+            "updated": 1611674897756
+        },
+        {
+            "style": "Text",
+            "text": "The inventor of the SuperTrend Indicator is Olivier Seban."
+        },
+        {
+            "style": "Text",
+            "text": "Super Trend is an indicator quite similar to Moving Average Convergence Divergence or MACD and its main purpose is to identify the trend of a market. Based on the parameters of multiplier and period, the indicator uses 3 for multiplier and 10 for ATR as default values. Average True Range is then represented by the number of periods while the multiplier is the value by which the range is multiplied."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/supertrend-on-the-chart.png",
+            "updated": 1611674941418
+        },
+        {
+            "style": "Text",
+            "text": "When plotted, the Super Trend indicator appears like an alternating green and red continuous line. The green line is plotted below the current price and indicates an uptrend. The red line is plotted above the current price and indicates a downtrend."
+        },
+        {
+            "style": "Text",
+            "text": "The Super Trend plotter panel shows the numeric value for the uptrend or downtrend and the ATR."
+        },
+        {
+            "style": "Text",
+            "text": "When compared to a regular Moving Average trading system the Super Trend indicator generates fewer false signals and it’s usually preferred over a common Moving Average trading system."
+        },
+        {
+            "style": "Text",
+            "text": "Standard values for the indicator are:"
+        },
+        {
+            "style": "List",
+            "text": "For ATR standard value is 10."
+        },
+        {
+            "style": "List",
+            "text": "For Multiplier standard value is 3."
+        },
+        {
+            "style": "Text",
+            "text": "I made it easy to change the parameters needed for the calculation as per users’ needs. Locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under Supertrend Product Definition"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/supertrend-setting-parameters.png",
+            "updated": 1611674990195
+        },
+        {
+            "style": "Title",
+            "text": "Super Trend Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are five properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Super Trend | superTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
+            "updated": 1611675034703
+        },
+        {
+            "style": "Text",
+            "text": "Standard output for the trend property is:"
+        },
+        {
+            "style": "Text",
+            "text": "Trend value is 1 if in an uptrend and -1 if in a downtrend."
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Text",
+            "text": "Basic strategies can be built using the value of the trend or values of upTrend/dnTrend can be used as entry/exit targets or as trailing:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.superTrend.trend > 0 && chart.at02hs.superTrend.previous.trend < 0",
+            "updated": 1611675050578
+        },
+        {
+            "style": "Text",
+            "text": "An uptrend market is identified."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.superTrend.upTrend",
+            "updated": 1611675056849
+        },
+        {
+            "style": "Text",
+            "text": "A simple trailing stop loss in a strategy that goes short."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

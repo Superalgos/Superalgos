@@ -1,0 +1,23 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 60,
+    "type": "Tutorial Step - Is There Room For Nuance?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "space-style"
+        },
+        "text": "Should the testing of a trading idea output black or white results? That's a good question... one that only you may answer!"
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Is your testing criteria rock-solid? If you trust the testing criteria and are confident the prediction must be fulfilled for the idea to be worth it, then you should probably stick to the hard numbers."
+        },
+        {
+            "style": "List",
+            "text": "Is your testing criteria more like a guideline or first assessment? In our case, I may openly confess that the testing criteria proposed is rather arbitrary, and doesn't hold water if questioned. I chose a simple criteria to make a point and facilitate the explanations, but I wouldn't defend it in a court of my peers! If you see the testing criteria as a first assessment only, then there should probably be room for a more nuanced analysis.",
+            "updated": 1610473653651
+        }
+    ]
+}

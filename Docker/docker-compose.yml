@@ -4,7 +4,7 @@ services:
     build: 
       context: ..
       dockerfile: ./Docker/Dockerfile
-    image: ghcr.io/superalgos/superalgos:latest
+    image: superalgos
     command: ["minMemo"]
     ports:
       - '34248:34248'
@@ -13,7 +13,4 @@ services:
       - ../Data-Storage:/app/Data-Storage
       - ../Log-Files:/app/Log-Files
       - ../My-Workspaces:/app/My-Workspaces
-    environment:
-      - PUID: '1000'
-      - GUID: '1000'
     restart: on-failure

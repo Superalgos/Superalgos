@@ -1,0 +1,32 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 36,
+    "type": "Tutorial Step - Target Size in Quoted Asset",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "target-size-in-quoted-asset"
+        },
+        "text": "I didn't mention this earlier: we will define the target size in the quoted asset, not the base asset as we did for the open stage!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's natural we do so, as that is the asset we now have!"
+        },
+        {
+            "style": "Callout",
+            "text": "Delete the Target Size In Base Asset node!"
+        },
+        {
+            "style": "Text",
+            "text": "I built this for the target size formula copying paths... Use it, making sure you don't introduce line breaks on the nodes' paths!",
+            "updated": 1610473186038
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.sizeFilled.value - \ntradingEngine.tradingCurrent.strategyOpenStage.stageQuotedAsset.feesPaid.value",
+            "updated": 1610473148011
+        }
+    ]
+}

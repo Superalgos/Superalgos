@@ -1,0 +1,54 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 11,
+    "type": "Tutorial Topic - Canvas App",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "Most of the action happens on an HTML 5 Canvas animation. The rest is pure HTML + CSS, nothing else."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The main object of the Canvas App is called canvas. It is essentially a collection of different space objects:"
+        },
+        {
+            "style": "List",
+            "text": "Charting Space: Where charts are displayed,"
+        },
+        {
+            "style": "List",
+            "text": "Design Space: Where definitions are maintained."
+        },
+        {
+            "style": "List",
+            "text": "Floating Space: Enables visual scripting."
+        },
+        {
+            "style": "List",
+            "text": "Side Space: Currently, the workspace selector."
+        },
+        {
+            "style": "List",
+            "text": "Docs Space: In-app documentation."
+        },
+        {
+            "style": "List",
+            "text": "Tutorial Space: Enables tutorials like this one."
+        },
+        {
+            "style": "List",
+            "text": "Panel Space: Where plotter panels live."
+        },
+        {
+            "style": "List",
+            "text": "Cockpit Space: Currently, the slider ."
+        },
+        {
+            "style": "List",
+            "text": "Top Space: Currently, the top bar with logo."
+        }
+    ]
+}

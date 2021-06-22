@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 57,
+    "type": "Tutorial Step - March 28th - April 1st",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "fails"
+        },
+        "text": "We've got two more fails by the end of March and the beginning of April. What can we say about these?"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The first position on the 28th seems like a decent entry, despite not reaching the 10% target. It did stay in profit for a while, and got to about 7% on March 30th at 0 hs. The second position is a clear fail!"
+        },
+        {
+            "style": "Callout",
+            "text": "Go check the context in the 24H time frame! What do you think?"
+        },
+        {
+            "style": "Note",
+            "text": "To me, it looks like a reasonable context to go short, but what do I know?!"
+        }
+    ]
+}

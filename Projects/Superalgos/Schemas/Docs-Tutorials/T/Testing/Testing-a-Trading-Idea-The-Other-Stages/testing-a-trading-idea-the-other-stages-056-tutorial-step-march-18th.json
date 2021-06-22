@@ -1,0 +1,30 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 56,
+    "type": "Tutorial Step - March 18th",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "fails"
+        },
+        "text": "This position is a new fail, happening on March 18th, just a few days after one of the major market-crashes in recent history."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "What can we say about this entry?"
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the 24H time frame and take a look at the overall context!"
+        },
+        {
+            "style": "Text",
+            "text": "What I see is a situation of extreme volatility amid a historic pandemic-induced global economic crash."
+        },
+        {
+            "style": "Success",
+            "text": "Maybe we shouldn't be trading in such conditions?! It certainly seems risky!"
+        }
+    ]
+}

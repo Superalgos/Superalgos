@@ -10,16 +10,30 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokenPowerSwitch",
+            "propertyToCheckFor": "contributionClaims",
             "actionFunction": "payload.executeAction",
-            "label": "Add Token Power Switch",
-            "relatedUiObject": "Token Power Switch"
+            "label": "Add Contribution Claims",
+            "relatedUiObject": "Contribution Claims"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "votesDistribution",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Votes Distribution",
+            "relatedUiObject": "Votes Distribution"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userReferrer",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Referrer",
+            "relatedUiObject": "User Referrer"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -32,7 +46,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\n\"codeName\": \"\"\n}"
     },
     "isTitleAllwaysVisible": false,
     "isHierarchyHead": true,
@@ -40,10 +54,22 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "tokenPowerSwitch",
+            "name": "contributionClaims",
             "type": "node",
-            "childType": "Token Power Switch",
-            "autoAdd": true
+            "childType": "Contribution Claims",
+            "autoAdd": false
+        },
+        {
+            "name": "votesDistribution",
+            "type": "node",
+            "childType": "Votes Distribution",
+            "autoAdd": false
+        },
+        {
+            "name": "userReferrer",
+            "type": "node",
+            "childType": "User Referrer",
+            "autoAdd": false
         }
     ]
 }

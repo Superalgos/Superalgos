@@ -1,0 +1,27 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 13,
+    "type": "Tutorial Step - Remember the Context?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-trends"
+        },
+        "text": "Now that you understand what conditions and situations are, let's pose a question: how do we define the Trigger On Event ?",
+        "updated": 1617190454094
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Because the trigger on event determines which strategy is selected to trade, the definition of the context of our hypothesis should be the main thing to consider!"
+        },
+        {
+            "style": "Callout",
+            "text": "The strategy should trade when there is a downtrend in the 24H time frame."
+        },
+        {
+            "style": "Success",
+            "text": "Our job is to write a set of conditions that mathematically describe the market situation of a downtrend in the 24H chart!"
+        }
+    ]
+}

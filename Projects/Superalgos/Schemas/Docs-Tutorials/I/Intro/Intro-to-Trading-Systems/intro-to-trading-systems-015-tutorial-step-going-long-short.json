@@ -1,0 +1,26 @@
+{
+    "tutorial": "Intro to Trading Systems",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Going Long & Short",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "We covered the three main reasons why it's a good idea to split complex logic into more than one strategy..."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We also covered a couple of examples of trading systems doing just that. There is another example that comes to mind:"
+        },
+        {
+            "style": "List",
+            "text": "Going long and short: designing a strategy that goes both long and short is probably not a good idea. Split the logic and build one strategy for going long and another for going short!"
+        },
+        {
+            "style": "Success",
+            "text": "Remember the KISS principle!"
+        }
+    ]
+}

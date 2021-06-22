@@ -10,7 +10,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -33,7 +32,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Asset Claims Folder->"
+        "compatibleTypes": "->Asset Contributions Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Asset->"

@@ -3,7 +3,6 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "biasInitializer",
             "label": "Add Bias Initializer",
@@ -12,7 +11,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "biasConstraint",
             "label": "Add Bias Constraint",
@@ -21,7 +19,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "biasRegularizer",
             "label": "Add Bias Regularizer",
@@ -30,7 +27,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

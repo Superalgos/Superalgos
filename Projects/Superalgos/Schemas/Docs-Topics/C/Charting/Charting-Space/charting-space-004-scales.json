@@ -1,0 +1,68 @@
+{
+    "topic": "Charting Space",
+    "pageNumber": "4",
+    "type": "Scales",
+    "definition": {
+        "text": "Time Machines feature a Time Scale, a Rate Scale, and a Time Frame Scale. Timeline charts may implement the last two.",
+        "updated": 1610137109400
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Time Scale",
+            "updated": 1610137166709
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Scale->Definition",
+            "updated": 1610137169800
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Scale->Content",
+            "updated": 1610137173127
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Scale->Charts",
+            "updated": 1616673746726
+        },
+        {
+            "style": "Title",
+            "text": "Rate Scale"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate Scale->Definition",
+            "updated": 1610137182583
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate Scale->Content",
+            "updated": 1610137185478
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Rate Scale->Charts",
+            "updated": 1616673907214
+        },
+        {
+            "style": "Title",
+            "text": "Time Frame Scale"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame Scale->Definition",
+            "updated": 1610137198945
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame Scale->Content"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Time Frame Scale->Charts",
+            "updated": 1616673811765
+        }
+    ]
+}

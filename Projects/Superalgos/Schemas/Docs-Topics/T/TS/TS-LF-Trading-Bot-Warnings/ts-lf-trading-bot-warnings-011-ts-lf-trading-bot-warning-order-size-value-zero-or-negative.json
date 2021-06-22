@@ -1,0 +1,54 @@
+{
+    "topic": "TS LF Trading Bot Warnings",
+    "pageNumber": "11",
+    "type": "TS LF Trading Bot Warning - Order Size Value Zero Or Negative",
+    "definition": {
+        "text": "Even though the bot got the instruction to open this order, it could not be opened because the Size is zero or negative.",
+        "updated": 1611915310058
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "This is not an error and may be normal behavior. The trading bot created this warning to let you know that this happened so that you may keep track of all the details of the trade should you need to. This page provides information that should help you understand the context of the warning.",
+            "updated": 1611916340216
+        },
+        {
+            "style": "Warning",
+            "text": "Order Size Value Zero Or Negative"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "Find below the values of variables relevant to the warning at the time the warning was created. They may prove of use to understand what happened."
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo"
+        },
+        {
+            "style": "Title",
+            "text": "Opening Orders",
+            "updated": 1611953814899
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Topic->Opening Orders->Opening Orders"
+        },
+        {
+            "style": "Title",
+            "text": "Learn More"
+        },
+        {
+            "style": "Text",
+            "text": "To learn more about this topic, please read the following page:"
+        },
+        {
+            "style": "List",
+            "text": "Opening Orders",
+            "updated": 1611915864011
+        }
+    ]
+}

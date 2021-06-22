@@ -1,0 +1,26 @@
+{
+    "tutorial": "Trading Bot Layers",
+    "pageNumber": 23,
+    "type": "Tutorial Step - Stages & Time",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "close-stage-event"
+        },
+        "text": "Layers corresponding to stages, that is, Trigger Stage, Open Stage, Close Stage, and Manage Stage are markers of spans of time."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is, they signal the span of time on which each stage was open."
+        },
+        {
+            "style": "Callout",
+            "text": "Try them out! Find the layers of the different stages and turn them on!"
+        },
+        {
+            "style": "Success",
+            "text": "Feel free to turn off a few of the layers you have on at the moment, for clarity!"
+        }
+    ]
+}

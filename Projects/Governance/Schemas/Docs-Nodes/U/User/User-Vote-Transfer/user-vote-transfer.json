@@ -1,5 +1,5 @@
 {
-    "type": "User Profile Vote",
+    "type": "User Vote Transfer",
     "definition": {
         "text": "This node allows users to transfer some of their voting power to other users, effectively creating a Liquid Democracy. Votes received by users are then flowed through the recipient user's token streams, increasing their size.",
         "updated": 1622989097099

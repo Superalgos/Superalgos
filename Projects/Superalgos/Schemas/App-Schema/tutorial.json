@@ -1,0 +1,80 @@
+{
+    "type": "Tutorial",
+    "menuItems": [
+        {
+            "action": "Play Tutorial",
+            "label": "Play",
+            "iconPathOn": "play",
+            "iconPathOff": "play",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Resume Tutorial",
+            "label": "Resume",
+            "iconPathOn": "resume",
+            "iconPathOff": "resume",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Tutorial Step",
+            "relatedUiObject": "Tutorial Step",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Tutorial Topic",
+            "relatedUiObject": "Tutorial Topic",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Reset Tutorial Progress",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Reset",
+            "label": "Reset Tutorial Progress",
+            "iconPathOn": "reset",
+            "iconPathOff": "reset",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"icon\": {\"name\": \"\",\"project\": \"Superalgos\"},\"position\": \"Left\",\"slider\": \"toTop\",\"pressButton\": \"\",\"docs\": {\"project\": \"Superalgos\",\"category\": \"Tutorial\",\"type\": \"\"},\"controlDocs\": {\"panel\": \"\",\"closeTutorialEditor\": false,\"page\": {\"project\": \"Superalgos\",\"category\": \"\",\"type\": \"\"}}}"
+    },
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "tutorialSteps",
+            "type": "array",
+            "childType": "Tutorial Step",
+            "autoAdd": false
+        },
+        {
+            "name": "tutorialTopics",
+            "type": "array",
+            "childType": "Tutorial Topic",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Trading Systems",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "New trading systems are created from the Superalgos Project hierarchy, in particular, from the Other Hierarchies node."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "But... you know what? We'll use one I created already!"
+        },
+        {
+            "style": "Callout",
+            "text": "Feel free to add a trading system if you wish, but delete it afterwards, as we are not going to use it!"
+        },
+        {
+            "style": "Note",
+            "text": "I set up a trading system while you weren't watching so that I can reference existing nodes and take you to specific places while we move along this tutorial! Merely for technical reasons, if you must know!"
+        }
+    ]
+}

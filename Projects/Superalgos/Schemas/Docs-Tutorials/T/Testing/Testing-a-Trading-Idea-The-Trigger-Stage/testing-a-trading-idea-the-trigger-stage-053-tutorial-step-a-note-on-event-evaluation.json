@@ -1,0 +1,28 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 53,
+    "type": "Tutorial Step - A Note on Event-Evaluation",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "nodes-highlights"
+        },
+        "text": "Did you notice that once the trigger stage is active, the conditions of the Trigger On Event are no longer evaluated?",
+        "updated": 1617191896544
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The opposite goes for the Trigger Off Event conditions: they are not evaluated before the stage is active. See for yourself!",
+            "updated": 1617191916250
+        },
+        {
+            "style": "Callout",
+            "text": "The trading bot follows the protocol that governs trading systems and only evaluates the events that are required at any moment in time!"
+        },
+        {
+            "style": "Text",
+            "text": "It's logical, right? The bot aims to be as efficient as possible and does only what needs to be done!"
+        }
+    ]
+}

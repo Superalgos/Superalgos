@@ -1,0 +1,95 @@
+{
+    "topic": "Network",
+    "pageNumber": "13",
+    "type": "Data and Trading Mine Products",
+    "definition": {
+        "text": "Both the Data Mine Products and Trading Mine Products sections under Data Mines Data and Trading Mines Data respectively have a very similar arrangement, and store data in the same type of nodes. We will review both sections side by side.",
+        "updated": 1610124188550
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Products->Definition",
+            "updated": 1610124263165
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Mine Products->Content",
+            "updated": 1610124266569
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610124280340
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Data Mine Products->8",
+            "updated": 1610124306721
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mine Products->Definition",
+            "updated": 1610124333397
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Mine Products->Content",
+            "updated": 1610124337452
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Mine Products->8",
+            "updated": 1610124343582
+        },
+        {
+            "style": "Title",
+            "text": "Bot Products",
+            "updated": 1610124425039
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Bot Products->Definition",
+            "updated": 1610124428671
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Bot Products->Content",
+            "updated": 1610124431780
+        },
+        {
+            "style": "Title",
+            "text": "Data Product Folder",
+            "updated": 1610124450730
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Product Folder->Definition",
+            "updated": 1610124454283
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Product Folder->Content",
+            "updated": 1610124457515
+        },
+        {
+            "style": "Title",
+            "text": "Data Product",
+            "updated": 1610124466513
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Product->Definition",
+            "updated": 1610124476732
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Product->Content",
+            "updated": 1610124484017
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 70,
+    "type": "Tutorial Step - What Is It We Are Testing?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "trading-system"
+        },
+        "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Abbiamo lanciato un backtest ma non abbiamo discusso del Trading System che stiamo testando! Facciamolo ora!",
+                "updated": 1618061084694,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The trading idea is buy \"the falling knife\" and sell \"the rebound\". The strategy places a Limit Buy Order a distance below the price. If the order is not filled by the next minute, the order is canceled and a new order is placed, potentially at an adjusted rate. If the price drops suddenly, chances are the order will get filled. If that happens, then the strategy tries to sell at a higher price.",
+            "updated": 1616428600039,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "L'idea è comprare il \"falling knife\" e vendere il \"rebound\". La strategia piazza un Limit Buy Order al di sotto dell'attuale prezzo. Se l'ordine non viene evaso nel giro del minuto successivo, viene cancellato e ne viene creato uno nuovo, eventualmente a un prezzo migliore. Se il prezzo scende, è probabile che l'ordine venga evaso: a quel punto la strategia tenta di vendere a un prezzo maggiore.",
+                    "updated": 1618061264322,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "Let's not discuss the merits of the trading idea but the implementation. This is just a demo to show off the capacities of the Trading Bot, not the strategy <i>per se</i>.",
+            "updated": 1622201574916,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Non discutiamo dell'efficacia del metodo, ma della sua implementazione. Questa è una demo per mostrare le capacità del Trading Bot, non la strategia in sè.",
+                    "updated": 1618061327170,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

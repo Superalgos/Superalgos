@@ -96,7 +96,7 @@ if ( fs.existsSync(path) ) {
     }
 } else {
     console.log('')
-    console.log('ERROR: node_modules does not exist. Try running node setup to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.')
+    console.log('ERROR: node_modules does not exist. Try running node setup to solve this issue. Then try again.')
     console.log('')
 }
 

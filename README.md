@@ -1,4 +1,4 @@
-# Superalgos Beta 10
+# Superalgos Beta 10 - Getting Started Guide
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![commit-since-latest](https://img.shields.io/github/commits-since/Superalgos/Superalgos/latest/develop?include_prereleases&label=Commits%20Since%20Latest%20Release)
@@ -8,9 +8,7 @@
 
 Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) token</a> to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
-Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. 
-
-> Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
+Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. Can't wait to contribute? No need to wait! You may start by giving a star to this repository in the top-right corner of this page!
 
 ![superalgos-readme](https://user-images.githubusercontent.com/13994516/106380124-844d8980-63b0-11eb-9bd9-4f977b6c183b.gif)
 
@@ -397,23 +395,8 @@ When you're done just exec `docker kill superalgos`
 
 Follow the link to [install docker-compose](https://docs.docker.com/compose/install/)
 
-Run `docker-compose -f Docker/docker-compose.yml up`.
+Run `docker-compose -f Docker/docker-compose.yml up`
 
-## Configure the Container Environment
-
-### Available image tags
-
-To avoid breaking changes, the `shasum hash` and the `release` tags are the best to use. These will generally ensure you are always running the same code. The other tags will change which code they are pointing to more frequently and without notice.
-
-- `latest` : the absolute latest build
-- `master` : the latest master branch build
-- `develop` : the latest develop branch build
-- `<shasum hash>` : a specific git commit hash
-- `<release>` : corresponds with a Github Release (git tag), i.e. `beta-10`
-
-### Environment variables
-
-`PUID` and `GUID` environment variables can be used to help avoid permissions issues in the mounted volumes between the container environment and the local OS environment. The default `PUID` and `GUID` is `1000`. You can view the current user's PUID and GUID with the `id` command.
 
 # What is Superalgos?
 

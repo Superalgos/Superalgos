@@ -1,0 +1,58 @@
+{
+    "topic": "Docs Paragraph Styles",
+    "pageNumber": 23,
+    "type": "Docs Include Style",
+    "definition": {
+        "text": "Include paragraphs are used to include into a Docs Page paragraphs that belong to other Docs Pages. In order to do that, you need to reference a Docs Block Style paragraph located in some other Docs Page.",
+        "updated": 1609259112766
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Syntax",
+            "updated": 1609259560967
+        },
+        {
+            "style": "Javascript",
+            "text": "Project->Docs Page Category->Docs Page Name->Docs Page Block",
+            "updated": 1609259624906
+        },
+        {
+            "style": "Title",
+            "text": "Parameters"
+        },
+        {
+            "style": "List",
+            "text": "Project : Is the project where the Docs Page belongs to.",
+            "updated": 1609259672503
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Category : Node, Concept or Topic."
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Name: For Nodes it is the type of node, for Concepts, the concept name, for topics, the topic's page name.",
+            "updated": 1609259701956
+        },
+        {
+            "style": "List",
+            "text": "Docs Page Block: This is the Block name of the block of paragraphs you want to include. You need to have a paragraphs with a Docs Block Style on the target page, with the name you are specifying here.",
+            "updated": 1609259783532
+        },
+        {
+            "style": "Title",
+            "text": "Examples"
+        },
+        {
+            "style": "Javascript",
+            "text": "Superalgos->Node->Task->Block Intro",
+            "updated": 1609945167104
+        },
+        {
+            "style": "Javascript",
+            "text": "Superalgos->Topic->Docs Text Style->Block1",
+            "updated": 1609945185710
+        }
+    ]
+}

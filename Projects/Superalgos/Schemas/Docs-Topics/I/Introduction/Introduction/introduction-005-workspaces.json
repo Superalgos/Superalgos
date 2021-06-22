@@ -1,0 +1,20 @@
+{
+    "topic": "Introduction",
+    "pageNumber": "5",
+    "type": "Workspaces",
+    "definition": {
+        "text": "Workspaces are a powerful concept. They enable working on multiple settings in an orderly fashion.",
+        "updated": 1615893371936
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Workspace->Definition",
+            "updated": 1610620935717
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Workspace->Content"
+        }
+    ]
+}

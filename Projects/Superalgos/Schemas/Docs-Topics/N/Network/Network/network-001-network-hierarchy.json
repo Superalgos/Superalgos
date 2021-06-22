@@ -1,0 +1,106 @@
+{
+    "topic": "Network",
+    "pageNumber": "1",
+    "type": "Network Hierarchy",
+    "definition": {
+        "text": "The Network Hierarchy organizes the infrastructure to run bots and store data. It is the hierarchy you will use the most to operate the system.",
+        "updated": 1610043827538
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network->Definition",
+            "updated": 1610043677920
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network->Content",
+            "updated": 1610043683253
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610049370591
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Network->3",
+            "updated": 1610049486480
+        },
+        {
+            "style": "Title",
+            "text": "Network Node"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network Node->Definition",
+            "updated": 1610043762523
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Network Node->Content",
+            "updated": 1610043768852
+        },
+        {
+            "style": "Title",
+            "text": "Main Sections Under a Network Node",
+            "updated": 1610049583621
+        },
+        {
+            "style": "Text",
+            "text": "We will briefly mention the main data structures under a Network Node, and study each of them in detail in the next few pages.",
+            "updated": 1610049737464
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Tasks"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Tasks->Definition",
+            "updated": 1610049857754
+        },
+        {
+            "style": "Subtitle",
+            "text": "Learning Tasks"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Learning Tasks->Definition",
+            "updated": 1610049868392
+        },
+        {
+            "style": "Subtitle",
+            "text": "Testing Trading Tasks",
+            "updated": 1610049812605
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Testing Trading Tasks->Definition",
+            "updated": 1610049879031
+        },
+        {
+            "style": "Subtitle",
+            "text": "Production Trading Tasks",
+            "updated": 1610049840354
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Production Trading Tasks->Definition",
+            "updated": 1610049941551
+        },
+        {
+            "style": "Subtitle",
+            "text": "Data Storage"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Data Storage->Definition",
+            "updated": 1610049927436
+        }
+    ]
+}

@@ -12,7 +12,6 @@ function newEthereumWalletSpace() {
 
     thisObject.container = newContainer()
     thisObject.container.initialize(MODULE_NAME)
-    thisObject.container.isDraggeable = false
 
     let lastTryToReconnectDatetime
 
@@ -48,10 +47,10 @@ function newEthereumWalletSpace() {
 
         async function checkBalances() {
             try {
-                if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+                if (UI.projects.superalgos.spaces.designSpace.workspace === undefined) { return }
 
                 let wallets = []
-                let hierarchyHeads = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeads()
+                let hierarchyHeads = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeads()
                 for (let i = 0; i < hierarchyHeads.length; i++) {
                     let hierarchyHead = hierarchyHeads[i]
                     if (hierarchyHead.type === 'Ethereum Wallet') {
@@ -93,7 +92,7 @@ function newEthereumWalletSpace() {
                         'Ethereum Token->Smart Contract->' +
                         'ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->'
 
-                    route.params.walletDefinition = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
+                    route.params.walletDefinition = UI.projects.superalgos.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
 
                     httpRequest(JSON.stringify(route.params), route.url, onResponse)
 
@@ -149,8 +148,6 @@ function newEthereumWalletSpace() {
     }
 
     function getContainer(point) {
-
-        return undefined // since this space does not draw anything we return here
 
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
             thisObject.container.space = MODULE_NAME

@@ -1,0 +1,26 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 21,
+    "type": "Tutorial Topic - Parting Thoughts...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "As you can see, Superalgos is  much more than a trading bot. It's a holistic infrastructure to manage complexity in the easiest way possible for users."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This introduction covered the highest level topics of the system in the hope it may help you understand the foundations on which the system is being built."
+        },
+        {
+            "style": "Callout",
+            "text": "We hope you agree it's a good idea to reuse this infrastructure to build trading intelligence rather than code a trading bot from scratch. We hope more devs will join us!"
+        },
+        {
+            "style": "Success",
+            "text": "If you like the project, there are many ways to contribute. Take a look at this page featuring the roadmap to becoming a part of the team."
+        }
+    ]
+}

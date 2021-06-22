@@ -10,7 +10,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Layers API",
@@ -19,7 +18,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Core API",
@@ -28,7 +26,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "compile",
             "label": "Add Compile",
@@ -37,7 +34,6 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "fitDataset",
             "label": "Add Fit Dataset",
@@ -46,7 +42,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

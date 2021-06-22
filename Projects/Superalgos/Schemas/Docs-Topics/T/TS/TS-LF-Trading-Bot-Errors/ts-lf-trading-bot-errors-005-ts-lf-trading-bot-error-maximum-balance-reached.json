@@ -1,0 +1,44 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 5,
+    "type": "TS LF Trading Bot Error - Maximum Balance Reached",
+    "definition": {
+        "text": "The Trading Session stopped because the maximum balance configured for the session was reached.",
+        "updated": 1611937963838
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Session Base Asset and Session Quoted Asset Trading Parameters enable the setting of a maximumBalance. The parameter is optional. When you use it, the LF Trading Bot checks—for every candle during the Trading Session—that the balance has not reached the configured maximum. If it does, this error is triggered and the Trading Session stops immediatelly.",
+            "updated": 1611930588291
+        },
+        {
+            "style": "Error",
+            "text": "Maximum Balance Reached"
+        },
+        {
+            "style": "Title",
+            "text": "Context Info"
+        },
+        {
+            "style": "Text",
+            "text": "When this error happened, some context information was preserved for you to analyze. Following is that info:",
+            "updated": 1611589752537
+        },
+        {
+            "style": "Placeholder",
+            "text": "contextInfo",
+            "updated": 1611589783431
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Base Asset->Configuring",
+            "updated": 1611930154766
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Session Quoted Asset->Configuring",
+            "updated": 1611930177136
+        }
+    ]
+}

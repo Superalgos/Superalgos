@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Why Downtrends?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "help"
+        },
+        "text": "If you paid attention to the first tutorial in the series on trading systems, you must know the answer to the above question!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In the second tutorial in the series, we came up with two similar hypotheses: one involves trading during uptrends and the second, in downtrends."
+        },
+        {
+            "style": "Callout",
+            "text": "Those are two distinct ideas and should be treated as different strategies because they will handle similar logic, but not the same!"
+        },
+        {
+            "style": "Note",
+            "text": "We'll focus in the Downtrend strategy first, because I feel it's the most promising one!"
+        }
+    ]
+}

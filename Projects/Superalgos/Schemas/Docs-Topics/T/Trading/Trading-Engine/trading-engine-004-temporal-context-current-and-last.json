@@ -1,0 +1,76 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "4",
+    "type": "Temporal Context - Current and Last",
+    "definition": {
+        "text": "Much of the information provided by the trading engine may be accessed for the current instance of the object as well as for the last instance that was open, at any point in time.",
+        "updated": 1611254206670
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The trading engine hierarchy is organized by context. That is, the main offspring nodes—current, last, and exchange orders—describe the context in which their respective offspring live.",
+            "updated": 1611254225764
+        },
+        {
+            "style": "Text",
+            "text": "For example, the concept of an episode—a whole run of the trading bot— exists only in the context of the current episode, as the system keeps track of one episode at the time only."
+        },
+        {
+            "style": "Text",
+            "text": "However, the concept of a position is tracked both as the current position and the last position. This is possible because the system keeps track of all positions occurring within an episode."
+        },
+        {
+            "style": "Callout",
+            "text": "Superalgos developers thought it was worth it to provide certain information, positions, for example, in both contexts, as this allows you—visually—and your trading system—using simple syntax—to access information about the current position and the last position at any given point in time."
+        },
+        {
+            "style": "Title",
+            "text": "Trading Current",
+            "updated": 1611254496763
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Current->Definition",
+            "updated": 1611254540559
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Current->Content"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion",
+            "updated": 1611255184563
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Current->2",
+            "updated": 1611254736085
+        },
+        {
+            "style": "Title",
+            "text": "Trading Last",
+            "updated": 1611254547170
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Last->Definition",
+            "updated": 1611254556715
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Trading Last->Content"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion",
+            "updated": 1611255197793
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Trading Last->2",
+            "updated": 1611255233693
+        }
+    ]
+}

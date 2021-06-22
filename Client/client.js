@@ -6,7 +6,7 @@ global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
     if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is being used by another application.")
+        console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is already in use by another application.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)
@@ -129,17 +129,19 @@ try {
     console.log('')
     console.log("You are running Superalgos Beta 10")
     console.log('')
-    console.log("What's new? These are the main new features in this version:")
+    console.log("What's new? The following was implemented here:")
     console.log('')
-    console.log('API Maps and Data Fetcher Bots  ............................. Allows to map any API and fetch data into the Superalgos workflow.')
-    console.log('Market Data Structure ....................................... Allows trading systems to use data from markets different from the one the session is running on.')
-    console.log('Exchange Data Structure ..................................... Allows trading systems to use data from exchanges and markets different from the one the session is running on.')    
+    console.log('Market Data Structure ....................................... This allows any strategy to use data from markets different from the one it is running at.')
+    console.log('Exchange Data Structure ..................................... This allows any strategy to use data from exchanges and markets different from the one it is running at.')
+    console.log('Tensor Flow Integration ..................................... This allows the creation and training of ML models that later can be used for predictions.')
+    console.log('SA Token .................................................... This allows the project to compensate contributors that add value to it.')    
     console.log('')
-    console.log("What's next? This is the current development pipeline:")
+    console.log("What's next? At the development pipeline we have:")
     console.log('')
-    console.log('Contribution Management ..................................... Will allow the management of contributions at scale and more efficient and transparent distribution of the SA token.')
-    console.log('Tensor Flow Integration ..................................... Still at the experimental phase, will allow the creation and training of ML models to use for optimization and predictions.')
-    console.log('Ethereum Integration ........................................ Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow.')
+    console.log('Contribution Management ..................................... This will allow us to manage contributions at scale, and distribute the SA token more efficiently at each release.')
+    console.log('Infraestructure to sensor any API  .......................... This will allow us to fetch data from any API, turn it into indicators and plot it.')
+    console.log('Usage of ML Predictions at Trading Systems .................. This will enable a new kind of Bot that can learn from data mined. Later that knowledge can be used at trading strategies.')
+    console.log('Ethereum Integration ........................................ This will allow mining data from an Ethereum network node, create indicators with it, an use it on strategies.')
 
     console.log('')
 

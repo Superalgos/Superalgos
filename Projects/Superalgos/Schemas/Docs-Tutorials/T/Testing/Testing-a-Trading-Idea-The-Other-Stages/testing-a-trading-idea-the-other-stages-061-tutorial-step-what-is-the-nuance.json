@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 61,
+    "type": "Tutorial Step - What is the Nuance?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "space-style"
+        },
+        "text": "Let's attempt a more nuanced analysis using the elements observed during our tour of the tested period."
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Potential hits: Two out of the seven fails could have been hits, or at least breakeven trades had we managed the trade and exited earlier, either via a trailing stop loss, partial profit-taking, or any other suitable risk-management strategy."
+        },
+        {
+            "style": "List",
+            "text": "Halt trading: One of the fails was likely to be avoidable had we incorporated a basic volatility envelope in the take position event conditions."
+        },
+        {
+            "style": "Note",
+            "text": "That would leave us with 4 fails, maybe one break-even, and 3 hits with a potential for 100% profit. Does that nuance work for you?"
+        }
+    ]
+}

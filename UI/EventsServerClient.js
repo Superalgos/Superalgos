@@ -231,7 +231,7 @@ function newEventsServerClient(networkNode) {
                     'Bad configuration. Invalid JSON Format.',
                     undefined,
                     {
-                        project: 'Foundations',
+                        project: 'Superalgos',
                         category: 'Topic',
                         type: 'UI Websockets Error - Bad Configuration',
                         anchor: 'Invalid JSON Format'
@@ -245,7 +245,7 @@ function newEventsServerClient(networkNode) {
                     'Bad configuration. Host Property Not Found.',
                     undefined,
                     {
-                        project: 'Foundations',
+                        project: 'Superalgos',
                         category: 'Topic',
                         type: 'UI Websockets Error - Bad Configuration',
                         anchor: 'Host Property Not Found'
@@ -259,7 +259,7 @@ function newEventsServerClient(networkNode) {
                     'Bad configuration. WebSocketsPort Property Not Found.',
                     undefined,
                     {
-                        project: 'Foundations',
+                        project: 'Superalgos',
                         category: 'Topic',
                         type: 'UI Websockets Error - Bad Configuration',
                         anchor: 'WebSocketsPort Property Not Found'

@@ -26,17 +26,8 @@ function newGovernanceFunctionLibraryTokens() {
     }
 
     function poolsDistribute(pools) {
-        if (pools.payload === undefined) { return }
-        let tokens = pools.payload.tokens
-
-        /* Check if this Pools has already been processed by it's reference child.*/
-        if (tokens !== undefined && tokens > 0) { return }
-
-        let confiTokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
-        if (confiTokens !== undefined) {
-            tokens = confiTokens
-            distributeTokens(pools, tokens)
-        }
+        let tokens = UI.projects.superalgos.utilities.nodeConfig.loadPropertyFromNodeConfig(pools.payload, 'tokens')
+        distributeTokens(pools, tokens)
     }
 
     function resetTokenFlow(node) {
@@ -52,7 +43,7 @@ function newGovernanceFunctionLibraryTokens() {
             return
         }
         /*
-        When we reach certain node types, we will halt the distribution, because these are targets for 
+        When we reach certain node types, we will halt the distribution, because thse are targets for 
         token flow.
         */
         if (
@@ -71,7 +62,7 @@ function newGovernanceFunctionLibraryTokens() {
 
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'Pools' && property.name === "votingProgram") {
+                        if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
                             resetTokenFlow(childNode)
                         }
@@ -142,7 +133,7 @@ function newGovernanceFunctionLibraryTokens() {
 
                 switch (property.type) {
                     case 'node': {
-                        if (node.type === 'Pools' && property.name === "votingProgram") {
+                        if (node.type === 'Pools' && property.name === "votesDistribution") {
                             let childNode = node[property.name]
                             distributeTokens(childNode, tokens)
                         }

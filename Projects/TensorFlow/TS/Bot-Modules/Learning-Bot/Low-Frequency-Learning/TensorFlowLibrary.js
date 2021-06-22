@@ -32,16 +32,16 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     return thisObject
 
     function initialize(callbackFunction) {
-        learningSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningSystem
-        learningEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine
-        sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
+        learningSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningSystem
+        learningEngine = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.learningEngine
+        sessionParameters = TS.projects.superalgos.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.learningParameters
 
         setupBackend()
         setupEnvironmentFlags()
         setupModel()
         compileModel()
 
-        callbackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+        callbackFunction(TS.projects.superalgos.globals.standardResponses.DEFAULT_OK_RESPONSE)
 
         function setupBackend() {
             /*
@@ -172,7 +172,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
                             break
                         }
                         default: {
-                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 '[WARN] Layer of type ' + layerNode.typeOfLayer.layer.type + ' not implemented yet.')
                             continue
                         }
@@ -321,7 +321,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     async function saveModel() {
         let fileLocation = getModelPath()
         /* If necesary a folder or folders are created before writing the file to disk. */
-        TS.projects.foundations.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
+        TS.projects.superalgos.utilities.miscellaneousFunctions.mkDirByPathSync(fileLocation)
 
         await tensorFlowModel.save('file://' + fileLocation)
     }
@@ -330,9 +330,9 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
         let fileName = learningSystem.machineLearningLibrary.typeOfLearning.typeOfModel.model.config.codeName
         let filePath =
             global.env.PATH_TO_DATA_STORAGE + '/' +
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT +
             '/Output/' +
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME
+            TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME
 
         return filePath + '/' + fileName
     }
@@ -507,7 +507,7 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
     function badDefinitionUnhandledException(err, message, node) {
 
         let docs = {
-            project: 'Foundations',
+            project: 'Superalgos',
             category: 'Topic',
             type: 'TS LF Learning Bot Error - ' + message,
             placeholder: {}
@@ -515,12 +515,12 @@ exports.newTensorFlowBotModulesTensorFlowLibrary = function (processIndex) {
 
         learningSystem.addError([node.id, message, docs])
 
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> " + message);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.name = " + node.name);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.type = " + node.type);
+        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> node.config = " + JSON.stringify(node.config));
         if (err !== undefined) {
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
+            TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] -> err.stack = " + err.stack);
         }
         throw 'Error Already Recorded'
     }

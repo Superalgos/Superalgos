@@ -1,0 +1,69 @@
+{
+    "topic": "Charting Space",
+    "pageNumber": "5",
+    "type": "Layer Managers",
+    "definition": {
+        "text": "Layer Managers organize layers and link up to the data products to be displayed on the charts.",
+        "updated": 1610138345819
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Layer Manager->Definition",
+            "updated": 1610138034853
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Layer Manager->Content",
+            "updated": 1610138039651
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Layer Manager->3",
+            "updated": 1610138133484
+        },
+        {
+            "style": "Title",
+            "text": "Layer",
+            "updated": 1610138185622
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Layer->Definition",
+            "updated": 1610138195653
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Layer->Content",
+            "updated": 1610138199802
+        },
+        {
+            "style": "Title",
+            "text": "Bot Layers",
+            "updated": 1610138208284
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Bot Layers->Definition",
+            "updated": 1610138211248
+        },
+        {
+            "style": "Title",
+            "text": "Layer Folder",
+            "updated": 1610138224792
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Layer Folder->Definition",
+            "updated": 1610138228234
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

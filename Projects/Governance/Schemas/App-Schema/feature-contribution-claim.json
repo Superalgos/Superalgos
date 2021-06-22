@@ -10,7 +10,6 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -32,7 +31,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Feature Claims Folder->"
+        "compatibleTypes": "->Feature Contributions Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Feature->"

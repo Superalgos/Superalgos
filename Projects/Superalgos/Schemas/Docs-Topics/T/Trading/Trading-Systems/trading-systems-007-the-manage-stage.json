@@ -1,0 +1,64 @@
+{
+    "topic": "Trading Systems",
+    "pageNumber": "7",
+    "type": "The Manage Stage",
+    "definition": {
+        "text": "The Manage Stage is where you define how positions are managed, from the moment the decision to take the position is made, until the moment the decision to exit the position is made.",
+        "updated": 1610199688355
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Manage Stage->Definition",
+            "updated": 1610198924545
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Manage Stage->Content",
+            "updated": 1610198927824
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Reusable Snippets->Note for Hierarchy Tables"
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Superalgos->Manage Stage->2",
+            "updated": 1610199384375
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Title",
+            "text": "Managed Stop Loss",
+            "updated": 1610199422482
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Managed Stop Loss->Definition",
+            "updated": 1610199431689
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Managed Stop Loss->Content",
+            "updated": 1610199434764
+        },
+        {
+            "style": "Title",
+            "text": "Managed Take Profit",
+            "updated": 1610199457335
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Managed Take Profit->Definition",
+            "updated": 1610199483083
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Managed Take Profit->Content",
+            "updated": 1610199486279
+        }
+    ]
+}

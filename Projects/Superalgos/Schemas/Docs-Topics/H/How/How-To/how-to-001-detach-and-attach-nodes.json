@@ -1,0 +1,42 @@
+{
+    "topic": "How To",
+    "pageNumber": "1",
+    "type": "Detach and Attach Nodes",
+    "definition": {
+        "text": "To detach a node, click on the detach button on the node's menu. To attach a node, right-click the node and drag it closer to the node you wish to attach it to. Release the right-click when the target node is highlighted.",
+        "updated": 1615545397469
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609948673015
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/fundamental-design-space-concepts-01.gif",
+            "updated": 1609948684397
+        },
+        {
+            "style": "Text",
+            "text": "Nodes in the workspace may be unchained or detached from its parent, carrying all offspring with it. When a node is left unchained, it is no longer taken into account in the logic of the hierarchy, as it no longer belongs to it. When a node is chained back or reattached to the hierarchy, it goes back to being functional."
+        },
+        {
+            "style": "Text",
+            "text": "This feature is useful when testing different configurations, rules or parameters, as it allows to keep alternatives handy in the workspace."
+        },
+        {
+            "style": "Text",
+            "text": "Nodes may be attached only to potential parents. The system limits the way in which nodes may be attached, according to the logic of the information they contain."
+        },
+        {
+            "style": "Note",
+            "text": "Nodes may not be detached or attached to frozen nodes. You need to unfreeze them before attaching or detaching.",
+            "updated": 1609948096499
+        },
+        {
+            "style": "Note",
+            "text": "The verbs to chain and to attach may be used interchangeably, as synonyms. Similarly, to unchain and to detach are both valid."
+        }
+    ]
+}

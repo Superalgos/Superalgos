@@ -10,21 +10,18 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Class",
             "relatedUiObject": "Feature Class"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature",
             "relatedUiObject": "Feature"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -45,7 +42,7 @@
         "compatibleTypes": "->Features->Feature Class->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Features->"
+        "compatibleTypes": "->Position Class->Position->"
     },
     "propertyNameAtParent": "featureClasses",
     "childrenNodesProperties": [

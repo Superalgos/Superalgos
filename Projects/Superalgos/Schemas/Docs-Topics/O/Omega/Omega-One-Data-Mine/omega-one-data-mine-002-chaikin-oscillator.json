@@ -1,0 +1,88 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "2",
+    "type": "Chaikin Oscillator",
+    "definition": {
+        "text": "The Chaikin Indicator applies MACD to the accumulation-distribution line rather than closing price.\n",
+        "updated": 1617876911680
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "What is the Chaikin Oscillator?"
+        },
+        {
+            "style": "Text",
+            "text": "The Chaikin oscillator is named for its creator Marc Chaikin. The oscillator measures the accumulation-distribution line of moving average convergence-divergence (MACD). To calculate the Chaikin oscillator, subtract a 10-day exponential moving average (EMA) of the accumulation-distribution line from a 3-day EMA of the accumulation-distribution line. This measures momentum predicted by oscillations around the accumulation-distribution line.",
+            "updated": 1617875532630
+        },
+        {
+            "style": "Callout",
+            "text": "A cross above the accumulation-distribution line indicates that market players are accumulating shares, securities or contracts, which is typically bullish."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Superalgos/Docs/indicators/chaikin-oscillator.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "How is the Chaikin Oscillator calculated?",
+            "updated": 1617875610441
+        },
+        {
+            "style": "List",
+            "text": "Calculate the Money Flow Multiplier (N)."
+        },
+        {
+            "style": "List",
+            "text": "Multiply the Money Flow Multiplier (N) by volume to calculate Money Flow Volume (N)."
+        },
+        {
+            "style": "List",
+            "text": "List a running total of N to draw the accumulation-distribution line (ADL)."
+        },
+        {
+            "style": "List",
+            "text": "Compute the difference between 10 period and 3 period exponential moving averages to calculate the Chaikin oscillator."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example of How to Use the Chaikin Oscillator"
+        },
+        {
+            "style": "Text",
+            "text": "The purpose of the Chaikin oscillator is to identify underlying momentum during fluctuations in accumulation-distribution. Specifically, it applies the MACD indicator to accumulation-distribution rather than closing prices."
+        },
+        {
+            "style": "Text",
+            "text": "For example, a trader wants to determine whether a stock price is more likely to go up or to fall and MACD is trending higher. The Chaikin oscillator generates a bullish divergence when it crosses above a baseline. The baseline is called the accumulation-distribution line. A cross above that line indicates that traders are accumulating, which is typically bullish."
+        },
+        {
+            "style": "Text",
+            "text": "The Chaikin oscillator utilizes two primary buy and sell signals. First, a positive divergence is confirmed with a center-line crossover above the accumulation-distribution line. signaling a potential buying opportunity.. Second, a negative divergence is confirmed with a center-line crossover below the accumulation-distribution line., signaling a potential selling opportunity"
+        },
+        {
+            "style": "Text",
+            "text": "A positive divergence signals a stock price is likely to rise, given the increase in accumulation. A negative divergence signals a stock price is likely to fall, given the increase in distribution."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Chaikin Oscillator | chaikinOscillator | chaikinOscillator, zeroLine |",
+            "updated": 1617967606206
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLES */\n\n// Bullish cross\nchart.at01hs.chaikinOscillator.previous.chaikinOscillator < \nchart.at01hs.chaikinOscillator.previous.zeroLine && \nchart.at01hs.chaikinOscillator.chaikinOscillator > \nchart.at01hs.chaikinOscillator.zeroLine\n\n// Bearish cross\nchart.at01hs.chaikinOscillator.previous.chaikinOscillator > \nchart.at01hs.chaikinOscillator.previous.zeroLine && \nchart.at01hs.chaikinOscillator.chaikinOscillator < \nchart.at01hs.chaikinOscillator.zeroLine",
+            "updated": 1617967996718
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        }
+    ]
+}

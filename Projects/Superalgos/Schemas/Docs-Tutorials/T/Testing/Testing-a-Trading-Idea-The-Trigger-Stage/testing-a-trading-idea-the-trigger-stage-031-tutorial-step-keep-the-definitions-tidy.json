@@ -1,0 +1,26 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 31,
+    "type": "Tutorial Step - Keep the Definitions Tidy!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "situation-name"
+        },
+        "text": "Try to keep up with the good practice of giving relevant names or labels to the nodes holding definitions!"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Consider that the strategy will grow in complexity as we advance! It's good to be able to identify conditions and situations without checking the code!"
+        },
+        {
+            "style": "Callout",
+            "text": "You'll also be able to identify which situation triggered the event directly from the charts!"
+        },
+        {
+            "style": "Note",
+            "text": "You may label the first situation and the first condition with the same name, 24H Up, and the second with the following: 24H Side."
+        }
+    ]
+}

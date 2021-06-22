@@ -116,23 +116,23 @@ function newAnimation() {
                 for (const [key, timeConsumed] of performanceMap.entries()) {
                     row++
                     let labelToPrint = key + '   ' + timeConsumed.toFixed(4)
-                    UI.projects.foundations.utilities.drawPrint.printLabel(labelToPrint, 10,undefined, undefined,  100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                    UI.projects.superalgos.utilities.drawPrint.printLabel(labelToPrint, 10,undefined, undefined,  100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                     let percentage = timeConsumed * 100 / totalTimeConsumed
                     labelToPrint = key + '   ' + percentage.toFixed(1) + '%'
-                    UI.projects.foundations.utilities.drawPrint.printLabel(labelToPrint, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                    UI.projects.superalgos.utilities.drawPrint.printLabel(labelToPrint, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                 }
 
                 /* Other Variables */
                 row++
-                UI.projects.foundations.utilities.drawPrint.printLabel(DEBUG.variable1, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable1, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                 row++
-                UI.projects.foundations.utilities.drawPrint.printLabel(DEBUG.variable2, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable2, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                 row++
-                UI.projects.foundations.utilities.drawPrint.printLabel(DEBUG.variable3, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable3, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                 row++
-                UI.projects.foundations.utilities.drawPrint.printLabel(DEBUG.variable4, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                UI.projects.superalgos.utilities.drawPrint.printLabel(DEBUG.variable4, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
                 row++
-                UI.projects.foundations.utilities.drawPrint.printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
+                UI.projects.superalgos.utilities.drawPrint.printLabel('Animation Frame Per Seconds: ' + ANIMATION_FRAME_PER_SECONDS, 300, undefined, undefined, 100 + row * 30, 1, 20, UI_COLOR.RED, 'Left')
             }
 
             /* Video Recording */
@@ -144,7 +144,7 @@ function newAnimation() {
             /* Panorama Recording */
             if (ARE_WE_RECORDING_A_MARKET_PANORAMA === true) {
                 if (PANORAMA_WAS_PANNED === true) {
-                    UI.projects.foundations.utilities.download.addToMarketPanorama()
+                    UI.projects.superalgos.utilities.download.addToMarketPanorama()
                     PANORAMA_WAS_PANNED = false
                 }
             }

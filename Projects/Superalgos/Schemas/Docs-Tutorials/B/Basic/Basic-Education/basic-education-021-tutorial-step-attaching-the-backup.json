@@ -1,0 +1,61 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Attaching The Backup",
+    "definition": {
+        "text": "Now we need to attach the backup of the Trading Parameters node to the Backtesting Session. How do we do that?",
+        "icon": {
+            "name": "mouse-right-click",
+            "project": "Superalgos"
+        },
+        "updated": 1615573035743,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Dobbiamo soltanto collegare il backup del nodo Trading Parameters al nodo Backtesting Session.",
+                "updated": 1619466868713,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso!",
+                    "updated": 1619466965635,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "That's it! The backup of the Trading Parameters node is restored and back in use.",
+            "updated": 1615573476475,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ecco qua! Il backup del nodo Trading Parameters è ripristinato e pronto all'uso.",
+                    "updated": 1619467003032,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Notice that you may delete the second Trading Parameters node if you wish, or you can keep it on the side for later use.",
+            "updated": 1615573597034,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota che puoi cancellare il secondo nodo Trading Parameters se vuoi, o puoi tenerlo da parte per un uso futuro.",
+                    "updated": 1619467046273,
+                    "style": "Note"
+                }
+            ]
+        }
+    ]
+}

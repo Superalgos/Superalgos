@@ -9,45 +9,61 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Missing Votes",
-            "actionProject": "Governance",
-            "actionFunction": "payload.executeAction",
-            "label": "Install Missing Votes",
-            "relatedUiObject": "Weight Votes Switch",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
-        },
-        {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "label": "Add Votes Switch",
             "relatedUiObject": "Votes Switch"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Claim Votes Switch",
-            "relatedUiObject": "Claim Votes Switch"
+            "label": "Add Pool Weight Vote",
+            "relatedUiObject": "Pool Weight Vote"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add Weight Votes Switch",
-            "relatedUiObject": "Weight Votes Switch"
+            "label": "Add Position Weight Vote",
+            "relatedUiObject": "Position Weight Vote"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
-            "label": "Add User Profile Votes Switch",
-            "relatedUiObject": "User Profile Votes Switch"
+            "label": "Add Asset Weight Vote",
+            "relatedUiObject": "Asset Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Weight Vote",
+            "relatedUiObject": "Feature Weight Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Claim Vote",
+            "relatedUiObject": "Position Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Claim Vote",
+            "relatedUiObject": "Asset Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Claim Vote",
+            "relatedUiObject": "Feature Claim Vote"
+        },
+        {
+            "action": "Add UI Object",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Vote Transfer",
+            "relatedUiObject": "User Vote Transfer"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -65,7 +81,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Voting Program->Votes Switch->"
+        "compatibleTypes": "->Votes Distribution->Votes Switch->"
     },
     "propertyNameAtParent": "votesSwitch",
     "childrenNodesProperties": [
@@ -76,21 +92,51 @@
             "autoAdd": false
         },
         {
-            "name": "claimVotesSwitch",
+            "name": "poolWeightVotes",
             "type": "array",
-            "childType": "Claim Votes Switch",
+            "childType": "Pool Weight Vote",
             "autoAdd": false
         },
         {
-            "name": "weightVotesSwitch",
+            "name": "assetWeightVotes",
             "type": "array",
-            "childType": "Weight Votes Switch",
+            "childType": "Asset Weight Vote",
             "autoAdd": false
         },
         {
-            "name": "userProfileVotesSwitch",
+            "name": "featureWeightVotes",
             "type": "array",
-            "childType": "User Profile Votes Switch",
+            "childType": "Feature Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "positionClaimVotes",
+            "type": "array",
+            "childType": "Position Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "assetClaimVotes",
+            "type": "array",
+            "childType": "Asset Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureClaimVotes",
+            "type": "array",
+            "childType": "Feature Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "positionWeightVotes",
+            "type": "array",
+            "childType": "Position Weight Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "userVoteTransfers",
+            "type": "array",
+            "childType": "User Vote Transfer",
             "autoAdd": false
         }
     ]

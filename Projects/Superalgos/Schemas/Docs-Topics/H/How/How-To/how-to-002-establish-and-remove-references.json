@@ -1,0 +1,79 @@
+{
+    "topic": "How To",
+    "pageNumber": "2",
+    "type": "Establish and Remove References",
+    "definition": {
+        "text": "To establish a reference, right-click on the first node and drag it close to the target node. The remove a reference, use the delink button on the menu.",
+        "updated": 1609949247846
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609950313725
+        },
+        {
+            "style": "Text",
+            "text": "When establishing a reference, grey rings show which nodes you may establish the reference with. In case there are multiple nodes that would accept the reference, the one closer to the node where the reference originates is highlighted with a golden ring. Releasing the mouse button establishes the reference with the highlighted node."
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Docs/design-space/establish-and-remove-references.gif",
+            "updated": 1609949883448
+        },
+        {
+            "style": "Text",
+            "text": "The reference is visually represented by a faint grey dotted line. Such line is visible only when both ends of the reference are visible."
+        },
+        {
+            "style": "Text",
+            "text": "To remove a reference or delink two nodes, use the delink button on the node where the reference originates.",
+            "updated": 1609949517565
+        },
+        {
+            "style": "Anchor",
+            "text": "What If the Nodes Are Far Away or in Different Hierarchies?",
+            "updated": 1611941072895
+        },
+        {
+            "style": "Title",
+            "text": "What If the Nodes Are Far Away or in Different Hierarchies?"
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "The process is exactly the same. All you need to do is master a few tricks so that you may drag one of the nodes all the way to where the second node is.",
+            "updated": 1611940896508
+        },
+        {
+            "style": "Youtube",
+            "text": "_7Qp8KmNmWU?rel=0&amp;autoplay=1&mute=1",
+            "updated": 1616182407466
+        },
+        {
+            "style": "Text",
+            "text": "These UI tricks may make your life easier:",
+            "updated": 1611940968078
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other.",
+            "updated": 1611940996169
+        },
+        {
+            "style": "List",
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+        },
+        {
+            "style": "List",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!"
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "topic": "Trading Engine",
+    "pageNumber": "10",
+    "type": "Balances",
+    "definition": {
+        "text": "Keep track of the balances of each asset, at different points in time. On this page: Balance, Begin Balance, and End Balance.",
+        "updated": 1611331647405
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Balances are the basis of the account-keeping features, by which you may know exactly how much of each asset there is on the account at any given point in time.",
+            "updated": 1611331659066
+        },
+        {
+            "style": "Text",
+            "text": "The system keeps track of balances in multiple contexts, but also saves snapshots of what the balance was at key moments in time, so that such information may be available both to study the results of operations, and so that it may be used form within trading strategies."
+        },
+        {
+            "style": "Callout",
+            "text": "It is important to understand that balances are an internal concept managed by the trading engine, and are calculated based on the information processed by the trading bot. Balances do not necessarily reflect the actual amount of assets at the exchange."
+        },
+        {
+            "style": "Title",
+            "text": "Balance",
+            "updated": 1611331710709
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Balance->Definition",
+            "updated": 1611331715062
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Balance->Content",
+            "updated": 1611331718713
+        },
+        {
+            "style": "Title",
+            "text": "Begin Balance",
+            "updated": 1611331731595
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Begin Balance->Definition",
+            "updated": 1611331735070
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->Begin Balance->Content",
+            "updated": 1611331738675
+        },
+        {
+            "style": "Title",
+            "text": "End Balance",
+            "updated": 1611331749501
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->End Balance->Definition",
+            "updated": 1611331752868
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Node->End Balance->Content",
+            "updated": 1611331756749
+        }
+    ]
+}

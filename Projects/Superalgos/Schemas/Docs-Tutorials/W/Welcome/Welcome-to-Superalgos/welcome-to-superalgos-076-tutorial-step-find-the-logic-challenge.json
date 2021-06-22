@@ -1,0 +1,58 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 76,
+    "type": "Tutorial Step - Find the Logic Challenge!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "layer-resistance"
+        },
+        "text": "Now that you know how the indicator works, can you find the relationship between buy orders and support levels?",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora che sai come funzionano gli indicatori, puoi trovare la relazione tra buy orders e livelli di supporto?",
+                "updated": 1618064528654,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take some time to explore the period of time tested looking for clues on how support levels determine the rate of the Limit Buy Order!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prenditi un'attimo per esplorare il periodo di tempo testato e cercare indizi su come i livelli di supporto determinino l'inserimento del Limit Buy Order!",
+                    "updated": 1618064580106,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's fun noticing how new levels form when price changes direction, and how an established level changes color when price bounces-off it.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "È divertente osservare come i nuovi livelli si formano quando il prezzo cambia direzione, e come un livello cambia colore quando respinge il prezzo.",
+                    "updated": 1618064645034,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "But the trick lies in counting levels above the order!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Il trucco sta nel contare i livelli sopra l'ordine!",
+                    "updated": 1618064660104,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

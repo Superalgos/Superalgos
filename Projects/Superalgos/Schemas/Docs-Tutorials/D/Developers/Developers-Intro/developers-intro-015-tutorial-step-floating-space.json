@@ -1,0 +1,22 @@
+{
+    "tutorial": "Developers Intro",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Floating Space",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": ""
+        },
+        "text": "This is like the low-level part of the Design Space. It features a physics engine that governs the physical interactions of floating objects."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At runtime, each node on the Design Space behaves like a molecule featuring three atoms working together: the first one is called Floating Object and belongs to the Floating Space, which controls its position and collision-related physics; the second one is a UiObject which lives at the Design Space and controls the UI of the node, including menu, label, etc.; the third one is a Node that is&mdash;essentially&mdash;the information contained in that node."
+        },
+        {
+            "style": "Note",
+            "text": "When you save the Workspace, Floating Objects and UIOBjects are detached from Nodes, and saved as a big JSON object with only its data."
+        }
+    ]
+}

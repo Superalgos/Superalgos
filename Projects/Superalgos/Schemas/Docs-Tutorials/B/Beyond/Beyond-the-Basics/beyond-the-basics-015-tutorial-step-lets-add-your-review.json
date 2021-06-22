@@ -1,0 +1,93 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Let's Add Your Review!",
+    "definition": {
+        "text": "In this step, you are going to run your first command to create a review page! This page will be yours to edit in the future!",
+        "updated": 1610822585419,
+        "icon": {
+            "name": "expand-structure-of-nodes",
+            "project": "Superalgos"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "In questo step, lancerai il comando per creare una pagina di recensione! Potrai poi editarla!",
+                "updated": 1619635348623,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The syntax to write commands is quite colloquial! You'll love it! Check it out and follow the instructions below!",
+            "updated": 1610730420596,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La sintassi dei comandi è informale: ti piacerà! Leggi e segui le istruzioni sotto:",
+                    "updated": 1619635406184,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - Your Review Title",
+            "updated": 1616878234259
+        },
+        {
+            "style": "List",
+            "text": "FIRST: Copy the above command.",
+            "updated": 1610822613784,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "PRIMO: copia il comando sopra",
+                    "updated": 1619635420152,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "SECOND: Paste it on a text editor.",
+            "updated": 1610721128275,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "SECONDO: incolla in un editor di testo",
+                    "updated": 1619635433451,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "THIRD: Replace \"Your Review Title\" with a meaningful title. Review titles must be unique!",
+            "updated": 1616878262273,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "TERZO: sostituisci \"Your Review Title\" con un titolo. I titoli delle review devono essere unici!",
+                    "updated": 1619635474439,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "FOURTH: Paste the updated command on the search/command box and press Enter.",
+            "updated": 1621288831104,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "QUARTO: incolla il nuovo comando sulla barra di ricerca/comando e premi Enter.",
+                    "updated": 1619635504400,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

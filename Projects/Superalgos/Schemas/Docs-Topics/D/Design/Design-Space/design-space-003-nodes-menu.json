@@ -1,0 +1,249 @@
+{
+    "topic": "Design Space",
+    "pageNumber": "3",
+    "type": "Nodes Menu",
+    "definition": {
+        "text": "Each node has a menu featuring several arrangement, relationship, and productivity features.",
+        "updated": 1610040906717
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Hovering the mouse pointer over nodes causes a menu to pop up. In this situation, the node is in focus.",
+            "updated": 1610040966447
+        },
+        {
+            "style": "Title",
+            "text": "Arrangement Features"
+        },
+        {
+            "style": "Text",
+            "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu.",
+            "updated": 1615313209746
+        },
+        {
+            "style": "Subtitle",
+            "text": "Level of Freedom",
+            "updated": 1610041172693
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Pinned Node->Definition",
+            "updated": 1610041185632
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Unpinned Node->Definition",
+            "updated": 1610041200048
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Freeze Structure of Nodes->Definition",
+            "updated": 1610041320634
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Unfreeze Structure of Nodes->Definition",
+            "updated": 1610041337812
+        },
+        {
+            "style": "Subtitle",
+            "text": "Visibility",
+            "updated": 1610041357172
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Collapse Structure of Nodes->Definition",
+            "updated": 1610041377484
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Expand Structure of Nodes->Definition",
+            "updated": 1610041390206
+        },
+        {
+            "style": "Subtitle",
+            "text": "Angle to Parent Node",
+            "updated": 1610041616280
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Remove Angle to Parent Node->Definition",
+            "updated": 1610041475685
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Angle to Parent Node to 360 Degrees->Definition",
+            "updated": 1610041548789
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Angle to Parent Node to 180 Degrees->Definition",
+            "updated": 1610041555200
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Angle to Parent Node to 90 Degrees->Definition",
+            "updated": 1610041563227
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Angle to Parent Node to 45 Degrees->Definition",
+            "updated": 1610041570636
+        },
+        {
+            "style": "Subtitle",
+            "text": "Distance to Parent Node",
+            "updated": 1610041878075
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Remove Distance to Parent Node->Definition",
+            "updated": 1610041668660
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Distance to Parent Node to One Fourth->Definition",
+            "updated": 1610041732719
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Distance to Parent Node to One Half->Definition",
+            "updated": 1610041740683
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Distance to Parent Node to One->Definition",
+            "updated": 1610041747194
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Distance to Parent Node to One and a Half->Definition",
+            "updated": 1610041756951
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Distance to Parent Node to Two->Definition",
+            "updated": 1610041765847
+        },
+        {
+            "style": "Anchor",
+            "text": "Arrangement Style",
+            "updated": 1610041884085
+        },
+        {
+            "style": "Subtitle",
+            "text": "Arrangement Style",
+            "updated": 1615491355364
+        },
+        {
+            "style": "Text",
+            "text": "The following options affect how a node is arranged around or in relation to its parent.",
+            "updated": 1615491622552
+        },
+        {
+            "style": "Important",
+            "text": "The current implementation of this feature is not optimal, and the behavior of some of these options is hard to predict. If you are a developer, this may be a good opportunity to iterate on the existing code and take this feature to a more usable state.",
+            "updated": 1615491609266
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Concave->Definition",
+            "updated": 1610041980152
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Convex->Definition",
+            "updated": 1610041988582
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Vertical Right->Definition",
+            "updated": 1610042053653
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Vertical Left->Definition",
+            "updated": 1610042059815
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Horizontal Top->Definition",
+            "updated": 1610042089085
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Set Node Arrangement to Horizontal Bottom->Definition",
+            "updated": 1610042094491
+        },
+        {
+            "style": "Title",
+            "text": "Relationships and References",
+            "updated": 1610042149939
+        },
+        {
+            "style": "Subtitle",
+            "text": "Detach Node",
+            "updated": 1610042625172
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Detach Node->Definition",
+            "updated": 1610042212525
+        },
+        {
+            "style": "Subtitle",
+            "text": "Delink Node",
+            "updated": 1610042618278
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Delink Node->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "Productivity Features",
+            "updated": 1610042253763
+        },
+        {
+            "style": "Subtitle",
+            "text": "Backup Entity"
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Backup Entity->Definition",
+            "updated": 1610042268717
+        },
+        {
+            "style": "Subtitle",
+            "text": "Clone Entity",
+            "updated": 1610042551177
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Clone Entity->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Share Entity",
+            "updated": 1610042564664
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Share Entity->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Delete Entity",
+            "updated": 1610042582474
+        },
+        {
+            "style": "Include",
+            "text": "Superalgos->Concept->Delete Entity->Definition"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Visual Scripting on Steroids",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "indicator-bot"
         },
         "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",

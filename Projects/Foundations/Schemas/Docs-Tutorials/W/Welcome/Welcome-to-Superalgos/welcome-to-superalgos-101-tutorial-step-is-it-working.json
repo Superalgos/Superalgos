@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Is It Working?",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "binance"
         },
         "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",

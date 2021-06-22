@@ -4,7 +4,7 @@
     "type": "Tutorial Step - At the Core of Data Mining",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "task"
         },
         "text": "The core of a data mining operation are tasks running bots. One Task controls one bot, and a Task Manager may control multiple tasks.",

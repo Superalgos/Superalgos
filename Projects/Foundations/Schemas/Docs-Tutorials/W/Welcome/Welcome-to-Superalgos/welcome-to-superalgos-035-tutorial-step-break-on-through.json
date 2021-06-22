@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Break On Through!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "full-board"
         },
         "text": "I'll get you up to speed with moving around and browsing the charting space in no time... Let's deal with the slider first!",

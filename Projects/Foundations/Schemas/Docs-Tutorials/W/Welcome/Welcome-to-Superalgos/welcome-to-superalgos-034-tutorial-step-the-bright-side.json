@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Bright Side",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "charting-space"
         },
         "text": "So far, you've been confined to the dark side of Superalgos. Get ready to be exposed to the bright side: the Charting Space.",

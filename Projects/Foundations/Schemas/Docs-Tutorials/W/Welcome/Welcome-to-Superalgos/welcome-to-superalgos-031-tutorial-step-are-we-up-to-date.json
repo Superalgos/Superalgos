@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Are We Up to Date?",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "indicator-process-instance"
         },
         "text": "By now, all processes should be at 100%. When that happens, we refer to the data mining operation as being \"up to date\".",

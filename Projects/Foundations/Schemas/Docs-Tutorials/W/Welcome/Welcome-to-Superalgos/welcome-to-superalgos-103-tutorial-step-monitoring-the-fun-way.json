@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Monitoring the Fun Way!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "bullet-limit-buy-order"
         },
         "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!",

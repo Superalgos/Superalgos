@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Found It?",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "copy-path"
         },
         "text": "This is how the Trading Engine makes every bit of information processed by the Trading Bot available to trading systems.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Hungry For More Info?",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "help"
         },
         "text": "I won't go into every detail as we move along, but if you need more info on a node, the help button on the menu takes you straight to its documentation.",

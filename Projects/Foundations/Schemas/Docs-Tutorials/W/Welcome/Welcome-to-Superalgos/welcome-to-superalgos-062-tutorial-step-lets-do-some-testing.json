@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Do Some Testing!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "testing-trading-tasks"
         },
         "text": "We are back on the Network hierarchy to show you one of the core strategy-testing resources built-in the Trading Bot.",

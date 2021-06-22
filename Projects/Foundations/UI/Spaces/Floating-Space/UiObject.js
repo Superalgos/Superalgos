@@ -1207,7 +1207,7 @@ function newUiObject() {
         if (requestFromUI === true) {
             /* 
             It can happen that the client is down, the task is down, session is down of for whatever reason there is no
-            answer to the command to stop. In those cases, we will stop execute the onStopped funcion anyways so as to 
+            answer to the command to stop. In those cases, we will stop execute the onStopped function anyways so as to 
             return the UI to its default state.
             */
             setTimeout(returnToDefaultState, 15000)

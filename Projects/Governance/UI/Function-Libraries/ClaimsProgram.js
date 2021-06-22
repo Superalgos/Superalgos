@@ -57,13 +57,22 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             countProgram(userProfile.tokenPowerSwitch.claimsProgram)
         }
 
+        /* Claim Distribution Follows */
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
+            distributeProgram(userProfile.tokenPowerSwitch.claimsProgram)
+        }
+
         /* Claim Calculation Follows */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
             if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            distributeProgram(userProfile.tokenPowerSwitch.claimsProgram, userProfile)
+            calculateProgram(userProfile.tokenPowerSwitch.claimsProgram)
         }
 
         function resetClaims(node) {
@@ -207,7 +216,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             }
         }
 
-        function distributeProgram(programNode, userProfile) {
+        function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into programPower. 
@@ -219,13 +228,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             */
             programNode.payload.claimsProgram.ownPower = programPower
 
-            distributeProgramPower(programNode, programPower, userProfile)
+            distributeProgramPower(programNode, programPower)
         }
 
         function distributeProgramPower(
             node,
             programPower,
-            userProfile,
             percentage
         ) {
             if (node === undefined) { return }
@@ -271,10 +279,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         )
                     node.payload.claimsProgram.awarded.percentage = node.payload.claimsProgram.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
 
-                    userProfile.payload.claimsProgram.awarded.tokens = userProfile.payload.claimsProgram.awarded.tokens + node.payload.claimsProgram.awarded.tokens
-                    userProfile.payload.claimsProgram.count++
-
-                    drawClaims(node, userProfile)
+                    drawClaims(node)
                     drawProgramPower(node, programPower, percentage)
                 }
             } else {
@@ -347,7 +352,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (percentage === undefined || isNaN(percentage) === true) {
                             percentage = defaultPercentage
                         }
-                        distributeProgramPower(childNode, programPower * percentage / 100, userProfile, percentage)
+                        distributeProgramPower(childNode, programPower * percentage / 100, percentage)
                     }
                         break
                     case 'array': {
@@ -360,7 +365,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeProgramPower(childNode, programPower * percentage / 100, userProfile, percentage)
+                                distributeProgramPower(childNode, programPower * percentage / 100, percentage)
                             }
                         }
                         break
@@ -369,7 +374,52 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             }
         }
 
-        function drawClaims(node, userProfile) {
+        function calculateProgram(programNode) {
+            /*
+            Up to here, we have the tokens awarded for each claim. We need to consolidate all 
+            of that into the Program Node, so that it can then be correctly placed at the Tokens Awarded Node.
+            */
+            consolidate(programNode)
+            drawTokensAwarded(programNode)
+
+            function consolidate(node) {
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+
+                programNode.payload.claimsProgram.awarded.tokens = programNode.payload.claimsProgram.awarded.tokens + node.payload.claimsProgram.awarded.tokens
+                if (node.payload.claimsProgram.awarded.tokens > 0) {
+                    programNode.payload.claimsProgram.count = programNode.payload.claimsProgram.count + 1
+                }
+
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
+
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                consolidate(childNode)
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        consolidate(childNode)
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function drawClaims(node) {
             let status =
                 new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens) +
                 ' ' + 'SA Tokens Awarded' + ' - ' +
@@ -390,14 +440,20 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
                 node.payload.uiObject.setStatus(ownPowerText + ' Claims Power')
             }
+        }
+
+        function drawTokensAwarded(node) {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens)
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
+                node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
+                node.tokensAwarded.payload.uiObject.statusAtAngle = false
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload.claimsProgram.count + ' Claims.')
             }
         }
 

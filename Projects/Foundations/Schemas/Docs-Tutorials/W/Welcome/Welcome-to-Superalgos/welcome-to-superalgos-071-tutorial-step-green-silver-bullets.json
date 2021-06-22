@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Green Silver Bullets",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "bullet-limit-buy-order"
         },
         "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",

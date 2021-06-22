@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Coolest Trick!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "exit-target-rate"
         },
         "text": "Humans may access this information by using a cool trick that makes the charting space interact with the design space!",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Hard Data",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "plotter-panel"
         },
         "text": "A Plotter Panel features non-graphical representations of data, mostly in the form of numerical values or text.",

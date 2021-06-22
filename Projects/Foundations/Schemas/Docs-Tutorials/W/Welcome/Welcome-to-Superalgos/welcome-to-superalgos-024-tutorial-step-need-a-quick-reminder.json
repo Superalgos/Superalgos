@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Need a Quick Reminder?",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "key-left"
         },
         "text": "At this point, I'm probably overflowing your hippocampus! But don't worry... you may go back to any previous step!",

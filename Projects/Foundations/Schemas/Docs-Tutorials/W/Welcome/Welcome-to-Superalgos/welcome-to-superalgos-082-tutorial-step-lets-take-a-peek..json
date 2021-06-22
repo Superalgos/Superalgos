@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Take a Peek...",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "limit-sell-order"
         },
         "text": "Before we leave the trading system, let's take a quick look into one of these orders and see what may be of interest.",

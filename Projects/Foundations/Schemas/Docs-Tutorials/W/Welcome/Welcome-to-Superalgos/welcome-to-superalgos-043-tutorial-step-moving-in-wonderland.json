@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Moving in Wonderland",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "mouse-left-click"
         },
         "text": "So, you are finally inside a chart. The first thing you'll want to do is move around and learn what these charts may do for you.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Careful With Your Data!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "dataset-definition"
         },
         "text": "It may take up to one minute for all tasks to come to a halt. You should never close the system before all tasks stop.",

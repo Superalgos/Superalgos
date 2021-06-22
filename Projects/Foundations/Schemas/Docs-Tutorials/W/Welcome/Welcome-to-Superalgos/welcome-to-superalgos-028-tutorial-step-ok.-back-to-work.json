@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Ok... Back to Work!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "data-tasks"
         },
         "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the Network Node.",

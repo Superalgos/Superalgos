@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Elegant Way...",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "mouse-pointer"
         },
         "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick!",

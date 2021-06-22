@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Start With 100 Bucks!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "session-quoted-asset"
         },
         "text": "The default initialBalance is set to 100 USDT, well above the minimum transaction size supported by Binance.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Switching Gears...",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "layer-manager"
         },
         "text": "Leaving scales behind, let's take a look at how the system makes data available on the charts.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Mine Some Data!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "run"
         },
         "text": "Access the Data Tasks node menu and find the \"Run all project data tasks\" button on the top-right corner...",

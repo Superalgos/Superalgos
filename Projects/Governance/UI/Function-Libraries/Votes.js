@@ -415,6 +415,30 @@ function newGovernanceFunctionLibraryVotes() {
                     originNodeType = 'Position Weight Vote'
                     break
                 }
+                case 'Asset Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Asset Contribution Claim': {
+                    originNodeType = 'Asset Claim Vote'
+                    break
+                }
+                case 'Feature Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Feature Contribution Claim': {
+                    originNodeType = 'Feature Claim Vote'
+                    break
+                }
+                case 'Position Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Position Contribution Claim': {
+                    originNodeType = 'Position Claim Vote'
+                    break
+                }
             }
             return originNodeType
         }

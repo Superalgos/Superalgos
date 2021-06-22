@@ -308,7 +308,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     case 'node': {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
-                        if (childNode.type === "Tokens Awarded") {continue}
+                        if (childNode.type === "Tokens Awarded") { continue }
 
                         let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -324,7 +324,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
-                                if (childNode.type === "Tokens Awarded") {continue}
+                                if (childNode.type === "Tokens Awarded") { continue }
 
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -352,7 +352,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     case 'node': {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
-                        if (childNode.type === "Tokens Awarded") {continue}
+                        if (childNode.type === "Tokens Awarded") { continue }
 
                         let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage === undefined || isNaN(percentage) === true) {
@@ -367,7 +367,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
-                                if (childNode.type === "Tokens Awarded") {continue}
+                                if (childNode.type === "Tokens Awarded") { continue }
 
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
@@ -429,7 +429,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
         function drawClaims(node) {
             let status =
-                new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens) +
+                parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(2)).toLocaleString('en') +
                 ' ' + 'SA Tokens Awarded' + ' - ' +
                 'From Reward: ' + node.payload.claimsProgram.awarded.percentage.toFixed(2) + '%' + ' - ' +
                 'Shared Between: ' + node.payload.claimsProgram.share.count + ' claims' + ' - ' +
@@ -441,7 +441,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = new Intl.NumberFormat().format(node.payload.claimsProgram.ownPower)
+                const ownPowerText = parseFloat(node.payload.claimsProgram.ownPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -453,7 +453,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         function drawTokensAwarded(node) {
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens)
+                const tokensAwardedText = parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false
@@ -466,7 +466,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         }
 
         function drawProgramPower(node, programPower, percentage) {
-            const programPowerText = new Intl.NumberFormat().format(programPower) + ' ' + 'Claim Power'
+            const programPowerText = parseFloat(programPower).toLocaleString('en') + ' ' + 'Claim Power'
             if (node.payload !== undefined) {
 
                 node.payload.uiObject.valueAngleOffset = 180

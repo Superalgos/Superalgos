@@ -316,7 +316,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function drawUserNode(node, percentage) {
             if (node.payload !== undefined) {
 
-                const outgoingPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].outgoingPower)
+                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en') 
 
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
@@ -338,17 +338,17 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].ownPower)
-                const incomingPowerText = new Intl.NumberFormat().format(node.payload[programPropertyName].incomingPower)
+                const ownPowerText = parseFloat(node.payload[programPropertyName].ownPower.toFixed(2)).toLocaleString('en')
+                const incomingPowerText = parseFloat(node.payload[programPropertyName].incomingPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power - ' + incomingPowerText + ' Incoming Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own ' + programPowerName + ' - ' + incomingPowerText + ' Incoming ' + programPowerName + '')
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = new Intl.NumberFormat().format(node.payload[programPropertyName].awarded.tokens)
+                const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.statusAtAngle = false

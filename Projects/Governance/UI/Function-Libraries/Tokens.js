@@ -164,11 +164,14 @@ function newGovernanceFunctionLibraryTokens() {
     }
 
     function drawTokenFlow(node, tokens, weight) {
+        if (tokens.toFixed === undefined) { return }
         let status
         if (weight !== undefined && weight !== 0) {
-            status = new Intl.NumberFormat().format(tokens) + ' ' + 'SA Tokens Reward' + ' - ' + 'Weight: ' + weight.toFixed(2)
+            status = parseFloat(tokens.toFixed(2)).toLocaleString('en')
+                + ' ' + 'SA Tokens Reward' + ' - ' + 'Weight: ' + weight.toFixed(2)
         } else {
-            status = new Intl.NumberFormat().format(tokens) + ' ' + 'SA Tokens Reward'
+            status = parseFloat(tokens.toFixed(2)).toLocaleString('en')
+                + ' ' + 'SA Tokens Reward'
         }
 
         if (node.payload !== undefined) {

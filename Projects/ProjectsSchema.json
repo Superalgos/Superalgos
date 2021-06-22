@@ -984,9 +984,9 @@
                     "functionName": "newGovernanceFunctionLibraryWeights"
                 },
                 {
-                    "name": "Claims",
-                    "propertyName": "claims",
-                    "functionName": "newGovernanceFunctionLibraryClaims"
+                    "name": "Claims Program",
+                    "propertyName": "claimsProgram",
+                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
                 },
                 {
                     "name": "Distribution Process",

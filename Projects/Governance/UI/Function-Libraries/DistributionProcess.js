@@ -56,7 +56,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         
-        UI.projects.governance.functionLibraries.claims.calculate(
+        UI.projects.governance.functionLibraries.claimsProgram.calculate(
             features,
             assets,
             positions,

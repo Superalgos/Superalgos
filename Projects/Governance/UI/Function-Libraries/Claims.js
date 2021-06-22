@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryClaims() {
+function newGovernanceFunctionLibraryClaimsProgram() {
     let thisObject = {
         calculate: calculate,
         installMissingClaims: installMissingClaims

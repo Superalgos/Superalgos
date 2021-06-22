@@ -30,7 +30,7 @@ function newGovernanceActionSwitch() {
                 }
             case 'Install Missing Claims':
                 {
-                    UI.projects.governance.functionLibraries.claims.installMissingClaims(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.claimsProgram.installMissingClaims(action.node, action.rootNodes)
                     break
                 }
             case 'Build Profile':

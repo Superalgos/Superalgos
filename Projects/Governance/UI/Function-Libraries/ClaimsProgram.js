@@ -308,6 +308,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     case 'node': {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
+                        if (childNode.type === "Tokens Awarded") {continue}
+
                         let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage !== undefined && isNaN(percentage) !== true) {
                             totalPercentage = totalPercentage + percentage
@@ -322,6 +324,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
+                                if (childNode.type === "Tokens Awarded") {continue}
+
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
@@ -348,6 +352,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     case 'node': {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
+                        if (childNode.type === "Tokens Awarded") {continue}
+
                         let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage === undefined || isNaN(percentage) === true) {
                             percentage = defaultPercentage
@@ -361,6 +367,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             for (let m = 0; m < propertyArray.length; m++) {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
+                                if (childNode.type === "Tokens Awarded") {continue}
+
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage

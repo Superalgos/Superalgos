@@ -266,7 +266,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.claimsProgram.awarded.tokens =
                         Math.min(
                             node.payload.votes / node.payload.referenceParent.payload.votes * node.payload.referenceParent.payload.tokens * votesRatio,
-                            node.payload.votes
+                            node.payload.votes,
+                            programPower
                         )
                     node.payload.claimsProgram.awarded.percentage = node.payload.claimsProgram.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
 

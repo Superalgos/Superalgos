@@ -1,13 +1,13 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 15,
-    "type": "Tutorial Step - Elefant? What Elefant?",
+    "type": "Tutorial Step - Elephant? What Elephant?",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "strategy"
         },
-        "text": "Will someone please acknowledge the elefant in the room? Why did those counters point to one or two strategies and one position?",
+        "text": "Will someone please acknowledge the elephant in the room? Why did those counters point to one or two strategies and one position?",
         "translations": [
             {
                 "language": "DE",

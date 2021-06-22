@@ -131,6 +131,7 @@ if (os.platform() == "win32") {
     }
 
     console.log("Shortcuts added successfully!");
+
 // Misc Operating System
 } else {
     console.log("Automatic shortcut creation is not currently supported on your operating system.  If you would like to see your operating system added please reachout on discord or telegram to let the devs know.")

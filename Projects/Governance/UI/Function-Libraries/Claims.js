@@ -33,21 +33,26 @@ function newGovernanceFunctionLibraryClaims() {
 
         /* Claim Count Follows */
         for (let i = 0; i < userProfiles.length; i++) {
-            let userProfilesNode = userProfiles[i]
-            if (userProfilesNode.payload === undefined) { continue }
-            userProfilesNode.payload.claims = {
+            let userProfile = userProfiles[i]
+            if (userProfile.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
+            userProfile.payload.claims = {
                 awarded: {
                     tokens: 0
                 },
                 count: 0
             }
-            countForNode(userProfilesNode.claimsProgram)
+            countForNode(userProfile.tokenPowerSwitch.claimsProgram)
         }
 
         /* Claim Calculation Follows */
         for (let i = 0; i < userProfiles.length; i++) {
-            let userProfilesNode = userProfiles[i]
-            calculateForNode(userProfilesNode.claimsProgram, userProfilesNode)
+            let userProfile = userProfiles[i]
+            if (userProfile.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
+            calculateForNode(userProfile.tokenPowerSwitch.claimsProgram, userProfile)
         }
 
         function resetClaims(node) {
@@ -162,7 +167,7 @@ function newGovernanceFunctionLibraryClaims() {
             }
         }
 
-        function calculateForNode(node, userProfilesNode) {
+        function calculateForNode(node, userProfile) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
 
@@ -205,10 +210,10 @@ function newGovernanceFunctionLibraryClaims() {
                         )
                     node.payload.claims.awarded.percentage = node.payload.claims.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
 
-                    userProfilesNode.payload.claims.awarded.tokens = userProfilesNode.payload.claims.awarded.tokens + node.payload.claims.awarded.tokens
-                    userProfilesNode.payload.claims.count++
+                    userProfile.payload.claims.awarded.tokens = userProfile.payload.claims.awarded.tokens + node.payload.claims.awarded.tokens
+                    userProfile.payload.claims.count++
 
-                    drawClaims(node, userProfilesNode)
+                    drawClaims(node, userProfile)
                 }
             }
 
@@ -221,7 +226,7 @@ function newGovernanceFunctionLibraryClaims() {
                     switch (property.type) {
                         case 'node': {
                             let childNode = node[property.name]
-                            calculateForNode(childNode, userProfilesNode)
+                            calculateForNode(childNode, userProfile)
                         }
                             break
                         case 'array': {
@@ -229,7 +234,7 @@ function newGovernanceFunctionLibraryClaims() {
                             if (propertyArray !== undefined) {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
-                                    calculateForNode(childNode, userProfilesNode)
+                                    calculateForNode(childNode, userProfile)
                                 }
                             }
                             break
@@ -239,7 +244,7 @@ function newGovernanceFunctionLibraryClaims() {
             }
         }
 
-        function drawClaims(node, userProfilesNode) {
+        function drawClaims(node, userProfile) {
             let satatus =
                 new Intl.NumberFormat().format(node.payload.claims.awarded.tokens) +
                 ' ' + 'SA Tokens Awarded' + ' - ' +
@@ -249,11 +254,11 @@ function newGovernanceFunctionLibraryClaims() {
 
             node.payload.uiObject.setStatus(satatus)
 
-            satatus = new Intl.NumberFormat().format(userProfilesNode.payload.claims.awarded.tokens) +
+            satatus = new Intl.NumberFormat().format(userProfile.payload.claims.awarded.tokens) +
                 ' ' + 'SA Tokens Awarded' +
-                ' from ' + userProfilesNode.payload.claims.count + ' Claims'
+                ' from ' + userProfile.payload.claims.count + ' Claims'
 
-            userProfilesNode.payload.uiObject.setValue(satatus)
+            userProfile.payload.uiObject.setValue(satatus)
         }
     }
 

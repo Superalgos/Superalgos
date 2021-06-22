@@ -164,8 +164,8 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Token Power into programPowerName. 
-            As per system rules programPowerName = tokensPower
+            Here we will convert Token Power into programPower. 
+            As per system rules programPower = tokensPower
             */
             let programPower = programNode.payload.tokenPower
             /*

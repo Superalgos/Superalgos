@@ -31,19 +31,30 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             resetClaims(positionsNode)
         }
 
+        /* Reset this Program */
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.claimsProgram.payload === undefined) { continue }
+
+            resetProgram(userProfile.tokenPowerSwitch.claimsProgram)
+        }
+
         /* Claim Count Follows */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
             if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            userProfile.payload.claims = {
+            userProfile.payload.claimsProgram = {
                 awarded: {
                     tokens: 0
                 },
                 count: 0
             }
-            countForNode(userProfile.tokenPowerSwitch.claimsProgram)
+            countProgram(userProfile.tokenPowerSwitch.claimsProgram)
         }
 
         /* Claim Calculation Follows */
@@ -52,7 +63,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
             if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            calculateForNode(userProfile.tokenPowerSwitch.claimsProgram, userProfile)
+            distributeProgram(userProfile.tokenPowerSwitch.claimsProgram, userProfile)
         }
 
         function resetClaims(node) {
@@ -65,7 +76,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Position Class'
             ) {
                 if (node.payload.votes !== undefined) {
-                    node.payload.claims = {
+                    node.payload.claimsProgram = {
                         count: 0,
                         votes: 0
                     }
@@ -99,44 +110,19 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             }
         }
 
-        function countForNode(node) {
+        function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
 
-            if (
-                node.type !== 'Asset Claims Folder' &&
-                node.type !== 'Feature Claims Folder' &&
-                node.type !== 'Position Claims Folder' &&
-                node.type !== 'Claims Program'
-            ) {
-                if (node.payload.claims === undefined) {
-                    node.payload.claims = {
-                        count: 0,
-                        awarded: {
-                            tokens: 0,
-                            percentage: 0
-                        },
-                        share: {
-                            count: 0,
-                            percentage: 0
-                        }
-                    }
-                }
-
-                if (
-                    node.payload.votes !== undefined &&
-                    node.payload.votes > 0 &&
-                    node.payload.referenceParent !== undefined &&
-                    node.payload.referenceParent.payload !== undefined &&
-                    node.payload.referenceParent.payload.votes !== undefined &&
-                    node.payload.referenceParent.payload.votes > 0 &&
-                    node.payload.referenceParent.payload.weight !== undefined &&
-                    node.payload.referenceParent.payload.weight > 0 &&
-                    node.payload.referenceParent.payload.claims.count !== undefined &&
-                    node.payload.referenceParent.payload.claims.votes !== undefined
-                ) {
-                    node.payload.referenceParent.payload.claims.count++
-                    node.payload.referenceParent.payload.claims.votes = node.payload.referenceParent.payload.claims.votes + node.payload.votes
+            node.payload.claimsProgram = {
+                count: 0,
+                awarded: {
+                    tokens: 0,
+                    percentage: 0
+                },
+                share: {
+                    count: 0,
+                    percentage: 0
                 }
             }
 
@@ -149,7 +135,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     switch (property.type) {
                         case 'node': {
                             let childNode = node[property.name]
-                            countForNode(childNode)
+                            resetProgram(childNode)
                         }
                             break
                         case 'array': {
@@ -157,7 +143,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             if (propertyArray !== undefined) {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
-                                    countForNode(childNode)
+                                    resetProgram(childNode)
                                 }
                             }
                             break
@@ -167,7 +153,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             }
         }
 
-        function calculateForNode(node, userProfile) {
+        function countProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
 
@@ -178,7 +164,6 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Claims Program'
             ) {
                 if (
-                    node.payload.claims !== undefined &&
                     node.payload.votes !== undefined &&
                     node.payload.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
@@ -187,8 +172,83 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.referenceParent.payload.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
-                    node.payload.referenceParent.payload.claims.count !== undefined &&
-                    node.payload.referenceParent.payload.claims.votes !== undefined
+                    node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
+                    node.payload.referenceParent.payload.claimsProgram.votes !== undefined
+                ) {
+                    node.payload.referenceParent.payload.claimsProgram.count++
+                    node.payload.referenceParent.payload.claimsProgram.votes = node.payload.referenceParent.payload.claimsProgram.votes + node.payload.votes
+                }
+            }
+
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument === undefined) { return }
+
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
+                    switch (property.type) {
+                        case 'node': {
+                            let childNode = node[property.name]
+                            countProgram(childNode)
+                        }
+                            break
+                        case 'array': {
+                            let propertyArray = node[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+                                    let childNode = propertyArray[m]
+                                    countProgram(childNode)
+                                }
+                            }
+                            break
+                        }
+                    }
+                }
+            }
+        }
+
+        function distributeProgram(programNode, userProfile) {
+            if (programNode === undefined || programNode.payload === undefined) { return }
+            /*
+            Here we will convert Token Power into programPower. 
+            As per system rules programPower = tokensPower
+            */
+            let programPower = programNode.payload.tokenPower
+            /*
+            The Own Power is the power generated by the same User Profile tokens, not inherited from others.
+            */
+            programNode.payload.claimsProgram.ownPower = programPower
+
+            distributeProgramPower(programNode, programPower, userProfile)
+        }
+
+        function distributeProgramPower(
+            node,
+            programPower,
+            userProfile,
+            percentage
+        ) {
+            if (node === undefined) { return }
+            if (node.payload === undefined) { return }
+
+            if (
+                node.type !== 'Asset Claims Folder' &&
+                node.type !== 'Feature Claims Folder' &&
+                node.type !== 'Position Claims Folder' &&
+                node.type !== 'Claims Program'
+            ) {
+                if (
+                    node.payload.claimsProgram !== undefined &&
+                    node.payload.votes !== undefined &&
+                    node.payload.votes > 0 &&
+                    node.payload.referenceParent !== undefined &&
+                    node.payload.referenceParent.payload !== undefined &&
+                    node.payload.referenceParent.payload.votes !== undefined &&
+                    node.payload.referenceParent.payload.votes > 0 &&
+                    node.payload.referenceParent.payload.weight !== undefined &&
+                    node.payload.referenceParent.payload.weight > 0 &&
+                    node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
+                    node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
                     /*
                     We will use the concept of Vote Reward Claims Ratio for the situation in which the 
@@ -196,69 +256,165 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     the Votes Rewards Claims Ratio will be used to redude the amount of tokens awarded 
                     proportionally to how much was exeeded.
                     */
-                    let votesRatio = node.payload.referenceParent.payload.votes / node.payload.referenceParent.payload.claims.votes
+                    let votesRatio = node.payload.referenceParent.payload.votes / node.payload.referenceParent.payload.claimsProgram.votes
                     if (votesRatio > 1) { votesRatio = 1 }
                     /*
                     Share Count means the amount to claims pointing to the same potential tokens reward.
                     */
-                    node.payload.claims.share.count = node.payload.referenceParent.payload.claims.count
-                    node.payload.claims.share.percentage = node.payload.votes * 100 / node.payload.referenceParent.payload.claims.votes
-                    node.payload.claims.awarded.tokens =
+                    node.payload.claimsProgram.share.count = node.payload.referenceParent.payload.claimsProgram.count
+                    node.payload.claimsProgram.share.percentage = node.payload.votes * 100 / node.payload.referenceParent.payload.claimsProgram.votes
+                    node.payload.claimsProgram.awarded.tokens =
                         Math.min(
                             node.payload.votes / node.payload.referenceParent.payload.votes * node.payload.referenceParent.payload.tokens * votesRatio,
                             node.payload.votes
                         )
-                    node.payload.claims.awarded.percentage = node.payload.claims.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
+                    node.payload.claimsProgram.awarded.percentage = node.payload.claimsProgram.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
 
-                    userProfile.payload.claims.awarded.tokens = userProfile.payload.claims.awarded.tokens + node.payload.claims.awarded.tokens
-                    userProfile.payload.claims.count++
+                    userProfile.payload.claimsProgram.awarded.tokens = userProfile.payload.claimsProgram.awarded.tokens + node.payload.claimsProgram.awarded.tokens
+                    userProfile.payload.claimsProgram.count++
 
                     drawClaims(node, userProfile)
+                    drawProgramPower(node, programPower, percentage)
                 }
+            } else {
+                if (node.type === 'Claims Program') {
+                    drawProgram(node)
+                } else {
+                    drawProgramPower(node, programPower, percentage)
+                }
+
             }
 
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument === undefined) { return }
-
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            calculateForNode(childNode, userProfile)
+            if (schemaDocument.childrenNodesProperties === undefined) { return }
+            /*
+            Before distributing the claim power, we will calculate how the power 
+            is going to be switched between all nodes. The first pass is about
+            scanning all sibling nodes to see which ones have a percentage defined
+            at their config, and check that all percentages don't add more than 100.
+            */
+            let totalPercentage = 0
+            let totalNodesWithoutPercentage = 0
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+                switch (property.type) {
+                    case 'node': {
+                        let childNode = node[property.name]
+                        if (childNode === undefined) { continue }
+                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                            totalPercentage = totalPercentage + percentage
+                        } else {
+                            totalNodesWithoutPercentage++
                         }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    calculateForNode(childNode, userProfile)
+                    }
+                        break
+                    case 'array': {
+                        let propertyArray = node[property.name]
+                        if (propertyArray !== undefined) {
+                            for (let m = 0; m < propertyArray.length; m++) {
+                                let childNode = propertyArray[m]
+                                if (childNode === undefined) { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
                                 }
                             }
-                            break
                         }
+                        break
+                    }
+                }
+            }
+            if (totalPercentage > 100) {
+                node.payload.uiObject.setErrorMessage('Claim Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                return
+            }
+            let defaultPercentage = 0
+            if (totalNodesWithoutPercentage > 0) {
+                defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+            }
+            for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                let property = schemaDocument.childrenNodesProperties[i]
+                switch (property.type) {
+                    case 'node': {
+                        let childNode = node[property.name]
+                        if (childNode === undefined) { continue }
+                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        if (percentage === undefined || isNaN(percentage) === true) {
+                            percentage = defaultPercentage
+                        }
+                        distributeProgramPower(childNode, programPower * percentage / 100, userProfile, percentage)
+                    }
+                        break
+                    case 'array': {
+                        let propertyArray = node[property.name]
+                        if (propertyArray !== undefined) {
+                            for (let m = 0; m < propertyArray.length; m++) {
+                                let childNode = propertyArray[m]
+                                if (childNode === undefined) { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage) === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeProgramPower(childNode, programPower * percentage / 100, userProfile, percentage)
+                            }
+                        }
+                        break
                     }
                 }
             }
         }
 
         function drawClaims(node, userProfile) {
-            let satatus =
-                new Intl.NumberFormat().format(node.payload.claims.awarded.tokens) +
+            let status =
+                new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens) +
                 ' ' + 'SA Tokens Awarded' + ' - ' +
-                'From Reward: ' + node.payload.claims.awarded.percentage.toFixed(2) + '%' + ' - ' +
-                'Shared Between: ' + node.payload.claims.share.count + ' claims' + ' - ' +
-                'Share of Claims: ' + node.payload.claims.share.percentage.toFixed(2) + '%'
+                'From Reward: ' + node.payload.claimsProgram.awarded.percentage.toFixed(2) + '%' + ' - ' +
+                'Shared Between: ' + node.payload.claimsProgram.share.count + ' claims' + ' - ' +
+                'Share of Claims: ' + node.payload.claimsProgram.share.percentage.toFixed(2) + '%'
 
-            node.payload.uiObject.setStatus(satatus)
+            node.payload.uiObject.setStatus(status)
+        }
 
-            satatus = new Intl.NumberFormat().format(userProfile.payload.claims.awarded.tokens) +
-                ' ' + 'SA Tokens Awarded' +
-                ' from ' + userProfile.payload.claims.count + ' Claims'
+        function drawProgram(node) {
+            if (node.payload !== undefined) {
 
-            userProfile.payload.uiObject.setValue(satatus)
+                const ownPowerText = new Intl.NumberFormat().format(node.payload.claimsProgram.ownPower)
+
+                node.payload.uiObject.statusAngleOffset = 0
+                node.payload.uiObject.statusAtAngle = false
+
+                node.payload.uiObject.setStatus(ownPowerText + ' Claims Power')
+            }
+            if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
+
+                const tokensAwardedText = new Intl.NumberFormat().format(node.payload.claimsProgram.awarded.tokens)
+
+                node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
+                node.tokensAwarded.payload.uiObject.valueAtAngle = false
+
+                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+            }
+        }
+
+        function drawProgramPower(node, programPower, percentage) {
+            const programPowerText = new Intl.NumberFormat().format(programPower) + ' ' + 'Claim Power'
+            if (node.payload !== undefined) {
+
+                node.payload.uiObject.valueAngleOffset = 180
+                node.payload.uiObject.valueAtAngle = true
+                node.payload.uiObject.percentageAngleOffset = 180
+                node.payload.uiObject.percentageAtAngle = true
+
+                node.payload.uiObject.setValue(programPowerText)
+
+                if (percentage !== undefined) {
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                }
+            }
         }
     }
 

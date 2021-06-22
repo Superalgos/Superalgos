@@ -78,19 +78,19 @@ function newGovernanceFunctionLibraryTokenPower() {
             /*
             Before we start we will do some validations:
             */
-            if (userProfile.tokenPowerSwitch  === undefined) {
+            if (userProfile.tokenPowerSwitch === undefined) {
                 userProfile.payload.uiObject.setErrorMessage("You need to have a Token Power Switch child node.")
                 return
             }
-            if (userProfile.tokenPowerSwitch.referralProgram  === undefined) {
+            if (userProfile.tokenPowerSwitch.referralProgram === undefined) {
                 userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Referral Program child node.")
                 return
             }
-            if (userProfile.tokenPowerSwitch.mentorshipProgram  === undefined) {
+            if (userProfile.tokenPowerSwitch.mentorshipProgram === undefined) {
                 userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Mentorship Program child node.")
                 return
             }
-            if (userProfile.tokenPowerSwitch.supportProgram  === undefined) {
+            if (userProfile.tokenPowerSwitch.supportProgram === undefined) {
                 userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Spupport Program child node.")
                 return
             }
@@ -229,7 +229,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
 
         function drawTokenPower(node, tokenPower, percentage) {
-            tokenPower = new Intl.NumberFormat().format(tokenPower) + ' ' + 'Token Power'
+            tokenPower = parseFloat(tokenPower.toFixed(2)).toLocaleString('en') + ' ' + 'Token Power'
             if (node.payload !== undefined) {
                 if (node.type === 'User Profile') {
                     return

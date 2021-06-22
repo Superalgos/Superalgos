@@ -155,7 +155,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = new Intl.NumberFormat().format(node.payload.stackingProgram.ownPower)
+                const ownPowerText = parseFloat(node.payload.stackingProgram.ownPower.toFixed(2)).toLocaleString('en') 
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -164,7 +164,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = new Intl.NumberFormat().format(node.payload.stackingProgram.awarded.tokens)
+                const tokensAwardedText = parseFloat(node.payload.stackingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')  
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false

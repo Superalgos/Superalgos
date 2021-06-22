@@ -266,7 +266,7 @@ function newGovernanceFunctionLibraryVotes() {
         }
 
         function drawVotes(node, votes, percentage) {
-            votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
+            votes = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + 'Votes'
             if (node.payload !== undefined) {
 
                 if (node.type === 'Voting Program') {

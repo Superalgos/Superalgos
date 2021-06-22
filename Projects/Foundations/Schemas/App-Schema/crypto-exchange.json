@@ -119,6 +119,14 @@
         {
             "codeName": "luno",
             "iconName": "luno"
+        },
+        {
+            "codeName": "okex",
+            "iconName": "okex"
+        },
+        {
+            "codeName": "okex5",
+            "iconName": "okex"
         }
     ]
 }

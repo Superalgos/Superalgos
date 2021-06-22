@@ -9,10 +9,10 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Votes",
+            "action": "Install Missing Votes",
             "actionProject": "Governance",
             "actionFunction": "payload.executeAction",
-            "label": "Install Votes",
+            "label": "Install Missing Votes",
             "relatedUiObject": "Weight Votes Switch",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install"
@@ -65,7 +65,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Votes Distribution->Votes Switch->"
+        "compatibleTypes": "->Voting Program->Votes Switch->"
     },
     "propertyNameAtParent": "votesSwitch",
     "childrenNodesProperties": [

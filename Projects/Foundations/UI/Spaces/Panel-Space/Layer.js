@@ -511,7 +511,7 @@ function newLayer() {
                     }
                 }
             } else {
-                UI.projects.foundations.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'showPanels', panelsVisibleButton.showPanels)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'showPanels', panelsVisibleButton.showPanels)
             }
         }
     }
@@ -560,7 +560,7 @@ function newLayer() {
                 }
             }
 
-            UI.projects.foundations.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'status', thisObject.status)
+            UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'status', thisObject.status)
             let eventData = thisObject
             thisObject.container.eventHandler.raiseEvent('Status Changed', eventData)
         }

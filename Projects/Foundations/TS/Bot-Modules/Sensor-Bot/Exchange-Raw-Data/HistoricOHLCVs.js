@@ -504,6 +504,10 @@
                                     invalidSince = true
                                     return nextValidOHLCVs[0][0]
                                 }
+
+                                let processingDate = new Date(since)
+                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "No Data Found. Fast-Forwarding to Next Data @ " + processingDate, 0)
                             }
                         }
 

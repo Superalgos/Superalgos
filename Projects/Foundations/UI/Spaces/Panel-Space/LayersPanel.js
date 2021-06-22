@@ -114,7 +114,7 @@ function newLayersPanel() {
     }
 
     function saveObjectStateVisibleLayers() {
-        UI.projects.foundations.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
     }
 
     function saveObjectStatePanelLocation() {
@@ -122,7 +122,7 @@ function newLayersPanel() {
             upOrDown: thisObject.upDownButton.status,
             leftOrRight: thisObject.leftRightButton.status
         }
-        UI.projects.foundations.utilities.nodeConfig.savePropertyAtNodeConfig(thisObject.payload, 'panelLocation', panelLocation)
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'panelLocation', panelLocation)
     }
 
     function readObjectState() {

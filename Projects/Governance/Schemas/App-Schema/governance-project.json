@@ -37,6 +37,13 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Profile Constructor",
+            "relatedUiObject": "Profile Constructor"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,
@@ -61,5 +68,5 @@
             "autoAdd": true
         }
     ],
-    "icon": "Governance Project"
+    "icon": "governance-project"
 }

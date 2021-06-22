@@ -28,8 +28,12 @@ function newUiObject() {
         hasError: undefined,
         hasWarning: undefined,
         hasInfo: undefined,
-        valueAtAngle: true,
+        valueAtAngle: false,
         valueAngleOffset: 0,
+        percentageAtAngle: false,
+        percentageAngleOffset: 0,
+        statusAtAngle: false,
+        statusAngleOffset: 0,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -1887,13 +1891,13 @@ function newUiObject() {
                 label = label.substring(0, MAX_LABEL_LENGTH) + '...'
             }
 
-            if (thisObject.valueAtAngle === true && thisObject.payload.angle !== undefined) {
+            if (thisObject.percentageAtAngle === true && thisObject.payload.angle !== undefined) {
                 labelPoint = {
                     x: position.x - getTextWidth(label) / 2,
                     y: position.y
                 }
-                labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset))
-                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.valueAngleOffset)) + lineSeparator * 1
+                labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.percentageAngleOffset))
+                labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.percentageAngleOffset)) + lineSeparator * 1
             } else {
                 if (thisObject.isOnFocus === true) {
                     labelPoint = {
@@ -1948,15 +1952,25 @@ function newUiObject() {
                     label = label.substring(0, MAX_LABEL_LENGTH) + '...'
                 }
 
-                if (thisObject.isOnFocus === true) {
+                if (thisObject.statusAtAngle === true && thisObject.payload.angle !== undefined) {
                     labelPoint = {
                         x: position.x - getTextWidth(label) / 2,
-                        y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
+                        y: position.y
                     }
+                    labelPoint.x = labelPoint.x + radius * 7 / 3 * Math.cos(toRadians(thisObject.payload.angle + thisObject.statusAngleOffset))
+                    labelPoint.y = labelPoint.y + radius * 7 / 3 * Math.sin(toRadians(thisObject.payload.angle + thisObject.statusAngleOffset)) + lineSeparator * 2
                 } else {
-                    labelPoint = {
-                        x: position.x - getTextWidth(label) / 2,
-                        y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+
+                    if (thisObject.isOnFocus === true) {
+                        labelPoint = {
+                            x: position.x - getTextWidth(label) / 2,
+                            y: position.y + radius * 2 / 3 + lineSeparator * 4 + 30
+                        }
+                    } else {
+                        labelPoint = {
+                            x: position.x - getTextWidth(label) / 2,
+                            y: position.y + thisObject.payload.floatingObject.currentImageSize / 2 + lineSeparator * 4
+                        }
                     }
                 }
 

@@ -1,7 +1,7 @@
 function newGovernanceFunctionLibraryVotes() {
     let thisObject = {
         calculate: calculate,
-        installVotes: installVotes
+        installMissingVotes: installMissingVotes
     }
 
     return thisObject
@@ -41,11 +41,23 @@ function newGovernanceFunctionLibraryVotes() {
         */
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            resetVotes(userProfile)
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+
+            resetVotes(userProfile.tokenPowerSwitch.votingProgram)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
-            distributeForProfile(userProfile)
+
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
+            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+
+            userProfile.tokenPowerSwitch.votingProgram.payload.votes = userProfile.tokenPowerSwitch.votingProgram.payload.tokenPower
+
+            distributeVotingProgram(userProfile.tokenPowerSwitch.votingProgram)
         }
 
         function resetVotes(node) {
@@ -89,11 +101,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 resetVotes(childNode)
                             }
@@ -114,9 +126,10 @@ function newGovernanceFunctionLibraryVotes() {
             }
         }
 
-        function distributeForProfile(userProfile) {
-            let votes = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'tokens')
-            distributeVotes(userProfile, votes)
+        function distributeVotingProgram(votingProgram) {
+            if (votingProgram.payload === undefined) { return }
+            let votes = votingProgram.payload.votes
+            distributeVotes(votingProgram, votes)
         }
 
         function distributeVotes(node, votes, switchPercentage) {
@@ -169,11 +182,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
@@ -217,11 +230,11 @@ function newGovernanceFunctionLibraryVotes() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votesDistribution") { continue }
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votesDistribution") {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
@@ -255,7 +268,16 @@ function newGovernanceFunctionLibraryVotes() {
         function drawVotes(node, votes, percentage) {
             votes = new Intl.NumberFormat().format(votes) + ' ' + 'Votes'
             if (node.payload !== undefined) {
-                if (node.type === 'User Profile') {
+
+                if (node.type === 'Voting Program') {
+                    node.payload.uiObject.statusAngleOffset = 0
+                    node.payload.uiObject.statusAtAngle = false
+
+                    node.payload.uiObject.setStatus("Votes = Tokens Power")
+
+                    if (percentage !== undefined) {
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    }
                     return
                 }
                 if (
@@ -273,9 +295,13 @@ function newGovernanceFunctionLibraryVotes() {
                 ) {
                     node.payload.uiObject.valueAngleOffset = 0
                     node.payload.uiObject.valueAtAngle = false
+                    node.payload.uiObject.percentageAngleOffset = 0
+                    node.payload.uiObject.percentageAtAngle = false
                 } else {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
                 }
 
                 node.payload.uiObject.setValue(votes)
@@ -287,7 +313,7 @@ function newGovernanceFunctionLibraryVotes() {
         }
     }
 
-    function installVotes(node, rootNodes) {
+    function installMissingVotes(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage('To install votes you need a Reference Parent')
@@ -320,17 +346,12 @@ function newGovernanceFunctionLibraryVotes() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                            let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                            if (
-                                destinationNodeChild.type === 'Pool' ||
-                                destinationNodeChild.type === 'Asset' ||
-                                destinationNodeChild.type === 'Feature' ||
-                                destinationNodeChild.type === 'Position'
-                            ) {
-                                originNodeChild.payload.referenceParent = destinationNodeChild
+                            if (originNodeChild === undefined) {
+                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-
+                            originNodeChild.payload.referenceParent = destinationNodeChild
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -342,17 +363,12 @@ function newGovernanceFunctionLibraryVotes() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                    let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
 
-                                    if (
-                                        destinationNodeChild.type === 'Pool' ||
-                                        destinationNodeChild.type === 'Asset' ||
-                                        destinationNodeChild.type === 'Feature' ||
-                                        destinationNodeChild.type === 'Position'
-                                    ) {
-                                        originNodeChild.payload.referenceParent = destinationNodeChild
+                                    if (originNodeChild === undefined) {
+                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-
+                                    originNodeChild.payload.referenceParent = destinationNodeChild
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }
@@ -397,6 +413,30 @@ function newGovernanceFunctionLibraryVotes() {
                 }
                 case 'Position': {
                     originNodeType = 'Position Weight Vote'
+                    break
+                }
+                case 'Asset Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Asset Contribution Claim': {
+                    originNodeType = 'Asset Claim Vote'
+                    break
+                }
+                case 'Feature Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Feature Contribution Claim': {
+                    originNodeType = 'Feature Claim Vote'
+                    break
+                }
+                case 'Position Claims Folder': {
+                    originNodeType = 'Claim Votes Switch'
+                    break
+                }
+                case 'Position Contribution Claim': {
+                    originNodeType = 'Position Claim Vote'
                     break
                 }
             }

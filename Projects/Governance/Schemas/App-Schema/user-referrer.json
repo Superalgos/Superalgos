@@ -26,15 +26,15 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\n  \"description\": \"\"\n}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Referral Program->"
     },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userReferrer"
+    "propertyNameAtParent": "userReferrers"
 }

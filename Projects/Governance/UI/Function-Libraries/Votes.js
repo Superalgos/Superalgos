@@ -129,14 +129,14 @@ function newGovernanceFunctionLibraryVotes() {
         function distributeVotingProgram(votingProgram) {
             if (votingProgram.payload === undefined) { return }
             let votes = votingProgram.payload.votes
-            distributeVotes(votingProgram, votes)
+            distributeProgramPower(votingProgram, votes)
         }
 
-        function distributeVotes(node, votes, switchPercentage) {
+        function distributeProgramPower(node, votes, percentage) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
             node.payload.votes = node.payload.votes + votes
-            drawVotes(node, node.payload.votes, switchPercentage)
+            drawVotes(node, node.payload.votes, percentage)
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.
@@ -161,7 +161,7 @@ function newGovernanceFunctionLibraryVotes() {
                 node.type !== 'Weight Votes Switch' &&
                 node.type !== 'User Profile Votes Switch'
             ) {
-                distributeVotes(node.payload.referenceParent, votes)
+                distributeProgramPower(node.payload.referenceParent, votes)
                 return
             }
             /*
@@ -241,7 +241,7 @@ function newGovernanceFunctionLibraryVotes() {
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
-                                distributeVotes(childNode, votes * percentage / 100, percentage)
+                                distributeProgramPower(childNode, votes * percentage / 100, percentage)
                             }
                         }
                             break
@@ -255,7 +255,7 @@ function newGovernanceFunctionLibraryVotes() {
                                     if (percentage === undefined || isNaN(percentage) === true) {
                                         percentage = defaultPercentage
                                     }
-                                    distributeVotes(childNode, votes * percentage / 100, percentage)
+                                    distributeProgramPower(childNode, votes * percentage / 100, percentage)
                                 }
                             }
                             break

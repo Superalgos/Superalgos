@@ -131,6 +131,7 @@ function splitTextIntoPhrases(text, wordsPerLine) {
         return phrases
     } catch (err) {
         console.log(err.stack)
+        return []
     }
 }
 

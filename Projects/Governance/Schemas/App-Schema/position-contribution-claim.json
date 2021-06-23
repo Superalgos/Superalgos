@@ -32,7 +32,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Position Contributions Folder->"
+        "compatibleTypes": "->Position Claims Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Position->"

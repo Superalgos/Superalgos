@@ -6,7 +6,7 @@ function newFoundationsUtilitiesStatusBar() {
     return thisObject
 
     function changeStatus(newStatus) {
-        let statusParagraph = document.getElementById('credits-page-status-paragraph')
+        let statusParagraph = document.getElementById('splash-text-status-paragraph')
         statusParagraph.lastChild.data = newStatus
 
         try {

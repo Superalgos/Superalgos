@@ -85,6 +85,14 @@
             "iconName": "binance"
         },
         {
+            "codeName": "binanceus",
+            "iconName": "binanceus"
+        },
+        {
+            "codeName": "coinbasepro",
+            "iconName": "coinbasepro"
+        },
+        {
             "codeName": "kucoin",
             "iconName": "kucoin"
         },
@@ -127,6 +135,10 @@
         {
             "codeName": "okex5",
             "iconName": "okex"
+        },
+        {
+            "codeName": "ftx",
+            "iconName": "ftx"
         }
     ]
 }

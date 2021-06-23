@@ -266,14 +266,11 @@ function newGovernanceFunctionLibraryVotingProgram() {
         }
 
         function drawVotes(node, votes, percentage) {
-            votes = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + 'Votes'
+            votes = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + 'Voting Power'
             if (node.payload !== undefined) {
 
                 if (node.type === 'Voting Program') {
-                    node.payload.uiObject.statusAngleOffset = 0
-                    node.payload.uiObject.statusAtAngle = false
-
-                    node.payload.uiObject.setStatus("Votes = Tokens Power")
+                    drawProgram(node)
 
                     if (percentage !== undefined) {
                         node.payload.uiObject.setPercentage(percentage.toFixed(2))
@@ -308,6 +305,18 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                }
+            }
+
+            function drawProgram(node) {
+                if (node.payload !== undefined) {
+    
+                    const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(2)).toLocaleString('en')
+    
+                    node.payload.uiObject.statusAngleOffset = 0
+                    node.payload.uiObject.statusAtAngle = false
+    
+                    node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
                 }
             }
         }

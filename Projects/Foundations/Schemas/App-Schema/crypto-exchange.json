@@ -77,10 +77,6 @@
     ],
     "alternativeIcons": [
         {
-            "codeName": "bitfinex",
-            "iconName": "bitfinex"
-        },
-        {
             "codeName": "binance",
             "iconName": "binance"
         },
@@ -89,44 +85,48 @@
             "iconName": "binanceus"
         },
         {
-            "codeName": "coinbasepro",
-            "iconName": "coinbasepro"
-        },
-        {
-            "codeName": "kucoin",
-            "iconName": "kucoin"
-        },
-        {
-            "codeName": "bittrex",
-            "iconName": "bittrex"
-        },
-        {
-            "codeName": "kraken",
-            "iconName": "kraken"
-        },
-        {
-            "codeName": "poloniex",
-            "iconName": "poloniex"
-        },
-        {
-            "codeName": "upbit",
-            "iconName": "upbit"
+            "codeName": "bitfinex",
+            "iconName": "bitfinex"
         },
         {
             "codeName": "bitmex",
             "iconName": "bitmex"
         },
         {
-            "codeName": "liquid",
-            "iconName": "liquid"
+            "codeName": "bittrex",
+            "iconName": "bittrex"
+        },
+        {
+            "codeName": "coinbasepro",
+            "iconName": "coinbasepro"
+        },
+        {
+            "codeName": "ftx",
+            "iconName": "ftx"
         },
         {
             "codeName": "hitbtc",
             "iconName": "hitbtc"
         },
         {
+            "codeName": "kraken",
+            "iconName": "kraken"
+        },
+        {
+            "codeName": "kucoin",
+            "iconName": "kucoin"
+        },
+        {
+            "codeName": "liquid",
+            "iconName": "liquid"
+        },
+        {
             "codeName": "luno",
             "iconName": "luno"
+        },
+        {
+            "codeName": "lykke",
+            "iconName": "lykke"
         },
         {
             "codeName": "okex",
@@ -137,8 +137,12 @@
             "iconName": "okex"
         },
         {
-            "codeName": "ftx",
-            "iconName": "ftx"
+            "codeName": "poloniex",
+            "iconName": "poloniex"
+        },
+        {
+            "codeName": "upbit",
+            "iconName": "upbit"
         }
     ]
 }

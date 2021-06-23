@@ -84,7 +84,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Feature Class' &&
                 node.type !== 'Position Class'
             ) {
-                if (node.payload.votes !== undefined) {
+                if (node.payload.votingProgram.votes !== undefined) {
                     node.payload.claimsProgram = {
                         count: 0,
                         votes: 0
@@ -173,19 +173,20 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Claims Program'
             ) {
                 if (
-                    node.payload.votes !== undefined &&
-                    node.payload.votes > 0 &&
+                    node.payload.votingProgram !== undefined &&
+                    node.payload.votingProgram.votes !== undefined &&
+                    node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
-                    node.payload.referenceParent.payload.votes !== undefined &&
-                    node.payload.referenceParent.payload.votes > 0 &&
+                    node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
                     node.payload.referenceParent.payload.claimsProgram.count++
-                    node.payload.referenceParent.payload.claimsProgram.votes = node.payload.referenceParent.payload.claimsProgram.votes + node.payload.votes
+                    node.payload.referenceParent.payload.claimsProgram.votes = node.payload.referenceParent.payload.claimsProgram.votes + node.payload.votingProgram.votes
                 }
             }
 
@@ -247,12 +248,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             ) {
                 if (
                     node.payload.claimsProgram !== undefined &&
-                    node.payload.votes !== undefined &&
-                    node.payload.votes > 0 &&
+                    node.payload.votingProgram.votes !== undefined &&
+                    node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&
                     node.payload.referenceParent.payload !== undefined &&
-                    node.payload.referenceParent.payload.votes !== undefined &&
-                    node.payload.referenceParent.payload.votes > 0 &&
+                    node.payload.referenceParent.payload.votingProgram.votes !== undefined &&
+                    node.payload.referenceParent.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent.payload.weight !== undefined &&
                     node.payload.referenceParent.payload.weight > 0 &&
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
@@ -264,17 +265,17 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     the Votes Rewards Claims Ratio will be used to redude the amount of tokens awarded 
                     proportionally to how much was exeeded.
                     */
-                    let votesRatio = node.payload.referenceParent.payload.votes / node.payload.referenceParent.payload.claimsProgram.votes
+                    let votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsProgram.votes
                     if (votesRatio > 1) { votesRatio = 1 }
                     /*
                     Share Count means the amount to claims pointing to the same potential tokens reward.
                     */
                     node.payload.claimsProgram.share.count = node.payload.referenceParent.payload.claimsProgram.count
-                    node.payload.claimsProgram.share.percentage = node.payload.votes * 100 / node.payload.referenceParent.payload.claimsProgram.votes
+                    node.payload.claimsProgram.share.percentage = node.payload.votingProgram.votes * 100 / node.payload.referenceParent.payload.claimsProgram.votes
                     node.payload.claimsProgram.awarded.tokens =
                         Math.min(
-                            node.payload.votes / node.payload.referenceParent.payload.votes * node.payload.referenceParent.payload.tokens * votesRatio,
-                            node.payload.votes,
+                            node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * node.payload.referenceParent.payload.tokens * votesRatio,
+                            node.payload.votingProgram.votes,
                             programPower
                         )
                     node.payload.claimsProgram.awarded.percentage = node.payload.claimsProgram.awarded.tokens / node.payload.referenceParent.payload.tokens * 100

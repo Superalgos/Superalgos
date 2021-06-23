@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryVotes() {
+function newGovernanceFunctionLibraryVotingProgram() {
     let thisObject = {
         calculate: calculate,
         installMissingVotes: installMissingVotes
@@ -55,15 +55,17 @@ function newGovernanceFunctionLibraryVotes() {
             if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
             if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
 
-            userProfile.tokenPowerSwitch.votingProgram.payload.votes = userProfile.tokenPowerSwitch.votingProgram.payload.tokenPower
+            userProfile.tokenPowerSwitch.votingProgram.payload.votingProgram.votes = userProfile.tokenPowerSwitch.votingProgram.payload.tokenPower
 
-            distributeVotingProgram(userProfile.tokenPowerSwitch.votingProgram)
+            distributeProgram(userProfile.tokenPowerSwitch.votingProgram)
         }
 
         function resetVotes(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.votes = 0
+            node.payload.votingProgram = {
+                votes: 0
+            }
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.
@@ -126,17 +128,19 @@ function newGovernanceFunctionLibraryVotes() {
             }
         }
 
-        function distributeVotingProgram(votingProgram) {
-            if (votingProgram.payload === undefined) { return }
-            let votes = votingProgram.payload.votes
-            distributeProgramPower(votingProgram, votes)
+        function distributeProgram(programNode) {
+            if (programNode.payload === undefined) { return }
+
+            let votes = programNode.payload.votingProgram.votes
+            programNode.payload.votingProgram.ownPower = votes
+            distributeProgramPower(programNode, votes)
         }
 
         function distributeProgramPower(node, votes, percentage) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.votes = node.payload.votes + votes
-            drawVotes(node, node.payload.votes, percentage)
+            node.payload.votingProgram.votes = node.payload.votingProgram.votes + votes
+            drawVotes(node, node.payload.votingProgram.votes, percentage)
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.
@@ -266,14 +270,11 @@ function newGovernanceFunctionLibraryVotes() {
         }
 
         function drawVotes(node, votes, percentage) {
-            votes = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + 'Votes'
+
             if (node.payload !== undefined) {
 
                 if (node.type === 'Voting Program') {
-                    node.payload.uiObject.statusAngleOffset = 0
-                    node.payload.uiObject.statusAtAngle = false
-
-                    node.payload.uiObject.setStatus("Votes = Tokens Power")
+                    drawProgram(node)
 
                     if (percentage !== undefined) {
                         node.payload.uiObject.setPercentage(percentage.toFixed(2))
@@ -303,11 +304,38 @@ function newGovernanceFunctionLibraryVotes() {
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
                 }
+                let voteType = 'Voting Power'
 
-                node.payload.uiObject.setValue(votes)
+                if (
+                    node.type.indexOf('Weight') >= 0 ||
+                    node.type.indexOf('Pool') >= 0 ||
+                    node.type.indexOf('Feature') >= 0 ||
+                    node.type.indexOf('Asset') >= 0
+                ) {
+                    voteType = 'Weight Power'
+                }
+
+                if (node.type.indexOf('Claim') >= 0) {
+                    voteType = 'Claim Support Power'
+                }
+
+                const votesText = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + voteType
+                node.payload.uiObject.setValue(votesText)
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                }
+            }
+
+            function drawProgram(node) {
+                if (node.payload !== undefined) {
+
+                    const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(2)).toLocaleString('en')
+
+                    node.payload.uiObject.statusAngleOffset = 0
+                    node.payload.uiObject.statusAtAngle = false
+
+                    node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
                 }
             }
         }

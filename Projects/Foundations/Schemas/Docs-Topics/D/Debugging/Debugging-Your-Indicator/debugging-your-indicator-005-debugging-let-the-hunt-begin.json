@@ -1,6 +1,6 @@
 {
     "topic": "Debugging Your Indicator",
-    "pageNumber": "4",
+    "pageNumber": 5,
     "type": "Debugging - Let The Hunt Begin!",
     "definition": {
         "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward.",
@@ -40,11 +40,13 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/debugging-your-indicator/7_breaking-point-indication.png"
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/19_breaking-point-indication.png",
+            "updated": 1623411413725
         },
         {
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/debugging-your-indicator/17_stopped-at-breaking-point.png"
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/20_stopped-at-breaking-point.png",
+            "updated": 1623411419203
         },
         {
             "style": "Text",
@@ -60,7 +62,8 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/debugging-your-indicator/18_zoomed-in-getting-values.png"
+            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/21_zoomed-in-getting-values.png",
+            "updated": 1623411423507
         },
         {
             "style": "Note",

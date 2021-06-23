@@ -37,8 +37,8 @@
         },
         {
             "style": "Text",
-            "text": "To load a workspace, click the Workspaces Tab on the left-hand side of the screen and select one of the available files.",
-            "updated": 1615893116990
+            "text": "To load a workspace, click the workspaces tab on the left-hand side of the screen and select one of the available files.",
+            "updated": 1624469374859
         },
         {
             "style": "Success",
@@ -60,7 +60,8 @@
         },
         {
             "style": "Note",
-            "text": "User workspaces feature a purple background in the workspaces tab."
+            "text": "User workspaces feature a purple background in the workspaces tab.",
+            "updated": 1624469335347
         },
         {
             "style": "Text",

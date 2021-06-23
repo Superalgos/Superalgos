@@ -969,9 +969,9 @@
                     "functionName": "newGovernanceFunctionLibraryTokenPower"
                 },
                 {
-                    "name": "Votes",
-                    "propertyName": "votes",
-                    "functionName": "newGovernanceFunctionLibraryVotes"
+                    "name": "Voting Program",
+                    "propertyName": "votingProgram",
+                    "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
                     "name": "Tokens",

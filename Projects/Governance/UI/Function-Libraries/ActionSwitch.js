@@ -25,7 +25,7 @@ function newGovernanceActionSwitch() {
                 }
             case 'Install Missing Votes':
                 {
-                    UI.projects.governance.functionLibraries.votes.installMissingVotes(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.votingProgram.installMissingVotes(action.node, action.rootNodes)
                     break
                 }
             case 'Install Missing Claims':

@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryVotes() {
+function newGovernanceFunctionLibraryVotingProgram() {
     let thisObject = {
         calculate: calculate,
         installMissingVotes: installMissingVotes

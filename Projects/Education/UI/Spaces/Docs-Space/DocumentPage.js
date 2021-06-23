@@ -536,7 +536,7 @@ function newFoundationsDocsDocumentPage() {
                     let includedSchemaDocument
 
                     if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                        return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include blocks from a page. This error message will dissapear as soon as you fix the problem.'
+                        return 'Include paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Include Style Syntax to learn how to include blocks from a page. This error message will disappear as soon as you fix the problem.'
                     }
                     switch (category) {
                         case 'Node': {
@@ -644,11 +644,11 @@ function newFoundationsDocsDocumentPage() {
 
 
                     if (project === undefined || category === undefined || chapterNumber === undefined || chapterName === undefined) {
-                        return 'Chapter paragraph style Syntax Error. Some of the required parameters are undefined. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                        return 'Chapter paragraph style Syntax Error. Some of the required parameters are undefined. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                     }
 
                     if (SCHEMAS_BY_PROJECT.get(project) === undefined) {
-                        return 'Chapter paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                        return 'Chapter paragraph style Syntax Error. The Project <i>' + project + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                     }
 
                     if (category !== 'Topic' && category !== 'Tutorial' && category !== 'Review') {
@@ -664,7 +664,7 @@ function newFoundationsDocsDocumentPage() {
                             )
 
                             if (orderedTopicPageIndexArray.length === 0) {
-                                return 'Chapter paragraph style Syntax Error. The Topic <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                                return 'Chapter paragraph style Syntax Error. The Topic <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
                         }
@@ -676,7 +676,7 @@ function newFoundationsDocsDocumentPage() {
                             )
 
                             if (orderedTutorialPageIndexArray.length === 0) {
-                                return 'Chapter paragraph style Syntax Error. The Tutorial <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                                return 'Chapter paragraph style Syntax Error. The Tutorial <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
                         }
@@ -688,7 +688,7 @@ function newFoundationsDocsDocumentPage() {
                             )
 
                             if (orderedReviewPageIndexArray.length === 0) {
-                                return 'Chapter paragraph style Syntax Error. The Review <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will dissapear as soon as you fix the problem.'
+                                return 'Chapter paragraph style Syntax Error. The Review <i>' + chapterName + '</i> could not be found. Check the Docs Chapter Style Syntax. This error message will disappear as soon as you fix the problem.'
                             }
                             break
                         }

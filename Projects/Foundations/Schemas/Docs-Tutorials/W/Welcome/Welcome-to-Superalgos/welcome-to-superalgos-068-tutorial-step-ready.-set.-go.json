@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Ready. Set. Go!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "task"
         },
         "text": "Let's get going! This is going to be quick anyway, as we are testing a single day worth of historic data.",

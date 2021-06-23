@@ -90,7 +90,7 @@ exports.newFoundationsBotModulesOrdersSimulations = function (processIndex) {
                                 tradingEngineOrder.orderStatistics.actualRate.value = tradingEngineOrder.rate.value - slippageAmount
                                 tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
-                                const message = 'Simulating - Slippage Substracted'
+                                const message = 'Simulating - Slippage Subtracted'
                                 let docs = {
                                     project: 'Foundations',
                                     category: 'Topic',

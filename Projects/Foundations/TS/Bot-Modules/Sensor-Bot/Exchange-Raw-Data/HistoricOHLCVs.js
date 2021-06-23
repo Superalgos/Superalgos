@@ -418,18 +418,21 @@
                             await exchange.fetchOHLCV(symbol, '1m', since, limit, params)
 
 
-                        if (OHLCVs.length === 0) {
+                        if (OHLCVs.length === 0 && new Date(since).valueOf() !== (new Date).setSeconds(0,0)) {
+
                             /*
-                            If OHLCVs is empty we might be dealing with extended maintenance longer than our OHLCV limit.
+                            If OHLCVs is empty and we're not at the current minute we might
+                            be dealing with extended maintenance longer than our OHLCV limit.
                             If this is the case jump forward to the next valid OHLCV record.
                              */
+
                             since = await findNextValidOHLCV()
                         }
 
                         /*
                         CCXT for certain Exchanges will return an empty or partial array if the since date is too
                         far in the past if this occurs this function will recursively step backwards in the Exchange
-                         and Market in 1D intervals until it finds the earliest date with values.
+                        and Market in 1D intervals until it finds the earliest date with values.
                         */
 
                         async function findMarketStart() {
@@ -504,6 +507,10 @@
                                     invalidSince = true
                                     return nextValidOHLCVs[0][0]
                                 }
+
+                                let processingDate = new Date(since)
+                                processingDate = processingDate.getUTCFullYear() + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCMonth() + 1, 2) + '-' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(processingDate.getUTCDate(), 2);
+                                TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, "No Data Found. Fast-Forwarding to Next Data @ " + processingDate, 0)
                             }
                         }
 

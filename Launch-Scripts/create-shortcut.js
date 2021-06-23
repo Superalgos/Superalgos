@@ -1,6 +1,6 @@
 const path     = require("path");
 const fs       = require("fs");
-const { exec } = require("child_process");
+const { exec, execSync } = require("child_process");
 const os       = require("os"); 
 
 // Get the name of the main directory
@@ -92,7 +92,45 @@ if (os.platform() == "win32") {
    
 // Mac Shortcuts
 } else if (os.platform() == "darwin") {
-    console.log( "Automatic shortcut creation is not yet supported on Mac.  If you would like to see this feature add, message @harrellbm on telegram or discord to ask how you can help!")
+    const icon = path.join( __dirname,"/superalgos.ico");
+    const createShortcutCommand = `chmod +x ${name}.command & cp ${name}.command ~/Desktop/${name}.command`
+    const installFileIconcommand = `npm install fileicon`;
+    const changeIconCommand = `./node_modules/fileicon/bin/fileicon set ~/Desktop/${name}.command ./Launch-Scripts/superalgos.ico`
+    const unInstallFileIconcommand = `npm uninstall fileicon`;
+    
+    try {
+        // Create .desktop shortcut file
+            fs.writeFileSync( `${name}.command`, 
+            `#!/bin/sh
+            cd ${__dirname}
+            cd ..
+            node run
+            "$SHELL"`,
+        );
+
+        // Place shortcut in proper folders
+        execSync( createShortcutCommand,{ timeout: 30000})
+
+        // Remove temporary .command file
+        fs.unlinkSync( `${name}.command` )
+        
+        //Install fileicon utility 
+        execSync(installFileIconcommand, {stdio: 'inherit', timeout: 30000});
+
+        //change Icon
+        execSync(changeIconCommand, {stdio: 'inherit', timeout: 30000});
+
+        //Un-Install fileicon utility 
+        execSync(unInstallFileIconcommand, {stdio: 'inherit', timeout: 30000});
+    } catch (error) {
+        console.log('');
+        console.log("There was an error installing a shortcut: ");
+        console.log('');
+        console.log( error );
+        return;
+    }
+
+    console.log("Shortcuts added successfully!");
 
 // Misc Operating System
 } else {

@@ -1,7 +1,7 @@
 {
     "topic": "TS LF Trading Bot Warnings",
     "pageNumber": "5",
-    "type": "TS LF Trading Bot Warning - Simulating - Slippage Substracted",
+    "type": "TS LF Trading Bot Warning - Simulating - Slippage Subtracted",
     "definition": {
         "text": "Slippage was calculated based on the Trading Parameters and subtracted from the Order Rate to calculate the Actual Rate. Slippage was subtracted because the order is a Market Sell Order.",
         "updated": 1611923152009
@@ -14,7 +14,7 @@
         },
         {
             "style": "Warning",
-            "text": "Slippage Substracted"
+            "text": "Slippage Subtracted"
         },
         {
             "style": "Title",

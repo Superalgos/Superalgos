@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Enjoy the Outdoors!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "crypto-ecosystem"
         },
         "text": "The Crypto Ecosystem hierarchy is where you configure which exchanges and markets you work with, your accounts with exchanges, API keys, and so on...",

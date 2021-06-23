@@ -371,7 +371,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                     recursiveCreateTextFile(filePath, fileContent, callBackFunction, keepPrevious)
                 } else {
                     currentRetryWriteTextFile = 0
-                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writting a file. Giving up.')
+                    logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> Max retries reached writing a file. Giving up.')
                     logger.write(MODULE_NAME, '[ERROR] FileStorage -> createTextFile -> retry -> file = ' + fileLocation)
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                 }

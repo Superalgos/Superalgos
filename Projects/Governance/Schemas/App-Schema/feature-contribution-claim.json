@@ -32,7 +32,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Feature Contributions Folder->"
+        "compatibleTypes": "->Feature Claims Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Feature->"

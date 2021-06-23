@@ -55,8 +55,10 @@ exports.newFoundationsBotModulesOrdersCalculations = function (processIndex) {
         /* This calculation needs to happen only once, the first time the order is checked. */
         if (tradingEngineOrder.orderBaseAsset.actualSize.value !== tradingEngineOrder.orderBaseAsset.actualSize.config.initialValue) { return }
 
-        /* We receive the actual size from the exchange at the order.amount field. */
-        tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
+        if ( order.amount !== undefined) {
+            /* We receive the actual size from the exchange at the order.amount field. */
+            tradingEngineOrder.orderBaseAsset.actualSize.value = order.amount
+        }
 
         recalculateActualSize()
         recalculateSizePlaced()
@@ -122,7 +124,7 @@ exports.newFoundationsBotModulesOrdersCalculations = function (processIndex) {
             available, but it seems sometimes it is not. In those cases we use the price.
             */
             tradingEngineOrder.orderStatistics.actualRate.value = order.average
-        } else {
+        } else if (order.price !== undefined) {
             /*
             We use the order.price when the average is not available.
             */
@@ -260,8 +262,10 @@ exports.newFoundationsBotModulesOrdersCalculations = function (processIndex) {
         We know this field will go up until reaching the Actual Size. Once it reaches that number
         the order will be 100% filled. 
         */
-        tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / tradingEngineOrder.orderBaseAsset.actualSize.value
-        tradingEngineOrder.orderStatistics.percentageFilled.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+        if (order.filled !== undefined) {
+            tradingEngineOrder.orderStatistics.percentageFilled.value = order.filled * 100 / tradingEngineOrder.orderBaseAsset.actualSize.value
+            tradingEngineOrder.orderStatistics.percentageFilled.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.percentageFilled.value, 10)
+        }
     }
 
     async function feesPaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
@@ -303,8 +307,10 @@ exports.newFoundationsBotModulesOrdersCalculations = function (processIndex) {
         take it from there for our Order Base Asset. The amount in order.filled does
         not reflect the Fees Paid, even if we are paying the fees in Base Asset. 
         */
-        tradingEngineOrder.orderBaseAsset.sizeFilled.value = order.filled
-        tradingEngineOrder.orderBaseAsset.sizeFilled.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
+        if (order.filled !== undefined) {
+            tradingEngineOrder.orderBaseAsset.sizeFilled.value = order.filled
+            tradingEngineOrder.orderBaseAsset.sizeFilled.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderBaseAsset.sizeFilled.value, 10)
+        }
         /*
         For Quoted Asset, CCXT does not return any field with the size filled, so we 
         need to calculate that by ourselves. 

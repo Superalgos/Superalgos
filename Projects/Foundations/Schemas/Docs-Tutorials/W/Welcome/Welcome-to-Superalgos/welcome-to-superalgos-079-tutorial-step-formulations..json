@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Formulations...",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "formula"
         },
         "text": "What you just went through is the definition of the Limit Buy Order that is placed and cancelled every minute until it gets filled.",

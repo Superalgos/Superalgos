@@ -164,7 +164,7 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
 
             messageId++;
 
-            /* When writting one file for all modules we use this. */
+            /* When writing one file for all modules we use this. */
 
             let message = "['" + newDate + "'," + messageId + ",'" + pModule + "','" + pMessage + "']"
             let logLine = '\r\n' + message;

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Let's Do This!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "live-trading-session"
         },
         "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it!",

@@ -969,9 +969,9 @@
                     "functionName": "newGovernanceFunctionLibraryTokenPower"
                 },
                 {
-                    "name": "Votes",
-                    "propertyName": "votes",
-                    "functionName": "newGovernanceFunctionLibraryVotes"
+                    "name": "Voting Program",
+                    "propertyName": "votingProgram",
+                    "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
                     "name": "Tokens",
@@ -984,9 +984,9 @@
                     "functionName": "newGovernanceFunctionLibraryWeights"
                 },
                 {
-                    "name": "Claims",
-                    "propertyName": "claims",
-                    "functionName": "newGovernanceFunctionLibraryClaims"
+                    "name": "Claims Program",
+                    "propertyName": "claimsProgram",
+                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
                 },
                 {
                     "name": "Distribution Process",
@@ -999,9 +999,24 @@
                     "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
                 },
                 {
-                    "name": "User Referrals",
-                    "propertyName": "userrReferrals",
-                    "functionName": "newGovernanceFunctionLibraryUserReferrals"
+                    "name": "Referral Program",
+                    "propertyName": "referralProgram",
+                    "functionName": "newGovernanceFunctionLibraryReferralProgram"
+                },
+                {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
+                    "name": "Mentorship Program",
+                    "propertyName": "mentorshipProgram",
+                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
+                },
+                {
+                    "name": "Stacking Program",
+                    "propertyName": "stackingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStackingProgram"
                 },
                 {
                     "name": "Profile Constructor",
@@ -1009,7 +1024,18 @@
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
                 }
             ],
-            "utilities": [],
+            "utilities": [
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "functionName": "newFoundationsUtilitiesPools"
+                },
+                {
+                    "name": "Mandatory Program",
+                    "propertyName": "mandatoryProgram",
+                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
+                }
+            ],
             "spaces": [
                 {
                     "name": "User Profile Space",

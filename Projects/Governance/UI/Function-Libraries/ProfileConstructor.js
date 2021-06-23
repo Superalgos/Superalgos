@@ -24,7 +24,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
 
         createNewAccount()
-        signUserProfileData()
 
         function createNewAccount() {
             let params = {
@@ -52,15 +51,11 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     return
                 }
 
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', response.address)
-                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', response.privateKey)
+                signUserProfileData(response.address, response.privateKey)
             }
         }
 
-        function signUserProfileData() {
-
-            let privateKey = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'privateKey')
-            if (privateKey === undefined || privateKey === "") { return }
+        function signUserProfileData(address, privateKey) {
 
             let request = {
                 url: 'WEB3',
@@ -89,6 +84,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     return
                 }
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload.referenceParent.payload, 'signature', response.signature)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
 
                 node.payload.uiObject.setInfoMessage("Profile Account has been successfully created.")
             }

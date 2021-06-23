@@ -77,24 +77,64 @@
     ],
     "alternativeIcons": [
         {
-            "codeName": "bitfinex",
-            "iconName": "bitfinex"
-        },
-        {
             "codeName": "binance",
             "iconName": "binance"
         },
         {
-            "codeName": "kucoin",
-            "iconName": "kucoin"
+            "codeName": "binanceus",
+            "iconName": "binanceus"
+        },
+        {
+            "codeName": "bitfinex",
+            "iconName": "bitfinex"
+        },
+        {
+            "codeName": "bitmex",
+            "iconName": "bitmex"
         },
         {
             "codeName": "bittrex",
             "iconName": "bittrex"
         },
         {
+            "codeName": "coinbasepro",
+            "iconName": "coinbasepro"
+        },
+        {
+            "codeName": "ftx",
+            "iconName": "ftx"
+        },
+        {
+            "codeName": "hitbtc",
+            "iconName": "hitbtc"
+        },
+        {
             "codeName": "kraken",
             "iconName": "kraken"
+        },
+        {
+            "codeName": "kucoin",
+            "iconName": "kucoin"
+        },
+        {
+            "codeName": "liquid",
+            "iconName": "liquid"
+        },
+        {
+            "codeName": "luno",
+            "iconName": "luno"
+        },
+        {
+            "codeName": "lykke",
+            "iconName": "lykke"
+        },
+        {
+            "codeName": "okex",
+            "iconName": "okex"
+        },
+        {
+            "codeName": "okex5",
+            "iconName": "okex"
         },
         {
             "codeName": "poloniex",
@@ -103,22 +143,6 @@
         {
             "codeName": "upbit",
             "iconName": "upbit"
-        },
-        {
-            "codeName": "bitmex",
-            "iconName": "bitmex"
-        },
-        {
-            "codeName": "liquid",
-            "iconName": "liquid"
-        },
-        {
-            "codeName": "hitbtc",
-            "iconName": "hitbtc"
-        },
-        {
-            "codeName": "luno",
-            "iconName": "luno"
         }
     ]
 }

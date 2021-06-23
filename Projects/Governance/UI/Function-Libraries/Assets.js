@@ -1,11 +1,11 @@
 function newGovernanceFunctionLibraryAssets() {
     let thisObject = {
-        installAssets: installAssets
+        installMissingAssets: installMissingAssets
     }
 
     return thisObject
 
-    function installAssets(
+    function installMissingAssets(
         node,
         rootNodes
     ) {

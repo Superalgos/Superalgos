@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Time to Stop!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "stop"
         },
         "text": "We are not going to run a Live Trading Session just yet, so there is no point in keeping our data mining running at this point.",

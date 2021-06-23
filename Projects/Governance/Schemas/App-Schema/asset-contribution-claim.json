@@ -33,7 +33,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Asset Contributions Folder->"
+        "compatibleTypes": "->Asset Claims Folder->"
     },
     "referencingRules": {
         "compatibleTypes": "->Asset->"

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Your Keys, Your Coins!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "exchange-account-key"
         },
         "text": "This is where you configure your Exchange Account Key for the Live Trading Session of the Lightning Strike Trading System.",

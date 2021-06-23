@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Plotters Magic!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "plotter"
         },
         "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!",

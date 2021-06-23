@@ -393,7 +393,7 @@ function newCanvas() {
 
         UI.projects.foundations.spaces.chartingSpace.onKeyPressed(event)
 
-        /* Shourcuts to Menu Items */
+        /* Shortcuts to Menu Items */
         if ((event.keyCode >= 48 && event.keyCode <= 57)) {
             let number = event.key
             if (MENU_ITEM_ON_FOCUS !== undefined) {

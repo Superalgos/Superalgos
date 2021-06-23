@@ -9,15 +9,6 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Install Votes",
-            "actionProject": "Governance",
-            "actionFunction": "payload.executeAction",
-            "label": "Install Votes",
-            "relatedUiObject": "Weight Votes Switch",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
-        },
-        {
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
@@ -50,9 +41,6 @@
     },
     "addLeftIcons": true,
     "level": 2,
-    "referencingRules": {
-        "compatibleTypes": "->Pools->Pool Class->Assets->Asset Class->Features->Feature Class->Positions->Position Class->"
-    },
     "attachingRules": {
         "compatibleTypes": "->User Profile Votes Switch->Votes Switch->"
     },

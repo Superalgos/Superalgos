@@ -1,5 +1,10 @@
 # Superalgos Beta 10
 
+
+![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
+![commit-activity](https://img.shields.io/github/commit-activity/y/Superalgos/Superalgos?label=Commit%20Activity)
+![bot-friendliness](https://img.shields.io/badge/Bot%20Friendliness%20Level-119%25-yellow)
+
 Superalgos is not just another open-source project. We are an open and welcoming community devised, nurtured, and incentivized with the project's native <a href="https://superalgos.org/token-overview.shtml" target="_blank">Superalgos (SA) token</a> to grow into a massive trading collaboration. You will notice the difference as soon as you join the [Telegram Community Group](https://t.me/superalgoscommunity) or the new [Discord Server](https://discord.gg/CGeKC6WQQb).
 
 Superalgos is the ultimate market research and trading automation platform. The software is contributor-centric, built by contributors, for contributors. It is also free and open-source. 
@@ -126,8 +131,6 @@ This creates the `Superalgos` folder in the current directory, which contains th
 
 ## 3. Install Node Dependencies
 
-**IMPORTANT:** Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
-
 **A.** After the Superalgos directory has been installed, the final step of installation is to set up the necessary node dependencies.
 
 **B.** In the same command prompt or terminal you just used, type the following command:
@@ -155,6 +158,24 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 ```
 node setup noShortcuts
 ```
+
+<hr>
+
+**Troubleshooting Dependency Installation**
+
+If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
+
+**1.** Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+
+
+**2.** If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
+
+- For Windows start your command prompt as an administrator.
+
+- For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
+
+
+**3.** For Windows it is important that you have C:\Windows\System32 added to your global PATH.  For instructions on how to do this google "add to the path on Windows 10."
 
 <hr>
 

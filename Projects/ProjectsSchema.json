@@ -984,9 +984,9 @@
                     "functionName": "newGovernanceFunctionLibraryWeights"
                 },
                 {
-                    "name": "Claims",
-                    "propertyName": "claims",
-                    "functionName": "newGovernanceFunctionLibraryClaims"
+                    "name": "Claims Program",
+                    "propertyName": "claimsProgram",
+                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
                 },
                 {
                     "name": "Distribution Process",
@@ -1004,9 +1004,19 @@
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
                 },
                 {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
                     "name": "Mentorship Program",
                     "propertyName": "mentorshipProgram",
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
+                },
+                {
+                    "name": "Stacking Program",
+                    "propertyName": "stackingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStackingProgram"
                 },
                 {
                     "name": "Profile Constructor",
@@ -1019,6 +1029,11 @@
                     "name": "Pools",
                     "propertyName": "pools",
                     "functionName": "newFoundationsUtilitiesPools"
+                },
+                {
+                    "name": "Mandatory Program",
+                    "propertyName": "mandatoryProgram",
+                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
                 }
             ],
             "spaces": [

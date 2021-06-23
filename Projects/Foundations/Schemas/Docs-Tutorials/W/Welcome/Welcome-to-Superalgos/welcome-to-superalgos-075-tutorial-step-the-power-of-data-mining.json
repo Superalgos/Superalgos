@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Power of Data Mining",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "layer-resistance"
         },
         "text": "Why do levels jump up and down? There's something I haven't told you yet, 'cos I'm afraid it may blow your mind!",

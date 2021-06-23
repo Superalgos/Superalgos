@@ -1,5 +1,5 @@
 {
-    "type": "User Support",
+    "type": "User Supporter",
     "menuItems": [
         {
             "action": "Configure",
@@ -31,10 +31,10 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->support Program->"
+        "compatibleTypes": "->Support Program->"
     },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userSupports"
+    "propertyNameAtParent": "userSupporters"
 }

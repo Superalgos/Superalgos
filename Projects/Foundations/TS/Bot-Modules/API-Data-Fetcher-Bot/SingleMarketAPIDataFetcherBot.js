@@ -21,7 +21,7 @@ exports.newFoundationsBotModulesSingleMarketAPIDataFetcherBot = function (proces
                 return
             }
 
-            /* Here we setup the path prefix that will be used when writting data or logs to disk. */
+            /* Here we setup the path prefix that will be used when writing data or logs to disk. */
             TS.projects.foundations.functionLibraries.singleMarketFunctions.initializeFilePathRoot(processIndex)
 
             /*

@@ -1,5 +1,5 @@
 {
-    "type": "Token Switch",
+    "type": "Token Power Switch",
     "menuItems": [
         {
             "action": "Configure",
@@ -22,6 +22,15 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "supportProgram",
+            "label": "Add Support Program",
+            "relatedUiObject": "Support Program"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mentorshipProgram",
             "label": "Add Mentorship Program",
             "relatedUiObject": "Mentorship Program"
@@ -31,9 +40,9 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "supportProgram",
-            "label": "Add Support Program",
-            "relatedUiObject": "Support Program"
+            "propertyToCheckFor": "claimsProgram",
+            "label": "Add Claims Program",
+            "relatedUiObject": "Claims Program"
         },
         {
             "action": "Add UI Object",
@@ -49,16 +58,7 @@
             "actionProject": "Foundations",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "claimsProgram",
-            "label": "Add Claims Program",
-            "relatedUiObject": "Claims Program"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Foundations",
-            "actionFunction": "payload.executeAction",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "stakingProgram",
+            "propertyToCheckFor": "stackingProgram",
             "label": "Add Staking Program",
             "relatedUiObject": "Staking Program"
         },
@@ -84,18 +84,12 @@
     "attachingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "tokenSwitch",
+    "propertyNameAtParent": "tokenPowerSwitch",
     "childrenNodesProperties": [
         {
             "name": "referralProgram",
             "type": "node",
             "childType": "Referral Program",
-            "autoAdd": true
-        },
-        {
-            "name": "mentorshipProgram",
-            "type": "node",
-            "childType": "Mentorship Program",
             "autoAdd": true
         },
         {
@@ -105,9 +99,9 @@
             "autoAdd": true
         },
         {
-            "name": "votingProgram",
+            "name": "mentorshipProgram",
             "type": "node",
-            "childType": "Voting Program",
+            "childType": "Mentorship Program",
             "autoAdd": true
         },
         {
@@ -117,7 +111,13 @@
             "autoAdd": true
         },
         {
-            "name": "stakingProgram",
+            "name": "votingProgram",
+            "type": "node",
+            "childType": "Voting Program",
+            "autoAdd": true
+        },
+        {
+            "name": "stackingProgram",
             "type": "node",
             "childType": "Staking Program",
             "autoAdd": true

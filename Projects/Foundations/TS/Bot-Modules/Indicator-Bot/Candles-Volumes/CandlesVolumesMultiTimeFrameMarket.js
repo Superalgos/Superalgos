@@ -36,7 +36,7 @@
         for Market Period. But this is the situation:
     
         Exchange Raw Data has a dataset organized with daily files with candles of 1 min. 
-        Candles Volumes is writting in this process a single file for each timeFrame for the whole market.
+        Candles Volumes is writing in this process a single file for each timeFrame for the whole market.
         Everytime this process run, must be able to resume its job and process everything pending until 
         reaching the head of the market. So the tactic to do this is the
         following:

@@ -12,10 +12,10 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokenSwitch",
+            "propertyToCheckFor": "tokenPowerSwitch",
             "actionFunction": "payload.executeAction",
-            "label": "Add Token Switch",
-            "relatedUiObject": "Token Switch"
+            "label": "Add Token Power Switch",
+            "relatedUiObject": "Token Power Switch"
         },
         {
             "action": "Delete UI Object",
@@ -40,9 +40,9 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "tokenSwitch",
+            "name": "tokenPowerSwitch",
             "type": "node",
-            "childType": "Token Switch",
+            "childType": "Token Power Switch",
             "autoAdd": true
         }
     ]

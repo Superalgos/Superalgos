@@ -1313,7 +1313,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onFileWritten(err) {
                                 if (err) {
-                                    console.log('[ERROR] SaveWorkspace -> onFileWritten -> Error writting the Workspace file. fileName = ' + fileName)
+                                    console.log('[ERROR] SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
                                     console.log('[ERROR] SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
                                     let error = {
                                         result: 'Fail Because',
@@ -1327,7 +1327,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                         } catch (err) {
-                            console.log('[ERROR] SaveWorkspace -> Error writting the Workspace file. fileName = ' + fileName)
+                            console.log('[ERROR] SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
                             console.log('[ERROR] SaveWorkspace -> err.stack = ' + err.stack)
                             let error = {
                                 result: 'Fail Because',

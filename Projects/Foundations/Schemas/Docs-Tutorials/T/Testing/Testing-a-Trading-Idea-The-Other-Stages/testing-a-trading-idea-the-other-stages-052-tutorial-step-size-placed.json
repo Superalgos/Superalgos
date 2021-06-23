@@ -17,7 +17,7 @@
         },
         {
             "style": "Note",
-            "text": "In the context of either the open stage or the close stage, size placed is a variable that accumulates the total size placed during the stage, so it must be adjusted to!"
+            "text": "In the context of either the open stage or the close stage, size placed is a variable that accumulates the total size placed during the stage, so it must be adjusted too!"
         }
     ]
 }

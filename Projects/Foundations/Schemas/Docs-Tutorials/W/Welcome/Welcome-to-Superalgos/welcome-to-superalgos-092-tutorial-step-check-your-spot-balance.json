@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Check Your Spot Balance!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "binance"
         },
         "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",

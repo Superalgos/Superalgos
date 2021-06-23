@@ -3,9 +3,9 @@
     "name": "Julian-Molina",
     "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\n        \"s\": \"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\n        \"signature\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"\n    }\n}",
     "project": "Governance",
-    "tokenSwitch": {
-        "type": "Token Switch",
-        "name": "New Token Switch",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
         "config": "{}",
         "project": "Governance",
         "referralProgram": {
@@ -13,37 +13,39 @@
             "name": "New Referral Program",
             "config": "{}",
             "project": "Governance",
-            "userReferrer": {
-                "type": "User Referrer",
-                "name": "Jeremy",
-                "config": "{}",
-                "project": "Governance",
-                "id": "0d0b04ff-034b-4b02-8351-67d621d514c0",
-                "savedPayload": {
-                    "position": {
-                        "x": 25532.618466191747,
-                        "y": 23465.846712854385
-                    },
-                    "targetPosition": {
-                        "x": 25233.45732703739,
-                        "y": 23488.265740930314
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {},
-                    "referenceParent": {
-                        "type": "User Profile",
-                        "name": "Jeremy",
-                        "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
+            "userReferrers": [
+                {
+                    "type": "User Referrer",
+                    "name": "Jeremy",
+                    "config": "{}",
+                    "project": "Governance",
+                    "id": "0aa9db01-7605-4a51-abd9-e233de6721d6",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25532.618466191747,
+                            "y": 23465.846712854385
+                        },
+                        "targetPosition": {
+                            "x": 25233.45732703739,
+                            "y": 23488.265740930314
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {},
+                        "referenceParent": {
+                            "type": "User Profile",
+                            "name": "Jeremy",
+                            "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
+                        }
                     }
                 }
-            },
+            ],
             "tokensAwarded": {
                 "type": "Tokens Awarded",
                 "name": "New Tokens Awarded",
@@ -106,12 +108,12 @@
                     "id": "0e176a01-3ed2-4b02-b070-601236ea2393",
                     "savedPayload": {
                         "position": {
-                            "x": 25662.630264392985,
-                            "y": 23874.32824727054
+                            "x": 25429.475731817543,
+                            "y": 23702.252371245373
                         },
                         "targetPosition": {
-                            "x": 25243.737077503094,
-                            "y": 23709.924786305663
+                            "x": 25150.213607224283,
+                            "y": 23592.650063935456
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -137,12 +139,12 @@
                 "id": "27f046ba-de7c-45a3-9086-d6f4e0ac0fd7",
                 "savedPayload": {
                     "position": {
-                        "x": 25310.806097282373,
-                        "y": 24154.89865810697
+                        "x": 25194.926287077134,
+                        "y": 23889.299311802995
                     },
                     "targetPosition": {
-                        "x": 25243.737077503094,
-                        "y": 23709.924786305663
+                        "x": 25150.213607224283,
+                        "y": 23592.650063935456
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -158,8 +160,8 @@
             "id": "362a1ecb-dce9-4ebb-9b00-a20d3631f2f3",
             "savedPayload": {
                 "position": {
-                    "x": 25243.737077503094,
-                    "y": 23709.924786305663
+                    "x": 25150.213607224283,
+                    "y": 23592.650063935456
                 },
                 "targetPosition": {
                     "x": 24963.166666666664,
@@ -168,9 +170,9 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
-                    "distanceToParent": 4,
+                    "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
                 "uiObject": {
@@ -267,7 +269,7 @@
                 }
             }
         },
-        "stakingProgram": {
+        "stackingProgram": {
             "type": "Staking Program",
             "name": "New Staking Program",
             "config": "{}",

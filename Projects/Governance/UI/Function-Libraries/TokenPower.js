@@ -78,20 +78,20 @@ function newGovernanceFunctionLibraryTokenPower() {
             /*
             Before we start we will do some validations:
             */
-            if (userProfile.tokenSwitch  === undefined) {
-                userProfile.payload.uiObject.setErrorMessage("You need to have a Token Switch child node.")
+            if (userProfile.tokenPowerSwitch === undefined) {
+                userProfile.payload.uiObject.setErrorMessage("You need to have a Token Power Switch child node.")
                 return
             }
-            if (userProfile.tokenSwitch.referralProgram  === undefined) {
-                userProfile.tokenSwitch.payload.uiObject.setErrorMessage("You need to have a Referral Program child node.")
+            if (userProfile.tokenPowerSwitch.referralProgram === undefined) {
+                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Referral Program child node.")
                 return
             }
-            if (userProfile.tokenSwitch.mentorshipProgram  === undefined) {
-                userProfile.tokenSwitch.payload.uiObject.setErrorMessage("You need to have a Mentorship Program child node.")
+            if (userProfile.tokenPowerSwitch.mentorshipProgram === undefined) {
+                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Mentorship Program child node.")
                 return
             }
-            if (userProfile.tokenSwitch.supportProgram  === undefined) {
-                userProfile.tokenSwitch.payload.uiObject.setErrorMessage("You need to have a Spupport Program child node.")
+            if (userProfile.tokenPowerSwitch.supportProgram === undefined) {
+                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Spupport Program child node.")
                 return
             }
 
@@ -229,7 +229,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
 
         function drawTokenPower(node, tokenPower, percentage) {
-            tokenPower = new Intl.NumberFormat().format(tokenPower) + ' ' + 'Token Power'
+            tokenPower = parseFloat(tokenPower.toFixed(2)).toLocaleString('en') + ' ' + 'Token Power'
             if (node.payload !== undefined) {
                 if (node.type === 'User Profile') {
                     return

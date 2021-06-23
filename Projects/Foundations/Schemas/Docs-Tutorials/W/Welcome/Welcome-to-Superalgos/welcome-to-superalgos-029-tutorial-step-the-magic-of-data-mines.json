@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Magic of Data Mines",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "data-mine-tasks"
         },
         "text": "Within each market, the operation is organized by Data Mine. Superalgos ships with several open-source data mines, each with multiple indicators.",

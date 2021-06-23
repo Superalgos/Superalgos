@@ -41,12 +41,22 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
 
+        UI.projects.governance.functionLibraries.supportProgram.calculate(
+            pools,
+            userProfiles
+        )
+
         UI.projects.governance.functionLibraries.mentorshipProgram.calculate(
             pools,
             userProfiles
         )
+
+        UI.projects.governance.functionLibraries.stackingProgram.calculate(
+            pools,
+            userProfiles
+        )
         
-        UI.projects.governance.functionLibraries.claims.calculate(
+        UI.projects.governance.functionLibraries.claimsProgram.calculate(
             features,
             assets,
             positions,

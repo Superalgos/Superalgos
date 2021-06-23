@@ -4,7 +4,7 @@
     "type": "Tutorial Step - The Seller",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "execution-algorithm"
         },
         "text": "We are now in the Close Stage. I thought it would be interesting to tell you more about execution algorithms, with another example.",

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Enough Chit Chat!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "production-trading-tasks"
         },
         "text": "Ok, my friend... It's time for the real deal! Are you ready for a little Live Trading Session?",

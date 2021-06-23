@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Enough Digressing!",
     "definition": {
         "icon": {
-            "project": "Foundations",
+           "project": "Foundations",
             "name": "backtesting-session"
         },
         "text": "We'll run a Backtesting Session with a bunch of preconfigured parameters so that you may have a quick glimpse at how simulations work.",

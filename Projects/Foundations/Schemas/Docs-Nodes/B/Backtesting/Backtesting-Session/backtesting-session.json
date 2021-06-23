@@ -27,7 +27,7 @@
         },
         {
             "style": "Text",
-            "text": "After a few seconds, a literal indication of the progress of the calculations appears below the session node, displaying the date that is currently being processed. Once the calculation is finished, the session stops and the date below the session node dissapears."
+            "text": "After a few seconds, a literal indication of the progress of the calculations appears below the session node, displaying the date that is currently being processed. Once the calculation is finished, the session stops and the date below the session node disappears."
         },
         {
             "style": "Text",

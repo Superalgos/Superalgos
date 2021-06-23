@@ -247,7 +247,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Claims Program'
             ) {
                 if (
-                    node.payload.claimsProgram !== undefined &&
+                    node.payload.votingProgram !== undefined &&
                     node.payload.votingProgram.votes !== undefined &&
                     node.payload.votingProgram.votes > 0 &&
                     node.payload.referenceParent !== undefined &&

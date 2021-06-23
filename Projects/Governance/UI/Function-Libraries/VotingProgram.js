@@ -130,7 +130,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
         function distributeProgram(programNode) {
             if (programNode.payload === undefined) { return }
-            
+
             let votes = programNode.payload.votingProgram.votes
             programNode.payload.votingProgram.ownPower = votes
             distributeProgramPower(programNode, votes)
@@ -270,7 +270,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
         }
 
         function drawVotes(node, votes, percentage) {
-            votes = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + 'Voting Power'
+
             if (node.payload !== undefined) {
 
                 if (node.type === 'Voting Program') {
@@ -304,8 +304,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
                 }
+                let voteType = 'Voting Power'
 
-                node.payload.uiObject.setValue(votes)
+                if (
+                    node.type.indexOf('Weight') >= 0 ||
+                    node.type.indexOf('Pool') >= 0 ||
+                    node.type.indexOf('Feature') >= 0 ||
+                    node.type.indexOf('Asset') >= 0
+                ) {
+                    voteType = 'Weight Power'
+                }
+
+                if (node.type.indexOf('Claim') >= 0) {
+                    voteType = 'Claim Support Power'
+                }
+
+                const votesText = parseFloat(votes.toFixed(2)).toLocaleString('en') + ' ' + voteType
+                node.payload.uiObject.setValue(votesText)
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2))

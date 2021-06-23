@@ -7,6 +7,6 @@
     "name": "Luis-Fernando-Molina"
   },
   "dependencies": {
-    "ccxt": "^1.51.61"
+    "ccxt": "^1.51.91"
   }
 }

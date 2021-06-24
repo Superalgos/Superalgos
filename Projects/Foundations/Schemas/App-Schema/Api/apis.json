@@ -5,6 +5,8 @@
             "action": "Add UI Object",
             "label": "Add Github API",
             "relatedUiObject": "Github API",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubAPI",
             "actionFunction": "payload.executeAction"
         },
         {

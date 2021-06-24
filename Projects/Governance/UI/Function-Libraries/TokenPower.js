@@ -210,22 +210,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
 
         function getPercentage(node) {
-            /*
-            There are some system wide rules regarfing mandatory percentages,
-            we will apply them now.
-            */
-            switch (node.type) {
-                case 'Referral Program': {
-                    return 20
-                }
-                case 'Mentorship Program': {
-                    return 10
-                }
-                case 'Support Program': {
-                    return 10
-                }
-                default: return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
-            }
+            return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
         }
 
         function drawTokenPower(node, tokenPower, percentage) {

@@ -13,6 +13,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
         positions,
         userProfiles
     ) {
+
+        /* Bonus Calculation is here */
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "votingProgram",
+            "Voting-Bonus"
+        )
+
         /* Reset Votes at Pools */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
@@ -336,15 +345,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.payload.uiObject.statusAtAngle = false
 
                     node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
-                }
-                if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
-
-                    const tokensAwardedText = parseFloat(node.payload.votingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
-
-                    node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                    node.tokensAwarded.payload.uiObject.valueAtAngle = false
-
-                    node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
                 }
             }
         }

@@ -1,18 +1,20 @@
-function newGovernanceFunctionLibraryStackingProgram() {
+function newFoundationsUtilitiesBonusProgram() {
     let thisObject = {
-        calculate: calculate
+        run: run
     }
 
     return thisObject
 
-    function calculate(
+    function run(
         pools,
-        userProfiles
+        userProfiles,
+        programPropertyName,
+        programCodeName
     ) {
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Stacking Power that each User Profile at their Program
+        we need to accumulate all the Participation Power that each User Profile at their Program
         node has, because with that Power is that each Program node gets a share of the pool.
          */
         let accumulatedProgramPower = 0
@@ -20,7 +22,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Staking-Rewards")
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 
@@ -28,51 +30,47 @@ function newGovernanceFunctionLibraryStackingProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch.stackingProgram)
+            resetProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
 
-            validateProgram(userProfile.tokenPowerSwitch.stackingProgram)
+            validateProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload.stackingProgram.isActive === false) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
 
-            distributeProgram(userProfile.tokenPowerSwitch.stackingProgram)
+            distributeProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.stackingProgram.payload.stackingProgram.isActive === false) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
 
-            calculateProgram(userProfile.tokenPowerSwitch.stackingProgram)
+            calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
         }
 
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.stackingProgram = {
-                count: 0,
-                percentage: 0,
-                outgoingPower: 0,
-                ownPower: 0,
-                incomingPower: 0,
-                awarded: {
+            node.payload[programPropertyName] = {
+                bonusPower: 0,
+                bonus: {
                     tokens: 0,
                     percentage: 0
                 }
@@ -88,21 +86,20 @@ function newGovernanceFunctionLibraryStackingProgram() {
             if (
                 node.payload.parentNode.payload.parentNode.payload.blockchainTokens === undefined
             ) {
-                node.payload.stackingProgram.isActive = false
+                node.payload[programPropertyName].isActive = false
                 node.payload.parentNode.payload.parentNode.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
-            node.payload.stackingProgram.isActive = true
         }
 
         function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Token Power into Stacking Power. 
-            As per system rules Stacking Powar = tokensPower
+            Here we will convert Token Power into Participation Power. 
+            As per system rules Participation Powar = tokensPower
             */
             let programPower = programNode.payload.tokenPower
-            programNode.payload.stackingProgram.ownPower = programPower
+            programNode.payload[programPropertyName].bonusPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower
         }
@@ -110,7 +107,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         function calculateProgram(programNode) {
             /*
             Here we will calculate which share of the Program Pool this user will get in tokens.
-            To do that, we use the ownPower, to see which proportion of the accumulatedProgramPower
+            To do that, we use the bonusPower, to see which proportion of the accumulatedProgramPower
             represents.
             */
             if (programNode.payload === undefined) { return }
@@ -124,33 +121,24 @@ function newGovernanceFunctionLibraryStackingProgram() {
             let totalPowerRewardRatio = accumulatedProgramPower / programPoolTokenReward
             if (totalPowerRewardRatio < 1) { totalPowerRewardRatio = 1 }
 
-            if (programNode.tokensAwarded === undefined || programNode.tokensAwarded.payload === undefined) {
-                programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
+            if (programNode.tokensBonus === undefined || programNode.tokensBonus.payload === undefined) {
+                programNode.payload.uiObject.setErrorMessage("Tokens Bonus Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.stackingProgram.awarded.tokens = programNode.payload.stackingProgram.ownPower * totalPowerRewardRatio
+            programNode.payload[programPropertyName].bonus.tokens = programNode.payload[programPropertyName].bonusPower * totalPowerRewardRatio
 
             drawProgram(programNode)
         }
 
         function drawProgram(node) {
-            if (node.payload !== undefined) {
+            if (node.tokensBonus !== undefined && node.tokensBonus.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.stackingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(2)).toLocaleString('en')
 
-                node.payload.uiObject.statusAngleOffset = 0
-                node.payload.uiObject.statusAtAngle = false
+                node.tokensBonus.payload.uiObject.valueAngleOffset = 0
+                node.tokensBonus.payload.uiObject.valueAtAngle = true
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Staking Power')
-            }
-            if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
-
-                const tokensAwardedText = parseFloat(node.payload.stackingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
-
-                node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.valueAtAngle = false
-
-                node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
+                node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens')
             }
         }
     }

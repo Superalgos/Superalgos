@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesMandatoryProgram() {
+function newFoundationsUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }
@@ -9,7 +9,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         pools,
         userProfiles,
         programPropertyName,
-        programName,
+        programCodeName,
         programNodeType,
         programPowerName,
         usersArrayPropertyName,
@@ -18,7 +18,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
         of the Program. This will come from a Pool that is configured wiht a codeName config property
-        with the value programName
+        with the value programCodeName
         */
         let programPoolTokenReward
         /*
@@ -32,7 +32,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programName)
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
         /*
@@ -329,7 +329,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.setPercentage(percentage)
 
                 node.payload.uiObject.statusAngleOffset = 0
-                node.payload.uiObject.statusAtAngle = false
+                node.payload.uiObject.statusAtAngle = true
 
                 node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
             }
@@ -344,16 +344,16 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own ' + programPowerName + ' - ' + incomingPowerText + ' Incoming ' + programPowerName + '')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power'  + ' - ' + incomingPowerText + ' Incoming Power'  + '')
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.statusAtAngle = false
+                node.tokensAwarded.payload.uiObject.statusAtAngle = true
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.valueAtAngle = false
+                node.tokensAwarded.payload.uiObject.valueAtAngle = true
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
                 node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')

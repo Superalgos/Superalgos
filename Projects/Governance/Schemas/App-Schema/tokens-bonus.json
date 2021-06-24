@@ -1,5 +1,5 @@
 {
-    "type": "Tokens Awarded",
+    "type": "Tokens Bonus",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -15,7 +15,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Claims Program->Staking Program->"
+        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Voting Program->"
     },
-    "propertyNameAtParent": "tokensAwarded"
+    "propertyNameAtParent": "tokensBonus"
 }

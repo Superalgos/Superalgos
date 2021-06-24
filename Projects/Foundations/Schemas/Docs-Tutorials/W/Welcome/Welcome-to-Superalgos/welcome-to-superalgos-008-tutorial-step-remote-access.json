@@ -30,12 +30,8 @@
             {
                 "language": "FR",
                 "text": "Superalgos permet d'exécuter le Client sur une machine et d'y accéder via le navigateur depuis une autre machine du réseau.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-008-tutorial-step-remote-access.json
                 "updated": 1623952405992,
                 "style": "Definition"
-=======
-                "updated": 1623952405992
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-008-tutorial-step-remote-access.json
             }
         ],
         "updated": 1616410688496
@@ -66,12 +62,8 @@
                 {
                     "language": "FR",
                     "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le nuage, sur des machines à carte unique comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils négocient en direct. Le nœud de réseau My Computer représente la machine sur laquelle le Client est exécuté.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-008-tutorial-step-remote-access.json
                     "updated": 1623952548227,
                     "style": "Text"
-=======
-                    "updated": 1623952548227
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-008-tutorial-step-remote-access.json
                 }
             ]
         },

@@ -30,12 +30,8 @@
             {
                 "language": "FR",
                 "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                 "updated": 1623951418764,
                 "style": "Definition"
-=======
-                "updated": 1623951418764
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
             }
         ]
     },
@@ -65,12 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                     "updated": 1623952138963,
                     "style": "Text"
-=======
-                    "updated": 1623952138963
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                 }
             ]
         },
@@ -99,12 +91,8 @@
                 {
                     "language": "FR",
                     "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                     "updated": 1623952177269,
                     "style": "Callout"
-=======
-                    "updated": 1623952177269
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                 }
             ]
         },
@@ -134,12 +122,8 @@
                 {
                     "language": "FR",
                     "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                     "updated": 1623952241074,
                     "style": "Text"
-=======
-                    "updated": 1623952241074
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-007-tutorial-step-lets-go-for-a-ride.json
                 }
             ]
         },

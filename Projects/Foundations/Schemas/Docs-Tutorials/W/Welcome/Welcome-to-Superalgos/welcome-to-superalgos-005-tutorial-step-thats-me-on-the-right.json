@@ -30,12 +30,8 @@
             {
                 "language": "FR",
                 "text": "Les tutoriels sont définis a l'interieur du système, et vous pouvez en créer d'autres si vous le souhaitez ! Mais nous parlerons de ces facilitées plus tard. Concentrez-vous d'abord sur les bases !",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-005-tutorial-step-thats-me-on-the-right.json
                 "updated": 1623950810074,
                 "style": "Definition"
-=======
-                "updated": 1623950810074
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-005-tutorial-step-thats-me-on-the-right.json
             }
         ]
     },
@@ -65,12 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Superalgos est par nature un outil visuel. Le système représente l'information dans des structures hiérarchiques de nœuds interconnectés, représentés par des icônes. Ce que vous voyez à votre droite est l'une de ces hiérarchies - en particulier, une hiérarchie Tutorial. Dans ce cas, \"tutoriel\" est le type de nœud et \"Bienvenue à Superalgos !\" est le nom du nœud.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-005-tutorial-step-thats-me-on-the-right.json
                     "updated": 1623951170653,
                     "style": "Text"
-=======
-                    "updated": 1623951170653
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-005-tutorial-step-thats-me-on-the-right.json
                 }
             ],
             "updated": 1616410534255

@@ -15,7 +15,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             pools,
             userProfiles,
             "delegationProgram",
-            "Liquid-Democracy-Bonus"
+            "Delegation-Bonus"
         )
         /*
         We will first reset all the delegate power, and then distribute it.

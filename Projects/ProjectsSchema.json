@@ -974,6 +974,11 @@
                     "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
+                    "name": "Delegation Program",
+                    "propertyName": "delegationProgram",
+                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
+                },
+                {
                     "name": "Tokens",
                     "propertyName": "tokens",
                     "functionName": "newGovernanceFunctionLibraryTokens"

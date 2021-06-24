@@ -17,6 +17,11 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
 
+        UI.projects.governance.functionLibraries.delegationProgram.calculate(
+            pools,
+            userProfiles
+        )
+
         UI.projects.governance.functionLibraries.votingProgram.calculate(
             pools,
             features,

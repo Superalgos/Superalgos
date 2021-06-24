@@ -673,14 +673,14 @@
                                 },
                                 {
                                     "type": "Weight Votes Switch",
-                                    "name": "Liquid Democracy Program Pool Class",
+                                    "name": "Delegation Program Pool Class",
                                     "config": "{}",
                                     "project": "Governance",
                                     "weightVotesSwitch": [],
                                     "poolWeightVotes": [
                                         {
                                             "type": "Pool Weight Vote",
-                                            "name": "Liquid Democracy Participation Bonus Pool",
+                                            "name": "Delegation Participation Bonus Pool",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "1b9107f6-63b6-4e90-bc78-d84d2f360b29",
@@ -704,7 +704,7 @@
                                                 "uiObject": {},
                                                 "referenceParent": {
                                                     "type": "Pool",
-                                                    "name": "Liquid Democracy Participation Bonus",
+                                                    "name": "Delegation Participation Bonus",
                                                     "id": "24e62dd3-4d7b-4eba-b401-493c155d85d0"
                                                 }
                                             }
@@ -736,7 +736,7 @@
                                         },
                                         "referenceParent": {
                                             "type": "Pool Class",
-                                            "name": "Liquid Democracy Program",
+                                            "name": "Delegation Program",
                                             "id": "f09429a2-3f6c-4210-bb73-0c8efd254c82"
                                         }
                                     }

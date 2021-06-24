@@ -63,6 +63,15 @@
             "relatedUiObject": "Staking Program"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "delegationProgram",
+            "label": "Add Delegation Program",
+            "relatedUiObject": "Delegation Program"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,
@@ -120,6 +129,12 @@
             "name": "stackingProgram",
             "type": "node",
             "childType": "Staking Program",
+            "autoAdd": true
+        },
+        {
+            "name": "delegationProgram",
+            "type": "node",
+            "childType": "Delegation Program",
             "autoAdd": true
         }
     ]

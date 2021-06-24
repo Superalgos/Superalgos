@@ -42,39 +42,43 @@ function newFoundationsUtilitiesDecendentProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            resetProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            validateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            validateProgram(program, userProfile)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            distributeProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            distributeProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            calculateProgram(program)
         }
 
         function resetProgram(node) {
@@ -123,17 +127,17 @@ function newFoundationsUtilitiesDecendentProgram() {
             }
         }
 
-        function validateProgram(node) {
+        function validateProgram(node, userProfile) {
             /*
             This program is not going to run unless the Profile has Tokens, and for 
             that users needs to execute the setup procedure of signing their Github
             username with their private key.
             */
             if (
-                node.payload.parentNode.payload.parentNode.payload.blockchainTokens === undefined
+                userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.parentNode.payload.parentNode.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
             /*
@@ -143,7 +147,7 @@ function newFoundationsUtilitiesDecendentProgram() {
             at the top of the program pyramid.)        
             */
             if (
-                node.payload.parentNode.payload.parentNode.payload.blockchainTokens < 1000000 &&
+                userProfile.payload.blockchainTokens < 1000000 &&
                 (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
@@ -316,7 +320,7 @@ function newFoundationsUtilitiesDecendentProgram() {
         function drawUserNode(node, percentage) {
             if (node.payload !== undefined) {
 
-                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en') 
+                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
@@ -344,7 +348,7 @@ function newFoundationsUtilitiesDecendentProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power'  + ' - ' + incomingPowerText + ' Incoming Power'  + '')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' - ' + incomingPowerText + ' Incoming Power' + '')
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 

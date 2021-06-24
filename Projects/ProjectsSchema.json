@@ -1044,6 +1044,11 @@
                     "name": "Bonus Program",
                     "propertyName": "bonusProgram",
                     "functionName": "newFoundationsUtilitiesBonusProgram"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newFoundationsUtilitiesValidations"
                 }
             ],
             "spaces": [

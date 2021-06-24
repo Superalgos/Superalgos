@@ -24,21 +24,23 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.delegationProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.delegationProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Delegation Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch.delegationProgram)
+            resetProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.delegationProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.delegationProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Delegation Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            userProfile.tokenPowerSwitch.delegationProgram.payload.delegationProgram.programPower = userProfile.tokenPowerSwitch.delegationProgram.payload.tokenPower
+            program.payload.delegationProgram.programPower = program.payload.tokenPower
 
-            distributeProgram(userProfile.tokenPowerSwitch.delegationProgram)
+            distributeProgram(program)
         }
 
         function resetProgram(node) {

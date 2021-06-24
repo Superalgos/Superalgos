@@ -15,6 +15,11 @@
                 "text": "Superalgos è un progetto multi-piattaforma. Dopo quella con TensorFlow, lo step successivo è l'integrazione con Ethereum.",
                 "updated": 1618073342659,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Superalgos es una plataforma multiproyecto y, después de TensorFlow, la integración de Ethereum es la siguiente en la línea ...",
+                "updated": 1624487518684
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Che cosa significa integrare Ethereum? Significa che, nelle future versioni, potrai:",
                     "updated": 1618073374905,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué significa integrar Ethereum? Significa que, en versiones futuras, podrás:",
+                    "updated": 1624487553387
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Connetterti a un nodo Ethereum direttamente da Superalgos usando l'interfaccia grafica.",
                     "updated": 1618073396110,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Conectarte a un nodo Ethereum directamente desde Superalgos utilizando la interfaz visual.",
+                    "updated": 1624487598081
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Ottenere dati on-chain e accedere a informazioni su token e contratti di tutti i progetti basati su Ethereum, inclusi quelli De-Fi, visualizzando dati sui grafici, creando indicatori e sfruttando il resto delle funzioni di Superalgos.",
                     "updated": 1618073500896,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Extraer datos de blockchain para acceder a información de monedas y contratos para todos los proyectos basados ​​en Ethereum, incluido De-Fi o lo que sea, visualizando datos en los gráficos, construyendo indicadores y aprovechando el resto de la infraestructura de Superalgos.",
+                    "updated": 1624487654036
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "text": "Usa i dati per fare trading utilizzando i relativi indicatori dal tuo trading system!",
                     "updated": 1618073540467,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Utilizar los datos para comerciar consumiendo indicadores relacionados desde dentro de los sistemas de trading!",
+                    "updated": 1624487724120
                 }
             ]
         }

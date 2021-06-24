@@ -18,8 +18,8 @@
             },
             {
                 "language": "ES",
-                "text": "Cuando ejecute el frontend, utilice Chrome o Safari en Mac. No hemos testeado otros navegadores\n",
-                "updated": 1613594870172,
+                "text": "Al ejecutar el frontend, utilice Chrome o Safari en Mac. No hemos testeado otros navegadores.",
+                "updated": 1624228473112,
                 "style": "Definition"
             },
             {
@@ -31,7 +31,12 @@
             {
                 "language": "FR",
                 "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                "updated": 1623950198517,
+                "style": "Definition"
+=======
                 "updated": 1623950198517
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
             }
         ]
     },
@@ -48,8 +53,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Sabemos que los navegadores se comportan de manera diferente, y sabemos de características que no funcionan en otros navegadores. Si está en Chrome o Safari, haga clic en Siguiente y continúe. Si no es así, haga lo siguiente:",
-                    "updated": 1613594916732,
+                    "text": "Sabemos que los navegadores se comportan de manera diferente, y sabemos de características que no funcionan en otros navegadores. Si está en Chrome o Safari, haz clic en Siguiente y continua. Si no es así, haz lo siguiente:",
+                    "updated": 1624490502941,
                     "style": "Text"
                 },
                 {
@@ -61,7 +66,12 @@
                 {
                     "language": "FR",
                     "text": "Il est connu que les navigateurs se comportent différemment, et nous connaissons certaines fonctionnalités qui fonctionnent sur certains mais pas d'autres... Si vous êtes sur Chrome ou Safari, cliquez sur Suivant et continuez. Sinon, procédez comme suit :",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                    "updated": 1623950316276,
+                    "style": "Text"
+=======
                     "updated": 1623950316276
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
                 }
             ]
         },
@@ -91,7 +101,12 @@
                 {
                     "language": "FR",
                     "text": "copier le current URL",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                    "updated": 1623950336897,
+                    "style": "List"
+=======
                     "updated": 1623950336897
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
                 }
             ]
         },
@@ -108,8 +123,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cierre este navegador tal cual; no cierre el tutorial...",
-                    "updated": 1613594962637,
+                    "text": "Cierre este navegador tal cual; no cierres el tutorial...",
+                    "updated": 1624490513154,
                     "style": "List"
                 },
                 {
@@ -121,7 +136,12 @@
                 {
                     "language": "FR",
                     "text": "fermer le present navigateur, sans user le tutoriel",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                    "updated": 1623950409166,
+                    "style": "List"
+=======
                     "updated": 1623950409166
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
                 }
             ]
         },
@@ -138,8 +158,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Abra Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas!",
-                    "updated": 1613595008059,
+                    "text": "Abre Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas!",
+                    "updated": 1624490526585,
                     "style": "List"
                 },
                 {
@@ -151,7 +171,12 @@
                 {
                     "language": "FR",
                     "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé !",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                    "updated": 1623950524635,
+                    "style": "List"
+=======
                     "updated": 1623950524635
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
                 }
             ]
         },
@@ -180,7 +205,12 @@
                 {
                     "language": "FR",
                     "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur !",
+<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
+                    "updated": 1623950564757,
+                    "style": "Warning"
+=======
                     "updated": 1623950564757
+>>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-004-tutorial-step-use-chrome-or-safari.json
                 }
             ]
         }

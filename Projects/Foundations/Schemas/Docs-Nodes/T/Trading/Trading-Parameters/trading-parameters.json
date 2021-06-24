@@ -1,7 +1,14 @@
 {
     "type": "Trading Parameters",
     "definition": {
-        "text": "Parameters are properties of trading sessions, defined by users, to determine their behavior and improve the quality of simulations."
+        "text": "Parameters are properties of trading sessions, defined by users, to determine their behavior and improve the quality of simulations.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Parameters son propiedades de trading sessions, definido por los usuarios, para determinar su comportamiento y mejorar la calidad de las simulaciones.",
+                "updated": 1624453669656
+            }
+        ]
     },
     "paragraphs": [
         {

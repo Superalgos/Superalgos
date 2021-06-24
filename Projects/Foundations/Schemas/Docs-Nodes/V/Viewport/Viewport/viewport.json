@@ -1,7 +1,14 @@
 {
     "type": "Viewport",
     "definition": {
-        "text": "The viewport is a window through which you may look into the charting space."
+        "text": "The viewport is a window through which you may look into the charting space.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El viewport es una ventana a través de la cual puede mirar hacia el charting space.",
+                "updated": 1624407113080
+            }
+        ]
     },
     "paragraphs": [
         {

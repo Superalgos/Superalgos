@@ -1,7 +1,14 @@
 {
     "type": "Polygon",
     "definition": {
-        "text": "A polygon features definitions that makeup shapes and their styles."
+        "text": "A polygon features definitions that makeup shapes and their styles.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un polygon presenta definiciones que crean las formas y sus estilos.",
+                "updated": 1624414392343
+            }
+        ]
     },
     "paragraphs": [
         {

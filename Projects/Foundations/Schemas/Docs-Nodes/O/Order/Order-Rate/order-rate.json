@@ -1,7 +1,14 @@
 {
     "type": "Order Rate",
     "definition": {
-        "text": "The order rate node defines the rate of limit orders."
+        "text": "The order rate node defines the rate of limit orders.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo order rate define la tasa de órdenes límite.",
+                "updated": 1624459989822
+            }
+        ]
     },
     "paragraphs": [
         {

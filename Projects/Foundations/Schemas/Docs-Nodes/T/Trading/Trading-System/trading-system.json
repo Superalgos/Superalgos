@@ -1,7 +1,14 @@
 {
     "type": "Trading System",
     "definition": {
-        "text": "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
+        "text": "A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un trading system es un marco que maneja la lógica de bajo nivel que sirve para estructurar los procesos y métodos utilizados para implementar y desplegar estrategias de trading.",
+                "updated": 1624375355452
+            }
+        ]
     },
     "paragraphs": [
         {

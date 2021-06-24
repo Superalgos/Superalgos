@@ -20,6 +20,12 @@
                 "text": "Disetiap market, operasi diorganisasi melalui Data Mine. Superlagos berkerjasama dengan beberapa data mine open-source, dan setiap darinya memiliki banyak indicator.",
                 "updated": 1616771187052,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Dentro de cada mercado, la operacion es organizada por el Data Mine. Superalgos se conecta con varias minas de datos open-source. Cada una con multiples indicadores.",
+                "updated": 1624229041162,
+                "style": "Definition"
             }
         ]
     },
@@ -39,6 +45,12 @@
                     "text": "Pikirkan data mine sebagai plugin yang developer akan buat untuk memperpanjang kapasitas  analisis data dari sistem. Indicator Bot akan memproses data, indikator lain akan membuatnya, sehingga menambah nilai dan menghasilkan analisis yang lebih dalam dan lebih kaya.",
                     "updated": 1616771335447,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Imaginate los Data Mines como complementos que los desarrolladores crean para extender la capacidad de análisis de data del sistema. Un Indicator Bot procesa la data que otros indicadores producen, añadiendo volumen y produciendo análisis más profundos.",
+                    "updated": 1624230668446,
+                    "style": "Text"
                 }
             ]
         },
@@ -57,27 +69,15 @@
                     "text": "Jika kamu memiliki pemahaman dasar tentang JavaScript, kamu juga dapat membuat indikator!",
                     "updated": 1616771371122,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Si tienes conocimientos básicos de Javascript puedes crear indicadores tú también! ¡Si contribuyes un Data Mine, ganaras la moneda de Superalgos (SA)!",
+                    "updated": 1624231304105,
+                    "style": "Callout"
                 }
             ],
             "updated": 1622196189467
-        },
-        {
-            "style": "Text",
-            "text": "But I'm getting ahead of myself talking about building data mines at this point! Let's get back on track!",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Ma sto correndo troppo parlando di costruire data mines a questo punto! Torniamo dove eravamo rimasti!",
-                    "updated": 1614845542277,
-                    "style": "Text"
-                },
-                {
-                    "language": "ID",
-                    "text": "Tapi aku terlalu terburu-buru berbicara tentang membangun data mine pada saat ini! Ayo kembali ke jalurnya!",
-                    "updated": 1616771422206,
-                    "style": "Text"
-                }
-            ]
         }
     ]
 }

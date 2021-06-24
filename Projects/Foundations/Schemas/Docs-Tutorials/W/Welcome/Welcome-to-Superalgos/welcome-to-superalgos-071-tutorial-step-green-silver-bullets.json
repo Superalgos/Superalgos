@@ -14,6 +14,11 @@
                 "text": "Vedi quei cerchi verdi con dentro la \"L\"? Sono i Limit Buy Order di cui parlavo.",
                 "updated": 1618061409837,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Ves las circulos verdes con una L en el centro? Esas son las Limit Buy Order que mencioné.",
+                "updated": 1624455564096
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Nota come viene inserito un ordine al minuto, e come questo viene cancellato prima di inserirne uno nuovo: quest'ultimo evento è riconoscibile dal cerchio scuro più piccolo con una striscia orizziontale che lo attraversa!",
                     "updated": 1618061508009,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Observe cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
+                    "updated": 1624455554609
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Nota il \"falling knife\" delle 00:21! Il prezzo scende al di sotto di quello del limit order, che quindi viene evaso. Ciò è indicato dal cerchio più grande riempito di colore verde!",
                     "updated": 1618061604262,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Observe que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
+                    "updated": 1624455660563
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Quindi...dopo che succede?",
                     "updated": 1618061624143,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Entonces ... ¿qué pasa después?",
+                    "updated": 1624455679005
                 }
             ]
         }

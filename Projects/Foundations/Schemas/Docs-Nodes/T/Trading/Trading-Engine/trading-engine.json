@@ -1,7 +1,14 @@
 {
     "type": "Trading Engine",
     "definition": {
-        "text": "The trading engine hierarchy is the data structure used by the trading bot to keep runtime information highly accessible and exposed to others."
+        "text": "The trading engine hierarchy is the data structure used by the trading bot to keep runtime information highly accessible and exposed to others.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La jerarquia trading engine es la estructura de datos utilizada por el robot comercial para mantener la información en tiempo de ejecución altamente accesible y expuesta a otros.",
+                "updated": 1624452474129
+            }
+        ]
     },
     "paragraphs": [
         {

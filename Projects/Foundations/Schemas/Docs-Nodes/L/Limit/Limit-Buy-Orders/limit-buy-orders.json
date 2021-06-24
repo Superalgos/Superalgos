@@ -1,7 +1,14 @@
 {
     "type": "Limit Buy Orders",
     "definition": {
-        "text": "Limit buy orders is the section of the data structure that keeps track of this specific type of order."
+        "text": "Limit buy orders is the section of the data structure that keeps track of this specific type of order.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Limit buy orders es la sección de la estructura de datos que realiza un seguimiento de este tipo específico de pedido.",
+                "updated": 1624496559567
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1,7 +1,14 @@
 {
     "type": "Situation",
     "definition": {
-        "text": "A situation refers to a specific state of the market in which a certain event should take place, as defined by any number of conditions."
+        "text": "A situation refers to a specific state of the market in which a certain event should take place, as defined by any number of conditions.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un situation se refiere a un estado específico del mercado en el que debe tener lugar un determinado evento, definido por una serie de condiciones.",
+                "updated": 1624496155342
+            }
+        ]
     },
     "paragraphs": [
         {

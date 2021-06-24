@@ -20,6 +20,12 @@
                 "text": "Satu hal lagi sebelum kita lebih dalam ke charts. Kamu harus tahu bagaimana menata suatu tempat!",
                 "updated": 1616948198296,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Una cosa más antes de sumergirnos en los gráficos. ¡Necesitas saber cómo poner la casa en orden!",
+                "updated": 1624383691146,
+                "style": "Definition"
             }
         ]
     },
@@ -38,6 +44,12 @@
                     "language": "ID",
                     "text": "Waktunya akan tiba dimana kamu mungkin bekerja dengan puluhan chart. Kamu sudah tahu cara mengubah formatnya. Sekarang kamu perlu mempelajari cara memindahkannya sehingga bisa membuat pengaturan apa pun dibutuhkan. Cukup mudah dengan:",
                     "updated": 1616948323131,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Llegará el momento en que quizás estes trabajando con decenas de gráficos. Ya sabes cómo cambiar su formato. Ahora necesita aprender a moverlos para poder crear los arreglos que necesite. Es bastante sencillo:",
+                    "updated": 1624383763312,
                     "style": "Text"
                 }
             ],
@@ -59,6 +71,12 @@
                     "text": "Tekan Shift, Click-kiri, dan drag!",
                     "updated": 1616948350330,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pulsa Shift, clic con el botón izquierdo y arrastra!",
+                    "updated": 1624494466055,
+                    "style": "Callout"
                 }
             ]
         },
@@ -76,6 +94,12 @@
                     "language": "ID",
                     "text": "Aku yakin kita telah membahas segalanya tentang cara mengelola charting space. Saatnya menuju ke chart!",
                     "updated": 1616948406170,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Creo que hemos cubierto todo sobre cómo administrar Charting Space. ¡Es hora de sumergirse en los gráficos!",
+                    "updated": 1624383921501,
                     "style": "Success"
                 }
             ]

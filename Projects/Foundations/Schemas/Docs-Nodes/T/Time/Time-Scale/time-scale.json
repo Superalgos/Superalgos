@@ -1,7 +1,14 @@
 {
     "type": "Time Scale",
     "definition": {
-        "text": "The time scale controls the scale of the horizontal axis, that is, the timeline of the corresponding time machine, and of all of the timeline charts within it."
+        "text": "The time scale controls the scale of the horizontal axis, that is, the timeline of the corresponding time machine, and of all of the timeline charts within it.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The time scale controla la escala del eje horizontal, es decir, la línea de tiempo de el time machine correspondiente y de todos los gráficos de la línea de tiempo que contiene.",
+                "updated": 1624407014586
+            }
+        ]
     },
     "paragraphs": [
         {

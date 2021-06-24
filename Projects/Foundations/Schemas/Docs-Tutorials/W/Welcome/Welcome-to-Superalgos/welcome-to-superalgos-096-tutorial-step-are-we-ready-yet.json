@@ -15,6 +15,11 @@
                 "text": "Resistances and Supports Multi-Time-Frame-Daily a sinistra è l'ultimo processo a terminare.",
                 "updated": 1618071215837,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Resistances and Supports Multi-Time-Frame-Daily a la izquierda está el último de los procesos en terminar, ¡así que mantén un ojo en él!",
+                "updated": 1624483264968
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Se il processo è a 100%, allora siamo pronti a iniziare.",
                     "updated": 1618071233196,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si este proceso está al 100%, estamos listos para comenzar.",
+                    "updated": 1624483281714
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Ad ogni modo, non succede niente di catastrofico se tenti di lanciare una Live Trading Session quando gl indicatori non sono pronti. Ti viene semplicemente notificato un errore. Nessun problema quindi!",
                     "updated": 1618071277306,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "De cualquier manera, no ocurre nada catastrófico si intenta ejecutar una sesión de negociación en vivo cuando los indicadores requeridos no están actualizados. Habría un error y se le notificará el motivo. ¡Así que no es gran cosa!",
+                    "updated": 1624483313088
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Nel prossimo step ti chiederò di lanciare la Task e la Live Trading Session. Se non vuoi farlo, continua con il tutorial come se niente fosse.",
                     "updated": 1618071315670,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora, te pediré que inicies el Task y y el Live Trading Sesion. Si decides no hacerlo, continúa con el tutorial como si lo hubieras hecho...",
+                    "updated": 1624483457452
                 }
             ]
         }

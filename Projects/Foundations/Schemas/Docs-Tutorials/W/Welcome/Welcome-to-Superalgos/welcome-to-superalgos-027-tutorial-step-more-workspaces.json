@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Sí. Algunos de ellos son plugins que vienen con el sistema y otros son los tuyos propios! ",
-                "updated": 1618438936999,
+                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
+                "updated": 1624493384027,
                 "style": "Definition"
             }
         ],
@@ -50,8 +50,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tan pronto como empiezas a usar el sistema, el workspace es guardado cada minuto. También se guarda antes de cerrar el navegador o la pestaña del navegador, y puedes guardarlo manualmente utilizando las teclas Ctrl + Shift + Key-S",
-                    "updated": 1618439054191,
+                    "text": "En cuanto inició el interfaz de usuario por primera vez, se cargó el espacio de Getting Started Tutorials y Plugin Workspace. Se guardó un nuevo User Workspace después de 60 segundos en la carpeta My-Workspaces.",
+                    "updated": 1624492978440,
                     "style": "Text"
                 }
             ]
@@ -59,7 +59,14 @@
         {
             "style": "Success",
             "text": "The workspace is saved automatically every minute. It is also saved before closing the browser or browser tab, and you may save it manually using the Ctrl + Shift + Key-S",
-            "updated": 1622634511330
+            "updated": 1622634511330,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Workspace se guarda automáticamente cada minuto. También antes de cerrar la pestaña del navegador, y puede guardarlo manualmente usando Ctrl + Shift + Key-S",
+                    "updated": 1624492778426
+                }
+            ]
         },
         {
             "style": "Important",
@@ -79,8 +86,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Los archivos de los plugins no pueden ser modificados desde el sistema!",
-                    "updated": 1618439194749,
+                    "text": "Los cambios en los Plugins Workspaces no persisten en el plugin sino en el User Workspace.",
+                    "updated": 1624493291791,
                     "style": "Important"
                 }
             ],

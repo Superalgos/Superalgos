@@ -1,7 +1,14 @@
 {
     "type": "Session Quoted Asset",
     "definition": {
-        "text": "The quoted asset is the asset on which the price of the base asset is denominated in the market. It is usually the second asset in the pair, as listed by the exchange."
+        "text": "The quoted asset is the asset on which the price of the base asset is denominated in the market. It is usually the second asset in the pair, as listed by the exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El quoted asset es el asset en el que el precio del asset base está denominado en el mercado. Por lo general, es el segundo asset del par, según lo enumerado por el exchange.",
+                "updated": 1624496795206
+            }
+        ]
     },
     "paragraphs": [
         {

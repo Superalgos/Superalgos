@@ -41,12 +41,42 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             distributeProgram(userProfile.tokenPowerSwitch.delegationProgram)
         }
 
-        function resetProgram(programNode) {
-            if (programNode === undefined) { return }
-            if (programNode.payload === undefined) { return }
-            programNode.payload.delegationProgram = {
+        function resetProgram(node) {
+            if (node === undefined) { return }
+            if (node.payload === undefined) { return }
+            node.payload.delegationProgram = {
                 programPower: 0,
                 ownPower: 0
+            }
+            let schemaDocument = getSchemaDocument(node)
+            if (schemaDocument === undefined) { return }
+
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                    let property = schemaDocument.childrenNodesProperties[i]
+
+                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
+
+                    switch (property.type) {
+                        case 'node': {
+                            if (node.type === 'User Profile' && property.name === "votingProgram") {
+                                let childNode = node[property.name]
+                                resetProgram(childNode)
+                            }
+                        }
+                            break
+                        case 'array': {
+                            let propertyArray = node[property.name]
+                            if (propertyArray !== undefined) {
+                                for (let m = 0; m < propertyArray.length; m++) {
+                                    let childNode = propertyArray[m]
+                                    resetProgram(childNode)
+                                }
+                            }
+                            break
+                        }
+                    }
+                }
             }
         }
 
@@ -68,7 +98,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
         function distributeProgramPower(node, programPower, percentage) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            if (node.payload.delegationProgram === undefined) {return}
+            if (node.payload.delegationProgram === undefined) { return }
 
             node.payload.delegationProgram.programPower = node.payload.delegationProgram.programPower + programPower
             drawPower(node, node.payload.delegationProgram.programPower, percentage)
@@ -199,17 +229,47 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     }
                     return
                 }
-                node.payload.uiObject.valueAngleOffset = 180
-                node.payload.uiObject.valueAtAngle = true
-                node.payload.uiObject.percentageAngleOffset = 180
-                node.payload.uiObject.percentageAtAngle = true
-                let voteType = 'Delegate Power'
+                if (node.type === 'User Delegate') {
+                    drawUserNode(node, programPower, percentage)
+                    return
+                }
+                if (node.type === 'Delegate Power Switch') {
+                    node.payload.uiObject.valueAngleOffset = 180
+                    node.payload.uiObject.valueAtAngle = true
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
+                    let powerType = 'Delegate Power'
 
-                const programPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') + ' ' + voteType
-                node.payload.uiObject.setValue(programPowerText)
+                    const programPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') + ' ' + powerType
+                    node.payload.uiObject.setValue(programPowerText)
 
-                if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    if (percentage !== undefined) {
+                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    }
+                }
+            }
+
+            function drawUserNode(node, programPower, percentage) {
+                if (node.payload !== undefined) {
+    
+                    const outgoingPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') 
+    
+                    node.payload.uiObject.valueAngleOffset = 180
+                    node.payload.uiObject.valueAtAngle = true
+    
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Delegate Power')
+    
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
+    
+                    node.payload.uiObject.setPercentage(percentage)
+    
+                    if (node.payload.referenceParent !== undefined) {
+                        node.payload.uiObject.statusAngleOffset = 0
+                        node.payload.uiObject.statusAtAngle = true
+        
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                    }
                 }
             }
 

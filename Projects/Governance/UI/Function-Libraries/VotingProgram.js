@@ -288,6 +288,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     }
                     return
                 }
+                if (node.type === 'User Profile Vote') {
+                    drawUserNode(node, votes, percentage)
+                    return
+                }
                 if (
                     node.type === 'Position' ||
                     node.type === 'Position Class' ||
@@ -331,6 +335,30 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                 if (percentage !== undefined) {
                     node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                }
+            }
+
+            function drawUserNode(node, votes, percentage) {
+                if (node.payload !== undefined) {
+    
+                    const outgoingPowerText = parseFloat(votes.toFixed(2)).toLocaleString('en') 
+    
+                    node.payload.uiObject.valueAngleOffset = 180
+                    node.payload.uiObject.valueAtAngle = true
+    
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power')
+    
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
+    
+                    node.payload.uiObject.setPercentage(percentage)
+    
+                    if (node.payload.referenceParent !== undefined) {
+                        node.payload.uiObject.statusAngleOffset = 0
+                        node.payload.uiObject.statusAtAngle = true
+        
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                    }
                 }
             }
 

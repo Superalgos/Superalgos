@@ -52,21 +52,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Voting Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetVotes(userProfile.tokenPowerSwitch.votingProgram)
+            resetVotes(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Voting Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            userProfile.tokenPowerSwitch.votingProgram.payload.votingProgram.votes = userProfile.tokenPowerSwitch.votingProgram.payload.tokenPower
+            program.payload.votingProgram.votes = program.payload.tokenPower
 
-            distributeProgram(userProfile.tokenPowerSwitch.votingProgram)
+            distributeProgram(program)
         }
 
         function resetVotes(node) {

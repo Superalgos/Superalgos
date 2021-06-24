@@ -20,7 +20,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Staking-Program")
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Staking-Rewards")
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
 

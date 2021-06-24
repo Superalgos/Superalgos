@@ -346,15 +346,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
                 }
-                if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
-
-                    const tokensAwardedText = parseFloat(node.payload.votingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
-
-                    node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                    node.tokensAwarded.payload.uiObject.valueAtAngle = false
-
-                    node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
-                }
             }
         }
     }

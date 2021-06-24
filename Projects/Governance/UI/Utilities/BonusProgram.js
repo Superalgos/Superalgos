@@ -136,7 +136,7 @@ function newFoundationsUtilitiesBonusProgram() {
                 const tokensBonusText = parseFloat(node.payload[programPropertyName].bonus.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensBonus.payload.uiObject.valueAngleOffset = 0
-                node.tokensBonus.payload.uiObject.valueAtAngle = false
+                node.tokensBonus.payload.uiObject.valueAtAngle = true
 
                 node.tokensBonus.payload.uiObject.setValue(tokensBonusText + ' SA Tokens')
             }

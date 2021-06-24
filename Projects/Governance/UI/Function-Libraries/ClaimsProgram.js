@@ -457,9 +457,9 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 const tokensAwardedText = parseFloat(node.payload.claimsProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.valueAtAngle = false
+                node.tokensAwarded.payload.uiObject.valueAtAngle = true
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.statusAtAngle = false
+                node.tokensAwarded.payload.uiObject.statusAtAngle = true
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
                 node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload.claimsProgram.count + ' Claims.')

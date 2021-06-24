@@ -92,26 +92,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
                 node.payload.parentNode.payload.parentNode.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
-            /*
-            The Staking Program is activated, only when then Mandatory Programs are active.     
-            */
-            if (
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.referralProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.mentorshipProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.supportProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.referralProgram.payload.referralProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.mentorshipProgram.payload.mentorshipProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.supportProgram.payload.supportProgram !== undefined &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.referralProgram.payload.referralProgram.isActive === true &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.mentorshipProgram.payload.mentorshipProgram.isActive === true &&
-                node.payload.parentNode.payload.parentNode.tokenPowerSwitch.supportProgram.payload.supportProgram.isActive === true
-            ) {
-                node.payload.stackingProgram.isActive = true
-            } else {
-                node.payload.stackingProgram.isActive = false
-                node.payload.uiObject.setErrorMessage("This Program will be activated once you activate the Referral, Support and Mentorship Programs.")
-            }
+            node.payload.stackingProgram.isActive = true
         }
 
         function distributeProgram(programNode) {
@@ -155,7 +136,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.stackingProgram.ownPower.toFixed(2)).toLocaleString('en') 
+                const ownPowerText = parseFloat(node.payload.stackingProgram.ownPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -164,7 +145,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.stackingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')  
+                const tokensAwardedText = parseFloat(node.payload.stackingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false

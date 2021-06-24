@@ -9,7 +9,7 @@ function newGovernanceFunctionLibraryReferralProgram() {
         pools,
         userProfiles
     ) {
-        UI.projects.governance.utilities.mandatoryProgram.run(
+        UI.projects.governance.utilities.decendentProgram.run(
             pools,
             userProfiles,
             "referralProgram",

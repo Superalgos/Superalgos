@@ -9,7 +9,7 @@ function newGovernanceFunctionLibrarySupportProgram() {
         pools,
         userProfiles
     ) {
-        UI.projects.governance.utilities.mandatoryProgram.run(
+        UI.projects.governance.utilities.decendentProgram.run(
             pools,
             userProfiles,
             "supportProgram",

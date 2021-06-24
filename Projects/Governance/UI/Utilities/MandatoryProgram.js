@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesMandatoryProgram() {
+function newFoundationsUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }

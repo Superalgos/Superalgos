@@ -730,6 +730,200 @@
                                     "weightVotesSwitch": [
                                         {
                                             "type": "Weight Votes Switch",
+                                            "name": "Software Projects Pool Class",
+                                            "config": "{}",
+                                            "project": "Governance",
+                                            "weightVotesSwitch": [],
+                                            "poolWeightVotes": [
+                                                {
+                                                    "type": "Pool Weight Vote",
+                                                    "name": "Foundations Project Pool",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "id": "e175d788-58bf-4e7e-b241-219e642626c1",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 29469.71415514045,
+                                                            "y": 24175.87089878627
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 29204.479537089068,
+                                                            "y": 24035.69031030435
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {},
+                                                        "referenceParent": {
+                                                            "type": "Pool",
+                                                            "name": "Foundations Project",
+                                                            "id": "2207c69c-ee9d-4453-8bf4-582d79b4b635"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Pool Weight Vote",
+                                                    "name": "TensorFlow Project Pool",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "id": "9e731819-36c2-493e-a181-1bce1066ab02",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 29364.08916004367,
+                                                            "y": 24289.70757007284
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 29204.479537089068,
+                                                            "y": 24035.69031030435
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {},
+                                                        "referenceParent": {
+                                                            "type": "Pool",
+                                                            "name": "TensorFlow Project",
+                                                            "id": "ea854cf8-47cd-43f0-b58a-13e61ae3106d"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Pool Weight Vote",
+                                                    "name": "Governance Project Pool",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "id": "b9b698ad-89cf-495b-a205-bd1d699ef615",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 29215.696895371966,
+                                                            "y": 24335.480521740872
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 29204.479537089068,
+                                                            "y": 24035.69031030435
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {},
+                                                        "referenceParent": {
+                                                            "type": "Pool",
+                                                            "name": "Governance Project",
+                                                            "id": "3c80032c-51a8-4fd8-ab65-cf219c03ce95"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Pool Weight Vote",
+                                                    "name": "Education Project Pool",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "id": "47153990-e35f-4abb-a41f-507253e2532b",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 29064.29894860715,
+                                                            "y": 24300.924928355733
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 29204.479537089068,
+                                                            "y": 24035.69031030435
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {},
+                                                        "referenceParent": {
+                                                            "type": "Pool",
+                                                            "name": "Education Project",
+                                                            "id": "0a79ec65-6f67-4c18-823f-48a6d0494a81"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Pool Weight Vote",
+                                                    "name": "Ethereum Project Pool",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "id": "406251f2-f7ac-49c0-b320-10ae252c688f",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 28950.46227732058,
+                                                            "y": 24195.299933258953
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 29204.479537089068,
+                                                            "y": 24035.69031030435
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 2,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {},
+                                                        "referenceParent": {
+                                                            "type": "Pool",
+                                                            "name": "Ethereum Project",
+                                                            "id": "f51d23aa-742c-40d4-b000-2b90c3ae197c"
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "assetWeightVotes": [],
+                                            "featureWeightVotes": [],
+                                            "positionWeightVotes": [],
+                                            "id": "70444a5d-5ca6-4c62-a308-94bb37b9c100",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 29204.479537089068,
+                                                    "y": 24035.69031030435
+                                                },
+                                                "targetPosition": {
+                                                    "x": 29193.26217880617,
+                                                    "y": 23735.90009886783
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Pool Class",
+                                                    "name": "Software Projects",
+                                                    "id": "a987f1d3-fc8d-4b7c-99dd-77f15a32f37d"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Weight Votes Switch",
                                             "name": "Marketing Pool Class",
                                             "config": "{}",
                                             "project": "Governance",
@@ -746,15 +940,15 @@
                                                             "name": "First Exchange Listing The Token Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "fa27ae9a-2aaa-4b77-a865-f42c4b1e3cde",
+                                                            "id": "1bebdae3-186d-4120-825b-8cb43f85921f",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29667.54999341966,
-                                                                    "y": 24404.34621806635
+                                                                    "x": 29285.029970013293,
+                                                                    "y": 24550.361772526794
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29394.872650195997,
-                                                                    "y": 24279.25798323795
+                                                                    "x": 29106.88391434124,
+                                                                    "y": 24308.982438596795
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -777,15 +971,15 @@
                                                             "name": "10K Stars on Github Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "6d9d9712-7a90-4dac-bdcb-1c62c2656155",
+                                                            "id": "6d543b8e-4011-4ba9-a1f1-31bb60e66e9e",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29422.881732731883,
-                                                                    "y": 24577.94760692029
+                                                                    "x": 28986.916307045318,
+                                                                    "y": 24583.951115357788
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29394.872650195997,
-                                                                    "y": 24279.25798323795
+                                                                    "x": 29106.88391434124,
+                                                                    "y": 24308.982438596795
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -807,15 +1001,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "128afaa5-16bb-4d08-9f49-abfc954f2b58",
+                                                    "id": "23e1ffb3-84e1-4032-acca-a310168c48d1",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 29394.872650195997,
-                                                            "y": 24279.25798323795
+                                                            "x": 29106.88391434124,
+                                                            "y": 24308.982438596795
                                                         },
                                                         "targetPosition": {
-                                                            "x": 29221.271261342055,
-                                                            "y": 24034.589722550172
+                                                            "x": 29073.294571510247,
+                                                            "y": 24010.868775628824
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -847,15 +1041,15 @@
                                                             "name": "Marketing Assets Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "1fa92d72-8c7c-4595-90f0-83b72cff9dd8",
+                                                            "id": "a5603f0b-e1e6-4295-ad37-17000fc5c399",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28971.094791685256,
-                                                                    "y": 24579.944408997497
+                                                                    "x": 28590.53590365025,
+                                                                    "y": 24367.160886972928
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29096.183026513656,
-                                                                    "y": 24307.267065773834
+                                                                    "x": 28831.915237580248,
+                                                                    "y": 24189.014831300876
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -877,15 +1071,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "8a915b0f-36c1-4019-b006-02c4a5d47079",
+                                                    "id": "4609f39f-5099-49b5-a57d-3b49ef849df7",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 29096.183026513656,
-                                                            "y": 24307.267065773834
+                                                            "x": 28831.915237580248,
+                                                            "y": 24189.014831300876
                                                         },
                                                         "targetPosition": {
-                                                            "x": 29221.271261342055,
-                                                            "y": 24034.589722550172
+                                                            "x": 29073.294571510247,
+                                                            "y": 24010.868775628824
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -910,11 +1104,11 @@
                                             "assetWeightVotes": [],
                                             "featureWeightVotes": [],
                                             "positionWeightVotes": [],
-                                            "id": "b313f748-da26-4c50-8ba1-36fff49f3a0f",
+                                            "id": "afe57422-eb5c-454c-9df0-02b19b5c6d98",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 29221.271261342055,
-                                                    "y": 24034.589722550172
+                                                    "x": 29073.294571510247,
+                                                    "y": 24010.868775628824
                                                 },
                                                 "targetPosition": {
                                                     "x": 29193.26217880617,
@@ -923,7 +1117,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": true,
+                                                    "isCollapsed": false,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -935,317 +1129,6 @@
                                                     "type": "Pool Class",
                                                     "name": "Marketing",
                                                     "id": "85dbdcb9-5b59-432e-86a0-fab37e20a55d"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "Weight Votes Switch",
-                                            "name": "Community Pool Class",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "weightVotesSwitch": [
-                                                {
-                                                    "type": "Weight Votes Switch",
-                                                    "name": "Users Pool Class",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "weightVotesSwitch": [],
-                                                    "poolWeightVotes": [
-                                                        {
-                                                            "type": "Pool Weight Vote",
-                                                            "name": "Mentorship Program Pool",
-                                                            "config": "{}",
-                                                            "project": "Governance",
-                                                            "id": "a32cb176-83c0-4800-b630-01f1df6d2301",
-                                                            "savedPayload": {
-                                                                "position": {
-                                                                    "x": 29531.68805670066,
-                                                                    "y": 24376.233110978326
-                                                                },
-                                                                "targetPosition": {
-                                                                    "x": 29245.016214964817,
-                                                                    "y": 24287.806558655055
-                                                                },
-                                                                "floatingObject": {
-                                                                    "isPinned": false,
-                                                                    "isFrozen": false,
-                                                                    "isCollapsed": false,
-                                                                    "angleToParent": 2,
-                                                                    "distanceToParent": 3,
-                                                                    "arrangementStyle": 0
-                                                                },
-                                                                "uiObject": {},
-                                                                "referenceParent": {
-                                                                    "type": "Pool",
-                                                                    "name": "Mentorship Program",
-                                                                    "id": "60712b3c-ee76-40ba-8de2-e03aa61f6dde"
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Pool Weight Vote",
-                                                            "name": "Referral Program Pool",
-                                                            "config": "{}",
-                                                            "project": "Governance",
-                                                            "id": "33a03a57-6811-4cad-94af-14a0597e9fb3",
-                                                            "savedPayload": {
-                                                                "position": {
-                                                                    "x": 29385.196803446735,
-                                                                    "y": 24553.041176706436
-                                                                },
-                                                                "targetPosition": {
-                                                                    "x": 29245.016214964817,
-                                                                    "y": 24287.806558655055
-                                                                },
-                                                                "floatingObject": {
-                                                                    "isPinned": false,
-                                                                    "isFrozen": false,
-                                                                    "isCollapsed": false,
-                                                                    "angleToParent": 2,
-                                                                    "distanceToParent": 3,
-                                                                    "arrangementStyle": 0
-                                                                },
-                                                                "uiObject": {},
-                                                                "referenceParent": {
-                                                                    "type": "Pool",
-                                                                    "name": "Referral Program",
-                                                                    "id": "639a6504-a0d0-4d7e-ad99-80ba5115ac72"
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "type": "Pool Weight Vote",
-                                                            "name": "Support-Program Pool",
-                                                            "config": "{}",
-                                                            "project": "Governance",
-                                                            "id": "b820443f-890c-4401-bead-82e4617943b0",
-                                                            "savedPayload": {
-                                                                "position": {
-                                                                    "x": 29156.589662641545,
-                                                                    "y": 24574.478400390897
-                                                                },
-                                                                "targetPosition": {
-                                                                    "x": 29245.016214964817,
-                                                                    "y": 24287.806558655055
-                                                                },
-                                                                "floatingObject": {
-                                                                    "isPinned": false,
-                                                                    "isFrozen": false,
-                                                                    "isCollapsed": false,
-                                                                    "angleToParent": 2,
-                                                                    "distanceToParent": 3,
-                                                                    "arrangementStyle": 0
-                                                                },
-                                                                "uiObject": {},
-                                                                "referenceParent": {
-                                                                    "type": "Pool",
-                                                                    "name": "Support-Program",
-                                                                    "id": "18fa6e35-77df-4446-87a9-9d3e6b83eb05"
-                                                                }
-                                                            }
-                                                        }
-                                                    ],
-                                                    "assetWeightVotes": [],
-                                                    "featureWeightVotes": [],
-                                                    "positionWeightVotes": [],
-                                                    "id": "c8894826-483a-4c6d-92e7-8190ea952717",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 29245.016214964817,
-                                                            "y": 24287.806558655055
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 29104.835626482898,
-                                                            "y": 24022.571940603673
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Pool Class",
-                                                            "name": "Users",
-                                                            "id": "9b6c24b9-e21d-458b-b509-1828d40b4239"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Weight Votes Switch",
-                                                    "name": "Contributors Pool Class",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "weightVotesSwitch": [],
-                                                    "poolWeightVotes": [
-                                                        {
-                                                            "type": "Pool Weight Vote",
-                                                            "name": "Badges Pool",
-                                                            "config": "{}",
-                                                            "project": "Governance",
-                                                            "id": "cb05c8ff-235b-4b97-9c41-d3cbee5d797d",
-                                                            "savedPayload": {
-                                                                "position": {
-                                                                    "x": 28927.982521836355,
-                                                                    "y": 24595.91562407536
-                                                                },
-                                                                "targetPosition": {
-                                                                    "x": 29016.409074159626,
-                                                                    "y": 24309.243782339516
-                                                                },
-                                                                "floatingObject": {
-                                                                    "isPinned": false,
-                                                                    "isFrozen": false,
-                                                                    "isCollapsed": false,
-                                                                    "angleToParent": 2,
-                                                                    "distanceToParent": 3,
-                                                                    "arrangementStyle": 0
-                                                                },
-                                                                "uiObject": {},
-                                                                "referenceParent": {
-                                                                    "type": "Pool",
-                                                                    "name": "Badges",
-                                                                    "id": "6b11cf29-2957-417d-a268-3569178eca9e"
-                                                                }
-                                                            }
-                                                        }
-                                                    ],
-                                                    "assetWeightVotes": [],
-                                                    "featureWeightVotes": [],
-                                                    "positionWeightVotes": [],
-                                                    "id": "307ed30b-fbb2-49c8-ad8a-7e45d9fd8815",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 29016.409074159626,
-                                                            "y": 24309.243782339516
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 29104.835626482898,
-                                                            "y": 24022.571940603673
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Pool Class",
-                                                            "name": "Contributors",
-                                                            "id": "e2113b73-9a38-4c59-8fbe-95a7539379c5"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Weight Votes Switch",
-                                                    "name": "Token Holders Pool Class",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "weightVotesSwitch": [],
-                                                    "poolWeightVotes": [
-                                                        {
-                                                            "type": "Pool Weight Vote",
-                                                            "name": "Stacking-Program Pool",
-                                                            "config": "{}",
-                                                            "project": "Governance",
-                                                            "id": "40d246e2-1cd8-4e8e-a9d9-33a3256f1f75",
-                                                            "savedPayload": {
-                                                                "position": {
-                                                                    "x": 28574.366390380135,
-                                                                    "y": 24302.93311756751
-                                                                },
-                                                                "targetPosition": {
-                                                                    "x": 28839.601008431517,
-                                                                    "y": 24162.752529085592
-                                                                },
-                                                                "floatingObject": {
-                                                                    "isPinned": false,
-                                                                    "isFrozen": false,
-                                                                    "isCollapsed": false,
-                                                                    "angleToParent": 2,
-                                                                    "distanceToParent": 3,
-                                                                    "arrangementStyle": 0
-                                                                },
-                                                                "uiObject": {},
-                                                                "referenceParent": {
-                                                                    "type": "Pool",
-                                                                    "name": "Stacking-Program",
-                                                                    "id": "ea79efd3-c3d9-4c80-a1d0-1cab106e0242"
-                                                                }
-                                                            }
-                                                        }
-                                                    ],
-                                                    "assetWeightVotes": [],
-                                                    "featureWeightVotes": [],
-                                                    "positionWeightVotes": [],
-                                                    "id": "021a8f3b-eccc-4cce-9884-f3b51d7470d8",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28839.601008431517,
-                                                            "y": 24162.752529085592
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 29104.835626482898,
-                                                            "y": 24022.571940603673
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {
-                                                            "isRunning": false
-                                                        },
-                                                        "referenceParent": {
-                                                            "type": "Pool Class",
-                                                            "name": "Token Holders",
-                                                            "id": "c7cd91a3-96b0-4115-aaaa-fddae1c1b246"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "poolWeightVotes": [],
-                                            "assetWeightVotes": [],
-                                            "featureWeightVotes": [],
-                                            "positionWeightVotes": [],
-                                            "id": "8a321cf8-2b35-4c65-80fc-6474597c9a4e",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 29104.835626482898,
-                                                    "y": 24022.571940603673
-                                                },
-                                                "targetPosition": {
-                                                    "x": 29193.26217880617,
-                                                    "y": 23735.90009886783
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": true,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
-                                                "referenceParent": {
-                                                    "type": "Pool Class",
-                                                    "name": "Community",
-                                                    "id": "ae18dd6f-80f7-4fa0-a386-7ffd75e45063"
                                                 }
                                             }
                                         },
@@ -1273,15 +1156,15 @@
                                                                     "name": "Blog-Tutorials Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "0d922c8d-d7fe-4ee1-a842-bc09b07f5a39",
+                                                                    "id": "408ed8b9-8c23-45c1-8a03-1425472d82fb",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 29344.85986875509,
-                                                                            "y": 24624.827069328134
+                                                                            "x": 29193.8171481856,
+                                                                            "y": 24637.66099312892
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 29055.971525010413,
-                                                                            "y": 24543.935012558282
+                                                                            "x": 28922.560425424857,
+                                                                            "y": 24509.521263313763
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1304,15 +1187,15 @@
                                                                     "name": "In-App-Docs Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "096f39eb-d93d-48a0-a66a-818fdfc36236",
+                                                                    "id": "39184eb1-7092-4966-b918-e5f773f10fe6",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 29242.139946579766,
-                                                                            "y": 24779.182369207356
+                                                                            "x": 29066.69308055866,
+                                                                            "y": 24772.629183612793
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 29055.971525010413,
-                                                                            "y": 24543.935012558282
+                                                                            "x": 28922.560425424857,
+                                                                            "y": 24509.521263313763
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1335,15 +1218,15 @@
                                                                     "name": "In-App-Tutorials Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "1cf165ee-f898-43bc-9601-9158cd23b651",
+                                                                    "id": "4ad2fcb8-1e45-4355-821b-c26017171253",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 29068.310014996867,
-                                                                            "y": 24843.6811746102
+                                                                            "x": 28884.51523755937,
+                                                                            "y": 24807.099091251734
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 29055.971525010413,
-                                                                            "y": 24543.935012558282
+                                                                            "x": 28922.560425424857,
+                                                                            "y": 24509.521263313763
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1366,15 +1249,15 @@
                                                                     "name": "Video-Tutorials Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "594d2230-1402-4ed3-8d36-7ef134db9e68",
+                                                                    "id": "299c8fda-52e7-492f-9fdc-6f60c117ba59",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 28889.767199608992,
-                                                                            "y": 24793.687134106545
+                                                                            "x": 28716.869363216327,
+                                                                            "y": 24727.90438291674
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 29055.971525010413,
-                                                                            "y": 24543.935012558282
+                                                                            "x": 28922.560425424857,
+                                                                            "y": 24509.521263313763
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1396,15 +1279,15 @@
                                                             "assetWeightVotes": [],
                                                             "featureWeightVotes": [],
                                                             "positionWeightVotes": [],
-                                                            "id": "6e843832-f035-4bf5-a533-e7c24241d5da",
+                                                            "id": "11213396-1e11-49dd-a2fd-4bc5dcf6079c",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29055.971525010413,
-                                                                    "y": 24543.935012558282
+                                                                    "x": 28922.560425424857,
+                                                                    "y": 24509.521263313763
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28951.610265634845,
-                                                                    "y": 24262.672274995082
+                                                                    "x": 28866.786943275984,
+                                                                    "y": 24214.751321343778
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1436,15 +1319,15 @@
                                                                     "name": "In-App-Docs Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "c9c48c3d-05e2-4620-841e-9326df488b8f",
+                                                                    "id": "e849933c-e1c3-43fd-ab4c-6ba5163b1ff0",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 28788.219301990826,
-                                                                            "y": 24792.372769249203
+                                                                            "x": 28616.976398256418,
+                                                                            "y": 24709.59868388157
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 28760.21021945494,
-                                                                            "y": 24493.68314556686
+                                                                            "x": 28639.395426332347,
+                                                                            "y": 24410.437544727214
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1467,15 +1350,15 @@
                                                                     "name": "In-App-Tutorials Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "6da35c2d-089c-4406-ba0d-f899e680ed29",
+                                                                    "id": "cbba8d41-0e18-49c4-81a6-aaa35db061e7",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 28568.810173275037,
-                                                                            "y": 24724.69401613864
+                                                                            "x": 28412.00390938871,
+                                                                            "y": 24606.12376811065
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 28760.21021945494,
-                                                                            "y": 24493.68314556686
+                                                                            "x": 28639.395426332347,
+                                                                            "y": 24410.437544727214
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1498,15 +1381,15 @@
                                                                     "name": "Video-Tutorials Pool",
                                                                     "config": "{}",
                                                                     "project": "Governance",
-                                                                    "id": "3a6da240-0f49-466d-88f9-6ea746d34c55",
+                                                                    "id": "81916bb9-0cc1-4e45-a3c7-dd61dbb45857",
                                                                     "savedPayload": {
                                                                         "position": {
-                                                                            "x": 28461.5205957726,
-                                                                            "y": 24521.692228102747
+                                                                            "x": 28340.23428717799,
+                                                                            "y": 24388.018516651286
                                                                         },
                                                                         "targetPosition": {
-                                                                            "x": 28760.21021945494,
-                                                                            "y": 24493.68314556686
+                                                                            "x": 28639.395426332347,
+                                                                            "y": 24410.437544727214
                                                                         },
                                                                         "floatingObject": {
                                                                             "isPinned": false,
@@ -1528,15 +1411,15 @@
                                                             "assetWeightVotes": [],
                                                             "featureWeightVotes": [],
                                                             "positionWeightVotes": [],
-                                                            "id": "b20ba922-208b-4aa8-8a57-270a54a39806",
+                                                            "id": "03177864-a507-4b91-8983-0c367ff90ec2",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28760.21021945494,
-                                                                    "y": 24493.68314556686
+                                                                    "x": 28639.395426332347,
+                                                                    "y": 24410.437544727214
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28951.610265634845,
-                                                                    "y": 24262.672274995082
+                                                                    "x": 28866.786943275984,
+                                                                    "y": 24214.751321343778
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1561,15 +1444,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "4827d415-f407-47f3-b389-d6429c676250",
+                                                    "id": "52b35a1e-b412-46b0-b959-96481f6819ea",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28951.610265634845,
-                                                            "y": 24262.672274995082
+                                                            "x": 28866.786943275984,
+                                                            "y": 24214.751321343778
                                                         },
                                                         "targetPosition": {
-                                                            "x": 29001.862132626266,
-                                                            "y": 23966.91096943961
+                                                            "x": 28965.870661862533,
+                                                            "y": 23931.586322251267
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -1601,15 +1484,15 @@
                                                             "name": "Completing Tutorials Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "f28026a2-7299-45c3-9f42-e0a64311e114",
+                                                            "id": "1a477b35-cc49-4851-8db8-167c63a014fb",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28529.19934888316,
-                                                                    "y": 24302.283099386957
+                                                                    "x": 28443.70920294891,
+                                                                    "y": 24183.046027783577
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28720.599395063065,
-                                                                    "y": 24071.272228815178
+                                                                    "x": 28671.100719892547,
+                                                                    "y": 23987.35980440014
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1632,15 +1515,15 @@
                                                             "name": "Reading the Docs Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "57196823-651b-4285-bf18-a4bbd9fa3066",
+                                                            "id": "43a07b0b-b854-4d43-a489-351b012f7905",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28424.838089507593,
-                                                                    "y": 24021.020361823757
+                                                                    "x": 28387.935720800037,
+                                                                    "y": 23888.27608581359
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28720.599395063065,
-                                                                    "y": 24071.272228815178
+                                                                    "x": 28671.100719892547,
+                                                                    "y": 23987.35980440014
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -1662,15 +1545,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "2fb14c74-e3b6-43db-86e3-3f67fb3aa657",
+                                                    "id": "1b5667a6-9668-46a8-9a3e-fa6c9fafc085",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28720.599395063065,
-                                                            "y": 24071.272228815178
+                                                            "x": 28671.100719892547,
+                                                            "y": 23987.35980440014
                                                         },
                                                         "targetPosition": {
-                                                            "x": 29001.862132626266,
-                                                            "y": 23966.91096943961
+                                                            "x": 28965.870661862533,
+                                                            "y": 23931.586322251267
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -1695,11 +1578,11 @@
                                             "assetWeightVotes": [],
                                             "featureWeightVotes": [],
                                             "positionWeightVotes": [],
-                                            "id": "30929e97-3faa-4a62-b45d-c22716b3df8e",
+                                            "id": "6897de02-12f0-4af6-8adb-971661a08952",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 29001.862132626266,
-                                                    "y": 23966.91096943961
+                                                    "x": 28965.870661862533,
+                                                    "y": 23931.586322251267
                                                 },
                                                 "targetPosition": {
                                                     "x": 29193.26217880617,
@@ -1708,7 +1591,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": true,
+                                                    "isCollapsed": false,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -1735,15 +1618,15 @@
                                                     "name": "Management Pool",
                                                     "config": "{}",
                                                     "project": "Governance",
-                                                    "id": "a3cd897e-df9e-49ab-88a7-02869b81523b",
+                                                    "id": "945dec69-2bfa-460a-be36-708e643880cd",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28662.792942703407,
-                                                            "y": 24016.261275831668
+                                                            "x": 28613.706683032728,
+                                                            "y": 23891.191525929346
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28928.02756075479,
-                                                            "y": 23876.08068734975
+                                                            "x": 28903.48443091945,
+                                                            "y": 23813.545812398588
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -1765,11 +1648,11 @@
                                             "assetWeightVotes": [],
                                             "featureWeightVotes": [],
                                             "positionWeightVotes": [],
-                                            "id": "40c0e3d0-1165-4ff9-8242-211d9f0a7a85",
+                                            "id": "2763bc74-2d10-4d24-b244-61c5ba3e3b6c",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 28928.02756075479,
-                                                    "y": 23876.08068734975
+                                                    "x": 28903.48443091945,
+                                                    "y": 23813.545812398588
                                                 },
                                                 "targetPosition": {
                                                     "x": 29193.26217880617,
@@ -1778,7 +1661,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": true,
+                                                    "isCollapsed": false,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -1796,7 +1679,7 @@
                                         {
                                             "type": "Weight Votes Switch",
                                             "name": "Features Pool Class",
-                                            "config": "{\n\"percentage\": 50\n}",
+                                            "config": "{}",
                                             "project": "Governance",
                                             "weightVotesSwitch": [],
                                             "poolWeightVotes": [
@@ -1805,15 +1688,15 @@
                                                     "name": "Features Pool",
                                                     "config": "{}",
                                                     "project": "Governance",
-                                                    "id": "247ec21c-2331-460f-b803-a108db234804",
+                                                    "id": "90e540c0-5853-46cb-b582-13c7084f6ab4",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28595.882931441487,
-                                                            "y": 23791.918263939602
+                                                            "x": 28603.7222948662,
+                                                            "y": 23624.353134570083
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28894.57255512383,
-                                                            "y": 23763.909181403717
+                                                            "x": 28898.492236836184,
+                                                            "y": 23680.126616718957
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -1835,11 +1718,11 @@
                                             "assetWeightVotes": [],
                                             "featureWeightVotes": [],
                                             "positionWeightVotes": [],
-                                            "id": "e7eea9e5-4df6-4a6b-8a2a-5e46373a77fa",
+                                            "id": "826c6b37-abe3-4753-8811-51a609886513",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 28894.57255512383,
-                                                    "y": 23763.909181403717
+                                                    "x": 28898.492236836184,
+                                                    "y": 23680.126616718957
                                                 },
                                                 "targetPosition": {
                                                     "x": 29193.26217880617,
@@ -1848,7 +1731,7 @@
                                                 "floatingObject": {
                                                     "isPinned": false,
                                                     "isFrozen": false,
-                                                    "isCollapsed": true,
+                                                    "isCollapsed": false,
                                                     "angleToParent": 2,
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
@@ -1860,200 +1743,6 @@
                                                     "type": "Pool Class",
                                                     "name": "Features",
                                                     "id": "8c3175a1-17aa-4e27-bcbe-063468ecc87e"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "type": "Weight Votes Switch",
-                                            "name": "Software Projects Pool Class",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "weightVotesSwitch": [],
-                                            "poolWeightVotes": [
-                                                {
-                                                    "type": "Pool Weight Vote",
-                                                    "name": "Foundations Project Pool",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "id": "e55378fa-5093-4225-864d-8ff41d99dd6a",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28686.67477552138,
-                                                            "y": 23851.525367875834
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 28906.590337070327,
-                                                            "y": 23647.47354654456
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {},
-                                                        "referenceParent": {
-                                                            "type": "Pool",
-                                                            "name": "Foundations Project",
-                                                            "id": "2207c69c-ee9d-4453-8bf4-582d79b4b635"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Pool Weight Vote",
-                                                    "name": "TensorFlow Project Pool",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "id": "61584484-e4c2-4166-8e41-f8473f8c669f",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28614.11196341578,
-                                                            "y": 23714.229826731455
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 28906.590337070327,
-                                                            "y": 23647.47354654456
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {},
-                                                        "referenceParent": {
-                                                            "type": "Pool",
-                                                            "name": "TensorFlow Project",
-                                                            "id": "ea854cf8-47cd-43f0-b58a-13e61ae3106d"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Pool Weight Vote",
-                                                    "name": "Governance Project Pool",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "id": "a6bb434c-67fd-4429-a4b4-f51a0c9a07ed",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28619.918495334485,
-                                                            "y": 23559.046994221288
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 28906.590337070327,
-                                                            "y": 23647.47354654456
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {},
-                                                        "referenceParent": {
-                                                            "type": "Pool",
-                                                            "name": "Governance Project",
-                                                            "id": "3c80032c-51a8-4fd8-ab65-cf219c03ce95"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Pool Weight Vote",
-                                                    "name": "Education Project Pool",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "id": "e718201a-9ce4-4eb5-aade-1e844f59af64",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28702.538515739052,
-                                                            "y": 23427.557984995612
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 28906.590337070327,
-                                                            "y": 23647.47354654456
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {},
-                                                        "referenceParent": {
-                                                            "type": "Pool",
-                                                            "name": "Education Project",
-                                                            "id": "0a79ec65-6f67-4c18-823f-48a6d0494a81"
-                                                        }
-                                                    }
-                                                },
-                                                {
-                                                    "type": "Pool Weight Vote",
-                                                    "name": "Ethereum Project Pool",
-                                                    "config": "{}",
-                                                    "project": "Governance",
-                                                    "id": "7ac78464-92ee-470e-ba77-661071937ab5",
-                                                    "savedPayload": {
-                                                        "position": {
-                                                            "x": 28839.834056883432,
-                                                            "y": 23354.995172890012
-                                                        },
-                                                        "targetPosition": {
-                                                            "x": 28906.590337070327,
-                                                            "y": 23647.47354654456
-                                                        },
-                                                        "floatingObject": {
-                                                            "isPinned": false,
-                                                            "isFrozen": false,
-                                                            "isCollapsed": false,
-                                                            "angleToParent": 2,
-                                                            "distanceToParent": 3,
-                                                            "arrangementStyle": 0
-                                                        },
-                                                        "uiObject": {},
-                                                        "referenceParent": {
-                                                            "type": "Pool",
-                                                            "name": "Ethereum Project",
-                                                            "id": "f51d23aa-742c-40d4-b000-2b90c3ae197c"
-                                                        }
-                                                    }
-                                                }
-                                            ],
-                                            "assetWeightVotes": [],
-                                            "featureWeightVotes": [],
-                                            "positionWeightVotes": [],
-                                            "id": "f98086f7-1e41-4365-aa6c-4e4cccaf4ae6",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 28906.590337070327,
-                                                    "y": 23647.47354654456
-                                                },
-                                                "targetPosition": {
-                                                    "x": 29193.26217880617,
-                                                    "y": 23735.90009886783
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": true,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
-                                                "referenceParent": {
-                                                    "type": "Pool Class",
-                                                    "name": "Software Projects",
-                                                    "id": "a987f1d3-fc8d-4b7c-99dd-77f15a32f37d"
                                                 }
                                             }
                                         },
@@ -2075,15 +1764,15 @@
                                                             "name": "Referrals Rewards Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "40d32fc9-c5b2-492b-a350-028b2dec510e",
+                                                            "id": "f619a49b-098f-4625-b240-194da7810d93",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28537.407067228407,
-                                                                    "y": 23938.697900938332
+                                                                    "x": 28549.809812101244,
+                                                                    "y": 23975.15295191066
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28697.01669018301,
-                                                                    "y": 23684.680641169845
+                                                                    "x": 28694.925478232817,
+                                                                    "y": 23712.585925338033
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2106,15 +1795,15 @@
                                                             "name": "Referrals Bonus Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "d74fae83-251f-4fd8-ac8d-07541170d6c8",
+                                                            "id": "069a16f4-d8af-4170-bf3f-46aff6448644",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28397.22647874649,
-                                                                    "y": 23673.463282886947
+                                                                    "x": 28394.977929958994,
+                                                                    "y": 23718.195585267305
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28697.01669018301,
-                                                                    "y": 23684.680641169845
+                                                                    "x": 28694.925478232817,
+                                                                    "y": 23712.585925338033
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2136,15 +1825,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "2f232326-5219-4ec5-a288-545cd00e7e7f",
+                                                    "id": "649912b1-ae33-4c79-a33b-16eeeeda5f7e",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28697.01669018301,
-                                                            "y": 23684.680641169845
+                                                            "x": 28694.925478232817,
+                                                            "y": 23712.585925338033
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2176,15 +1865,15 @@
                                                             "name": "Support Rewards Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "644b3993-8557-4e94-93ac-5daf5fff3a9b",
+                                                            "id": "1b751462-8459-4db8-a923-7e8290f530a5",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28418.893423864272,
-                                                                    "y": 23746.110524077754
+                                                                    "x": 28420.684152268223,
+                                                                    "y": 23789.513663606256
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28663.56168455205,
-                                                                    "y": 23572.509135223812
+                                                                    "x": 28655.23359700863,
+                                                                    "y": 23602.466723048634
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2207,15 +1896,15 @@
                                                             "name": "Support Bonus Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "415027ed-bd5d-42ac-b30b-1b9b3f4697af",
+                                                            "id": "4edb4e47-0596-4a25-8910-ce36f70d849e",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28390.884341328387,
-                                                                    "y": 23447.420900395413
+                                                                    "x": 28375.97147241537,
+                                                                    "y": 23492.864415738717
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28663.56168455205,
-                                                                    "y": 23572.509135223812
+                                                                    "x": 28655.23359700863,
+                                                                    "y": 23602.466723048634
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2237,15 +1926,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "c41c10ec-8278-4a7f-bf85-a200a4fbe13c",
+                                                    "id": "a9da1c01-210d-4ae7-a8ae-0dde216427c9",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28663.56168455205,
-                                                            "y": 23572.509135223812
+                                                            "x": 28655.23359700863,
+                                                            "y": 23602.466723048634
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2277,15 +1966,15 @@
                                                             "name": "Mentorship Rewards Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "50b4532b-3b0a-4ce7-ab5b-6122196a53aa",
+                                                            "id": "e0c475b3-af55-41b2-b8ab-89207ef51d81",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28383.101092844,
-                                                                    "y": 23522.82978055155
+                                                                    "x": 28372.42867805662,
+                                                                    "y": 23568.591074000546
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28675.579466498548,
-                                                                    "y": 23456.073500364655
+                                                                    "x": 28660.703874640152,
+                                                                    "y": 23485.540420573092
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2308,15 +1997,15 @@
                                                             "name": "Mentorship Participation Bonus Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "3a0130ab-35c8-4918-bde4-1007f1e72f67",
+                                                            "id": "22240ff2-7098-4013-8c7a-d158527ba0d0",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28471.527645167273,
-                                                                    "y": 23236.157938815708
+                                                                    "x": 28444.642300679312,
+                                                                    "y": 23277.41210376453
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28675.579466498548,
-                                                                    "y": 23456.073500364655
+                                                                    "x": 28660.703874640152,
+                                                                    "y": 23485.540420573092
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2338,15 +2027,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "26683c7a-9c27-4405-aaf0-ba3d9445fee1",
+                                                    "id": "778b0d8f-b0b3-4295-b53b-b69e74abba5d",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28675.579466498548,
-                                                            "y": 23456.073500364655
+                                                            "x": 28660.703874640152,
+                                                            "y": 23485.540420573092
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2376,15 +2065,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "808f8a0f-80a5-4cb3-9dc8-f32ae9046555",
+                                                    "id": "824f1346-b49f-47c7-9d01-2e6f0cc403a3",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28731.24043766261,
-                                                            "y": 23353.100006508022
+                                                            "x": 28710.50351094617,
+                                                            "y": 23379.607987523734
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2416,15 +2105,15 @@
                                                             "name": "Voting Bonus Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "bf25cb25-0de4-405b-a0db-ce5f97985719",
+                                                            "id": "b582bead-c9bb-41e2-9dd1-bd6d6ce99f26",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28681.890131270553,
-                                                                    "y": 23014.030816585164
+                                                                    "x": 28642.21908059167,
+                                                                    "y": 23043.839309909075
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28822.07071975247,
-                                                                    "y": 23279.265434636545
+                                                                    "x": 28797.05096273392,
+                                                                    "y": 23300.79667655243
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2446,15 +2135,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "64429f63-d5de-4eed-a03b-39b0af321056",
+                                                    "id": "e402422d-6fe6-4655-97a1-3b4c1579d442",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28822.07071975247,
-                                                            "y": 23279.265434636545
+                                                            "x": 28797.05096273392,
+                                                            "y": 23300.79667655243
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2486,15 +2175,15 @@
                                                             "name": "Liquid Democracy Bonus Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "d735c542-b6ce-495e-acfa-cbb003c71319",
+                                                            "id": "9a5d6e82-f4e8-45e4-bc53-f656a6ecc3ad",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 28906.23314316262,
-                                                                    "y": 22947.120805323244
+                                                                    "x": 28862.457485170467,
+                                                                    "y": 22964.455547460704
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 28934.242225698505,
-                                                                    "y": 23245.810429005585
+                                                                    "x": 28907.17016502332,
+                                                                    "y": 23261.104795328243
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2516,15 +2205,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "de0c7938-3ede-4c88-a2be-6cf57a0e4cbe",
+                                                    "id": "00b389bd-d693-4278-bd1f-254d6c924d23",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 28934.242225698505,
-                                                            "y": 23245.810429005585
+                                                            "x": 28907.17016502332,
+                                                            "y": 23261.104795328243
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2556,15 +2245,15 @@
                                                             "name": "Staking Rewards Pool",
                                                             "config": "{}",
                                                             "project": "Governance",
-                                                            "id": "160cc79e-41b2-4bba-83ad-eeb5be6fbb2f",
+                                                            "id": "c1ea3da7-aaa2-475c-ae29-51212262ea38",
                                                             "savedPayload": {
                                                                 "position": {
-                                                                    "x": 29139.104412880934,
-                                                                    "y": 22971.15636921624
+                                                                    "x": 29096.31009012155,
+                                                                    "y": 22975.396102723746
                                                                 },
                                                                 "targetPosition": {
-                                                                    "x": 29050.677860557662,
-                                                                    "y": 23257.828210952084
+                                                                    "x": 29024.09646749886,
+                                                                    "y": 23266.575072959764
                                                                 },
                                                                 "floatingObject": {
                                                                     "isPinned": false,
@@ -2586,15 +2275,15 @@
                                                     "assetWeightVotes": [],
                                                     "featureWeightVotes": [],
                                                     "positionWeightVotes": [],
-                                                    "id": "bcdc3887-1109-4ca3-8c78-e5ed014387b2",
+                                                    "id": "e589c4b6-e752-433c-abc7-c1ff97ffcb86",
                                                     "savedPayload": {
                                                         "position": {
-                                                            "x": 29050.677860557662,
-                                                            "y": 23257.828210952084
+                                                            "x": 29024.09646749886,
+                                                            "y": 23266.575072959764
                                                         },
                                                         "targetPosition": {
-                                                            "x": 28962.25130823439,
-                                                            "y": 23544.500052687927
+                                                            "x": 28951.88284487617,
+                                                            "y": 23557.754043195782
                                                         },
                                                         "floatingObject": {
                                                             "isPinned": false,
@@ -2619,11 +2308,11 @@
                                             "assetWeightVotes": [],
                                             "featureWeightVotes": [],
                                             "positionWeightVotes": [],
-                                            "id": "2d974c2f-d379-4a42-9516-111c38ad8756",
+                                            "id": "398a7fe7-1e5c-40dc-b60e-1d9ad7019f83",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 28962.25130823439,
-                                                    "y": 23544.500052687927
+                                                    "x": 28951.88284487617,
+                                                    "y": 23557.754043195782
                                                 },
                                                 "targetPosition": {
                                                     "x": 29193.26217880617,

@@ -36,10 +36,11 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.claimsProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch.claimsProgram)
+            resetProgram(program)
         }
 
         /* Claim Count Follows */
@@ -47,14 +48,16 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
             userProfile.payload.claimsProgram = {
                 awarded: {
                     tokens: 0
                 },
                 count: 0
             }
-            countProgram(userProfile.tokenPowerSwitch.claimsProgram)
+            countProgram(program)
         }
 
         /* Claim Distribution Follows */
@@ -62,8 +65,10 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            distributeProgram(userProfile.tokenPowerSwitch.claimsProgram)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            distributeProgram(program)
         }
 
         /* Claim Calculation Follows */
@@ -71,8 +76,10 @@ function newGovernanceFunctionLibraryClaimsProgram() {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.claimsProgram === undefined) { continue }
-            calculateProgram(userProfile.tokenPowerSwitch.claimsProgram)
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Claims Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            calculateProgram(program)
         }
 
         function resetClaims(node) {

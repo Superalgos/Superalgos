@@ -18,7 +18,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
         UI.projects.governance.utilities.bonusProgram.run(
             pools,
             userProfiles,
-            "votingtProgram",
+            "votingProgram",
             "Voting-Bonus"
         )
 

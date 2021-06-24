@@ -13,6 +13,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
         positions,
         userProfiles
     ) {
+
+        /* Bonus Calculation is here */
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "votingtProgram",
+            "Voting-Bonus"
+        )
+
         /* Reset Votes at Pools */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]

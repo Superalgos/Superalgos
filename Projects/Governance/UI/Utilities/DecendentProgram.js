@@ -9,7 +9,7 @@ function newFoundationsUtilitiesDecendentProgram() {
         pools,
         userProfiles,
         programPropertyName,
-        programName,
+        programCodeName,
         programNodeType,
         programPowerName,
         usersArrayPropertyName,
@@ -18,7 +18,7 @@ function newFoundationsUtilitiesDecendentProgram() {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
         of the Program. This will come from a Pool that is configured wiht a codeName config property
-        with the value programName
+        with the value programCodeName
         */
         let programPoolTokenReward
         /*
@@ -32,7 +32,7 @@ function newFoundationsUtilitiesDecendentProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programName)
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
         /*

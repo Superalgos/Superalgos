@@ -1178,6 +1178,10 @@ function newEducationTutorialSpace() {
             return
         }
 
+        /* Beta 9 to Beta 10 Migration Code */
+        let project = nodeConfig.docs.project
+        if (project === "Superalgos") { project === "Foundations" }
+
         let schemaDocument = SCHEMAS_BY_PROJECT.get(nodeConfig.docs.project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         if (schemaDocument === undefined) {

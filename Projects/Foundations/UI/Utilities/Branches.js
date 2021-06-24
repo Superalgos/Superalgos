@@ -16,7 +16,7 @@ function newFoundationsUtilitiesBranches() {
         the array, including the children of the nodes added to the result array.
         */
         if (node === undefined) { return }
-         let resultArray = []
+        let resultArray = []
         scanNodeBranch(node)
         return resultArray
 
@@ -48,6 +48,7 @@ function newFoundationsUtilitiesBranches() {
                         break
                     case 'array': {
                         let startingNodePropertyArray = startingNode[property.name]
+                        if (startingNodePropertyArray === undefined) { continue }
                         for (let m = 0; m < startingNodePropertyArray.length; m++) {
                             scanNodeBranch(startingNodePropertyArray[m])
                         }

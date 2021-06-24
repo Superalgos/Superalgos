@@ -14,6 +14,11 @@
                 "text": "Scusa se ti ho trascinato via dai grafici, ma volevo presentarti a qualcuno: il tipo qui a destra è quello che piazza tutti i buy order!",
                 "updated": 1618064981900,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra!",
+                "updated": 1624458802818
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Siamo all'interno del Lightning Strike Trading System, dentro la definizione dell'Open Stage. In questo stage, l'Execution Algorithm prende il sopravvento dopo che la decisione di aprire una posizione è già stata presa nel Trigger Stage. So che non sai ancora cosa siano una Situation o una Condition, ma vorrei comunque facessi una cosa...",
                     "updated": 1618065153377,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage.Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
+                    "updated": 1624458987851
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Esplora i nodi sotto l'Execution Algorithm, controlla le formule e condizioni, e vedi cosa puoi ricavarne!",
                     "updated": 1618065182365,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tómese unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y vea qué puede hacer con ellas!",
+                    "updated": 1624459025710
                 }
             ]
         }

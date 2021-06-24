@@ -1,7 +1,14 @@
 {
     "type": "Exit Target Rate",
     "definition": {
-        "text": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy."
+        "text": "Exit target rate is the target rate set on the initial targets definition, in the close stage of the strategy.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Exit target rate es la tasa objetivo establecida en la definición de objetivos inicial, en la etapa final de la estrategia.",
+                "updated": 1624461088233
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -14,6 +14,11 @@
                 "text": "Un Plotter Panel contiene rappresentazioni dei dati in formato numerico o testuale.",
                 "updated": 1615963973184,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Un Plotter Panel presenta representaciones no gráficas de datos, principalmente en forma de valores numéricos o texto.",
+                "updated": 1624410194484
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Ogni layer può avere uno o più pannelli associati. Sta allo sviluppatore dell'Indicator Bot corrispondente decidere se definirli o meno.",
                     "updated": 1615964050088,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada capa puede presentar o no uno o más paneles asociados. Depende del desarrollador del Bot indicador correspondiente definirlos o no.",
+                    "updated": 1624410271230
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Per accedere ai pannelli, clicca su un'icona del Plotter Panel di tua scelta.",
                     "updated": 1615964087465,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para acceder a los paneles, haz clic con el botón izquierdo en el icono del panel del trazador de la capa de tu elección.",
+                    "updated": 1624410322152
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Puoi spostare i layer manager e i plotter panel cliccando su di essi e trascinandoli in un angolo qualsiasi dello schermo.",
                     "updated": 1615964142762,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puedes mover el Layer Manager y Plotter Panel haciendo clic con el botón izquierdo en sus encabezados y arrastrándolos a cualquier esquina de la pantalla.",
+                    "updated": 1624410466327
                 }
             ]
         }

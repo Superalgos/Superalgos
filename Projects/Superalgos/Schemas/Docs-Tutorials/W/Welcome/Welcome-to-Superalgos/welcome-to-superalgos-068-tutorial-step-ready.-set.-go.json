@@ -14,6 +14,11 @@
                 "text": "Forza, iniziamo! Sarà comunque una cosa veloce, perchè stiamo testando dati di una sola giornata.",
                 "updated": 1618060660046,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Vámonos! De todos modos, esto será rápido, ya que estamos probando datos históricos de un solo día.",
+                "updated": 1624453945775
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Eseguire una task di trading è simile a eseguire una task di data mining. La differenza sta nel fatto che, dopo aver lanciato la task, devi anche lanciare la trading session.",
                     "updated": 1618060706178,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecutar un Trading Task es bastante similar a ejecutar una tarea de minería de datos. La diferencia radica en que, después de ejecutar la tarea, también debe ejecutar lel Trading Session.",
+                    "updated": 1624454018479
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Seleziona Run dal menu Task, e poi seleziona Run dal menu della Backtesting Session!",
                     "updated": 1618060790679,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Seleccione Run en el Task menu! Ahora seleccione Run en el Backtesting Session menu!",
+                    "updated": 1624454082709
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Quando la progress bar della Trading Process Instance raggiunge il 100%, ferma la task e clicca Next.",
                     "updated": 1618060849542,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando el Backtesting Session indica que terminó el procesamiento, detenga el Task y haz clic en Next.",
+                    "updated": 1624454207659
                 }
             ],
             "updated": 1622201246283

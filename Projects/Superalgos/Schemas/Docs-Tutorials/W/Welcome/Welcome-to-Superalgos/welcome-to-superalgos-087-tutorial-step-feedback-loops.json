@@ -14,6 +14,11 @@
                 "text": "Diamo un'occhiata a un altro esempio per assorbire bene la nozione di \"constant feedback loop\" prima di proseguire!",
                 "updated": 1618068120939,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Echemos un vistazo a otro ejemplo para dejar que la noción del ciclo de retroalimentación constante se entienda antes de continuar!",
+                "updated": 1624463986592
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Questa è la struttura di dati dove si trovano le informazioni sui limit buy orders.",
                     "updated": 1618068157301,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta es la estructura de datos donde se guarda la información sobre las órdenes de compra límite.",
+                    "updated": 1624464006602
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Vai al layer manager del Trading Engine sul grafico (il secondo da sinistra). Scorri verso il basso e attiva il layer dei Limit Buy Orders. Ora passa con il mouse su alcuni dei buy orders e osserva l'effetto sui nodi nel Design Space.",
                     "updated": 1618068248928,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Vaya hacia abajo y encienda el Limit Buy Orders layer. Ahora deslice el mouse sobre algunas de las órdenes de compra y verifique el efecto en los nodos en el espacio de diseño.",
+                    "updated": 1624464208051
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Capisci le implicazioni di avere un tale livello di controllo sui dati su cui lavora il Trading Bot?",
                     "updated": 1618068321644,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el trading bot?",
+                    "updated": 1624464130332
                 }
             ]
         }

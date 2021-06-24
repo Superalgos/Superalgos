@@ -4,7 +4,14 @@
     "type": "Develop",
     "definition": {
         "text": "The Develop branch is the branch that is being used by developers involved in contributing to Superalgos. All the changes at this branch are sent to the Master branch everytime there is a new release. The Develop branch purpose is for accumulating changes at the codebase untiil the release date when all these changes are moved into the Master branch.",
-        "updated": 1622467883706
+        "updated": 1622467883706,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Develop branch es el branch que está siendo utilizado por desarrolladores involucrados en contribuir a Superalgos. Todos los cambios en este branch se envían al Master Branch cada vez que hay una nueva versión. El propósito del Develop branch es acumular cambios en la base de código hasta la fecha de lanzamiento cuando todos estos cambios se mueven al Master branch.",
+                "updated": 1624495858720
+            }
+        ]
     },
     "paragraphs": [
         {

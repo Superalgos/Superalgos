@@ -28,6 +28,13 @@
     ],
     "definition": {
         "text": "Data tasks referes to data-mining, that is, the activity of processing data. You need to process data to feed charts, and so that your trading systems may make decisions based on quality information.",
-        "updated": 1609618235002
+        "updated": 1609618235002,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Data tasks refiere a la minería de datos, es decir, la actividad de procesamiento de datos. Necesitarás procesar datos para alimentar gráficos y para que sus sistemas de trading puedan tomar decisiones basadas en información de calidad.",
+                "updated": 1624283536808
+            }
+        ]
     }
 }

@@ -15,6 +15,11 @@
                 "text": "Mettiamo il massimo impegno nell'aiutare gli utenti a migliorare e ridefinire il concetto di cosa sia possibile fare con Superalgos! Unisciti alla conversazione...",
                 "updated": 1618073819599,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo Discord Server o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
+                "updated": 1624488526215
             }
         ]
     },
@@ -22,12 +27,26 @@
         {
             "style": "Text",
             "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgoscommunity\" target=\"_blank\" style=\"color:blue;\">Community Group</a> &mdash; Let's talk Superalgos!</li>",
-            "updated": 1610964967140
+            "updated": 1610964967140,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Community Group — ¡Hablemos de Superalgos!",
+                    "updated": 1624488546430
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgossupport\" target=\"_blank\" style=\"color:blue;\">Support Group</a> &mdash; Have an issue and need help?</li>",
-            "updated": 1610964976645
+            "updated": 1610964976645,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Support Group — ¿Tienes algún problema y necesitas ayuda?",
+                    "updated": 1624488565737
+                }
+            ]
         },
         {
             "style": "Text",

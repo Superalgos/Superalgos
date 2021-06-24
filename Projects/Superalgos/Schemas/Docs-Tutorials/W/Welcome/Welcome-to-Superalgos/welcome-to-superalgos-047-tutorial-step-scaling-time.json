@@ -14,6 +14,11 @@
                 "text": "Sei riuscito a mettere in pratica il trucchetto nel video precedente? Se non ce l'hai fatta, torna all'ultimo step e guarda bene!",
                 "updated": 1614893781372,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Aprendiste el truco para escalar el tiempo del video anterior? Si no es así, vaya al paso anterior y observa atentamente.",
+                "updated": 1624405955892
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Ruotare la rotella del mouse su una time scale box espande e comprime il tempo! In alternativa, posiziona il mouse sulla scale box e usa i tasti freccia ← → ",
                     "updated": 1618647977786,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Desplazar la rueda del mouse en la parte superior del cuadro de escala de tiempo reduce y expande el tiempo! Alternativamente, puedes apuntar el mouse al cuadro de escala y presionar las teclas de flecha laterales ← →",
+                    "updated": 1624406140665
                 }
             ],
             "updated": 1616495837967
@@ -40,6 +50,11 @@
                     "text": "C'è un dettaglio interessante nel video precedente: quando la time scale esce dalla modalità automatica, i due triangoli verdi che indicano gli estremi della scala scompaiono! La scala puó essere impostata come automatica su uno degli estremi, entrambi o nessuno!",
                     "updated": 1618648074699,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Señalar del video anterior: cuando la escala de tiempo sale del modo automático, los dos pequeños triángulos verdes que indican cada extremo de la escala automática desaparecen. ¡La escala se puede configurar en automático en cualquiera, en ninguno o en ambos lados!",
+                    "updated": 1624407303951
                 }
             ],
             "updated": 1616504911488

@@ -35,6 +35,14 @@
     ],
     "definition": {
         "text": "The Testing Trading Tasks node organizes trading sessions involving testing of trading systems.",
-        "updated": 1609666594694
+        "updated": 1609666594694,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo Testing Trading Tasks organiza sesiones de trading que implican la prueba de los sistemas de trading.",
+                "updated": 1624490698932,
+                "style": "Definition"
+            }
+        ]
     }
 }

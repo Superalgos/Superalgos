@@ -2,7 +2,14 @@
     "type": "Sensor Bot",
     "definition": {
         "text": "A sensor bot extracts raw data from external sources where a certain specific extracting algorithm needs to be coded, and stores it in a dataset that other bots may consume.",
-        "updated": 1621691864710
+        "updated": 1621691864710,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un sensor bot extrae datos sin procesar de fuentes externas donde es necesario codificar un algoritmo de extracción específico, y los almacena en un conjunto de datos que otros bots pueden consumir.",
+                "updated": 1624283917619
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -20,6 +20,11 @@
                 "text": "Aku telah memberitahumu duluan ada dua charts di workspace ini. Dalam Superalgos, kam memanggilnya dengan Time Machine.",
                 "updated": 1616935192130,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Mencioné anteriormente que hay dos gráficos en este espacio de trabajo. En Superalgos, llamamos a cada uno de estos un Time Machine.",
+                "updated": 1624381357850
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Time machine akan menahan satu atau lebih Timeline Chart. Dalam time machines karena semua timeline charts dalam time machine tersingkronasi dengan waktu. Fitur time machines ini memungkinkan untuk menempatkan berbeda lapisan data dalam pembagian data di Time Scale yang sama.",
                     "updated": 1616935672320,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Un Time Machine puede tener un Timeline Chart o más. Los llamamos máquinas del tiempo porque todos los gráficos de la línea de tiempo dentro de ella están sincronizados en el tiempo. Esta característica permite superponer diferentes capas de datos compartiendo el mismo Time Scale.",
+                    "updated": 1624381666829
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Arahkan mouse pointer kearah time machines!",
                     "updated": 1616935491446,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Pasa el mouse sobre un Time Machine!",
+                    "updated": 1624406480076
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "text": "Perhatikan label yang ada dikiri yang menyatakan exchange dan market dari data yang diasosiasikan. Satu time machine akan dapat menyimpan dari berbagai market dan lebih dari satu exchange.",
                     "updated": 1616935697836,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Observe la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges!",
+                    "updated": 1624382066631
                 }
             ]
         }

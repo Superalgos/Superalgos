@@ -1,7 +1,14 @@
 {
     "type": "Backtesting Session",
     "definition": {
-        "text": "A backtesting session is a trading mode by which the trading bot instance reads historic market data in a user-defined datetime range, applies the rules defined in the associated trading system, and generates a trading simulation."
+        "text": "A backtesting session is a trading mode by which the trading bot instance reads historic market data in a user-defined datetime range, applies the rules defined in the associated trading system, and generates a trading simulation.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un backtesting sessiones un modo de trading mediante el cual la instancia del bot de trading lee datos históricos del mercado en un rango de fecha y hora definido por el usuario, aplica las reglas definidas en el Trading System asociado y genera una simulación trading.",
+                "updated": 1624454803124
+            }
+        ]
     },
     "paragraphs": [
         {

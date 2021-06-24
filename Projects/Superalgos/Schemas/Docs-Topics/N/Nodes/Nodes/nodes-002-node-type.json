@@ -4,7 +4,14 @@
     "type": "Node Type",
     "definition": {
         "text": "Each Node is of a certain type. It's type defines what the Node can be used for, the Node Menu, to which other nodes it can attach to, and may other properties that are dependent on the Node Type At the Design Space, the type of the node is displayed below the Node Icon.    ",
-        "updated": 1609236288974
+        "updated": 1609236288974,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Cada nodo es de un tipo determinado. Su tipo define para qué se puede usar el nodo, el Node Menu, a qué otros nodos se puede conectar y otras propiedades que dependen del tipo de nodo.En el espacio de diseño, el tipo de nodo se muestra debajo del icono del nodo.",
+                "updated": 1624497424344
+            }
+        ]
     },
     "paragraphs": [
         {

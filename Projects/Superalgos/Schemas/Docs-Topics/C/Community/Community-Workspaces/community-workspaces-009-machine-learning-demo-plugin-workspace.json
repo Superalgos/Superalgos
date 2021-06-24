@@ -4,7 +4,14 @@
     "type": "Machine Learning Demo Plugin Workspace",
     "definition": {
         "text": "The workspace features the basic setup to start exploring the integration of the TensorFlow Project.",
-        "updated": 1616693308998
+        "updated": 1616693308998,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El workspace presenta la configuración básica para comenzar a explorar la integración del projecto TensorFlow.",
+                "updated": 1624495650851
+            }
+        ]
     },
     "paragraphs": [
         {

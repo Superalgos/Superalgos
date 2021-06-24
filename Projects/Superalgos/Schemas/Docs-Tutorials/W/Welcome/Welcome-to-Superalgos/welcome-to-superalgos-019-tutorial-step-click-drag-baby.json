@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Quiero enseñarte algo mientras avanza la operación de  Data Mining. Te enseñaré a moverte... ¡en unos segundos!",
-                "updated": 1618435437797,
+                "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos!",
+                "updated": 1624227902845,
                 "style": "Definition"
             }
         ]
@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Simplemente haz hacer clic y arrastrar con el ratón.",
-                    "updated": 1618435534077,
+                    "text": "Simplemente haz clic y arrastrar con el mouse.",
+                    "updated": 1624491408788,
                     "style": "Callout"
                 }
             ]

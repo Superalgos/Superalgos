@@ -1,7 +1,14 @@
 {
     "type": "Tutorial Step",
     "definition": {
-        "text": "A tutorial step is a type of node within a tutorial that may not have offspring. As such, it is the smallest unit of information in the hierarchy."
+        "text": "A tutorial step is a type of node within a tutorial that may not have offspring. As such, it is the smallest unit of information in the hierarchy.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Tutorial Step es un tipo de nodo dentro de un tutorial que puede no tener descendencia. Como tal, es la unidad de información más pequeña de la jerarquía.",
+                "updated": 1624290915062
+            }
+        ]
     },
     "paragraphs": [
         {

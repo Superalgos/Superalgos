@@ -14,6 +14,11 @@
                 "text": "Rieccoci nella gerarchia Network. Ora ti mostro una delle risorse chiave per testare le strategie di un Trading Bot.",
                 "updated": 1618057404730,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Estamos de vuelta en la jerarquia del  Network para mostrarte uno de los recursos centrales de prueba de estrategia integrados en el Trading Bot.",
+                "updated": 1624414541186
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Ma prima di lanciare la nostra prima Backtesting Session, lanciamoci in una piccola esplorazione per capire come è configurato il nodo delle Testing Trading Tasks.",
                     "updated": 1618057489202,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de ejecutar tu primer Backtesting Session, vayamos a una misión de rápida para comprender cómo el nodo Testing Trading Tasks está configurado.",
+                    "updated": 1624414924601
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Espandi il nodo delle Testing Trading Tasks e guarda come è strutturato...ti ricorda qualcosa?",
                     "updated": 1618057585015,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Expande el nodo Testing Trading Tasks y mira la estructura de los nodos descendientes ... ¿Suena familiar?",
+                    "updated": 1624414662047
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Esatto! Assomiglia alla sezione dei Data Tasks: le task sono organizzate per exchange, mercato e Trading Mine, cosicchè tu possa testare diverse strategie per mercati differenti e su exchange diversi.",
                     "updated": 1618057668667,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Claro! Parece la sección de Data Task: las tareas están organizadas por exchange, mercado y mina de trading, de modo que puedes probar cualquier cantidad de estrategias optimizadas para diferentes mercados, en múltiples exchanges.",
+                    "updated": 1624414880776
                 }
             ]
         }

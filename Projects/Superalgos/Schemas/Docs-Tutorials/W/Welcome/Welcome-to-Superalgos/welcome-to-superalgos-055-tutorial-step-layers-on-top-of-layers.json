@@ -14,6 +14,12 @@
                 "text": "Le operazioni di data mining coinvolgono bots che creano data products. Ogni product è accessibile dal grafico attraverso un Layer nel Layer Manager.",
                 "updated": 1618648641710,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Tu operación de minería de datos incluye bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
+                "updated": 1624494930065,
+                "style": "Definition"
             }
         ],
         "updated": 1616427338175
@@ -28,6 +34,12 @@
                     "text": "Il primo Layer Manager alla sinistra di questa Time Machine contiene tre layers. Questi layer rappresentano i data products che il Trading System, che testeremo più tardi, usa per fare le sue scelte.",
                     "updated": 1615963760779,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El primer Layer Manager a la izquierda de este Time machine presenta tres capas. Esas capas representan los productos de datos del Trading System que estaremos viendo con los usos para tomar decisiones trading.",
+                    "updated": 1624409982355,
+                    "style": "Text"
                 }
             ]
         },
@@ -39,6 +51,12 @@
                     "language": "IT",
                     "text": "Per attivare e disattivare i layers, cliccaci sopra!",
                     "updated": 1615963587655,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas!",
+                    "updated": 1624495289554,
                     "style": "Callout"
                 }
             ]
@@ -52,6 +70,12 @@
                     "language": "IT",
                     "text": "Superalgos è provvisto di molti più indicatori, ma non sono configurati in questo Workspace. Ne parleremo più tardi!",
                     "updated": 1615963772691,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Work Space. ¡Aprenderás sobre ellos más tarde!",
+                    "updated": 1624409780086,
                     "style": "Note"
                 }
             ]

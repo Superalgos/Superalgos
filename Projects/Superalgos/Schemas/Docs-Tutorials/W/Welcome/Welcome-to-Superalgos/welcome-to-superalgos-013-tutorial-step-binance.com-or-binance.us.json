@@ -49,8 +49,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si  opera en binance.com o nisiquiera opera con Binance, entonces puedes saltarte este paso y el siguiente.",
-                    "updated": 1618434095119,
+                    "text": "Si operas en binance.com o nisiquiera operas con Binance, entonces puedes saltarte este paso y el siguiente.",
+                    "updated": 1624490979638,
                     "style": "Text"
                 }
             ]
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si comercia en binance.us necesita configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
-                    "updated": 1618434112532,
+                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
+                    "updated": 1624491042411,
                     "style": "Callout"
                 }
             ]
@@ -99,8 +99,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Abra la configuración y cambie el codeName a binanceus. Mueve el cursor fuera de la burbuja de configuración, se cerrará y guardará automáticamente.",
-                    "updated": 1618434145311,
+                    "text": "Accede a la configuración y cambie el codeName a \"binanceus\". Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente",
+                    "updated": 1624491113651,
                     "style": "List"
                 }
             ]
@@ -124,8 +124,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Edita la etiqueta del nodo para que sea Binanceus.",
-                    "updated": 1618434167698,
+                    "text": "Edita la etiqueta del nodo para que diga \"Binanceus\".",
+                    "updated": 1624491148099,
                     "style": "List"
                 }
             ]

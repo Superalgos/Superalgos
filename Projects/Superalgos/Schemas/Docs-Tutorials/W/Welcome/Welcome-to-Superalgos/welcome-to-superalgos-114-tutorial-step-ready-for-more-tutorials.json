@@ -15,6 +15,11 @@
                 "text": "Non voglio stressarti, ma non smetterò mai di ripetere quanto sia importante che tu segua tutti i tutorial prima di avventurarti da solo!",
                 "updated": 1618074463758,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "No es para alardear, pero no puedo enfatizar suficiente lo importante que es que pongas a disposición todos los tutoriales antes de aventurarte por tu cuenta.",
+                "updated": 1624489857604
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Il sistema è enorme e copre concetti complessi. Iniziare avventurandosi da solo in Superalgos è raccomandato solo a coloro a cui piace finire per sbattere la testa contro il muro!",
                     "updated": 1618074517616,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El sistema es vasto y cubre asuntos complejos. ¡Ir solo en sus primeros días con Superalgos solo se recomienda para personas que disfrutan golpeándose la cabeza contra la pared!",
+                    "updated": 1624489896631
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Il First Steps Tutorials alla tua destra fornisce tutti i dettagli sul miglior modo di investire il tuo tempo per imparare Superalgos.",
                     "updated": 1618074583238,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "The First Steps Tutorials El libro a su derecha brinda todos los detalles sobre la mejor manera de invertir su tiempo aprendiendo Superalgos.",
+                    "updated": 1624489939709
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Prima di terminare, ti lascio con il prossimo miglior tutorial della serie!",
                     "updated": 1618074621074,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Antes de que termines, te dejo con el siguiente mejor tutorial de la serie!",
+                    "updated": 1624489956764
                 }
             ]
         }

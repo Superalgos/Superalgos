@@ -7,7 +7,14 @@
             "project": "Superalgos",
             "name": "tutorial"
         },
-        "text": "In the next tutorial, we'll keep working on this idea, incorporating a few more fundamental considerations left out until now."
+        "text": "In the next tutorial, we'll keep working on this idea, incorporating a few more fundamental considerations left out until now.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "En el siguiente tutorial, seguiremos trabajando en esta idea, incorporando algunas consideraciones fundamentales más que se dejaron de lado hasta ahora.",
+                "updated": 1624485571840
+            }
+        ]
     },
     "paragraphs": [
         {

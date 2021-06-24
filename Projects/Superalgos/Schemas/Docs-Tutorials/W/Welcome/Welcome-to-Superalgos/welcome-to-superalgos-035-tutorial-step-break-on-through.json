@@ -20,6 +20,11 @@
                 "text": "Aku akan mempercepat gerakmu dalam berkeliling dan menelusuri charting space dengan cepat... Mari coba slider duluan!",
                 "updated": 1616932890422,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Te pondré al día para moverte y navegar por el Charting Space en poco tiempo ... ¡Primero tratemos con el control deslizante!",
+                "updated": 1624380106206
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Click disana dan drag kebawah untuk menutup design space dan membuka charting space. Lakukan sebaliknya untuk bertukar posisi. Dari keyboard gunakan Ctrl + Shift + ↓. Coba juga ↑ ← →",
                     "updated": 1616932984437,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en él y arrástrelo hacia abajo para cerrar el Desing Space y abrir el Charting Space. Haz lo contrario para el efecto inverso. Para hacerlo con el teclado, presione Ctrl + Shift + ↓. Prueba ↑ ← → tambien!",
+                    "updated": 1624380242623
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Kecuali jika kamu memerlukan kedua ruang untuk dibuka sebagian, sebaiknya tutup salah satunya untuk menghemat sumber daya komputasi di Perangkat-mu.",
                     "updated": 1616933049943,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "A menos que necesite que ambos espacios estén parcialmente abiertos, siempre es una buena idea cerrar por completo cualquiera de ellos para ahorrar recursos informáticos en tu máquina.",
+                    "updated": 1624380567050
                 }
             ]
         }

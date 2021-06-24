@@ -20,6 +20,12 @@
                 "text": "Bagaimana membuat time machine menjadi sesuai dengan aspect ratio dari layar?",
                 "updated": 1616936505798,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Qué tal darle forma a la máquina del tiempo con la relación de aspecto exacta de tu pantalla?",
+                "updated": 1624383053610,
+                "style": "Definition"
             }
         ]
     },
@@ -38,6 +44,12 @@
                     "language": "ID",
                     "text": "Mencocokkan rasio aspek time machine kamu dengan rasio aspek laya sangat penting agar bagan pas dengan layarmu!",
                     "updated": 1616936545221,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Hacer coincidir la relación de aspecto de tus máquinas del tiempo con la relación de aspecto de su pantalla es crucial para que los gráficos se ajusten perfectamente a tu pantalla al hacer zoom!",
+                    "updated": 1624494074907,
                     "style": "Text"
                 }
             ],
@@ -59,6 +71,12 @@
                     "text": "Point mousemu ke satu dari time machines dan tekan Ctrl + Shift + Key-A. Lakukan dengan yang satunya juga!",
                     "updated": 1616936593204,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra!",
+                    "updated": 1624383472672,
+                    "style": "Callout"
                 }
             ]
         },
@@ -77,6 +95,12 @@
                     "language": "ID",
                     "text": "Biarkan dua time machine cocok dengan rasio aspek layarmu. dari sekarang!",
                     "updated": 1616936619368,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante!",
+                    "updated": 1624383547817,
                     "style": "Success"
                 }
             ]

@@ -20,6 +20,12 @@
                 "text": "Seharusnya sekarang semua proses sudah di 100%. Disaat hal itu terjadi, kita harus kembali ke data mining operation yang \"up to date\".",
                 "updated": 1616773354182,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "A estas alturas, todos los procesos deberían estar al 100%. Cuando eso sucede, nos referimos a la operación de minería de datos como \"actualizada\".",
+                "updated": 1624327535007,
+                "style": "Definition"
             }
         ],
         "updated": 1616415623576
@@ -40,6 +46,12 @@
                     "text": "Disaat semua proses up to date, bot tetap berjalan, dan memproses informasi secara realtime yang dihasilkan di exchange. Itu dia, data mining operation tidak akan berhenti kecuali kamu menghentikannya!",
                     "updated": 1616773455412,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando todos los procesos están actualizados, los bots siguen funcionando y procesan la información en tiempo real a medida que se produce en el exchange, es decir, ¡la operación de minería de datos no se detiene a menos que tú la detengas!",
+                    "updated": 1624493869548,
+                    "style": "Text"
                 }
             ]
         },
@@ -58,6 +70,12 @@
                     "text": "Lihat apakah semua proses sudah 100%",
                     "updated": 1616773494236,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve si todos los procesos están al 100%",
+                    "updated": 1624327919297,
+                    "style": "Callout"
                 }
             ]
         },
@@ -75,6 +93,12 @@
                     "language": "ID",
                     "text": "Untuk menjalankan Live Trading Session, kamu butuh informasi konstan dari exchange yang memproses secara realtime sehingga Trading Bot akan menerapkan aturanmu di Trading System untuk membuat keputusan di live trading.",
                     "updated": 1616773677042,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para ejecutar un Live Trading Session, necesitas un suministro constante de información del exchange procesado en tiempo real para que el Trading Bot pueda aplicar las reglas de tu Trading System  para hacer decisiones en vivo.",
+                    "updated": 1624327897194,
                     "style": "Text"
                 }
             ],

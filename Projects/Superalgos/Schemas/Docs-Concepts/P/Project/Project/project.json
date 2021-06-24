@@ -2,7 +2,14 @@
     "type": "Project",
     "definition": {
         "text": "The Superalgos infrastructure integrates different projects. The main goal of these integrations is to automate cross-project operations, extracting valuable information from blockchains or the particular domain of each project to be used on Trading Systems.",
-        "updated": 1613841611271
+        "updated": 1613841611271,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La infraestructura de Superalgos integra diferentes proyectos. El objetivo principal de estas integraciones es automatizar las operaciones entre proyectos, extrayendo información valiosa del blockchain o el dominio particular de cada proyecto para ser utilizado en los sistemas de Trading.\n",
+                "updated": 1624283023464
+            }
+        ]
     },
     "paragraphs": [
         {

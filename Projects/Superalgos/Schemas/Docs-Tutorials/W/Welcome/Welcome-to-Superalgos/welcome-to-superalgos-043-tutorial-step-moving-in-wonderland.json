@@ -20,6 +20,11 @@
                 "text": "Akhirnya kamu berada didalam chart. Hal pertama yang harus dilakukan yaitu adalah berpindah-pindah dan mempelajari apa yang dapat dilakukan bagan ini untukmu.",
                 "updated": 1616949419191,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Entonces, finalmente estás dentro de un gráfico. Lo primero que querrás hacer es moverte y aprender qué pueden hacer estos gráficos por ti.",
+                "updated": 1624404419428
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Mari menuju kesana! Seperti di design space—saat berada didalam time machine—kamu bergerak dengan menggunakan mouse dan keyboard. Begini caranya:",
                     "updated": 1616949477545,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Sigamos con esto! Como en el espacio de diseño, cuando estas dentro de una máquina del tiempo, se mueve usando el mouse y el teclado. Así es como:",
+                    "updated": 1624404511697
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Dengan mouse, click-kiri dan drag. Dengan keyboard, gunakan panah: ← → ↑ ↓",
                     "updated": 1616949524257,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Con el mouse, haz clic con el botón izquierdo y arrastre. Con el teclado, use las teclas de flecha: ← → ↑ ↓",
+                    "updated": 1624404544326
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "text": "Apa? Tidak bekerja? Apa kamu tersangkut dengan chart yang ngefreeze? Step video distep berikutnya? Jangan khawatir! Aku tahu apa yang terjadi...",
                     "updated": 1616949623092,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Qué? ¿No funciona? ¿Estás atrapado con un gráfico congelado? ¿Como en el video sobre el siguiente paso? ¡No te preocupes! Sé lo que está pasando ...",
+                    "updated": 1624404574824
                 }
             ]
         }

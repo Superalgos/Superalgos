@@ -4,7 +4,14 @@
     "type": "Node",
     "definition": {
         "text": "Nodes are objects that exist within workspaces and can be visualized at the Design Space. Nodes can be attached to each other forming hierarchical structures.  ",
-        "updated": 1609235686573
+        "updated": 1609235686573,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Nodes son objetos que existen dentro de los espacios de trabajo y se pueden visualizar en el Design Space. Los nodos se pueden unir entre sí formando estructuras jerárquicas.",
+                "updated": 1624496481556
+            }
+        ]
     },
     "paragraphs": [
         {

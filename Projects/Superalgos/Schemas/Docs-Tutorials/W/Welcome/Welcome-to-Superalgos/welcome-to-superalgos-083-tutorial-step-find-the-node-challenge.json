@@ -14,6 +14,11 @@
                 "text": "Il Trading Engine gestisce la complessità del trading automatico rendendo le informazioni accessibili agli utenti e ai sistemi di trading.",
                 "updated": 1618067277865,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El Trading Engine administra la complejidad que conlleva el trading automatizado al hacer que la información sea accesible para los usuarios y los Trading Systems.",
+                "updated": 1624461290426
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Ricordi i miei commenti sulla granularità? Ricordi come la formula del trading system prendeva il valore dell'Exit Target Rate? Ecco un promemoria:",
                     "updated": 1618067378217,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Recuerdas mis comentarios sobre la granularidad? ¿Cómo la fórmula del Trading System obtuvo el valor de la tasa objetivo de salida? Recordatorio rápido:",
+                    "updated": 1624461423083
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila!",
                     "updated": 1618067490282,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan!",
+                    "updated": 1624461765098
                 }
             ]
         }

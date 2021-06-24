@@ -1,7 +1,14 @@
 {
     "type": "Forward Testing Session",
     "definition": {
-        "text": "A forward testing session is a trading mode by which the trading bot instance performs live trading with a user-defined fraction of the available capital."
+        "text": "A forward testing session is a trading mode by which the trading bot instance performs live trading with a user-defined fraction of the available capital.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un forward testing session es un modo de trading mediante el cual la instancia del Trading Bot realiza transacciones en vivo con una fracción definida por el usuario del capital disponible.\n",
+                "updated": 1624379829550
+            }
+        ]
     },
     "paragraphs": [
         {

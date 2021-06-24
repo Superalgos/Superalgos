@@ -14,6 +14,11 @@
                 "text": "Ok, amico mio...è ora di entrare in azione! Sei pronto a una piccola Live Trading Session?",
                 "updated": 1618068381473,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Vale ... ¡Es hora de la verdad! ¿Estás listo para un poco de Live Trading Session?",
+                "updated": 1624464311994
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Ti aiuterò con i tre requisiti principali:",
                     "updated": 1618068402523,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Te ayudaré con los tres requisitos principales:",
+                    "updated": 1624464383867
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Controlla i parametri: in particolar modo decidi bene quanto capitale assegnare alla sessione",
                     "updated": 1618068548173,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Verifique sus parámetros, en particular, decida cuánto capital desea asignar a la sesión.",
+                    "updated": 1624464429837
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Prepara un Exchange Account Key: necessaria perchè l'app possa accedere al tuo account sull'exchange.",
                     "updated": 1618068559526,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Configura un Exchange Account Key para que la aplicación pueda acceder a su cuenta en el exchange.",
+                    "updated": 1624464474190
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "text": "Garantisci un live data feed: l'operazione di data mining con gli indicatori richiesti dal Trading System deve essere attiva e aggiornata.",
                     "updated": 1618068565912,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegurate que la operación de minería de datos con los indicadores requeridos por el Trading System esté funcionando y actualizado con los datos en vivo.",
+                    "updated": 1624464716757
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "text": "Se per un qualunque motivo non sei pronto a fare live trading, non preccuparti! Prosegui pure.",
                     "updated": 1618068597799,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no estás listo para operar en vivo por cualquier motivo, simplemente continúa. ¡Al menos aprenderás cómo funcionan las cosas!",
+                    "updated": 1624496689859
                 }
             ]
         }

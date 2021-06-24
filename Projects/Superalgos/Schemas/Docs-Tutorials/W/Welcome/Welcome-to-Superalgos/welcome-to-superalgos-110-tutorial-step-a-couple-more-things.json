@@ -15,6 +15,11 @@
                 "text": "Mancano ancora un paio di cose prima che ci salutiamo! Coraggio!",
                 "updated": 1618073095923,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Hay un par de cosas más de las que quiero contarte antes de dejarte ir! ¡Tengan paciencia conmigo!",
+                "updated": 1624487324961
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ti dò un'introduzione rapida di ciò su cui stiamo lavorando per la prossima versione. Ho menzionato algoritmi di Machine Learning, ma c'è di più! Riguarda l'integrazione con dei progetti crypto!",
                     "updated": 1618073169920,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Te daré una breve introducción sobre en qué estamos trabajando para las próximas versiones de Superalgos! Mencioné los algoritmos de aprendizaje automático, ¡pero hay más! ¡Tiene que ver con la integración de proyectos criptográficos!",
+                    "updated": 1624487373295
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Volevo anche dirti che, se apprezzi ciò che stiamo facendo, ci puoi aiutare! Decine di migliaia di ore e duro lavoro sono state impiegte per costruire Superalgos così come lo vedi ora. Spero che vorrai contribuire anche solo con qualche minuto, e sarò felice di farti vedere da dove iniziare!",
                     "updated": 1618073272368,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "También quiero hacerte saber que, si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
+                    "updated": 1624497508622
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Coraggio, ti faccio vedere!",
                     "updated": 1618073296750,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Sigamos adelante!",
+                    "updated": 1624487447210
                 }
             ]
         }

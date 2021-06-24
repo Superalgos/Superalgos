@@ -76,6 +76,11 @@
                     "text": "Slippage: irrilevante in questo di Trading System",
                     "updated": 1618060520878,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Slippage: es irrelevante para este caso, ya que este Trading System en particular usa órdenes limitadas solamente.",
+                    "updated": 1624453374005
                 }
             ]
         },
@@ -88,6 +93,11 @@
                     "text": "Fee Structure: 0.1% è il livello iniziale di Binance.",
                     "updated": 1618060361331,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fee Structure: 0.1% es el nivel inferior de Binance.",
+                    "updated": 1624453402067
                 }
             ]
         },
@@ -101,6 +111,11 @@
                     "text": "I restanti parametri non influenzano questa simulazione. Se vuoi saperne di più, consulta la sezione Trading Parameters nella documentazione.",
                     "updated": 1618060588588,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters consulte la documentación.",
+                    "updated": 1624453528622
                 }
             ]
         }

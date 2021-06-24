@@ -1,7 +1,14 @@
 {
     "type": "Task",
     "definition": {
-        "text": "A task is the device used to control bot instances, that is, to start and stop bots, including sensors, indicators and the trading bot."
+        "text": "A task is the device used to control bot instances, that is, to start and stop bots, including sensors, indicators and the trading bot.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un task es el dispositivo que se utiliza para controlar las instancias de bots, es decir, para iniciar y detener bots, incluidos sensores, indicadores y trading bots.",
+                "updated": 1624454879222
+            }
+        ]
     },
     "paragraphs": [
         {

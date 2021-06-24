@@ -2,7 +2,14 @@
     "type": "Asset",
     "definition": {
         "text": "An Asset is any artifact that belongs to the project. It can be a piece of software, a configuration, a plugin, some marketing material, a social media account, etc. Users votes on assets to influence their relative weight between each other. Those weight will then influence how many token will be given to the contributors who built or mantain that asset.",
-        "updated": 1622986734958
+        "updated": 1622986734958,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Asset es cualquier artefacto que pertenezca al proyecto. Puede ser una pieza de software, una configuración, un complemento, algún material de marketing, una cuenta de redes sociales, etc. Los usuarios votan sobre los activos para influir en su peso relativo entre ellos. Ese peso influirá en la cantidad de tokens que se otorgarán a los contribuyentes que construyeron o mantienen ese asset.",
+                "updated": 1624453802506
+            }
+        ]
     },
     "paragraphs": [
         {

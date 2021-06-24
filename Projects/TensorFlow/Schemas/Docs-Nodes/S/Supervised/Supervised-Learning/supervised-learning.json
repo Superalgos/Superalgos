@@ -2,7 +2,14 @@
     "type": "Supervised Learning",
     "definition": {
         "text": "Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).",
-        "updated": 1613197014944
+        "updated": 1613197014944,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Supervised learning es la tarea de aprendizaje automático de aprender una función que asigna una entrada a una salida en función de pares de entrada-salida de ejemplo. Infiere una función a partir de datos de entrenamiento etiquetados que consisten en un conjunto de ejemplos de entrenamiento. En el aprendizaje supervisado, cada ejemplo es un par que consta de un objeto de entrada (típicamente un vector) y un valor de salida deseado (también llamado señal de supervisión).",
+                "updated": 1624495482873
+            }
+        ]
     },
     "paragraphs": [
         {

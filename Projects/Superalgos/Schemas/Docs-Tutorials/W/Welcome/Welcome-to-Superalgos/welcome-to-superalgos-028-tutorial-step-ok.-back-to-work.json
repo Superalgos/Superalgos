@@ -23,8 +23,8 @@
             },
             {
                 "language": "ES",
-                "text": "Ahora que te sientes cómodo por aqui, quiero que hagas un pequeño recorrido explorando la sección Data Tasks de la jerarquía.",
-                "updated": 1618439383864,
+                "text": "\nAhora que te siente cómodo moviéndote, quiero que realices un pequeño recorrido explorando la sección Data Tasks  del nodo Network.",
+                "updated": 1624493667835,
                 "style": "Definition"
             }
         ],
@@ -121,8 +121,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Salga y explore esos nodos y sus menús.",
-                    "updated": 1618439650404,
+                    "text": "Sal y explora esos nodos y sus menús.",
+                    "updated": 1624493680231,
                     "style": "Callout"
                 }
             ]

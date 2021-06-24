@@ -40,6 +40,14 @@
     ],
     "definition": {
         "text": "The Production Trading Tasks node organizes trading sessions involving live trading.",
-        "updated": 1609666696048
+        "updated": 1609666696048,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo Production Trading Tasks organiza sesiones de trading incluyendo trading en vivo.",
+                "updated": 1624490715363,
+                "style": "Definition"
+            }
+        ]
     }
 }

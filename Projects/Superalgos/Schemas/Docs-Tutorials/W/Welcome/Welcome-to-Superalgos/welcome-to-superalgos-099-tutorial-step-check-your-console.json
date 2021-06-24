@@ -14,6 +14,11 @@
                 "text": "Se non vedi alcun errore sulla Trading Process Instance, probabilmente sta andando tutto bene!",
                 "updated": 1618071552567,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si no ve ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien!",
+                "updated": 1624484464060
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Comunque, puoi controllare sulla console application e vedere se noti qualcosa di anomalo.",
                     "updated": 1618071581430,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sin embargo, es posible que desee echar un vistazo a la aplicación de su consola y ver si notas algo fuera de lo normal.",
+                    "updated": 1624484492766
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Dai un'occhiata alla console app!",
                     "updated": 1618071594539,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Echa un vistazo a la aplicación de tu consola!",
+                    "updated": 1624496957961
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Dovresti vedere le esecuzioni alternate delle Candles-Volumes e degli indicatori Resistances-And-Supports, con il Low-Frequency Trading Bot.",
                     "updated": 1618071644756,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Deberías poder ver las ejecuciones alternas de los indicadores Candles-Volumes y Resistances-And-Support, con el Low-Frequency Trading Bot",
+                    "updated": 1624484628678
                 }
             ]
         }

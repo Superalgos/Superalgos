@@ -1,7 +1,14 @@
 {
     "type": "Close Stage",
     "definition": {
-        "text": "The close stage deals with the definitions that make up the logic to close a position, including the target rate and size, and order execution."
+        "text": "The close stage deals with the definitions that make up the logic to close a position, including the target rate and size, and order execution.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El close stage se ocupa de las definiciones que componen la lógica para cerrar una posición, incluida la tasa y el tamaño objetivo, y la ejecución de la orden.",
+                "updated": 1624460574874
+            }
+        ]
     },
     "paragraphs": [
         {

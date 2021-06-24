@@ -1327,19 +1327,19 @@
                 },
                 {
                     "type": "Pool Class",
-                    "name": "Liquid Democracy Program",
+                    "name": "Staking Program",
                     "config": "{}",
                     "project": "Governance",
                     "poolClasses": [],
                     "pools": [
                         {
                             "type": "Pool",
-                            "name": "Liquid Democracy Bonus",
-                            "config": "{\n    \"codeName\": \"Liquid-Democracy-Bonus\"\n}",
+                            "name": "Staking Rewards",
+                            "config": "{\n    \"codeName\": \"Staking-Rewards\"\n}",
                             "project": "Governance",
                             "poolClasses": [],
                             "pools": [],
-                            "id": "24e62dd3-4d7b-4eba-b401-493c155d85d0",
+                            "id": "d2cf4c65-b4bd-4fa8-b0da-f73a38b8419a",
                             "savedPayload": {
                                 "position": {
                                     "x": 25719.864024962837,
@@ -1363,7 +1363,7 @@
                             }
                         }
                     ],
-                    "id": "f09429a2-3f6c-4210-bb73-0c8efd254c82",
+                    "id": "68e3f570-4156-4be6-8881-c526a06f85d0",
                     "savedPayload": {
                         "position": {
                             "x": 25430.086277076116,
@@ -1388,19 +1388,19 @@
                 },
                 {
                     "type": "Pool Class",
-                    "name": "Staking Program",
+                    "name": "Delegation Program",
                     "config": "{}",
                     "project": "Governance",
                     "poolClasses": [],
                     "pools": [
                         {
                             "type": "Pool",
-                            "name": "Staking Rewards",
-                            "config": "{\n    \"codeName\": \"Staking-Rewards\"\n}",
+                            "name": "Delegation Bonus",
+                            "config": "{\n    \"codeName\": \"Delegation-Bonus\"\n}",
                             "project": "Governance",
                             "poolClasses": [],
                             "pools": [],
-                            "id": "d2cf4c65-b4bd-4fa8-b0da-f73a38b8419a",
+                            "id": "24e62dd3-4d7b-4eba-b401-493c155d85d0",
                             "savedPayload": {
                                 "position": {
                                     "x": 25735.17544601368,
@@ -1424,7 +1424,7 @@
                             }
                         }
                     ],
-                    "id": "68e3f570-4156-4be6-8881-c526a06f85d0",
+                    "id": "f09429a2-3f6c-4210-bb73-0c8efd254c82",
                     "savedPayload": {
                         "position": {
                             "x": 25437.741987601537,

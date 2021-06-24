@@ -113,7 +113,8 @@ function newGovernanceFunctionLibraryTokenPower() {
                 node.type === 'Support Program' ||
                 node.type === 'Voting Program' ||
                 node.type === 'Claims Program' ||
-                node.type === 'Staking Program'
+                node.type === 'Staking Program' ||
+                node.type === 'Delegation Program'
             ) { return }
             /*
             We will redistribute token power among children.

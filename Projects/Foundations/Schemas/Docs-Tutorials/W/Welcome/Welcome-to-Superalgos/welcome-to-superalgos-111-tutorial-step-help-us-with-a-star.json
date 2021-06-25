@@ -15,6 +15,11 @@
                 "text": "Ti è piaciuto questo tutorial? Ti va di mostrare gratitudine alla Community dando alla repo di Superalgos una stella?",
                 "updated": 1618649022612,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Espero que hayas disfrutado este tutorial! ¿Te gustaría mostrar su gratitud dando una estrella al repositorio de Superalgos?",
+                "updated": 1624487811463
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Altri utenti hanno impiegato il loro tempo e i loro sforzi per creare tutorials in modo da darti un'esperienza migliore! Dare una stella alla nostra repo è un buon modo per dire \"grazie\"! Le stelle migliorano il ranking nelle ricerche su Github. Più stelle ha il progetto, più è facile per altri trovarlo e contribuirvi: dare una stella alla repo può quindi essere anche nel tuo interesse!",
                     "updated": 1618649405317,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Los usuarios que vinieron antes que tu dedicaron tiempo y esfuerzo a crear tutoriales para que puedas tener una mejor experiencia! ¡Dar una estrella a nuestro repositorio es una buena manera de agradecer! Mejoran la clasificación en la búsqueda de Github. ¡Cuantas más, más fácil será para los desarrolladores encontrar y contribuir a Superalgos! ¡Dar una estrella al repositorio también sirve a tus propios intereses!",
+                    "updated": 1624488031497
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Se non lo hai già fatto, torna al nostro repository e clicca il bottone a forma di stella nell'angolo in alto a destra!",
                     "updated": 1618649349174,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a nuestro repositorio y haz clic en el botón Estrella en la esquina superior derecha.",
+                    "updated": 1624488049094
                 }
             ]
         },

@@ -72,8 +72,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Busque el Tutorial Topic y reprodúzcalo! Puede encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
-                    "updated": 1618436934915,
+                    "text": "Busca el Tutorial Topic y reprodúcelo! Puedes encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
+                    "updated": 1624491569008,
                     "style": "List"
                 }
             ]
@@ -97,8 +97,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Necesitas refrescar tu memoria? Busque el paso en el tema de Tutorials & Help. A continuación, haga clic en Stop y reinicie haciendo clic en Play en dicho paso del tutorial.",
-                    "updated": 1618437112467,
+                    "text": "¿Necesita un recordatorio rápido? Busca este paso en el tema \"Tutorials & Help\". A continuación, haz clic en Stop y reinicia haciendo clic en Play en dicho Paso del tutorial.",
+                    "updated": 1624491749893,
                     "style": "Callout"
                 }
             ]

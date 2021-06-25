@@ -14,6 +14,11 @@
                 "text": "Ora diamo un'occhiata al modo in cui il sistema rappresenta i dati sui grafici.",
                 "updated": 1615963273716,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Dejando atrás las escalas, echemos un vistazo a cómo el sistema hace que los datos estén disponibles en los gráficos.",
+                "updated": 1624409028040
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Ogni Timeline Chart ha un corrispondente Layer Manager, rappresentato come un menù a tendina che mostra i vari layers.",
                     "updated": 1615963369522,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cada Timeline Chart tiene un Layer Manager asociado, que se representa como un menú desplegable que enumera varias capas.",
+                    "updated": 1624409085765
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Per aprire un layer manager, scorri la rotella del mouse sulla sua testata. Usa la rotella del mouse anche per scorrere i suoi contenuti!",
                     "updated": 1615963411220,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para abrir un Layers Manager, desplaza la rueda del mouse en su encabezado. ¡Usa la rueda del mouse para desplazarte por su contenido también!",
+                    "updated": 1624409187619
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Guarda il prossimo video per dettagli più chiari...",
                     "updated": 1615963431549,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve el video en el siguiente paso para mayor claridad ...",
+                    "updated": 1624409230888
                 }
             ]
         }

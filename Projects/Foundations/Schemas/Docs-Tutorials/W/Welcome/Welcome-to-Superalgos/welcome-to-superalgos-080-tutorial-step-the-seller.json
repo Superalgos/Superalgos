@@ -14,6 +14,11 @@
                 "text": "Ora siamo nel Close Stage. Pensavo sarebbe stato interessante dirti di più sugli Execution Algorithm con un altro esempio.",
                 "updated": 1618065500220,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora estamos en el Close Stage. Pensé que sería interesante contarte más sobre los algoritmos de ejecución, con otro ejemplo.",
+                "updated": 1624460166181
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Un Execution Algorithm può gestire più ordini di ogni tipo. In questo caso, vari limit sell orders sono definiti.",
                     "updated": 1618065545085,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Un Execution Algorithm puede manejar múltiples pedidos, de todo tipo. En este caso, se definen múltiples órdenes de venta límite.",
+                    "updated": 1624460189547
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Seleziona Configure dal menu dell'algoritmo e rifletti sulle implicazioni di questa definizione!",
                     "updated": 1618065569642,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Configure en el menú del algoritmo y reflexiona sobre las implicaciones de esta definición.",
+                    "updated": 1624460238790
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Sia l'Open Stage, dove definisci come aprire una posizione, che il Close Stage, dove invece definisci come chiuderla, possono contenere diversi Execution Algorithm, ognuno dei quali gestisce un certo capitale.",
                     "updated": 1618065707647,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tanto la etapa abierta, donde se define cómo tomar una posición, como la etapa de cierre, donde se define cómo salir, pueden presentar múltiples algoritmos de ejecución, cada uno de los cuales maneja una cierta cantidad de capital.",
+                    "updated": 1624460260432
                 }
             ]
         }

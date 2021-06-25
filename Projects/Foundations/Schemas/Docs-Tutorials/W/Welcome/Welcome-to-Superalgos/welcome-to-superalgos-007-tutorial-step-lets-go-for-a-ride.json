@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Antes de mostrarte el resto del menú, vamos a echar un vistazo a otra jerarquía: la Network.",
-                "updated": 1613595345116,
+                "text": "Antes de mostrarte el resto del menú, echaremos un vistazo a otra jerarquía: la Network.",
+                "updated": 1624280539021,
                 "style": "Definition"
             },
             {
@@ -30,7 +30,8 @@
             {
                 "language": "FR",
                 "text": "Avant de vous montrer le reste du menu, jetons un coup d'œil à une autre hiérarchie : le réseau.",
-                "updated": 1623951418764
+                "updated": 1623951418764,
+                "style": "Definition"
             }
         ]
     },
@@ -60,7 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Le Network hiérarchie réseau est la salle de contrôle du système. C'est là que vous contrôlez vos Data Tasks, les Testing Trading Tasks, et les Production Trading Tasks.",
-                    "updated": 1623952138963
+                    "updated": 1623952138963,
+                    "style": "Text"
                 }
             ]
         },
@@ -76,8 +78,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Amplíe la jerarquía y eche un vistazo al interior.",
-                    "updated": 1613595398384,
+                    "text": "Amplía la jerarquía y echa un vistazo al interior.",
+                    "updated": 1624490739300,
                     "style": "Callout"
                 },
                 {
@@ -89,7 +91,8 @@
                 {
                     "language": "FR",
                     "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
-                    "updated": 1623952177269
+                    "updated": 1623952177269,
+                    "style": "Callout"
                 }
             ]
         },
@@ -106,8 +109,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para empezar su primera operación de minería de datos.",
-                    "updated": 1618432296243,
+                    "text": "¿Ves los nodos que he mencionado antes? Genial. Estamos aquí para empezar tu primera operación de minería de datos.",
+                    "updated": 1624490750498,
                     "style": "Text"
                 },
                 {
@@ -119,7 +122,8 @@
                 {
                     "language": "FR",
                     "text": "Voyez les nœuds que j'ai mentionnés plus tôt ? Cool ! Nous sommes ici pour commencer votre toute première opération de minage d'informations.",
-                    "updated": 1623952241074
+                    "updated": 1623952241074,
+                    "style": "Text"
                 }
             ]
         },
@@ -135,8 +139,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Pero antes de empezar, tengo una pregunta para ti, estas accediendo al cliete de forma remota? ",
-                    "updated": 1618432190261,
+                    "text": "Pero antes de empezar, tengo una pregunta para ti, ¿estas accediendo al cliete de forma remota?",
+                    "updated": 1624281774932,
+                    "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Mais avant de commencer, j'ai une petite question pour vous : accédez-vous au Client a distance?",
+                    "updated": 1623952297046,
                     "style": "Note"
                 },
                 {

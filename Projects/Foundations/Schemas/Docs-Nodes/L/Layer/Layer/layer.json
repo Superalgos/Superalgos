@@ -1,7 +1,14 @@
 {
     "type": "Layer",
     "definition": {
-        "text": "A layer represents a reference to a data product in the data storage node of the network hierarchy. Conceptually, it means that a certain data product, which exists in a certain location on the network, holds the data to be rendered on the charts."
+        "text": "A layer represents a reference to a data product in the data storage node of the network hierarchy. Conceptually, it means that a certain data product, which exists in a certain location on the network, holds the data to be rendered on the charts.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un layer representa una referencia a un producto de datos en el nodo de almacenamiento de datos de la jerarquía de red. Conceptualmente, significa que un determinado producto de datos, que existe en una determinada ubicación de la red, contiene los datos que se van a representar en los gráficos.",
+                "updated": 1624410918494
+            }
+        ]
     },
     "paragraphs": [
         {

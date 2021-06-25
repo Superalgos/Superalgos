@@ -1,7 +1,14 @@
 {
     "type": "Execution Algorithm",
     "definition": {
-        "text": "An execution algorithm is a set of instructions used to place and manage orders at the exchange."
+        "text": "An execution algorithm is a set of instructions used to place and manage orders at the exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un execution algorithmes es un conjunto de instrucciones que se utilizan para realizar y gestionar pedidos en el exchange.",
+                "updated": 1624459612098
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -14,6 +14,11 @@
                 "text": "Guarda questa tabella per interpretare i livelli di supporto che vedi sul grafico.",
                 "updated": 1618062212883,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Consulta la tabla a continuación y ve si puedes interpretar los niveles de soporte que ve en los gráficos.",
+                "updated": 1624457874092
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "text": "<br>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
                     "updated": 1618062387108,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para un nuevo nivel de soporte con un rechazo, la línea de puntos marca el nivel exacto en el que rebotó el precio. Para más rechazos, los bloques marcan los rangos de tasas en los que se cuentan los rechazos posteriores.",
+                    "updated": 1624457944186
                 }
             ]
         }

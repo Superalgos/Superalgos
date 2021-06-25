@@ -20,6 +20,11 @@
                 "text": "Membutuhkan hingga satu menit untuk semua tasks agar sampai berhenti. Jangan menutup sistem sebelum semua tasks berhenti.",
                 "updated": 1616932775779,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Es posible que todas las tareas demoren hasta un minuto en detenerse. Nunca debes cerrar el sistema antes de que se detengan todas las tareas.",
+                "updated": 1624378126979
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Periksa console app untuk melihat tasks berhenti!",
                     "updated": 1616932267740,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Abre la consola y ve cómo se detienen las tareas!",
+                    "updated": 1624378638174
                 }
             ],
             "updated": 1616416021973
@@ -52,6 +62,11 @@
                     "text": "Cara yang tepat untuk menutup Superalgos adalah:",
                     "updated": 1616932216490,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "La forma correcta de cerrar Superalgos es:",
+                    "updated": 1624378683201
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "text": "Matikan semua tasks dan tunggu beberapa menit.",
                     "updated": 1616932788679,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Detenga todas las tareas y espere un par de minutos.",
+                    "updated": 1624378709686
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "text": "Setelah semua tasks berhenti kamu harus menutup console app.",
                     "updated": 1616932273154,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando se detengan, puedes cerrar la consola o detener el proceso con Ctrl + Key-C.",
+                    "updated": 1624378795195
                 }
             ]
         },
@@ -90,6 +115,11 @@
                     "text": "Kamu akan menutup browser dan membiarkan tasks memproses dilatar belakang.",
                     "updated": 1616932749614,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Puede cerrar el navegador en cualquier momento y dejar el procesamiento de tareas en segundo plano.",
+                    "updated": 1624378837651
                 }
             ]
         },
@@ -103,6 +133,11 @@
                     "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt!",
                     "updated": 1616932378361,
                     "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Cerrar el Client antes de que se detengan las tareas puede hacer que tus datos se corrompan!",
+                    "updated": 1624378921806
                 }
             ]
         }

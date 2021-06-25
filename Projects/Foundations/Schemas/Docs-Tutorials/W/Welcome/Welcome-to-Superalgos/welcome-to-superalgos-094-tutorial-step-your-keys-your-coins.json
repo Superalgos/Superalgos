@@ -15,6 +15,11 @@
                 "text": "Qui è dove configuro le Exchange Account Key per la Live Trading Session del Lightning Strike Trading System.",
                 "updated": 1618070825773,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Aquí es donde configuras tu Exchange Account Key para el Live Trading Session del Lightning Strike Trading System.",
+                "updated": 1624473031635
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Accedi alla configurazione e inserisci attentamente la API Public Key e la API Secret Key.",
                     "updated": 1618070869172,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "En la configuración ingresa cuidadosamente la clave pública API y la clave secreta API.",
+                    "updated": 1624479173958
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Cancella prima la stringa di testo di default per ogni parametro, così da non rischiare errori inserendo le tue chiavi.",
                     "updated": 1618070932988,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Primero elimina el texto predeterminado para cada parámetro, de modo que ningún carácter extraño se mezcle con las claves.",
+                    "updated": 1624474054393
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "L'Exchange Account Key è salvata nel workspace file. È utilizzata dal Trading Bot per autenticarsi sull'exchange quando gestisce gli ordini. Non viene inviata nè salvata in nessun'altro luogo.",
                     "updated": 1618071006665,
                     "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "La Exchange Account Key se almacena en el User Workspace, sin cifrar para autenticarse con el exchange. Nunca se envía ni se almacena en otro lugar. No compartas este espacio de trabajo hasta que aprendas cómo hacerlo de forma segura en el siguiente tutorial.",
+                    "updated": 1624479154981
                 }
             ]
         }

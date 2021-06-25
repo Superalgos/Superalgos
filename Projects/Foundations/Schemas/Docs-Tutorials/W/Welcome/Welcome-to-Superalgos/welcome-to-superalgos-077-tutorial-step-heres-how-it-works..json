@@ -14,6 +14,11 @@
                 "text": "Hai capito? Il Trading Bot piazza i Limit Buy Order al quarto livello di supporto! Qual'è la logica di questa scelta?",
                 "updated": 1618064697343,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¿Entiendes? ¡El Trading botl coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
+                "updated": 1624458595413
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "È una scelta più o meno arbitraria, ma la strategia definisce come \"falling knife\" la price action che riesce a rompere almeno tre livelli di supporto e raggiungere il quarto nel giro di un singolo minuto. Statisticamente, questi eventi (su questo time frame) producono più rimbalzi che proseguimenti. Possono essere causati da market orders di grandi dimensioni che aumentano temporaneamente il bid/ask spread nell'order book.",
                     "updated": 1618064825884,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Es algo arbitrario, pero la estrategia define un cuchillo que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
+                    "updated": 1624458684445
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quarto supporto!",
                     "updated": 1618064944102,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte!",
+                    "updated": 1624458716693
                 }
             ]
         }

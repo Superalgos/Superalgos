@@ -14,6 +14,11 @@
                 "text": "Prima di lanciare la Live Trading Session, assicurati di avere abbastanza USDT nel tuo wallet spot sull'exchange.",
                 "updated": 1618070262891,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Antes de ejecutar el Live Trading Session, asegúrate de tener suficiente saldo en USDT al contado en el exchange.",
+                "updated": 1624471256717
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione!",
                     "updated": 1618070327486,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eche un vistazo a su saldo en el exchange y organiza suficientes USDT para la sesión!",
+                    "updated": 1624471291732
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Il Trading Bot inserirà un limit order del valore di initialBalance, e lo cancellerà il minuto successivo se non viene evaso, come spiegato prima.",
                     "updated": 1618070448288,
                     "style": "Important"
+                },
+                {
+                    "language": "ES",
+                    "text": "El Trading Bot colocará una orden limitada para el inicialBalance y la cancelará al minuto siguiente en caso de que no se complete, como se explicó anteriormente.",
+                    "updated": 1624471439730
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Continua il tutorial anche se non sei pronto al live trading. Imparerai altri trucchi utili prima della fine.",
                     "updated": 1618070434600,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial!",
+                    "updated": 1624471521635
                 }
             ]
         }

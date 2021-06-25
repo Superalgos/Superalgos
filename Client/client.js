@@ -6,7 +6,7 @@ global.env = ENVIRONMENT_MODULE
 
 process.on('uncaughtException', function (err) {
     if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-        console.log("A Superalgos Client cannot be started. Reason: the port " + port + " is being used by another application.")
+        console.log("A Superalgos Client cannot be started. Reason: the port configured migth be being used by another application.")
         return
     }
     console.log('[ERROR] Client -> client-> uncaughtException -> err.message = ' + err.message)

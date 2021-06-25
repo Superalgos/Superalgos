@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hay una manera facil de empezar con un espacio de trabajo como nuevo",
-                    "updated": 1618438101054,
+                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace!",
+                    "updated": 1624292407924,
                     "style": "Callout"
                 }
             ],
@@ -83,7 +83,14 @@
         {
             "style": "Note",
             "text": "Plugin Workspaces are first in the list, featuring a black background. Then comes the list of user workspaces, on a purple background.",
-            "updated": 1622634460755
+            "updated": 1622634460755,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Plugin Workspaces son los primeros en la lista con un fondo negro. Luego viene la lista de espacios de trabajo de usuarios, sobre un fondo violeta.",
+                    "updated": 1624292101033
+                }
+            ]
         }
     ]
 }

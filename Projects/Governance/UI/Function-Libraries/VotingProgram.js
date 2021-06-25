@@ -19,7 +19,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
             pools,
             userProfiles,
             "votingProgram",
-            "Voting-Bonus"
+            "Voting-Bonus",
+            "Voting Program"
         )
 
         /* Reset Votes at Pools */

@@ -15,7 +15,8 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             pools,
             userProfiles,
             "delegationProgram",
-            "Delegation-Bonus"
+            "Delegation-Bonus",
+            "Delegation Program"
         )
         /*
         We will first reset all the delegate power, and then distribute it.

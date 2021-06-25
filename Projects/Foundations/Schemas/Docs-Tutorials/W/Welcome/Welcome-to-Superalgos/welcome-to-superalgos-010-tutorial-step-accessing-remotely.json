@@ -30,12 +30,8 @@
             {
                 "language": "FR",
                 "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-010-tutorial-step-accessing-remotely.json
                 "updated": 1623958262097,
                 "style": "Definition"
-=======
-                "updated": 1623958262097
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-010-tutorial-step-accessing-remotely.json
             }
         ]
     },
@@ -65,12 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Si vous accédez au Client à partir d'une connectio a distance, vous devez ajuster la configuration du nœud de réseau avant de poursuivre.",
-<<<<<<< HEAD:Projects/Superalgos/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-010-tutorial-step-accessing-remotely.json
                     "updated": 1623958370168,
                     "style": "Text"
-=======
-                    "updated": 1623958370168
->>>>>>> 5d109c271da2e554958b5bf4e5c8a5b3a1893517:Projects/Foundations/Schemas/Docs-Tutorials/W/Welcome/Welcome-to-Superalgos/welcome-to-superalgos-010-tutorial-step-accessing-remotely.json
                 }
             ]
         },

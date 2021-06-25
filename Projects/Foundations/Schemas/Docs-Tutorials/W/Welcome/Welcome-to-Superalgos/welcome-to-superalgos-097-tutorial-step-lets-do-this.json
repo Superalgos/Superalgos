@@ -14,6 +14,11 @@
                 "text": "Abbiamo completato tutti e tre i punti sulla nostra checklist e siamo pronti a partire!",
                 "updated": 1618071368189,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
+                "updated": 1624483496936
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra!",
                     "updated": 1618071413222,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session más abajo en la jerarquía!",
+                    "updated": 1624483579082
                 }
             ],
             "updated": 1622233324259
@@ -40,6 +50,11 @@
                     "text": "Una volta lanciata la sessione, il trading bot può dover attendere fino a 60 secondi perchè gli ultimi indicatori terminino. Una volta completati, vedrai la data corrente e un progresso dello 0% sotto la Trading Process Instance, che rimarrà così per tutta la durata della sessione.",
                     "updated": 1618071515418,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que ejecute la sesión, es posible que el Trading Bot tenga que esperar hasta 60 segundos para que el último indicador termine de procesarse. Una vez que lo haga, verá la fecha actual y un aviso de progreso del 0% en la Trading Process Instance, que permanecerá así durante toda la ejecución, porque no estamos estableciendo un límite de tiempo para la sesión.",
+                    "updated": 1624483658880
                 }
             ],
             "updated": 1622233370311

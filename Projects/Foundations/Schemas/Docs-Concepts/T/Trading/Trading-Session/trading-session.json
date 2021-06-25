@@ -2,7 +2,14 @@
     "type": "Trading Session",
     "definition": {
         "text": "Superalgos features four types of trading sessions: Backtesting Session, Paper Trading Session, Forward Testing Session, and Live Trading Session. ",
-        "updated": 1611937769498
+        "updated": 1611937769498,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos presenta cuatro tipos de sesiones de trading: Backtesting Session, Paper Trading Session, Forward Testing Session, y Live Trading Session.",
+                "updated": 1624452309505
+            }
+        ]
     },
     "paragraphs": [
         {

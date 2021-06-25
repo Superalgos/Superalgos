@@ -24,8 +24,14 @@
             },
             {
                 "language": "ES",
-                "text": "Aunque hardware minimalista como la Raspberry Pi puede manejar el Cliente Superalgos y ejecutar las trading y data task. Puede ser necesaria mas potencia para correr la UI.",
-                "updated": 1618432603490,
+                "text": "Aunque hardware minimalista como la Raspberry Pi puede manejar el Cliente Superalgos y ejecutar las trading y data task. Puede ser necesaria mas potencia para correr el UI.",
+                "updated": 1624490873521,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
+                "updated": 1623959646265,
                 "style": "Definition"
             },
             {
@@ -62,7 +68,8 @@
                 {
                     "language": "FR",
                     "text": "L'idée principale pour executer le Client dans un petit matériel physique ou virtuel est de maximiser la rentabilité pour un faible cout. Dans ce contexte, le UI est utilisée au minimum.",
-                    "updated": 1623959843971
+                    "updated": 1623959843971,
+                    "style": "Text"
                 }
             ]
         },
@@ -85,8 +92,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Recomendamos utilizar un PC normal mientras aprendes a usara SA. Si nota que su hardware es demasiado lento durante el tutorial, considere la posibilidad de usar un PC normal hasta que aprenda el sistema, desarrolle sus primeras estrategias y esté listo para desplegarlo. De lo contrario, puede ser frustrante.",
-                    "updated": 1617885366802,
+                    "text": "Recomendamos utilizar un PC normal mientras aprendes a usara SA. Si nota que tu hardware es demasiado lento durante el tutorial, considera la posibilidad de usar un PC normal hasta que aprendas el sistema, desarrolles tus primeras estrategias y estés listo para desplegarlo. De lo contrario, puede ser frustrante.",
+                    "updated": 1624490865783,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous recommandons vivement d'apprendre Superalgos en l'exécutant dans une machine de puissance commune. Si vous remarquez que votre petite machine est trop lente pendant ce tutoriel, envisagez d'utiliser du matériel de meilleurs capacité, jusqu'à ce que vous appreniez le système, construisiez vos premières stratégies. et soyez prêt à vous déployer. Sinon, cela peut être frustrant.",
+                    "updated": 1623960113019,
                     "style": "Success"
                 },
                 {

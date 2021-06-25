@@ -20,6 +20,11 @@
                 "text": "Aku tahu!, Memperbesar ke tempat acak tidak seperti langsung menuju ke kotak chart discreenmu, benar? Jangan khawatir... Coba trik ini!",
                 "updated": 1616948885540,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco!",
+                "updated": 1624384343958
             }
         ],
         "updated": 1616417516192
@@ -35,6 +40,11 @@
                     "text": "Menyesuaikan aspect ratio: Point mouse-mu ke chart dan tekan Ctrl + Shift + Key-A",
                     "updated": 1616948923519,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Adjust the aspect ratio: Apunta al gráfico Backtesting Session (está en la parte superior) y presione Ctrl + Shift + Key-A",
+                    "updated": 1624403928721
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Zoom out: gunakan mouse wheel untuk memposisikan zoom out terkecil; hanya dari posisi ini perintah berikutnya akan bekerja!",
                     "updated": 1616949119939,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
+                    "updated": 1624403987866
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "text": "Double-click sekali: Ini memusatkan chart dan membawamu ke tingkat zoom tertentu; margin terlihat kekiri agar pas dengan nama dan tab chart di sudut kiri atas.",
                     "updated": 1616949208729,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Double-click once: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
+                    "updated": 1624384580827
                 }
             ],
             "updated": 1616418234728
@@ -84,6 +104,11 @@
                     "text": "Double-click lagi: Ini membawamu lebih jauh kedalam bagan, tingkat zoom ini secara sempurna cocok dengan layar beserta layer managers yang muncul.",
                     "updated": 1616949317416,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Double-click again: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
+                    "updated": 1624404060794
                 }
             ],
             "updated": 1622198926988

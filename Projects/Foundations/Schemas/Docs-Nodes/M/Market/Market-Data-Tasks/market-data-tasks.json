@@ -1,7 +1,14 @@
 {
     "type": "Market Data Tasks",
     "definition": {
-        "text": "A market data tasks node groups data mining tasks operating in a specific market."
+        "text": "A market data tasks node groups data mining tasks operating in a specific market.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo market data task agrupa tareas de minería de datos que operan en un mercado específico.",
+                "updated": 1624379923791
+            }
+        ]
     },
     "paragraphs": [
         {

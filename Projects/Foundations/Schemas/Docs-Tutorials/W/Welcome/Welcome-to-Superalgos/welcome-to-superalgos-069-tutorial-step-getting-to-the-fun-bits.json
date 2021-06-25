@@ -14,6 +14,11 @@
                 "text": "Mi sono preso la libertà di portarti in un particolare momento del tempo, per mostrarti cosa succede.",
                 "updated": 1618060917160,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Me tomé la libertad de llevarlos a un momento particular en el tiempo, interesante para lo que viene a continuación.",
+                "updated": 1624454940309
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Stai per assistere alla bellezza delle simulazioni. Sono una simulazione? O lo sei tu? È reale tutto ciò?",
                     "updated": 1618060948467,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estás a punto de estar expuesto a la belleza de las simulaciones. ¿Soy una simulación? ¿Eres tú? ¿Es todo esto real?",
+                    "updated": 1624454971486
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Guardati intorno e decidilo tu!",
                     "updated": 1618060965103,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Mira a tu alrededor y decide por ti mismo!",
+                    "updated": 1624454989293
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Prima di tutto, nota che sei nel time frame 1-min, quindi queste sono candele da un minuto. L'intervallo di tempo sul tuo schermo è di circa un'ora, e si riferisce all'inizio del 1 settembre 2020.",
                     "updated": 1618061043559,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "En primer lugar, observa que ahora te encuentras en el marco de tiempo de 1 minuto, por lo tanto, estas son velas de 1 minuto. El lapso de tiempo en su pantalla es de poco más de una hora, a principios del 1 de septiembre de 2020.",
+                    "updated": 1624455028343
                 }
             ]
         }

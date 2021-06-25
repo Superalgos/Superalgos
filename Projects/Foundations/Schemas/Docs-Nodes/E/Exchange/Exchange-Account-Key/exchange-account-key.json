@@ -1,7 +1,14 @@
 {
     "type": "Exchange Account Key",
     "definition": {
-        "text": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API."
+        "text": "The exchange account key holds the definition of the key name and secret provided by the corresponding exchange to access the user account via the exchange API.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El exchange account key contiene la definición del nombre de la clave y el secreto proporcionado por el exchange correspondiente para acceder a la cuenta de usuario a través de la exchange API.",
+                "updated": 1624496637194
+            }
+        ]
     },
     "paragraphs": [
         {

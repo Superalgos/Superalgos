@@ -15,6 +15,11 @@
                 "text": "La gerarchia del Crypto Ecosystem è dove configuri con quali exchange e mercati operare, i tuoi account sugli exchange, le API keys, e così via.",
                 "updated": 1618070565551,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La jerarquía Crypto Ecosystem es donde configuras con qué exchanges y mercados trabajas, cuentas con exchanges claves API, etc.",
+                "updated": 1624472702090
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "A proposito di API Keys, quando crei la tua API key sull'exchange, considera quanto segue:",
                     "updated": 1618070606671,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Hablando de claves API, cuando cree su clave API Exchange en el exchange, considere lo siguiente:",
+                    "updated": 1624472510571
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Solo per Superalgos: crea una key che userai solo per Superalgos. Questo ti aiuterà a tenere traccia di ciò che Superalgos fa con il tuo account e prevenire conflitti con altri bot che magari usi.",
                     "updated": 1618070656250,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Exclusive for Superalgos: Crea una clave para usar excusivamente con Superalgos. Te ayudará a rastrear lo que Superalgos hace con tu cuenta y evitar conflictos con otros bots que puedas estar usando.",
+                    "updated": 1624472659237
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Non mettere restrizioni sull'IP: per evitare problemi mentre fai il tutorial (puoi aggiungere le restrizioni in un secondo momento, una volta capito il funzionamento del sistema).",
                     "updated": 1618070764665,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "No IP Restrictions: Es para evitar problemas al realizar el tutorial; puedes agregar restricciones más adelante, cuando sepas cómo funciona el sistema.",
+                    "updated": 1624472927607
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "Niente prelievi: Superalgos non gestisce ancora il trasferimento di fondi, quindi è meglio disabilitarli per ragioni di sicurezza.",
                     "updated": 1618070747185,
                     "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "No Withdrawals: Superalgos aún no maneja transferencias de fondos, por lo que no tiene sentido permitir retiros. Eliminar retiros por razones de seguridad.",
+                    "updated": 1624472633689
                 }
             ]
         }

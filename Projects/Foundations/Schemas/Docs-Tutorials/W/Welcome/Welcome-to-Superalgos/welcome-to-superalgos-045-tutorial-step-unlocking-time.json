@@ -14,6 +14,11 @@
                 "text": "Il motivo per cui non ti puoi muovere è che le scale sono bloccate in modalità automatica, così puoi trovare facilmente i dati dopo la tua prima operazione di mining.",
                 "updated": 1614893522639,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "No puedes moverte porque las escalas están bloqueadas en el modo automático para que puedas encontrar fácilmente los datos después de tu primera operación de minería de datos.",
+                "updated": 1624404740730
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Settare la Time Scale in modalità automatica fa sì che i dati sull'intera scala temporale vengano mostrati insieme sul grafico.",
                     "updated": 1614893577134,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Fijar el Time Scale en automático fuerza todo el rango de fecha y hora de los datos disponibles al gráfico.",
+                    "updated": 1624404973090
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Per cambiare tra automatico e manuale, premi Shift e ruota una volta la rotella del mouse sopra a una time scale box. Oppure, posiziona il cursore sulla scale box e usa i tasti freccia ↑ ↓.",
                     "updated": 1618647811116,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para alternar entre los modos automáticos y el manual, presiona Shift y haz un suave giro de un paso con la rueda del mouse en la parte superior del cuadro de escala de tiempo. O bien, también puedes colocar el mouse sobre el cuadro de escala y presionar ↑ ↓.",
+                    "updated": 1624405351031
                 }
             ],
             "updated": 1622199287763
@@ -53,6 +68,11 @@
                     "text": "Dovresti poterti muovere liberamente sull'asse X del grafico, ossia quella del tempo.",
                     "updated": 1618647843971,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora deberías poder moverte libremente en el eje X, es decir, el eje de tiempo del gráfico.",
+                    "updated": 1624405847740
                 }
             ]
         }

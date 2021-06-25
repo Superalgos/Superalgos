@@ -48,8 +48,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Dije antes que el Design Space es gigantesco, y lo decía en serio! Ir de una esquina a la opuesta llevaría cientos de clics y arrastres. Aunque el uso del teclado te permite desarrollar velocidades que te rompen el cuello, ¡no es tan guay como teletransportarse! Así es como funciona:",
-                    "updated": 1618435825322,
+                    "text": "Dije antes que el Design Space es gigantesco, ¡y lo decía en serio! Ir de una esquina a la opuesta llevaría cientos de clics y arrastres. Aunque el uso del teclado te permite desarrollar velocidades que te rompen el cuello, ¡no es tan guay como teletransportarse! Así es como funciona:",
+                    "updated": 1624285718470,
                     "style": "Text"
                 }
             ],
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic con el botón derecho para abrir el mapa y haz clic con el botón izquierdo en cualquier lugar para ir a ese punto específico.",
-                    "updated": 1618435846567,
+                    "text": "Haz clic con el botón derecho para abrir el mapa y clic con el izquierdo en cualquier lugar para ir a ese punto específico.",
+                    "updated": 1624285801118,
                     "style": "Callout"
                 }
             ]
@@ -95,6 +95,11 @@
                     "text": "Apakah kamu melihat aku dibawah kiri dari design space? Sekarang kamu menemukanku!",
                     "updated": 1616699370261,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¿Puedes verme en la esquina inferior izquierda del espacio de diseño? ¡Ahora sabes dónde encontrarme!",
+                    "updated": 1624285894970
                 }
             ]
         }

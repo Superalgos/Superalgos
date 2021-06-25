@@ -125,6 +125,13 @@
     ],
     "definition": {
         "text": "A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file.",
-        "updated": 1610620463347
+        "updated": 1610620463347,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Workspace es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
+                "updated": 1624292534795
+            }
+        ]
     }
 }

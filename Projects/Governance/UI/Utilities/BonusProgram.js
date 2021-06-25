@@ -9,7 +9,8 @@ function newFoundationsUtilitiesBonusProgram() {
         pools,
         userProfiles,
         programPropertyName,
-        programCodeName
+        programCodeName,
+        programNodeType
     ) {
         let programPoolTokenReward
         /*
@@ -30,39 +31,43 @@ function newFoundationsUtilitiesBonusProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            resetProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            validateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            validateProgram(program, userProfile)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            distributeProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            distributeProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            calculateProgram(program)
         }
 
         function resetProgram(node) {
@@ -77,17 +82,17 @@ function newFoundationsUtilitiesBonusProgram() {
             }
         }
 
-        function validateProgram(node) {
+        function validateProgram(node, userProfile) {
             /*
             This program is not going to run unless the Profile has Tokens, and for 
             that users needs to execute the setup procedure of signing their Github
             username with their private key.
             */
             if (
-                node.payload.parentNode.payload.parentNode.payload.blockchainTokens === undefined
+                userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.parentNode.payload.parentNode.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
         }

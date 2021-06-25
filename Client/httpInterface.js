@@ -1608,7 +1608,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 function onFilesReady(files) {
 
                     let schemaArray = []
-                    //                    let fileList = fs.readdirSync(filePath + '/' + folder)
                     for (let k = 0; k < files.length; k++) {
                         let name = files[k]
                         let nameSplitted = name.split(folder)
@@ -1619,17 +1618,19 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let fileToRead = filePath + folder + fileName
 
                         let fileContent = fs.readFileSync(fileToRead)
-                        let schemaDocument = JSON.parse(fileContent)
+                        let schemaDocument
+                        try {
+                            schemaDocument = JSON.parse(fileContent)
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                            respondWithContent("[]", httpResponse)
+                            return
+                        }
                         schemaArray.push(schemaDocument)
                     }
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
                 }
-
-                // console.log(filePath + '/' + folder)
-
-
-
             } catch (err) {
                 if (err.message.indexOf('no such file or directory') < 0) {
                     console.log('Could not send Schema:', filePath, schemaType)

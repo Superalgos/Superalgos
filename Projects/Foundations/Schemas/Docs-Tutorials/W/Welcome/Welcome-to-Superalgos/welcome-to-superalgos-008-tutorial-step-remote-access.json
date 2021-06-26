@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red",
-                "updated": 1618433029749,
+                "text": "Es posible ejecutar Superalgos en una maquina, y acceder desde el navegador de otra maquina en la misma red.",
+                "updated": 1624228666520,
                 "style": "Definition"
             },
             {
@@ -30,7 +30,8 @@
             {
                 "language": "FR",
                 "text": "Superalgos permet d'exécuter le Client sur une machine et d'y accéder via le navigateur depuis une autre machine du réseau.",
-                "updated": 1623952405992
+                "updated": 1623952405992,
+                "style": "Definition"
             }
         ],
         "updated": 1616410688496
@@ -61,7 +62,8 @@
                 {
                     "language": "FR",
                     "text": "De nombreux utilisateurs choisissent d'exécuter le Client dans le nuage, sur des machines à carte unique comme le Raspberry Pi, ou sur un PC dédié qu'ils peuvent laisser allumé en permanence lorsqu'ils négocient en direct. Le nœud de réseau My Computer représente la machine sur laquelle le Client est exécuté.",
-                    "updated": 1623952548227
+                    "updated": 1623952548227,
+                    "style": "Text"
                 }
             ]
         },
@@ -78,8 +80,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En este momento, Superalgos no implementa ninguna forma de seguridad. Debe utilizar el sistema únicamente en el contexto de una red de área local restringida. Si decide ejecutar el Cliente en la nube, deberá implementar su propia seguridad.",
-                    "updated": 1613595591178,
+                    "text": "En este momento, Superalgos no implementa ninguna forma de seguridad. Debe utilizar el sistema únicamente en el contexto de una red de área local restringida. Si decide ejecutar el Cliente en la nube, deberás implementar tu propia seguridad.",
+                    "updated": 1624490790000,
                     "style": "Warning"
                 },
                 {

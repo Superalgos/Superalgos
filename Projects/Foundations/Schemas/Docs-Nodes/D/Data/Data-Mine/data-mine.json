@@ -2,7 +2,14 @@
     "type": "Data Mine",
     "definition": {
         "text": "A data mine is a hierarchy that contains definitions of sensor and indicators bots, and their plotters. These definitions are consumed from the actual code of such bots.",
-        "updated": 1621708641767
+        "updated": 1621708641767,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Data Mine es una jerarquía que contiene definiciones de sensor, bots indicadores, y sus trazadores. Estas definiciones se obtienen del código de dichos bots.",
+                "updated": 1624230241851
+            }
+        ]
     },
     "paragraphs": [
         {

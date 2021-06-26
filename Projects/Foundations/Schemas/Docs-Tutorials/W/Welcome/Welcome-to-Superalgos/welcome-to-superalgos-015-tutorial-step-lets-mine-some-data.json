@@ -50,8 +50,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz click en el botón Run All Project Data Tasks!",
-                    "updated": 1618434334439,
+                    "text": "Haz clic en el botón \"Run all project data tasks\". Confirma la solicitud haciendo clic en el botón por segunda vez.",
+                    "updated": 1624491186735,
                     "style": "Callout"
                 }
             ]
@@ -74,8 +74,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Confirme la solicitud haciendo clic en el botón por segunda vez. En unos 30 segundos, debería ver un aviso de estado bajo el nodo Data Mining que indica que se está ejecutando 1 out of 1 Exchange Data Tasks.",
-                    "updated": 1618434426749,
+                    "text": "En unos 30 segundos, deberias ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
+                    "updated": 1624452903459,
                     "style": "Text"
                 }
             ],
@@ -99,8 +99,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Tu aplicación de consola, deberia mostrar algo similar a lo que aparece en el video, a continuación",
-                    "updated": 1618434455552,
+                    "text": "Tu aplicación de consola deberia mostrar algo similar a lo que aparece en el video a continuación..",
+                    "updated": 1624283587596,
                     "style": "Note"
                 }
             ]

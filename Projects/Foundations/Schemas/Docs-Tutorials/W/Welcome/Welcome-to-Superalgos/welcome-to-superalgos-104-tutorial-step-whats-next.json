@@ -14,6 +14,11 @@
                 "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare!",
                 "updated": 1618072213077,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hay toneladas de cosas que aún no hemos cubierto, ¡lo sé! ¡Solo mire alrededor! ¡Tantas cosas para ver! Es alucinante.",
+                "updated": 1624485720195
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Sono sicuro che hai ancora chissà quante domande che ti girano in testa...come costruisco le mie strategie? Come ne misuro la performance? Come costruisco un indicatore? Come configuro una trading farm? Come posso interfacciarmi con TradingView? Come configuro le notifiche Telegram?",
                     "updated": 1618072291773,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Estoy seguro de que todavía tienes toneladas de preguntas flotando en tu cabeza ... ¿Cómo creo mis propias estrategias? ¿Cómo mido el desempeño? ¿Cómo construyo un indicador? ¿Cómo implemento un Trading Farm? ¿Cómo puedo integrarme con TradingView? ¿Cómo configuro los anuncios de Telegram?",
+                    "updated": 1624485819701
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Non preoccuparti! Imparerai tutto! Ci sono altri tutorial e tonnellate di materiale da leggere! Penso sia una buona idea mostrarti velocemente il sistema di documentazione prima di salutarci!",
                     "updated": 1618072351473,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡No te preocupes! ¡Llegarás, amigo mío! ¡Hay más tutoriales y mucho material de lectura disponible! ¡Quizás sea una buena idea darle un vistazo rápido al sistema de documentación integrado antes de despedirme!",
+                    "updated": 1624485842059
                 }
             ]
         }

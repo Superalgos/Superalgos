@@ -1,7 +1,14 @@
 {
     "type": "Live Trading Session",
     "definition": {
-        "text": "A live trading session is a trading mode by which the trading bot instance reads a live market data feed, applies the rules as defined in the associated trading system, places the corresponding orders at the associated exchange, and stores the defined data products."
+        "text": "A live trading session is a trading mode by which the trading bot instance reads a live market data feed, applies the rules as defined in the associated trading system, places the corresponding orders at the associated exchange, and stores the defined data products.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un live trading session es un modo de trading mediante el cual el trading bot lee instantáneamente una fuente de datos de mercado en vivo, aplica las reglas definidas en el  Trading System asociado, coloca las órdenes correspondientes en el exchange asociado y almacena los productos de datos definidos.",
+                "updated": 1624375128544
+            }
+        ]
     },
     "paragraphs": [
         {

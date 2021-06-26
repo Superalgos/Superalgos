@@ -1,7 +1,14 @@
 {
     "type": "Data Mine Products",
     "definition": {
-        "text": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine."
+        "text": "Data mine products are references established with data mines to facilitate establishing data product references with multiple products in the given data mine.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Data mine products son referencias establecidas con minas de datos para facilitar el establecimiento de referencias de productos de datos con múltiples productos en la mina de datos dada.",
+                "updated": 1624413245579
+            }
+        ]
     },
     "paragraphs": [
         {

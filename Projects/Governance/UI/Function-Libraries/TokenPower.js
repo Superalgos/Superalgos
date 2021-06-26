@@ -82,19 +82,6 @@ function newGovernanceFunctionLibraryTokenPower() {
                 userProfile.payload.uiObject.setErrorMessage("You need to have a Token Power Switch child node.")
                 return
             }
-            if (userProfile.tokenPowerSwitch.referralProgram === undefined) {
-                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Referral Program child node.")
-                return
-            }
-            if (userProfile.tokenPowerSwitch.mentorshipProgram === undefined) {
-                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Mentorship Program child node.")
-                return
-            }
-            if (userProfile.tokenPowerSwitch.supportProgram === undefined) {
-                userProfile.tokenPowerSwitch.payload.uiObject.setErrorMessage("You need to have a Spupport Program child node.")
-                return
-            }
-
             distributeTokenPower(userProfile, tokenPower)
         }
 
@@ -113,7 +100,8 @@ function newGovernanceFunctionLibraryTokenPower() {
                 node.type === 'Support Program' ||
                 node.type === 'Voting Program' ||
                 node.type === 'Claims Program' ||
-                node.type === 'Staking Program'
+                node.type === 'Staking Program' ||
+                node.type === 'Delegation Program'
             ) { return }
             /*
             We will redistribute token power among children.
@@ -210,22 +198,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         }
 
         function getPercentage(node) {
-            /*
-            There are some system wide rules regarfing mandatory percentages,
-            we will apply them now.
-            */
-            switch (node.type) {
-                case 'Referral Program': {
-                    return 20
-                }
-                case 'Mentorship Program': {
-                    return 10
-                }
-                case 'Support Program': {
-                    return 10
-                }
-                default: return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
-            }
+            return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
         }
 
         function drawTokenPower(node, tokenPower, percentage) {

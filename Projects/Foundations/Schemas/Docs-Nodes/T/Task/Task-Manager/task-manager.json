@@ -1,7 +1,14 @@
 {
     "type": "Task Manager",
     "definition": {
-        "text": "A task manager is a device used to organize and control any number of tasks, which, in turn, control bot instances. You use a task manager to start or stop several tasks at the same time."
+        "text": "A task manager is a device used to organize and control any number of tasks, which, in turn, control bot instances. You use a task manager to start or stop several tasks at the same time.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un task manageres un dispositivo que se utiliza para organizar y controlar cualquier cantidad de tareas que, a su vez, controlan las instancias de bot. Utiliza un administrador de tareas para iniciar o detener varias tareas al mismo tiempo.",
+                "updated": 1624493800354
+            }
+        ]
     },
     "paragraphs": [
         {

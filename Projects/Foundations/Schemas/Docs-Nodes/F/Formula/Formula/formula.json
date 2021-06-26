@@ -1,7 +1,14 @@
 {
     "type": "Formula",
     "definition": {
-        "text": "A formula is a mathematical expression intended to determine a numerical value to be applied dynamically to a certain property."
+        "text": "A formula is a mathematical expression intended to determine a numerical value to be applied dynamically to a certain property.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Una fórmula es una expresión matemática destinada a determinar un valor numérico que se aplicará dinámicamente a una determinada propiedad.",
+                "updated": 1624460095928
+            }
+        ]
     },
     "paragraphs": [
         {

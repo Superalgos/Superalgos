@@ -14,6 +14,11 @@
                 "text": "Il capitale iniziale initialBalance è impostato a 100 USDT, ben al di sopra del limite minimo per transazione supportato da Binance.",
                 "updated": 1618069933006,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El balance inicial predeterminado se establece en 100 USDT, muy por encima del tamaño mínimo de transacción admitido por Binance.",
+                "updated": 1624470578837
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "initialBalance è definito nella configurazione del Session Quoted Asset. Esaminalo e decidi pure se preferisci cambiarlo!",
                     "updated": 1618069983048,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El balance inicial se define en la configuración del Session Quoted Asset. ¡Compruébalo y decide por ti mismo si deseas cambiarlo!",
+                    "updated": 1624470828900
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Binance definisce il valore minimo di una transazione in BTC, quindi il corrispondente valore in USDT varia molto nel tempo. Sei libero di provare con un importo minore dei 100 USDT iniziali. Riceverai un errore se l'importo è troppo piccolo, ma puoi provare di nuovo quante volte vuoi. Basta fermare la task, cambiare initialBalance nel Session Quoted Asset e riprovare!",
                     "updated": 1618070211585,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Binance define el tamaño mínimo de transacción en BTC, por lo que el requisito en USDT varía mucho con el tiempo. Establecí la cantidad 100 USDT para asegurarme que no se produzcan errores. Puedes probar con una cantidad menor. Obtendras errores si es demasiado pequeño, pero puedes intentarlo tantas veces como sea necesario. Solo deten la tarea, cambia el initialBalance en el Session Quoted Asset y vuelva a intentarlo.",
+                    "updated": 1624471145987
                 }
             ]
         }

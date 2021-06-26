@@ -30,7 +30,8 @@
             {
                 "language": "FR",
                 "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
-                "updated": 1623958262097
+                "updated": 1623958262097,
+                "style": "Definition"
             }
         ]
     },
@@ -60,7 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Si vous accédez au Client à partir d'une connectio a distance, vous devez ajuster la configuration du nœud de réseau avant de poursuivre.",
-                    "updated": 1623958370168
+                    "updated": 1623958370168,
+                    "style": "Text"
                 }
             ]
         },
@@ -83,8 +85,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haga clic en Configure en la esquina superior derecha del menú del Network Node.",
-                    "updated": 1618433342182,
+                    "text": "Haz clic en Configure en la esquina superior derecha del menú del Network Node.",
+                    "updated": 1624490907285,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
+                    "updated": 1623958430272,
                     "style": "List"
                 },
                 {
@@ -112,8 +120,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Cambie el parámetro de host por la dirección IP del equipo que corre el backend.",
-                    "updated": 1618433315923,
+                    "text": "Cambia el parámetro de host por la dirección IP del equipo que corre el backend.",
+                    "updated": 1624490919268,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend.",
+                    "updated": 1623958474738,
                     "style": "List"
                 },
                 {
@@ -141,8 +155,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Salga de la configuración quitando el cursor de la burbuja de configuración. Si la configuración es correcta, el mensaje de error en el Network Node debería desaparecer en un instante.",
-                    "updated": 1618433403504,
+                    "text": "Sal de la configuración quitando el cursor de la burbuja de configuración. Si la configuración es correcta, el mensaje de error en el Network Node debería desaparecer en un instante.",
+                    "updated": 1624490929744,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "updated": 1623958550219,
                     "style": "List"
                 },
                 {

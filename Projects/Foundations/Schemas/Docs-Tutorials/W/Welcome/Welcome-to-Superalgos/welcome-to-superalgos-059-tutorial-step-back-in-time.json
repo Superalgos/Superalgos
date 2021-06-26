@@ -14,6 +14,11 @@
                 "text": "Questa è la configurazione gerarchica del Charting Space della Time Machine che abbiamo usato prima.",
                 "updated": 1615964231849,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Esta es la configuración de la jerarquía del Charting Space de las Time Machine hemos estado viendo en los gráficos.",
+                "updated": 1624412993386
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Usa qualche minuto per esplorare queste definizioni e dare un'occhiata al menù dei differenti nodi!",
                     "updated": 1615964274059,
                     "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos!",
+                    "updated": 1624412138619
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Spero che la struttura dei nodi sia abbastanza intuitiva da rendere l'idea di quanto sia potente il concetto di Design Space. Configuri una time machine aggiungendo i nodi del Timeline Chart e le relative scale, poi i layer managers e i loro layer collegati ai propri Data Mine Products, in modo che i dati richiesti diventino disponibili in uno specifico layer manager sui grafici. È una specie di Legoland® dei grafici! ",
                     "updated": 1618648744986,
                     "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
+                    "updated": 1624412890132
                 }
             ]
         }

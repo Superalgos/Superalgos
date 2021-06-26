@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesMandatoryProgram() {
+function newFoundationsUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }
@@ -9,7 +9,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         pools,
         userProfiles,
         programPropertyName,
-        programName,
+        programCodeName,
         programNodeType,
         programPowerName,
         usersArrayPropertyName,
@@ -18,7 +18,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
         of the Program. This will come from a Pool that is configured wiht a codeName config property
-        with the value programName
+        with the value programCodeName
         */
         let programPoolTokenReward
         /*
@@ -32,7 +32,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         /* Scan Pools Until finding the Mentoship-Program Pool */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programName)
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, programCodeName)
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
         /*
@@ -42,39 +42,43 @@ function newFoundationsUtilitiesMandatoryProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            resetProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            validateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            validateProgram(program, userProfile)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            distributeProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            distributeProgram(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName] === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload === undefined) { continue }
-            if (userProfile.tokenPowerSwitch[programPropertyName].payload[programPropertyName].isActive === false) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programNodeType)
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+            if (program.payload[programPropertyName].isActive === false) { continue }
 
-            calculateProgram(userProfile.tokenPowerSwitch[programPropertyName])
+            calculateProgram(program)
         }
 
         function resetProgram(node) {
@@ -123,17 +127,17 @@ function newFoundationsUtilitiesMandatoryProgram() {
             }
         }
 
-        function validateProgram(node) {
+        function validateProgram(node, userProfile) {
             /*
             This program is not going to run unless the Profile has Tokens, and for 
             that users needs to execute the setup procedure of signing their Github
             username with their private key.
             */
             if (
-                node.payload.parentNode.payload.parentNode.payload.blockchainTokens === undefined
+                userProfile.payload.blockchainTokens === undefined
             ) {
                 node.payload[programPropertyName].isActive = false
-                node.payload.parentNode.payload.parentNode.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
+                userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
             /*
@@ -143,7 +147,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
             at the top of the program pyramid.)        
             */
             if (
-                node.payload.parentNode.payload.parentNode.payload.blockchainTokens < 1000000 &&
+                userProfile.payload.blockchainTokens < 1000000 &&
                 (node[usersArrayPropertyName] === undefined || hasUsersDefined(node[usersArrayPropertyName]) === false)
             ) {
                 node.payload[programPropertyName].isActive = false
@@ -316,7 +320,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
         function drawUserNode(node, percentage) {
             if (node.payload !== undefined) {
 
-                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en') 
+                const outgoingPowerText = parseFloat(node.payload[programPropertyName].outgoingPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.valueAngleOffset = 180
                 node.payload.uiObject.valueAtAngle = true
@@ -329,7 +333,7 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.setPercentage(percentage)
 
                 node.payload.uiObject.statusAngleOffset = 0
-                node.payload.uiObject.statusAtAngle = false
+                node.payload.uiObject.statusAtAngle = true
 
                 node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
             }
@@ -344,16 +348,16 @@ function newFoundationsUtilitiesMandatoryProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own ' + programPowerName + ' - ' + incomingPowerText + ' Incoming ' + programPowerName + '')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' - ' + incomingPowerText + ' Incoming Power' + '')
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
                 const tokensAwardedText = parseFloat(node.payload[programPropertyName].awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.statusAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.statusAtAngle = false
+                node.tokensAwarded.payload.uiObject.statusAtAngle = true
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                node.tokensAwarded.payload.uiObject.valueAtAngle = false
+                node.tokensAwarded.payload.uiObject.valueAtAngle = true
 
                 node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
                 node.tokensAwarded.payload.uiObject.setStatus('From ' + node.payload[programPropertyName].count + ' Descendants.')

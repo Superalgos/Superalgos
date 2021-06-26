@@ -974,6 +974,11 @@
                     "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
+                    "name": "Delegation Program",
+                    "propertyName": "delegationProgram",
+                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
+                },
+                {
                     "name": "Tokens",
                     "propertyName": "tokens",
                     "functionName": "newGovernanceFunctionLibraryTokens"
@@ -1031,9 +1036,19 @@
                     "functionName": "newFoundationsUtilitiesPools"
                 },
                 {
-                    "name": "Mandatory Program",
-                    "propertyName": "mandatoryProgram",
-                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
+                    "name": "Decendent Program",
+                    "propertyName": "decendentProgram",
+                    "functionName": "newFoundationsUtilitiesDecendentProgram"
+                },
+                {
+                    "name": "Bonus Program",
+                    "propertyName": "bonusProgram",
+                    "functionName": "newFoundationsUtilitiesBonusProgram"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newFoundationsUtilitiesValidations"
                 }
             ],
             "spaces": [

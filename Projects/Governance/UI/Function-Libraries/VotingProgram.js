@@ -13,6 +13,16 @@ function newGovernanceFunctionLibraryVotingProgram() {
         positions,
         userProfiles
     ) {
+
+        /* Bonus Calculation is here */
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "votingProgram",
+            "Voting-Bonus",
+            "Voting Program"
+        )
+
         /* Reset Votes at Pools */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
@@ -43,21 +53,23 @@ function newGovernanceFunctionLibraryVotingProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Voting Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            resetVotes(userProfile.tokenPowerSwitch.votingProgram)
+            resetVotes(program)
         }
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram === undefined) { continue }
-            if (userProfile.tokenPowerSwitch.votingProgram.payload === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Voting Program")
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
 
-            userProfile.tokenPowerSwitch.votingProgram.payload.votingProgram.votes = userProfile.tokenPowerSwitch.votingProgram.payload.tokenPower
+            program.payload.votingProgram.votes = program.payload.tokenPower
 
-            distributeProgram(userProfile.tokenPowerSwitch.votingProgram)
+            distributeProgram(program)
         }
 
         function resetVotes(node) {
@@ -139,6 +151,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
         function distributeProgramPower(node, votes, percentage) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
+            if (node.payload.votingProgram === undefined) {return}
+
             node.payload.votingProgram.votes = node.payload.votingProgram.votes + votes
             drawVotes(node, node.payload.votingProgram.votes, percentage)
             /*
@@ -186,19 +200,16 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
-
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votingProgram") {
-                                let childNode = node[property.name]
-                                if (childNode === undefined) { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
-                                    totalPercentage = totalPercentage + percentage
-                                } else {
-                                    totalNodesWithoutPercentage++
-                                }
+                            let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
+                            if (childNode.type === 'Tokens Bonus') { continue }
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                            if (percentage !== undefined && isNaN(percentage) !== true) {
+                                totalPercentage = totalPercentage + percentage
+                            } else {
+                                totalNodesWithoutPercentage++
                             }
                         }
                             break
@@ -208,6 +219,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
                                     if (childNode === undefined) { continue }
+                                    if (childNode.type === 'Tokens Bonus') { continue }
                                     let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                     if (percentage !== undefined && isNaN(percentage) !== true) {
                                         totalPercentage = totalPercentage + percentage
@@ -234,19 +246,16 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
-
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votingProgram") {
-                                let childNode = node[property.name]
-                                if (childNode === undefined) { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage) === true) {
-                                    percentage = defaultPercentage
-                                }
-                                distributeProgramPower(childNode, votes * percentage / 100, percentage)
+                            let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
+                            if (childNode.type === 'Tokens Bonus') { continue }
+                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                            if (percentage === undefined || isNaN(percentage) === true) {
+                                percentage = defaultPercentage
                             }
+                            distributeProgramPower(childNode, votes * percentage / 100, percentage)
                         }
                             break
                         case 'array': {
@@ -255,6 +264,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
                                     if (childNode === undefined) { continue }
+                                    if (childNode.type === 'Tokens Bonus') { continue }
                                     let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                     if (percentage === undefined || isNaN(percentage) === true) {
                                         percentage = defaultPercentage
@@ -279,6 +289,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     if (percentage !== undefined) {
                         node.payload.uiObject.setPercentage(percentage.toFixed(2))
                     }
+                    return
+                }
+                if (node.type === 'User Profile Vote') {
+                    drawUserNode(node, votes, percentage)
                     return
                 }
                 if (
@@ -327,6 +341,30 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 }
             }
 
+            function drawUserNode(node, votes, percentage) {
+                if (node.payload !== undefined) {
+    
+                    const outgoingPowerText = parseFloat(votes.toFixed(2)).toLocaleString('en') 
+    
+                    node.payload.uiObject.valueAngleOffset = 180
+                    node.payload.uiObject.valueAtAngle = true
+    
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power')
+    
+                    node.payload.uiObject.percentageAngleOffset = 180
+                    node.payload.uiObject.percentageAtAngle = true
+    
+                    node.payload.uiObject.setPercentage(percentage)
+    
+                    if (node.payload.referenceParent !== undefined) {
+                        node.payload.uiObject.statusAngleOffset = 0
+                        node.payload.uiObject.statusAtAngle = true
+        
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                    }
+                }
+            }
+
             function drawProgram(node) {
                 if (node.payload !== undefined) {
 
@@ -336,15 +374,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.payload.uiObject.statusAtAngle = false
 
                     node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
-                }
-                if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
-
-                    const tokensAwardedText = parseFloat(node.payload.votingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
-
-                    node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
-                    node.tokensAwarded.payload.uiObject.valueAtAngle = false
-
-                    node.tokensAwarded.payload.uiObject.setValue(tokensAwardedText + ' SA Tokens')
                 }
             }
         }

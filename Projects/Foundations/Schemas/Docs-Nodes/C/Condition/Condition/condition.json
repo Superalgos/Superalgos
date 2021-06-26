@@ -1,7 +1,14 @@
 {
     "type": "Condition",
     "definition": {
-        "text": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered."
+        "text": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Conditions son reglas dentro de una situación. Cuando todas las condiciones de una situación se validan como verdaderas, la situación también se valida y se activa el evento asociado.",
+                "updated": 1624459710047
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1,7 +1,14 @@
 {
     "type": "Layer Manager",
     "definition": {
-        "text": "The layer manager determines which layers will be visible on the corresponding timeline chart."
+        "text": "The layer manager determines which layers will be visible on the corresponding timeline chart.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El layer manager determina qué capas serán visibles en el gráfico de línea de tiempo correspondiente.",
+                "updated": 1624410606482
+            }
+        ]
     },
     "paragraphs": [
         {

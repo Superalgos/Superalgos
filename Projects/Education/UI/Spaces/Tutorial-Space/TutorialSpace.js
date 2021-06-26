@@ -1177,7 +1177,7 @@ function newEducationTutorialSpace() {
             /* The current node is not referencing any page at the Docs */
             return
         }
-
+        
         let schemaDocument = SCHEMAS_BY_PROJECT.get(nodeConfig.docs.project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         if (schemaDocument === undefined) {

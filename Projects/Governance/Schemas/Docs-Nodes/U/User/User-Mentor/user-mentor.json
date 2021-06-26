@@ -1,0 +1,30 @@
+{
+    "type": "User Mentor",
+    "definition": {
+        "text": "Spawn User Mentor nodes to reference your mentors!",
+        "updated": 1624727395307
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624727421712
+        },
+        {
+            "style": "Text",
+            "text": "The Superalgos Community is always willing to help. You will find your mentors in the various Community Groups."
+        },
+        {
+            "style": "Success",
+            "text": "The Mentorship Program is the best way to thank the people that help you get to the power user level. The Superalgos Project advances thanks to Contributors, thus helping new users go through the learning curve up to the point in which they can contribute to the project is highly valuable for the Community as a whole!"
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

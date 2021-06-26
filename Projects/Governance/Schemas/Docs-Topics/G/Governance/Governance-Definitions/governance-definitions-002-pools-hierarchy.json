@@ -16,6 +16,35 @@
             "style": "Include",
             "text": "Governance->Node->Pools->Configuration",
             "updated": 1624710324091
+        },
+        {
+            "style": "Title",
+            "text": "Pool Classes Nodes",
+            "updated": 1624710545392
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Pool Class->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Pool Class->Content",
+            "updated": 1624710496543
+        },
+        {
+            "style": "Title",
+            "text": "Pool Nodes",
+            "updated": 1624710516456
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Pool->Definition",
+            "updated": 1624710569674
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Pool->Content",
+            "updated": 1624710576964
         }
     ]
 }

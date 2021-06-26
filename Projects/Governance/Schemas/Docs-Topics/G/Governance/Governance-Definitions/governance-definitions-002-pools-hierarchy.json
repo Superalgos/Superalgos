@@ -3,14 +3,18 @@
     "pageNumber": "2",
     "type": "Pools Hierarchy",
     "definition": {
-        "text": "This hierarchy breaks up the definition of a Project in specific areas. Each area is a Pool that may be incentivized by the Community. Users collectively decide how many tokens will be allocated to each Pool using Weight Votes. The sum of Weight Votes in each Pool determines the proportion of tokens each pool gets from the total of tokens allocated to the release.",
-        "updated": 1624709966512
+        "text": "The top-level definitions involve the definition of pools that intervene in the distribution of tokens.",
+        "updated": 1624720022127
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Governance->Node->Pools->Content",
-            "updated": 1624710316951
+            "text": "Governance->Node->Pools->Definition",
+            "updated": 1624719914461
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Pools->Content"
         },
         {
             "style": "Include",

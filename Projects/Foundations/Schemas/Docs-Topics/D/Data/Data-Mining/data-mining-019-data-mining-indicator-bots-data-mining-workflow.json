@@ -115,6 +115,50 @@
             "text": "The final step is turning the object-formatted records back into a minimized array format, and saving the corresponding files in the dataset."
         },
         {
+            "style": "Title",
+            "text": "Appendix: Building 2 Interdependent Indicators"
+        },
+        {
+            "style": "Text",
+            "text": "Let's say you built indicator1 with product A that depends on Indicator Candles Volumens, product Candles, and you are building indicator2, product B that depends on indicator1 product A."
+        },
+        {
+            "style": "Text",
+            "text": "When you wrote the code for Indicator 1 Product A, you were using the syntax:"
+        },
+        {
+            "style": "Text",
+            "text": "variable property1 = record.current.open"
+        },
+        {
+            "style": "Text",
+            "text": "Why? Because Indicator 1 depends on Candles Volumens, produc Candles, and each candle has a property called open, and since product Candles is the only data dependency, it is then also the main dependency and then it will be served to you inside the record object for your convenience."
+        },
+        {
+            "style": "Text",
+            "text": "You could also have done"
+        },
+        {
+            "style": "Text",
+            "text": "variable property1 = products.candles[index] but that is more difficult because you don't really know which index you are at at any given moment in time. It is best and easier to use the record object. The array is for very advanced users."
+        },
+        {
+            "style": "Text",
+            "text": "Then you want to write the code for indicator 2, product B, you already declared Indicator 1, Product A as the only data dependency. "
+        },
+        {
+            "style": "Text",
+            "text": "Since Indicator1 product A is the only data dependency of indicator 2, then it is also the main dependency, which means that for building indicator 2, the Data Building Process will iterate over every element of Indicator 1 in this case (not candles because that is not a dependency at all)."
+        },
+        {
+            "style": "Text",
+            "text": "In the same way that you did before, you will write code like this:"
+        },
+        {
+            "style": "Text",
+            "text": "variable propertyX = record.current.property1 (that means the property 1 of Product A of Indicator 1) "
+        },
+        {
             "style": "Text",
             "text": ""
         }

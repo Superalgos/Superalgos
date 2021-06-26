@@ -12,7 +12,7 @@
             {
                 "type": "Token Power Switch",
                 "name": "Descendats Rewards",
-                "config": "{}",
+                "config": "{\n    \"percentage\": 40\n}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
                 "referralProgram": {

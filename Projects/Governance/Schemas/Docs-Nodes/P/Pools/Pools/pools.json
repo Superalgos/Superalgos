@@ -1,13 +1,85 @@
 {
     "type": "Pools",
     "definition": {
-        "text": "At this hierarchy is where Token distribution starts. All the tokens to be distributed at the next release start flowing from here down this hierarchy, until they reach individual pools. Nodes will received tokens acording to the votes / weight each one of them have.",
-        "updated": 1622985349549
+        "text": "This hierarchy breaks up the definition of a Project in specific areas. Each area is a Pool that may be incentivized by the Community. Users collectively decide how many tokens will be allocated to each Pool using Weight Votes. The sum of Weight Votes in each Pool determines the proportion of tokens each pool gets from the total of tokens allocated to the release.",
+        "updated": 1624706823509
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624706897078
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "In essence, this hierarchy is used to determine how the tokens allocated to each release will be distributed.",
+            "updated": 1624706911544
+        },
+        {
+            "style": "Text",
+            "text": "To produce unequivocal definitions, the hierarchy uses two specific resources:"
+        },
+        {
+            "style": "List",
+            "text": "On one hand, the data structure represented by the hierarchy itself describes the organization of the Project, fragmenting specific incumbencies into specific distribution pools. This allows the granular allocation of tokens."
+        },
+        {
+            "style": "List",
+            "text": "On the other hand, each Pool may accept Weight Votes from User Profiles. This is how the Community determines how many tokens will go to each distribution pool."
+        },
+        {
+            "style": "Callout",
+            "text": "At the same time, a Pool may reference other types of hierarchies, namely Positions, Assets, and Features. These hierarchies take the granularity of the definition to a whole new level! But we’ll go into those later on!"
+        },
+        {
+            "style": "Text",
+            "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in a separate Plugin Workspace."
+        },
+        {
+            "style": "Text",
+            "text": "This resource allows fragmenting the definitions of how the project is organized, for readability, organizational, and logistical reasons:"
+        },
+        {
+            "style": "List",
+            "text": "a single hierarchy describing the whole Superalgos Project and every other project within would grow too big and be cumbersome to deal with;"
+        },
+        {
+            "style": "List",
+            "text": "each hierarchy may be defined and maintained by different people or teams;"
+        },
+        {
+            "style": "List",
+            "text": "each hierarchy may be better visualized in different workspaces in which they may interact with other definitions; etc."
+        },
+        {
+            "style": "Title",
+            "text": "Superalgos Pools"
+        },
+        {
+            "style": "Text",
+            "text": "The Superalgos Pools hierarchy is where everything starts, meaning that it is the top-level hierarchy kickstarting the definition of the whole Project."
+        },
+        {
+            "style": "Text",
+            "text": "Many of the Pool nodes defined in this hierarchy link to further definitions on other hierarchies. "
+        },
+        {
+            "style": "Text",
+            "text": "The configuration of the top-level node in the hierarchy determines how many tokens will be distributed in the release."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1624706986873
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624706995696
+        },
+        {
+            "style": "List",
+            "text": "tokens: the total number of tokens to be distributed in the next Distribution Event. Only the top-level Superalgos Pools hierarchy requires this configuration."
         }
     ]
 }

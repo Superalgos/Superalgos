@@ -1,0 +1,26 @@
+{
+    "type": "Tokens Awarded",
+    "definition": {
+        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos (SA) Tokens awarded to your profile through each of the existing programs.",
+        "updated": 1624726369909
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726389898
+        },
+        {
+            "style": "Text",
+            "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with the number of people that helped you get them."
+        },
+        {
+            "style": "Callout",
+            "text": "The system calculates the token distribution dynamically with every change in the definitions, and computes all the hierarchies loaded in and referenced from the Current Workspace. This may or may not be accurate, depending on many things, including whether or not you are computing all relevant hierarchies."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        }
+    ]
+}

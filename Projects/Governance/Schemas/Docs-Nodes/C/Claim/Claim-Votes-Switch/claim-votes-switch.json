@@ -1,0 +1,30 @@
+{
+    "type": "Claim Votes Switch",
+    "definition": {
+        "text": "This type of switch is used to spawn different types of claim vote nodes, and to reference “folder” type of nodes within the Claims Program section of the User Profile hierarchy.",
+        "updated": 1624729577011
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729599989
+        },
+        {
+            "style": "Text",
+            "text": "When a Claim Votes Switch references any of the existing “folder” type of nodes (Position Contribution Claims Folder, Feature Contribution Claims Folder, or Asset Contribution Claims Folder), the Install Missing Votes option on the menu becomes usable."
+        },
+        {
+            "style": "Success",
+            "text": "Installing votes allows mapping entire sections of claim definitions so that you may vouch for multiple claims easily."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

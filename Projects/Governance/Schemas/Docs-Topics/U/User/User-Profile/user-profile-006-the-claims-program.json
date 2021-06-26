@@ -1,0 +1,20 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "6",
+    "type": "The Claims Program",
+    "definition": {
+        "text": "The Claims Program help Contributors get compensation for their work.",
+        "updated": 1624734366643
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claims Program->Definition",
+            "updated": 1624734390960
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claims Program->Content"
+        }
+    ]
+}

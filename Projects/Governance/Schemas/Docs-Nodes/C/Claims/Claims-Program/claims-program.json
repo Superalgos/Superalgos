@@ -1,0 +1,76 @@
+{
+    "type": "Claims Program",
+    "definition": {
+        "text": "The Claims Program allows Contributors to place claims for the work they contribute. In combination with the Voting Program, the Claims Program enables the project to distribute the management of contributions, getting the Community involved in the validation of claims, thus effectively decentralizing the distribution of the Superalgos (SA) Token.",
+        "updated": 1624728270053
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624728332498
+        },
+        {
+            "style": "Text",
+            "text": "Because the Project is defined in three different types of data structure, Positions, Features, and Assets, Contributors may place claims of three kinds: "
+        },
+        {
+            "style": "List",
+            "text": "Position Contribution Claim;"
+        },
+        {
+            "style": "List",
+            "text": "Feature Contribution Claim;"
+        },
+        {
+            "style": "List",
+            "text": "Asset Contribution Claim"
+        },
+        {
+            "style": "Text",
+            "text": "These claims may be organized in folders, following the same criteria:"
+        },
+        {
+            "style": "List",
+            "text": "Position Claims Folder;",
+            "updated": 1624734509914
+        },
+        {
+            "style": "List",
+            "text": "Feature Claims Folder;",
+            "updated": 1624734514419
+        },
+        {
+            "style": "List",
+            "text": "Asset Claims Folder",
+            "updated": 1624734518245
+        },
+        {
+            "style": "Text",
+            "text": "Each of these types of nodes may reference a “class” type of node in the Positions, Features, and Assets hierarchies. "
+        },
+        {
+            "style": "Text",
+            "text": "For instance, an Asset Claims Folder node within the Claims Program may reference an Asset Class node in one of the Assets hierarchy.",
+            "updated": 1624734525561
+        },
+        {
+            "style": "Text",
+            "text": "When a valid reference exists, the Install Missing Claims option on the menu of the claims folder may be used. This option maps the data structure of the referenced folder, creating claims folders and claims for each of the folders and assets, features, or positions defined in the referenced structure of nodes.",
+            "updated": 1624734460960
+        },
+        {
+            "style": "Success",
+            "text": "The Token Rewards, Claims Power and Claim Votes page in the Governance Flow topic covers important details of how Contribution Claims work. Make sure you read the whole topic!",
+            "updated": 1624734622362
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

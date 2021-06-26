@@ -1,0 +1,270 @@
+{
+    "topic": "User Profile",
+    "pageNumber": "1",
+    "type": "Building Your Profile",
+    "definition": {
+        "text": "Your Governance Address is a Superalgos (SA) Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power, that you may use from within your User Profile to participate in governance.",
+        "updated": 1624722284024
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need:",
+            "updated": 1624721971524
+        },
+        {
+            "style": "List",
+            "text": "The latest version of Superalgos in the develop branch."
+        },
+        {
+            "style": "List",
+            "text": "Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+        },
+        {
+            "style": "List",
+            "text": "Your GitHub.com username."
+        },
+        {
+            "style": "Title",
+            "text": "Let’s Do This!"
+        },
+        {
+            "style": "Subtitle",
+            "text": "1. Load the Token Distribution Superalgos Plugin Workspace"
+        },
+        {
+            "style": "Text",
+            "text": "You may start with this Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions."
+        },
+        {
+            "style": "Subtitle",
+            "text": "2. Add User Profile and Profile Constructor"
+        },
+        {
+            "style": "List",
+            "text": "Go to the Governance Project hierarchy and select Add User Profile on the menu. "
+        },
+        {
+            "style": "List",
+            "text": "Needless to say, the User Profile is your profile. Name it with your GitHub.com username, your real name, or any pseudonymous name you may wish to identify with."
+        },
+        {
+            "style": "List",
+            "text": "Go ahead and select Add Profile Constructor too."
+        },
+        {
+            "style": "Text",
+            "text": "The Profile Constructor is the device you will use to set up the BSC address you will use to feed your profile with Token Power from your Superalgos (SA) Token holdings. This means that you will not be able to use your existing addresses, but will create a new one. We call it your Governance Address."
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Governance Address->Content",
+            "updated": 1624722289979
+        },
+        {
+            "style": "Text",
+            "text": "Once you are done setting up the address, you need to back up your private key in whatever way you desire, and delete the Profile Constructor so that the private key is removed from the Workspace. No worries… I’ll remind you of all this when the time comes."
+        },
+        {
+            "style": "Subtitle",
+            "text": "3. Build Your Profile"
+        },
+        {
+            "style": "List",
+            "text": "Establish a reference from the Profile Constructor node to your User Profile node."
+        },
+        {
+            "style": "List",
+            "text": "Access the configuration of the Profile Constructor and enter your GitHub.com username."
+        },
+        {
+            "style": "Text",
+            "text": "The next step involves building the profile, but before you do so, let me explain what the process involves:"
+        },
+        {
+            "style": "List",
+            "text": "A BSC address and the corresponding private key will be generated. This is the BSC address you will use to interact with the governance system."
+        },
+        {
+            "style": "List",
+            "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin in the Governance Project."
+        },
+        {
+            "style": "Text",
+            "text": "Ok… let’s do this!"
+        },
+        {
+            "style": "List",
+            "text": "Access the menu of the Profile Constructor and click the Build Profile option. Click again to confirm the operation."
+        },
+        {
+            "style": "Text",
+            "text": "Now, take a minute to check the configuration of the User Profile node. You should see a message similar to the one below:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"signature\": {\n        \"message\": \"your-github-username\",\n        \"messageHash\": \"0xbb06ac085e61117b629bda325683fe7c15bd286ccf830393fc95211964f43ecb\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xe513bfb3e6ca55e782a9c1947164243b49f577f3534c3495f935917de8da3c6c\",\n        \"s\": \"0x552578693365057338b081ed2dff2de8a268f56714c4265955627ab8eb07f671\",\n        \"signature\": \"0xe513bfb3e6ca55e782a9c1947164243b49f577f3534c3495f935917de8da3c6c552578693365057338b081ed2dff2de8a268f56714c4265955627ab8eb07f6711c\"\n    }\n}",
+            "updated": 1624722387880
+        },
+        {
+            "style": "Text",
+            "text": "As explained earlier, this is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
+            "updated": 1624722409704
+        },
+        {
+            "style": "Warning",
+            "text": "This is the most important part of this guide! You must back up your private key! Later on, you will move Superalgos (SA) Tokens to the address you just generated, so, before you do that, you must safely store the private key that you will use to access the address. At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is generate a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information."
+        },
+        {
+            "style": "Text",
+            "text": "Access the configuration of the Profile Constructor. You will find the address and private key in the following format, so that you may back up the information in whatever way you see fit."
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"githubUsername\": \"your-github-username\",\n    \"address\": \"0x840B9F33bA8aad161E44b0BA181d7c1C16a0a01c\",\n    \"privateKey\": \"0x60af9fbb54c48c238a91564e92a3b383a5d87efe82388ac96d98a67e249df427\"\n}",
+            "updated": 1624722475127
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Warning",
+            "text": "Once you are satisfied with your backup of the private key, delete the Profile Constructor node! It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever.",
+            "updated": 1624722590003
+        },
+        {
+            "style": "Subtitle",
+            "text": "4. Import Private Key in a Wallet"
+        },
+        {
+            "style": "Text",
+            "text": "This step is not required for interacting with governance, however, we’ll cover it as you most likely will want to do it at some point, and it is recommended anyway, even if not strictly necessary."
+        },
+        {
+            "style": "Text",
+            "text": "The idea is to import the address / private key you just created into a functional hardware or software wallet, so that you may control the tokens you will eventually send to this address."
+        },
+        {
+            "style": "Text",
+            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos (SA) Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!"
+        },
+        {
+            "style": "Success",
+            "text": "We’ll cover how to import your private key into Trust Wallet. If you’re using any other wallet, you’ll need to figure out the equivalent process."
+        },
+        {
+            "style": "List",
+            "text": "Click the “Settings” button."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-01.png",
+            "updated": 1624724741735
+        },
+        {
+            "style": "List",
+            "text": "Click on the “Wallets” option."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-02.png",
+            "updated": 1624724761481
+        },
+        {
+            "style": "List",
+            "text": "Click on the plus sign ( + ) on the top-right corner.",
+            "updated": 1624724858681
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-03.png",
+            "updated": 1624724767511
+        },
+        {
+            "style": "List",
+            "text": "Click on the “I Already Have a Wallet” option."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-04.png",
+            "updated": 1624724776081
+        },
+        {
+            "style": "List",
+            "text": "Click “Smart Chain”."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-05.png",
+            "updated": 1624724782260
+        },
+        {
+            "style": "List",
+            "text": "Click on the “Private Key” tab."
+        },
+        {
+            "style": "Note",
+            "text": "We have no images of the previous and the next few screens are Trust Wallet won't allow capturing these pages.",
+            "updated": 1624724274610
+        },
+        {
+            "style": "List",
+            "text": "Copy your Private Key and click “PASTE”. I know, Trust Wallet runs on your mobile phone, so you need to figure out how to access your private key from your phone."
+        },
+        {
+            "style": "List",
+            "text": "Enter a Name for the wallet (something along the lines of “Superalgos Profile”?) and click the “IMPORT” button."
+        },
+        {
+            "style": "List",
+            "text": "You should get a message along the lines of “Your wallet was successfully created”. This means you have control of the address!"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-06.png",
+            "updated": 1624724788900
+        },
+        {
+            "style": "Subtitle",
+            "text": "5. Move Funds to the Address"
+        },
+        {
+            "style": "Text",
+            "text": "You’re almost ready to move some Superalgos (SA) Tokens to your new address. Before you do that it’s a good idea to configure the Superalgos (SA) Token first."
+        },
+        {
+            "style": "Text",
+            "text": "If you don’t know how to do that, follow the instructions in this Medium article:"
+        },
+        {
+            "style": "Link",
+            "text": "How to Configure the Superalgos (SA) Token in Trust Wallet->medium.com/superalgos/how-to-configure-the-superalgos-sa-token-in-trust-wallet-5cfc63800447"
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, this is the Superalgos (SA) Token BSC contract:"
+        },
+        {
+            "style": "Json",
+            "text": "0xfb981ed9a92377ca4d75d924b9ca06df163924fd"
+        },
+        {
+            "style": "List",
+            "text": "When you’re ready, send a few Superalgos (SA) Tokens to your new address."
+        },
+        {
+            "style": "List",
+            "text": "Once the tokens arrive, refresh the browser tab running Superalgos."
+        },
+        {
+            "style": "List",
+            "text": "Expand your User Profile node. You should see the same number of tokens you sent to your new address as Token Power on top of the dotted line connecting to the Token Switch node. This is the total Token Power that you may use to influence the governance of Superalgos."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Governance/Docs/building-profile/building-profile-07.png",
+            "updated": 1624725097347
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "topic": "Governance Definitions",
+    "pageNumber": "5",
+    "type": "Assets Hierarchy",
+    "definition": {
+        "text": "Projects may produce definitions at the atomic level, specifying each asset that is or needs to be created and maintained.",
+        "updated": 1624720456614
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Assets->Definition",
+            "updated": 1624720546750
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Assets->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Asset Class Nodes"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Class->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Class->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Asset Nodes"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset->Content"
+        }
+    ]
+}

@@ -51,6 +51,14 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 programPower: 0,
                 ownPower: 0
             }
+
+            if (node.type === 'User Profile') {
+                return
+            }
+            if (node.payload.referenceParent !== undefined) {
+                resetProgram(node.payload.referenceParent)
+                return
+            }
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument === undefined) { return }
 
@@ -58,14 +66,10 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
-                    if (node.type === 'User Profile' && property.name !== "votingProgram") { continue }
-
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votingProgram") {
-                                let childNode = node[property.name]
-                                resetProgram(childNode)
-                            }
+                            let childNode = node[property.name]
+                            resetProgram(childNode)
                         }
                             break
                         case 'array': {
@@ -111,7 +115,9 @@ function newGovernanceFunctionLibraryDelegationProgram() {
             */
             if (
                 node.type === 'User Profile'
-            ) { return }
+            ) {
+                return
+            }
             /*
             If there is a reference parent defined, this means that the delegate power is 
             transfered to it and not distributed among children.
@@ -120,7 +126,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 node.payload.referenceParent !== undefined &&
                 node.type === 'User Delegate'
             ) {
-                distributeProgramPower(node.payload.referenceParent, programPower)
+                distributeProgramPower(node.payload.referenceParent, programPower / 10)
                 return
             }
             /*
@@ -254,23 +260,23 @@ function newGovernanceFunctionLibraryDelegationProgram() {
 
             function drawUserNode(node, programPower, percentage) {
                 if (node.payload !== undefined) {
-    
-                    const outgoingPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en') 
-    
+
+                    const outgoingPowerText = parseFloat(programPower.toFixed(2)).toLocaleString('en')
+
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
-    
+
                     node.payload.uiObject.setValue(outgoingPowerText + ' Delegate Power')
-    
+
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
-    
+
                     node.payload.uiObject.setPercentage(percentage)
-    
+
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
-        
+
                         node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
                     }
                 }

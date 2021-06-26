@@ -1,0 +1,16 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 22,
+    "type": "Superalgos Review - Next Level Tutorials and Documentation",
+    "definition": {
+        "text": "An amazing project that follows the FOSS philosophy. It has a steep learning curve, but with the well crafted tutorials and detailed documentation, it's easy to get started.",
+        "updated": 1624715151781
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "After discovering Superalgos I felt super intimidated by all the different nodes and giant trees of nodes working together, but after going through the first two tutorials, I already feel more confident. I can't wait to start experimenting with different strategies and deploy Superalgos on my home server. I will try to contribute as much as I can.",
+            "updated": 1624715237118
+        }
+    ]
+}

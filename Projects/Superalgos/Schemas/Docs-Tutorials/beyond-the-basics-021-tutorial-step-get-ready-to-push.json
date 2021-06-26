@@ -21,8 +21,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos interacts with Git to keep your Superalgos instalation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
-            "updated": 1610743150715,
+            "text": "Superalgos interacts with Git to keep your Superalgos installation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
+            "updated": 1624715350683,
             "translations": [
                 {
                     "language": "IT",

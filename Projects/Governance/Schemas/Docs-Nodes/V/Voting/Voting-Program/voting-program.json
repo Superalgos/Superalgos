@@ -46,11 +46,13 @@
         },
         {
             "style": "List",
-            "text": "User Profile Switch"
+            "text": "User Profile Votes Switch",
+            "updated": 1624735526746
         },
         {
-            "style": "Text",
-            "text": "Each switch may spawn specialized types of voting nodes, each with the capacity of casting votes towards specific types of nodes on other hierarchies. We shall explore all of them in depth."
+            "style": "Success",
+            "text": "Each switch may spawn specialized types of voting nodes, each with the capacity of casting votes towards specific types of nodes on other hierarchies. The Token Rewards and Voting Power Flow page in the Governance Flow topic covers important details of how Votes work. Make sure you read the whole topic!",
+            "updated": 1624735504965
         },
         {
             "style": "Block",

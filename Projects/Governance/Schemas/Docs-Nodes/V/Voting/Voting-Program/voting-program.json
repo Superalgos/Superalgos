@@ -1,0 +1,65 @@
+{
+    "type": "Voting Program",
+    "definition": {
+        "text": "The Voting Program is the heart and soul of governance, as it is the section of the hierarchy Contributors use to cast various types of votes. The program is designed to incentivize participation. For that reason, voting earns you tokens too!",
+        "updated": 1624729344266
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729363885
+        },
+        {
+            "style": "Text",
+            "text": "At the time of each Distribution Event, your Voting Power — that is, the Token Power you assign to the Voting Program — determines the Direct Proportion of tokens you get from the Voting Program Pool."
+        },
+        {
+            "style": "Text",
+            "text": "A top-level Votes Switch node allows spawning several other particular switches. A switch allows channeling Voting Power in a specific direction and a specific proportion."
+        },
+        {
+            "style": "Text",
+            "text": "By default, the Votes Switch node passes on an equal amount of Voting Power to its offspring. However, you may override the percentage of Voting Power allocated to each switch below a Votes Switch by using the following parameter in the configuration of the particular switch:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"percentage\": 50\n}",
+            "updated": 1624729399791
+        },
+        {
+            "style": "Text",
+            "text": "If you define less than a total of 100% of the Voting Power flowing at any level of the hierarchy, then the remaining Voting Power is distributed evenly across the rest of the offspring at the same level.",
+            "updated": 1624729413463
+        },
+        {
+            "style": "Text",
+            "text": "There are three categories of votes, each with their corresponding switch that helps organize votes in hierarchical structures:"
+        },
+        {
+            "style": "List",
+            "text": "Claim Votes Switch;"
+        },
+        {
+            "style": "List",
+            "text": "Weight Votes Switch;"
+        },
+        {
+            "style": "List",
+            "text": "User Profile Switch"
+        },
+        {
+            "style": "Text",
+            "text": "Each switch may spawn specialized types of voting nodes, each with the capacity of casting votes towards specific types of nodes on other hierarchies. We shall explore all of them in depth."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624729377169
+        }
+    ]
+}

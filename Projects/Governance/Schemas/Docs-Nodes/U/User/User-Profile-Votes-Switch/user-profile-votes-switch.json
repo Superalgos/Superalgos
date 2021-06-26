@@ -1,8 +1,8 @@
 {
-    "type": "Position Weight Vote",
+    "type": "User Profile Votes Switch",
     "definition": {
-        "text": "A Weight Vote that may reference a Position node in the Positions hierarchy.",
-        "updated": 1624729877473
+        "text": "This type of switch is used to spawn User Profile Vote nodes.",
+        "updated": 1624729715052
     },
     "paragraphs": [
         {

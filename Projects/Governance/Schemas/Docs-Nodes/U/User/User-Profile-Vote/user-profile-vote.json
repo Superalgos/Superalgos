@@ -1,8 +1,8 @@
 {
-    "type": "Position Weight Vote",
+    "type": "User Profile Vote",
     "definition": {
-        "text": "A Weight Vote that may reference a Position node in the Positions hierarchy.",
-        "updated": 1624729877473
+        "text": "A type of vote within the Voting Program used to confer Voting Power to another User Profile.",
+        "updated": 1624729935183
     },
     "paragraphs": [
         {

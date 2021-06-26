@@ -1,13 +1,26 @@
 {
     "type": "Votes Switch",
     "definition": {
-        "text": "This node allow users to organize their streams of votes by splitting their voting power and passing the votes to their children. When no config is found they pass them evenly, and when a percentage config property is defined, they will use that as the percentage of the upstream to flow through this node.",
-        "updated": 1622988349664
+        "text": "The Votes Switch node channels Voting Power downwards in the hierarchy. It is a top-level switch used as an organizational device to spawn and arrange other types of switches.",
+        "updated": 1624729506328
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729535872
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "This node can not reference “class” or “folder” types of nodes on other hierarchies. It is merely an organizational device."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

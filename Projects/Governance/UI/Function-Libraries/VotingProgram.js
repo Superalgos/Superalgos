@@ -67,8 +67,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
-            program.payload.votingProgram.votes = program.payload.tokenPower
-
             distributeProgram(program)
         }
 
@@ -76,7 +74,9 @@ function newGovernanceFunctionLibraryVotingProgram() {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
             node.payload.votingProgram = {
-                votes: 0
+                votes: 0,
+                ownPower: 0,
+                incomingPower: 0
             }
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
@@ -92,6 +92,26 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.type === 'Feature Contribution Claim'
             ) { return }
             /*
+            For Votes to Profiles there is a special treamtment that needs to be done
+            so that votes can flow from Profiles to the Program without being affected
+            by Percentages.
+            */
+            switch (node.type) {
+                case 'User Profile Vote': {
+                    if (node.payload.referenceParent !== undefined) {
+                        resetVotes(node.payload.referenceParent)
+                    }
+                    break
+                }
+                case 'User Profile': {
+                    let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
+                    if (program === undefined) { return }
+                    if (program.payload === undefined) { return }
+                    resetVotes(program)
+                    return
+                }
+            }
+            /*
             If there is a reference parent defined, this means that the voting power is 
             transfered to it and not distributed among children.
             */
@@ -99,14 +119,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.payload.referenceParent !== undefined &&
                 node.type !== 'Votes Switch' &&
                 node.type !== 'Claim Votes Switch' &&
-                node.type !== 'Weight Votes Switch' &&
-                node.type !== 'User Profile Votes Switch'
+                node.type !== 'Weight Votes Switch'
             ) {
                 resetVotes(node.payload.referenceParent)
                 return
             }
             /*
-            If there is no reference parent we will redistribute voting power among children.
+            Here we are inside the Voting Program, so we will crawl all it's children.
             */
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument === undefined) { return }
@@ -119,10 +138,11 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                     switch (property.type) {
                         case 'node': {
-                            if (node.type === 'User Profile' && property.name === "votingProgram") {
-                                let childNode = node[property.name]
-                                resetVotes(childNode)
-                            }
+                            let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
+                            if (childNode.type === 'Tokens Bonus') { continue }
+                            resetVotes(childNode)
+
                         }
                             break
                         case 'array': {
@@ -130,6 +150,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                             if (propertyArray !== undefined) {
                                 for (let m = 0; m < propertyArray.length; m++) {
                                     let childNode = propertyArray[m]
+                                    if (childNode.type === 'Tokens Bonus') { continue }
                                     resetVotes(childNode)
                                 }
                             }
@@ -142,8 +163,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
         function distributeProgram(programNode) {
             if (programNode.payload === undefined) { return }
-
-            let votes = programNode.payload.votingProgram.votes
+            /*
+            Transform Token Power into Votes
+            */
+            let votes = programNode.payload.tokenPower
+            /*
+            Set this initial votes as own power
+            */            
             programNode.payload.votingProgram.ownPower = votes
             distributeProgramPower(programNode, votes)
         }
@@ -151,9 +177,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
         function distributeProgramPower(node, votes, percentage) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            if (node.payload.votingProgram === undefined) {return}
+            if (node.payload.votingProgram === undefined) { return }
 
             node.payload.votingProgram.votes = node.payload.votingProgram.votes + votes
+
+            if (node.type === 'Voting Program') {
+                node.payload.votingProgram.incomingPower = node.payload.votingProgram.votes - node.payload.votingProgram.ownPower
+            }
             drawVotes(node, node.payload.votingProgram.votes, percentage)
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
@@ -169,6 +199,26 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.type === 'Feature Contribution Claim'
             ) { return }
             /*
+            For Votes to Profiles there is a special treamtment that needs to be done
+            so that votes can flow from Profiles to the Program without being affected
+            by Percentages.
+            */
+            switch (node.type) {
+                case 'User Profile Vote': {
+                    if (node.payload.referenceParent !== undefined) {
+                        distributeProgramPower(node.payload.referenceParent, votes / 10)
+                    }
+                    return
+                }
+                case 'User Profile': {
+                    let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
+                    if (program === undefined) { return }
+                    if (program.payload === undefined) { return }
+                    distributeProgramPower(program, votes)
+                    return
+                }
+            }
+            /*
             If there is a reference parent defined, this means that the voting power is 
             transfered to it and not distributed among children.
             */
@@ -176,14 +226,13 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.payload.referenceParent !== undefined &&
                 node.type !== 'Votes Switch' &&
                 node.type !== 'Claim Votes Switch' &&
-                node.type !== 'Weight Votes Switch' &&
-                node.type !== 'User Profile Votes Switch'
+                node.type !== 'Weight Votes Switch'
             ) {
                 distributeProgramPower(node.payload.referenceParent, votes)
                 return
             }
             /*
-            If there is no reference parent we will redistribute voting power among children.
+            Here we are inside the Voting Program, so we will crawl all it's children.
             */
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument === undefined) { return }
@@ -283,6 +332,9 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
             if (node.payload !== undefined) {
 
+                if (node.type === 'User Profile') {
+                    return
+                }
                 if (node.type === 'Voting Program') {
                     drawProgram(node)
 
@@ -343,38 +395,42 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
             function drawUserNode(node, votes, percentage) {
                 if (node.payload !== undefined) {
-    
-                    const outgoingPowerText = parseFloat(votes.toFixed(2)).toLocaleString('en') 
-    
+
+                    const outgoingPowerText = parseFloat(votes.toFixed(2)).toLocaleString('en')
+
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
-    
+
                     node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power')
-    
+
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
-    
+
                     node.payload.uiObject.setPercentage(percentage)
-    
+
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
-        
+
                         node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
                     }
                 }
             }
 
             function drawProgram(node) {
-                if (node.payload !== undefined) {
+                if (node.payload === undefined) { return }
+                if (node.payload.votingProgram === undefined) { return }
+                if (node.payload.votingProgram.ownPower === undefined) { return }
+                if (node.payload.votingProgram.incomingPower === undefined) { return }
 
-                    const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.votingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const incomingPowerText = parseFloat(node.payload.votingProgram.incomingPower.toFixed(2)).toLocaleString('en')
 
-                    node.payload.uiObject.statusAngleOffset = 0
-                    node.payload.uiObject.statusAtAngle = false
+                node.payload.uiObject.statusAngleOffset = 0
+                node.payload.uiObject.statusAtAngle = false
 
-                    node.payload.uiObject.setStatus(ownPowerText + ' Voting Power')
-                }
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' - ' + incomingPowerText + ' Incoming Power' + '')
+
             }
         }
     }

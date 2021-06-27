@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To participate in governance, community members leverage their Superalgos (SA) Token holdings, exerting influence proportional to their Token Power. The combined influence of all token holders participating in governance determines, among other things:",
+            "text": "To participate in governance, community members leverage their Superalgos SA Token holdings, exerting influence proportional to their Token Power. The combined influence of all token holders participating in governance determines, among other things:",
             "updated": 1624697450404
         },
         {
@@ -26,7 +26,7 @@
         },
         {
             "style": "Text",
-            "text": "You may exert your influence dynamically, as you may redirect your Token Power at any moment. The distribution of Token Power upon each release of the software — tied to the corresponding Superalgos (SA) Token Distribution Event — determines how tokens allocated to the release are distributed."
+            "text": "You may exert your influence dynamically, as you may redirect your Token Power at any moment. The distribution of Token Power upon each release of the software — tied to the corresponding Superalgos SA Token Distribution Event — determines how tokens allocated to the release are distributed."
         },
         {
             "style": "Text",
@@ -34,7 +34,7 @@
         },
         {
             "style": "Note",
-            "text": "A Community engaged in governance is crucial for the development of the project, therefore participation is incentivized. In other words, you will earn Superalgos (SA) Tokens if you take part in the governance of Superalgos."
+            "text": "A Community engaged in governance is crucial for the development of the project, therefore participation is incentivized. In other words, you will earn Superalgos SA Tokens if you take part in the governance of Superalgos."
         },
         {
             "style": "Title",
@@ -74,15 +74,15 @@
         },
         {
             "style": "List",
-            "text": "Any user may, at any point, load the corresponding Plugin Workspaces and visualize how influence is being exerted by all Superalgos (SA) Token holders participating. "
+            "text": "Any user may, at any point, load the corresponding Plugin Workspaces and visualize how influence is being exerted by all Superalgos SA Token holders participating. "
         },
         {
             "style": "List",
-            "text": "Any user may run a simulation of the Superalgos (SA) Token distribution process and verify how tokens allocated to the next release will be distributed."
+            "text": "Any user may run a simulation of the Superalgos SA Token distribution process and verify how tokens allocated to the next release will be distributed."
         },
         {
             "style": "List",
-            "text": "Any user may obtain (from GitHub) and load historical versions of the software, and run a simulation of the Superalgos (SA) Token Distribution Process to verify how tokens were distributed in past releases. Notice that, in this case, the absolute number of votes may not be valid as token holdings will have varied; however, any user may validate the relative distribution."
+            "text": "Any user may obtain (from GitHub) and load historical versions of the software, and run a simulation of the Superalgos SA Token Distribution Process to verify how tokens were distributed in past releases. Notice that, in this case, the absolute number of votes may not be valid as token holdings will have varied; however, any user may validate the relative distribution."
         }
     ]
 }

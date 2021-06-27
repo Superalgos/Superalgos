@@ -1,0 +1,410 @@
+{
+    "topic": "Messari API Map and Mine",
+    "pageNumber": 2,
+    "type": "Messari API Map",
+    "definition": {
+        "text": "The current Messari API Map accesses the following endpoints of the Messari API.",
+        "updated": 1623016798805
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Documentation for the Messari API can be found at the following link:",
+            "updated": 1623016832972
+        },
+        {
+            "style": "Link",
+            "text": "https://messari.io/api/docs->https://messari.io/api/docs",
+            "updated": 1623016891013
+        },
+        {
+            "style": "Text",
+            "text": "The base request URL is:",
+            "updated": 1623016916374
+        },
+        {
+            "style": "Javascript",
+            "text": "https://data.messari.io/api/v1/"
+        },
+        {
+            "style": "Title",
+            "text": "Mapped Endpoints",
+            "updated": 1623017084118
+        },
+        {
+            "style": "Subtitle",
+            "text": "Get Asset Metrics",
+            "updated": 1623018060417
+        },
+        {
+            "style": "Javascript",
+            "text": "assets/{assetKey}/metrics"
+        },
+        {
+            "style": "Text",
+            "text": "Get all available quantitative metrics for current asset.",
+            "updated": 1623017262818
+        },
+        {
+            "style": "Subtitle",
+            "text": "Raw Returned Values"
+        },
+        {
+            "style": "List",
+            "text": "elapsed: Number of milliseconds taken to generate this response.",
+            "updated": 1623019719259
+        },
+        {
+            "style": "Text",
+            "text": "\t"
+        },
+        {
+            "style": "List",
+            "text": "timestamp: Current timestamp (ISO 8601) on the server.",
+            "updated": 1623017513914
+        },
+        {
+            "style": "List",
+            "text": "id: identifier of current asset.",
+            "updated": 1623017679361
+        },
+        {
+            "style": "List",
+            "text": "symbol: The commonly accepted \"symbol\" for an asset.",
+            "updated": 1623017708291
+        },
+        {
+            "style": "List",
+            "text": "name: Name of asset.",
+            "updated": 1623017721425
+        },
+        {
+            "style": "List",
+            "text": "slug: Web URL friendly shorthand slug, alternative to ID.",
+            "updated": 1623017759520
+        },
+        {
+            "style": "List",
+            "text": "price_usd: Market price in USD.",
+            "updated": 1623019895224
+        },
+        {
+            "style": "List",
+            "text": "price_btc: Market price in BTC.",
+            "updated": 1623019925906
+        },
+        {
+            "style": "List",
+            "text": "volume_last_24_hours: 24h trading volume in USD.",
+            "updated": 1623019946052
+        },
+        {
+            "style": "List",
+            "text": "real_volume_last_24_hours: 24h \"real\" trading volume in USD, read more here: https://messari.io/article/messari-methodology.",
+            "updated": 1623019966494
+        },
+        {
+            "style": "List",
+            "text": "volume_last_24_hours_overstatement_multiple: 24h trading volume in USD.",
+            "updated": 1623019998323
+        },
+        {
+            "style": "List",
+            "text": "percent_change_usd_last_24_hours: 24h percent change of USD-denominated price. If the return value is 1.23, it means 1.23%.",
+            "updated": 1623020015637
+        },
+        {
+            "style": "List",
+            "text": "percent_change_btc_last_24_hours: 24h percent change of BTC-denominated price. If the return value is 1.23, it means 1.23%.",
+            "updated": 1623020029901
+        },
+        {
+            "style": "List",
+            "text": "ohlcv_last_1_hour: Last one hour candle for current asset.",
+            "updated": 1623020085197
+        },
+        {
+            "style": "List",
+            "text": "ohlcv_last_24_hour: Last 24h candle for current asset.",
+            "updated": 1623020119322
+        },
+        {
+            "style": "List",
+            "text": "supply-> y_2050: The expected supply on Jan 1 2050.",
+            "updated": 1623020285674
+        },
+        {
+            "style": "List",
+            "text": "supply-> y_2050_percent_issued: The percentage of the Y2050 supply which has already been issued.",
+            "updated": 1623020280999
+        },
+        {
+            "style": "List",
+            "text": "supply_yplus_10: The expected supply 10 years from now.",
+            "updated": 1623020326848
+        },
+        {
+            "style": "List",
+            "text": "supply-> y_plus10_issued_percent: Tthe percent of the Y+10 supply that's currently liquid on the market today.",
+            "updated": 1623020414095
+        },
+        {
+            "style": "List",
+            "text": "supply-> liquid: Liquid Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal). Data is sourced by the Messari research team where available.",
+            "updated": 1623020418907
+        },
+        {
+            "style": "List",
+            "text": "supply-> circulating: Circulating Supply refers to tokens that exist on-chain, and which are not known to be encumbered by any contracts (programmatic or legal).",
+            "updated": 1623020423068
+        },
+        {
+            "style": "List",
+            "text": "supply-> stock_to_flow: Stock to Flow is calculated by taking the Liquid Supply today and dividing by the projected 12month increase in Liquid Supply. This is essentially the inverse of Current Inflation. The value is null for assets with fixed or decreasing Liquid Supply.",
+            "updated": 1623020439797
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> transaction_volume:",
+            "updated": 1623020585683
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> nvt:",
+            "updated": 1623020593900
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> sum_of_fees",
+            "updated": 1623020501350
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> median_tx_value",
+            "updated": 1623020508371
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> median_tx_fee",
+            "updated": 1623020514190
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> count_of_active_addresses",
+            "updated": 1623020521523
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> count_of_tx",
+            "updated": 1623020549536
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> count_of_payments",
+            "updated": 1623020554548
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> new_issuance",
+            "updated": 1623020559207
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> average_difficulty",
+            "updated": 1623020564987
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> kilobytes_added",
+            "updated": 1623020571504
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> count_of_blocks_added",
+            "updated": 1623020541777
+        },
+        {
+            "style": "List",
+            "text": "blockchain_stats_24_hours-> supply_moved_off_chain",
+            "updated": 1623020536534
+        },
+        {
+            "style": "List",
+            "text": "all_time_high-> price: The highest hourly open of the asset in USD.",
+            "updated": 1623020724372
+        },
+        {
+            "style": "List",
+            "text": "all_time_high-> at: ISO8601 timestamp of the date which the asset reached its all time high.",
+            "updated": 1623020739786
+        },
+        {
+            "style": "List",
+            "text": "all_time_high-> days_since: Days since the asset's recorded all time high.",
+            "updated": 1623020755609
+        },
+        {
+            "style": "List",
+            "text": "all_time_high-> percent_down: Percent that the current asset is down from all time high.",
+            "updated": 1623020782349
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> stars",
+            "updated": 1623020816536
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> watchers",
+            "updated": 1623020824097
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> commits_last_3_months",
+            "updated": 1623020829515
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> commits_last_1_year",
+            "updated": 1623020835154
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> lines_added_last_3_months",
+            "updated": 1623020840405
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> lines_added_last_1_year",
+            "updated": 1623020846615
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> lines_deleted_last_3_months",
+            "updated": 1623020852373
+        },
+        {
+            "style": "List",
+            "text": "developer_activity-> lines_deleted_last_1_year",
+            "updated": 1623020858907
+        },
+        {
+            "style": "List",
+            "text": "roi_data-> percent_change_last_1_week",
+            "updated": 1623020948941
+        },
+        {
+            "style": "List",
+            "text": "roi_data-> percent_change_last_1_month",
+            "updated": 1623020954684
+        },
+        {
+            "style": "List",
+            "text": "roi_data-> percent_change_last_3_months",
+            "updated": 1623020959549
+        },
+        {
+            "style": "List",
+            "text": "roi_data-> percent_change_last_1_year",
+            "updated": 1623020966835
+        },
+        {
+            "style": "List",
+            "text": "asset_age_days\t"
+        },
+        {
+            "style": "List",
+            "text": "vladimir_club_cost\t"
+        },
+        {
+            "style": "List",
+            "text": "categories\t"
+        },
+        {
+            "style": "List",
+            "text": "sector"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Get all News"
+        },
+        {
+            "style": "Javascript",
+            "text": "news",
+            "updated": 1623017985081
+        },
+        {
+            "style": "Text",
+            "text": "Get the latest (paginated) news and analysis for all assets.",
+            "updated": 1623018013665
+        },
+        {
+            "style": "Subtitle",
+            "text": "Raw Returned Values"
+        },
+        {
+            "style": "List",
+            "text": "timestamp: Current timestamp (ISO 8601) on the server.",
+            "updated": 1623019062328
+        },
+        {
+            "style": "List",
+            "text": "elapsed: Number of milliseconds taken to generate this response",
+            "updated": 1623019084220
+        },
+        {
+            "style": "List",
+            "text": "id: identifier for current article.",
+            "updated": 1623019168164
+        },
+        {
+            "style": "List",
+            "text": "title: Title of current article.",
+            "updated": 1623019183222
+        },
+        {
+            "style": "List",
+            "text": "content: Content of current article.",
+            "updated": 1623019201030
+        },
+        {
+            "style": "List",
+            "text": "references-> name: Name of cited material.",
+            "updated": 1623020299082
+        },
+        {
+            "style": "List",
+            "text": "references-> url: URL of cited material.",
+            "updated": 1623020303521
+        },
+        {
+            "style": "List",
+            "text": "reference_title: Shortened title of currrent article.",
+            "updated": 1623019361980
+        },
+        {
+            "style": "List",
+            "text": "published_at: Time current article was published.",
+            "updated": 1623019395108
+        },
+        {
+            "style": "List",
+            "text": "author-> name: Name of article's author.",
+            "updated": 1623020308899
+        },
+        {
+            "style": "List",
+            "text": "tags: Tags associated with current article. Such as \"BTC.\"",
+            "updated": 1623019588064
+        },
+        {
+            "style": "List",
+            "text": "url: URL to current article.",
+            "updated": 1623019678774
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

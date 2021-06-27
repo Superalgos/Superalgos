@@ -1,0 +1,79 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 95,
+    "type": "Tutorial Step - Fire Up the Machine!",
+    "definition": {
+        "icon": {
+           "project": "Foundations",
+            "name": "data-tasks"
+        },
+        "text": "Now it's time to fire up your Data Tasks operation.",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora è il momento di lanciare le tue operazioni di Data Tasks.",
+                "updated": 1618071030199,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Ahora es el momento de encender tu operación Data Tasks.",
+                "updated": 1624479320235
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Select Run All Project Data Tasks on the menu.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Seleziona Run All Project Data Tasks dal menù.",
+                    "updated": 1618071069199,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Selecciona Run All Project Data Tasks en el menú.",
+                    "updated": 1624479487847
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "We'll give it a few minutes to catch up with the present time. Remember, all indicators must get to 100% before we can start trading!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Aspettiamo un paio di minuti perchè si aggiorni alla data e ora correnti. Ricorda che tutti gli indicatori devono essere a 100% prima che iniziamo a fare trading!",
+                    "updated": 1618071103032,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerde, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
+                    "updated": 1624479541695
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are not going to run the live session, you don't need to start the Data Tasks. Just keep going to learn how the process works. ",
+            "updated": 1610643039999,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se non hai intenzione di fare trading live, non è necessario lanciare la data task. Puoi semplicemente proseguire, per vedere come funziona il procedimento.",
+                    "updated": 1618071161823,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Task. Sigue aprendiendo cómo funciona el proceso.",
+                    "updated": 1624483221831
+                }
+            ]
+        }
+    ]
+}

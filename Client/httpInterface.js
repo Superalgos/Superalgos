@@ -132,6 +132,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'signData': {
+
+                                    let serverResponse = await WEB3_SERVER.signData(
+                                        params.privateKey,
+                                        params.data
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
+                                case 'recoverAddress': {
+
+                                    let serverResponse = await WEB3_SERVER.recoverAddress(
+                                        params.signature
+                                    )
+
+                                    respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 default: {
                                     respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }
@@ -505,40 +524,64 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         for (let i = 0; i < docsSchema.length; i++) {
                             let schemaDocument = docsSchema[i]
+                            /*
+                            For some type of schemas we will save the file at an extra
+                            folder derived from the document's type.
+                            */
                             let fileName = schemaDocument.type.toLowerCase()
                             for (let j = 0; j < 10; j++) {
                                 fileName = cleanFileName(fileName)
                             }
                             let pageNumber = '00' + schemaDocument.pageNumber
-
+                            let newFilepath = filePath
                             switch (category) {
                                 case 'Topic': {
                                     fileName = schemaDocument.topic.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.topic)
                                     break
                                 }
                                 case 'Tutorial': {
                                     fileName = schemaDocument.tutorial.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.tutorial)
                                     break
                                 }
                                 case 'Review': {
                                     fileName = schemaDocument.review.toLowerCase() + '-' + pageNumber.substring(pageNumber.length - 3, pageNumber.length) + '-' + schemaDocument.type.toLowerCase()
                                     fileName = cleanFileName(fileName)
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.review)
+                                    break
+                                }
+                                case 'Node': {
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.type)
+                                    break
+                                }
+                                case 'Concept': {
+                                    newFilepath = createPrefixDirectories(filePath, schemaDocument.type)
                                     break
                                 }
                             }
+
+                            function createPrefixDirectories(filePath, schemaTextToUse) {
+                                let firstLetter = schemaTextToUse.substring(0, 1)
+                                createNewDir(filePath + '/' + firstLetter)
+                                let extraWord = schemaTextToUse.split(' ')[0]
+                                createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
+                                return filePath + '/' + firstLetter + '/' + extraWord + '/' + cleanFileName(schemaTextToUse)
+                            }
+
                             fileName = fileName + '.json'
 
                             if (schemaDocument.deleted === true) {
                                 try {
-                                    fs.unlinkSync(filePath + '/' + fileName)
-                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + ' deleted.')
+                                    fs.unlinkSync(newFilepath + '/' + fileName)
+                                    console.log('[SUCCESS] ' + newFilepath + '/' + fileName + ' deleted.')
                                 } catch (err) {
                                     noErrorsDuringSaving = false
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be deleted.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
-                                    console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> ' + newFilepath + '/' + fileName + ' could not be deleted.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> Resolve the issue that is preventing the Client to delete this file. Look at the error message below as a guide. At the UI you will need to delete this page again in order for the Client to retry next time you execute the docs.save command.')
+                                    console.log('[ERROR] httpInterface -> Docs -> Delete -> err.stack = ' + err.stack)
                                 }
                             } else {
                                 if (schemaDocument.updated === true || schemaDocument.created === true) {
@@ -548,25 +591,29 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                         schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        try {
-                                            fs.mkdirSync(filePath)
-                                        } catch (err) {
-                                            if (err.message.indexOf('file already exists') < 0) {
-                                                throw (err)
-                                            }
-                                        }
-                                        fs.writeFileSync(filePath + '/' + fileName, fileContent)
+                                        createNewDir(newFilepath)
+                                        fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                         if (created === true) {
-                                            console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+                                            console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
                                         } else {
                                             if (updated === true) {
-                                                console.log('[SUCCESS] ' + filePath + '/' + fileName + '  updated.')
+                                                console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  updated.')
                                             }
                                         }
                                     } catch (err) {
                                         noErrorsDuringSaving = false
-                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + filePath + '/' + fileName + ' could not be created / updated.')
+                                        console.log('[ERROR] httpInterface -> Docs -> Save -> ' + newFilepath + '/' + fileName + ' could not be created / updated.')
                                         console.log('[ERROR] httpInterface -> Docs -> Save -> err.stack = ' + err.stack)
+                                    }
+                                }
+                            }
+
+                            function createNewDir(path) {
+                                try {
+                                    fs.mkdirSync(path)
+                                } catch (err) {
+                                    if (err.message.indexOf('file already exists') < 0) {
+                                        throw (err)
                                     }
                                 }
                             }
@@ -623,7 +670,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -638,7 +685,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 if (error !== undefined) {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Contribution Not Sent',
                                         anchor: undefined,
@@ -751,7 +798,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                 } else {
 
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'App Error - Update Failed',
                                         anchor: undefined,
@@ -814,7 +861,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                                     respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 } else {
                                     let docs = {
-                                        project: 'Superalgos',
+                                        project: 'Foundations',
                                         category: 'Topic',
                                         type: 'Switching Branches - Current Branch Not Changed',
                                         anchor: undefined,
@@ -948,6 +995,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     }
 
                     path = unescape(path)
+
                     respondWithImage(path, httpResponse)
                 }
                 break
@@ -1041,24 +1089,44 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
-            case 'ProjectNames':
-                {
-                    let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    respondWithContent(JSON.stringify(projects), httpResponse)
-                }
-                break
-
             case 'Schema':
                 {
                     sendSchema(global.env.PATH_TO_PROJECTS + '/' + requestParameters[2] + '/Schemas/', requestParameters[3])
                 }
                 break
 
+            case 'DirContent':
+                {
+                    let folderPath = unescape(requestParameters[2])
+                    if (requestParameters[3] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[3]
+                    }
+
+                    if (requestParameters[4] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[4]
+                    }
+
+                    if (requestParameters[5] !== undefined) {
+                        folderPath = folderPath + '/' + requestParameters[5]
+                    }
+                    let folder
+                    if (requestParameters[2] === 'Root') {
+                        folder = folderPath.replace('Root', '../Superalgos/')
+                    } else {
+                        folder = global.env.PATH_TO_PROJECTS + '/' + folderPath
+                    }
+
+                    getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+
+                    function onFilesReady(files) {
+                        respondWithContent(JSON.stringify(files), httpResponse)
+                    }
+                }
+                break
+
             case 'IconNames':
                 {
                     let projects = getDirectories(global.env.PATH_TO_PROJECTS)
-                    const fs = require('fs')
-
                     let icons = []
                     let totalProjects = projects.length
                     let projectCounter = 0
@@ -1068,9 +1136,14 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                         const folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Icons/'
 
-                        fs.readdir(folder, (err, files) => {
+                        getAllFilesInDirectoryAndSubdirectories(folder, onFilesReady)
+
+                        function onFilesReady(files) {
                             for (let j = 0; j < files.length; j++) {
                                 let file = files[j]
+                                for (let i = 0; i < 10; i++) {
+                                    file = file.replace('/', '\\')
+                                }
                                 icons.push([project, file])
                             }
 
@@ -1078,7 +1151,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             if (projectCounter === totalProjects) {
                                 respondWithContent(JSON.stringify(icons), httpResponse)
                             }
-                        })
+                        }
                     }
                 }
                 break
@@ -1092,6 +1165,9 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let folder = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType
 
                     fs.readdir(folder, (err, files) => {
+                        if (files === undefined) {
+                            files = []
+                        }
                         respondWithContent(JSON.stringify(files), httpResponse)
                     })
                 }
@@ -1237,7 +1313,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
                             function onFileWritten(err) {
                                 if (err) {
-                                    console.log('[ERROR] SaveWorkspace -> onFileWritten -> Error writting the Workspace file. fileName = ' + fileName)
+                                    console.log('[ERROR] SaveWorkspace -> onFileWritten -> Error writing the Workspace file. fileName = ' + fileName)
                                     console.log('[ERROR] SaveWorkspace -> onFileWritten -> err.stack = ' + err.stack)
                                     let error = {
                                         result: 'Fail Because',
@@ -1251,7 +1327,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                         } catch (err) {
-                            console.log('[ERROR] SaveWorkspace -> Error writting the Workspace file. fileName = ' + fileName)
+                            console.log('[ERROR] SaveWorkspace -> Error writing the Workspace file. fileName = ' + fileName)
                             console.log('[ERROR] SaveWorkspace -> err.stack = ' + err.stack)
                             let error = {
                                 result: 'Fail Because',
@@ -1496,57 +1572,73 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
 
         function sendSchema(filePath, schemaType) {
             let fs = require('fs')
-                try {
-                    let folder = ''
-                    switch (schemaType) {
-                        case 'AppSchema': {
-                            folder = 'App-Schema'
-                            break
-                        }
-                        case 'DocsNodeSchema': {
-                            folder = 'Docs-Nodes'
-                            break
-                        }
-                        case 'DocsConceptSchema': {
-                            folder = 'Docs-Concepts'
-                            break
-                        }
-                        case 'DocsTopicSchema': {
-                            folder = 'Docs-Topics'
-                            break
-                        }
-                        case 'DocsTutorialSchema': {
-                            folder = 'Docs-Tutorials'
-                            break
-                        }
-                        case 'DocsReviewSchema': {
-                            folder = 'Docs-Reviews'
-                            break
-                        }
-                        case 'DocsBookSchema': {
-                            folder = 'Docs-Books'
-                            break
-                        }
+            try {
+                let folder = ''
+                switch (schemaType) {
+                    case 'AppSchema': {
+                        folder = 'App-Schema'
+                        break
                     }
+                    case 'DocsNodeSchema': {
+                        folder = 'Docs-Nodes'
+                        break
+                    }
+                    case 'DocsConceptSchema': {
+                        folder = 'Docs-Concepts'
+                        break
+                    }
+                    case 'DocsTopicSchema': {
+                        folder = 'Docs-Topics'
+                        break
+                    }
+                    case 'DocsTutorialSchema': {
+                        folder = 'Docs-Tutorials'
+                        break
+                    }
+                    case 'DocsReviewSchema': {
+                        folder = 'Docs-Reviews'
+                        break
+                    }
+                    case 'DocsBookSchema': {
+                        folder = 'Docs-Books'
+                        break
+                    }
+                }
+                getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                function onFilesReady(files) {
 
                     let schemaArray = []
-                    let fileList = fs.readdirSync(filePath + '/' + folder)
-                    for (let k = 0; k < fileList.length; k++) {
-                        let name = fileList[k]
-                        let fileContent = fs.readFileSync(filePath + '/' + folder + '/' + name)
-                        let schemaDocument = JSON.parse(fileContent)
+                    for (let k = 0; k < files.length; k++) {
+                        let name = files[k]
+                        let nameSplitted = name.split(folder)
+                        let fileName = nameSplitted[1]
+                        for (let i = 0; i < 10; i++) {
+                            fileName = fileName.replace('\\', '/')
+                        }
+                        let fileToRead = filePath + folder + fileName
+
+                        let fileContent = fs.readFileSync(fileToRead)
+                        let schemaDocument
+                        try {
+                            schemaDocument = JSON.parse(fileContent)
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                            respondWithContent("[]", httpResponse)
+                            return
+                        }
                         schemaArray.push(schemaDocument)
                     }
                     let schema = JSON.stringify(schemaArray)
                     respondWithContent(schema, httpResponse)
-                } catch (err) {
-                    if (err.message.indexOf('no such file or directory') < 0) {
-                        console.log('Could not send Schema:', filePath, schemaType)
-                        console.log(err.stack)
-                    }
-                    respondWithContent("[]", httpResponse)
                 }
-            
+            } catch (err) {
+                if (err.message.indexOf('no such file or directory') < 0) {
+                    console.log('Could not send Schema:', filePath, schemaType)
+                    console.log(err.stack)
+                }
+                respondWithContent("[]", httpResponse)
+            }
+
         }
 
         function sendStyleSheet(fileName) {
@@ -1725,6 +1817,40 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
             });
         } catch (err) {
             return []
+        }
+    }
+
+    function getAllFilesInDirectoryAndSubdirectories(dir, callback) {
+        const { promisify } = require('util');
+        const { resolve } = require('path');
+        const fs = require('fs');
+        const readdir = promisify(fs.readdir);
+        const stat = promisify(fs.stat);
+
+        getFiles(dir)
+            .then(files => {
+                let splittedDir = dir.split('/')
+                let lastFolder = splittedDir[splittedDir.length - 2]
+                let pathAndNames = []
+                for (let i = 0; i < files.length; i++) {
+                    let file = files[i]
+                    let pathName = file.substring(file.indexOf(lastFolder) + lastFolder.length, file.length)
+                    pathName = pathName.substring(1, pathName.length)
+                    pathAndNames.push(pathName)
+                }
+                callback(pathAndNames)
+            })
+            .catch(e => {
+                callback([])
+            });
+
+        async function getFiles(dir) {
+            const subdirs = await readdir(dir);
+            const files = await Promise.all(subdirs.map(async (subdir) => {
+                const res = resolve(dir, subdir);
+                return (await stat(res)).isDirectory() ? getFiles(res) : res;
+            }));
+            return files.reduce((a, f) => a.concat(f), []);
         }
     }
 }

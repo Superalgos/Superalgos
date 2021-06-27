@@ -1,0 +1,14 @@
+{
+    "type": "Multi-Time-Frame",
+    "definition": {
+        "text": "This is a way to refer to all the Dataset Types that contain files for each Time Frame, from 1 minute up to 24hs.",
+        "updated": 1622052585046
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Data Mining - Dataset Types->Dataset List",
+            "updated": 1622052498712
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Controlling Distances",
+    "definition": {
+        "text": "The next option in the menu controls the distance from the node to its parent. Clicking on the button cycles through options.",
+        "icon": {
+            "name": "set-distance-to-parent-node-to-one",
+            "project": "Foundations"
+        },
+        "updated": 1615474588252,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "L'opzione successiva nel menù controlla la distanza del nodo dal proprio padre. Cliccando sul pulsante, cicli tra le varie opzioni.",
+                "updated": 1619460455860,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The distance from a node to its parent is set relative to the distance from the parent to its parent node. The available options are:",
+            "updated": 1615474735608,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La distanza di un nodo dal padre è definita relativamente alla distanza del padre dal suo stesso padre (il \"nonno\" del nodo). Le opzioni sono:",
+                    "updated": 1619460512182,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Pink: 0.25X",
+            "updated": 1615474784140,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Rosa: 0.25X",
+                    "updated": 1619460519997,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Orange: 0.5X",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Arancione: 0.5X",
+                    "updated": 1619460530100,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Green: 1X",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verde: 1X",
+                    "updated": 1619460537594,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Blue: 1.5X",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Blu: 1.5X",
+                    "updated": 1619460541700,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Red: 2X",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Rosso: 2X",
+                    "updated": 1619460546342,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Let's say that you choose the green option. The distance from the node to its parent will be the same distance that separates the parent node from its parent!",
+            "updated": 1615475003479,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se scegliamo l'opzione verde, la distanza del nodo dal padre sarà la stessa che separa il nodo padre dal proprio nodo padre!",
+                    "updated": 1619460620886,
+                    "style": "Text"
+                }
+            ]
+        }
+    ]
+}

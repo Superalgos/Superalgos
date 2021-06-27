@@ -80,16 +80,26 @@ if (optionsAccepted === 0) {
 console.log('')
 console.log('')
 
-try {
-    const { fork } = require('child_process')
-    fork('./Client/client.js', process.argv, options)
-} catch (err) {
-    console.log('')
-    console.log('Fail to create Client Process.')
-    console.log('')
+const fs = require('fs')
+const path = './Client/node_modules'
+if ( fs.existsSync(path) ) {
 
-    fatalErrorHelp()
+    try {
+        const { fork } = require('child_process')
+        fork('./Client/client.js', process.argv, options)
+    } catch (err) {
+        console.log('')
+        console.log('Fail to create Client Process.')
+        console.log('')
+
+        fatalErrorHelp()
+    }
+} else {
+    console.log('')
+    console.log('ERROR: node_modules does not exist. Try running node setup to solve this issue. Then try again. You can finded detailed instructions for this in the ReadMe.')
+    console.log('')
 }
+
 
 function fatalErrorHelp() {
     console.log('')

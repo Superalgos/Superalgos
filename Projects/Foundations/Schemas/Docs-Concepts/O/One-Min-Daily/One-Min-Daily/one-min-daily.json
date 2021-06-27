@@ -1,0 +1,14 @@
+{
+    "type": "One-Min-Daily",
+    "definition": {
+        "text": "This Dataset type organizes data in one file per day. The data itself is either collected in one minute intervals or has objects with a time span of one minute.",
+        "updated": 1622053055321
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Data Mining - Dataset Types->Dataset List",
+            "updated": 1622053064060
+        }
+    ]
+}

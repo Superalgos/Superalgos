@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Input Layer",
@@ -11,12 +12,14 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "label": "Add Sequential layer",
             "relatedUiObject": "Sequential layer",
             "actionFunction": "payload.executeAction"
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "api",
             "label": "Add Output Layer",
@@ -25,6 +28,7 @@
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Foundations",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

@@ -1,0 +1,82 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 107,
+    "type": "Tutorial Step - Spread the Word on Twitter!",
+    "definition": {
+        "icon": {
+           "project": "Foundations",
+            "name": "twitter"
+        },
+        "text": "Making some noise on Twitter will help bring more traders to the project. More traders pushing the boundaries of the software is the best driver of evolution!",
+        "updated": 1610914488286,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Condividere il progetto su Twitter aiuterà a raggiungere più traders. Più traders che utilizzano il software è il miglior modo per incentivarne l'evoluzione!",
+                "updated": 1618072678582,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hacer algo de ruido en Twitter ayudará a atraer más traders al proyecto. ¡Más traders que traspasan los límites del software es el mejor motor de la evolución!",
+                "updated": 1624488263415
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The more traders using Superalgos, the more they will drive the Community to develop ever more advanced features! This is what you need to do:",
+            "updated": 1610914531306,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Più persone usano Superalgos, più spingeranno la Community a sviluppare funzionalità ancora migliori! Ecco cosa dovresti fare:",
+                    "updated": 1618072720212,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Cuantos más traders utilicen Superalgos, más impulsarán a la comunidad a desarrollar funciones cada vez más avanzadas! Esto es lo que necesitas hacer:",
+                    "updated": 1624488314072
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to our <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, follow us, and retweet our latest tweet. Make sure you tag traders you follow!",
+            "updated": 1610961950814,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai sulla nostra page di Twitter, seguici e ritwitta il nostro ultimo tweet. Assicurati di taggare i traders che segui!",
+                    "updated": 1618072761967,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve nuestra Twitter page, síganos y retuitee nuestro último tweet. ¡Asegúrese de etiquetar a los traders que sigas!",
+                    "updated": 1624497570630
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "That's it! No big deal, right? We appreciate your help and wish you some happy and prosperous trading!",
+            "updated": 1610957777183,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ottimo! Apprezziamo molto il tuo aiuto e ti auguriamo un trading felice e remunerativo!",
+                    "updated": 1618072801199,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso es! No es gran cosa, ¿verdad? ¡Agradecemos su ayuda y le deseamos un feliz y próspero trading!",
+                    "updated": 1624488393889
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "11",
+    "type": "Fibonacci Bollinger Bands",
+    "definition": {
+        "text": "These Bollinger bands feature Fibonacci retracements to very clearly show areas of support and resistance. The basis is calculate off of the Volume Weighted Moving Average. The Bands are 3 standard deviations away from the mean. 99.73% of observations should be in this range.",
+        "updated": 1622686933380
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "About Fibonacci - (Investopedia)->www.investopedia.com/ask/answers/05/fibonacciretracement.asp"
+        },
+        {
+            "style": "Link",
+            "text": "About Bollinger Bands - (Investopedia)->www.investopedia.com/trading/using-bollinger-bands-to-gauge-trends/"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Pool",
+    "definition": {
+        "text": "A Pool represents the highest level container of tokens.  They are used to route tokens to specific hierarchies via references. Users votes on pools to influence how many tokens will be routed and then distributed at the referenced hierarchy.",
+        "updated": 1622985663794
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

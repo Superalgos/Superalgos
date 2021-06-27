@@ -1,0 +1,49 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 20,
+    "type": "Tutorial Step - Detaching and Attaching",
+    "definition": {
+        "text": "Now follow my lead! We are not really going to test the strategy with different parameters... we are just simulating a use case!",
+        "icon": {
+            "name": "detach-node",
+            "project": "Foundations"
+        },
+        "updated": 1615571995273,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Forza, seguimi! Non testeremo davvero la strategia con i diversi parametri...stiamo solo simulando uno scenario d'uso!",
+                "updated": 1619466373155,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's pretend we modified the Trading Parameters and now we want to go back to using the original ones. We already have the backup in the design space — detached from the hierarchy — and we need to replace the existing Trading Parameters node with the backup.",
+            "updated": 1615572909121,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo caso che abbiamo modificato i Trading Parameters, e ora vogliamo riutilizzare quelli originali. Abbiamo già il backup nel design space, scollegato dalla gerarchia, e dobbiamo rimpiazzare il nodo Trading Parameters esistente con il suo backup.",
+                    "updated": 1619466537263,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and double-click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
+            "updated": 1620493528546,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Apri il menù del nodo Trading Parameters in uso (quello attaccato al nodo Backtesting Session) e clicca il pulsante Detach Node. Il nodo si separerà dalla gerarchia, e potrai metterlo da parte!",
+                    "updated": 1619466659809,
+                    "style": "Callout"
+                }
+            ]
+        }
+    ]
+}

@@ -345,7 +345,7 @@ function newFoundationsUtilitiesDecendentProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' - ' + incomingPowerText + ' Incoming Power' + '')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' +  programPowerName)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 

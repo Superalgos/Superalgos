@@ -272,12 +272,12 @@ function newGovernanceFunctionLibraryTokenPower() {
             if (node.type === 'User Profile') {
 
                 let incomingPower = node.payload.tokenPower - node.payload.blockchainTokens
-                const ownPowerText = parseFloat(node.payload.blockchainTokens.toFixed(2)).toLocaleString('en') + ' ' + 'Own Power'
-                const incomingPowerText = parseFloat(incomingPower.toFixed(2)).toLocaleString('en') + ' ' + 'Incoming Power'
+                const ownPowerText = parseFloat(node.payload.blockchainTokens.toFixed(2)).toLocaleString('en') + ' ' + 'Blockchain Power'
+                const incomingPowerText = parseFloat(incomingPower.toFixed(2)).toLocaleString('en') + ' ' + 'Incoming Delegated Power'
 
                 node.payload.uiObject.valueAngleOffset = 0
                 node.payload.uiObject.valueAtAngle = false
-                node.payload.uiObject.setStatus(ownPowerText + ' - ' + incomingPowerText)
+                node.payload.uiObject.setStatus(ownPowerText + ' + ' + incomingPowerText)
 
                 return
             }

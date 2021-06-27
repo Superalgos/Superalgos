@@ -1,0 +1,21 @@
+{
+    "topic": "Governance Flow",
+    "pageNumber": "1",
+    "type": "The Superalgos Meritocracy",
+    "definition": {
+        "text": "The Superalgos Governance Project implements a meritocratic system by which the more you contribute, the more you are entitled to influence the direction of development. ",
+        "updated": 1624780224978
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Everything starts with your existing holdings of Superalgos (SA) Tokens that you earned for previous contributions. Your holdings confer you Token Power.",
+            "updated": 1624780384340
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Token Power->Content",
+            "updated": 1624780741084
+        }
+    ]
+}

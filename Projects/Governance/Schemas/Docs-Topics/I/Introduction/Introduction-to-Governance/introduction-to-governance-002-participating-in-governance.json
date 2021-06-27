@@ -14,7 +14,7 @@
         },
         {
             "style": "Text",
-            "text": "Your User Profile points to a Superalgos (SA) Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power."
+            "text": "Your User Profile points to a Superalgos SA Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power."
         },
         {
             "style": "Text",

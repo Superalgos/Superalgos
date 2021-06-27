@@ -1,7 +1,7 @@
 {
     "type": "Tokens Awarded",
     "definition": {
-        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos (SA) Tokens awarded to your profile through each of the existing programs.",
+        "text": "The Tokens Awarded node is present on each of the programs in the hierarchy. It exists to accumulate and display the number of Superalgos SA Tokens awarded to your profile through each of the existing programs.",
         "updated": 1624726369909
     },
     "paragraphs": [

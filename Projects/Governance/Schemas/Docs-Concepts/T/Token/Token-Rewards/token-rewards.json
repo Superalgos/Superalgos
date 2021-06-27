@@ -1,7 +1,7 @@
 {
     "type": "Token Rewards",
     "definition": {
-        "text": "Token Rewards represents the number of Superalgos (SA) Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors.",
+        "text": "Token Rewards represents the number of Superalgos SA Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors.",
         "updated": 1624780868376
     },
     "paragraphs": [
@@ -12,7 +12,7 @@
         },
         {
             "style": "Callout",
-            "text": "Token Rewards represents the number of Superalgos (SA) Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors."
+            "text": "Token Rewards represents the number of Superalgos SA Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors."
         }
     ]
 }

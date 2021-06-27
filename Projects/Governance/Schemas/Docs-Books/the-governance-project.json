@@ -1,0 +1,29 @@
+{
+    "type": "The Governance Project",
+    "definition": {
+        "text": "The Governance Project is designed as a flexible system that allows the Community to dynamically direct influence in arbitrary directions. It allows governance to evolve with the project. It also encourages permissionless innovation, as Contributors may propose new areas of development and rally the Community to incentivize expansion along new lines.",
+        "updated": 1624782493205
+    },
+    "paragraphs": [
+        {
+            "style": "Chapter",
+            "text": "I->Governance->Topic->Introduction to Governance->Governance of the Superalgos Project is distributed among all members of the Superalgos Community willing to participate.  You may engage in multiple manners, help drive development in the desired directions, and contribute to nurturing a healthy community. ",
+            "updated": 1624782652630
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Governance->Topic->Governance Definitions->For Contributors to participate in governance, the project must be thoroughly defined, as it is these definitions that may accept votes and claims from Contributors.",
+            "updated": 1624782766720
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Governance->Topic->User Profile->The first step to get ready to participate in governance is to link your User Profile to a Superalgos (SA) Token address so that your profile may acquire the Token Power conferred by your token holdings.",
+            "updated": 1624782781936
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Governance->Topic->Governance Flow->The Superalgos Governance Project implements a meritocratic system, by which the more you contribute, the more you are entitled to influence the direction of development. ",
+            "updated": 1624782801597
+        }
+    ]
+}

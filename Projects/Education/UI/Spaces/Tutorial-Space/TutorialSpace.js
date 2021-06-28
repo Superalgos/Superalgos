@@ -17,7 +17,8 @@ function newEducationTutorialSpace() {
         draw: draw,
         getContainer: getContainer,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        reset: reset
     }
 
     let TUTORIAL_NAME
@@ -45,37 +46,67 @@ function newEducationTutorialSpace() {
     let tutorialDiv = document.getElementById('tutorialDiv')
     let tutorialFormDiv = document.getElementById('tutorialFormDiv')
     let htmlGif = document.createElement("IMG")
-    let currentGifName = 'Never Set'
-    let newGifName = 'Never Set'
     let htmlImage = document.createElement("IMG")
-    let currentImageName = 'Never Set'
-    let newImageName = 'Never Set'
-    let newImageProject = 'Never Set'
+
+    let currentGifName
+    let newGifName
+    let currentImageName
+    let newImageName
+    let newImageProject
     let currentConfig
     let newConfig
     let currentDocument
     let newDocument
-    let resumeModeActivated // In this mode, we skip all the node which status is 'Done'
-    let lastExecutedAction = ''
-    let actionCounter = 0
-    let forcingFocus = false
-    let currentZoomStep = 0
-    let viewportCentered = false
-    let repositionAtTimeMachineCounter = 0
-    let positionAtNodeCounter = 0
-    let timeMachineKeyPressedCounter = 0
-    let keyPressedCounter = 0
-    let sliderCounter = 0
-    let changeNodeConfigCounter = 0
-    let changeNodeConfigCounterWithEval = 0
-    let documentationCounter = 0
-    let batchConfigChangesCounter = 0
-    let workspacesCounter = 0
+    let resumeModeActivated
+    let lastExecutedAction
+    let actionCounter
+    let forcingFocus
+    let currentZoomStep
+    let viewportCentered
+    let repositionAtTimeMachineCounter
+    let positionAtNodeCounter
+    let timeMachineKeyPressedCounter
+    let keyPressedCounter
+    let sliderCounter
+    let changeNodeConfigCounter
+    let changeNodeConfigCounterWithEval
+    let documentationCounter
+    let batchConfigChangesCounter
+    let workspacesCounter
 
     return thisObject
 
     function initialize() {
+
+        currentGifName = 'Never Set'
+        newGifName = 'Never Set'
+        currentImageName = 'Never Set'
+        newImageName = 'Never Set'
+        newImageProject = 'Never Set'
+        currentConfig
+        newConfig
+        currentDocument
+        newDocument
+        resumeModeActivated // In this mode, we skip all the node which status is 'Done'
+        lastExecutedAction = ''
+        actionCounter = 0
+        forcingFocus = false
+        currentZoomStep = 0
+        viewportCentered = false
+        repositionAtTimeMachineCounter = 0
+        positionAtNodeCounter = 0
+        timeMachineKeyPressedCounter = 0
+        keyPressedCounter = 0
+        sliderCounter = 0
+        changeNodeConfigCounter = 0
+        changeNodeConfigCounterWithEval = 0
+        documentationCounter = 0
+        batchConfigChangesCounter = 0
+        workspacesCounter = 0
+
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
+        let workspace = UI.projects.foundations.spaces.designSpace.workspace
+        workspace.executeAction({ name: 'Play Tutorials', project: 'Foundations' })
         isInitialized = true
     }
 
@@ -86,10 +117,11 @@ function newEducationTutorialSpace() {
         currentNode = undefined
         navigationStack = undefined
 
-        tutorialDiv = undefined
-        tutorialFormDiv = undefined
-        image = undefined
-        gif = undefined
+    }
+
+    async function reset() {
+        finalize()
+        await initialize()
     }
 
     function resize() {
@@ -1177,7 +1209,7 @@ function newEducationTutorialSpace() {
             /* The current node is not referencing any page at the Docs */
             return
         }
-        
+
         let schemaDocument = SCHEMAS_BY_PROJECT.get(nodeConfig.docs.project).map.docsTutorialSchema.get(nodeConfig.docs.type)
 
         if (schemaDocument === undefined) {

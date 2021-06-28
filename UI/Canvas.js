@@ -86,7 +86,7 @@ function newCanvas() {
         }
     }
 
-    function initialize() {
+    async function initialize() {
         try {
 
             browserResized()
@@ -189,7 +189,7 @@ function newCanvas() {
                 for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
                     let spaceInstance = spaceInitializationMap.get(j)
                     if (spaceInstance !== undefined) {
-                        spaceInstance.initialize()
+                        await spaceInstance.initialize()
                     }
                 }
 

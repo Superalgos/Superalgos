@@ -96,7 +96,7 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
                     setTimeout(getBlockchainTokens, timer, userProfile, blockchainAccount)
-                    timer = timer + 5000
+                    timer = timer + 6000
                 }
             }
         }

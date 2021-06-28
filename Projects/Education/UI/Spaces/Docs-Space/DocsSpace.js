@@ -64,8 +64,6 @@ function newEducationDocSpace() {
             setupSidePanelTab()
             setUpMenuItemsMap()
             setupUserLanguage()
-            setupCurrentBranch()
-            setupContributionsBranch()
 
             thisObject.searchEngine = newFoundationsDocsSearchEngine()
             thisObject.mainSearchPage = newFoundationsDocsMainSearchPage()
@@ -82,6 +80,9 @@ function newEducationDocSpace() {
             thisObject.footer.initialize()
             thisObject.commandInterface.initialize()
             thisObject.contextMenu.initialize()
+
+            setupCurrentBranch()
+            setupContributionsBranch()
 
             isInitialized = true
 
@@ -111,7 +112,7 @@ function newEducationDocSpace() {
                 /*
                 Every time this setup occurs, we will automatically change to the currentBranch of the workspace.
                 */
-                changeCurrentBranch(UI.projects.education.spaces.docsSpace.currentBranch)
+                changeCurrentBranch(UI.projects.education.spaces.docsSpace.currentBranch, true)
                 /*
                 Deleting what was is here because is not longer used...
                 */
@@ -134,7 +135,7 @@ function newEducationDocSpace() {
                 /*
                 Every time this setup occurs, we will automatically change to the contributionsBranch of the workspace.
                 */
-                changeContributionsBranch(UI.projects.education.spaces.docsSpace.contributionsBranch)
+                changeContributionsBranch(UI.projects.education.spaces.docsSpace.contributionsBranch, true)
                 /*
                 Deleting what was is here because is not longer used...
                 */
@@ -229,9 +230,11 @@ function newEducationDocSpace() {
         await initialize()
     }
 
-    function changeCurrentBranch(branch) {
+    function changeCurrentBranch(branch, doNotNavigate) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        }
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
@@ -240,6 +243,8 @@ function newEducationDocSpace() {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
                 let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
                 UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
+
+                if (doNotNavigate === true) { return }
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
@@ -254,12 +259,14 @@ function newEducationDocSpace() {
         }
     }
 
-    function changeContributionsBranch(branch) {
+    function changeContributionsBranch(branch, doNotNavigate) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
         let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
         UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
 
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        }
     }
 
     function changeLanguage(pLanguage) {

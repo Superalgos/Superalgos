@@ -121,7 +121,7 @@ function newEducationTutorialSpace() {
 
     async function reset() {
         finalize()
-        await initialize()
+        initialize()
     }
 
     function resize() {

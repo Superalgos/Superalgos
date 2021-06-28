@@ -64,9 +64,7 @@ function newEducationDocSpace() {
             setupSidePanelTab()
             setUpMenuItemsMap()
             setupUserLanguage()
-            setupActiveBranch()
-            setupContributionsBranch()
-    
+
             thisObject.searchEngine = newFoundationsDocsSearchEngine()
             thisObject.mainSearchPage = newFoundationsDocsMainSearchPage()
             thisObject.searchResultsPage = newFoundationsDocsSearchResultsPage()
@@ -74,7 +72,7 @@ function newEducationDocSpace() {
             thisObject.footer = newFoundationsDocsFooter()
             thisObject.commandInterface = newFoundationsDocsCommmandInterface()
             thisObject.contextMenu = newFoundationsDocsContextMenu()
-    
+
             thisObject.searchEngine.initialize()
             thisObject.mainSearchPage.initialize()
             thisObject.searchResultsPage.initialize()
@@ -82,50 +80,75 @@ function newEducationDocSpace() {
             thisObject.footer.initialize()
             thisObject.commandInterface.initialize()
             thisObject.contextMenu.initialize()
-    
+
+            setupCurrentBranch()
+            setupContributionsBranch()
+
             isInitialized = true
-    
+
             UI.projects.foundations.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
             setTimeout(setUpSearchEngine, 100)
 
             function setUpSearchEngine() {
                 thisObject.searchEngine.setUpSearchEngine(whenFinished)
-                function whenFinished(){
+                function whenFinished() {
                     resolve()
                 }
             }
-    
-            function setupActiveBranch() {
+
+            function setupCurrentBranch() {
                 /*
-                Getting the used preferred languague
+                Getting the currentBranch
                 */
-                if (window.localStorage.getItem('Current Branch') !== null && window.localStorage.getItem('Current Branch') !== undefined && window.localStorage.getItem('Current Branch') !== 'undefined') {
-                    UI.projects.education.spaces.docsSpace.currentBranch = window.localStorage.getItem('Current Branch')
-                } else {
-                    window.localStorage.setItem('Current Branch', UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH)
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let currentBranch = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'currentBranch')
+
+                if (currentBranch === undefined) {
+                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH)
                     UI.projects.education.spaces.docsSpace.currentBranch = UI.projects.education.globals.docs.DEFAULT_CURRENT_BRANCH
+                } else {
+                    UI.projects.education.spaces.docsSpace.currentBranch = currentBranch
                 }
+                /*
+                Every time this setup occurs, we will automatically change to the currentBranch of the workspace.
+                */
+                changeCurrentBranch(UI.projects.education.spaces.docsSpace.currentBranch, true)
+                /*
+                Deleting what was is here because is not longer used...
+                */
+                window.localStorage.removeItem('Current Branch')
             }
-    
+
             function setupContributionsBranch() {
                 /*
-                Getting the used preferred languague
+                Getting the contributionsBranch
                 */
-                if (window.localStorage.getItem('Contributions Branch') !== null && window.localStorage.getItem('Contributions Branch') !== undefined && window.localStorage.getItem('Contributions Branch') !== 'undefined') {
-                    UI.projects.education.spaces.docsSpace.contributionsBranch = window.localStorage.getItem('Contributions Branch')
-                } else {
-                    window.localStorage.setItem('Contributions Branch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                let contributionsBranch = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'contributionsBranch')
+
+                if (contributionsBranch === undefined) {
+                    UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH)
                     UI.projects.education.spaces.docsSpace.contributionsBranch = UI.projects.education.globals.docs.DEFAULT_CONTRIBUTIONS_BRANCH
+                } else {
+                    UI.projects.education.spaces.docsSpace.contributionsBranch = contributionsBranch
                 }
+                /*
+                Every time this setup occurs, we will automatically change to the contributionsBranch of the workspace.
+                */
+                changeContributionsBranch(UI.projects.education.spaces.docsSpace.contributionsBranch, true)
+                /*
+                Deleting what was is here because is not longer used...
+                */
+                window.localStorage.removeItem('Contributions Branch')
             }
-    
+
             function setupUserLanguage() {
                 /*
                 Getting the used preferred languague
                 */
                 let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
                 let docsLanguage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')
-    
+
                 if (docsLanguage === undefined) {
                     UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.globals.docs.DEFAULT_LANGUAGE)
                     UI.projects.education.spaces.docsSpace.language = UI.projects.education.globals.docs.DEFAULT_LANGUAGE
@@ -133,21 +156,21 @@ function newEducationDocSpace() {
                     UI.projects.education.spaces.docsSpace.language = docsLanguage
                 }
                 /*
-                Deleting was is here because is not longer used
+                Deleting what was is here because is not longer used...
                 */
-                window.localStorage.setItem('Docs Language', undefined)
+                window.localStorage.removeItem('Docs Language')
             }
-    
+
             function setupSidePanelTab() {
                 thisObject.sidePanelTab = newSidePanelTab()
                 thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
                 thisObject.sidePanelTab.initialize('right')
                 openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
                 closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
-    
+
                 browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
             }
-    
+
             function setUpMenuItemsMap() {
                 /*
                 Here we will put put all the menu item labels of all nodes at all
@@ -157,10 +180,10 @@ function newEducationDocSpace() {
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
                     let appSchemaArray = SCHEMAS_BY_PROJECT.get(project).array.appSchema
-    
+
                     for (let j = 0; j < appSchemaArray.length; j++) {
                         let docsSchemaDocument = appSchemaArray[j]
-    
+
                         if (docsSchemaDocument.menuItems === undefined) { continue }
                         for (let k = 0; k < docsSchemaDocument.menuItems.length; k++) {
                             let menuItem = docsSchemaDocument.menuItems[k]
@@ -169,7 +192,7 @@ function newEducationDocSpace() {
                     }
                 }
             }
-          })
+        })
 
         return promise
     }
@@ -207,16 +230,21 @@ function newEducationDocSpace() {
         await initialize()
     }
 
-    function changeCurrentBranch(branch) {
+    function changeCurrentBranch(branch, doNotNavigate) {
         httpRequest(undefined, 'App/Checkout/' + branch, onResponse)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Changing Current Branch')
+        }
 
         function onResponse(err, data) {
             /* Lets check the result of the call through the http interface */
             data = JSON.parse(data)
             if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
                 UI.projects.education.spaces.docsSpace.currentBranch = branch
-                window.localStorage.setItem('Current Branch', branch)
+                let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'currentBranch', branch)
+
+                if (doNotNavigate === true) { return }
                 UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Current Branch Changed')
             } else {
                 UI.projects.education.spaces.docsSpace.navigateTo(
@@ -231,10 +259,14 @@ function newEducationDocSpace() {
         }
     }
 
-    function changeContributionsBranch(branch) {
+    function changeContributionsBranch(branch, doNotNavigate) {
         UI.projects.education.spaces.docsSpace.contributionsBranch = branch
-        window.localStorage.setItem('Contributions Branch', UI.projects.education.spaces.docsSpace.contributionsBranch)
-        UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'contributionsBranch', branch)
+
+        if (doNotNavigate !== true) {
+            UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Switching Branches - Contributions Branch Changed')
+        }
     }
 
     function changeLanguage(pLanguage) {
@@ -243,7 +275,6 @@ function newEducationDocSpace() {
         UI.projects.education.spaces.docsSpace.navigateTo('Foundations', 'Topic', 'Docs In ' + languageLabel)
 
         let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-
         UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(workspace.payload, 'docsLanguage', UI.projects.education.spaces.docsSpace.language)
     }
 

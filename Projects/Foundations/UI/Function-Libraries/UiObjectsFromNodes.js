@@ -32,6 +32,9 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
         learningSessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
+        /* Initializing the workspace config */
+        if (node.config === undefined || node.config === 'undefined') { node.config = '{}' }
+
         removeNullRootNodes()
 
         function removeNullRootNodes() {

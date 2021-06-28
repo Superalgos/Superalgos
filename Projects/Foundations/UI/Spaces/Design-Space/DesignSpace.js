@@ -25,42 +25,49 @@ function newFoundationsDesignSpace() {
 
     return thisObject
 
-    function initialize() {
-        loadIconCollection(onIconsReady)
+    async function initialize() {
+        let promise = new Promise((resolve, reject) => {
 
-        function onIconsReady() {
-            buildIconByProjectAndTypeMap()
-            thisObject.workspace = newWorkspace()
-            thisObject.workspace.initialize()
-        }
+            loadIconCollection(onIconsReady)
 
-        function buildIconByProjectAndTypeMap() {
-            /* Take types-icons relationships defined at the schema */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
-
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
-                addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
-
-                function addSchemaTypes(schema) {
-                    for (let j = 0; j < schema.length; j++) {
-                        let schemaDocument = schema[j]
-                        let iconName = schemaDocument.icon
-                        if (iconName === undefined) {
-                            iconName = schemaDocument.type.toLowerCase()
-                            iconName = iconName.split(" ").join("-")
-                        }
-                        let icon = thisObject.getIconByProjectAndName(project, iconName)
-                        if (icon !== undefined) {
-                            let key = project + '-' + schemaDocument.type
-                            thisObject.iconsByProjectAndType.set(key, icon)
+            async function onIconsReady() {
+                buildIconByProjectAndTypeMap()
+                thisObject.workspace = newWorkspace()
+                await thisObject.workspace.initialize()
+                resolve()
+            }
+    
+            function buildIconByProjectAndTypeMap() {
+                /* Take types-icons relationships defined at the schema */
+                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                    let project = PROJECTS_SCHEMA[i].name
+    
+                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.appSchema)
+                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema)
+                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema)
+                    addSchemaTypes(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema)
+    
+                    function addSchemaTypes(schema) {
+                        for (let j = 0; j < schema.length; j++) {
+                            let schemaDocument = schema[j]
+                            let iconName = schemaDocument.icon
+                            if (iconName === undefined) {
+                                iconName = schemaDocument.type.toLowerCase()
+                                iconName = iconName.split(" ").join("-")
+                            }
+                            let icon = thisObject.getIconByProjectAndName(project, iconName)
+                            if (icon !== undefined) {
+                                let key = project + '-' + schemaDocument.type
+                                thisObject.iconsByProjectAndType.set(key, icon)
+                            }
                         }
                     }
                 }
             }
-        }
+          })
+
+        return promise
+
     }
 
     function loadIconCollection(callBack) {

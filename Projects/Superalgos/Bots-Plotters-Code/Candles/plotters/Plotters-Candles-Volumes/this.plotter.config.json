@@ -1,0 +1,33 @@
+{
+  "displayName": "Plotters Candles & Volumes",
+  "codeName": "PlottersCandlesVolumes",
+  "dataMine": "Masters",
+  "modules": [
+    {
+      "codeName": "Candles",
+      "moduleName": "Candles",
+      "description": "Plots traditional red and green candles.",
+      "profilePicture": "Candles.png",
+      "panels": [
+        {
+          "codeName": "CandlePanel",
+          "moduleName": "CandlePanel",
+          "event": "Current Record Changed"
+        }
+      ]
+    },
+    {
+      "codeName": "Volumes",
+      "description": "Plots volumes separated in buy and sell.",
+      "moduleName": "Volumes",
+      "profilePicture": "Volumes.png",
+      "panels": [
+        {
+          "codeName": "VolumePanel",
+          "moduleName": "VolumePanel",
+          "event": "Current Record Changed"
+        }
+      ]
+    }
+  ]
+}

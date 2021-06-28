@@ -160,8 +160,8 @@
         },
         {
             "style": "Javascript",
-            "text": "productName.[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-n].propertyName",
-            "updated": 1616079715540
+            "text": "productPluralVariable[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-n].propertyName",
+            "updated": 1624868076284
         },
         {
             "style": "Text",
@@ -175,8 +175,8 @@
         },
         {
             "style": "Javascript",
-            "text": "chart.at01hs.candle.[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-5].max",
-            "updated": 1616079725136
+            "text": "chart.at01hs.candles[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value-5].max",
+            "updated": 1624868093927
         },
         {
             "style": "Text",

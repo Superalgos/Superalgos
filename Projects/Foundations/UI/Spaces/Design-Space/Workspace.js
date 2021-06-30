@@ -274,7 +274,7 @@ function newWorkspace() {
                                     /* Lets check the result of the call through the http interface */
                                     data = JSON.parse(data)
                                     if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                                        pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.')
+                                        pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.', 250)
                                         return
                                     }
                                     console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))

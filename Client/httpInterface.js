@@ -1196,6 +1196,7 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let fileContent = JSON.stringify(plugin, undefined, 4)
                         const fs = require('fs')
                         fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
+                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                     } catch (err) {
                         console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
                         console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)

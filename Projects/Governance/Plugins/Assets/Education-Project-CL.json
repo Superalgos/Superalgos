@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Education-Project-CL",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Education-Project-CL\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -29,9 +29,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

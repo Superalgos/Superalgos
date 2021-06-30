@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Education-Project-Assets",
-    "config": "{}",
+    "config": "{\"codeName\":\"Education-Project-Assets\"}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -42,9 +42,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         },
                         {
@@ -72,9 +70,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         },
                         {
@@ -102,9 +98,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         },
                         {
@@ -132,9 +126,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         }
                     ],
@@ -156,9 +148,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 }
             ],
@@ -188,9 +178,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -218,9 +206,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -248,9 +234,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        },
+                        "uiObject": {},
                         "referenceParent": {
                             "type": "Assets",
                             "name": "Foundations-Project-Plugins",
@@ -277,9 +261,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

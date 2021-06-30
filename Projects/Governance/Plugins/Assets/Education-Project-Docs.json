@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Education-Project-Docs",
-    "config": "{\n    \"folderPath\": \"Governance/Icons\"\n}",
+    "config": "{\"folderPath\":\"Governance/Icons\",\"codeName\":\"Education-Project-Docs\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -35,9 +35,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -65,9 +63,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -95,9 +91,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -125,9 +119,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -155,9 +147,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -185,9 +175,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 }
             ],
@@ -210,9 +198,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

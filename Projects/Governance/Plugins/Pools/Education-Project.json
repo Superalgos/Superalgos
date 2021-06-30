@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Education-Project",
-    "config": "{}",
+    "config": "{\"codeName\":\"Education-Project\"}",
     "project": "Governance",
     "poolClasses": [
         {
@@ -42,9 +42,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
+                                "uiObject": {},
                                 "referenceParent": {
                                     "type": "Pools",
                                     "name": "Foundations-Project-Assets",
@@ -71,9 +69,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -108,9 +104,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
+                                "uiObject": {},
                                 "referenceParent": {
                                     "type": "Features",
                                     "name": "Foundations-Project",
@@ -137,9 +131,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -174,9 +166,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
+                                "uiObject": {},
                                 "referenceParent": {
                                     "type": "Positions",
                                     "name": "Foundations-Project",
@@ -203,9 +193,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 {
@@ -240,9 +228,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         },
                         {
@@ -270,9 +256,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         }
                     ],
@@ -294,9 +278,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 }
             ],
@@ -319,9 +301,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

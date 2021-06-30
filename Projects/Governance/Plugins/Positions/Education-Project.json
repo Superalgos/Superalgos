@@ -1,6 +1,7 @@
 {
     "type": "Positions",
     "name": "Education-Project",
+    "config": "{\"codeName\":\"Education-Project\"}",
     "project": "Governance",
     "positionClasss": [],
     "positions": [
@@ -35,9 +36,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 }
             ],
@@ -60,9 +59,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

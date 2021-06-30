@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Education-Project-TS",
-    "config": "{}",
+    "config": "{\"codeName\":\"Education-Project-TS\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -42,9 +42,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         }
                     ],
@@ -66,9 +64,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 }
             ],
@@ -91,9 +87,7 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {
-                    "isRunning": false
-                }
+                "uiObject": {}
             }
         }
     ],

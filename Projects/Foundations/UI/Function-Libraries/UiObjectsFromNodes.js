@@ -153,7 +153,7 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             name = config.fileName
                         }
                         if (config.folderName !== undefined) {
-                            folder = config.fileName
+                            folder = config.folderName
                         }
                     } catch (err) { }
 

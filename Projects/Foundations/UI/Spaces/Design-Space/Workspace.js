@@ -250,7 +250,7 @@ function newWorkspace() {
                                     folderName === undefined ||
                                     nodeType === undefined
                                 ) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.',500)
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.', 500)
                                     continue
                                 }
                                 /*
@@ -260,10 +260,13 @@ function newWorkspace() {
                                 let pluginToSave = getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
 
                                 if (pluginToSave === undefined) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.',500)
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.', 500)
                                     continue
                                 }
-                                let fileContent = JSON.stringify(pluginToSave, undefined, 4)
+                                let fileContent = JSON.stringify(
+                                    UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
+                                    undefined,
+                                    4)
 
                                 httpRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
 
@@ -274,8 +277,8 @@ function newWorkspace() {
                                         pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.')
                                         return
                                     }
-                                    console.log('[ERROR] Saving Plugin File: ' + data)
-                                    pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + data)
+                                    console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))
+                                    pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + JSON.stringify(data), 500)
                                 }
                             }
                         }

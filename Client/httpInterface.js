@@ -1193,7 +1193,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         let folder = requestParameters[3]
                         let fileName = requestParameters[4]
                         let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
-                        createNewDir(filePath)
                         let fileContent = JSON.stringify(plugin, undefined, 4)
                         const fs = require('fs')
                         fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)

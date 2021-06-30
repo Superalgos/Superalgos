@@ -203,6 +203,6 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
     }
 
     function savePlugin(node, rootNodes) {
-
+        UI.projects.foundations.utilities.plugins.savePluginFile(node)
     }
 }

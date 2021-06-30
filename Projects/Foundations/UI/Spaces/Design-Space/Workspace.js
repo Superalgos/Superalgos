@@ -239,47 +239,8 @@ function newWorkspace() {
                             for (let k = 0; k < childNode.pluginFiles.length; k++) {
                                 let pluginFile = childNode.pluginFiles[k]
 
-                                let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
-                                let fileName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
-                                let folderName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
-                                let nodeType = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
-
-                                if (
-                                    project === undefined ||
-                                    fileName === undefined ||
-                                    folderName === undefined ||
-                                    nodeType === undefined
-                                ) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.', 500)
-                                    continue
-                                }
-                                /*
-                                Next thing to do is to find the Plugin Hierarchy at the Workspace, and send 
-                                a request to the Client to save it.
-                                */
-                                let pluginToSave = getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
-
-                                if (pluginToSave === undefined) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.', 500)
-                                    continue
-                                }
-                                let fileContent = JSON.stringify(
-                                    UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
-                                    undefined,
-                                    4)
-
-                                httpRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
-
-                                function onResponse(err, data) {
-                                    /* Lets check the result of the call through the http interface */
-                                    data = JSON.parse(data)
-                                    if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                                        pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.', 250)
-                                        return
-                                    }
-                                    console.log('[ERROR] Saving Plugin File: ' + JSON.stringify(data))
-                                    pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + JSON.stringify(data), 500)
-                                }
+                                let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
+                                UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
                             }
                         }
                             break

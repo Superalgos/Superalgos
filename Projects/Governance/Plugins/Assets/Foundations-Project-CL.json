@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Foundations-Project-CL",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Foundations-Project-CL\"}",
     "project": "Governance",
     "assetClasses": [
         {

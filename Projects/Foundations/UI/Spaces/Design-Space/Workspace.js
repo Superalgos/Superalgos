@@ -347,11 +347,7 @@ function newWorkspace() {
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
-                    //saveWorkspace(takeAction)
-
-                    function takeAction() {
-                        workingAtTask = 2
-                    }
+                    workingAtTask = 2
                     break
                 }
                 case 2:
@@ -454,7 +450,6 @@ function newWorkspace() {
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 
-                        //saveWorkspace()
                         runTasksAndSessions()
                         break
                     }

@@ -7,12 +7,12 @@ function newFoundationsUtilitiesPlugins() {
 
     return thisObject
 
-    function getPluginFileNames(projectName, pluginType, callBack) {
-        httpRequest(undefined, 'PluginFileNames/' + projectName + '/' + pluginType, onResponse)
+    function getPluginFileNames(projectName, pluginFolder, callBack) {
+        httpRequest(undefined, 'PluginFileNames/' + projectName + '/' + pluginFolder, onResponse)
 
         function onResponse(err, data) {
             if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                console.log('Failed to Fetch Plugin ' + pluginType + ' from the Client')
+                console.log('Failed to Fetch Plugin ' + pluginFolder + ' from the Client')
                 return
             }
 
@@ -21,7 +21,7 @@ function newFoundationsUtilitiesPlugins() {
         }
     }
 
-    function addPluginFileIfNeeded(node, fileNames) {
+    function addPluginFileIfNeeded(node, fileNames, pluginFolder, nodeType) {
         for (let i = 0; i < fileNames.length; i++) {
             let fileName = fileNames[i]
             fileName = fileName.replace('.json', '')
@@ -30,7 +30,9 @@ function newFoundationsUtilitiesPlugins() {
                 child.name = fileName
                 child.config = JSON.stringify({
                     project: node.project,
-                    fileName: fileName
+                    fileName: fileName,
+                    folderName: pluginFolder,
+                    nodeType: nodeType
                 })
             }
         }

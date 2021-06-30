@@ -19,6 +19,7 @@ function newWorkspace() {
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
+        getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
         getHierarchyHeadByNodeType: getHierarchyHeadByNodeType,
         getHierarchyHeadsByNodeType: getHierarchyHeadsByNodeType,
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
@@ -191,6 +192,7 @@ function newWorkspace() {
             return
         }
         httpRequest(textToSave, url, onResponse)
+        savePlugins()
         return true
 
         function onResponse(err) {
@@ -205,6 +207,85 @@ function newWorkspace() {
                 }
             } else {
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Client. Please check the Client Console for more information.', 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+            }
+        }
+    }
+
+    function savePlugins() {
+        /*
+        Here we will scan the workspace for all Plugins and we will try to save them.
+        The first thing to do is to find the Plugins hierarchy.
+        */
+        let plugins = getHierarchyHeadByNodeType('Plugins')
+        if (plugins === undefined) { return }
+
+        for (let i = 0; i < plugins.pluginsProjects.length; i++) {
+            let pluginProject = plugins.pluginsProjects.length[i]
+            /*
+            Here we are inside the Voting Program, so we will crawl all it's children.
+            */
+            let schemaDocument = getSchemaDocument('Plugin Project')
+            if (schemaDocument === undefined) { return }
+
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let j = 0; j < schemaDocument.childrenNodesProperties.length; j++) {
+                    let property = schemaDocument.childrenNodesProperties[j]
+
+                    switch (property.type) {
+                        case 'node': {
+                            let childNode = node[property.name]
+                            if (childNode === undefined) { continue }
+                            if (childNode.pluginFiles === undefined) { continue }
+                            for (let k = 0; k < childNode.pluginFiles.length; k++) {
+                                let pluginFile = childNode.pluginFiles[k]
+
+                                let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
+                                let fileName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
+                                let folderName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
+                                let nodeType = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
+
+                                if (
+                                    project === undefined ||
+                                    fileName === undefined ||
+                                    folderName === undefined ||
+                                    nodeType === undefined
+                                ) {
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.')
+                                    continue
+                                }
+                                /*
+                                Next thing to do is to find the Plugin Hierarchy at the Workspace, and send 
+                                a request to the Client to save it.
+                                */
+                                let pluginToSave = getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
+
+                                if (pluginToSave === undefined) {
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.')
+                                    continue
+                                }
+                                let fileContent = JSON.stringify(pluginToSave, undefined, 4)
+
+                                httpRequest(fileContent, 'SavePlugin' + '/' + project + '/' + folderName + '/' + fileName, onResponse)
+
+                                function onResponse(err, data) {
+                                    /* Lets check the result of the call through the http interface */
+                                    data = JSON.parse(data)
+                                    if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                                        pluginFile.payload.uiObject.setInfoMessage('Plugin Saved.')
+                                        return
+                                    }
+                                    console.log('[ERROR] Saving Plugin File: ' + data)
+                                    pluginFile.payload.uiObject.setErrorMessage('This Plugin Could not be Saved. ' + data)
+                                }
+                            }
+                        }
+                            break
+                        case 'array': {
+                            /*Nothing to do here*/
+                            break
+                        }
+                    }
+                }
             }
         }
     }
@@ -366,7 +447,7 @@ function newWorkspace() {
                         workingAtTask = 0
                         UI.projects.foundations.spaces.floatingSpace.inMapMode = false
                         thisObject.isInitialized = true
- 
+
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 
@@ -499,6 +580,18 @@ function newWorkspace() {
         }
     }
 
+    function getHierarchyHeadsByCodeNameAndNodeType(codeName, nodeType) {
+        let hierarchyHeads = getHierarchyHeads()
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
+            if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
+                return hierarchyHead
+            }
+        }
+    }
+
     function getHierarchyHeadByNodeType(nodeType) {
         let hierarchyHeads = getHierarchyHeads()
         if (hierarchyHeads === undefined) { return }
@@ -522,6 +615,7 @@ function newWorkspace() {
         }
         return resultArray
     }
+
 
     function replaceWorkspaceByLoadingOne(project, name) {
 

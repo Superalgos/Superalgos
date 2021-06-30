@@ -138,10 +138,11 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                 addUserDefinedNodes()
             }
 
-            function pluginAllTheseFiles(pluginFiles, pluginType) {
+            function pluginAllTheseFiles(pluginFiles, pluginFolder) {
                 for (let i = 0; i < pluginFiles.length; i++) {
                     let pluginFile = pluginFiles[i]
                     let name = pluginFile.name
+                    let folder = pluginFolder
                     let project = "Foundations"
                     try {
                         let config = JSON.parse(pluginFile.config)
@@ -151,14 +152,17 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                         if (config.fileName !== undefined) {
                             name = config.fileName
                         }
+                        if (config.folderName !== undefined) {
+                            folder = config.fileName
+                        }
                     } catch (err) { }
 
-                    httpRequest(undefined, 'LoadPlugin' + '/' + project + '/' + pluginType + '/' + name + '.json', onFileReceived)
+                    httpRequest(undefined, 'LoadPlugin' + '/' + project + '/' + folder + '/' + name + '.json', onFileReceived)
 
                     function onFileReceived(err, text, response) {
 
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            console.log('[WARN] Cannot load plugin ' + pluginType + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
+                            console.log('[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
                             let receivedNode = JSON.parse(text)
                             /* 
@@ -173,6 +177,12 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                                 }
                             }
                             receivedNode.isPlugin = true
+                            /*
+                            We will force the Plugin codeName to the same to the fileName.                             
+                            */
+                            let config = JSON.parse(receivedNode.config)
+                            config.codeName = name
+                            receivedNode.config = JSON.stringify(config)
 
                             if (pluginFile.pluginFilePosition !== undefined) {
                                 let positionOffset = {

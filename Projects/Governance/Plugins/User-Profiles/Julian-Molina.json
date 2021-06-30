@@ -17,7 +17,7 @@
             "userReferrers": [
                 {
                     "type": "User Referrer",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0aa9db01-7605-4a51-abd9-e233de6721d6",
@@ -128,7 +128,7 @@
             "userSupporters": [
                 {
                     "type": "User Supporter",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "ebf5fe9a-58c9-4b8a-afed-396d47b9556f",
@@ -239,7 +239,7 @@
             "userMentors": [
                 {
                     "type": "User Mentor",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0e176a01-3ed2-4b02-b070-601236ea2393",

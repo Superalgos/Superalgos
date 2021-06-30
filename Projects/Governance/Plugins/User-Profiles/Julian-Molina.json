@@ -484,7 +484,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Referrals Program",
@@ -583,7 +585,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Support Program",
@@ -682,7 +686,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Mentorship Program",
@@ -718,7 +724,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Claims Program",
@@ -786,7 +794,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Voting Program",
@@ -854,7 +864,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Delegation Program",
@@ -922,7 +934,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Pool Class",
                                             "name": "Staking Program",
@@ -953,7 +967,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Pool Class",
                                     "name": "Programs",

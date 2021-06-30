@@ -42,7 +42,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Pools",
                                     "name": "Foundations-Project-Assets",
@@ -69,7 +71,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -104,7 +108,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Features",
                                     "name": "Foundations-Project",
@@ -131,7 +137,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -166,7 +174,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Positions",
                                     "name": "Foundations-Project",
@@ -193,7 +203,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -228,7 +240,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -256,7 +270,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         }
                     ],
@@ -278,7 +294,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -301,7 +319,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         }
     ],

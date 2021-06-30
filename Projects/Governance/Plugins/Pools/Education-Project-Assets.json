@@ -42,7 +42,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -70,7 +72,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -98,7 +102,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -126,7 +132,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         }
                     ],
@@ -148,7 +156,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -178,7 +188,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -206,7 +218,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -234,7 +248,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "Assets",
                             "name": "Foundations-Project-Plugins",
@@ -261,7 +277,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         }
     ],

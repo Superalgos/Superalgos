@@ -10,7 +10,10 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         addMissingPluginLearningSystems: addMissingPluginLearningSystems,
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
         addMissingPluginTutorials: addMissingPluginTutorials,
-        addMissingPluginApiMaps: addMissingPluginApiMaps
+        addMissingPluginApiMaps: addMissingPluginApiMaps,
+        enableSavingWithWorkspace: enableSavingWithWorkspace,
+        disableSavingWithWorkspace: disableSavingWithWorkspace,
+        savePlugin: savePlugin
     }
     return thisObject
 
@@ -187,5 +190,19 @@ function newFoundationsFunctionLibraryPluginsFunctions() {
         function onNamesArrived(fileNames) {
             UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'API-Maps', 'API Map')
         }
+    }
+
+    function enableSavingWithWorkspace(node, rootNodes) {
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
+        node.payload.uiObject.setInfoMessage('Saving with Workspace Enabled')
+    }
+
+    function disableSavingWithWorkspace(node, rootNodes) {
+        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', false)
+        node.payload.uiObject.setInfoMessage('Saving with Workspace Disabled')
+    }
+
+    function savePlugin(node, rootNodes) {
+
     }
 }

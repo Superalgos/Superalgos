@@ -3,7 +3,7 @@
     "pageNumber": "1",
     "type": "Building Your Profile",
     "definition": {
-        "text": "Your Governance Address is a Superalgos (SA) Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power, that you may use from within your User Profile to participate in governance.",
+        "text": "Your Governance Address is a Superalgos SA Token address generated from within Superalgos, using the Profile Constructor. The tokens you hold in this address confer you Token Power, that you may use from within your User Profile to participate in governance.",
         "updated": 1624722284024
     },
     "paragraphs": [
@@ -54,7 +54,7 @@
         },
         {
             "style": "Text",
-            "text": "The Profile Constructor is the device you will use to set up the BSC address you will use to feed your profile with Token Power from your Superalgos (SA) Token holdings. This means that you will not be able to use your existing addresses, but will create a new one. We call it your Governance Address."
+            "text": "The Profile Constructor is the device you will use to set up the BSC address you will use to feed your profile with Token Power from your Superalgos SA Token holdings. This means that you will not be able to use your existing addresses, but will create a new one. We call it your Governance Address."
         },
         {
             "style": "Include",
@@ -113,7 +113,7 @@
         },
         {
             "style": "Warning",
-            "text": "This is the most important part of this guide! You must back up your private key! Later on, you will move Superalgos (SA) Tokens to the address you just generated, so, before you do that, you must safely store the private key that you will use to access the address. At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is generate a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information."
+            "text": "This is the most important part of this guide! You must back up your private key! Later on, you will move Superalgos SA Tokens to the address you just generated, so, before you do that, you must safely store the private key that you will use to access the address. At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is generate a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information."
         },
         {
             "style": "Text",
@@ -147,7 +147,7 @@
         },
         {
             "style": "Text",
-            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos (SA) Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!"
+            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos SA Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!"
         },
         {
             "style": "Success",
@@ -231,7 +231,7 @@
         },
         {
             "style": "Text",
-            "text": "You’re almost ready to move some Superalgos (SA) Tokens to your new address. Before you do that it’s a good idea to configure the Superalgos (SA) Token first."
+            "text": "You’re almost ready to move some Superalgos SA Tokens to your new address. Before you do that it’s a good idea to configure the Superalgos SA Token first."
         },
         {
             "style": "Text",
@@ -239,11 +239,11 @@
         },
         {
             "style": "Link",
-            "text": "How to Configure the Superalgos (SA) Token in Trust Wallet->medium.com/superalgos/how-to-configure-the-superalgos-sa-token-in-trust-wallet-5cfc63800447"
+            "text": "How to Configure the Superalgos SA Token in Trust Wallet->medium.com/superalgos/how-to-configure-the-superalgos-sa-token-in-trust-wallet-5cfc63800447"
         },
         {
             "style": "Text",
-            "text": "For your convenience, this is the Superalgos (SA) Token BSC contract:"
+            "text": "For your convenience, this is the Superalgos SA Token BSC contract:"
         },
         {
             "style": "Json",
@@ -251,7 +251,7 @@
         },
         {
             "style": "List",
-            "text": "When you’re ready, send a few Superalgos (SA) Tokens to your new address."
+            "text": "When you’re ready, send a few Superalgos SA Tokens to your new address."
         },
         {
             "style": "List",

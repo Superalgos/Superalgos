@@ -159,7 +159,35 @@ As noted above, running `node setup` installs GUI shortcuts by default. To suppr
 node setup noShortcuts
 ```
 
+**MIGRATION TROUBLESHOOTING FOR RASPBERRY PI USERS from BETA 10 to the new develop branch**
+
+In case you are migrating from BETA 10 to the most recent develop branch and experienced PR and commit strange behaviors (unexpected big amount of files in the commit), some precautions must be taken. 
+The develop branch uses a more recent version of node, so prior to switching to the new develop branch, be sue to update your node version (tested on v14 for ARM V7). 
+Once you have updated your node version, proceed rigorously with the above steps : 
+
+**1-**Backup your custom nodes (data mines, workspaces, trading swstems... )
+**2-**Delete your fork on GitHub and proceed to re-fork as mentioned earlier
+**3-**Clone your fork (delete the SA folder prior) and do a node setup on the master branch
+**4-**Git switch to the develop branch (depending on your version of git, the command may vary)
+```
+git switch develop
+```
+or
+```
+git checkout develop
+```
+Once the checkout is done, do a node setup
+**5-** run SA Client and switch the current workspace to develop branch (since by default it will be loaded on master branch)
+**6-** Rename and save the workspace
+**7-** Add your working worspace(s) in the My Workspaces folder in the SA floder
+**8-** Load your working workspace and switch it to the develop branch
+**9-** Refresh the UI (ATTENTION : skipping this step may lead to an unrecoverable behavior since SA will not finish to load all the folders of the develop branch and you will need to restart from step 1)
+**10-** Add your custom data mines and/or other custom nodes to the relevent folders in SA and REFRESH the UI
+**11-** If you had uncommited changes you can now proceed to app.contribute to commit your changes
+**12-** Welcome back ! you can now continue !
 <hr>
+
+Whatever happens here, DO NOT PANIC, nothing is lost if you have backed-up your custom nodes. It is strongly advised to backup outside your device running SA.
 
 **Troubleshooting Dependency Installation**
 

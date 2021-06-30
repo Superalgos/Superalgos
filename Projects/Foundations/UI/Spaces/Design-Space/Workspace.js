@@ -219,12 +219,12 @@ function newWorkspace() {
         let plugins = getHierarchyHeadByNodeType('Plugins')
         if (plugins === undefined) { return }
 
-        for (let i = 0; i < plugins.pluginsProjects.length; i++) {
-            let pluginProject = plugins.pluginsProjects.length[i]
+        for (let i = 0; i < plugins.pluginProjects.length; i++) {
+            let pluginProject = plugins.pluginProjects[i]
             /*
             Here we are inside the Voting Program, so we will crawl all it's children.
             */
-            let schemaDocument = getSchemaDocument('Plugin Project')
+            let schemaDocument = getSchemaDocument(pluginProject)
             if (schemaDocument === undefined) { return }
 
             if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -233,7 +233,7 @@ function newWorkspace() {
 
                     switch (property.type) {
                         case 'node': {
-                            let childNode = node[property.name]
+                            let childNode = pluginProject[property.name]
                             if (childNode === undefined) { continue }
                             if (childNode.pluginFiles === undefined) { continue }
                             for (let k = 0; k < childNode.pluginFiles.length; k++) {
@@ -250,7 +250,7 @@ function newWorkspace() {
                                     folderName === undefined ||
                                     nodeType === undefined
                                 ) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.')
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because some Config Properties were missing.',500)
                                     continue
                                 }
                                 /*
@@ -260,7 +260,7 @@ function newWorkspace() {
                                 let pluginToSave = getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
 
                                 if (pluginToSave === undefined) {
-                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.')
+                                    pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.',500)
                                     continue
                                 }
                                 let fileContent = JSON.stringify(pluginToSave, undefined, 4)

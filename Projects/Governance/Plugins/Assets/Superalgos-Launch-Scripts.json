@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Superalgos-Launch-Scripts",
-    "config": "{}",
+    "config": "{\"codeName\":\"Superalgos-Launch-Scripts\"}",
     "project": "Governance",
     "assetClasses": [
         {

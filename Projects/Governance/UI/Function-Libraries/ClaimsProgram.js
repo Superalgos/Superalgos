@@ -91,7 +91,10 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 node.type !== 'Feature Class' &&
                 node.type !== 'Position Class'
             ) {
-                if (node.payload.votingProgram.votes !== undefined) {
+                if (
+                    node.payload.votingProgram !== undefined &&
+                    node.payload.votingProgram.votes !== undefined
+                    ) {
                     node.payload.claimsProgram = {
                         count: 0,
                         votes: 0

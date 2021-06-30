@@ -115,7 +115,7 @@ function newWorkspace() {
 
                     thisObject.isInitialized = true
 
-                    savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
+                    //savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                     UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
 
                     resolve()

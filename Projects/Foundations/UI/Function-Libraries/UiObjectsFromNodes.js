@@ -164,7 +164,16 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                             console.log('[WARN] Cannot load plugin ' + pluginFolder + ' ' + name + '. The Workspace will be loaded with this plugin file missing.')
                         } else {
-                            let receivedNode = JSON.parse(text)
+                            let receivedNode
+
+                            try {
+                                receivedNode = JSON.parse(text)
+                            } catch (err) {
+                                console.log('[ERROR] pluginAllTheseFiles -> Cannot load plugin ' + pluginFolder + ' ' + name + '. Received an invalid JSON object from the client.')
+                                console.log('[ERROR] pluginAllTheseFiles -> text = ' + text)
+                                console.log('[ERROR] pluginAllTheseFiles -> err.stack = ' + err.stack)
+                                return
+                            }
                             /* 
                             If the workspace already contains a root node with the id of the head of the hirierchy
                             we are loading, we remove it because the plugin file has precedende.
@@ -180,7 +189,13 @@ function newFoundationsFunctionLibraryUiObjectsFromNodes() {
                             /*
                             We will force the Plugin codeName to the same to the fileName.                             
                             */
-                            let config = JSON.parse(receivedNode.config)
+                            let config
+                            try {
+                                config = JSON.parse(receivedNode.config)
+                            } catch (err) {
+                                config = {}
+                            }
+
                             config.codeName = name
                             receivedNode.config = JSON.stringify(config)
 

@@ -12,7 +12,7 @@
         "referralProgram": {
             "type": "Referral Program",
             "name": "New Referral Program",
-            "config": "{\n    \"percentage\": 50\n}",
+            "config": "{\n    \"percentage\": 60\n}",
             "project": "Governance",
             "userReferrers": [
                 {

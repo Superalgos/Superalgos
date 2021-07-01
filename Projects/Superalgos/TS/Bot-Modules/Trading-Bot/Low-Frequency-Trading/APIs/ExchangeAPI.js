@@ -29,6 +29,7 @@
         let secret
         let uid
         let password
+        let sandBox = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.sandbox || false;
 
         if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
@@ -50,7 +51,15 @@
             'adjustForTimeDifference': true,
             options: options
         }
-        exchange = new exchangeClass(exchangeConstructorParams)
+        exchange = new exchangeClass(exchangeConstructorParams);
+        // enable sandbox mode based on exchange sandbox param value
+        if (sandBox) {
+            exchange.setSandboxMode(sandBox);
+        }
+        console.log('Sandbox mode = ' + sandBox);
+
+        // uncomment the following line if you want to log the exchange api being used
+        // console.log(exchange.urls.api);
     }
 
     function finalize() {

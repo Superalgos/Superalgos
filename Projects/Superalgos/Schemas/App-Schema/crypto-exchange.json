@@ -49,7 +49,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"Type the name of the exchange\"\n}"
+        "config": "{ \n\"codeName\": \"Type the name of the exchange\",\n \n\"sandBox\": \"false\"\n}"
     },
     "attachingRules": {
         "compatibleTypes": "->Crypto Exchanges->"

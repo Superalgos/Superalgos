@@ -112,7 +112,7 @@ function newEducationDocSpace() {
                 /*
                 Every time this setup occurs, we will automatically change to the currentBranch of the workspace.
                 */
-                changeCurrentBranch(UI.projects.education.spaces.docsSpace.currentBranch, true)
+                //changeCurrentBranch(UI.projects.education.spaces.docsSpace.currentBranch, true)
                 /*
                 Deleting what was is here because is not longer used...
                 */

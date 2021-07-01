@@ -17,7 +17,7 @@
             "userReferrers": [
                 {
                     "type": "User Referrer",
-                    "name": "",
+                    "name": "Jeremy",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0aa9db01-7605-4a51-abd9-e233de6721d6",
@@ -128,7 +128,7 @@
             "userSupporters": [
                 {
                     "type": "User Supporter",
-                    "name": "",
+                    "name": "Jeremy",
                     "config": "{}",
                     "project": "Governance",
                     "id": "ebf5fe9a-58c9-4b8a-afed-396d47b9556f",
@@ -239,7 +239,7 @@
             "userMentors": [
                 {
                     "type": "User Mentor",
-                    "name": "",
+                    "name": "Jeremy",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0e176a01-3ed2-4b02-b070-601236ea2393",
@@ -1171,7 +1171,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 2,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

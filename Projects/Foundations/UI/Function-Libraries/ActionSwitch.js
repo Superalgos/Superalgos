@@ -704,6 +704,21 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
                 }
                 break
+            case 'Enable Saving With Workspace':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
+                }
+                break
+            case 'Disable Saving With Workspace':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
+                }
+                break
+            case 'Save Plugin':
+                {
+                    UI.projects.foundations.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Workspace Projects':
                 {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)

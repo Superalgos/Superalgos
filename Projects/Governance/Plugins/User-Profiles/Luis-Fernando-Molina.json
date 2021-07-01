@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Luis-Fernando-Molina",
-    "config": "{\n    \"tokens\": 10000000,\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\n        \"s\": \"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\n        \"signature\": \"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"\n    }\n}",
+    "config": "{\"tokens\":10000000,\"signature\":{\"message\":\"Luis-Fernando-Molina\",\"messageHash\":\"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\"v\":\"0x1b\",\"r\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb0\",\"s\":\"0x42abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e3\",\"signature\":\"0x90293b042c180aa21b05f0356f31688c597be4ff2df136f63a2b8a899c658eb042abf909024d34217430e42ebadc96b7834218cc86a4c295a2ae419ff2fca6e31b\"},\"codeName\":\"Luis-Fernando-Molina\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -18,7 +18,7 @@
                 "referralProgram": {
                     "type": "Referral Program",
                     "name": "New Referral Program",
-                    "config": "{\n    \"percentage\": 50\n}",
+                    "config": "{\n    \"percentage\": 80\n}",
                     "project": "Governance",
                     "userReferrers": [
                         {
@@ -276,7 +276,7 @@
                         },
                         {
                             "type": "User Mentor",
-                            "name": "Jeremy",
+                            "name": "",
                             "config": "{}",
                             "project": "Governance",
                             "id": "8adecfda-c803-400c-acde-c34bda09e39b",
@@ -430,7 +430,7 @@
                                     "featureContributionClaims": [
                                         {
                                             "type": "Feature Contribution Claim",
-                                            "name": "Feature X Data Mining",
+                                            "name": "",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7",
@@ -618,7 +618,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Feature Class",
-                                    "name": "Superalgos",
+                                    "name": "Foundations Project",
                                     "id": "136b6e7a-f042-441b-84be-395b56b65b70"
                                 }
                             }
@@ -697,7 +697,7 @@
                                     "featureClaimVotes": [
                                         {
                                             "type": "Feature Claim Vote",
-                                            "name": "Luis-Fernando-Molina Feature X Data Mining",
+                                            "name": "Luis-Fernando-Molina ",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
@@ -721,7 +721,7 @@
                                                 "uiObject": {},
                                                 "referenceParent": {
                                                     "type": "Feature Contribution Claim",
-                                                    "name": "Feature X Data Mining",
+                                                    "name": "",
                                                     "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7"
                                                 }
                                             }
@@ -2411,7 +2411,7 @@
                                     "featureWeightVotes": [
                                         {
                                             "type": "Feature Weight Vote",
-                                            "name": "Superalgos Data Mining Feature X",
+                                            "name": "",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "7607658c-f3ad-42de-a316-35dd052e0477",

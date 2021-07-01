@@ -20,7 +20,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'User-Profiles', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'User-Profiles', 'User Profile')
         }
     }
 
@@ -36,7 +36,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Pools', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Pools', 'Pools')
         }
     }
 
@@ -52,7 +52,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Assets', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Assets', 'Assets')
         }
     }
 
@@ -68,7 +68,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Features', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Features', 'Features')
         }
     }
 
@@ -84,7 +84,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
         UI.projects.foundations.utilities.plugins.getPluginFileNames(projectName, 'Positions', onNamesArrived)
 
         function onNamesArrived(fileNames) {
-            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames)
+            UI.projects.foundations.utilities.plugins.addPluginFileIfNeeded(node, fileNames, 'Positions', 'Positions')
         }
     }
 }

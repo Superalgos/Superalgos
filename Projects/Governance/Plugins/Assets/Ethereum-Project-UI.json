@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Ethereum-Project-UI",
-    "config": "{}",
+    "config": "{\"codeName\":\"Ethereum-Project-UI\"}",
     "project": "Governance",
     "assetClasses": [
         {

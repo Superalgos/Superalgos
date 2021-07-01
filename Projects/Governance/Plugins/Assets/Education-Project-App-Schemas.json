@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Education-Project-App-Schemas",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Education-Project-App-Schemas\"}",
     "project": "Governance",
     "assetClasses": [
         {

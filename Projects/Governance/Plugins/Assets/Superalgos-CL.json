@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Superalgos-CL",
-    "config": "{}",
+    "config": "{\"codeName\":\"Superalgos-CL\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -2048,8 +2048,6 @@
             "distanceToParent": 3,
             "arrangementStyle": 0
         },
-        "uiObject": {
-            "isRunning": false
-        }
+        "uiObject": {}
     }
 }

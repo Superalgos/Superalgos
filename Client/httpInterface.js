@@ -1183,6 +1183,35 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'SavePlugin':
+                getBody(processRequest)
+
+                async function processRequest(body) {
+                    try {
+                        let plugin = JSON.parse(body)
+                        let project = requestParameters[2]
+                        let folder = requestParameters[3]
+                        let fileName = requestParameters[4]
+                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                        let fileContent = JSON.stringify(plugin, undefined, 4)
+                        const fs = require('fs')
+                        fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
+                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                    } catch (err) {
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Params Received = ' + body)
+
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        respondWithContent(JSON.stringify(error), httpResponse)
+                    }
+                }
+                break
+
             case 'Workspace.js':
                 {
                     let fs = require('fs')

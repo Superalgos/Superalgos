@@ -1,6 +1,7 @@
 {
     "type": "Features",
     "name": "Superalgos",
+    "config": "{\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "featureClasses": [
         {
@@ -200,13 +201,11 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0
         },
-        "uiObject": {
-            "isRunning": false
-        }
+        "uiObject": {}
     }
 }

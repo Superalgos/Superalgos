@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "Julian-Molina",
-    "config": "{\n    \"signature\": {\n        \"message\": \"julian-molina\",\n        \"messageHash\": \"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\n        \"s\": \"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\n        \"signature\": \"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"julian-molina\",\"messageHash\":\"0x34eae63163cc918a1a1fab82836b0f15e33051925812cf7d5f8ffe5ff0854f2c\",\"v\":\"0x1b\",\"r\":\"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5\",\"s\":\"0x017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b7\",\"signature\":\"0x8560ff34239215408cb869d3c90c30ed11ab6634c4269b255d2b4159b7690fe5017b2c5e080b0f340dcd09f8ba5c67119a3b62c375252d96f541c57db109a0b71b\"},\"codeName\":\"Julian-Molina\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -12,12 +12,12 @@
         "referralProgram": {
             "type": "Referral Program",
             "name": "New Referral Program",
-            "config": "{\n    \"percentage\": 40\n}",
+            "config": "{\n    \"percentage\": 60\n}",
             "project": "Governance",
             "userReferrers": [
                 {
                     "type": "User Referrer",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0aa9db01-7605-4a51-abd9-e233de6721d6",
@@ -128,7 +128,7 @@
             "userSupporters": [
                 {
                     "type": "User Supporter",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "ebf5fe9a-58c9-4b8a-afed-396d47b9556f",
@@ -239,7 +239,7 @@
             "userMentors": [
                 {
                     "type": "User Mentor",
-                    "name": "Jeremy",
+                    "name": "",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0e176a01-3ed2-4b02-b070-601236ea2393",

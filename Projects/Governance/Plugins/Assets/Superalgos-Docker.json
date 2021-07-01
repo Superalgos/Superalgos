@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Superalgos-Docker",
-    "config": "{}",
+    "config": "{\"codeName\":\"Superalgos-Docker\"}",
     "project": "Governance",
     "assetClasses": [
         {
@@ -177,8 +177,6 @@
             "distanceToParent": 3,
             "arrangementStyle": 0
         },
-        "uiObject": {
-            "isRunning": false
-        }
+        "uiObject": {}
     }
 }

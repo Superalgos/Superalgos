@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "TensorFlow-Project-App-Schemas",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"TensorFlow-Project-App-Schemas\"}",
     "project": "Governance",
     "assetClasses": [
         {

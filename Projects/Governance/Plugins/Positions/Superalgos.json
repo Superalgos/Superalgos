@@ -1,6 +1,7 @@
 {
     "type": "Positions",
     "name": "Superalgos",
+    "config": "{\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "positionClasss": [],
     "positions": [
@@ -53,8 +54,6 @@
             "distanceToParent": 3,
             "arrangementStyle": 0
         },
-        "uiObject": {
-            "isRunning": false
-        }
+        "uiObject": {}
     }
 }

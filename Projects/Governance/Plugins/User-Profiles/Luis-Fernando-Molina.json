@@ -276,7 +276,7 @@
                         },
                         {
                             "type": "User Mentor",
-                            "name": "",
+                            "name": "Jeremy",
                             "config": "{}",
                             "project": "Governance",
                             "id": "8adecfda-c803-400c-acde-c34bda09e39b",
@@ -430,7 +430,7 @@
                                     "featureContributionClaims": [
                                         {
                                             "type": "Feature Contribution Claim",
-                                            "name": "",
+                                            "name": "Feature X Data Mining",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7",
@@ -618,7 +618,7 @@
                                 },
                                 "referenceParent": {
                                     "type": "Feature Class",
-                                    "name": "Foundations Project",
+                                    "name": "Superalgos",
                                     "id": "136b6e7a-f042-441b-84be-395b56b65b70"
                                 }
                             }
@@ -697,7 +697,7 @@
                                     "featureClaimVotes": [
                                         {
                                             "type": "Feature Claim Vote",
-                                            "name": "Luis-Fernando-Molina ",
+                                            "name": "Luis-Fernando-Molina Feature X Data Mining",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "4381f059-44c8-4843-9cac-8a7cf41fa14c",
@@ -721,7 +721,7 @@
                                                 "uiObject": {},
                                                 "referenceParent": {
                                                     "type": "Feature Contribution Claim",
-                                                    "name": "",
+                                                    "name": "Feature X Data Mining",
                                                     "id": "edf1a5c9-7802-4856-918c-3cd5a7a9caf7"
                                                 }
                                             }
@@ -2411,7 +2411,7 @@
                                     "featureWeightVotes": [
                                         {
                                             "type": "Feature Weight Vote",
-                                            "name": "",
+                                            "name": "Superalgos Data Mining Feature X",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "7607658c-f3ad-42de-a316-35dd052e0477",
@@ -2954,7 +2954,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 2,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

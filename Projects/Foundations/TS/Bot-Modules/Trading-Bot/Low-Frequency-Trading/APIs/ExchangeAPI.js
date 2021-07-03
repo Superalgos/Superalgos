@@ -51,6 +51,14 @@
             options: options
         }
         exchange = new exchangeClass(exchangeConstructorParams)
+        // enable sandbox mode based on exchange sandbox param value
+        if (sandBox) {
+            exchange.setSandboxMode(sandBox);
+        }
+        console.log('Sandbox mode = ' + sandBox);
+
+        // uncomment the following line if you want to log the exchange api being used
+        // console.log(exchange.urls.api);
     }
 
     function finalize() {
@@ -98,7 +106,7 @@
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
 
             logError("getOrder -> Error = " + err.message);
-            if ( /[0-9a-z]+ NotFound/.test(err.message) ) {
+            if (/[0-9a-z]+ NotFound/.test(err.message)) {
                 logInfo("getOrder -> NotFound, so order is actually closed.")
                 order = {
                     status: 'NotFound'

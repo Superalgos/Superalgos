@@ -77,7 +77,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {},
+                "uiObject": {
+                    "isRunning": false
+                },
                 "frame": {
                     "position": {
                         "x": 255,
@@ -108,7 +110,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -144,7 +148,7 @@
             "spaceSettings": {
                 "type": "Space Settings",
                 "name": "New Space Settings",
-                "config": "{\n    \"indexContent\": false\n}",
+                "config": "{\n    \"indexContent\": true\n}",
                 "project": "Foundations",
                 "id": "4124c674-c5fe-41d9-94b9-d669753188b7",
                 "savedPayload": {
@@ -185,7 +189,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -361,7 +367,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -644,7 +652,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -670,7 +680,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -696,7 +708,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -784,7 +798,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginPools": {
@@ -839,7 +855,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginAssets": {
@@ -1062,7 +1080,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginFeatures": {
@@ -1117,7 +1137,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginPositions": {
@@ -1172,7 +1194,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "63a93d05-d353-4b5f-a641-957e031b28a9",
@@ -1193,7 +1217,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -1219,7 +1245,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -1241,7 +1269,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -1267,7 +1297,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -1277,7 +1309,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
+                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
                 "project": "Foundations",
                 "id": "90d121ab-9f19-4437-a051-1222287085fc",
                 "savedPayload": {
@@ -1318,7 +1350,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         }
     ]

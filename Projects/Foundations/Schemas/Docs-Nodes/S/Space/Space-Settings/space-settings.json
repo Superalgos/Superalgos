@@ -71,31 +71,33 @@
         },
         {
             "style": "Success",
-            "text": "Shorcuts default values an be seen below. You can modify those values by changing the Config Properties listed below."
+            "text": "Shorcuts default values can be seen below. You can modify those values by changing the Config Properties listed below.",
+            "updated": 1625419754545
         },
         {
             "style": "List",
-            "text": "toggleMapMode defines which letter will be used as a Shorcut of entering and leaving the Map Mode."
+            "text": "toggleMapMode defines which key will be used as a Shorcut for entering and leaving the Map Mode.",
+            "updated": 1625419803171
         },
         {
             "style": "List",
-            "text": "toggleDrawRelationshipLines defines which letter will be used as a Shorcut for turning on and off the drawing of Reference Lines.",
-            "updated": 1625419127491
+            "text": "toggleDrawRelationshipLines defines which key will be used as a Shorcut for turning on and off the drawing of Reference Lines.",
+            "updated": 1625419810253
         },
         {
             "style": "List",
-            "text": "toggleDrawParentLines defines which letter will be used as a Shorcut for turning on and off the drawing of Parent Lines.",
-            "updated": 1625419130924
+            "text": "toggleDrawParentLines defines which key will be used as a Shorcut for turning on and off the drawing of Parent Lines.",
+            "updated": 1625419816654
         },
         {
             "style": "List",
-            "text": "saveWorkspace defines which letter will be used as a Shorcut for saving the Workspace .",
-            "updated": 1625419134674
+            "text": "saveWorkspace defines which key will be used as a Shorcut for saving the Workspace.",
+            "updated": 1625419822252
         },
         {
             "style": "List",
-            "text": "adjustAspectRation defines which letter will be used as a Shorcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
-            "updated": 1625419123375
+            "text": "adjustAspectRation defines which key will be used as a Shorcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
+            "updated": 1625419830418
         }
     ]
 }

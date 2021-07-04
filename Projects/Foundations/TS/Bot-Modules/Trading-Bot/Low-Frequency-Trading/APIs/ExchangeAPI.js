@@ -1,4 +1,4 @@
-﻿exports.newSuperalgosBotModulesExchangeAPI = function (processIndex) {
+﻿exports.newFoundationsBotModulesExchangeAPI = function (processIndex) {
 
     let MODULE_NAME = "Exchange API";
   
@@ -21,22 +21,22 @@
     return thisObject;
   
     function initialize() {
-        tradingSystem = TS.projects.superalgos.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+        tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
   
-        exchangeId = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+        exchangeId = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
   
         let key
         let secret
         let uid
         let password
-        let sandBox = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.sandbox || false;
+        let sandBox = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.sandbox || false;
   
-        if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
-            if (TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
-                key = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
-                secret = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
-                uid = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
-                password = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
+        if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
+            if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
+                key = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.codeName
+                secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
+                uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
+                password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
             }
         }
         const exchangeClass = ccxt[exchangeId]
@@ -71,7 +71,7 @@
     async function getOrder(tradingSystemOrder, tradingEngineOrder) {
   
         let orderId = tradingEngineOrder.exchangeId.value
-        const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+        const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
   
         /* Basic Logging */
         logInfo("getOrder -> orderId = " + orderId)
@@ -91,7 +91,7 @@
         } catch (err) {
             const message = 'Get Order Unexpected Error'
             let docs = {
-                project: 'Superalgos',
+                project: 'Foundations',
                 category: 'Topic',
                 type: 'TS LF Trading Bot Error - ' + message,
                 placeholder: {}
@@ -101,7 +101,7 @@
                 orderId: orderId
             }
   
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
   
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
   
@@ -121,7 +121,7 @@
         let price = tradingEngineOrder.rate.value                           // CCXT: how much quote currency you are willing to pay for a trade lot of base currency (for limit orders only)
         let type                                                            // CCXT: a string literal type of order, ccxt currently unifies market and limit orders only
         let side                                                            // CCXT: a string literal for the direction of your order, buy or sell
-        let symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
+        let symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName    // CCXT: a string literal symbol of the market you wish to trade on, like BTC/USD, ZEC/ETH, DOGE/DASH, etc
         let amount = tradingEngineOrder.orderBaseAsset.size.value           // CCXT: how much of currency you want to trade, in Base Asset.
   
         switch (tradingSystemOrder.type) {
@@ -171,7 +171,7 @@
             return order.id
         } catch (err) {
   
-            let exchangeApiKey = TS.projects.superalgos.globals.taskConstants.TASK_NODE.keyReference.referenceParent
+            let exchangeApiKey = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent
             let message = 'Create Order Unexpected Error'
   
             logError("createOrder -> Error = " + err.message)
@@ -201,7 +201,7 @@
             }
   
             let docs = {
-                project: 'Superalgos',
+                project: 'Foundations',
                 category: 'Topic',
                 type: 'TS LF Trading Bot Error - ' + message,
                 placeholder: {}
@@ -218,7 +218,7 @@
                 keyLength: exchangeApiKey.config.codeName.length,
                 secretLength: exchangeApiKey.config.secret.length
             }
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
+            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
   
             tradingSystem.addError([exchangeApiKey.id, message, docs])
   
@@ -240,7 +240,7 @@
         /* Basic Logging */
         logInfo("cancelOrder -> Entering function. orderId = " + orderId);
   
-        const symbol = TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.superalgos.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
+        const symbol = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
   
         /* Basic Validations */
         if (exchange.has['fetchOrder'] === false) {
@@ -256,7 +256,7 @@
         } catch (err) {
             const message = 'Cancel Order Unexpected Error'
             let docs = {
-                project: 'Superalgos',
+                project: 'Foundations',
                 category: 'Topic',
                 type: 'TS LF Trading Bot Error - ' + message,
                 placeholder: {}
@@ -266,7 +266,7 @@
                 orderId: orderId
             }
   
-            TS.projects.superalgos.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
   
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
             logError("cancelOrder -> Error = " + err.message);
@@ -274,11 +274,11 @@
     }
   
     function logInfo(message) {
-        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] ' + message)
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] ' + message)
     }
   
     function logError(message) {
-        TS.projects.superalgos.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] ' + message)
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] ' + message)
     }
   };
   

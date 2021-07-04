@@ -101,7 +101,6 @@ function newEducationDocSpace() {
                 Getting the currentBranch
                 */
                 let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
-                let currentBranch
 
                 httpRequest(undefined, 'App/Branch', onResponse)
                 /*

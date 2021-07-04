@@ -415,25 +415,41 @@ function newCanvas() {
             UI.projects.foundations.spaces.floatingSpace.exitMapMode()
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_MAP_MODE || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_MAP_MODE.toLowerCase())
+        ) {
             UI.projects.foundations.spaces.floatingSpace.toggleMapMode()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'R' || event.key === 'r')) {
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_REFERENCE_LINES || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_REFERENCE_LINES.toLowerCase())
+        ) {
             UI.projects.foundations.spaces.floatingSpace.toggleDrawReferenceLines()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'C' || event.key === 'c')) {
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_PARENT_LINES || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_PARENT_LINES.toLowerCase())
+        ) {
             UI.projects.foundations.spaces.floatingSpace.toggleDrawChainLines()
             event.preventDefault()
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'S' || event.key === 's')) {
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.globals.shorcuts.SAVE_WORKSPACE || event.key === UI.projects.foundations.globals.shorcuts.SAVE_WORKSPACE.toLowerCase())
+        ) {
             UI.projects.foundations.spaces.designSpace.workspace.save()
             if (event.preventDefault !== undefined) {
                 event.preventDefault()

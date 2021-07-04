@@ -1,7 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Superalgos",
-    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"develop\",\n    \"contributionsBranch\": \"develop\"\n}",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -148,7 +148,7 @@
             "spaceSettings": {
                 "type": "Space Settings",
                 "name": "New Space Settings",
-                "config": "{\n    \"indexContent\": true\n}",
+                "config": "{\n    \"indexContent\": false\n}",
                 "project": "Foundations",
                 "id": "4124c674-c5fe-41d9-94b9-d669753188b7",
                 "savedPayload": {
@@ -782,7 +782,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "harrellbm",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"harrellbm\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"harrellbm\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
@@ -824,7 +824,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -1364,7 +1364,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
                 "project": "Foundations",
                 "id": "90d121ab-9f19-4437-a051-1222287085fc",
                 "savedPayload": {

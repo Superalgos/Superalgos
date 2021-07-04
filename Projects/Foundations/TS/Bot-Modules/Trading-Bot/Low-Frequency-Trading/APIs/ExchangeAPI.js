@@ -101,7 +101,7 @@
                 orderId: orderId
             }
   
-            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
   
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
   
@@ -218,7 +218,7 @@
                 keyLength: exchangeApiKey.config.codeName.length,
                 secretLength: exchangeApiKey.config.secret.length
             }
-            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, exchangeApiKey.name, undefined, exchangeApiKey.config, undefined, contextInfo)
   
             tradingSystem.addError([exchangeApiKey.id, message, docs])
   
@@ -266,7 +266,7 @@
                 orderId: orderId
             }
   
-            TS.projects.foundations.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, tradingSystemOrder.name, undefined, undefined, undefined, contextInfo)
   
             tradingSystem.addError([tradingSystemOrder.id, message, docs])
             logError("cancelOrder -> Error = " + err.message);

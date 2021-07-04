@@ -77,7 +77,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {},
+                "uiObject": {
+                    "isRunning": false
+                },
                 "frame": {
                     "position": {
                         "x": 255,
@@ -108,7 +110,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -144,7 +148,7 @@
             "spaceSettings": {
                 "type": "Space Settings",
                 "name": "New Space Settings",
-                "config": "{\n    \"indexContent\": false\n}",
+                "config": "{\n    \"indexContent\": true\n}",
                 "project": "Foundations",
                 "id": "4124c674-c5fe-41d9-94b9-d669753188b7",
                 "savedPayload": {
@@ -185,7 +189,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -361,7 +367,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -644,7 +652,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -670,7 +680,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -696,7 +708,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -717,8 +731,8 @@
                                 "id": "f652721e-8c15-4604-9871-ce15b72f5448",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35428.97902204032,
-                                        "y": 10921.478234845728
+                                        "x": 35497.804212864474,
+                                        "y": 10958.847264482405
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -745,8 +759,8 @@
                                 "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35306.95802911758,
-                                        "y": 10647.414597552948
+                                        "x": 35331.25096043528,
+                                        "y": 10800.794129455984
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -756,6 +770,61 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "harrellbm",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"harrellbm\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "harrellbm",
+                                    "project": "Foundations",
+                                    "id": "17c2df27-8db1-4a1d-8ef6-128218a64a11",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 14342.16634182974,
+                                            "y": 23003.502366806064
+                                        },
+                                        "targetPosition": {
+                                            "x": 35325.2404697789,
+                                            "y": 10571.262751669654
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "17dfba0b-8979-4647-a2cc-3da33e968a66",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35325.2404697789,
+                                        "y": 10571.262751669654
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -779,12 +848,14 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginPools": {
@@ -839,7 +910,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginAssets": {
@@ -1062,7 +1135,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginFeatures": {
@@ -1117,7 +1192,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "pluginPositions": {
@@ -1172,7 +1249,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "63a93d05-d353-4b5f-a641-957e031b28a9",
@@ -1193,7 +1272,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -1219,7 +1300,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -1241,7 +1324,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -1267,7 +1352,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         },
         {
@@ -1277,7 +1364,7 @@
             "githubAPI": {
                 "type": "Github API",
                 "name": "New Github API",
-                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
+                "config": "{\n    \"username\": \"Luis-Fernando-Molina\",\n    \"token\": \"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\"\n}",
                 "project": "Foundations",
                 "id": "90d121ab-9f19-4437-a051-1222287085fc",
                 "savedPayload": {
@@ -1318,7 +1405,9 @@
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
-                "uiObject": {}
+                "uiObject": {
+                    "isRunning": false
+                }
             }
         }
     ]

@@ -59,6 +59,43 @@
         {
             "style": "List",
             "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Shorcut Properties"
+        },
+        {
+            "style": "Text",
+            "text": "Shorcuts are key stroke combinations that helps users execute certain actions very quickly. To execute a shorcut users need to simultaniously press CTRL + SHIFT + a pre-defined key.",
+            "updated": 1625419324367
+        },
+        {
+            "style": "Success",
+            "text": "Shorcuts default values an be seen below. You can modify those values by changing the Config Properties listed below."
+        },
+        {
+            "style": "List",
+            "text": "toggleMapMode defines which letter will be used as a Shorcut of entering and leaving the Map Mode."
+        },
+        {
+            "style": "List",
+            "text": "toggleDrawRelationshipLines defines which letter will be used as a Shorcut for turning on and off the drawing of Reference Lines.",
+            "updated": 1625419127491
+        },
+        {
+            "style": "List",
+            "text": "toggleDrawParentLines defines which letter will be used as a Shorcut for turning on and off the drawing of Parent Lines.",
+            "updated": 1625419130924
+        },
+        {
+            "style": "List",
+            "text": "saveWorkspace defines which letter will be used as a Shorcut for saving the Workspace .",
+            "updated": 1625419134674
+        },
+        {
+            "style": "List",
+            "text": "adjustAspectRation defines which letter will be used as a Shorcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
+            "updated": 1625419123375
         }
     ]
 }

@@ -100,7 +100,14 @@ function newFoundationsFloatingSpace() {
             }
         },
         physics: true,
-        detachUsingMouse: false
+        detachUsingMouse: false,
+        shortcuts: {
+            toggleMapMode: "M",
+            toggleDrawRelationshipLines: "R",
+            toggleDrawParentLines: "C",
+            saveWorkspace: "S",
+            adjustAspectRatio: "A"
+        }
     }
 
     return thisObject
@@ -539,6 +546,23 @@ function newFoundationsFloatingSpace() {
         }
         if (configSettings.detachUsingMouse !== undefined) {
             thisObject.settings.detachUsingMouse = configSettings.detachUsingMouse
+        }
+        if (configSettings.shortcuts !== undefined) {
+            if (configSettings.shortcuts.toggleMapMode !== undefined) {
+                thisObject.settings.shortcuts.toggleMapMode = configSettings.shortcuts.toggleMapMode
+            }
+            if (configSettings.shortcuts.toggleDrawRelationshipLines !== undefined) {
+                thisObject.settings.shortcuts.toggleDrawRelationshipLines = configSettings.shortcuts.toggleDrawRelationshipLines
+            }
+            if (configSettings.shortcuts.toggleDrawParentLines !== undefined) {
+                thisObject.settings.shortcuts.toggleDrawParentLines = configSettings.shortcuts.toggleDrawParentLines
+            }
+            if (configSettings.shortcuts.saveWorkspace !== undefined) {
+                thisObject.settings.shortcuts.saveWorkspace = configSettings.shortcuts.saveWorkspace
+            }
+            if (configSettings.shortcuts.adjustAspectRatio !== undefined) {
+                thisObject.settings.shortcuts.adjustAspectRatio = configSettings.shortcuts.adjustAspectRatio
+            }
         }
     }
 

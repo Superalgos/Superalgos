@@ -8,11 +8,6 @@
                     "name": "Zoom",
                     "propertyName": "zoom",
                     "functionName": "newFoundationsGlobalsZoom"
-                },
-                {
-                    "name": "Shortcuts",
-                    "propertyName": "shorcuts",
-                    "functionName": "newFoundationsGlobalsShorcuts"
                 }
             ],
             "functionLibraries": [

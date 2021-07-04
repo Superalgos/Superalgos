@@ -231,7 +231,7 @@ function newEdgeEditor() {
         if (
             event.shiftKey === true &&
             (event.ctrlKey === true || event.metaKey === true) &&
-            (event.key === UI.projects.foundations.globals.shorcuts.ADJUST_ASPECT_RATIO || event.key === UI.projects.foundations.globals.shorcuts.ADJUST_ASPECT_RATIO.toLowerCase())
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.adjustAspectRatio || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.adjustAspectRatio.toLowerCase())
         ) {
             resetAspectRatio()
             return

@@ -418,7 +418,7 @@ function newCanvas() {
         if (
             event.shiftKey === true &&
             (event.ctrlKey === true || event.metaKey === true) &&
-            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_MAP_MODE || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_MAP_MODE.toLowerCase())
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleMapMode || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleMapMode.toLowerCase())
         ) {
             UI.projects.foundations.spaces.floatingSpace.toggleMapMode()
             event.preventDefault()
@@ -428,7 +428,7 @@ function newCanvas() {
         if (
             event.shiftKey === true &&
             (event.ctrlKey === true || event.metaKey === true) &&
-            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_REFERENCE_LINES || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_REFERENCE_LINES.toLowerCase())
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawRelationshipLines || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawRelationshipLines.toLowerCase())
         ) {
             UI.projects.foundations.spaces.floatingSpace.toggleDrawReferenceLines()
             event.preventDefault()
@@ -438,7 +438,7 @@ function newCanvas() {
         if (
             event.shiftKey === true &&
             (event.ctrlKey === true || event.metaKey === true) &&
-            (event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_PARENT_LINES || event.key === UI.projects.foundations.globals.shorcuts.TOGGLE_DRAW_PARENT_LINES.toLowerCase())
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawParentLines || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.toggleDrawParentLines.toLowerCase())
         ) {
             UI.projects.foundations.spaces.floatingSpace.toggleDrawChainLines()
             event.preventDefault()
@@ -448,7 +448,7 @@ function newCanvas() {
         if (
             event.shiftKey === true &&
             (event.ctrlKey === true || event.metaKey === true) &&
-            (event.key === UI.projects.foundations.globals.shorcuts.SAVE_WORKSPACE || event.key === UI.projects.foundations.globals.shorcuts.SAVE_WORKSPACE.toLowerCase())
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace.toLowerCase())
         ) {
             UI.projects.foundations.spaces.designSpace.workspace.save()
             if (event.preventDefault !== undefined) {

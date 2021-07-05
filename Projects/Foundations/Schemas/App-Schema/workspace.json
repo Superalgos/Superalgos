@@ -22,6 +22,14 @@
             "ring": 1
         },
         {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
             "action": "Add Missing Workspace Projects",
             "label": "Add Missing Projects",
             "askConfirmation": true,
@@ -31,6 +39,12 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "initialValues": {
+        "config": "{\"docsLanguage\": \"EN\"}"
+    },
+    "editors": {
+        "config": true
+    },
     "isTitleAllwaysVisible": true,
     "addLeftIcons": false,
     "isPinned": true,

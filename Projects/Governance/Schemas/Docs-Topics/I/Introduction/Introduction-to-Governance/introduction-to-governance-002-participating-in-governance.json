@@ -1,0 +1,24 @@
+{
+    "topic": "Introduction to Governance",
+    "pageNumber": "2",
+    "type": "Participating in Governance",
+    "definition": {
+        "text": "To participate in governance, you must set up your User Profile — a hierarchy that defines how you intend to use the Token Power conferred by your token holdings.",
+        "updated": 1624698139967
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "How you use your Token Power is defined in several programs within the hierarchy. For instance, the Claims Program lets you present claims for the work you’ve done. We’ll cover all programs in detail.",
+            "updated": 1624698150117
+        },
+        {
+            "style": "Text",
+            "text": "Your User Profile points to a Superalgos SA Token address you create from within Superalgos. You validate your address by signing a cryptographic proof, also from within Superalgos, so that the system becomes aware of the number of tokens in the address, and assigns your profile an equivalent amount of Token Power."
+        },
+        {
+            "style": "Text",
+            "text": "The address you generate is also the address to which the project will send the tokens you earn for your contributions."
+        }
+    ]
+}

@@ -1,13 +1,35 @@
 {
     "type": "Asset",
     "definition": {
-        "text": "An Asset is any artifact that belongs to the project. It can be a piece of software, a configuration, a plugin, some marketing material, a social media account, etc. Users votes on assets to influence their relative weight between each other. Those weight will then influence how many token will be given to the contributors who built or mantain that asset.",
-        "updated": 1622986734958
+        "text": "An Asset is an artifact, mostly in a digital format, that belongs to a Project. It may be a code file, a documentation or tutorial page, an image, a video, a social media account or even a post, marketing collateral, and more. To incentivize the production and maintenance of Assets, the node may receive Weight Votes. It may also receive Contributor Claims from Contributors involved in their production and maintenance.",
+        "updated": 1624709807952
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624709759877
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "You may cast Weight Votes on individual Asset nodes to incentivize the improvement, development, and maintenance of the said feature.",
+            "updated": 1624709824891
+        },
+        {
+            "style": "Text",
+            "text": "If you are involved in the development or maintenance of the said asset, you may place an Asset Contribution Claim and rally the Community to support your claim so that you may be compensated for your work."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

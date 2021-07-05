@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Education-Project-Assets",
-    "config": "{}",
+    "config": "{\"codeName\":\"Education-Project-Assets\"}",
     "project": "Governance",
     "poolClasses": [
         {

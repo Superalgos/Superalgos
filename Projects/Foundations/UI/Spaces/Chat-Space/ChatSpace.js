@@ -78,6 +78,7 @@ function newFoundationsChatSpace() {
     }
 
     function getContainer(point, purpose) {
+        if (thisObject.sidePanelTab === undefined) { return }
         let container
 
         container = thisObject.sidePanelTab.getContainer(point, purpose)

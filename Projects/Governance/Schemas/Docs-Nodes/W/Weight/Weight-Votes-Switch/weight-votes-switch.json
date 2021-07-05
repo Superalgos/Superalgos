@@ -1,0 +1,31 @@
+{
+    "type": "Weight Votes Switch",
+    "definition": {
+        "text": "This type of switch is used to spawn different types of weight vote nodes, and to reference “class” type of nodes within the different hierarchies that define Project incentives.",
+        "updated": 1624729654009
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624729675267
+        },
+        {
+            "style": "Text",
+            "text": "When a Weight Votes Switch references any of the existing “class” type of nodes in the Pools, Positions, Features, and Assets hierarchies, the Install Missing Votes option on the menu becomes usable."
+        },
+        {
+            "style": "Success",
+            "text": "Installing votes allows mapping entire sections of project definitions so that you may vote to incentivize multiple definitions easily."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "updated": 1624729681447
+        }
+    ]
+}

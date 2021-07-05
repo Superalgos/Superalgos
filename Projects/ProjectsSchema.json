@@ -229,7 +229,7 @@
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 5,
-                    "onMouseOverIndex": 4,
+                    "onMouseOverIndex": 6,
                     "onMouseClickIndex": 4,
                     "onMouseDownIndex": 6
                 },
@@ -267,7 +267,7 @@
                     "animationPhysicsIndex": 3,
                     "animationDrawIndex": 2,
                     "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 0,
+                    "onMouseOverIndex": 5,
                     "onMouseClickIndex": 0,
                     "onMouseDownIndex": 1
                 },
@@ -293,7 +293,7 @@
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 6,
+                    "onMouseOverIndex": 4,
                     "onMouseClickIndex": 5,
                     "onMouseDownIndex": 5
                 },
@@ -974,6 +974,11 @@
                     "functionName": "newGovernanceFunctionLibraryVotingProgram"
                 },
                 {
+                    "name": "Delegation Program",
+                    "propertyName": "delegationProgram",
+                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
+                },
+                {
                     "name": "Tokens",
                     "propertyName": "tokens",
                     "functionName": "newGovernanceFunctionLibraryTokens"
@@ -1031,9 +1036,19 @@
                     "functionName": "newFoundationsUtilitiesPools"
                 },
                 {
-                    "name": "Mandatory Program",
-                    "propertyName": "mandatoryProgram",
-                    "functionName": "newFoundationsUtilitiesMandatoryProgram"
+                    "name": "Decendent Program",
+                    "propertyName": "decendentProgram",
+                    "functionName": "newFoundationsUtilitiesDecendentProgram"
+                },
+                {
+                    "name": "Bonus Program",
+                    "propertyName": "bonusProgram",
+                    "functionName": "newFoundationsUtilitiesBonusProgram"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newFoundationsUtilitiesValidations"
                 }
             ],
             "spaces": [

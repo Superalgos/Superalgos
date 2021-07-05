@@ -1,0 +1,24 @@
+{
+    "topic": "Governance Definitions",
+    "pageNumber": "1",
+    "type": "Introduction to Governance Definitions",
+    "definition": {
+        "text": "For Contributors to participate in governance, the project must be thoroughly defined, as it is these definitions that may accept votes and claims from Contributors.",
+        "updated": 1624706736435
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Governance Project is designed in a way that allows describing the project in a highly granular fashion. This is one of the features that enable a massive collaboration, as it allows different people to get involved with very specific areas of the project.",
+            "updated": 1624706744817
+        },
+        {
+            "style": "Text",
+            "text": "Usually, governance definitions are produced by top contributors leading significant areas of the project. They are best suited to define the areas they lead, as they have profound knowledge of the existing infrastructure and the development roadmap."
+        },
+        {
+            "style": "Text",
+            "text": "Regular contributors tend to interact with these definitions to cast their votes and raise their claims."
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 {
     "type": "Positions",
     "name": "Superalgos",
+    "config": "{\"codeName\":\"Superalgos\"}",
     "project": "Governance",
     "positionClasss": [],
     "positions": [

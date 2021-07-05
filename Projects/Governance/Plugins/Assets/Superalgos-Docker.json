@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Superalgos-Docker",
-    "config": "{}",
+    "config": "{\"codeName\":\"Superalgos-Docker\"}",
     "project": "Governance",
     "assetClasses": [
         {

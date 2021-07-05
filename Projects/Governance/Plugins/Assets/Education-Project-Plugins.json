@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Education-Project-Plugins",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Education-Project-Plugins\"}",
     "project": "Governance",
     "assetClasses": [
         {

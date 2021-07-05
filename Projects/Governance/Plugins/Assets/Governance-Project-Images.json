@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Governance-Project-Images",
-    "config": "{\n    \"folderPath\": \"Governance/Icons\"\n}",
+    "config": "{\"folderPath\":\"Governance/Icons\",\"codeName\":\"Governance-Project-Images\"}",
     "project": "Governance",
     "assetClasses": [
         {

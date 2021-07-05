@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Ethereum-Project-Images",
-    "config": "{\n    \"folderPath\": \"Governance/Icons\"\n}",
+    "config": "{\"folderPath\":\"Governance/Icons\",\"codeName\":\"Ethereum-Project-Images\"}",
     "project": "Governance",
     "assetClasses": [
         {

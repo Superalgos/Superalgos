@@ -15,7 +15,7 @@ function newAppPostLoader() {
     function start() {
         try {
   
-            setBrowserEvents()
+            // autoSaveWhenClosingTheBrowser()
             setupProjectsSchema()
 
             function setupProjectsSchema() {
@@ -210,7 +210,7 @@ function newAppPostLoader() {
         }
     }
 
-    function setBrowserEvents() {
+    function autoSaveWhenClosingTheBrowser() {
         window.onbeforeunload = saveWorkspace
 
         /* handles backspace and refresh(F5) from keyboard */

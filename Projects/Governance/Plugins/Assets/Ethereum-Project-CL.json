@@ -1,7 +1,7 @@
 {
     "type": "Assets",
     "name": "Ethereum-Project-CL",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Ethereum-Project-CL\"}",
     "project": "Governance",
     "assetClasses": [
         {

@@ -11,3 +11,4 @@ Projects/Foundations/Icons/Thumbs.db
 !uninstall-shortcut-windows.bat
 *.exe
 node_modules
+launch.json

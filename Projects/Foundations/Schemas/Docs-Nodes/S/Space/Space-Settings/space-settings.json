@@ -59,6 +59,45 @@
         {
             "style": "List",
             "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Shorcut Properties"
+        },
+        {
+            "style": "Text",
+            "text": "Shorcuts are key stroke combinations that helps users execute certain actions very quickly. To execute a shorcut users need to simultaniously press CTRL + SHIFT + a pre-defined key.",
+            "updated": 1625419324367
+        },
+        {
+            "style": "Success",
+            "text": "Shorcuts default values can be seen below. You can modify those values by changing the Config Properties listed below.",
+            "updated": 1625419754545
+        },
+        {
+            "style": "List",
+            "text": "toggleMapMode defines which key will be used as a Shorcut for entering and leaving the Map Mode.",
+            "updated": 1625419803171
+        },
+        {
+            "style": "List",
+            "text": "toggleDrawRelationshipLines defines which key will be used as a Shorcut for turning on and off the drawing of Reference Lines.",
+            "updated": 1625419810253
+        },
+        {
+            "style": "List",
+            "text": "toggleDrawParentLines defines which key will be used as a Shorcut for turning on and off the drawing of Parent Lines.",
+            "updated": 1625419816654
+        },
+        {
+            "style": "List",
+            "text": "saveWorkspace defines which key will be used as a Shorcut for saving the Workspace.",
+            "updated": 1625419822252
+        },
+        {
+            "style": "List",
+            "text": "adjustAspectRation defines which key will be used as a Shorcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
+            "updated": 1625419830418
         }
     ]
 }

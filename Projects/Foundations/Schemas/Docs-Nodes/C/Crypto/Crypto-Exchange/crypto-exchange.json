@@ -1,83 +1,87 @@
 {
-    "type": "Crypto Exchange",
-    "definition": {
-        "text": "A crypto exchange node holds the definitions of assets and markets in a specific exchange."
+  "type": "Crypto Exchange",
+  "definition": {
+    "text": "A crypto exchange node holds the definitions of assets and markets in a specific exchange."
+  },
+  "paragraphs": [
+    {
+      "style": "Block",
+      "text": "Configuring"
     },
-    "paragraphs": [
-        {
-            "style": "Block",
-            "text": "Configuring"
-        },
-        {
-            "style": "Title",
-            "text": "Tested Exchanges",
-            "updated": 1615200855230
-        },
-        {
-            "style": "Text",
-            "text": "In theory, Superalgos supports dozens of exchanges. However, each exchange must go through a testing process, as not all of them conform to the standard proposed by the CCXT library.",
-            "updated": 1615201479524
-        },
-        {
-            "style": "List",
-            "text": "Binance Test Status",
-            "updated": 1615203667257
-        },
-        {
-            "style": "List",
-            "text": "Binance-US Test Status"
-        },
-        {
-            "style": "List",
-            "text": "Bitfinex Test Status"
-        },
-        {
-            "style": "List",
-            "text": "Bittrex Test Status"
-        },
-        {
-            "style": "List",
-            "text": "CoinbasePro Test Status"
-        },
-        {
-            "style": "List",
-            "text": "FTX Test Status",
-            "updated": 1615203669878
-        },
-        {
-            "style": "List",
-            "text": "Kraken Test Status",
-            "updated": 1615453046113
-        },
-        {
-            "style": "List",
-            "text": "Kucoin Test Status"
-        },
-        {
-            "style": "List",
-            "text": "Luno Test Status"
-        },
-        {
-            "style": "Title",
-            "text": "Crypto Exchange Configuration"
-        },
-        {
-            "style": "Text",
-            "text": "Each exchange may require a very specific configuration. This is determined during the exchange testing process. Consult the page of each exchange as listed above. If you are interested in testing a new exchange, go to the How to Test New Exchanges page.",
-            "updated": 1615201685376
-        },
-        {
-            "style": "Subtitle",
-            "text": "Properties",
-            "updated": 1609771684679
-        },
-        {
-            "style": "List",
-            "text": "codeName is the name of the exchange as handled in the code of the system."
-        },
-        {
-            "style": "List",
-            "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
-        }
-    ]
+    {
+      "style": "Title",
+      "text": "Tested Exchanges",
+      "updated": 1615200855230
+    },
+    {
+      "style": "Text",
+      "text": "In theory, Superalgos supports dozens of exchanges. However, each exchange must go through a testing process, as not all of them conform to the standard proposed by the CCXT library.",
+      "updated": 1615201479524
+    },
+    {
+      "style": "List",
+      "text": "Binance Test Status",
+      "updated": 1615203667257
+    },
+    {
+      "style": "List",
+      "text": "Binance-US Test Status"
+    },
+    {
+      "style": "List",
+      "text": "Bitfinex Test Status"
+    },
+    {
+      "style": "List",
+      "text": "Bittrex Test Status"
+    },
+    {
+      "style": "List",
+      "text": "CoinbasePro Test Status"
+    },
+    {
+      "style": "List",
+      "text": "FTX Test Status",
+      "updated": 1615203669878
+    },
+    {
+      "style": "List",
+      "text": "Kraken Test Status",
+      "updated": 1615453046113
+    },
+    {
+      "style": "List",
+      "text": "Kucoin Test Status"
+    },
+    {
+      "style": "List",
+      "text": "Luno Test Status"
+    },
+    {
+      "style": "Title",
+      "text": "Crypto Exchange Configuration"
+    },
+    {
+      "style": "Text",
+      "text": "Each exchange may require a very specific configuration. This is determined during the exchange testing process. Consult the page of each exchange as listed above. If you are interested in testing a new exchange, go to the How to Test New Exchanges page.",
+      "updated": 1615201685376
+    },
+    {
+      "style": "Subtitle",
+      "text": "Properties",
+      "updated": 1609771684679
+    },
+    {
+      "style": "List",
+      "text": "codeName is the name of the exchange as handled in the code of the system."
+    },
+    {
+      "style": "List",
+      "text": "sandBox setting this parameter to true allows SuperAlgos to perform live trading on the exchanges sandbox or testnet if one is available."
+    },
+    {
+      "style": "List",
+      "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
+    }
+  ]
 }

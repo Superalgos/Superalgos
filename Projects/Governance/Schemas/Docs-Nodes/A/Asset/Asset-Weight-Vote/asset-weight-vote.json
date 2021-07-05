@@ -1,8 +1,8 @@
 {
     "type": "Asset Weight Vote",
     "definition": {
-        "text": "This node is used to pass votes, via a reference, to an Asset or Asset Class, in order to influence the weight the recipient node will have in relation to other nodes belonging to the same hierarchy.",
-        "updated": 1622988481251
+        "text": "A Weight Vote that may reference an Asset node in the Assets hierarchy.",
+        "updated": 1624729908316
     },
     "paragraphs": [
         {

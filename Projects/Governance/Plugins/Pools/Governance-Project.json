@@ -1,7 +1,7 @@
 {
     "type": "Pools",
     "name": "Governance-Project",
-    "config": "{\n}",
+    "config": "{\"codeName\":\"Governance-Project\"}",
     "project": "Governance",
     "poolClasses": [
         {

@@ -1,0 +1,13 @@
+{
+    "type": "Weight Votes",
+    "definition": {
+        "text": "A type of vote within the Voting Program used to confer Weight to different types of nodes in the multiple project definition hierarchies. ",
+        "updated": 1624729793292
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

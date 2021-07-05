@@ -1,13 +1,30 @@
 {
     "type": "Pool Class",
     "definition": {
-        "text": "This node is like a folder. It facilitates the organization of the Pools structure. Votes received at this node will be split evenly on it's children.",
-        "updated": 1622985466839
+        "text": "The Pool Class node is an organizational device used to arrange Pool nodes in suitable hierarchical structures.",
+        "updated": 1624707077159
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624707110607
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Their main purpose is to help organize Pool nodes in the most appropriate manner."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

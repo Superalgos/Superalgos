@@ -1,8 +1,8 @@
 {
     "type": "Feature Weight Vote",
     "definition": {
-        "text": "This node is used to pass votes, via a reference, to a Feature or Feature Class, in order to influence the weight the recipient node will have in relation to other nodes belonging to the same hierarchy.",
-        "updated": 1622988542593
+        "text": "A Weight Vote that may reference a Feature node in the Features hierarchy.",
+        "updated": 1624729893680
     },
     "paragraphs": [
         {

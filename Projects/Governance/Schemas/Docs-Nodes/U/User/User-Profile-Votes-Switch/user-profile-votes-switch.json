@@ -1,0 +1,13 @@
+{
+    "type": "User Profile Votes Switch",
+    "definition": {
+        "text": "This type of switch is used to spawn User Profile Vote nodes.",
+        "updated": 1624729715052
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

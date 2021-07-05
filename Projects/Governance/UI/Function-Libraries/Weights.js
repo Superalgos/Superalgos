@@ -60,7 +60,10 @@ function newGovernanceFunctionLibraryWeights() {
                     node.payload.referenceParent !== undefined
                 )
             ) {
-                if (node.payload.votingProgram.votes !== undefined) {
+                if (
+                    node.payload.votingProgram !== undefined &&
+                    node.payload.votingProgram.votes !== undefined
+                ) {
                     totalVotes = totalVotes + node.payload.votingProgram.votes
                 }
             }
@@ -114,7 +117,7 @@ function newGovernanceFunctionLibraryWeights() {
                     node.payload.referenceParent !== undefined
                 )
             ) {
-                if (node.payload.votingProgram.votes !== undefined) {
+                if (node.payload.votingProgram !== undefined) {
                     if (node.payload.votingProgram.votes !== undefined) {
                         node.payload.weight = node.payload.votingProgram.votes / totalVotes
                     }

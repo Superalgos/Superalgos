@@ -1,13 +1,31 @@
 {
     "type": "Feature",
     "definition": {
-        "text": "A Feature is a functionality of the Superalgos software that matches a single use case. Users can vote on features to increase their relative weight to other features. These weight will ultimatelly influence how many tokens are given to the people implementing or mantaining these features.",
-        "updated": 1622986275998
+        "text": "A Feature is the capacity of the software to perform tasks required by a specific use case. We describe features so that users may direct Weight Votes to express which of them are the most valuable. This is how users may decide which features to incentivize, both in terms of maintenance and development.",
+        "updated": 1624708747036
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624708766414
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "You may cast Weight Votes on individual Feature nodes to incentivize the improvement, development, and maintenance of the said feature."
+        },
+        {
+            "style": "Text",
+            "text": "If you are involved in the development or maintenance of the said feature, you may place a Feature Contribution Claim and rally the Community to support your claim so that you may be compensated for your work.",
+            "updated": 1624708816194
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

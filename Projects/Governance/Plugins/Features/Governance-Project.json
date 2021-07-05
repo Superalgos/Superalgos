@@ -1,6 +1,7 @@
 {
     "type": "Features",
     "name": "Governance-Project",
+    "config": "{\"codeName\":\"Governance-Project\"}",
     "project": "Governance",
     "featureClasses": [
         {

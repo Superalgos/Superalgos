@@ -212,7 +212,7 @@ function newWorkspace() {
     }
 
     function setLastUsedWorkspace() {
-        window.localStorage.setItem('Last Used Workspace', workspace.name)
+        window.localStorage.setItem('Last Used Workspace', UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.name)
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 

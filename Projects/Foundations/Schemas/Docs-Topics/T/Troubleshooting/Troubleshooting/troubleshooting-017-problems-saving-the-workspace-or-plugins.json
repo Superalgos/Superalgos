@@ -220,7 +220,7 @@
         },
         {
             "style": "Important",
-            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, bacuase it was not loaded as part of the mechanism defined by the Pluigins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remeber you tell the system which plugins to load at the Plugins Hiererchy."
+            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, bacuase it was not loaded as part of the mechanism defined by the Pluigins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remember you tell the system which plugins to load at the Plugins Hiererchy."
         },
         {
             "style": "Text",

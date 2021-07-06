@@ -212,7 +212,7 @@ function newWorkspace() {
     }
 
     function setLastUsedWorkspace() {
-        window.localStorage.setItem('Last Used Workspace', workspace.name)
+        window.localStorage.setItem('Last Used Workspace', UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.name)
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 
@@ -245,7 +245,7 @@ function newWorkspace() {
                                 let pluginFile = childNode.pluginFiles[k]
 
                                 let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
-                                //UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                                UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
                             }
                         }
                             break

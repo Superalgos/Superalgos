@@ -1,0 +1,18 @@
+{
+    "type": "Claim Votes",
+    "definition": {
+        "text": "Claim Votes is a generalization referring to either or all of the existing variations (Position Contribution Claim Vote, Feature Contribution Claim Vote, and Asset Contribution Claim Vote nodes) without making such a distinction for being irrelevant in the particular context.",
+        "updated": 1624781423463
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624781429515
+        },
+        {
+            "style": "Callout",
+            "text": "Claim Votes is a generalization referring to either or all of the existing variations (Position Contribution Claim Vote, Feature Contribution Claim Vote, and Asset Contribution Claim Vote nodes) without making such a distinction for being irrelevant in the particular context."
+        }
+    ]
+}

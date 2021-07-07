@@ -186,9 +186,9 @@ function newEdgeEditor() {
 
     function onKeyPressed(event, forceExecution) {
         if (forceExecution !== true) {
-            if (whereIsMouseOver !== 'center' ) {return}
+            if (whereIsMouseOver !== 'center') { return }
         }
-        
+
         const STEP = 10
 
         if (event.shiftKey === false && event.ctrlKey === false && event.code === 'ArrowLeft') {
@@ -228,7 +228,11 @@ function newEdgeEditor() {
             return
         }
 
-        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'A' || event.key === 'a')) {
+        if (
+            event.shiftKey === true &&
+            (event.ctrlKey === true || event.metaKey === true) &&
+            (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.adjustAspectRatio || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.adjustAspectRatio.toLowerCase())
+        ) {
             resetAspectRatio()
             return
         }

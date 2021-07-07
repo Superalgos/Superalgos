@@ -36,7 +36,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/10_node-run.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/10_node-run.png",
             "updated": 1623409808656
         },
         {
@@ -51,7 +51,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/11_start-debugging.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/11_start-debugging.png",
             "updated": 1623409861513
         },
         {
@@ -61,7 +61,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/12_run-and-debug.png"
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/12_run-and-debug.png"
         },
         {
             "style": "Text",
@@ -74,7 +74,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/13_network.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/13_network.png",
             "updated": 1623410476464
         },
         {
@@ -89,12 +89,12 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/14_expand-data-tasks.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/14_expand-data-tasks.png",
             "updated": 1623410569919
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/15_debug-your-indicator-task.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/15_debug-your-indicator-task.png",
             "updated": 1623410589000
         },
         {
@@ -104,12 +104,12 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/16_run-ohlcvs.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/16_run-ohlcvs.png",
             "updated": 1623411034335
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/17_run-dependencies.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/17_run-dependencies.png",
             "updated": 1623411039717
         },
         {
@@ -119,7 +119,7 @@
         },
         {
             "style": "Png",
-            "text": "PNGs/Superalgos/Docs/debugging-your-indicator/18_check-debug-terminal.png",
+            "text": "PNGs/Foundations/Docs/debugging-your-indicator/18_check-debug-terminal.png",
             "updated": 1623411066811
         },
         {

@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-Superalgos",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -84,59 +85,6 @@
                         "x": 255,
                         "y": 588.3125
                     }
-                }
-            }
-        },
-        {
-            "type": "APIs",
-            "name": "New APIs",
-            "project": "Foundations",
-            "githubAPI": {
-                "type": "Github API",
-                "name": "New Github API",
-                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
-                "project": "Foundations",
-                "id": "90d121ab-9f19-4437-a051-1222287085fc",
-                "savedPayload": {
-                    "position": {
-                        "x": 30630.458333333332,
-                        "y": 10730.006707946337
-                    },
-                    "targetPosition": {
-                        "x": 30330.458333333332,
-                        "y": 10730.006707946337
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": true,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {}
-                }
-            },
-            "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",
-            "savedPayload": {
-                "position": {
-                    "x": 30330.458333333332,
-                    "y": 10730.006707946337
-                },
-                "targetPosition": {
-                    "x": 30330.458333333332,
-                    "y": 10730.006707946337
-                },
-                "floatingObject": {
-                    "isPinned": true,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 1,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
                 }
             }
         },
@@ -777,14 +725,14 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\"}",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
                                 "project": "Foundations",
-                                "id": "8d15645e-8cdf-4aba-a8d0-e8a4aeeae35f",
+                                "id": "f652721e-8c15-4604-9871-ce15b72f5448",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35428.97902204032,
-                                        "y": 10921.478234845728
+                                        "x": 35497.804212864474,
+                                        "y": 10958.847264482405
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -793,7 +741,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -805,14 +753,14 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Julian-Molina",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Julian-Molina\"\n}",
+                                "name": "Luis-Fernando-Molina",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Luis-Fernando-Molina\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\"\n}",
                                 "project": "Foundations",
-                                "id": "39cd9f98-5266-4eee-ace2-cad6db5b29e4",
+                                "id": "cccfce2d-3497-419b-8c32-4cd62fb1b33f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35306.95802911758,
-                                        "y": 10647.414597552948
+                                        "x": 35331.25096043528,
+                                        "y": 10800.794129455984
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -821,7 +769,62 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "harrellbm",
+                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"harrellbm\",\n    \"folderName\": \"User-Profiles\",\n    \"nodeType\": \"User Profile\"\n}",
+                                "project": "Foundations",
+                                "pluginFilePosition": {
+                                    "type": "Plugin File Position",
+                                    "name": "harrellbm",
+                                    "project": "Foundations",
+                                    "id": "17c2df27-8db1-4a1d-8ef6-128218a64a11",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 14342.16634182974,
+                                            "y": 23003.502366806064
+                                        },
+                                        "targetPosition": {
+                                            "x": 35325.2404697789,
+                                            "y": 10571.262751669654
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": true,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "17dfba0b-8979-4647-a2cc-3da33e968a66",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35325.2404697789,
+                                        "y": 10571.262751669654
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -863,9 +866,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "f7c2fdba-1f52-4809-a105-29269943987e",
+                                "id": "00782daf-3dfd-4708-a3c2-983c846ac64e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35282.66509779988,
@@ -919,10 +922,10 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-TS",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-TS\"\n}",
+                                "name": "Superalgos-CL",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-CL\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e03893dc-fdd0-48c4-b952-d77b7b0f4dd9",
+                                "id": "92ef88cd-4921-4a11-ab45-3ae57c6c903c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35380.88108740214,
@@ -947,10 +950,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-UI",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-UI\"\n}",
+                                "name": "Superalgos-Docker",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Docker\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e8777916-c05c-4895-9568-95cd402072ac",
+                                "id": "68637b02-e75b-4249-93a5-fc49f5a178db",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35340.36663452982,
@@ -975,10 +978,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-CL",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-CL\"\n}",
+                                "name": "Superalgos-Launch-Scripts",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Launch-Scripts\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "752270ce-c584-4c22-a386-7d882c7da505",
+                                "id": "fbca16fe-9d01-42dd-8e3a-4c844cd5b7e2",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35344.96216058906,
@@ -1003,10 +1006,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-Docker",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Docker\"\n}",
+                                "name": "Superalgos-Root",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-Root\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "8473a985-e558-450f-a781-9944d82d1e8b",
+                                "id": "5cb51a14-6b94-400e-a421-494a8cdc0a96",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35393.96803839588,
@@ -1031,10 +1034,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-Launch-Scripts",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Launch-Scripts\"\n}",
+                                "name": "Superalgos-TS",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "54f0ce1f-7507-4898-882c-1bfdda38b0a7",
+                                "id": "273c0c81-8d96-485e-a482-7b146d068d05",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35479.923567293576,
@@ -1059,10 +1062,10 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Superalgos-Root",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos-Root\"\n}",
+                                "name": "Superalgos-UI",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "b306257a-f877-4c5d-92eb-faf4612c7259",
+                                "id": "febde55b-0351-4d8a-933b-082ed2cdb385",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35589.7427971963,
@@ -1088,9 +1091,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\"}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "3ee44004-919a-4da1-8afd-6358ce78d813",
+                                "id": "99887440-5fb5-46ed-88d6-d73d76e02c24",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35706.706745865136,
@@ -1145,9 +1148,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Features\",\"nodeType\":\"Features\"}",
                                 "project": "Foundations",
-                                "id": "693735d3-a8a9-4fd9-b4e3-c5f54f48051a",
+                                "id": "03c1d6ad-fab0-43da-bc1e-82493d4530c2",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35635.336249175365,
@@ -1160,7 +1163,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -1202,9 +1205,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Positions\",\"nodeType\":\"Positions\"}",
                                 "project": "Foundations",
-                                "id": "ccaa3acb-687b-4e61-8a15-251f5524ed13",
+                                "id": "d63c0780-7da9-43ec-ac21-f09715514b86",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35942.095312981444,
@@ -1217,7 +1220,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -1346,6 +1349,59 @@
                     "isFrozen": false,
                     "isCollapsed": false,
                     "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "APIs",
+            "name": "New APIs",
+            "project": "Foundations",
+            "githubAPI": {
+                "type": "Github API",
+                "name": "New Github API",
+                "config": "{\n    \"username\": \"\",\n    \"token\": \"\"\n}",
+                "project": "Foundations",
+                "id": "90d121ab-9f19-4437-a051-1222287085fc",
+                "savedPayload": {
+                    "position": {
+                        "x": 30530.125,
+                        "y": 10634.899380804953
+                    },
+                    "targetPosition": {
+                        "x": 30230.125,
+                        "y": 10634.899380804953
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {}
+                }
+            },
+            "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",
+            "savedPayload": {
+                "position": {
+                    "x": 30230.125,
+                    "y": 10634.899380804953
+                },
+                "targetPosition": {
+                    "x": 30230.125,
+                    "y": 10634.899380804953
+                },
+                "floatingObject": {
+                    "isPinned": true,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },

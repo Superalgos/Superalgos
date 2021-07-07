@@ -1,13 +1,61 @@
 {
     "type": "Assets",
     "definition": {
-        "text": "These hierarchies define the different assets Superalgos as a project has accumulated over time. Assets could be anything tangible and not only software modules. ",
-        "updated": 1622986422593
+        "text": "The Assets hierarchy defines the structure of assets that a project is composed of. Any digital component of a Project may be characterised as an asset, including code files, stylesheets, images, documentation pages, tutorial pages, and so on. Assets, like Features, need to be created and maintained, thus their creation and maintenance must be incentivized. ",
+        "updated": 1624708951019
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624709007419
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Defining assets at the project level is an excellent way to atomize the description of a project. This level of granularity allows multiple groups of Contributors to take charge of clearly delimited components, which is crucial to developing, evolving, and maintaining a vast project through massive collaboration."
+        },
+        {
+            "style": "Text",
+            "text": "The hierarchy features Asset Class nodes, an organizational device, and Asset nodes, the representation of actual assets. Both types of nodes may accept incoming Weight Votes but only Asset nodes may accept Contributor Claims."
+        },
+        {
+            "style": "Success",
+            "text": "A crucial feature of this hierarchy is the Install Assets feature available both at the top-level of the hierarchy, and at the Asset Class node level.",
+            "updated": 1624709216096
+        },
+        {
+            "style": "Title",
+            "text": "Install Missing Assets",
+            "updated": 1624709536566
+        },
+        {
+            "style": "Text",
+            "text": "Both the Assets node and the Asset Class nodes support the Install Assets command available on the menu. Because Assets map digital files shipping with the system, the Install Assets feature is designed to map files on disk into a hierarchical structure of nodes below the node where the Install Assets command is run. In the resulting structure of nodes, Asset Class nodes represent folders, and Asset nodes represent files."
+        },
+        {
+            "style": "Text",
+            "text": "To run the command, you must configure the path you wish to map."
+        },
+        {
+            "style": "Text",
+            "text": "For example:"
+        },
+        {
+            "style": "Json",
+            "text": "{\n\"folderPath\": \"Root/UI\"\n}",
+            "updated": 1624709553788
+        },
+        {
+            "style": "Text",
+            "text": "Using the above configuration, the Install Assets command creates a Superalgos Asset Class node (the root of the Superalgos folder), and the UI Asset Class node as an offspring node. Then, the contents of the UI folder are mapped as offspring of the UI Asset Class node."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

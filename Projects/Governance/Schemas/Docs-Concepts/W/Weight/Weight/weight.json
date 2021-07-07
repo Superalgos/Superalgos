@@ -1,0 +1,18 @@
+{
+    "type": "Weight",
+    "definition": {
+        "text": "The Weight of a node is a direct proportion of the Weight Votes coming into the node divided by the total number of Weight Votes coming into the whole hierarchy, and multiplied by 100, to express it as a percentage.",
+        "updated": 1624781091970
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624781099033
+        },
+        {
+            "style": "Callout",
+            "text": "The Weight of a node is a direct proportion of the Weight Votes coming into the node divided by the total number of Weight Votes coming into the whole hierarchy, and multiplied by 100, to express it as a percentage."
+        }
+    ]
+}

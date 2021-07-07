@@ -19,10 +19,10 @@
             "action": "Add UI Object",
             "actionProject": "Foundations",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokensAwarded",
+            "propertyToCheckFor": "tokensBonus",
             "actionFunction": "payload.executeAction",
-            "label": "Add Tokens Awarded",
-            "relatedUiObject": "Tokens Awarded"
+            "label": "Add Tokens Bonus",
+            "relatedUiObject": "Tokens Bonus"
         },
         {
             "action": "Delete UI Object",
@@ -55,9 +55,9 @@
             "autoAdd": false
         },
         {
-            "name": "tokensAwarded",
+            "name": "tokensBonus",
             "type": "node",
-            "childType": "Tokens Awarded",
+            "childType": "Tokens Bonus",
             "autoAdd": true
         }
     ]

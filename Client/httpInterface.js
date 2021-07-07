@@ -833,9 +833,6 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
-                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
-                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
-                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
 
                             let error = {
                                 result: 'Fail Because',
@@ -892,9 +889,62 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                         } catch (err) {
                             console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
                             console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
-                            console.log('[ERROR] httpInterface -> App -> Update -> commitMessage = ' + commitMessage)
-                            console.log('[ERROR] httpInterface -> App -> Update -> username = ' + username)
-                            console.log('[ERROR] httpInterface -> App -> Update -> token = ' + token)
+
+                            let error = {
+                                result: 'Fail Because',
+                                message: err.message,
+                                stack: err.stack
+                            }
+                            respondWithContent(JSON.stringify(error), httpResponse)
+                        }
+                        break
+                    }
+
+                    case 'Branch': {
+                        try {
+                            branch()
+
+                            async function branch() {
+                                let result = await doGit()
+
+                                if (result.error === undefined) {
+                                    let customResponse = {
+                                        result: global.CUSTOM_OK_RESPONSE.result,
+                                        message: result
+                                    }
+                                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                } else {
+                                    let docs = {
+                                        project: 'Foundations',
+                                        category: 'Topic',
+                                        type: 'App Error - Could Not Get Current Branch',
+                                        anchor: undefined,
+                                        placeholder: {}
+                                    }
+
+                                    respondWithDocsObject(docs, error)
+                                }
+                            }
+
+                            async function doGit() {
+                                const simpleGit = require('simple-git');
+                                const options = {
+                                    baseDir: process.cwd(),
+                                    binary: 'git',
+                                    maxConcurrentProcesses: 6,
+                                }
+                                const git = simpleGit(options)
+                                try {
+                                    return await git.branch()
+                                } catch (err) {
+                                    console.log('[ERROR] Error reading current branch.')
+                                    console.log(err.stack)
+                                }
+                            }
+
+                        } catch (err) {
+                            console.log('[ERROR] httpInterface -> App -> Update -> Method call produced an error.')
+                            console.log('[ERROR] httpInterface -> App -> Update -> err.stack = ' + err.stack)
 
                             let error = {
                                 result: 'Fail Because',
@@ -1180,6 +1230,35 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                     let fileName = unescape(requestParameters[4])
                     let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + pluginType + '/' + fileName
                     respondWithFile(filePath, httpResponse)
+                }
+                break
+
+            case 'SavePlugin':
+                getBody(processRequest)
+
+                async function processRequest(body) {
+                    try {
+                        let plugin = JSON.parse(body)
+                        let project = requestParameters[2]
+                        let folder = requestParameters[3]
+                        let fileName = requestParameters[4]
+                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                        let fileContent = JSON.stringify(plugin, undefined, 4)
+                        const fs = require('fs')
+                        fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
+                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                    } catch (err) {
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Method call produced an error.')
+                        console.log('[ERROR] httpInterface -> SavePlugin -> err.stack = ' + err.stack)
+                        console.log('[ERROR] httpInterface -> SavePlugin -> Params Received = ' + body)
+
+                        let error = {
+                            result: 'Fail Because',
+                            message: err.message,
+                            stack: err.stack
+                        }
+                        respondWithContent(JSON.stringify(error), httpResponse)
+                    }
                 }
                 break
 

@@ -1,6 +1,7 @@
 {
     "type": "Workspace",
     "name": "Token-Distribution-TensorFlow-Project",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"currentBranch\": \"develop\",\n    \"contributionsBranch\": \"develop\"\n}",
     "rootNodes": [
         {
             "type": "Design Space",
@@ -803,14 +804,42 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Luis-Fernando-Molina",
-                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\"}",
+                                "name": "Julian-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Julian-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
                                 "project": "Foundations",
-                                "id": "1a73595d-d162-4e84-91c7-c8079b1ecf5e",
+                                "id": "e1e044bb-a5fd-4fb2-a1d1-299e6f035737",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35331.25096043528,
-                                        "y": 10800.794129455984
+                                        "x": 35428.97902204032,
+                                        "y": 10921.478234845728
+                                    },
+                                    "targetPosition": {
+                                        "x": 35605.314597728066,
+                                        "y": 10678.773136533244
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "Luis-Fernando-Molina",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Luis-Fernando-Molina\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\"}",
+                                "project": "Foundations",
+                                "id": "aa8a4c28-1a74-4d0b-bcb0-89b49aaf18c2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35306.95802911758,
+                                        "y": 10647.414597552948
                                     },
                                     "targetPosition": {
                                         "x": 35605.314597728066,
@@ -861,36 +890,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Superalgos",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"Superalgos\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"Superalgos\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "pluginFilePosition": {
-                                    "type": "Plugin File Position",
-                                    "name": "Superalgos",
-                                    "project": "Foundations",
-                                    "id": "e5929e81-19a4-4662-8894-8275244aab70",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24990.308529189395,
-                                            "y": 30318.926526669617
-                                        },
-                                        "targetPosition": {
-                                            "x": 35347.877877973275,
-                                            "y": 10714.189721945158
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": true,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                "id": "4625d4d0-4926-40b7-9720-98c27c8fee90",
+                                "id": "3086a72f-ccc1-4cfe-a18c-b069d7f371a5",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35347.877877973275,
@@ -903,7 +905,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -916,9 +918,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-Assets",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-Assets\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-Assets\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "e926d202-82ce-4cd8-b979-17c1092589ee",
+                                "id": "7c2a62e6-25e3-49ce-b7bf-c91081c8fb99",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35282.66509779988,
@@ -944,9 +946,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project\",\"folderName\":\"Pools\",\"nodeType\":\"Pools\"}",
                                 "project": "Foundations",
-                                "id": "81e428c5-c160-47eb-ba4a-7be83fd00ff2",
+                                "id": "cb261604-16c9-41d3-867f-9d82954dffbc",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35392.22554909541,
@@ -1001,9 +1003,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-App-Schemas",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-App-Schemas\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-App-Schemas\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "405ec749-abb5-4eb7-8819-96f6fea05667",
+                                "id": "4500f299-650b-4a22-b8a2-cd4ae8da2b60",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35380.88108740214,
@@ -1029,9 +1031,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-Custom-Code",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-Custom-Code\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-Custom-Code\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "cae632b1-932b-45b8-8106-1cf7e38d50e0",
+                                "id": "a4f6f7dd-fc71-4bd3-89f7-9f292b549157",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35340.36663452982,
@@ -1057,9 +1059,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-Docs",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-Docs\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-Docs\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "8aabfc11-02eb-4f3a-90ed-01c5edd7d082",
+                                "id": "76cb478a-e702-4a39-bebf-e886c49cbdc9",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35344.96216058906,
@@ -1085,9 +1087,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-Images",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-Images\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-Images\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "150b3486-9340-4f78-aa52-e8651ece7851",
+                                "id": "a447d047-2613-41cd-9543-1ef3a67e01d1",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35393.96803839588,
@@ -1113,9 +1115,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-Plugins",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-Plugins\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-Plugins\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "1fc0dc13-93a3-45a9-baa0-5d39c374bb71",
+                                "id": "b29f883e-c835-4401-ab6f-42aa3b8d0dd0",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35479.923567293576,
@@ -1141,9 +1143,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-TS",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-TS\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-TS\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e03893dc-fdd0-48c4-b952-d77b7b0f4dd9",
+                                "id": "ae8cf698-636c-4abe-a2f8-108cd3e8abe2",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35589.7427971963,
@@ -1169,9 +1171,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project-UI",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project-UI\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project-UI\",\"folderName\":\"Assets\",\"nodeType\":\"Assets\"}",
                                 "project": "Foundations",
-                                "id": "e8777916-c05c-4895-9568-95cd402072ac",
+                                "id": "d24d72ce-d10b-4cb4-ae21-1c58f0aa8722",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35706.706745865136,
@@ -1226,9 +1228,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project\",\"folderName\":\"Features\",\"nodeType\":\"Features\"}",
                                 "project": "Foundations",
-                                "id": "4999779a-5f41-4606-982f-e7ec4c1b89a1",
+                                "id": "8c12c436-b516-4260-a127-843ebf22657c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35635.336249175365,
@@ -1283,9 +1285,9 @@
                             {
                                 "type": "Plugin File",
                                 "name": "TensorFlow-Project",
-                                "config": "{\n    \"project\": \"Governance\",\n    \"fileName\": \"TensorFlow-Project\"\n}",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"TensorFlow-Project\",\"folderName\":\"Positions\",\"nodeType\":\"Positions\"}",
                                 "project": "Foundations",
-                                "id": "3a69345d-e5b2-4682-9988-d2ea2400d961",
+                                "id": "f765f295-827c-4837-9e70-48b40c33c171",
                                 "savedPayload": {
                                     "position": {
                                         "x": 35942.095312981444,
@@ -1397,7 +1399,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

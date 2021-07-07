@@ -1,0 +1,76 @@
+{
+    "topic": "Governance Flow",
+    "pageNumber": "2",
+    "type": "Token Rewards and Voting Power Flow",
+    "definition": {
+        "text": "Let’s analyze the flow of Token Rewards through Pools in parallel with the flow of Token Power, and in particular Voting Power, as they are interdependent.",
+        "updated": 1624780824020
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Token Rewards->Content",
+            "updated": 1624780974906
+        },
+        {
+            "style": "Text",
+            "text": "Each release distributes a number of tokens as specified in the configuration of the top-level Superalgos Pools hierarchy (within the Token Distribution Superalgos Plugin Workspace). For tokens to be distributed, they first need to flow into the Pool nodes defined in this hierarchy.",
+            "updated": 1624781023264
+        },
+        {
+            "style": "Text",
+            "text": "Token Rewards flow within the hierarchy in response to Weight Votes casted by the Community. That is, the Community decides the Weight of each Pool by casting Weight Votes."
+        },
+        {
+            "style": "Text",
+            "text": "This is where Token Rewards intersect with Voting Power, as it is Voting Power that drives Token Rewards."
+        },
+        {
+            "style": "Text",
+            "text": "Your Token Power flows into the different programs available under your User Profile. The portion of Token Power that flows into your Voting Program turns into Voting Power, which is channeled through different types of switches. You use Weight Vote Switch nodes to turn Voting Power into Weight Votes."
+        },
+        {
+            "style": "Text",
+            "text": "So, for example, when you reference a Pool node with a Pool Weight Vote node, you are conferring your Weight Votes to that particular Pool node."
+        },
+        {
+            "style": "Text",
+            "text": "Now that this Pool node has some Weight, the Token Reward available for the hierarchy may flow into this Pool node. How much? It depends on the weight of the node relative to the weight of the rest of the nodes in the hierarchy!"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight->Content",
+            "updated": 1624781155330
+        },
+        {
+            "style": "Json",
+            "text": "Weight (of a node) = Node’s Incoming Weight Votes / Sum of Weight Votes in the Hierarchy * 100",
+            "updated": 1624781181588
+        },
+        {
+            "style": "Note",
+            "text": "If a Pool node ends up with no Weight Votes, then no Token Rewards flow into the node."
+        },
+        {
+            "style": "Title",
+            "text": "Token Reward Flow Into Other Hierarchies"
+        },
+        {
+            "style": "Text",
+            "text": "Pool nodes in the top-level Superalgos Pools hierarchy reference other hierarchies where project definitions continue. Those hierarchies may be other Pools, Positions, Features, or Asset hierarchies."
+        },
+        {
+            "style": "Text",
+            "text": "When a Pool node in the top-level hierarchy gets Weight Votes, the Token Rewards flowing to the node is immediately passed on to the referenced hierarchy. So, now the referenced hierarchy has Token Rewards of its own!"
+        },
+        {
+            "style": "Text",
+            "text": "How do Token Rewards flow within these secondary hierarchies? In the exact manner! When Weight Votes are casted within the hierarchy, Token Rewards flow into the affected nodes in Weight proportions calculated within the scope of the hierarchy.",
+            "updated": 1624781274277
+        },
+        {
+            "style": "Note",
+            "text": "The cycle goes on and on through all the existing levels of nested hierarchies. The process and flows are the same regardless of the type of hierarchy."
+        }
+    ]
+}

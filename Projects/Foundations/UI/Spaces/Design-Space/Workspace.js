@@ -19,8 +19,9 @@ function newWorkspace() {
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
+        getHierarchyHeadsByCodeNameAndNodeType: getHierarchyHeadsByCodeNameAndNodeType,
         getHierarchyHeadByNodeType: getHierarchyHeadByNodeType,
-        getHierarchyHeadsByNodeType: getHierarchyHeadsByNodeType, 
+        getHierarchyHeadsByNodeType: getHierarchyHeadsByNodeType,
         getNodeThatIsOnFocus: getNodeThatIsOnFocus,
         getNodeByShortcutKey: getNodeByShortcutKey,
         getNodeById: getNodeById,
@@ -59,88 +60,78 @@ function newWorkspace() {
         actionSwitchesByProject = undefined
     }
 
-    function initialize() {
-        try {
-            UI.projects.foundations.utilities.statusBar.changeStatus("Initializing...")
+    async function initialize() {
+        let promise = new Promise((resolve, reject) => {
 
-            /* Set up the action switches map */
-            for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
-                let project = PROJECTS_SCHEMA[i].name
-                let actionSwitch = eval('new' + project + 'ActionSwitch()')
-                actionSwitchesByProject.set(project, actionSwitch)
-            }
+            try {
+                UI.projects.foundations.utilities.statusBar.changeStatus("Initializing...")
 
-            /* Check which was the last workspace. */
-            let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
+                /* Set up the action switches map */
+                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                    let project = PROJECTS_SCHEMA[i].name
+                    let actionSwitch = eval('new' + project + 'ActionSwitch()')
+                    actionSwitchesByProject.set(project, actionSwitch)
+                }
 
-            if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+                /* Check which was the last workspace. */
+                let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-                UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+                if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
 
-                httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
-                function onFileReceived(err, text, response) {
-                    if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                        UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
-                        thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+                    UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+
+                    httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
+                    function onFileReceived(err, text, response) {
+                        if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+                            thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
+                            thisObject.workspaceNode.project = 'Foundations'
+                            recreateWorkspace()
+                            return
+                        }
+                        thisObject.workspaceNode = JSON.parse(text)
                         thisObject.workspaceNode.project = 'Foundations'
                         recreateWorkspace()
-                        return
                     }
-                    thisObject.workspaceNode = JSON.parse(text)
+                } else {
+                    thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
                     thisObject.workspaceNode.project = 'Foundations'
                     recreateWorkspace()
                 }
-            } else {
-                thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
-                thisObject.workspaceNode.project = 'Foundations'
-                recreateWorkspace()
-            }
 
-            function recreateWorkspace() {
-                UI.projects.foundations.utilities.statusBar.changeStatus("Connecting all the workspace nodes...")
-                executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
-            }
-
-            function finishInitialization() {
-                /* 
-                We will help the Docs Space finish its initialization, since it is 
-                waiting for the workspace to be done.
-                */
-                UI.projects.foundations.utilities.statusBar.changeStatus("Setting up Docs Search Engine...")
-                setTimeout(theEnd, 100)
-                function theEnd() {
-                    UI.projects.education.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished)
-
-                    function onIndexingFinished() {
-                        setupEventsServerClients()
-                        runTasksAndSessions()
-
-                        thisObject.enabled = true
-                        UI.projects.foundations.spaces.cockpitSpace.initializePosition()
-                        CAN_SPACES_DRAW = true
-
-                        thisObject.isInitialized = true
-
-                        playTutorials()
-
-                        savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
-                        UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
-                    }
+                function recreateWorkspace() {
+                    UI.projects.foundations.utilities.statusBar.changeStatus("Connecting all the workspace nodes...")
+                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
                 }
+
+                function finishInitialization() {
+
+                    setupEventsServerClients()
+                    runTasksAndSessions()
+
+                    thisObject.enabled = true
+                    UI.projects.foundations.spaces.cockpitSpace.initializePosition()
+                    CAN_SPACES_DRAW = true
+
+                    thisObject.isInitialized = true
+
+                    //savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
+                    UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
+
+                    resolve()
+                }
+            } catch (err) {
+                if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
             }
-        } catch (err) {
-            if (ERROR_LOG === true) { logger.write('[ERROR] initialize -> err = ' + err.stack) }
-        }
+        })
+
+        return promise
     }
 
     function runTasksAndSessions() {
         executeAction({ name: 'Syncronize Tasks', project: 'Foundations' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Foundations' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Foundations' })
-    }
-
-    function playTutorials() {
-        executeAction({ name: 'Play Tutorials', project: 'Foundations' })
     }
 
     function setupEventsServerClients() {
@@ -201,6 +192,7 @@ function newWorkspace() {
             return
         }
         httpRequest(textToSave, url, onResponse)
+        savePlugins()
         return true
 
         function onResponse(err) {
@@ -215,6 +207,49 @@ function newWorkspace() {
                 }
             } else {
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not save the Workspace at the Client. Please check the Client Console for more information.', 150, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+            }
+        }
+    }
+
+    function savePlugins() {
+        /*
+        Here we will scan the workspace for all Plugins and we will try to save them.
+        The first thing to do is to find the Plugins hierarchy.
+        */
+        let plugins = getHierarchyHeadByNodeType('Plugins')
+        if (plugins === undefined) { return }
+
+        for (let i = 0; i < plugins.pluginProjects.length; i++) {
+            let pluginProject = plugins.pluginProjects[i]
+            /*
+            Here we are inside the Voting Program, so we will crawl all it's children.
+            */
+            let schemaDocument = getSchemaDocument(pluginProject)
+            if (schemaDocument === undefined) { return }
+
+            if (schemaDocument.childrenNodesProperties !== undefined) {
+                for (let j = 0; j < schemaDocument.childrenNodesProperties.length; j++) {
+                    let property = schemaDocument.childrenNodesProperties[j]
+
+                    switch (property.type) {
+                        case 'node': {
+                            let childNode = pluginProject[property.name]
+                            if (childNode === undefined) { continue }
+                            if (childNode.pluginFiles === undefined) { continue }
+                            for (let k = 0; k < childNode.pluginFiles.length; k++) {
+                                let pluginFile = childNode.pluginFiles[k]
+
+                                let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
+                                //UI.projects.foundations.utilities.plugins.savePluginFile(pluginFile)
+                            }
+                        }
+                            break
+                        case 'array': {
+                            /*Nothing to do here*/
+                            break
+                        }
+                    }
+                }
             }
         }
     }
@@ -273,11 +308,7 @@ function newWorkspace() {
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
-                    saveWorkspace(takeAction)
-
-                    function takeAction() {
-                        workingAtTask = 2
-                    }
+                    workingAtTask = 2
                     break
                 }
                 case 2:
@@ -373,21 +404,14 @@ function newWorkspace() {
                     }
                 case 8:
                     {
-                        UI.projects.foundations.utilities.statusBar.changeStatus('Reindexing Search Engine...')
-                        setTimeout(takeAction, 100)
                         workingAtTask = 0
+                        UI.projects.foundations.spaces.floatingSpace.inMapMode = false
+                        thisObject.isInitialized = true
 
-                        function takeAction() {
-                            UI.projects.education.spaces.docsSpace.reset()
-                            UI.projects.education.spaces.docsSpace.searchEngine.setUpSearchEngine(onIndexingFinished) // The docs needs to index the loaded workspace.
-                            function onIndexingFinished() {
-                                UI.projects.foundations.spaces.floatingSpace.inMapMode = false
-                                thisObject.isInitialized = true
-                                saveWorkspace()
-                                runTasksAndSessions()
-                                playTutorials()
-                            }
-                        }
+                        await UI.projects.education.spaces.docsSpace.reset()
+                        await UI.projects.education.spaces.tutorialSpace.reset()
+
+                        runTasksAndSessions()
                         break
                     }
             }
@@ -411,6 +435,7 @@ function newWorkspace() {
         let workspace = {
             type: 'Workspace',
             name: thisObject.workspaceNode.name,
+            config: thisObject.workspaceNode.config,
             rootNodes: stringifyReadyNodes
         }
 
@@ -514,6 +539,18 @@ function newWorkspace() {
         }
     }
 
+    function getHierarchyHeadsByCodeNameAndNodeType(codeName, nodeType) {
+        let hierarchyHeads = getHierarchyHeads()
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
+            if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
+                return hierarchyHead
+            }
+        }
+    }
+
     function getHierarchyHeadByNodeType(nodeType) {
         let hierarchyHeads = getHierarchyHeads()
         if (hierarchyHeads === undefined) { return }
@@ -537,6 +574,7 @@ function newWorkspace() {
         }
         return resultArray
     }
+
 
     function replaceWorkspaceByLoadingOne(project, name) {
 

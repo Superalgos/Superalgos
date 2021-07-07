@@ -1,0 +1,30 @@
+{
+    "type": "Support Program",
+    "definition": {
+        "text": "The Support Program is designed to incentivize the involvement of the Community in helping new users overcome the learning curve and the rough edges they may find in the current version of the software. You may earn tokens by sharing your knowledge with other users!",
+        "updated": 1624726923232
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624726970556
+        },
+        {
+            "style": "Text",
+            "text": "The Token Power assigned to the Support Program becomes your Support Power. The core idea of this program is that you may show your gratitude to the people that help you out when you have doubts or run into trouble!"
+        },
+        {
+            "style": "Text",
+            "text": "The group of Community Mods is growing, and it should! Not all mods are active all the time. When you select your favorite mods, you help the project identify which mods have been actively helping users, so that they may be rewarded accordingly."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

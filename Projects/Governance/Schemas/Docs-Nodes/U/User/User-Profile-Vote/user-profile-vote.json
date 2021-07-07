@@ -1,0 +1,13 @@
+{
+    "type": "User Profile Vote",
+    "definition": {
+        "text": "A type of vote within the Voting Program used to confer Voting Power to another User Profile.",
+        "updated": 1624729935183
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

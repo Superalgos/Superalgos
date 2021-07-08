@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Elegant Way...",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "mouse-pointer"
+            "name": "Mouse\\mouse-pointer",
+            "project": "Foundations"
         },
         "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick!",
         "translations": [
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco!",
-                "updated": 1624384343958
+                "updated": 1624384343958,
+                "style": "Definition"
             }
         ],
         "updated": 1616417516192
@@ -44,7 +45,8 @@
                 {
                     "language": "ES",
                     "text": "Adjust the aspect ratio: Apunta al gráfico Backtesting Session (está en la parte superior) y presione Ctrl + Shift + Key-A",
-                    "updated": 1624403928721
+                    "updated": 1624403928721,
+                    "style": "List"
                 }
             ]
         },
@@ -61,7 +63,8 @@
                 {
                     "language": "ES",
                     "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
-                    "updated": 1624403987866
+                    "updated": 1624403987866,
+                    "style": "List"
                 }
             ]
         },
@@ -84,7 +87,8 @@
                 {
                     "language": "ES",
                     "text": "Double-click once: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
-                    "updated": 1624384580827
+                    "updated": 1624384580827,
+                    "style": "List"
                 }
             ],
             "updated": 1616418234728
@@ -108,7 +112,8 @@
                 {
                     "language": "ES",
                     "text": "Double-click again: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
-                    "updated": 1624404060794
+                    "updated": 1624404060794,
+                    "style": "List"
                 }
             ],
             "updated": 1622198926988

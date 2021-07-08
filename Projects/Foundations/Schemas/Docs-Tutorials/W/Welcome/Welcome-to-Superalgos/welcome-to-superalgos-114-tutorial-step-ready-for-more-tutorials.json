@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Ready for More Tutorials?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "tutorial"
+            "name": "tutorial",
+            "project": "Education"
         },
         "text": "Not to brag, but I can't stress enough how important it is that you make all tutorials available before venturing on your own!",
         "updated": 1610984910896,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "No es para alardear, pero no puedo enfatizar suficiente lo importante que es que pongas a disposición todos los tutoriales antes de aventurarte por tu cuenta.",
-                "updated": 1624489857604
+                "updated": 1624489857604,
+                "style": "Definition"
             }
         ]
     },
@@ -38,7 +39,8 @@
                 {
                     "language": "ES",
                     "text": "El sistema es vasto y cubre asuntos complejos. ¡Ir solo en sus primeros días con Superalgos solo se recomienda para personas que disfrutan golpeándose la cabeza contra la pared!",
-                    "updated": 1624489896631
+                    "updated": 1624489896631,
+                    "style": "Text"
                 }
             ]
         },
@@ -56,7 +58,8 @@
                 {
                     "language": "ES",
                     "text": "The First Steps Tutorials El libro a su derecha brinda todos los detalles sobre la mejor manera de invertir su tiempo aprendiendo Superalgos.",
-                    "updated": 1624489939709
+                    "updated": 1624489939709,
+                    "style": "Success"
                 }
             ]
         },
@@ -74,7 +77,8 @@
                 {
                     "language": "ES",
                     "text": "¡Antes de que termines, te dejo con el siguiente mejor tutorial de la serie!",
-                    "updated": 1624489956764
+                    "updated": 1624489956764,
+                    "style": "Note"
                 }
             ]
         }

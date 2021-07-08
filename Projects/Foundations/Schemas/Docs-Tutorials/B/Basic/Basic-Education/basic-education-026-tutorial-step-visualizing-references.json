@@ -5,7 +5,7 @@
     "definition": {
         "text": "When you hover the mouse pointer over a node with an outgoing reference, the reference becomes visible.",
         "icon": {
-            "name": "key-r",
+            "name": "Key/key-r",
             "project": "Foundations"
         },
         "updated": 1615804514428,

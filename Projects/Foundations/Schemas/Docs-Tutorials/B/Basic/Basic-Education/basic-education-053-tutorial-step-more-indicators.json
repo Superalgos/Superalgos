@@ -6,7 +6,7 @@
         "text": "Indicators are built by the Community! Usually, a developer will build a few indicators he or she needs, and contribute them to the project in a new Data Mine!",
         "updated": 1616235133472,
         "icon": {
-            "name": "data-mine",
+            "name": "Data/data-mine",
             "project": "Foundations"
         },
         "translations": [

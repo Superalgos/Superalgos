@@ -6,7 +6,7 @@
         "text": "Notice the two nodes under the Backtesting Session: Trading System Reference and Trading Engine Reference. Why do we need these nodes?",
         "updated": 1615798435799,
         "icon": {
-            "name": "trading-system-reference",
+            "name": "Trading/trading-system-reference",
             "project": "Foundations"
         },
         "translations": [

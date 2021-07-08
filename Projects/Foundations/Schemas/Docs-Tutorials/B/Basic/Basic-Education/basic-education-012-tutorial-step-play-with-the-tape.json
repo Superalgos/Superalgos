@@ -5,7 +5,7 @@
     "definition": {
         "text": "Try the different distance settings of the Lightning Strike Trading System Reference node! Go ahead! Click the tape button!",
         "icon": {
-            "name": "trading-system-reference",
+            "name": "Trading/trading-system-reference",
             "project": "Foundations"
         },
         "updated": 1615476811627,

@@ -6,7 +6,7 @@
         "text": "Are you wondering how to get data from sources other than exchanges in CCXT? Messari? Twitter? We've got you covered!",
         "updated": 1622645027378,
         "icon": {
-            "name": "api-map",
+            "name": "Api/api-map",
             "project": "Foundations"
         }
     },

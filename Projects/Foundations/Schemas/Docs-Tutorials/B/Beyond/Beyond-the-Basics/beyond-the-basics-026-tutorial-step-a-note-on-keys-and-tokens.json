@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let me make a quick pause to point out something important regarding the safety of your keys and tokens...",
         "icon": {
-            "name": "exchange-account-key",
+            "name": "Exchange/exchange-account-key",
             "project": "Foundations"
         },
         "updated": 1610818135402,

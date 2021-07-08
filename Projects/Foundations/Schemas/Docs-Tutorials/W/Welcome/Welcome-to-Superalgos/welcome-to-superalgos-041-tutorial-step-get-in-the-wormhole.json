@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Get In the Wormhole!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "mouse-wheel-up"
+            "name": "Mouse\\mouse-wheel-up",
+            "project": "Foundations"
         },
         "text": "It's time to dive into a Time Machine and see what happens! Are you ready for a full-on immersive experience?",
         "translations": [
@@ -24,7 +24,8 @@
             {
                 "language": "ES",
                 "text": "¡Es hora de sumergirse en un Time Machine y ver qué pasa! ¿Estás listo para una experiencia inmersiva total?",
-                "updated": 1624384047290
+                "updated": 1624384047290,
+                "style": "Definition"
             }
         ]
     },
@@ -48,7 +49,8 @@
                 {
                     "language": "ES",
                     "text": "El Charting Space es como Google Maps de los gráficos de mercado. Como ya sabes, haces clic izquierdo y arrastras para moverte por el paisaje ... pero, ¿cómo haces zoom para ver los detalles?",
-                    "updated": 1624384176097
+                    "updated": 1624384176097,
+                    "style": "Text"
                 }
             ]
         },
@@ -71,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "¡Con la rueda del mouse! ¡Intentalo!",
-                    "updated": 1624384207479
+                    "updated": 1624384207479,
+                    "style": "Callout"
                 }
             ]
         },
@@ -95,7 +98,8 @@
                 {
                     "language": "ES",
                     "text": "¡Exactamente! ¡Como en Google Maps! Apunte el mouse al área de interés, luego gire la rueda del mouse hacia adelante para acercar y hacia atrás para alejar.",
-                    "updated": 1624384248161
+                    "updated": 1624384248161,
+                    "style": "Text"
                 }
             ]
         }

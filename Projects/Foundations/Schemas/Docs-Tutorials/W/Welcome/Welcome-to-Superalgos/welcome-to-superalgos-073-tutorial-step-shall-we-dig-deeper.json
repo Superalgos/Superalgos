@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Shall We Dig Deeper?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "layer-resistance"
+            "name": "Layer\\layer-resistance",
+            "project": "Foundations"
         },
         "text": "The logic behind the placing of buy orders is influenced by the Resistances and Supports indicator bot from the Masters Data Mine you ran earlier.",
         "updated": 1610641051577,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "La lógica detrás de la colocación de órdenes de compra está influenciada por el bot indicador de Resistances and Supports de Masters Data Mine que has ejecutado anteriormente.",
-                "updated": 1624457215845
+                "updated": 1624457215845,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "Me tomé la libertad de activar la capa Apoyos para mostrarte esta belleza ... ¡Espero que no te importe!",
-                    "updated": 1624457509151
+                    "updated": 1624457509151,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "El indicador identifica los niveles (rangos de precios) en los que se rechaza el precio y mantiene un contador de cuántos rechazos ocurren hasta que se supera el nivel.",
-                    "updated": 1624457546330
+                    "updated": 1624457546330,
+                    "style": "Callout"
                 }
             ]
         },
@@ -71,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "Como se presentan los niveles en la pantalla varía con la cantidad de rechazos que presencio el nivel, lo que nos da una pista visual de cuán fuerte puede ser cada nivel de soporte. Una vez que se rompe un nivel, desaparece.",
-                    "updated": 1624457785930
+                    "updated": 1624457785930,
+                    "style": "Text"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Green Silver Bullets",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "bullet-limit-buy-order"
+            "name": "Bullet\\bullet-limit-buy-order",
+            "project": "Foundations"
         },
         "text": "Do you see the green bullets with an L in the center? Those are the limit buy orders I mentioned.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¿Ves las circulos verdes con una L en el centro? Esas son las Limit Buy Order que mencioné.",
-                "updated": 1624455564096
+                "updated": 1624455564096,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Observe cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
-                    "updated": 1624455554609
+                    "updated": 1624455554609,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "¡Observe que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
-                    "updated": 1624455660563
+                    "updated": 1624455660563,
+                    "style": "Callout"
                 }
             ]
         },
@@ -71,7 +74,8 @@
                 {
                     "language": "ES",
                     "text": "Entonces ... ¿qué pasa después?",
-                    "updated": 1624455679005
+                    "updated": 1624455679005,
+                    "style": "Text"
                 }
             ]
         }

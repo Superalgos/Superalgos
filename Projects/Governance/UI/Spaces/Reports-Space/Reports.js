@@ -1,5 +1,5 @@
-function newGobernanceAssetsSpace() {
-    const MODULE_NAME = 'Assets Space'
+function newGobernanceReportsSpace() {
+    const MODULE_NAME = 'Reports Space'
 
     let thisObject = {
         container: undefined,
@@ -12,8 +12,18 @@ function newGobernanceAssetsSpace() {
     }
 
     thisObject.container = newContainer()
-    thisObject.container.initialize(MODULE_NAME)
+    thisObject.container.name = MODULE_NAME
+    thisObject.container.initialize()
+    thisObject.container.isClickeable = true
     thisObject.container.isDraggeable = false
+    thisObject.container.detectMouseOver = true
+    thisObject.container.status = 'hidden'
+
+    resize()
+
+    let browserResizedEventSubscriptionId
+    let openingEventSubscriptionId
+    let closingEventSubscriptionId
 
     return thisObject
 
@@ -27,15 +37,13 @@ function newGobernanceAssetsSpace() {
     }
 
     function initialize() {
-        
+
         setupSidePanelTab()
 
         function setupSidePanelTab() {
-            thisObject.sidePanelTab = newSidePanelTab()
-            thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-            thisObject.sidePanelTab.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Governance', 'governance-tab')
-            thisObject.sidePanelTab.tabLabel = 'Governance'
-            thisObject.sidePanelTab.initialize('right')
+
+            thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Governance', 'governance-tab', 'Governance', 'right')
+
             openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
             closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
@@ -44,7 +52,7 @@ function newGobernanceAssetsSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = UI.projects.education.globals.docs.DOCS_SPACE_WIDTH
+        thisObject.container.frame.width = UI.projects.governance.globals.reports.REPORTS_SPACE_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
@@ -56,7 +64,7 @@ function newGobernanceAssetsSpace() {
 
     function physics() {
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
-        thisObject.sidePanelTab.physics()
+
     }
 
     function getContainer(point, purpose) {
@@ -82,6 +90,6 @@ function newGobernanceAssetsSpace() {
     }
 
     function draw() {
-        thisObject.sidePanelTab.draw()
+
     }
 }

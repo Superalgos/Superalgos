@@ -126,7 +126,7 @@ function newSidePanelTab() {
     }
 
     function positionPhysics() {
-        thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2
+        thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 + thisObject.index * (TAB_HEIGHT - 1)
     }
 
     function draw() {

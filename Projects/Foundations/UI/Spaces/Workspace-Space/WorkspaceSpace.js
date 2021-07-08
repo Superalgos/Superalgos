@@ -30,11 +30,8 @@ function newFoundationsWorkspaceSpace() {
     return thisObject
 
     function initialize() {
-        thisObject.sidePanelTab = newSidePanelTab()
-        thisObject.sidePanelTab.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'workspace')
-        thisObject.sidePanelTab.tabLabel = 'Workspaces'
-        thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-        thisObject.sidePanelTab.initialize('left')
+
+        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Foundations', 'workspace', 'Workspaces', 'left')
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
@@ -89,7 +86,6 @@ function newFoundationsWorkspaceSpace() {
     }
 
     function physics() {
-        thisObject.sidePanelTab.physics()
         listView.physics()
     }
 
@@ -97,7 +93,6 @@ function newFoundationsWorkspaceSpace() {
         if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
-        thisObject.sidePanelTab.draw()
         listView.draw()
     }
 

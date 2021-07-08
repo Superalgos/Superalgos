@@ -969,7 +969,13 @@
         "name": "Governance",
         "propertyName": "governance",
         "UI": {
-            "globals": [],
+            "globals": [
+                {
+                    "name": "Reports",
+                    "propertyName": "reports",
+                    "functionName": "newGovernanceGlobalsReports"
+                }
+            ],
             "functionLibraries": [
                 {
                     "name": "Assets",
@@ -1079,10 +1085,10 @@
                     "onMouseDownIndex": 0
                 },
                 {
-                    "name": "Assets Space",
-                    "folderName": "Assets-Space",
-                    "propertyName": "assetsSpace",
-                    "functionName": "newGobernanceAssetsSpace",
+                    "name": "Reports Space",
+                    "folderName": "Reports-Space",
+                    "propertyName": "reportsSpace",
+                    "functionName": "newGobernanceReportsSpace",
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 1,

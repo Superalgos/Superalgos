@@ -31,10 +31,9 @@ function newFoundationsChatSpace() {
     return thisObject
 
     function initialize() {
-        
-        thisObject.sidePanelTab = newSidePanelTab()
-        thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-        thisObject.sidePanelTab.initialize('right', 1)
+        return
+        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'docs-tab', 'Docs', 'right')
+
         openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
         closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
@@ -89,15 +88,14 @@ function newFoundationsChatSpace() {
                 return thisObject.container
             } else {
                 UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
-                return 
+                return
             }
         } else {
-            return 
+            return
         }
     }
 
     function physics() {
-        thisObject.sidePanelTab.physics()
         chatAppDivPhysics()
         iFramePhysics()
 
@@ -108,18 +106,18 @@ function newFoundationsChatSpace() {
                 y: 0
             }
             chatAppDivPosition = thisObject.container.frame.frameThisPoint(chatAppDivPosition)
-            chatAppDiv.style = '   ' + 
-            'position:fixed; top:' + chatAppDivPosition.y + 'px; ' + 
-            'left:' + chatAppDivPosition.x + 'px; z-index:1; ' + 
-            'width: ' + thisObject.container.frame.width + 'px;' +
-            'height: ' + thisObject.container.frame.height + 'px'
+            chatAppDiv.style = '   ' +
+                'position:fixed; top:' + chatAppDivPosition.y + 'px; ' +
+                'left:' + chatAppDivPosition.x + 'px; z-index:1; ' +
+                'width: ' + thisObject.container.frame.width + 'px;' +
+                'height: ' + thisObject.container.frame.height + 'px'
         }
 
         function iFramePhysics() {
             let docIFrame = document.getElementById('chatIFrame')
-            docIFrame.style = '  ' + 
-            'width: ' + thisObject.container.frame.width + 'px;' +
-            'height: ' + thisObject.container.frame.height + 'px'
+            docIFrame.style = '  ' +
+                'width: ' + thisObject.container.frame.width + 'px;' +
+                'height: ' + thisObject.container.frame.height + 'px'
         }
     }
 
@@ -127,7 +125,6 @@ function newFoundationsChatSpace() {
         if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
-        thisObject.sidePanelTab.draw()
     }
 
     function borders() {

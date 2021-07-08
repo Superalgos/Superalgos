@@ -6,7 +6,7 @@
         "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node!",
         "updated": 1615571330616,
         "icon": {
-            "name": "hand-drag",
+            "name": "Mouse/hand-drag",
             "project": "Foundations"
         },
         "translations": [

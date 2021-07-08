@@ -5,7 +5,7 @@
     "definition": {
         "text": "Now we need to attach the backup of the Trading Parameters node to the Backtesting Session. How do we do that?",
         "icon": {
-            "name": "mouse-right-click",
+            "name": "Mouse/mouse-right-click",
             "project": "Foundations"
         },
         "updated": 1615573035743,

@@ -6,7 +6,7 @@
         "text": "The reason why the distance to the parent node is relative to the distance of the parent to its parent is so that you may affect long structures of nodes!",
         "updated": 1615477794893,
         "icon": {
-            "name": "set-distance-to-parent-node-to-one-and-a-half",
+            "name": "Set/set-distance-to-parent-node-to-one-and-a-half",
             "project": "Foundations"
         },
         "translations": [

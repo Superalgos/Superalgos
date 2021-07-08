@@ -6,7 +6,7 @@
         "text": "I hope you got to grasp the intricacies of backups and how references are affected in each particular restoration case!",
         "updated": 1615831565379,
         "icon": {
-            "name": "docs-warning-style",
+            "name": "Docs/docs-warning-style",
             "project": "Foundations"
         },
         "translations": [

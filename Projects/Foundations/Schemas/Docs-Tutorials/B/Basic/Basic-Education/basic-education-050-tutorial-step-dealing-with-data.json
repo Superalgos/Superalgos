@@ -5,7 +5,7 @@
     "definition": {
         "text": "The data you download from exchanges and process with indicators is available across the board, accessible from any workspace and strategy.",
         "icon": {
-            "name": "dataset-definition",
+            "name": "Data/dataset-definition",
             "project": "Foundations"
         },
         "updated": 1616174427620,

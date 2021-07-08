@@ -173,6 +173,8 @@ function newEducationDocSpace() {
             function setupSidePanelTab() {
                 thisObject.sidePanelTab = newSidePanelTab()
                 thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
+                thisObject.sidePanelTab.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Education', 'docs-tab')
+                thisObject.sidePanelTab.tabLabel = 'Docs'
                 thisObject.sidePanelTab.initialize('right')
                 openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
                 closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)

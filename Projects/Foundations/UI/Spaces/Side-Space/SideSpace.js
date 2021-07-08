@@ -31,6 +31,8 @@ function newFoundationsSideSpace() {
 
     function initialize() {
         thisObject.sidePanelTab = newSidePanelTab()
+        thisObject.sidePanelTab.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'workspace')
+        thisObject.sidePanelTab.tabLabel = 'Workspaces'
         thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
         thisObject.sidePanelTab.initialize('left')
 

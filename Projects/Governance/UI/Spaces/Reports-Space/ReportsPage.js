@@ -22,13 +22,13 @@ function newGovernanceReportsReportsPage() {
         buildHTML()
 
         function buildHTML() {
-            const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
+            const tabs = ['Profiles', 'Referrals', 'Mentors', 'Supporters', 'Pools', 'Assets', 'Features', 'Positions']
             let HTML = ''
-            HTML = HTML + '<section id="governance-search-results-div" class="governance-search-page-container">'
+            HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
 
             // Tabs
-            HTML = HTML + '<div class="governance-search-results-header-tabs-container">'
+            HTML = HTML + '<div class="governance-report-page-header-tabs-container">'
             let checked = ' checked=""'
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]

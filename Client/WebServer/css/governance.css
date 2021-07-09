@@ -805,18 +805,18 @@
     
     /* Search Results Page Header*/
     
-    .governance-search-results-header {
+    .governance-report-page-header {
     display: table;
     }
     
-    .governance-image-logo-search-results {
+    .governance-image-logo-report-page {
     vertical-align: middle;
     display: table-cell;
     padding-right: 25px;
     caret-color: transparent;
     }
     
-    .governance-search-results-box {
+    .governance-report-page-box {
     height: 45px;
     border-radius: 30px;
     border: 1px solid #0295aa;
@@ -826,18 +826,18 @@
     width: 100%;
     }
     
-    .governance-search-results-header-tabs-container {
+    .governance-report-page-header-tabs-container {
     display: table;
     padding-left: 180px;
     margin-top: 20px;
     caret-color: transparent;
     }
     
-    .governance-search-results-header-tabs-container > input {
+    .governance-report-page-header-tabs-container > input {
     display: none;
     }
     
-    .governance-search-results-header-tabs-container > label {
+    .governance-report-page-header-tabs-container > label {
     display: inline-block; 
     vertical-align: bottom;
     padding: 0 15px 3px 15px;
@@ -845,13 +845,13 @@
     font-size: 90%;
     }
     
-    .governance-search-results-header-tabs-container > label:hover {
+    .governance-report-page-header-tabs-container > label:hover {
     color: #0295aa;
     padding-bottom: 3px;
     cursor: pointer;
     }
     
-    .governance-search-results-header-tabs-container > input:checked + label {
+    .governance-report-page-header-tabs-container > input:checked + label {
     color: #0295aa;
     padding-bottom: 2px;
     border-bottom:  3px solid #0295aa;

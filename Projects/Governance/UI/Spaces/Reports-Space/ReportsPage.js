@@ -24,11 +24,11 @@ function newGovernanceReportsReportsPage() {
         function buildHTML() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
             let HTML = ''
-            HTML = HTML + '<section id="docs-search-results-div" class="docs-search-page-container">'
+            HTML = HTML + '<section id="governance-search-results-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
 
             // Tabs
-            HTML = HTML + '<div class="docs-search-results-header-tabs-container">'
+            HTML = HTML + '<div class="governance-search-results-header-tabs-container">'
             let checked = ' checked=""'
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
@@ -37,7 +37,7 @@ function newGovernanceReportsReportsPage() {
             }
 
             // Results
-            HTML = HTML + '<div class="docs-search-result-content">'
+            HTML = HTML + '<div class="governance-search-result-content">'
 
             let totalResults = new Map()
             for (let i = 0; i < tabs.length; i++) {
@@ -66,7 +66,7 @@ function newGovernanceReportsReportsPage() {
                             let nodeType = pathStep[1]
                             let nodeProject = pathStep[2]
                             let nodeId = pathStep[3]
-                            let link = ' > <a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="docs-search-result-content-record-project-category-link">'
+                            let link = ' > <a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + nodeProject + '\', \'' + result.documentIndex.category + '\', \'' + nodeType.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + nodeId + '\')"  class="governance-search-result-content-record-project-category-link">'
                             if (nodeName === 'New ' + nodeType || nodeName === 'My ' + nodeType || nodeName === undefined) {
                                 nodeName = ''
                             }
@@ -79,24 +79,24 @@ function newGovernanceReportsReportsPage() {
                         }
                     }
 
-                    HTML = HTML + '<div class="docs-search-result-content-record-container">'
-                    HTML = HTML + '<p class="docs-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
+                    HTML = HTML + '<div class="governance-search-result-content-record-container">'
+                    HTML = HTML + '<p class="governance-search-result-content-record-project-category">' + result.documentIndex.project + ' > ' + result.documentIndex.category + path + '</p>'
 
                     let mainLink = ''
 
                     switch (result.documentIndex.category) {
                         case 'Topic': {
-                            HTML = HTML + '<p class="docs-search-result-content-record-topic">' + result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            HTML = HTML + '<p class="governance-search-result-content-record-topic">' + result.documentIndex.docsSchemaDocument.topic + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
                             mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         case 'Tutorial': {
-                            HTML = HTML + '<p class="docs-search-result-content-record-tutorial">' + result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            HTML = HTML + '<p class="governance-search-result-content-record-tutorial">' + result.documentIndex.docsSchemaDocument.tutorial + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
                             mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
                         case 'Review': {
-                            HTML = HTML + '<p class="docs-search-result-content-record-review">' + result.documentIndex.docsSchemaDocument.review + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
+                            HTML = HTML + '<p class="governance-search-result-content-record-review">' + result.documentIndex.docsSchemaDocument.review + ' - Page ' + result.documentIndex.docsSchemaDocument.pageNumber + '</p>'
                             mainLink = result.documentIndex.docsSchemaDocument.type
                             break
                         }
@@ -104,12 +104,12 @@ function newGovernanceReportsReportsPage() {
                             mainLink = result.documentIndex.docsSchemaDocument.type
                         }
                     }
-                    HTML = HTML + '<p><a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="docs-search-result-content-record-title">' + mainLink + '</a></p>'
+                    HTML = HTML + '<p><a onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'' + result.documentIndex.project + '\', \'' + result.documentIndex.category + '\', \'' + result.documentIndex.docsSchemaDocument.type.replace(/'/g, 'AMPERSAND') + '\', ' + undefined + '  ,\'' + result.documentIndex.docsSchemaDocument.nodeId + '\')" class="governance-search-result-content-record-title">' + mainLink + '</a></p>'
 
                     if (result.documentIndex.docsSchemaDocument.definition !== undefined) {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + UI.projects.education.utilities.docs.getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
+                        HTML = HTML + '<p class="governance-search-result-content-record-extract">' + UI.projects.education.utilities.docs.getTextBasedOnLanguage(result.documentIndex.docsSchemaDocument.definition) + '</p>'
                     } else {
-                        HTML = HTML + '<p class="docs-search-result-content-record-extract">' + 'No definition available.' + '</p>'
+                        HTML = HTML + '<p class="governance-search-result-content-record-extract">' + 'No definition available.' + '</p>'
                     }
                     HTML = HTML + '</div>'
                 }

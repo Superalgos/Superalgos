@@ -6,6 +6,7 @@ function newGobernanceReportsSpace() {
         sidePanelTab: undefined,
         reportsPage: undefined,
         footer: undefined,
+        userProfiles: undefined,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -45,6 +46,9 @@ function newGobernanceReportsSpace() {
         thisObject.footer.finalize()
         thisObject.footer = undefined
 
+        thisObject.userProfiles.finalize()
+        thisObject.userProfiles = undefined
+
         let isInitialized = false
     }
 
@@ -53,9 +57,11 @@ function newGobernanceReportsSpace() {
         
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
+        thisObject.userProfiles = newGovernanceReportsUserProfiles()
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
+        thisObject.userProfiles.initialize()
 
         setupSidePanelTab()
         
@@ -63,7 +69,7 @@ function newGobernanceReportsSpace() {
 
         function setupSidePanelTab() {
 
-            thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Governance', 'governance-tab', 'Governance', 'right')
+            thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Governance', 'governance-tab', 'Gov', 'right')
 
             openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
             closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)

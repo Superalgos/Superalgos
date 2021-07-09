@@ -135,7 +135,7 @@ function newGovernanceReportsReportsPage() {
             }
 
             let docsContentDiv = document.getElementById('governance-content-div')
-            docsContentDiv.innerHTML = HTML + UI.projects.education.spaces.docsSpace.footer.addFooter()
+            docsContentDiv.innerHTML = HTML + UI.projects.governance.spaces.reportsSpace.footer.addFooter()
 
             UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
             UI.projects.education.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()

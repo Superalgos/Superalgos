@@ -5,6 +5,7 @@ function newGobernanceReportsSpace() {
         container: undefined,
         sidePanelTab: undefined,
         reportsPage: undefined,
+        footer: undefined,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -41,19 +42,26 @@ function newGobernanceReportsSpace() {
         thisObject.reportsPage.finalize()
         thisObject.reportsPage = undefined
 
+        thisObject.footer.finalize()
+        thisObject.footer = undefined
+
         let isInitialized = false
     }
 
     function initialize() {
 
+        
+        thisObject.reportsPage = newGovernanceReportsReportsPage()
+        thisObject.footer = newGovernanceReportsFooter()
+
+        thisObject.reportsPage.initialize()
+        thisObject.footer.initialize()
+
         setupSidePanelTab()
         
-        let isInitialized = true
+        isInitialized = true
 
         function setupSidePanelTab() {
-
-            thisObject.reportsPage = newGovernanceReportsReportsPage()
-            thisObject.reportsPage.initialize()
 
             thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Governance', 'governance-tab', 'Governance', 'right')
 

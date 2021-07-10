@@ -1,7 +1,7 @@
 {
     "type": "Workspace",
     "name": "Getting Started Tutorials",
-    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"plugins-docs\",\n    \"currentBranch\": \"plugins-docs\"\n}",
+    "config": "{\n    \"docsLanguage\": \"EN\",\n    \"contributionsBranch\": \"plugins-docs\"\n}",
     "rootNodes": [
         {
             "type": "Network",
@@ -591,7 +591,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1352,7 +1352,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1782,7 +1782,7 @@
                                                                         },
                                                                         "keyReference": {
                                                                             "type": "Key Reference",
-                                                                            "name": "Key for Lighting Strike",
+                                                                            "name": "",
                                                                             "project": "Foundations",
                                                                             "id": "e951b233-273f-4fee-922a-acdc0cd036a9",
                                                                             "savedPayload": {
@@ -1987,7 +1987,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -6689,7 +6689,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -6778,12 +6778,12 @@
                                         "id": "5f5e4a94-5090-47d4-8883-cc2325d20bfa",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 19793.079365950267,
-                                                "y": 30513.325102172115
+                                                "x": 19913.10923919888,
+                                                "y": 30605.427263279467
                                             },
                                             "targetPosition": {
-                                                "x": 19715.43365241951,
-                                                "y": 30803.102850058836
+                                                "x": 19763.10923919888,
+                                                "y": 30865.2348844148
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6804,12 +6804,12 @@
                                         "id": "f110bfa0-bd5b-469b-a940-4524c8688136",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20005.21140030623,
-                                                "y": 30725.45713652808
+                                                "x": 20063.10923919888,
+                                                "y": 30865.2348844148
                                             },
                                             "targetPosition": {
-                                                "x": 19715.43365241951,
-                                                "y": 30803.102850058836
+                                                "x": 19763.10923919888,
+                                                "y": 30865.2348844148
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6826,8 +6826,8 @@
                                 "id": "95d2c30f-215b-486e-8119-f4eac0279575",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19715.43365241951,
-                                        "y": 30803.102850058836
+                                        "x": 19763.10923919888,
+                                        "y": 30865.2348844148
                                     },
                                     "targetPosition": {
                                         "x": 19503.301618063546,
@@ -6865,12 +6865,12 @@
                                             "id": "1017b30d-de1b-4212-991e-9fd0a5b6c814",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20393.079365950267,
-                                                    "y": 30937.589170884043
+                                                    "x": 20015.43365241951,
+                                                    "y": 31746.98216104143
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20103.301618063546,
-                                                    "y": 31015.2348844148
+                                                    "x": 19803.301618063546,
+                                                    "y": 31534.850126685466
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -6895,12 +6895,12 @@
                                             "id": "705c4a67-787a-48cd-a3dc-3a557438bf0b",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20393.079365950267,
-                                                    "y": 31092.880597945557
+                                                    "x": 19880.947331594303,
+                                                    "y": 31824.627874572187
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20103.301618063546,
-                                                    "y": 31015.2348844148
+                                                    "x": 19803.301618063546,
+                                                    "y": 31534.850126685466
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -6921,12 +6921,12 @@
                                         "id": "9a867bf0-a71d-445c-b99a-75b60bbdce09",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20103.301618063546,
-                                                "y": 31015.2348844148
+                                                "x": 19803.301618063546,
+                                                "y": 31534.850126685466
                                             },
                                             "targetPosition": {
-                                                "x": 19803.301618063546,
-                                                "y": 31015.2348844148
+                                                "x": 19653.301618063546,
+                                                "y": 31275.042505550133
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6945,8 +6945,8 @@
                                 "id": "2fd80894-900e-44ac-a1a7-56c14124f7a1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19803.301618063546,
-                                        "y": 31015.2348844148
+                                        "x": 19653.301618063546,
+                                        "y": 31275.042505550133
                                     },
                                     "targetPosition": {
                                         "x": 19503.301618063546,
@@ -11933,7 +11933,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -11974,8 +11974,8 @@
                     "uiObject": {},
                     "frame": {
                         "position": {
-                            "x": 1000.5,
-                            "y": 93.3125
+                            "x": 566.125,
+                            "y": -151.8125
                         }
                     }
                 }
@@ -12057,7 +12057,7 @@
                                     "rateScale": {
                                         "type": "Rate Scale",
                                         "name": "New Rate Scale",
-                                        "config": "{\n    \"autoMinScale\": false,\n    \"autoMaxScale\": false,\n    \"minValue\": 11000,\n    \"maxValue\": 11800\n}",
+                                        "config": "{\n    \"autoMinScale\": false,\n    \"autoMaxScale\": false,\n    \"minValue\": 11400,\n    \"maxValue\": 11800\n}",
                                         "project": "Foundations",
                                         "id": "c6d395a1-dfb0-438b-b7be-64fa1a53fe5e",
                                         "savedPayload": {
@@ -14594,7 +14594,7 @@
                                                             "y": 80
                                                         },
                                                         "width": 150,
-                                                        "height": 40,
+                                                        "height": 190,
                                                         "radius": 0
                                                     },
                                                     "referenceParent": {
@@ -20699,7 +20699,7 @@
                                                             "y": 80
                                                         },
                                                         "width": 150,
-                                                        "height": 40,
+                                                        "height": 190,
                                                         "radius": 0
                                                     },
                                                     "referenceParent": {
@@ -21136,8 +21136,8 @@
                                                 "x": -5,
                                                 "y": 185
                                             },
-                                            "width": 280.125,
-                                            "height": 139.75,
+                                            "width": 161.75,
+                                            "height": 73.625,
                                             "radius": 0
                                         },
                                         "referenceParent": {
@@ -21188,7 +21188,7 @@
                                     "timeScale": {
                                         "type": "Time Scale",
                                         "name": "New Time Scale",
-                                        "config": "{\n    \"autoMinScale\": false,\n    \"autoMaxScale\": false,\n    \"fromDate\": \"2021-07-07T23:08:28.332Z\",\n    \"toDate\": \"2021-07-08T03:08:28.332Z\"\n}",
+                                        "config": "{\n    \"autoMinScale\": false,\n    \"autoMaxScale\": false,\n    \"fromDate\": \"2021-07-09T11:24:45.290Z\",\n    \"toDate\": \"2021-07-09T15:24:45.290Z\"\n}",
                                         "project": "Foundations",
                                         "id": "6f094d2b-fb7c-4fa6-840b-dfbc9cb46d35",
                                         "savedPayload": {
@@ -30293,8 +30293,8 @@
                                                 "x": 0,
                                                 "y": 449.5
                                             },
-                                            "width": 280.125,
-                                            "height": 139.75,
+                                            "width": 161.75,
+                                            "height": 73.625,
                                             "radius": 0
                                         },
                                         "referenceParent": {
@@ -30376,7 +30376,7 @@
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -30405,7 +30405,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Masters",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"codeName\": \"\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
@@ -30418,8 +30418,8 @@
                                             "y": 18688.55301821844
                                         },
                                         "targetPosition": {
-                                            "x": 31521.72973529933,
-                                            "y": 18212.746239098742
+                                            "x": 37043.31661433206,
+                                            "y": 10551.108261226907
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
@@ -30437,12 +30437,12 @@
                                 "id": "ecc1a524-de9b-4e73-8874-b99a7ea0402b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31521.72973529933,
-                                        "y": 18212.746239098742
+                                        "x": 37043.31661433206,
+                                        "y": 10551.108261226907
                                     },
                                     "targetPosition": {
-                                        "x": 31744.673182942548,
-                                        "y": 18413.4854210064
+                                        "x": 37341.67318294255,
+                                        "y": 10582.466800207203
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -30473,8 +30473,8 @@
                                             "y": 18670.84686056612
                                         },
                                         "targetPosition": {
-                                            "x": 31807.046690187875,
-                                            "y": 18120.04114078626
+                                            "x": 37219.652190019806,
+                                            "y": 10308.403162914423
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
@@ -30492,12 +30492,12 @@
                                 "id": "3ee7e2da-8c0a-4efe-a354-233c881fdb82",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31807.046690187875,
-                                        "y": 18120.04114078626
+                                        "x": 37219.652190019806,
+                                        "y": 10308.403162914423
                                     },
                                     "targetPosition": {
-                                        "x": 31744.673182942548,
-                                        "y": 18413.4854210064
+                                        "x": 37341.67318294255,
+                                        "y": 10582.466800207203
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -30544,7 +30544,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Masters",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"codeName\": \"\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
@@ -30638,7 +30638,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -30656,7 +30656,7 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Masters-Lightning-Strike",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"codeName\": \"\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
@@ -30722,7 +30722,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -30955,17 +30955,17 @@
             "id": "bfb0b514-3b9f-4e9a-85ca-d0ca714b09f6",
             "savedPayload": {
                 "position": {
-                    "x": 37284.378281255034,
-                    "y": 10758.802375894946
+                    "x": 31072.878281255034,
+                    "y": 10754.802375894946
                 },
                 "targetPosition": {
-                    "x": 37284.378281255034,
-                    "y": 10758.802375894946
+                    "x": 31072.878281255034,
+                    "y": 10754.802375894946
                 },
                 "floatingObject": {
                     "isPinned": true,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -31238,11 +31238,10 @@
                 }
             }
         },
-        null,
         {
             "type": "Tutorial",
             "name": "Beyond the Basics",
-            "config": "{\n    \"position\": \"\",\n    \"slider\": \"toTop\",\n    \"documentationURL\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial - The Advanced Stuff!\"\n    },\n    \"icon\": {\n        \"name\": \"tutorial\",\n        \"project\": \"Foundations\"\n    }\n}",
+            "config": "{\n    \"position\": \"\",\n    \"slider\": \"toTop\",\n    \"documentationURL\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial - The Advanced Stuff!\"\n    },\n    \"icon\": {\n        \"name\": \"Tutorial\\\\tutorial\",\n        \"project\": \"Foundations\"\n    }\n}",
             "project": "Education",
             "tutorialSteps": [],
             "tutorialTopics": [
@@ -31987,7 +31986,9 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {},
+                                "tutorial": {
+                                    "status": "Done"
+                                },
                                 "referenceParent": {
                                     "type": "Tutorial",
                                     "name": "Beyond the Basics",
@@ -32498,7 +32499,6 @@
                     "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
                 },
                 "tutorial": {
@@ -32509,7 +32509,7 @@
         {
             "type": "Tutorial",
             "name": "Basic Education",
-            "config": "{\n    \"icon\": {\n        \"name\": \"tutorial\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Back to School!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
+            "config": "{\n    \"icon\": {\n        \"name\": \"Tutorial\\\\tutorial\",\n        \"project\": \"Foundations\"\n    },\n    \"position\": \"\",\n    \"slider\": \"toTop\",\n    \"pressButton\": \"\",\n    \"docs\": {\n        \"project\": \"Foundations\",\n        \"category\": \"Tutorial\",\n        \"type\": \"Tutorial Step - Back to School!\"\n    },\n    \"controlDocs\": {\n        \"panel\": \"\",\n        \"closeTutorialEditor\": false,\n        \"page\": {\n            \"project\": \"Foundations\",\n            \"category\": \"\",\n            \"type\": \"\"\n        }\n    }\n}",
             "project": "Education",
             "tutorialSteps": [],
             "tutorialTopics": [
@@ -33627,9 +33627,7 @@
                                                 "uiObject": {
                                                     "isRunning": false
                                                 },
-                                                "tutorial": {
-                                                    "status": "Done"
-                                                }
+                                                "tutorial": {}
                                             }
                                         },
                                         {
@@ -33947,9 +33945,7 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {
-                                    "status": "Done"
-                                }
+                                "tutorial": {}
                             }
                         },
                         {
@@ -34796,7 +34792,6 @@
                     "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
                 },
                 "tutorial": {
@@ -36316,9 +36311,7 @@
                                         "uiObject": {
                                             "isRunning": false
                                         },
-                                        "tutorial": {
-                                            "status": "Done"
-                                        },
+                                        "tutorial": {},
                                         "referenceParent": {
                                             "type": "Dashboard",
                                             "name": "Production Environment My Computer",
@@ -36377,7 +36370,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -36718,9 +36711,7 @@
                                                 "uiObject": {
                                                     "isRunning": false
                                                 },
-                                                "tutorial": {
-                                                    "status": "Done"
-                                                }
+                                                "tutorial": {}
                                             }
                                         }
                                     ],
@@ -36876,9 +36867,7 @@
                                                 "uiObject": {
                                                     "isRunning": false
                                                 },
-                                                "tutorial": {
-                                                    "status": "Done"
-                                                }
+                                                "tutorial": {}
                                             }
                                         },
                                         {
@@ -39135,7 +39124,9 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {}
+                                "tutorial": {
+                                    "status": "Done"
+                                }
                             }
                         },
                         {
@@ -39164,7 +39155,9 @@
                                 "uiObject": {
                                     "isRunning": false
                                 },
-                                "tutorial": {},
+                                "tutorial": {
+                                    "status": "Done"
+                                },
                                 "referenceParent": {
                                     "type": "Tutorial",
                                     "name": "Welcome to Superalgos!",
@@ -39460,10 +39453,11 @@
                     "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
                 },
-                "tutorial": {}
+                "tutorial": {
+                    "status": "Done"
+                }
             }
         }
     ]

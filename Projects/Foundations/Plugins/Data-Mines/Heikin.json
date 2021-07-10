@@ -26,7 +26,7 @@
                                 "type": "Output Dataset",
                                 "name": "Multi-Time-Frame-Market Super Trend Heikin",
                                 "project": "Foundations",
-                                "id": "a90df71a-e27b-416c-9960-5b84713e120d",
+                                "id": "7dd47ad1-ba32-46f0-aff6-7e635c6d6f11",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15089.736320825206,
@@ -48,13 +48,13 @@
                                     "referenceParent": {
                                         "type": "Dataset Definition",
                                         "name": "Multi-Time-Frame-Market",
-                                        "id": "7987beb0-fae5-4add-9289-853e5ffff68d"
+                                        "id": "94779ec2-428f-4bfb-b513-b5a40137eab6"
                                     }
                                 }
                             }
                         ],
                         "outputDatasetFolders": [],
-                        "id": "917b93af-3787-4cff-8854-f8c34242d126",
+                        "id": "0e78f400-212e-4ed5-b77b-bd9a2a2a2dc2",
                         "savedPayload": {
                             "position": {
                                 "x": 15128.559177590585,
@@ -87,11 +87,11 @@
                                 "name": "Heikin-Ashi Supertrend Multi-Time-Frame-Market",
                                 "config": "{ \n\"mainUtility\": \"Self Reference\"\n}",
                                 "project": "Foundations",
-                                "id": "df10d755-70a1-491c-8ca7-3ad8c9fc92ad",
+                                "id": "561c9449-a033-41f1-9018-7585e5aa43f4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15056.231630571769,
-                                        "y": 24246.254050455558
+                                        "x": 15095.02774788672,
+                                        "y": 24219.590217757315
                                     },
                                     "targetPosition": {
                                         "x": 15245.02774788672,
@@ -109,7 +109,7 @@
                                     "referenceParent": {
                                         "type": "Status Report",
                                         "name": "Heikin Supertrend",
-                                        "id": "bb959cd9-4f0b-47bf-aff3-e69660deb3a6"
+                                        "id": "5b1ea95b-4f4c-47f4-8e60-d8cb72e404e6"
                                     }
                                 }
                             },
@@ -118,11 +118,11 @@
                                 "name": "Candles Volumes Multi-Time-Frame-Market",
                                 "config": "{ \n\"mainUtility\": \"Market Ending Point\"\n}",
                                 "project": "Foundations",
-                                "id": "c5f61af4-cb16-4a49-9548-bd2cc4721010",
+                                "id": "143209d6-6443-4008-8e7a-0e00e6d4f717",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15229.326961013836,
-                                        "y": 24179.808978466277
+                                        "x": 15322.673461417475,
+                                        "y": 24189.620091005927
                                     },
                                     "targetPosition": {
                                         "x": 15245.02774788672,
@@ -150,11 +150,11 @@
                                 "type": "Data Dependency",
                                 "name": "Candles Multi-Time-Frame-Market",
                                 "project": "Foundations",
-                                "id": "1f935cf9-ebd1-48da-91bf-cd261995f725",
+                                "id": "86abdffe-3efa-482a-b684-ed9ac632433c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15408.419458391227,
-                                        "y": 24227.79666850902
+                                        "x": 15504.83536902205,
+                                        "y": 24329.397838892648
                                     },
                                     "targetPosition": {
                                         "x": 15245.02774788672,
@@ -175,40 +175,10 @@
                                         "id": "2b03494a-67d6-47f1-89b6-53fc4c9116a8"
                                     }
                                 }
-                            },
-                            {
-                                "type": "Data Dependency",
-                                "name": "Super Trend Heikin Multi-Time-Frame-Market",
-                                "project": "Foundations",
-                                "id": "19802aa4-1704-489e-b6ae-5a945bb1067e",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 15525.10187583588,
-                                        "y": 24371.887454029056
-                                    },
-                                    "targetPosition": {
-                                        "x": 15245.02774788672,
-                                        "y": 24479.397838892648
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {},
-                                    "referenceParent": {
-                                        "type": "Dataset Definition",
-                                        "name": "Multi-Time-Frame-Market",
-                                        "id": "7987beb0-fae5-4add-9289-853e5ffff68d"
-                                    }
-                                }
                             }
                         ],
                         "dataMineDataDependencies": [],
-                        "id": "c3d8ac95-ea15-4ef4-9827-98935d105130",
+                        "id": "8ac049a7-3632-44a0-9c8f-1254788b219d",
                         "savedPayload": {
                             "position": {
                                 "x": 15245.02774788672,
@@ -235,7 +205,7 @@
                         "type": "Status Report",
                         "name": "Heikin Supertrend",
                         "project": "Foundations",
-                        "id": "bb959cd9-4f0b-47bf-aff3-e69660deb3a6",
+                        "id": "5b1ea95b-4f4c-47f4-8e60-d8cb72e404e6",
                         "savedPayload": {
                             "position": {
                                 "x": 15379.514068711927,
@@ -260,7 +230,7 @@
                         "type": "Execution Started Event",
                         "name": "",
                         "project": "Foundations",
-                        "id": "4343820c-4ebb-4b62-b20e-d9b18ecf4975",
+                        "id": "bfb3ce5e-6c26-4851-bf86-d782374fce00",
                         "savedPayload": {
                             "position": {
                                 "x": 15457.159782242685,
@@ -290,7 +260,7 @@
                         "type": "Execution Finished Event",
                         "name": "New Execution Finished Event",
                         "project": "Foundations",
-                        "id": "d277c5e4-0249-4a7c-b1ec-33c821db426c",
+                        "id": "2fa44133-8465-4507-8589-fd265b6d4e50",
                         "savedPayload": {
                             "position": {
                                 "x": 15457.159782242685,
@@ -311,7 +281,7 @@
                             "uiObject": {}
                         }
                     },
-                    "id": "2e6565b0-452d-4826-8fd9-41f4cf74a51e",
+                    "id": "74a1464b-4fc3-4454-b84d-d989902c49f8",
                     "savedPayload": {
                         "position": {
                             "x": 15167.382034355964,
@@ -324,7 +294,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -348,7 +318,7 @@
                                 "type": "Output Dataset",
                                 "name": "Multi-Time-Frame-Daily Super Trend Heikin",
                                 "project": "Foundations",
-                                "id": "83860763-a256-47e5-bcce-87c596b04728",
+                                "id": "a2e3da39-b20d-42fe-8f7d-5d08493c4993",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15555.25,
@@ -370,13 +340,13 @@
                                     "referenceParent": {
                                         "type": "Dataset Definition",
                                         "name": "Multi-Time-Frame-Daily",
-                                        "id": "e173ac06-01d0-46e6-bc90-56b7432f5c0d"
+                                        "id": "41ec46a8-be05-4794-816f-68f42e4df7d5"
                                     }
                                 }
                             }
                         ],
                         "outputDatasetFolders": [],
-                        "id": "bf527f05-02a1-4ca0-9044-1b6f9cf66122",
+                        "id": "f5b4166e-ca9e-4b6d-9e9b-06c3236dde1c",
                         "savedPayload": {
                             "position": {
                                 "x": 15405.25,
@@ -409,11 +379,11 @@
                                 "name": "Heikin-Ashi Supertrend Multi-Time-Frame-Daily",
                                 "config": "{ \n\"mainUtility\": \"Self Reference\"\n}",
                                 "project": "Foundations",
-                                "id": "dbd04cae-859f-426f-9427-5608d1e00edf",
+                                "id": "daede239-55d3-4e01-a1fc-7660e77bc832",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15665.057621135331,
-                                        "y": 24571.5
+                                        "x": 15678.449331639838,
+                                        "y": 24579.706450751706
                                     },
                                     "targetPosition": {
                                         "x": 15515.057621135331,
@@ -431,7 +401,7 @@
                                     "referenceParent": {
                                         "type": "Status Report",
                                         "name": "Heikin Supertrend",
-                                        "id": "6d3c01ea-8390-4343-ad02-977ca1f7f181"
+                                        "id": "6f617b5e-1217-4b89-8897-e5885476d6b3"
                                     }
                                 }
                             },
@@ -440,11 +410,11 @@
                                 "name": "",
                                 "config": "{ \n\"mainUtility\": \"Market Ending Point\"\n}",
                                 "project": "Foundations",
-                                "id": "b7a7ab00-3c44-40dd-9612-76b569e77a8b",
+                                "id": "4a7ca3dc-afb6-4fe7-8099-8c8c9fb74a48",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15727.189655491295,
-                                        "y": 24619.17558677937
+                                        "x": 15748.201409572423,
+                                        "y": 24642.51150382038
                                     },
                                     "targetPosition": {
                                         "x": 15515.057621135331,
@@ -471,11 +441,11 @@
                                 "name": "Exchange Raw Data Historic-OHLCVs",
                                 "config": "{ \n\"mainUtility\": \"Market Starting Point\"\n}",
                                 "project": "Foundations",
-                                "id": "0855a2d0-d980-4332-83dc-218d19c7b0d7",
+                                "id": "792f3963-4f63-4c37-9b97-65400e3150ae",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15774.865242270662,
-                                        "y": 24681.307621135333
+                                        "x": 15795.131749084492,
+                                        "y": 24723.79723627174
                                     },
                                     "targetPosition": {
                                         "x": 15515.057621135331,
@@ -503,11 +473,11 @@
                                 "type": "Data Dependency",
                                 "name": "Candles Multi-Time-Frame-Daily",
                                 "project": "Foundations",
-                                "id": "44ab2c3d-7ea2-4d74-9297-490717d3ce88",
+                                "id": "259feeb9-9ba5-4063-8f52-6a3eddc58fff",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15804.835369022052,
-                                        "y": 24753.661907604575
+                                        "x": 15814.646481561704,
+                                        "y": 24815.60683426245
                                     },
                                     "targetPosition": {
                                         "x": 15515.057621135331,
@@ -528,40 +498,10 @@
                                         "id": "678a567c-f08d-49b9-813b-4e54fd6afadb"
                                     }
                                 }
-                            },
-                            {
-                                "type": "Data Dependency",
-                                "name": "Super Trend Heikin Multi-Time-Frame-Daily",
-                                "project": "Foundations",
-                                "id": "a9a6860a-09fe-4fc7-9fd7-94b6f095c2df",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 15815.057621135331,
-                                        "y": 24831.307621135333
-                                    },
-                                    "targetPosition": {
-                                        "x": 15515.057621135331,
-                                        "y": 24831.307621135333
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 3,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {},
-                                    "referenceParent": {
-                                        "type": "Dataset Definition",
-                                        "name": "Multi-Time-Frame-Daily",
-                                        "id": "e173ac06-01d0-46e6-bc90-56b7432f5c0d"
-                                    }
-                                }
                             }
                         ],
                         "dataMineDataDependencies": [],
-                        "id": "8d009d86-0648-4ef4-bac2-b72c090cd9f5",
+                        "id": "14638bb1-9939-4cfd-a161-36d799810f1a",
                         "savedPayload": {
                             "position": {
                                 "x": 15515.057621135331,
@@ -588,7 +528,7 @@
                         "type": "Status Report",
                         "name": "Heikin Supertrend",
                         "project": "Foundations",
-                        "id": "6d3c01ea-8390-4343-ad02-977ca1f7f181",
+                        "id": "6f617b5e-1217-4b89-8897-e5885476d6b3",
                         "savedPayload": {
                             "position": {
                                 "x": 15405.25,
@@ -613,7 +553,7 @@
                         "type": "Execution Started Event",
                         "name": "",
                         "project": "Foundations",
-                        "id": "589758a7-353c-40aa-bfa0-5ef4d5c1e86a",
+                        "id": "5721a4ca-352c-48c6-ba9f-73b88adaba21",
                         "savedPayload": {
                             "position": {
                                 "x": 15385.153810567666,
@@ -643,7 +583,7 @@
                         "type": "Execution Finished Event",
                         "name": "New Execution Finished Event",
                         "project": "Foundations",
-                        "id": "d1ae7525-f929-41b2-8e4d-5fda9d660704",
+                        "id": "3765680f-09df-47c6-9a89-935e5695d335",
                         "savedPayload": {
                             "position": {
                                 "x": 15330.25,
@@ -664,7 +604,7 @@
                             "uiObject": {}
                         }
                     },
-                    "id": "3d69f510-3717-49bc-bd71-fb711d0fe91c",
+                    "id": "9d894452-d518-4dcd-a897-d6660659a949",
                     "savedPayload": {
                         "position": {
                             "x": 15255.25,
@@ -677,7 +617,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -700,7 +640,7 @@
                             "name": "Multi-Time-Frame-Market",
                             "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\"\n  }",
                             "project": "Foundations",
-                            "id": "7987beb0-fae5-4add-9289-853e5ffff68d",
+                            "id": "94779ec2-428f-4bfb-b513-b5a40137eab6",
                             "savedPayload": {
                                 "position": {
                                     "x": 15717.907804801758,
@@ -726,7 +666,7 @@
                             "name": "Multi-Time-Frame-Daily",
                             "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n      \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n      \"fileName\": \"Data.Range.json\"\n    }\n  }",
                             "project": "Foundations",
-                            "id": "e173ac06-01d0-46e6-bc90-56b7432f5c0d",
+                            "id": "41ec46a8-be05-4794-816f-68f42e4df7d5",
                             "savedPayload": {
                                 "position": {
                                     "x": 15674.40098741871,
@@ -763,7 +703,7 @@
                                     "name": "New Formula",
                                     "code": "record.current.begin",
                                     "project": "Foundations",
-                                    "id": "12b0e18c-77c8-448a-9c72-4a79281b57ca",
+                                    "id": "4fa8db51-892d-481c-bdd1-89ccb66480c3",
                                     "savedPayload": {
                                         "position": {
                                             "x": 16354.9587015694,
@@ -784,7 +724,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "ce408f80-b755-4297-bc61-c27566a9d3d9",
+                                "id": "e7a34398-51aa-4cc2-9cc2-6d01516a7ae6",
                                 "savedPayload": {
                                     "position": {
                                         "x": 16130.652301479446,
@@ -817,7 +757,7 @@
                                     "name": "New Formula",
                                     "code": "record.current.end",
                                     "project": "Foundations",
-                                    "id": "7afcf238-ebb5-454c-ba4c-8b0c9255d40c",
+                                    "id": "9d32e7b1-707e-4ceb-8a37-5f5f623b9541",
                                     "savedPayload": {
                                         "position": {
                                             "x": 16324.002649798767,
@@ -838,7 +778,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "e1e6d45c-a027-4ad1-a674-6773774df926",
+                                "id": "6f7e0db0-9b09-460f-9051-33bf9edb2155",
                                 "savedPayload": {
                                     "position": {
                                         "x": 16110.014933632357,
@@ -871,7 +811,7 @@
                                     "name": "New Formula",
                                     "code": "variable.trueRange",
                                     "project": "Foundations",
-                                    "id": "e0799f49-1b6f-4daf-954c-8dbf5dfc837d",
+                                    "id": "1e5c66a4-1b5b-40f6-9c49-8041f8dd89b9",
                                     "savedPayload": {
                                         "position": {
                                             "x": 16195.313528079558,
@@ -892,7 +832,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "fdb93883-ae4e-42b1-970f-9d431752e8c1",
+                                "id": "a6560eb7-1c5a-4f86-b3bc-465be168bbd8",
                                 "savedPayload": {
                                     "position": {
                                         "x": 16024.222185819552,
@@ -925,7 +865,7 @@
                                     "name": "New Formula",
                                     "code": "variable.atrNPeriod",
                                     "project": "Foundations",
-                                    "id": "8a436f98-92cb-4b37-9340-fd47c11d7bae",
+                                    "id": "5fc348bb-32b2-4d25-911e-e5dc7377d96e",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15988.483088623732,
@@ -946,7 +886,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "3cd456d1-99d2-47df-adab-a23dbbe7abb5",
+                                "id": "24626e27-8123-408a-8614-34fb0ecbb892",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15886.335226182335,
@@ -979,7 +919,7 @@
                                     "name": "New Formula",
                                     "code": "variable.uptrend",
                                     "project": "Foundations",
-                                    "id": "2dfae2a7-83b3-417b-9903-64ce2a1238b1",
+                                    "id": "48cb5e6a-ee6e-48d4-bc9a-681847c986ed",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15734.999390915833,
@@ -1000,7 +940,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "6c34307d-fa52-468e-96fe-a9c9d4f634df",
+                                "id": "cc18fc8f-111d-4d68-bf44-a1fd5cb39c3f",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15717.346094377068,
@@ -1033,7 +973,7 @@
                                     "name": "New Formula",
                                     "code": "variable.downtrend",
                                     "project": "Foundations",
-                                    "id": "b92eef82-266a-4877-b509-8812ff178656",
+                                    "id": "18bbc53e-c483-4445-881e-880658148ed2",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15473.453030096449,
@@ -1054,7 +994,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "c58bba49-6914-478f-a2d4-1f073f4c99e5",
+                                "id": "17ad638b-6d57-49f6-b6b5-52f8cc6dd8b2",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15542.981853830812,
@@ -1087,7 +1027,7 @@
                                     "name": "New Formula",
                                     "code": "variable.trend",
                                     "project": "Foundations",
-                                    "id": "eea7249e-6155-4bfd-8314-06a5385d47ca",
+                                    "id": "90ab92da-0193-40f4-a132-1da3f0ed4dcb",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15243.662068676664,
@@ -1108,7 +1048,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "ef301123-9f8b-4986-acb1-c005f3102673",
+                                "id": "9adc1f20-5244-4bd5-baba-747b99802cdf",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15389.787879550955,
@@ -1132,7 +1072,7 @@
                                 }
                             }
                         ],
-                        "id": "91d0a74f-0ad8-497c-a89d-02f9ed2d6e2c",
+                        "id": "3c31322b-1786-4cc5-b1ef-77f98f0359db",
                         "savedPayload": {
                             "position": {
                                 "x": 15682.039501299538,
@@ -1168,7 +1108,7 @@
                                 "name": "New Procedure Javascript Code",
                                 "code": "/* Loop Code */\n\n//calculating Hei\nlet candle = record.current\n\nvariable.lastOpen.push(candle.open)\nvariable.lastClose.push(candle.close)\n\nif(variable.lastOpen.length > 2) {\n\tvariable.lastOpen.splice(0,1)\n}\nif(variable.lastClose.length > 2) {\n\tvariable.lastClose.splice(0,1)\n}\nif(variable.lastOpen.length === 2 && variable.lastClose.length === 2){\n\tvariable.HeikinOpen = (variable.lastOpen[0] + variable.lastClose[0])/2\n}\nelse {\n\tvariable.HeikinOpen = candle.open\n}\nvariable.HeikinClose = 1/4 * (candle.open + candle.close + candle.max + candle.min)\nvariable.HeikinMax = Math.max(candle.open, candle.close)\nvariable.HeikinMin = Math.min(candle.open, candle.close)\n\nif (variable.HeikinClose > variable.HeikinOpen) {\n    variable.directionHeikin = 1\n}\n\nif (variable.HeikinClose < variable.HeikinOpen) {\n    variable.directionHeikin = -1\n}\n\nif (variable.HeikinClose === variable.HeikinOpen) {\n    variable.directionHeikin = 0\n}\n\n// Set parameters to be used for ATR Period and Multiplier\nlet Nperiod = 10 // ATR Period\nlet multiplier = 3 // ATR Multiplier\n\n\n/* We need to build the price source\nFor current price there is no problem, we have data\nFor previous price we must check if exist\nSource price is defined as OHCL4*/\n\n// OHCL4 Source for current price\nvariable.currClose = variable.HeikinClose\nvariable.ohcl4 = (variable.HeikinMax + variable.HeikinMin + variable.HeikinClose + variable.HeikinOpen)/4\n\n// OHCL4 Source for previous candle price - make sure data exists\nvariable.lastHeikinClose.push(variable.HeikinClose)\nvariable.lastHeikinMax.push(variable.HeikinMax)\nvariable.lastHeikinMin.push(variable.HeikinMin)\nvariable.lastHeikinOpen.push(variable.HeikinOpen)\nif(variable.lastHeikinClose.length > 2) {\n\tvariable.lastHeikinClose.splice(0,1)\n\tvariable.lastHeikinMax.splice(0,1)\n\tvariable.lastHeikinMin.splice(0,1)\n\tvariable.lastHeikinOpen.splice(0,1)\n}\nif (variable.lastHeikinClose.length < 2) {\n    variable.prevClose = variable.HeikinClose\n    variable.prev_ohcl4 = 0    \n} else {\nvariable.prevClose = variable.lastHeikinClose[0]\n    variable.prev_ohcl4 = (variable.lastHeikinMax[0] + variable.lastHeikinMin[0] + variable.lastHeikinClose[0] + variable.lastHeikinOpen[0])/4\n}\n\n/* Define variables we need and build functions */\n/* True Range and ATR - Average True Range */\n\nvariable.trueRange = calculateTR()\nvariable.atrNPeriod = calculateATR(Nperiod)\nvariable.prevAtrNperiod = variable.atrNPeriod // Store ATR value for calcs in RMA\n\n/* To keep lastNperiodTR array to a fixed length\nwe remove the first element of the array if length is > Nperiod */\n\nvariable.lastNPeriodTR.push(calculateTR())\nif (variable.lastNPeriodTR.length > Nperiod) {\n    variable.lastNPeriodTR.splice(0, 1)\n}\n\n/* Calculate ATR */\nfunction calculateATR(length) {\n    return calculateRMA(variable.trueRange, length)\n}\n\n/* Calculate True Range */\nfunction calculateTR() {\n    let hl = variable.HeikinMax - variable.HeikinMin    \n    if (variable.prevClose === 0) { return hl } // Return High-Low when previous Close is 0    \n    let hcp = Math.abs(variable.HeikinMax - variable.prevClose)\n    let lcp = Math.abs(variable.HeikinMin - variable.prevClose)    \n    return Math.max(hl, hcp, lcp)\n}\n\n/* Calculate RMA */\nfunction calculateRMA(src, length) {    \n    if (src.length < length) { return 0 } // We check we have enough values to make the calcs. If not, set value to zero \n    let alpha=1/length // It's a constant\n    if (isNaN(variable.prevAtrNperiod)) {\n        return 0    \n    } else {\n        return alpha * src + (1 - alpha) * variable.prevAtrNperiod            \n    }  \n    \n}\n\n// Build Up Trend function\n\nvariable.up = variable.ohcl4 - (multiplier * variable.atrNPeriod)\n\nif (variable.last2uptrend.length > 2) {\n    variable.last2uptrend.splice(0, 1)\n}\n\nvariable.up1 = variable.last2uptrend[variable.last2uptrend.length - 1] // Previous Up Trend \n\nvariable.uptrend = calculateUpTrend()\n\nvariable.last2uptrend.push(variable.uptrend) \n\nfunction calculateUpTrend() {\n    if (variable.prevClose > variable.up1) {\n        return Math.max(variable.up, variable.up1)\n    } else {\n        return variable.up\n    }\n}\n\n// Build Down Trend function\n\nvariable.dn = variable.ohcl4 + (multiplier * variable.atrNPeriod)\n\nif (variable.last2downtrend.length > 2) {\n    variable.last2downtrend.splice(0, 1)\n}\n\nvariable.dn1 = variable.last2downtrend[variable.last2downtrend.length - 1] // Previous Down Trend\n\nvariable.downtrend = calculateDnTrend()\n\nvariable.last2downtrend.push(variable.downtrend) \n\nfunction calculateDnTrend() {\n    if (variable.prevClose < variable.dn1) {\n        return Math.min(variable.dn, variable.dn1)\n    } else {\n        return variable.dn\n    }\n}\n\n\n// Build Trend function\n\nif (variable.last2Trend.length > 2) {\n    variable.last2Trend.splice(0, 1)\n}\n\nvariable.prevTrend = variable.last2Trend[variable.last2Trend.length - 1]\nif(variable.last2Trend.length === 2){\n\tvariable.trend = calculateTrend()\n}\nelse {\n\tvariable.trend = 1\n}\n\nvariable.last2Trend.push(variable.trend)\n\nfunction calculateTrend() {\n\n    if (variable.trend = -1 && variable.HeikinClose > variable.dn1) {\n        return 1\n    }\n    else if (variable.trend = 1 && variable.HeikinClose < variable.up1) {\n        return -1\n    }    \n    else {\n        return variable.prevTrend\n    }\n}\n\n// End of code :-)",
                                 "project": "Foundations",
-                                "id": "cc10042d-ba6a-43e6-ba47-9077c6f4eaa4",
+                                "id": "a7a5358c-d2ab-4d42-943f-cf801e618355",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15238.330898618673,
@@ -1189,7 +1129,7 @@
                                     "uiObject": {}
                                 }
                             },
-                            "id": "c769fbae-5f2f-45bb-bca2-8b0af39ac8d1",
+                            "id": "2cc9dcea-bc7f-4a09-975d-78604b729772",
                             "savedPayload": {
                                 "position": {
                                     "x": 15226.571446501062,
@@ -1221,7 +1161,7 @@
                                 "name": "New Procedure Javascript Code",
                                 "code": "variable.lastHeikinClose = []\nvariable.lastHeikinMax = []\nvariable.lastHeikinMin = []\nvariable.lastHeikinOpen = []\nvariable.lastOpen = []\nvariable.lastClose = []\nvariable.lastNPeriodTR = []\nvariable.last2uptrend = []\nvariable.last2downtrend = []\nvariable.last2Trend = []",
                                 "project": "Foundations",
-                                "id": "e68d70e9-7243-452b-91b2-5720edbff97f",
+                                "id": "ea60d8b4-0a0f-44f5-ae4f-6e55a1f10a1e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15065.778925227758,
@@ -1242,7 +1182,7 @@
                                     "uiObject": {}
                                 }
                             },
-                            "id": "c248a70a-773f-4835-9f4c-71a37cf1aebf",
+                            "id": "0237352f-1b54-4105-bf0c-56a17849fe7e",
                             "savedPayload": {
                                 "position": {
                                     "x": 15111.536797573786,
@@ -1265,7 +1205,7 @@
                                 }
                             }
                         },
-                        "id": "e43845ab-a02a-4b60-8175-2e4e73fbeb2a",
+                        "id": "75ac3826-cad8-4c58-b92d-33e772130d9a",
                         "savedPayload": {
                             "position": {
                                 "x": 15203.052542265841,
@@ -1288,7 +1228,7 @@
                             }
                         }
                     },
-                    "id": "9c3ca7aa-ecc8-4af1-bee7-6558be0e33ae",
+                    "id": "685e2c25-84c3-40ff-bf6a-5bf7a27ee6ab",
                     "savedPayload": {
                         "position": {
                             "x": 15273.448051533946,
@@ -1312,12 +1252,12 @@
                         "referenceParent": {
                             "type": "Plotter Module",
                             "name": "Super Trend Heikin",
-                            "id": "8127cf06-e478-4773-a6e7-45459fac0d18"
+                            "id": "edd10e0c-4b80-458a-ac0d-a473717cdfa9"
                         }
                     }
                 }
             ],
-            "id": "ea9cfca2-61fd-48b6-a5dd-a1f5b66ed668",
+            "id": "6f8438a0-6c24-4ba9-bdbb-5d48b7c5cd73",
             "savedPayload": {
                 "position": {
                     "x": 14955.25,
@@ -1360,7 +1300,7 @@
                                 "type": "Output Dataset",
                                 "name": "Multi-Time-Frame-Market Heikin-Ashi Candles",
                                 "project": "Foundations",
-                                "id": "a36c9f12-9744-4de7-bdf5-4e9d900747a6",
+                                "id": "77e1be24-c28c-4462-ba4b-3f8e0f1c4e67",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15157.159782242685,
@@ -1382,13 +1322,13 @@
                                     "referenceParent": {
                                         "type": "Dataset Definition",
                                         "name": "Multi-Time-Frame-Market",
-                                        "id": "4eadbee7-e691-482e-9f92-02147101379b"
+                                        "id": "334eebe8-95a7-4fe5-9912-401250380f53"
                                     }
                                 }
                             }
                         ],
                         "outputDatasetFolders": [],
-                        "id": "96e62df5-3e60-46bc-9e07-04f686088d11",
+                        "id": "2ff89111-b035-4c58-8db0-5e44fc829c79",
                         "savedPayload": {
                             "position": {
                                 "x": 15012.270908299324,
@@ -1421,7 +1361,7 @@
                                 "name": "Heikin-Ashi-Candles Multi-Time-Frame-Market",
                                 "config": "{ \n\"mainUtility\": \"Self Reference\"\n}",
                                 "project": "Foundations",
-                                "id": "db61c66d-54b2-496b-b223-7dc70cb0cad4",
+                                "id": "d8898f46-a6a9-4346-9f82-afdf01e2bbd7",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15416.967403378016,
@@ -1443,7 +1383,7 @@
                                     "referenceParent": {
                                         "type": "Status Report",
                                         "name": "Heikin",
-                                        "id": "3f07c992-566f-4468-aad9-56e5b8c7a5dd"
+                                        "id": "f8223192-a399-4cd1-952b-7924f62e6a78"
                                     }
                                 }
                             },
@@ -1452,7 +1392,7 @@
                                 "name": "Candles Volumes Multi-Time-Frame-Market",
                                 "config": "{ \n\"mainUtility\": \"Market Ending Point\"\n}",
                                 "project": "Foundations",
-                                "id": "84afc150-e4ab-4a0b-88cd-c21e9339dd78",
+                                "id": "bac47356-e786-419b-8b45-0810aba055dd",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15446.937530129406,
@@ -1484,7 +1424,7 @@
                                 "type": "Data Dependency",
                                 "name": "Candles Multi-Time-Frame-Market",
                                 "project": "Foundations",
-                                "id": "94edf9d5-3580-4fa6-9e68-05fe889355c1",
+                                "id": "21f62bde-b512-4ce8-b3a9-7c958f543f68",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15307.159782242685,
@@ -1512,7 +1452,7 @@
                             }
                         ],
                         "dataMineDataDependencies": [],
-                        "id": "67d26605-a6e4-4262-8fdf-113c7c111735",
+                        "id": "7485811e-dc27-442a-85af-bbb04f9830dc",
                         "savedPayload": {
                             "position": {
                                 "x": 15157.159782242685,
@@ -1539,7 +1479,7 @@
                         "type": "Status Report",
                         "name": "Heikin",
                         "project": "Foundations",
-                        "id": "3f07c992-566f-4468-aad9-56e5b8c7a5dd",
+                        "id": "f8223192-a399-4cd1-952b-7924f62e6a78",
                         "savedPayload": {
                             "position": {
                                 "x": 15079.514068711927,
@@ -1564,7 +1504,7 @@
                         "type": "Execution Started Event",
                         "name": "",
                         "project": "Foundations",
-                        "id": "87003d31-ff79-49b5-b55b-2b4f3a87c852",
+                        "id": "453cfc44-fb6b-46d1-8f7a-dff1f58a12b0",
                         "savedPayload": {
                             "position": {
                                 "x": 14945.02774788672,
@@ -1594,7 +1534,7 @@
                         "type": "Execution Finished Event",
                         "name": "New Execution Finished Event",
                         "project": "Foundations",
-                        "id": "2f9499af-9a4e-418f-8673-f0668141d942",
+                        "id": "e4807dad-a64f-4ac8-be88-f9f3f3441ac2",
                         "savedPayload": {
                             "position": {
                                 "x": 14789.736320825208,
@@ -1615,7 +1555,7 @@
                             "uiObject": {}
                         }
                     },
-                    "id": "5dee3ade-8fef-4f40-b0fb-9a60ceafb6c6",
+                    "id": "d469bf3f-4a0f-4cfa-97d7-0d04e141f23c",
                     "savedPayload": {
                         "position": {
                             "x": 14867.382034355964,
@@ -1652,7 +1592,7 @@
                                 "type": "Output Dataset",
                                 "name": "Multi-Time-Frame-Daily Heikin-Ashi Candles",
                                 "project": "Foundations",
-                                "id": "183c68c2-03f6-44a7-a189-b6ae8d774265",
+                                "id": "28647f04-a9e0-4b32-8069-e6193816ff89",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15174.865242270662,
@@ -1674,13 +1614,13 @@
                                     "referenceParent": {
                                         "type": "Dataset Definition",
                                         "name": "Multi-Time-Frame-Daily",
-                                        "id": "83a3d3a4-5d17-4bbc-a0f6-6e46b955860f"
+                                        "id": "1750dd1d-8fb1-4aff-bfc6-49d558971fa6"
                                     }
                                 }
                             }
                         ],
                         "outputDatasetFolders": [],
-                        "id": "76992723-87a4-49bc-80f2-42475e1134e0",
+                        "id": "ee21755b-b6f7-40b6-8b86-2c313d1fa012",
                         "savedPayload": {
                             "position": {
                                 "x": 14915.057621135331,
@@ -1713,7 +1653,7 @@
                                 "name": "Heikin-Ashi-Candles Multi-Time-Frame-Daily",
                                 "config": "{ \n\"mainUtility\": \"Self Reference\"\n}",
                                 "project": "Foundations",
-                                "id": "af43b4be-e3f8-4e12-834e-6da5b9475b52",
+                                "id": "4f4321d4-ee85-40a3-98f5-c75c276d63a9",
                                 "savedPayload": {
                                     "position": {
                                         "x": 15056.851170383627,
@@ -1735,7 +1675,7 @@
                                     "referenceParent": {
                                         "type": "Status Report",
                                         "name": "Heikin",
-                                        "id": "26b956e8-6059-48f3-8082-9cb167303f4f"
+                                        "id": "af226229-3166-4099-bf40-9d026516cafd"
                                     }
                                 }
                             },
@@ -1744,7 +1684,7 @@
                                 "name": "",
                                 "config": "{ \n\"mainUtility\": \"Market Ending Point\"\n}",
                                 "project": "Foundations",
-                                "id": "8cd859da-a6f1-480f-a248-176876bf18a7",
+                                "id": "d4cbb27a-f198-4924-a774-9f45fd508b4b",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14994.04611731495,
@@ -1775,7 +1715,7 @@
                                 "name": "Exchange Raw Data Historic-OHLCVs",
                                 "config": "{ \n\"mainUtility\": \"Market Starting Point\"\n}",
                                 "project": "Foundations",
-                                "id": "8686b5d7-d4c5-4f46-8b67-f907534793ab",
+                                "id": "d94bbb4e-5f03-4289-87f6-ca0da9bfb11e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14912.76038486359,
@@ -1807,7 +1747,7 @@
                                 "type": "Data Dependency",
                                 "name": "Candles Multi-Time-Frame-Daily",
                                 "project": "Foundations",
-                                "id": "eb24da5b-3935-45e0-86f7-35e3a7f4e479",
+                                "id": "351218f8-6606-44bb-bb40-d56cb2084a8a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14820.950786872883,
@@ -1835,7 +1775,7 @@
                             }
                         ],
                         "dataMineDataDependencies": [],
-                        "id": "d8471fd4-1110-4da8-b60a-39e33bb075f8",
+                        "id": "4303f11a-40ce-4edc-b258-cbf7ad9eb6ae",
                         "savedPayload": {
                             "position": {
                                 "x": 14805.25,
@@ -1862,7 +1802,7 @@
                         "type": "Status Report",
                         "name": "Heikin",
                         "project": "Foundations",
-                        "id": "26b956e8-6059-48f3-8082-9cb167303f4f",
+                        "id": "af226229-3166-4099-bf40-9d026516cafd",
                         "savedPayload": {
                             "position": {
                                 "x": 14655.25,
@@ -1887,7 +1827,7 @@
                         "type": "Execution Started Event",
                         "name": "",
                         "project": "Foundations",
-                        "id": "0201acc7-4c3a-4bb7-b49e-1e627c7bf059",
+                        "id": "73fbab49-b0ce-434d-85f7-ebbfda30345a",
                         "savedPayload": {
                             "position": {
                                 "x": 14580.25,
@@ -1917,7 +1857,7 @@
                         "type": "Execution Finished Event",
                         "name": "New Execution Finished Event",
                         "project": "Foundations",
-                        "id": "d6c0440a-acee-4c12-b013-94eeef551809",
+                        "id": "158f084f-0f40-4172-95fe-a7fdce386a7b",
                         "savedPayload": {
                             "position": {
                                 "x": 14525.346189432334,
@@ -1938,7 +1878,7 @@
                             "uiObject": {}
                         }
                     },
-                    "id": "77f6b6ab-9f38-451a-aad5-c1d792f57af6",
+                    "id": "8de4f8d2-aad2-4a5b-b4af-3c5d2be42fde",
                     "savedPayload": {
                         "position": {
                             "x": 14655.25,
@@ -1974,7 +1914,7 @@
                             "name": "Multi-Time-Frame-Market",
                             "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [\n        \"24-hs\",\n        \"12-hs\",\n        \"08-hs\",\n        \"06-hs\",\n        \"04-hs\",\n        \"03-hs\",\n        \"02-hs\",\n        \"01-hs\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\"\n}",
                             "project": "Foundations",
-                            "id": "4eadbee7-e691-482e-9f92-02147101379b",
+                            "id": "334eebe8-95a7-4fe5-9912-401250380f53",
                             "savedPayload": {
                                 "position": {
                                     "x": 14407.447457734159,
@@ -2000,7 +1940,7 @@
                             "name": "Multi-Time-Frame-Daily",
                             "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [\n        \"45-min\",\n        \"40-min\",\n        \"30-min\",\n        \"20-min\",\n        \"15-min\",\n        \"10-min\",\n        \"05-min\",\n        \"04-min\",\n        \"03-min\",\n        \"02-min\",\n        \"01-min\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n        \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n        \"fileName\": \"Data.Range.json\"\n    }\n}",
                             "project": "Foundations",
-                            "id": "83a3d3a4-5d17-4bbc-a0f6-6e46b955860f",
+                            "id": "1750dd1d-8fb1-4aff-bfc6-49d558971fa6",
                             "savedPayload": {
                                 "position": {
                                     "x": 14132.75622358326,
@@ -2037,7 +1977,7 @@
                                     "name": "New Formula",
                                     "code": "record.current.begin",
                                     "project": "Foundations",
-                                    "id": "c6db4b60-ad9e-4f99-9a54-19068cacb05b",
+                                    "id": "4aacf945-ab34-4e95-81f9-3a855cdd2643",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13588.105966312818,
@@ -2058,7 +1998,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "151bee76-f652-470e-a842-88fea43c00ff",
+                                "id": "43311ce5-f724-474d-8adb-78f371af16e9",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13570.452669774053,
@@ -2091,7 +2031,7 @@
                                     "name": "New Formula",
                                     "code": "record.current.end",
                                     "project": "Foundations",
-                                    "id": "01cde7a6-10a7-492c-9938-5fb2dfadd069",
+                                    "id": "7dc3fd6d-0e17-4cec-9c5d-0656ceae9269",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13326.559605493434,
@@ -2112,7 +2052,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "4ae2d8a4-826d-412f-92f2-349838dd5017",
+                                "id": "4273b5f0-6087-4c94-93b2-8cd089c69cea",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13396.088429227797,
@@ -2145,7 +2085,7 @@
                                     "name": "New Formula",
                                     "code": "variable.HeikinOpen",
                                     "project": "Foundations",
-                                    "id": "5c14b50f-e007-408e-988f-f21395f5a7cb",
+                                    "id": "aa7a26d1-a272-4270-8e8d-c800956daf82",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13096.768644073649,
@@ -2166,7 +2106,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "988a13da-a63c-41c0-9ab9-28b0b62499b7",
+                                "id": "3c96a135-2e82-44d5-9b5c-0039f0a1cb51",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13242.89445494794,
@@ -2199,7 +2139,7 @@
                                     "name": "New Formula",
                                     "code": "variable.HeikinClose",
                                     "project": "Foundations",
-                                    "id": "d15c35d2-4965-42f8-8161-7ec4673f23d7",
+                                    "id": "6e4becd0-8405-44b0-bcac-f3428641166f",
                                     "savedPayload": {
                                         "position": {
                                             "x": 12933.716672869376,
@@ -2220,7 +2160,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "f9d82d0e-64bf-4ec3-aaef-b8a3339dcb41",
+                                "id": "c2c10841-4edd-436c-9cde-fc1a69c5db59",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13134.193140811758,
@@ -2253,7 +2193,7 @@
                                     "name": "New Record Formula",
                                     "code": "variable.HeikinMax",
                                     "project": "Foundations",
-                                    "id": "52056341-e0b7-458e-8636-7734c9a3b123",
+                                    "id": "bbd77df0-5e21-4ce3-ba80-c963829955c2",
                                     "savedPayload": {
                                         "position": {
                                             "x": 12862.226876426661,
@@ -2274,7 +2214,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "4546f711-6e1d-4b63-9659-9a6c12637b2e",
+                                "id": "83792761-a1eb-4cab-b136-3e6384e7070a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13086.533276516615,
@@ -2307,7 +2247,7 @@
                                     "name": "New Record Formula",
                                     "code": "variable.HeikinMin",
                                     "project": "Foundations",
-                                    "id": "86622158-7377-45ce-a39d-176e2b80dfa5",
+                                    "id": "24223e96-7eee-4896-a3ad-0fc8b1468ae4",
                                     "savedPayload": {
                                         "position": {
                                             "x": 12893.182928197293,
@@ -2328,7 +2268,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "f0da4e85-cb75-40c0-b50b-03c9c12d28ba",
+                                "id": "4f0826a7-bda0-45d0-84f7-3130edcc37ac",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13107.170644363703,
@@ -2361,7 +2301,7 @@
                                     "name": "New Record Formula",
                                     "code": "variable.directionHeikin",
                                     "project": "Foundations",
-                                    "id": "f75ce504-9992-4f5c-bf0d-697c8ca7eda9",
+                                    "id": "5fdde66d-f1d5-495b-b989-1cf35dce2cd3",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13021.872049916501,
@@ -2382,7 +2322,7 @@
                                         "uiObject": {}
                                     }
                                 },
-                                "id": "d49bb790-aec5-4ed7-bee7-724e747f028d",
+                                "id": "639df24c-4524-4608-ac77-9991cae4473e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13192.963392176509,
@@ -2406,7 +2346,7 @@
                                 }
                             }
                         ],
-                        "id": "4d81c724-0301-4b86-924f-7213ff89e180",
+                        "id": "1d1d7e4b-c8a0-4ba9-8bfa-6b129775f556",
                         "savedPayload": {
                             "position": {
                                 "x": 13535.146076696523,
@@ -2442,7 +2382,7 @@
                                 "name": "New Procedure Javascript Code",
                                 "code": "let candle = record.current\n\nvariable.lastOpen.push(candle.open)\nvariable.lastClose.push(candle.close)\n\nif(variable.lastOpen.length > 2) {\n\tvariable.lastOpen.splice(0,1)\n}\nif(variable.lastClose.length > 2) {\n\tvariable.lastClose.splice(0,1)\n}\nif(variable.lastOpen.length === 2 && variable.lastClose.length === 2){\n\tvariable.HeikinOpen = (variable.lastOpen[0] + variable.lastClose[0])/2\n}\nelse {\n\tvariable.HeikinOpen = candle.open\n}\nvariable.HeikinClose = 1/4 * (candle.open + candle.close + candle.max + candle.min)\nvariable.HeikinMax = Math.max(candle.open, candle.close)\nvariable.HeikinMin = Math.min(candle.open, candle.close)\n\nif (variable.HeikinClose > variable.HeikinOpen) {\n    variable.directionHeikin = 1\n}\n\nif (variable.HeikinClose < variable.HeikinOpen) {\n    variable.directionHeikin = -1\n}\n\nif (variable.HeikinClose === variable.HeikinOpen) {\n    variable.directionHeikin = 0\n}",
                                 "project": "Foundations",
-                                "id": "3835370b-7702-4849-b390-b5cf304c4cea",
+                                "id": "be5fb2eb-c9f7-4c9d-a118-7282b3e88465",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13556.94105551145,
@@ -2463,7 +2403,7 @@
                                     "uiObject": {}
                                 }
                             },
-                            "id": "b66fa03b-fddf-4e9f-8d72-6cc0c300f2ec",
+                            "id": "20edfd25-1a36-4144-9427-644160bb1fdf",
                             "savedPayload": {
                                 "position": {
                                     "x": 13668.82476874038,
@@ -2495,7 +2435,7 @@
                                 "name": "New Procedure Javascript Code",
                                 "code": "variable.lastOpen = []\nvariable.lastClose = []",
                                 "project": "Foundations",
-                                "id": "31bcfe06-aa63-42c1-9c17-fa41ad9e499b",
+                                "id": "4a17dc34-0eb0-47b7-b9b2-a3cffbcf7d61",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13584.270603243864,
@@ -2516,7 +2456,7 @@
                                     "uiObject": {}
                                 }
                             },
-                            "id": "c92a89a3-a3f8-4acd-b3ea-2538fe55bd61",
+                            "id": "8710a2ad-ef88-40b7-9e34-363ab63da38b",
                             "savedPayload": {
                                 "position": {
                                     "x": 13687.044467228656,
@@ -2539,7 +2479,7 @@
                                 }
                             }
                         },
-                        "id": "8fddf34d-50ee-46ad-8ce0-650da7c66487",
+                        "id": "3bc0a24d-7cd2-4cfd-b0e6-5b1f75597008",
                         "savedPayload": {
                             "position": {
                                 "x": 13892.592195198242,
@@ -2562,7 +2502,7 @@
                             }
                         }
                     },
-                    "id": "4293b218-9916-4bb5-9372-ed8e1c0917e8",
+                    "id": "8c832f55-f8cc-422a-ba50-72316f1e91a9",
                     "savedPayload": {
                         "position": {
                             "x": 14337.051948466054,
@@ -2586,12 +2526,12 @@
                         "referenceParent": {
                             "type": "Plotter Module",
                             "name": "Candles-Heikin",
-                            "id": "a3eef127-33ab-4158-beb4-ff9f93fa0494"
+                            "id": "7186ce8e-6fd5-4ae4-bfa2-a7f531d01baa"
                         }
                     }
                 }
             ],
-            "id": "df3fe9fe-a39b-46b5-ae08-9b04f46836a5",
+            "id": "2684c4a4-9557-4553-8c06-3ab6852b59ec",
             "savedPayload": {
                 "position": {
                     "x": 14655.25,
@@ -2646,7 +2586,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = record.begin\ny = record.previous.uptrend",
                                             "project": "Foundations",
-                                            "id": "df274693-82b1-48df-9714-7357f3968470",
+                                            "id": "53cc4aa9-c5b4-49a0-acf3-74079989f49a",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 14399.120325871574,
@@ -2667,7 +2607,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "5e9edd2e-0dae-4e8e-bdee-cf4c49b73fa4",
+                                        "id": "c4ad0c38-fff6-4de2-ad90-10fbaafc1f74",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14210.419448083854,
@@ -2699,7 +2639,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = record.end\ny = record.uptrend",
                                             "project": "Foundations",
-                                            "id": "60c053a0-3f39-4643-8156-c63dab9e1691",
+                                            "id": "5650d9ce-a166-43c2-b757-081617238886",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 14371.434252951773,
@@ -2720,7 +2660,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "2ff7ddaf-2472-44b6-86b2-c6688d7f3cc5",
+                                        "id": "80b2ccad-c636-4e74-a06a-fc53b4e7976a",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14196.576411623953,
@@ -2752,7 +2692,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = record.begin\ny = record.previous.downtrend",
                                             "project": "Foundations",
-                                            "id": "851d1fab-5b70-4171-a4ca-ea8d5ac9c655",
+                                            "id": "c7f7844e-21be-4591-94bc-a9178059b6f7",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13860.45299300075,
@@ -2773,7 +2713,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "2d6730c8-3f1e-4cb2-9904-bb0d9e21fa3b",
+                                        "id": "8150f620-8555-4d9b-82a4-ff7ea6123146",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13941.085781648442,
@@ -2805,7 +2745,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = record.end\ny = record.downtrend",
                                             "project": "Foundations",
-                                            "id": "81476a42-47e3-47eb-999b-8c8bb6e3e789",
+                                            "id": "4c626fbb-dfb4-4965-acdc-73fb04a2278c",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13572.335279656576,
@@ -2826,7 +2766,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "e91cd943-50a6-4c12-b40d-a746859dc743",
+                                        "id": "cf8aadca-5bd7-4f1a-a14f-a1bab94426f2",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13797.026924976355,
@@ -2850,7 +2790,7 @@
                                         }
                                     }
                                 ],
-                                "id": "d8b4b5f3-a9e5-477a-bae5-2a0ec0d4d53c",
+                                "id": "412d1b6e-c688-4894-8d21-c5d1579d3284",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14021.718570296134,
@@ -2888,7 +2828,7 @@
                                         "name": "New Style",
                                         "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [0,0],\n        \"paletteColor\": \"UI_COLOR.GREEN\"\n    }\n}",
                                         "project": "Foundations",
-                                        "id": "11433e59-b0b7-49d6-badb-7b24a7b68697",
+                                        "id": "040fcc7d-7edb-478c-9b5f-6c6a04754246",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13897.58331091504,
@@ -2920,7 +2860,7 @@
                                                 "name": "New Style",
                                                 "config": "{\n    \"opacity\": 0,\n    \"lineWidth\": 0,\n    \"lineDash\": [\n        0,\n        0\n    ],\n    \"paletteColor\": \"UI_COLOR.RED\"\n}",
                                                 "project": "Foundations",
-                                                "id": "e983563d-c0a3-4572-99aa-0299ebb4ad13",
+                                                "id": "40cef94d-7e86-4c93-9061-018aaa34a323",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 13622.015714851932,
@@ -2941,7 +2881,7 @@
                                                     "uiObject": {}
                                                 }
                                             },
-                                            "id": "f8e6e7a4-dfdb-4cfb-9c72-052ec7265cea",
+                                            "id": "c1cc7357-edf7-4e1e-bc02-b6b65e870bc6",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13680.25,
@@ -2965,7 +2905,7 @@
                                             }
                                         }
                                     ],
-                                    "id": "d0d18eaf-369d-4f42-90b3-855ff261e461",
+                                    "id": "17be0d7a-8cc2-479f-8e96-d2ee0464dbfe",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13738.484285148068,
@@ -2993,7 +2933,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " UP Trend Begin",
                                         "project": "Foundations",
-                                        "id": "9c400088-6a96-445b-a773-876b65b4b161",
+                                        "id": "1e06317b-b97f-4742-ad09-827eec917dce",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13455.25,
@@ -3015,7 +2955,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "UP Trend Begin",
-                                                "id": "5e9edd2e-0dae-4e8e-bdee-cf4c49b73fa4"
+                                                "id": "c4ad0c38-fff6-4de2-ad90-10fbaafc1f74"
                                             }
                                         }
                                     },
@@ -3023,7 +2963,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " UP Trend End",
                                         "project": "Foundations",
-                                        "id": "d0c7fd3b-1fa0-4d5b-b0ca-f0fed89aaa74",
+                                        "id": "6ee815fd-c03d-4ee6-b5cb-33d15561666a",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13245.583378169918,
@@ -3045,12 +2985,12 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "UP Trend End",
-                                                "id": "2ff7ddaf-2472-44b6-86b2-c6688d7f3cc5"
+                                                "id": "80b2ccad-c636-4e74-a06a-fc53b4e7976a"
                                             }
                                         }
                                     }
                                 ],
-                                "id": "3ddd3517-a92c-45f5-bb73-793fe13cce60",
+                                "id": "a61f76bc-c343-4a5c-bcec-c7ce3d22d569",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13680.25,
@@ -3086,7 +3026,7 @@
                                         "name": "New Style",
                                         "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [0,0],\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\n    }\n}",
                                         "project": "Foundations",
-                                        "id": "2b26fff4-f714-4d53-9ab6-625d3bd0e78c",
+                                        "id": "caa1024d-f7f1-4016-b3cd-9c162118e5a8",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13139.10623161499,
@@ -3118,7 +3058,7 @@
                                                 "name": "New Style",
                                                 "config": "{\n    \"opacity\": 0.0,\n    \"lineWidth\": 0,\n    \"lineDash\": [0,0],\n    \"paletteColor\": \"UI_COLOR.RED\"\n}",
                                                 "project": "Foundations",
-                                                "id": "904a90ba-02f3-4d7d-928e-2e2c822eb8a0",
+                                                "id": "6ab49b38-5b75-4038-94d2-15ee3bd56551",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 12863.53863555188,
@@ -3139,7 +3079,7 @@
                                                     "uiObject": {}
                                                 }
                                             },
-                                            "id": "db1bb17b-3e04-49c5-97bd-0f2ceb7b4d70",
+                                            "id": "b3938700-c4f0-45e1-923c-cd7cb0ff18d6",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13080.871946466921,
@@ -3163,7 +3103,7 @@
                                             }
                                         }
                                     ],
-                                    "id": "8e14db61-2130-43c9-8685-f3bb19f33ac7",
+                                    "id": "2fe970a0-2c0e-431d-aedd-5904772be11c",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13298.205257381962,
@@ -3191,7 +3131,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Down Trend Begin",
                                         "project": "Foundations",
-                                        "id": "915d279c-7eb5-4650-8abd-d3cd4255f0c7",
+                                        "id": "48e270d9-fcb0-4d36-bef8-373a5d4a4487",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13125.827136594005,
@@ -3213,7 +3153,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Down Trend Begin",
-                                                "id": "2d6730c8-3f1e-4cb2-9904-bb0d9e21fa3b"
+                                                "id": "8150f620-8555-4d9b-82a4-ff7ea6123146"
                                             }
                                         }
                                     },
@@ -3221,7 +3161,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Down Trend End",
                                         "project": "Foundations",
-                                        "id": "0b4d1fd8-94ba-4cfe-819b-5ba543237a46",
+                                        "id": "a63d23d4-3fb6-41d5-86e7-9075775197be",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13399.069998000869,
@@ -3243,12 +3183,12 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Down Trend End",
-                                                "id": "e91cd943-50a6-4c12-b40d-a746859dc743"
+                                                "id": "cf8aadca-5bd7-4f1a-a14f-a1bab94426f2"
                                             }
                                         }
                                     }
                                 ],
-                                "id": "9430ef62-7840-46ea-99c2-ceb6bc85b5c5",
+                                "id": "fc62fae8-9c30-4856-83f7-7ad48e1dc913",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13515.538568297003,
@@ -3274,7 +3214,7 @@
                         ],
                         "images": [],
                         "texts": [],
-                        "id": "d4f072b1-faa1-44ef-9253-acd938bb7e98",
+                        "id": "b0886e2e-2c92-4daa-baa2-bd57bcf3f4fb",
                         "savedPayload": {
                             "position": {
                                 "x": 13905.25,
@@ -3314,7 +3254,7 @@
                                         "name": "Up Trend",
                                         "code": "record.uptrend",
                                         "project": "Foundations",
-                                        "id": "93697642-fc04-45eb-950c-08181f63592f",
+                                        "id": "7750a2e3-4424-442d-8fdd-e4a666d9f333",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13384.252696908232,
@@ -3340,7 +3280,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.GREEN\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "e857e095-35a1-4a94-bedd-8918502c997f",
+                                        "id": "6e5d3230-dd7d-46ac-a2a6-7d88bc28727c",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13396.426977580268,
@@ -3361,7 +3301,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "3d3b9aa1-f467-4ad3-bde0-b30719624382",
+                                    "id": "06b21afb-ed79-4384-b157-6df5784e5f0b",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13606.482573542138,
@@ -3394,7 +3334,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.downtrend",
                                         "project": "Foundations",
-                                        "id": "929bdcdc-e717-41de-a6fd-6f158bf4b0d8",
+                                        "id": "5b45cbaa-ae39-45d5-bedc-f0a4e5d49389",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13462.565946325203,
@@ -3420,7 +3360,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\",\n        \"opacity\": 1,\n        \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "7b84b5a0-a191-4482-8cf4-4c4142785ac7",
+                                        "id": "cef42c44-33d8-4d16-9782-b522b30d099e",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13540.498631389204,
@@ -3441,7 +3381,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "5cec9e96-1d9e-4185-ac41-ca1c7ed36e29",
+                                    "id": "fc6bd59f-b34f-48dc-a515-7b068498ecd8",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13663.042414267586,
@@ -3474,7 +3414,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.trend",
                                         "project": "Foundations",
-                                        "id": "ff3809f9-fdde-4c4b-be64-c65e670e8a7c",
+                                        "id": "8caaf39d-5b31-41d4-be62-26ce922e7f92",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13681.322007124607,
@@ -3500,7 +3440,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n        \"paletteColor\": \"UI_COLOR.GREY\",\n        \"opacity\": 1,\n        \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "a9c1e882-4944-44e8-bfb2-8b5e57f4b3c7",
+                                        "id": "215898d7-6482-4ad1-bb16-e2378fe60421",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13795.245459720667,
@@ -3521,7 +3461,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "fc040708-99a9-447a-b6f1-731988cd6e17",
+                                    "id": "53e9e9d1-adfa-447f-8a4e-8477ba19778f",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13783.469869566004,
@@ -3554,7 +3494,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.atrNPeriod",
                                         "project": "Foundations",
-                                        "id": "c8bba9a8-d476-4a2a-8c75-6b752a221fbb",
+                                        "id": "1b4b495b-2477-4852-be63-6a4c9cc662f1",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13910.006292574444,
@@ -3580,7 +3520,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n        \"paletteColor\": \"UI_COLOR.GREY\",\n        \"opacity\": 1,\n        \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "c83176f9-bf33-4515-b273-dd217e9b5efc",
+                                        "id": "aa6783e9-5395-446d-9df6-a7d81455ae4c",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14012.780156559236,
@@ -3601,7 +3541,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "758213ed-d43c-4aec-a64e-1af903fc5874",
+                                    "id": "781ce0f3-408a-4210-afa7-c43d94740765",
                                     "savedPayload": {
                                         "position": {
                                             "x": 13921.765744692055,
@@ -3625,7 +3565,7 @@
                                     }
                                 }
                             ],
-                            "id": "bf9b71ad-2ba7-4ad9-83b6-21332bf5891e",
+                            "id": "8e262868-9c8a-4ed6-baed-cb88a71bb4cf",
                             "savedPayload": {
                                 "position": {
                                     "x": 13830.25,
@@ -3649,7 +3589,7 @@
                             }
                         }
                     ],
-                    "id": "8127cf06-e478-4773-a6e7-45459fac0d18",
+                    "id": "edd10e0c-4b80-458a-ac0d-a473717cdfa9",
                     "savedPayload": {
                         "position": {
                             "x": 14055.25,
@@ -3673,7 +3613,7 @@
                     }
                 }
             ],
-            "id": "e67e6c90-ffdb-4897-90d6-3623bc4267f1",
+            "id": "dc393812-920e-43a2-b219-bcd76c8e2ef0",
             "savedPayload": {
                 "position": {
                     "x": 14355.25,
@@ -3726,7 +3666,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.open",
                                             "project": "Foundations",
-                                            "id": "5c8f9aa8-63fb-48ab-918e-d38dc062f2fe",
+                                            "id": "beb39a08-2564-4229-acc5-ee0a714e499f",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 14046.695316219144,
@@ -3747,7 +3687,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "bbd2cf34-47e8-42af-9c32-0482c5aaecac",
+                                        "id": "1911ada8-c88f-428a-8d35-b17f27e12da2",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13778.382093919243,
@@ -3779,7 +3719,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.close",
                                             "project": "Foundations",
-                                            "id": "e6ff800a-39e4-4490-899e-bafa51b33228",
+                                            "id": "c62a97b9-95d1-459c-9e3a-fa50577a0abb",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 14054.484088360061,
@@ -3800,7 +3740,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "52f856a3-ea79-41fd-9e20-3a80e613ac02",
+                                        "id": "24d7840d-6ff7-417a-9ce2-e00c42e3f718",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13782.276479989701,
@@ -3832,7 +3772,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.open",
                                             "project": "Foundations",
-                                            "id": "490f5c33-3e7a-4d2d-9ac9-d20ac61323e5",
+                                            "id": "f4bae5de-ae70-46d8-8b89-9407a6f99172",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13652.317098248639,
@@ -3853,7 +3793,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "07bf7aa6-4f46-403b-a132-359ee04fbb5f",
+                                        "id": "013fdd1b-8213-4a38-bbb2-214146066a8a",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13581.19298493399,
@@ -3885,7 +3825,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.max",
                                             "project": "Foundations",
-                                            "id": "11b3c7de-b236-4a1b-87b7-aca149698035",
+                                            "id": "b2a3d9e2-e9b8-4f78-a6e2-80f4d4283252",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13143.034292150338,
@@ -3906,7 +3846,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "665797e9-cc47-46f9-a1f2-3b0c3897f604",
+                                        "id": "a3a680a0-23d1-4079-aaf7-b01734146677",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13326.55158188484,
@@ -3938,7 +3878,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.close",
                                             "project": "Foundations",
-                                            "id": "813ca180-b19f-4b4b-a213-485c91232398",
+                                            "id": "637cdcb9-cc1c-48bf-8789-5b8b485d169f",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 12910.136010533179,
@@ -3959,7 +3899,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "9d790e5d-4897-4f15-90aa-e923491162ae",
+                                        "id": "4a0dfb49-e34f-4238-bc7a-79217066cde6",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13210.10244107626,
@@ -3991,7 +3931,7 @@
                                             "name": "New Point Formula",
                                             "code": "x = (record.end - record.begin) / 2 + record.begin\ny = record.min",
                                             "project": "Foundations",
-                                            "id": "f97bc29c-6ed6-4449-9551-e5a74f0b6cbd",
+                                            "id": "20b7a803-cb5e-41dd-b610-bbf0e347989b",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 13128.999409714035,
@@ -4012,7 +3952,7 @@
                                                 "uiObject": {}
                                             }
                                         },
-                                        "id": "f7b40927-b0eb-454e-9126-5ebafbc41bac",
+                                        "id": "483b4ca6-09f9-4181-bb54-9b173b8b466a",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13319.534140666688,
@@ -4036,7 +3976,7 @@
                                         }
                                     }
                                 ],
-                                "id": "1c71e19f-623f-4800-9ed5-6671a9d38b31",
+                                "id": "460ad9ab-1e91-42df-9e23-8ae7d9593b07",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13510.068871619342,
@@ -4074,7 +4014,7 @@
                                         "name": "New Style",
                                         "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.BLACK\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 0.3,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\n    }\n}",
                                         "project": "Foundations",
-                                        "id": "69cd15b2-e80c-4946-a769-163e2d212c9e",
+                                        "id": "960f0089-5388-4884-a60c-d673688a403d",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14346.175379062774,
@@ -4096,7 +4036,7 @@
                                         }
                                     },
                                     "styleConditions": [],
-                                    "id": "5e9da637-e435-463a-8d5c-030f945d4c01",
+                                    "id": "1a663c83-7a17-419d-88e5-1e221060385d",
                                     "savedPayload": {
                                         "position": {
                                             "x": 14588.880477375258,
@@ -4124,7 +4064,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Max Vert Begin",
                                         "project": "Foundations",
-                                        "id": "93d962d1-1e70-40a5-9f0e-33d6de5e4578",
+                                        "id": "e93568c8-ab85-40a1-b8ed-22c71bc289d5",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15007.921151375485,
@@ -4146,7 +4086,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Max Vert Begin",
-                                                "id": "07bf7aa6-4f46-403b-a132-359ee04fbb5f"
+                                                "id": "013fdd1b-8213-4a38-bbb2-214146066a8a"
                                             }
                                         }
                                     },
@@ -4154,7 +4094,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Max Vert End",
                                         "project": "Foundations",
-                                        "id": "7604c1e6-1199-4d3a-94be-58287feda689",
+                                        "id": "ecf79889-78c2-4616-8dda-0afdd69a2e03",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15074.290674000227,
@@ -4176,12 +4116,12 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Max Vert End",
-                                                "id": "665797e9-cc47-46f9-a1f2-3b0c3897f604"
+                                                "id": "a3a680a0-23d1-4079-aaf7-b01734146677"
                                             }
                                         }
                                     }
                                 ],
-                                "id": "df569573-3041-4a5a-aae6-feb2c6fbc658",
+                                "id": "85dea8d9-cdaa-4a9f-ab0b-2732ae10e1bf",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14097.085810254188,
@@ -4217,7 +4157,7 @@
                                         "name": "New Style",
                                         "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.BLACK\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 0.3,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\n    }\n}",
                                         "project": "Foundations",
-                                        "id": "679910d9-3725-4185-bfe4-2b8e953e84fb",
+                                        "id": "62a86d2e-2614-49de-b77d-64fdb268afe4",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15125.977151513514,
@@ -4239,7 +4179,7 @@
                                         }
                                     },
                                     "styleConditions": [],
-                                    "id": "5605b987-d29d-4c7c-952f-6bee2f26048d",
+                                    "id": "4631b3aa-05b5-43cb-a4db-1003b66dcc0c",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15033.27205320103,
@@ -4267,7 +4207,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Min Vert Begin",
                                         "project": "Foundations",
-                                        "id": "afb9ad90-3bcd-41dd-bfc7-0941ba1bec4e",
+                                        "id": "1645fbb2-0c7c-4a00-9723-fe7f2fd18f4c",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15225.88390977709,
@@ -4289,7 +4229,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Min Vert Begin",
-                                                "id": "9d790e5d-4897-4f15-90aa-e923491162ae"
+                                                "id": "4a0dfb49-e34f-4238-bc7a-79217066cde6"
                                             }
                                         }
                                     },
@@ -4297,7 +4237,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Min Vert End",
                                         "project": "Foundations",
-                                        "id": "7a9e4173-77aa-4d19-895e-df5edaff72d3",
+                                        "id": "330abc30-1baa-43ac-9b13-ce2729897fda",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14847.86185657606,
@@ -4319,12 +4259,12 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Min Vert End",
-                                                "id": "f7b40927-b0eb-454e-9126-5ebafbc41bac"
+                                                "id": "483b4ca6-09f9-4181-bb54-9b173b8b466a"
                                             }
                                         }
                                     }
                                 ],
-                                "id": "d2842bad-bb27-441f-8b3d-ea01b2fe2a41",
+                                "id": "b832ec38-e73d-41f3-8be6-055a1ba50ab9",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14273.421385941929,
@@ -4360,7 +4300,7 @@
                                         "name": "New Style",
                                         "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 20,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 1,\n        \"lineWidth\": 40,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.TITANIUM_YELLOW\"\n    }\n}",
                                         "project": "Foundations",
-                                        "id": "82489b54-015b-4926-8665-d47e33da2f9a",
+                                        "id": "006df985-812e-49dd-8f35-3be4cc5be3ab",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14098.770584237225,
@@ -4392,7 +4332,7 @@
                                                 "name": "New Style",
                                                 "config": "{\n    \"opacity\": 1,\n    \"lineWidth\": 20,\n    \"lineDash\": [\n        0,\n        0\n    ],\n    \"paletteColor\": \"UI_COLOR.TRUE_RED\"\n}",
                                                 "project": "Foundations",
-                                                "id": "d26cba22-aaf9-4630-a05f-993e1620826c",
+                                                "id": "b6026c6e-fd21-40d7-a34c-284e5c40aed3",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 14358.578205372556,
@@ -4413,7 +4353,7 @@
                                                     "uiObject": {}
                                                 }
                                             },
-                                            "id": "94f3b924-00ac-42c2-bcd3-9e9708c93aa4",
+                                            "id": "9e20ee0d-b286-47e4-8fdd-5eb94e6c61e3",
                                             "savedPayload": {
                                                 "position": {
                                                     "x": 14358.578205372556,
@@ -4437,7 +4377,7 @@
                                             }
                                         }
                                     ],
-                                    "id": "6cf8d8e0-264b-43ce-af3b-cab714b5b544",
+                                    "id": "61e5349c-b73f-4fbe-84c2-edaeb493cc48",
                                     "savedPayload": {
                                         "position": {
                                             "x": 14358.578205372556,
@@ -4465,7 +4405,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Candle Open",
                                         "project": "Foundations",
-                                        "id": "26e25ee1-f461-418c-becc-32e557767e7d",
+                                        "id": "b654ab29-38fd-4961-838b-eb134b6db07a",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14680.759333753214,
@@ -4487,7 +4427,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Candle Open",
-                                                "id": "bbd2cf34-47e8-42af-9c32-0482c5aaecac"
+                                                "id": "1911ada8-c88f-428a-8d35-b17f27e12da2"
                                             }
                                         }
                                     },
@@ -4495,7 +4435,7 @@
                                         "type": "Polygon Vertex",
                                         "name": " Candle Close",
                                         "project": "Foundations",
-                                        "id": "7d6e7687-e885-4f61-a608-050c6a081589",
+                                        "id": "df0b1151-2a92-4cfe-a2e1-ecdbbf81d495",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14916.742395118368,
@@ -4517,7 +4457,7 @@
                                             "referenceParent": {
                                                 "type": "Point",
                                                 "name": "Candle Close",
-                                                "id": "52f856a3-ea79-41fd-9e20-3a80e613ac02"
+                                                "id": "24d7840d-6ff7-417a-9ce2-e00c42e3f718"
                                             }
                                         }
                                     },
@@ -4525,7 +4465,7 @@
                                         "type": "Polygon Vertex",
                                         "name": "",
                                         "project": "Foundations",
-                                        "id": "4d67b06f-8c11-4ec3-8544-040c7862f67d",
+                                        "id": "09857988-8c72-4ef4-9122-fa2146beb50d",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14740.406819430627,
@@ -4547,7 +4487,7 @@
                                         }
                                     }
                                 ],
-                                "id": "19e1735b-c7bd-4871-a4ec-b95e157739ad",
+                                "id": "bed9aead-c455-4b5f-a1f3-3d02cf4499ed",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14618.385826507887,
@@ -4573,7 +4513,7 @@
                         ],
                         "images": [],
                         "texts": [],
-                        "id": "0479d8fd-279a-44eb-8a97-5b2b23e2e089",
+                        "id": "5998a346-6236-4c86-b1a8-515d9ecc0ea0",
                         "savedPayload": {
                             "position": {
                                 "x": 14395.442378864669,
@@ -4613,7 +4553,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.HeikinDirection",
                                         "project": "Foundations",
-                                        "id": "01df62bf-05e0-4bd6-b579-160276d77b4c",
+                                        "id": "c9ad4e92-a754-4601-9d6c-ee45b20f18d3",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14395.442378864669,
@@ -4639,7 +4579,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.BLACK\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "ea73eb83-75c9-4581-946b-9aaa51d10125",
+                                        "id": "2bd1baec-6d76-4b18-bcc0-ccc7cef54225",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14655.25,
@@ -4660,7 +4600,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "a0d10143-12bd-4da4-b0af-917f71688b5a",
+                                    "id": "7d61550f-4f4b-43db-9ae2-0e72e05c6515",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15014.25,
@@ -4693,7 +4633,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.min",
                                         "project": "Foundations",
-                                        "id": "4e532981-b8ad-4679-a286-6349dfe306f5",
+                                        "id": "06f114a2-cb2d-47d8-8db6-c29287db9c50",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15014.25,
@@ -4719,7 +4659,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.BLACK\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "8964970a-e2ea-4066-9230-5c6209cd0407",
+                                        "id": "ce9617aa-87f6-4597-9845-b4d8cc1db203",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15533.865242270662,
@@ -4740,7 +4680,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "1c751881-d66b-4e14-bc6b-5a292b607680",
+                                    "id": "e3cf5167-3a22-4894-b2ae-84d0dcf053d9",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15274.057621135331,
@@ -4773,7 +4713,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.max",
                                         "project": "Foundations",
-                                        "id": "d6c246b7-6833-49dc-b056-146dd04e8737",
+                                        "id": "d66ed44b-834d-4870-acca-fcd2ed30fb72",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15533.865242270662,
@@ -4799,7 +4739,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.BLACK\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "296fb265-acd1-49b0-833b-ee35d41a1605",
+                                        "id": "4d26779e-c9e4-40af-9bc0-4385fd957905",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15793.672863405993,
@@ -4820,7 +4760,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "7ca2e7ba-edeb-4b3c-b8f1-67a417595559",
+                                    "id": "9e0ca163-0c8c-4377-b3f0-2a9df669cf6f",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15533.865242270662,
@@ -4853,7 +4793,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.open",
                                         "project": "Foundations",
-                                        "id": "94763855-35f3-4f33-8a7b-d02e708e739e",
+                                        "id": "dfd608c2-b1a7-4910-b3da-070b7fc4bd52",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 16182.672863405993,
@@ -4879,7 +4819,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.BLACK\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "019c1b06-e9cb-4df5-ac74-dd25e4431586",
+                                        "id": "16f47a08-f379-4b89-b42d-4654447889dc",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15922.865242270662,
@@ -4900,7 +4840,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "a859fb6e-89fa-463c-b0a6-56d7b1550b50",
+                                    "id": "bd4970a2-1c09-4275-83e9-5ab187007181",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15922.865242270662,
@@ -4933,7 +4873,7 @@
                                         "name": "New Data Formula",
                                         "code": "record.close",
                                         "project": "Foundations",
-                                        "id": "8916bd72-ae3a-4428-aa79-ca4ad050b45a",
+                                        "id": "bfc404b4-e406-42ec-8cdd-d90ddfd19fbf",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15533.865242270662,
@@ -4959,7 +4899,7 @@
                                         "name": "New Text Style",
                                         "config": "{\n    \"paletteColor\": \"UI_COLOR.BLACK\",\n    \"opacity\": 1,\n    \"fontSize\": 14\n}",
                                         "project": "Foundations",
-                                        "id": "329b264b-d61d-4856-afed-ff1174688323",
+                                        "id": "cd276aed-5787-4a4c-a90e-7d7f6b1a81e6",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15014.25,
@@ -4980,7 +4920,7 @@
                                             "uiObject": {}
                                         }
                                     },
-                                    "id": "9c3736bc-6bb5-44f1-a5bc-47ab64ae9dbc",
+                                    "id": "96f28e2f-1f27-444d-a0da-587e80e806df",
                                     "savedPayload": {
                                         "position": {
                                             "x": 15274.057621135331,
@@ -5004,7 +4944,7 @@
                                     }
                                 }
                             ],
-                            "id": "87206541-ed05-4184-91fe-aa6005ff777d",
+                            "id": "38fc11a8-a72a-4962-8112-874c3ccf5fd3",
                             "savedPayload": {
                                 "position": {
                                     "x": 15274.057621135331,
@@ -5028,7 +4968,7 @@
                             }
                         }
                     ],
-                    "id": "a3eef127-33ab-4158-beb4-ff9f93fa0494",
+                    "id": "7186ce8e-6fd5-4ae4-bfa2-a7f531d01baa",
                     "savedPayload": {
                         "position": {
                             "x": 14655.25,
@@ -5052,7 +4992,7 @@
                     }
                 }
             ],
-            "id": "54067762-70cd-4e85-85e3-48f98b6cf83a",
+            "id": "c9b1ad5b-42d3-41bb-b3c8-9d67ffbbc487",
             "savedPayload": {
                 "position": {
                     "x": 14655.25,
@@ -5077,7 +5017,7 @@
             }
         }
     ],
-    "id": "ea2045e3-b3d0-4d03-b75b-e1dead7defb8",
+    "id": "d840ae1d-d0ad-47df-9a7e-00ae86d9df96",
     "savedPayload": {
         "position": {
             "x": 14655.25,

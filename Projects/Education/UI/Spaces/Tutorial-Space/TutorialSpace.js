@@ -363,7 +363,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
                 }
                 return
             }
@@ -372,7 +372,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.open()
+                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.open()
                 }
                 return
             }

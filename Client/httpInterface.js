@@ -700,25 +700,31 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             async function doGit() {
-                                const simpleGit = require('simple-git');
-                                const options = {
-                                    baseDir: process.cwd(),
-                                    binary: 'git',
-                                    maxConcurrentProcesses: 6,
-                                }
-                                const git = simpleGit(options)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('bash');
+                                if (gitpath !== undefined) {
+                                    const simpleGit = require('simple-git');
+                                    const options = {
+                                        baseDir: process.cwd(),
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    const git = simpleGit(options)
 
-                                try {
-                                    await git.add('./*')
-                                    await git.commit(commitMessage)
-                                    await git.push('origin', currentBranch)
-                                } catch (err) {
-                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                    console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                    error = err
+                                    try {
+                                        await git.add('./*')
+                                        await git.commit(commitMessage)
+                                        await git.push('origin', currentBranch)
+                                    } catch (err) {
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                        error = err
+                                    }
+                                } else {
+                                    console.log('[ERROR] `git` not installed.')
                                 }
                             }
 
@@ -811,22 +817,28 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             async function doGit() {
-                                const simpleGit = require('simple-git');
-                                const options = {
-                                    baseDir: process.cwd(),
-                                    binary: 'git',
-                                    maxConcurrentProcesses: 6,
-                                }
-                                const git = simpleGit(options)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('bash');
+                                    if (gitpath !== undefined) {
+                                    const simpleGit = require('simple-git');
+                                    const options = {
+                                        baseDir: process.cwd(),
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    const git = simpleGit(options)
 
-                                let message
-                                try {
-                                    message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
-                                    return { message: message }
-                                } catch (err) {
-                                    console.log('[ERROR] Error updating ' + currentBranch)
-                                    console.log(err.stack)
-                                    return { error: err }
+                                    let message
+                                    try {
+                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        return { message: message }
+                                    } catch (err) {
+                                        console.log('[ERROR] Error updating ' + currentBranch)
+                                        console.log(err.stack)
+                                        return { error: err }
+                                    }
+                                } else {
+                                    console.log('[ERROR] `git` is not installed.')
                                 }
                             }
 
@@ -870,19 +882,25 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             async function doGit() {
-                                const simpleGit = require('simple-git');
-                                const options = {
-                                    baseDir: process.cwd(),
-                                    binary: 'git',
-                                    maxConcurrentProcesses: 6,
-                                }
-                                const git = simpleGit(options)
-                                try {
-                                    await git.checkout(currentBranch)
-                                } catch (err) {
-                                    console.log('[ERROR] Error changing current branch to ' + currentBranch)
-                                    console.log(err.stack)
-                                    error = err
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('bash');
+                                if (gitpath !== undefined) {
+                                    const simpleGit = require('simple-git');
+                                    const options = {
+                                        baseDir: process.cwd(),
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    const git = simpleGit(options)
+                                    try {
+                                        await git.checkout(currentBranch)
+                                    } catch (err) {
+                                        console.log('[ERROR] Error changing current branch to ' + currentBranch)
+                                        console.log(err.stack)
+                                        error = err
+                                    }
+                                } else {
+                                    console.log('[ERROR] `git` is not installed.')
                                 }
                             }
 
@@ -927,18 +945,24 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             }
 
                             async function doGit() {
-                                const simpleGit = require('simple-git');
-                                const options = {
-                                    baseDir: process.cwd(),
-                                    binary: 'git',
-                                    maxConcurrentProcesses: 6,
-                                }
-                                const git = simpleGit(options)
-                                try {
-                                    return await git.branch()
-                                } catch (err) {
-                                    console.log('[ERROR] Error reading current branch.')
-                                    console.log(err.stack)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('bash');
+                                if (gitpath !== undefined) {
+                                    const simpleGit = require('simple-git');
+                                    const options = {
+                                        baseDir: process.cwd(),
+                                        binary: 'git',
+                                        maxConcurrentProcesses: 6,
+                                    }
+                                    const git = simpleGit(options)
+                                    try {
+                                        return await git.branch()
+                                    } catch (err) {
+                                        console.log('[ERROR] Error reading current branch.')
+                                        console.log(err.stack)
+                                    }
+                                } else {
+                                    console.log('[ERROR] `git` not installed.')
                                 }
                             }
 

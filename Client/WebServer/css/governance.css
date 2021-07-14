@@ -737,7 +737,7 @@
     vertical-align: top;
     }
     
-    .governance-info-table > thead > tr > th {
+    .governance-info-table > thead > tr > th > a {
     vertical-align: middle;
     text-transform: none;
     background-color: #333;

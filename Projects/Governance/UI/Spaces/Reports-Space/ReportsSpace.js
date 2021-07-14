@@ -7,6 +7,8 @@ function newGobernanceReportsSpace() {
         reportsPage: undefined,
         footer: undefined,
         userProfiles: undefined,
+        tablesSortingOrders: undefined,
+        changeTableSortingOrder,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -64,6 +66,13 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles.initialize()
 
         setupSidePanelTab()
+
+        thisObject.tablesSortingOrders = {
+            userProfiles: {
+                property: 'name',
+                order: 'ascending'
+            }
+        }
         
         isInitialized = true
 
@@ -121,6 +130,10 @@ function newGobernanceReportsSpace() {
         } else {
             return undefined
         }
+    }
+
+    function changeTableSortingOrder(table, property, order){
+
     }
 
     function onOpening() {

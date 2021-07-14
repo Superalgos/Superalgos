@@ -413,6 +413,8 @@ function newWorkspace() {
                         UI.projects.foundations.spaces.floatingSpace.inMapMode = false
                         thisObject.isInitialized = true
 
+                        UI.projects.governance.spaces.reportsSpace.reset()
+
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 

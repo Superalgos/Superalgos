@@ -6,7 +6,8 @@ function newFoundationsSideSpace() {
         rightTabs: undefined,
         physics: physics,
         draw: draw,
-        createSidePanelTab, createSidePanelTab,
+        createSidePanelTab: createSidePanelTab,
+        deleteSidePanelTab: deleteSidePanelTab,
         getContainer: getContainer,
         initialize: initialize,
         finalize: finalize
@@ -60,28 +61,68 @@ function newFoundationsSideSpace() {
         return sidePanel
     }
 
+    function deleteSidePanelTab(porject, iconName, label, side) {
+
+        let key = porject + '-' + iconName + '-' + label + '-' + side
+        if (existingTabs.get(key) !== undefined) {
+            let sidePanelTab = existingTabs.get(key)
+
+            switch (side) {
+                case 'left': {
+                    thisObject.leftTabs.splice(sidePanelTab.index - 1, 1)
+                    break
+                }
+                case 'right': {
+                    thisObject.rightTabs.splice(sidePanelTab.index - 1, 1)
+                    break
+                }
+            }
+
+            sidePanelTab.finalize()
+            existingTabs.delete(key)
+
+            /*
+            Reindex Remaining SidTabs
+            */
+            let indexLeft = 1
+            let indexRight = 1
+
+            existingTabs.forEach(reindex)
+
+            function reindex(sideTab, key, map) {
+                switch (sideTab.screenside) {
+                    case 'left': {
+                        sideTab.index = indexLeft
+                        indexLeft++
+                        break
+                    }
+                    case 'right': {
+                        sideTab.index = indexRight
+                        indexRight++
+                        break
+                    }
+                }
+
+            }
+        }
+    }
+
     function getContainer(point, purpose) {
 
     }
 
     function physics() {
-        for (let i = 0; i < thisObject.leftTabs.length; i++) {
-            let sideTab = thisObject.leftTabs[i]
-            sideTab.physics()
-        }
-        for (let i = 0; i < thisObject.rightTabs.length; i++) {
-            let sideTab = thisObject.rightTabs[i]
+        existingTabs.forEach(sideTabPhysics)
+
+        function sideTabPhysics(sideTab, key, map) {
             sideTab.physics()
         }
     }
 
     function draw() {
-        for (let i = 0; i < thisObject.leftTabs.length; i++) {
-            let sideTab = thisObject.leftTabs[i]
-            sideTab.draw()
-        }
-        for (let i = 0; i < thisObject.rightTabs.length; i++) {
-            let sideTab = thisObject.rightTabs[i]
+        existingTabs.forEach(sideTabDraw)
+
+        function sideTabDraw(sideTab, key, map) {
             sideTab.draw()
         }
     }

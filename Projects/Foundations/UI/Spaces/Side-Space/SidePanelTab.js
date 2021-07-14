@@ -15,7 +15,8 @@ function newSidePanelTab() {
         physics: physics,
         draw: draw,
         getContainer: getContainer,
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
 
     const TAB_WIDTH = 60
@@ -26,6 +27,7 @@ function newSidePanelTab() {
     let animation = 'none'
     let ORIGINAL_PARENT_POSITON
     let xOffset = 0
+    let onMouseClickEventSubscriptionId
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -34,6 +36,11 @@ function newSidePanelTab() {
     thisObject.container.isDraggeable = false
 
     return thisObject
+
+    function finalize() {
+        thisObject.pointerDirection = undefined
+        thisObject.container.eventHandler.stopListening(onMouseClickEventSubscriptionId)
+    }
 
     function initialize(screenside, index) {
         thisObject.screenside = screenside
@@ -54,7 +61,7 @@ function newSidePanelTab() {
         thisObject.container.frame.width = TAB_WIDTH
         thisObject.container.frame.height = TAB_HEIGHT
 
-        thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
+        onMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
         resize()
         isInitialized = true
     }
@@ -126,7 +133,7 @@ function newSidePanelTab() {
     }
 
     function positionPhysics() {
-        thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 + thisObject.index * (TAB_HEIGHT - 1)
+        thisObject.container.frame.position.y = browserCanvas.height / 2 - TAB_HEIGHT / 2 + (thisObject.index - 1) * TAB_HEIGHT 
     }
 
     function draw() {

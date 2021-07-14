@@ -13,18 +13,9 @@ function newGobernanceReportsSpace() {
         draw: draw,
         getContainer: getContainer,
         finalize: finalize,
-        initialize: initialize
+        initialize: initialize,
+        reset: reset
     }
-
-    thisObject.container = newContainer()
-    thisObject.container.name = MODULE_NAME
-    thisObject.container.initialize()
-    thisObject.container.isClickeable = true
-    thisObject.container.isDraggeable = false
-    thisObject.container.detectMouseOver = true
-    thisObject.container.status = 'hidden'
-
-    resize()
 
     let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
@@ -35,12 +26,18 @@ function newGobernanceReportsSpace() {
     return thisObject
 
     function finalize() {
-        canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+
+        if (isInitialized === false) { return }
 
         thisObject.container.finalize()
         thisObject.container = undefined
+
+        canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+        thisObject.sidePanelTab = undefined
+
+        UI.projects.foundations.spaces.sideSpace.deleteSidePanelTab('Governance', 'governance-tab', 'Gov', 'right')
 
         thisObject.reportsPage.finalize()
         thisObject.reportsPage = undefined
@@ -51,12 +48,23 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles.finalize()
         thisObject.userProfiles = undefined
 
-        let isInitialized = false
+        isInitialized = false
     }
 
     function initialize() {
+        let resultsArary = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        if (resultsArary.length === 0) { return }
 
-        
+        thisObject.container = newContainer()
+        thisObject.container.name = MODULE_NAME
+        thisObject.container.initialize()
+        thisObject.container.isClickeable = true
+        thisObject.container.isDraggeable = false
+        thisObject.container.detectMouseOver = true
+        thisObject.container.status = 'hidden'
+    
+        resize()
+
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
@@ -68,7 +76,7 @@ function newGobernanceReportsSpace() {
         setupSidePanelTab()
 
         thisObject.tablesSortingOrders = {}
-        
+
         isInitialized = true
 
         function setupSidePanelTab() {
@@ -80,6 +88,11 @@ function newGobernanceReportsSpace() {
 
             browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
         }
+    }
+
+    function reset() {
+        finalize()
+        initialize()
     }
 
     function resize() {
@@ -94,6 +107,8 @@ function newGobernanceReportsSpace() {
     }
 
     function physics() {
+        if (isInitialized === false) { return }
+
         docsAppDivPhysics()
 
         function docsAppDivPhysics() {
@@ -114,6 +129,7 @@ function newGobernanceReportsSpace() {
     }
 
     function getContainer(point, purpose) {
+        if (isInitialized === false) { return }
         if (thisObject.sidePanelTab === undefined) { return }
         let container
 
@@ -127,7 +143,7 @@ function newGobernanceReportsSpace() {
         }
     }
 
-    function changeTableSortingOrder(table, property, order){
+    function changeTableSortingOrder(table, property, order) {
         thisObject.tablesSortingOrders[table].property = property
         thisObject.tablesSortingOrders[table].order = order
         thisObject.reportsPage.render()

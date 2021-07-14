@@ -1,9 +1,8 @@
-function newFoundationsChatSpace() {
-    const MODULE_NAME = 'Chat Space'
+function newFoundationsWorkspaceSpace() {
+    const MODULE_NAME = 'Workspace Space'
     let thisObject = {
         sidePanelTab: undefined,
         container: undefined,
-        navigateTo: navigateTo,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -21,55 +20,48 @@ function newFoundationsChatSpace() {
     thisObject.container.detectMouseOver = true
     thisObject.container.status = 'hidden'
 
+    let listView
+
     resize()
 
-    let browserResizedEventSubscriptionId
     let openingEventSubscriptionId
-    let closingEventSubscriptionId
-
-    const DEFAULT_URL = 'https://web.telegram.org/#/im?p=@superalgoscommunity'
+    let closedEventSubscriptionId
+    let browserResizedEventSubscriptionId
     return thisObject
 
     function initialize() {
-        return
-        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'docs-tab', 'Docs', 'right')
 
-        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
-        closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
+        thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Foundations', 'workspace', 'Workspaces', 'left')
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
 
+        initializeListView()
         isInitialized = true
     }
 
     function finalize() {
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
-        thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+        thisObject.sidePanelTab.container.eventHandler.stopListening(closedEventSubscriptionId)
     }
 
-    function onOpening() {
-        let docIFrame = document.getElementById('docIFrame')
-        if (docIFrame.src === "") {
-            docIFrame.src = DEFAULT_URL
-        }
-    }
-
-    function onClosing() {
-
-    }
-
-    function navigateTo(url) {
-        let docIFrame = document.getElementById('docIFrame')
-        docIFrame.src = url
-        thisObject.sidePanelTab.open()
+    function initializeListView() {
+        listView = newListView()
+        listView.initialize()
+        listView.container.connectToParent(thisObject.container, false, false)
+        openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', listView.turnOn)
+        closedEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closed', listView.turnOff)
     }
 
     function resize() {
-        thisObject.container.frame.width = 1200
+        thisObject.container.frame.width = SIDE_PANEL_WIDTH
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
-        thisObject.container.frame.position.x = browserCanvas.width
+        thisObject.container.frame.position.x = -SIDE_PANEL_WIDTH
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT
+
+        if (listView !== undefined) {
+            listView.resize()
+        }
 
         if (thisObject.sidePanelTab !== undefined) {
             thisObject.sidePanelTab.resize()
@@ -83,48 +75,25 @@ function newFoundationsChatSpace() {
         container = thisObject.sidePanelTab.getContainer(point, purpose)
         if (container !== undefined) { return container }
 
+        container = listView.getContainer(point, purpose)
+        if (container !== undefined) { return container }
+
         if (thisObject.container.frame.isThisPointHere(point, true) === true) {
-            if (container.isWheelable === true) {
-                return thisObject.container
-            } else {
-                UI.projects.foundations.spaces.chartingSpace.viewport.onMouseWheel(event)
-                return
-            }
+            return thisObject.container
         } else {
-            return
+            return undefined
         }
     }
 
     function physics() {
-        chatAppDivPhysics()
-        iFramePhysics()
-
-        function chatAppDivPhysics() {
-            let chatAppDiv = document.getElementById('chatApp')
-            chatAppDivPosition = {
-                x: 0,
-                y: 0
-            }
-            chatAppDivPosition = thisObject.container.frame.frameThisPoint(chatAppDivPosition)
-            chatAppDiv.style = '   ' +
-                'position:fixed; top:' + chatAppDivPosition.y + 'px; ' +
-                'left:' + chatAppDivPosition.x + 'px; z-index:1; ' +
-                'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'
-        }
-
-        function iFramePhysics() {
-            let docIFrame = document.getElementById('chatIFrame')
-            docIFrame.style = '  ' +
-                'width: ' + thisObject.container.frame.width + 'px;' +
-                'height: ' + thisObject.container.frame.height + 'px'
-        }
+        listView.physics()
     }
 
     function draw() {
         if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
+        listView.draw()
     }
 
     function borders() {
@@ -174,6 +143,7 @@ function newFoundationsChatSpace() {
 
         browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.GREY + ', ' + opacity + ''
         browserCanvasContext.lineWidth = 0.3
+        browserCanvasContext.setLineDash([]) // Resets Line Dash
         browserCanvasContext.stroke()
 
         /* Shadow */
@@ -190,6 +160,7 @@ function newFoundationsChatSpace() {
 
                 browserCanvasContext.strokeStyle = 'rgba(' + UI_COLOR.BLACK + ', ' + opacity + ''
                 browserCanvasContext.lineWidth = 1
+                browserCanvasContext.setLineDash([]) // Resets Line Dash
                 browserCanvasContext.stroke()
             }
         }

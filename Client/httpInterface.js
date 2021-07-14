@@ -1547,6 +1547,12 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                 }
                 break
 
+            case 'governance.css':
+                {
+                    sendStyleSheet('governance.css')
+                }
+                break
+
             case 'context-menu.css':
                 {
                     sendStyleSheet('context-menu.css')

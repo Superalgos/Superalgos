@@ -1,0 +1,1117 @@
+
+.governance-page {
+    border: 0px solid;
+    background-color: whitesmoke; 
+    /*background-color: #fdfdfd;*/
+    }
+    
+    .governance-search-page-container {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #365558; 
+    line-height: 150%;
+    margin: 20 25 20 30px;
+    }
+    
+    .governance-common-style-container{
+    /*background-color: white;*/
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #324d50; 
+    line-height: 150%;
+    margin: 20 30px;
+    margin: 20 25 20 30px;
+    caret-color: transparent;
+    }
+    
+    .governance-node-html-footer-container {
+    font: 400 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #e6eaea; 
+    background-color: #365558;
+    line-height: 160%;
+    border-top: 5px solid #0295aa;
+    margin: 80px 0 0 0;
+    padding: 30 0 20 0px;
+    caret-color: transparent;
+    }
+    
+    /* DELETE candidate (delete class assignment on DocsSapace.js too)
+    
+    .governance-context-menu-clickeable-container {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #111; 
+    line-height: 150%;
+    margin: 20 20 20 30px;
+    }
+    
+    */
+    
+    #governance-common-style-container-div ul {
+    padding: 0px;
+    margin-left: 35px;
+    list-style-position: outside;
+    }
+    
+    .governance-font-normal {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    color: #111; 
+    line-height: 150%;
+    }
+    
+    .governance-title-table {
+    vertical-align: middle;
+    width: 100%;
+    min-width: 95px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border: 0px solid #cdcdcd;
+    padding: 5px;
+    }
+    
+    .governance-table-cell{
+    display: table-cell;
+    width: 100%;
+    }
+    
+    .governance-definition-table {
+    background-color: white;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    padding: 10px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    border-collapse: separate;
+    border-spacing: 10px;
+    /* DELETE candidate
+    margin-right: 20px;
+    */
+    }
+    
+    .governance-definition-text {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20px;
+    }
+    
+    .governance-image-container {
+    padding: 5px 0px 5px 5px;
+    border: solid 0px;
+    display: table-cell;
+    vertical-align: middle;
+    }
+    
+    .governance-hierarchy-image-container {
+    padding: 0px 0px 0px 0px;
+    border: solid 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    }
+    
+    /* Link without tooltip */
+    .governance-link {
+    position: relative;
+    display: inline-block;
+    color: #0295aa !important; 
+    text-decoration: underline !important; 
+    cursor: pointer;
+    }
+    
+    /* Tooltip container */
+    .governance-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dashed #999; 
+    cursor: pointer;
+    line-height: inherit;
+    }
+    
+    /* Tooltip text */
+    .governance-tooltip .governance-tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: #0295aa;
+    color: #fff;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 130%; 
+    text-align: center;
+    padding: 15px;
+    border-radius: 6px;
+    
+    /* Position the governance-tooltip text */
+    position: absolute;
+    z-index: 0;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -120px;
+    
+    
+    /* Fade in governance-tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    }
+    
+    /* Tooltip arrow */
+    .governance-tooltip .governance-tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #0295aa transparent transparent transparent;
+    }
+    
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .governance-tooltip:hover .governance-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    }
+    
+    /* Headings */
+    
+    .governance-h1 {
+    font-size:210%; 
+    margin-top: 40px; 
+    padding-bottom: 5px;
+    }
+    
+    .governance-h2 {
+    font-weight:700; 
+    font-size:170%; 
+    line-height: 170%;
+    margin-top: 30px; 
+    padding-bottom: 5px; 
+    overflow:hidden;
+    }
+    
+    .governance-h2::after{
+    content:'';
+    display:inline-block;
+    width:90%;
+    margin-right:-100%;
+    border-bottom: 1px solid #cdd4d5;
+    margin-left: 20px;
+    }
+    
+    .governance-h3 {
+    font-weight:500; 
+    font-size:150%; 
+    margin-top: 40px;
+    margin-bottom: 20px;
+    }
+    
+    .governance-h4 {
+    font-weight:400; 
+    font-style: italic;
+    font-size:135%; 
+    margin-top: 30px;
+    margin-bottom: 20px;
+    }
+    
+    /* DELETE candidate
+    
+    .governance-h5 {font-weight:400; font-size:140%; margin-top: 35px; font-style:italic;}
+    
+    .governance-h6 {font-weight:400; font-size:130%; margin-top: 35px; font-style:italic;}
+    margin-right: 20px;
+    
+    */
+    .governance-text-area {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+    resize: none;
+    outline: none;
+    box-shadow: none;
+    overflow:hidden;
+    background-color: #eff;
+    border: 1px solid #0295aa;
+    border-radius: 5px;
+    color: #111; 
+    width: 100%;
+    height: 25%;
+    z-index:100;
+    padding: 0px 10px;
+    font-size: 95%;
+    line-height: 140%;
+    caret-color: #111;
+    }
+    
+    /* Alerts */
+    .governance-alert-note {
+    color: #31708f;
+    background-color: #d9edf7;
+    padding: 15px;
+    border: 1px solid rgba(49, 112, 143, .3);
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    padding: 15px;
+    border: 1px solid rgba(60, 118, 61, .3);
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-alert-important {
+    color: #5e3e07;
+    background-color: #fcf8e3;
+    padding: 15px;
+    border: 1px solid rgba(138, 109, 59, .3);
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-alert-warning {
+    color: #a94442;
+    background-color: #f2dede;
+    padding: 15px;
+    border: 1px solid rgba(169, 68, 66, .3);
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-alert-error {
+    color: #fff16c;
+    background-color: #ff3131;
+    padding: 30px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-callout {
+    background-color:white;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #bcd643;
+    font-weight: 550 !important;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-topic-index {
+    background-color:white;
+    padding: 25 20px;
+    margin: 40px 0 0 0;
+    border: 1px solid rgba(49, 112, 143, .2);
+    border-left-width: 5px;
+    border-radius: 5px;
+    border-left-color: #365558;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-topic-index h2 {
+    font-size: 130%;
+    font-weight: 300;
+    margin: 10px 0 35 -5;
+    padding: 0px;
+    }
+    
+    .governance-topic-index h3 {
+    font-size: 150%;
+    font-weight: 300;
+    margin: 25px 0;
+    padding: 0px;
+    }
+    
+    .governance-topic-index p {
+    font-size: 100%;
+    padding: 0px;
+    margin: 2px 0;
+    }
+    
+    .governance-topic-index a {
+    color: #365558;
+    }
+    
+    .governance-topic-index a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0295aa;
+    }
+    
+    .governance-summary {
+    background-color:white;
+    font-weight: 600;
+    color: #365558;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-left: 5px solid #fd6a33;
+    width: 100%;
+    box-sizing: border-box;
+    }
+    
+    .governance-section {
+    font-size:120%;
+    padding: 200px;
+    }
+    
+    .governance-note-circle:before {
+    content:"\f05a"
+    }
+    
+    .governance-check-square-o:before {
+    content:"\f046"
+    }
+    
+    .governance-exclamation-circle:before { 
+    content:"\f06a"
+    }
+    
+    .governance-warning-sign:before,.fa-exclamation-triangle:before {
+    content:"\f06a"
+    }
+    
+    .governance-fa {
+    font:normal normal normal 14px/1 FontAwesome;
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale
+    }
+    
+    .governance-font-small {
+    font:normal normal normal 14px/1 "segoeui";
+    font-size:inherit;
+    text-rendering:auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height: 150%
+    }
+    
+    li > .governance-font-small {
+    margin-bottom:7px;
+    }
+    
+    div.governance-font-small {
+    margin-bottom:7px;
+    }
+    
+    hr.governance-shaded {
+    box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.5);
+    margin: 90 0 70 0;
+    height: 12px;
+    border: 0;
+    background: white;
+    width: 100%;
+    }
+    
+    /* Topic Navigation */
+    
+    .governance-topic-navigation {
+    display: table;
+    width: 100%;
+    vertical-align: middle;
+    margin: 80px 0 0 0;
+    /* 
+    border-top: 1px solid rgba(54, 85, 88, .3);
+    margin: 60px 0 0 0;
+    padding-top: 20px;
+    */
+    }
+    
+    .governance-topic-navigation div {
+    display: table-cell;
+    width: 50%;
+    max-width: 50%;
+    text-align: center;
+    vertical-align: top;
+    padding: 10px;
+    /* 
+    height: 40px;
+    */
+    }
+    
+    .governance-topic-navigation div button{
+    border-radius: 50px;
+    border: 0px;
+    color: #e6eaea; 
+    background-color: #365558;
+    padding: 10px;
+    margin: 0 0 10 10px;
+    font-size: 100%;
+    line-height: 150%;
+    width: 150px;
+    height:100%;
+    }
+    
+    .governance-topic-navigation div button:hover {
+    background-color: #0295aa;
+    cursor: pointer;
+    }
+    
+    /* Footer */
+    
+    .governance-node-html-footer-table {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    }
+    
+    .governance-footer-row {
+    display: table-row;
+    }
+    
+    .governance-footer-cell {
+    padding: 5px 15px 0px 30px;
+    display: table-cell;
+    width: 33%;
+    }
+    
+    #governance-footer h3 {
+    font-size: 180%;
+    font-weight: 300;
+    padding: 10px 0 0 0;
+    }
+    
+    #governance-footer h4 {
+    font-size: 120%;
+    font-weight: 300;
+    }
+    
+    #governance-footer button{
+    border: 1px outset #e6eaea;
+    border-radius: 20px;
+    background-color: transparent;
+    color: e6eaea;
+    padding: 10px;
+    margin: 0 0 0 10px;
+    }
+    
+    #governance-footer button:hover {
+    border: 1px inset #e6eaea;
+    cursor: pointer;
+    }
+    
+    #governance-footer a:hover {
+    text-decoration: none;
+    color: #ff8c29 !important;
+    cursor: pointer;
+    }
+    
+    #governance-footer a:link,
+    #governance-footer a:visited,
+    #governance-footer a:active {
+    text-decoration: none;
+    color: #ffd1a9;
+    }
+    
+    .governance-footer-language {
+    width: 30px;
+    margin-top: 7px;
+    padding: 7 7px;
+    }
+    
+    .governance-footer-language-selected {
+        width: 30px;
+        margin-top: 7px;
+        padding: 7 7px;
+        background-color: rgba(230, 234, 234, 0.2);
+    /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+    border: 1px solid rgba(200, 200, 200, .5);
+    border-radius: 3px;
+        }
+    
+    
+    /* DELETE candidate
+    .governance-footer-body {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+    */
+    
+    /* Links */
+    a:link.governance-plain-link {
+    text-decoration: none;
+    }
+    
+    a:visited.governance-plain-link {
+    text-decoration: none;
+    }
+    
+    a:hover.governance-plain-link {
+    text-decoration: none;
+    }
+    
+    a:active.governance-plain-link {
+    text-decoration: none;
+    }
+    
+    /* Icon after external links, using FontAwesome*/
+    a[href^="http://"]:after, a[href^="https://"]:after {
+    content: "\f08e";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 3px;
+    }
+    
+    /* Tags */
+    
+    kbd.governance-kbd {
+    margin: 0 0 0 15px;
+    }
+    
+    code.governance-code {
+    color: #d9534f;
+    background-color: rgba(230, 234, 234, .5);
+    /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .1);
+    border-radius: 3px;
+    padding: 0 5;
+    }
+    
+    code.governance-footer-code {
+    color: #eee;
+    background-color: rgba(230, 234, 234, 0.2);
+    /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+    border: 1px solid rgba(200, 200, 200, .5);
+    border-radius: 3px;
+    padding: 0 5;
+    }
+    
+    a:hover.code.governance-footer-code {
+    color: #eee;
+    background-color: rgba(253, 106, 51, 1);
+    /* border: 1px solid rgba(205, 212, 213, 0.5); DELETE Candidate*/
+    border: 1px solid rgba(200, 200, 200, .5);
+    border-radius: 3px;
+    padding: 0 5;
+    }
+    
+    /* Style the button that is used to open and close the governance-collapsible-element content */
+    .governance-collapsible-element {
+    background-color: #eee;
+    color: #31708f;
+    cursor: pointer;
+    width: 97.5%;
+    text-align: left;
+    outline: none;
+    font-size: 100%;
+    padding: 10px;
+    margin: 4px 0 4 20;
+    transition: 0.1s;
+    /* border: 1px solid #ddd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-radius: 5px;
+    background-color: white;
+    vertical-align: middle;
+    box-sizing: border-box;
+    }
+    
+    .governance-collapsible-element img {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    width: 40px;
+    height: 40px;
+    }
+    
+    /* This definition is redundant with .governance-collapsible-element img but affects some images. Investigation required to delete it.*/
+    
+    .governance-collapsible-image {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    width: 40px;
+    height: 40px;
+    }
+    
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .governance-collapsible-element:hover {
+    border: 1px solid #0295aa;
+    background-color: #eff;
+    }
+    
+    /* Style the governance-collapsible-element content. Note: hidden by default */
+    .governance-collapsible-content {
+    padding: 0 18px;
+    display: none;
+    margin-left: 75px;
+    z-index: 1;
+    font-size: 90%;
+    line-height: 90%;
+    }
+    
+    .governance-collapsible-code-content {
+    padding: 0;
+    display: none;
+    margin-left: 0px;
+    z-index: 1;
+    }
+    
+    .governance-collapsible-element:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 60%;
+    color: #31708f;
+    margin-left: 5px;
+    float: right;
+    vertical-align: middle;
+    line-height: 40px;
+    }
+    
+    .governance-collapsible-active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
+    
+    /* This is the same Style as the collapsible counter part but will not hold any collapsed content inside. */
+    .governance-non-collapsible-element {
+    /*
+    background-color: #fdfdfd;
+    color: #444;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 125%;
+    vertical-align: middle;
+    min-height: 80px;
+    */
+    background-color: #eee;
+    color: #31708f;
+    width: 97.5%;
+    text-align: left;
+    outline: none;
+    font-size: 100%;
+    vertical-align: middle;
+    padding: 10px;
+    margin: 4px 0 4 20;
+    transition: 0.1s;
+    /* border: 1px solid #ddd;DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-radius: 5px;
+    background-color: white;
+    
+    box-sizing: border-box;
+    }
+    
+    /* Info Tables */
+    .governance-info-table {
+    background-color: transparent;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* border: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-spacing: 0px;
+    }
+    
+    .governance-info-table > thead > tr > th,
+    .governance-info-table > tbody > tr > th,
+    .governance-info-table > tfoot > tr > th,
+    .governance-info-table > thead > tr > td,
+    .governance-info-table > tbody > tr > td,
+    .governance-info-table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 150%;
+    vertical-align: top;
+    }
+    
+    .governance-info-table > thead > tr > th > a {
+    vertical-align: middle;
+    text-transform: none;
+    background-color: #333;
+    color: white;
+    text-align: left;
+    }
+    
+    .governance-info-table > tbody > tr > td {
+    /* border-top: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    }
+    
+    .governance-info-table-alt-bg td {
+    background-color: #f9f9f9;
+    }
+    
+    /* Gif Image */
+    .governance-gif {
+    max-width: 100%;
+    width: 100%;
+    /* border: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-spacing: 1px;
+    }
+    
+    /* PNG Image */
+    .governance-png {
+    max-width: 100%;
+    width: 100%;
+    /* border: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-spacing: 1px;
+    }
+    
+    /* Search Page */
+    .governance-image-logo-search {
+    margin: auto;
+    margin-top: 225px;
+    margin-bottom: 25px;
+    }
+    
+    .governance-search-box {
+    width: 700px;
+    height: 45px;
+    margin-top: 50px;
+    margin-bottom: 600px;
+    border-radius: 30px;
+    border: 1px solid #0295aa;
+    background-color: white;
+    vertical-align: middle;
+    }
+    
+    .governance-search-input {
+    width: 95%;
+    height: 45px;
+    margin: 0 20px;
+    font-size: 100%;
+    color: #6b6b6b; 
+    border: none;
+    outline: none;
+    background-color: transparent;
+    }
+    
+    /* Search Results Page */
+    
+    /* Search Results Page Header*/
+    
+    .governance-report-page-header {
+    display: table;
+    }
+    
+    .governance-image-logo-report-page {
+    vertical-align: middle;
+    display: table-cell;
+    padding-right: 25px;
+    caret-color: transparent;
+    }
+    
+    .governance-report-page-box {
+    height: 45px;
+    border-radius: 30px;
+    border: 1px solid #0295aa;
+    background-color: white;
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+    }
+    
+    .governance-report-page-header-tabs-container {
+    display: table;
+    padding-left: 180px;
+    margin-top: 20px;
+    caret-color: transparent;
+    }
+    
+    .governance-report-page-header-tabs-container > input {
+    display: none;
+    }
+    
+    .governance-report-page-header-tabs-container > label {
+    display: inline-block; 
+    vertical-align: bottom;
+    padding: 0 15px 3px 15px;
+    color: #365558;
+    font-size: 90%;
+    }
+    
+    .governance-report-page-header-tabs-container > label:hover {
+    color: #0295aa;
+    padding-bottom: 3px;
+    cursor: pointer;
+    }
+    
+    .governance-report-page-header-tabs-container > input:checked + label {
+    color: #0295aa;
+    padding-bottom: 2px;
+    border-bottom:  3px solid #0295aa;
+    }
+    
+    /* Search Results Page Content */
+    .governance-search-result-content {
+    border-top: 1px solid #0295aa;
+    margin-left: -180px;
+    caret-color: transparent;
+    }
+    
+    .governance-search-result-content > div {
+    display: none;
+    }
+    
+    #tab1:checked ~ .governance-search-result-content #content1,
+    #tab2:checked ~ .governance-search-result-content #content2,
+    #tab3:checked ~ .governance-search-result-content #content3,
+    #tab4:checked ~ .governance-search-result-content #content4,
+    #tab5:checked ~ .governance-search-result-content #content5,
+    #tab6:checked ~ .governance-search-result-content #content6,
+    #tab7:checked ~ .governance-search-result-content #content7,
+    #tab8:checked ~ .governance-search-result-content #content8 {
+    display: block;
+    }
+    
+    /* Search Results Page Record */
+    
+    .governance-search-result-content-record-container {
+    margin: 20px 0;
+    }
+    
+    .governance-search-result-content-record-container > p {
+    margin: 1px;
+    }
+    
+    .governance-search-result-content-record-project-category {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-project-category-link {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    a:hover.governance-search-result-content-record-project-category-link {
+    text-decoration: underline;
+    cursor: pointer;
+    }
+    
+    .governance-search-result-content-record-topic {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-tutorial {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-review {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-topic {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-tutorial {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-review {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-search-result-content-record-title {
+    font-size: 120%;
+    font-weight: 500;
+    text-decoration: none;
+    color: #e44d40;
+    }
+    
+    a:link.governance-search-result-content-record-title {
+    text-decoration: none;
+    color: #e44d40;
+    }
+    
+    a:visited.governance-search-result-content-record-title {
+    text-decoration: none;
+    color: #fd6a33;
+    }
+    
+    a:hover.governance-search-result-content-record-title {
+    text-decoration: underline;
+    cursor: pointer;
+    }
+    
+    a:active.governance-search-result-content-record-title {
+    text-decoration: none;
+    color: #fd6a33;
+    }
+    
+    .governance-search-result-content-record-extract {
+    font-size: 100%;
+    color: #333;
+    margin-top: 5px!important;
+    }
+    
+    /* Command Results Page Content */
+    .governance-command-result-content {
+    /* border-top: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    margin-left: -240px;
+    }
+    
+    .governance-command-result-message {
+    font-size: 90%;
+    color: #31708f;
+    }
+    
+    .governance-hidden-anchor {
+    border-top: 1px solid #eee;
+    padding: 0px;
+    margin: -20px 0px -40px 0;
+    width: 100%;
+    text-align: right;
+    color: transparent;
+    font-size: 75%;
+    }
+    
+    .governance-hidden-anchor::after{
+    content:' \2693';
+    color: transparent;
+    font-size: 130%;
+    }
+    
+    .governance-hidden-anchor:hover::after{
+    content:' \2693';
+    color: #365558;
+    font-size: 130%;
+    }
+    
+    .governance-hidden-block {
+    border-top: 1px solid #eee;
+    padding: 0px;
+    margin: -5px 0px -30px 0;
+    width: 100%;
+    text-align: right;
+    color: transparent;
+    font-size: 75%;
+    }
+    
+    .governance-hidden-block::after{
+    content:' \25BD';
+    color: #e0e0e0;
+    font-size: 150%;
+    }
+    
+    .governance-hidden-block:hover::after{
+    content:' \25BC';
+    color: #365558;
+    font-size: 150%;
+    }
+    
+    .governance-hidden-include {
+    border-top: 1px solid #eee;
+    padding: 0px;
+    margin: -5px 0px -30px 0;
+    width: 100%;
+    text-align: right;
+    color: transparent;
+    font-size: 75%;
+    }
+    
+    .governance-hidden-include::after{
+    content:' \275E';
+    color: #e6e6e6;
+    font-size: 200%;
+    }
+    
+    .governance-hidden-include:hover::after{
+    content:' \275E';
+    color: #365558;
+    font-size: 200%;
+    }
+    
+    .governance-hidden-placeholder {
+    border-top: 1px solid #eee;
+    padding: 0px;
+    margin: -5px 0px -30px 0;
+    width: 100%;
+    text-align: right;
+    color: transparent;
+    font-size: 75%;
+    }
+    
+    .governance-hidden-placeholder::after{
+    content:' \275E';
+    color: #e6e6e6;
+    font-size: 200%;
+    }
+    
+    .governance-hidden-placeholder:hover::after{
+    content:' \275E';
+    color: #365558;
+    font-size: 200%;
+    }
+    
+    /* Hierarchy Table */
+    .governance-hierarchy-table {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* border: 1px solid #cdcdcd; DELETE Candidate*/
+    border: 1px solid rgba(54, 85, 88, .3);
+    border-spacing: 0;
+    border-collapse: collapse;
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #111;
+    }
+    
+    .governance-hierarchy-table-row{
+    background-color: #f5f5f5;
+    }
+    
+    .governance-hierarchy-table-cell{
+    text-align: center; 
+    vertical-align: middle;
+    }
+    
+    .governance-external-link {
+    text-decoration: underline;
+    color: #31708f;
+    }
+    
+    .governance-chapter {
+    border-top: 1px solid #eee;
+    padding: 0px;
+    margin: -5px 0px -30px 0;
+    width: 100%;
+    height: 40px;
+    text-align: right;
+    color: transparent;
+    font-size: 75%;
+    }
+    
+    .governance-youtube-video-container{
+    background-color: white; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    margin-bottom: 35px; 
+    max-width: 830px; 
+    max-height: 476px;
+    }
+    
+    

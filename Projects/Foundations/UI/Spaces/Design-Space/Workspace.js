@@ -311,7 +311,7 @@ function newWorkspace() {
                     workingAtTask = 0
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                    UI.projects.foundations.spaces.sideSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
                     break
@@ -412,6 +412,8 @@ function newWorkspace() {
                         workingAtTask = 0
                         UI.projects.foundations.spaces.floatingSpace.inMapMode = false
                         thisObject.isInitialized = true
+
+                        UI.projects.governance.spaces.reportsSpace.reset()
 
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()

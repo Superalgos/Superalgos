@@ -171,11 +171,8 @@ function newEducationDocSpace() {
             }
 
             function setupSidePanelTab() {
-                thisObject.sidePanelTab = newSidePanelTab()
-                thisObject.sidePanelTab.container.connectToParent(thisObject.container, false, false)
-                thisObject.sidePanelTab.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Education', 'docs-tab')
-                thisObject.sidePanelTab.tabLabel = 'Docs'
-                thisObject.sidePanelTab.initialize('right')
+                thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Education', 'docs-tab', 'Docs', 'right')
+
                 openingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('opening', onOpening)
                 closingEventSubscriptionId = thisObject.sidePanelTab.container.eventHandler.listenToEvent('closing', onClosing)
 
@@ -437,7 +434,6 @@ function newEducationDocSpace() {
     }
 
     function physics() {
-        thisObject.sidePanelTab.physics()
         docsAppDivPhysics()
 
         function docsAppDivPhysics() {
@@ -461,7 +457,6 @@ function newEducationDocSpace() {
         if (CAN_SPACES_DRAW === false) { return }
         if (isInitialized === false) { return }
         borders()
-        thisObject.sidePanelTab.draw()
     }
 
     function borders() {

@@ -38,7 +38,7 @@ function newGovernanceReportsUserProfiles() {
                 },
                 {
                     "name": "delegatedPower",
-                    "label": "Name",
+                    "label": "Delegated Power",
                     "type": "number",
                     "order": "descending"
                 },
@@ -77,7 +77,7 @@ function newGovernanceReportsUserProfiles() {
         Set the default sorting order for this table.
         */
         if (sortingOrder === undefined) {
-            UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table] =  {
+            UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table] = {
                 property: 'name',
                 order: 'ascending'
             }
@@ -130,13 +130,16 @@ function newGovernanceReportsUserProfiles() {
         Build the HTML
         */
         let odd = false
+        const upArrow = '&uarr;'
+        const downArrow = '&darr;'
 
         HTML = HTML + '<table class="governance-info-table">'
         HTML = HTML + '<thead>'
         HTML = HTML + '<tr>'
         for (let i = 0; i < tableRecordDefinition.properties.length; i++) {
             let property = tableRecordDefinition.properties[i]
-            let newOrder 
+            let newOrder
+            let orderArrow
             /*
             If the property is the one defining the order, then the new order will be
             the opossite order.
@@ -144,10 +147,13 @@ function newGovernanceReportsUserProfiles() {
             if (property.name === sortingOrder.property) {
                 if (sortingOrder.order === 'ascending') {
                     newOrder = 'descending'
+                    orderArrow = upArrow
                 } else {
                     newOrder = 'ascending'
+                    orderArrow = downArrow
                 }
             } else {
+                orderArrow = ""
                 /*
                 If the property is not the current defininf the order, then the new order will
                 be the default order for that property.
@@ -160,7 +166,7 @@ function newGovernanceReportsUserProfiles() {
                     }
                 }
             }
-            HTML = HTML + '<th>' + '<a href="#" onClick="UI.projects.governance.spaces.reportsSpace.changeTableSortingOrder(\'' + table + '\',\'' + property.name + '\',\'' + newOrder + '\')">' + property.label + '</a>' + '</th>'
+            HTML = HTML + '<th>' + '<a href="#" onClick="UI.projects.governance.spaces.reportsSpace.changeTableSortingOrder(\'' + table + '\',\'' + property.name + '\',\'' + newOrder + '\')">' + property.label + ' ' + orderArrow +'</a>' + '</th>'
         }
         HTML = HTML + '</tr>'
         HTML = HTML + '<thead>'

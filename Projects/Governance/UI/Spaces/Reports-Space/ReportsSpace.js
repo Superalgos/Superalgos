@@ -67,12 +67,7 @@ function newGobernanceReportsSpace() {
 
         setupSidePanelTab()
 
-        thisObject.tablesSortingOrders = {
-            userProfiles: {
-                property: 'name',
-                order: 'ascending'
-            }
-        }
+        thisObject.tablesSortingOrders = {}
         
         isInitialized = true
 
@@ -133,7 +128,9 @@ function newGobernanceReportsSpace() {
     }
 
     function changeTableSortingOrder(table, property, order){
-
+        thisObject.tablesSortingOrders[table].property = property
+        thisObject.tablesSortingOrders[table].order = order
+        thisObject.reportsPage.render()
     }
 
     function onOpening() {

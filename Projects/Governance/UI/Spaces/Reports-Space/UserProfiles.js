@@ -62,9 +62,9 @@ function newGovernanceReportsUserProfiles() {
 
             let tableRecord = {
                 "name": node.name,
-                "blockchainPower": node.payload.blockchainTokens,
-                "delegatedPower": node.payload.tokenPower - node.payload.blockchainTokens,
-                "tokenPower": node.payload.tokenPower
+                "blockchainPower": node.payload.blockchainTokens | 0,
+                "delegatedPower": node.payload.tokenPower - node.payload.blockchainTokens | 0,
+                "tokenPower": node.payload.tokenPower | 0
             }
 
             tableRecords.push(tableRecord)

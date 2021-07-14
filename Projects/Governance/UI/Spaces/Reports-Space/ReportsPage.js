@@ -73,7 +73,7 @@ function newGovernanceReportsReportsPage() {
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
                 HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_SECONDS', totalSeconds)
-                resultCounter = totalResults.get(tab)
+                let resultCounter = totalResults.get(tab)
                 HTML = HTML.replace(tab.toUpperCase() + '_TOTAL_RESULTS', resultCounter)
             }
 

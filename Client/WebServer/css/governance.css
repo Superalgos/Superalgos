@@ -718,7 +718,7 @@
     /* Info Tables */
     .governance-info-table {
     background-color: transparent;
-    max-width: 100%;
+    width: 100%;
     margin-bottom: 20px;
     margin-top: 20px;
     /* border: 1px solid #cdcdcd; DELETE Candidate*/
@@ -739,11 +739,14 @@
     
     .governance-info-table > thead > tr > th > a {
     vertical-align: middle;
-    text-transform: none;
-    background-color: #333;
+    text-decoration: none;
     color: white;
     text-align: left;
     }
+
+    .governance-info-table > thead > tr > th {
+        background-color: #333;
+        }
     
     .governance-info-table > tbody > tr > td {
     /* border-top: 1px solid #cdcdcd; DELETE Candidate*/

@@ -1,6 +1,5 @@
 function newGovernanceReportsUserProfiles() {
     let thisObject = {
-        resultCounter: undefined,
         addHTML: addHTML,
         initialize: initialize,
         finalize: finalize
@@ -18,7 +17,6 @@ function newGovernanceReportsUserProfiles() {
 
     function addHTML() {
 
-        thisObject.resultCounter = 0
         let tableRecords = []
         let table = 'userProfiles'
         let tableRecordDefinition = {

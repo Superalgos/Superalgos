@@ -7,6 +7,7 @@ function newGovernanceUtilitiesTables() {
 
     function addHTML(table, tableRecords, tableRecordDefinition) {
         let HTML = ''
+        let resultCounter = 0
         /*
         Get the sorting order for this table.
         */
@@ -131,7 +132,7 @@ function newGovernanceUtilitiesTables() {
                 }
             }
 
-            thisObject.resultCounter++
+            resultCounter++
 
             HTML = HTML + '</tr>'
         }
@@ -141,6 +142,6 @@ function newGovernanceUtilitiesTables() {
 
         HTML = HTML + '</section>'
 
-        return HTML
+        return { HTML: HTML, resultCounter: resultCounter }
     }
 }

@@ -666,37 +666,43 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             contribute()
 
                             async function contribute() {
-                                await doGit()
-                                if (error !== undefined) {
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
+                                } else {
+                                    await doGit()
+                                    if (error !== undefined) {
 
-                                    let docs = {
-                                        project: 'Foundations',
-                                        category: 'Topic',
-                                        type: 'App Error - Contribution Not Sent',
-                                        anchor: undefined,
-                                        placeholder: {}
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Contribution Not Sent',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                        return
                                     }
 
-                                    respondWithDocsObject(docs, error)
-                                    return
-                                }
+                                    await doGithub()
+                                    if (error !== undefined) {
 
-                                await doGithub()
-                                if (error !== undefined) {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Contribution Not Sent',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+                                        console.log('respond with docs ')
 
-                                    let docs = {
-                                        project: 'Foundations',
-                                        category: 'Topic',
-                                        type: 'App Error - Contribution Not Sent',
-                                        anchor: undefined,
-                                        placeholder: {}
+                                        respondWithDocsObject(docs, error)
+                                        return
                                     }
-                                    console.log('respond with docs ')
-
-                                    respondWithDocsObject(docs, error)
-                                    return
+                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
-                                respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
 
                             async function doGit() {
@@ -787,26 +793,32 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             update()
 
                             async function update() {
-                                let result = await doGit()
-
-                                if (result.error === undefined) {
-                                    let customResponse = {
-                                        result: global.CUSTOM_OK_RESPONSE.result,
-                                        message: result.message
-                                    }
-                                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
                                 } else {
+                                    let result = await doGit()
 
-                                    let docs = {
-                                        project: 'Foundations',
-                                        category: 'Topic',
-                                        type: 'App Error - Update Failed',
-                                        anchor: undefined,
-                                        placeholder: {}
+                                    if (result.error === undefined) {
+                                        let customResponse = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: result.message
+                                        }
+                                        respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                    } else {
+
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Update Failed',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, result.error)
+
                                     }
-
-                                    respondWithDocsObject(docs, result.error)
-
                                 }
                             }
 
@@ -852,20 +864,26 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             checkout()
 
                             async function checkout() {
-                                await doGit()
-
-                                if (error === undefined) {
-                                    respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
                                 } else {
-                                    let docs = {
-                                        project: 'Foundations',
-                                        category: 'Topic',
-                                        type: 'Switching Branches - Current Branch Not Changed',
-                                        anchor: undefined,
-                                        placeholder: {}
-                                    }
+                                    await doGit()
 
-                                    respondWithDocsObject(docs, error)
+                                    if (error === undefined) {
+                                        respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    } else {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'Switching Branches - Current Branch Not Changed',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                    }
                                 }
                             }
 
@@ -905,24 +923,30 @@ exports.newHttpInterface = function newHttpInterface(WEB_SERVER, DATA_FILE_SERVE
                             branch()
 
                             async function branch() {
-                                let result = await doGit()
-
-                                if (result.error === undefined) {
-                                    let customResponse = {
-                                        result: global.CUSTOM_OK_RESPONSE.result,
-                                        message: result
-                                    }
-                                    respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                const { lookpath } = require('lookpath');
+                                const gitpath = await lookpath('git');
+                                if (gitpath === undefined) {
+                                    console.log('[ERROR] `git` not installed.')
                                 } else {
-                                    let docs = {
-                                        project: 'Foundations',
-                                        category: 'Topic',
-                                        type: 'App Error - Could Not Get Current Branch',
-                                        anchor: undefined,
-                                        placeholder: {}
-                                    }
+                                    let result = await doGit()
 
-                                    respondWithDocsObject(docs, error)
+                                    if (result.error === undefined) {
+                                        let customResponse = {
+                                            result: global.CUSTOM_OK_RESPONSE.result,
+                                            message: result
+                                        }
+                                        respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                    } else {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'App Error - Could Not Get Current Branch',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                    }
                                 }
                             }
 

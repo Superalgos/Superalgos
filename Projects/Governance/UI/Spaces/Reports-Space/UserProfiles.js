@@ -133,6 +133,8 @@ function newGovernanceReportsUserProfiles() {
         const upArrow = '&uarr;'
         const downArrow = '&darr;'
 
+        HTML = HTML + '<section id="governance-report-page-div" class="governance-search-result-content">'
+
         HTML = HTML + '<table class="governance-info-table">'
         HTML = HTML + '<thead>'
         HTML = HTML + '<tr>'
@@ -199,6 +201,8 @@ function newGovernanceReportsUserProfiles() {
 
         HTML = HTML + '<tbody>'
         HTML = HTML + '</table>'
+
+        HTML = HTML + '</section>'
 
         return HTML
     }

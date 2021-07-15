@@ -49,9 +49,9 @@ function newGovernanceReportsReportsPage() {
 
                 switch (tab) {
                     case 'Profiles': {
-                        HTML = HTML + UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML()
-                        resultCounter = UI.projects.governance.spaces.reportsSpace.userProfiles.resultCounter
-
+                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML() 
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
                         break
                     }
                 }

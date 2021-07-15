@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesBonusProgram() {
+function newGovernanceUtilitiesBonusProgram() {
     let thisObject = {
         run: run
     }

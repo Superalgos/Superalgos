@@ -1,4 +1,4 @@
-function newFoundationsUtilitiesDecendentProgram() {
+function newGovernanceUtilitiesDecendentProgram() {
     let thisObject = {
         run: run
     }

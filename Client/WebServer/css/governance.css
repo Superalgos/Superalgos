@@ -831,7 +831,8 @@
     
     .governance-report-page-header-tabs-container {
     display: table;
-    padding-left: 180px;
+    text-align: right;
+    align-content: right;
     margin-top: 20px;
     caret-color: transparent;
     }
@@ -863,8 +864,9 @@
     /* Search Results Page Content */
     .governance-search-result-content {
     border-top: 1px solid #0295aa;
-    margin-left: -180px;
     caret-color: transparent;
+    text-align: left;
+    align-content: left;
     }
     
     .governance-search-result-content > div {

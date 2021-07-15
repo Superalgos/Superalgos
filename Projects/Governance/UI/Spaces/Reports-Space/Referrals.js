@@ -1,4 +1,4 @@
-function newGovernanceReportsUserProfiles() {
+function newGovernanceReportsReferrals() {
     let thisObject = {
         addHTML: addHTML,
         initialize: initialize,
@@ -18,7 +18,7 @@ function newGovernanceReportsUserProfiles() {
     function addHTML() {
 
         let tableRecords = []
-        let table = 'userProfiles'
+        let table = 'referrals'
         let tableRecordDefinition = {
             "properties": [
                 {
@@ -28,20 +28,32 @@ function newGovernanceReportsUserProfiles() {
                     "order": "ascending"
                 },
                 {
-                    "name": "blockchainPower",
-                    "label": "Blockchain Power",
+                    "name": "ownPower",
+                    "label": "Own Power",
                     "type": "number",
                     "order": "descending"
                 },
                 {
-                    "name": "delegatedPower",
-                    "label": "Delegated Power",
+                    "name": "incoming",
+                    "label": "Incoming",
                     "type": "number",
                     "order": "descending"
                 },
                 {
-                    "name": "tokenPower",
-                    "label": "Token Power",
+                    "name": "tokensAwarded",
+                    "label": "Awarded",
+                    "type": "number",
+                    "order": "descending"
+                },
+                {
+                    "name": "decendants",
+                    "label": "Descendants",
+                    "type": "number",
+                    "order": "descending"
+                },
+                {
+                    "name": "tokensBonus",
+                    "label": "Bonus",
                     "type": "number",
                     "order": "descending"
                 }
@@ -57,11 +69,18 @@ function newGovernanceReportsUserProfiles() {
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
 
+            if (userProfile.tokenPowerSwitch === undefined) { continue }
+            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, 'Referral Program')
+            if (program === undefined) { continue }
+            if (program.payload === undefined) { continue }
+
             let tableRecord = {
                 "name": userProfile.name,
-                "blockchainPower": userProfile.payload.blockchainTokens | 0,
-                "delegatedPower": userProfile.payload.tokenPower - userProfile.payload.blockchainTokens | 0,
-                "tokenPower": userProfile.payload.tokenPower | 0
+                "ownPower": program.payload.referralProgram.ownPower | 0,
+                "incoming": program.payload.referralProgram.incomingPower | 0,
+                "tokensAwarded": program.payload.referralProgram.awarded.tokens | 0,
+                "decendants": program.payload.referralProgram.awarded.count | 0,
+                "tokensBonus": program.payload.referralProgram.bonus.tokens | 0
             }
 
             tableRecords.push(tableRecord)
@@ -75,8 +94,8 @@ function newGovernanceReportsUserProfiles() {
         */
         if (sortingOrder === undefined) {
             UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table] = {
-                property: 'name',
-                order: 'ascending'
+                property: 'tokensAwarded',
+                order: 'descending'
             }
             sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
         }

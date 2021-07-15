@@ -22,7 +22,7 @@ function newGovernanceReportsReportsPage() {
         buildHTML()
 
         function buildHTML() {
-            const tabs = ['Profiles', 'Referrals', 'Mentors', 'Supporters', 'Pools', 'Assets', 'Features', 'Positions']
+            const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Pools', 'Assets', 'Features', 'Positions']
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
@@ -49,13 +49,19 @@ function newGovernanceReportsReportsPage() {
 
                 switch (tab) {
                     case 'Profiles': {
-                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML() 
+                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML()
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Referrals': {
+                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML()
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                 }
-                
+
                 HTML = HTML + '</div>'
                 totalResults.set(tab, resultCounter)
             }

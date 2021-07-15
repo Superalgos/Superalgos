@@ -5,23 +5,9 @@ function newGovernanceUtilitiesTables() {
 
     return thisObject
 
-    function addHTML(table, tableRecords, tableRecordDefinition) {
+    function addHTML(table, tableRecords, tableRecordDefinition, sortingOrder) {
         let HTML = ''
         let resultCounter = 0
-        /*
-        Get the sorting order for this table.
-        */
-        let sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
-        /*
-        Set the default sorting order for this table.
-        */
-        if (sortingOrder === undefined) {
-            UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table] = {
-                property: 'name',
-                order: 'ascending'
-            }
-            sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
-        }
         /*
         Get the property type for the current sorting order.
         */

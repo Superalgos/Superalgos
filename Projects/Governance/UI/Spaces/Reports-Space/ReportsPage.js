@@ -32,7 +32,7 @@ function newGovernanceReportsReportsPage() {
             let checked = ' checked=""'
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
-                HTML = HTML + '<input id="tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="tab' + (i + 1) + '">' + tab + '</label>'
+                HTML = HTML + '<input id="governance-tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="governance-tab' + (i + 1) + '">' + tab + '</label>'
                 checked = ''
             }
 

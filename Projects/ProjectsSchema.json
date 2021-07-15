@@ -1052,22 +1052,27 @@
                 {
                     "name": "Pools",
                     "propertyName": "pools",
-                    "functionName": "newFoundationsUtilitiesPools"
+                    "functionName": "newGovernanceUtilitiesPools"
                 },
                 {
                     "name": "Decendent Program",
                     "propertyName": "decendentProgram",
-                    "functionName": "newFoundationsUtilitiesDecendentProgram"
+                    "functionName": "newGovernanceUtilitiesDecendentProgram"
                 },
                 {
                     "name": "Bonus Program",
                     "propertyName": "bonusProgram",
-                    "functionName": "newFoundationsUtilitiesBonusProgram"
+                    "functionName": "newGovernanceUtilitiesBonusProgram"
                 },
                 {
                     "name": "Validations",
                     "propertyName": "validations",
-                    "functionName": "newFoundationsUtilitiesValidations"
+                    "functionName": "newGovernanceUtilitiesValidations"
+                },
+                {
+                    "name": "Tables",
+                    "propertyName": "tables",
+                    "functionName": "newGovernanceUtilitiesTables"
                 }
             ],
             "spaces": [

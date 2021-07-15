@@ -149,10 +149,10 @@ function newGobernanceReportsSpace() {
         }
     }
 
-    function changeTableSortingOrder(table, property, order) {
+    function changeTableSortingOrder(table, property, order, tabIndex) {
         thisObject.tablesSortingOrders[table].property = property
         thisObject.tablesSortingOrders[table].order = order
-        thisObject.reportsPage.render()
+        thisObject.reportsPage.render(tabIndex)
     }
 
     function onOpening() {

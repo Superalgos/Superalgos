@@ -15,7 +15,7 @@ function newGovernanceReportsReferrals() {
 
     }
 
-    function addHTML() {
+    function addHTML(tabIndex) {
 
         let tableRecords = []
         let table = 'referrals'
@@ -99,6 +99,12 @@ function newGovernanceReportsReferrals() {
             }
             sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
         }
-        return UI.projects.governance.utilities.tables.addHTML(table, tableRecords, tableRecordDefinition, sortingOrder)
+        return UI.projects.governance.utilities.tables.addHTML(
+            table,
+            tableRecords,
+            tableRecordDefinition,
+            sortingOrder,
+            tabIndex
+        )
     }
 }

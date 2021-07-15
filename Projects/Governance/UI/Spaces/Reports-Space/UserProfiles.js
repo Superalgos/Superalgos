@@ -15,7 +15,7 @@ function newGovernanceReportsUserProfiles() {
 
     }
 
-    function addHTML() {
+    function addHTML(tabIndex) {
 
         let tableRecords = []
         let table = 'userProfiles'
@@ -80,6 +80,12 @@ function newGovernanceReportsUserProfiles() {
             }
             sortingOrder = UI.projects.governance.spaces.reportsSpace.tablesSortingOrders[table]
         }
-        return UI.projects.governance.utilities.tables.addHTML(table, tableRecords, tableRecordDefinition, sortingOrder)
+        return UI.projects.governance.utilities.tables.addHTML(
+            table,
+            tableRecords,
+            tableRecordDefinition,
+            sortingOrder,
+            tabIndex
+        )
     }
 }

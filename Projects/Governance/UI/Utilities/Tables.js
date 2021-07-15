@@ -5,7 +5,13 @@ function newGovernanceUtilitiesTables() {
 
     return thisObject
 
-    function addHTML(table, tableRecords, tableRecordDefinition, sortingOrder) {
+    function addHTML(
+        table,
+        tableRecords,
+        tableRecordDefinition,
+        sortingOrder,
+        tabIndex
+    ) {
         let HTML = ''
         let resultCounter = 0
         /*
@@ -92,7 +98,7 @@ function newGovernanceUtilitiesTables() {
                     }
                 }
             }
-            HTML = HTML + '<th>' + '<a href="#" onClick="UI.projects.governance.spaces.reportsSpace.changeTableSortingOrder(\'' + table + '\',\'' + property.name + '\',\'' + newOrder + '\')">' + property.label + ' ' + orderArrow + '</a>' + '</th>'
+            HTML = HTML + '<th>' + '<a href="#" onClick="UI.projects.governance.spaces.reportsSpace.changeTableSortingOrder(\'' + table + '\',\'' + property.name + '\',\'' + newOrder + '\',\'' + tabIndex + '\')">' + property.label + ' ' + orderArrow + '</a>' + '</th>'
         }
         HTML = HTML + '</tr>'
         HTML = HTML + '<thead>'

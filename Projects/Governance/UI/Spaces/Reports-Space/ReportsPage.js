@@ -15,14 +15,14 @@ function newGovernanceReportsReportsPage() {
 
     }
 
-    function render() {
+    function render(tabIndex) {
 
         let resultsArary = []
         let initialTime = new Date()
         buildHTML()
 
         function buildHTML() {
-            const tabs = ['Profiles', 'Referrals', 'Mentors', 'Supporters', 'Pools', 'Assets', 'Features', 'Positions']
+            const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Pools', 'Assets', 'Features', 'Positions']
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
@@ -32,7 +32,7 @@ function newGovernanceReportsReportsPage() {
             let checked = ' checked=""'
             for (let i = 0; i < tabs.length; i++) {
                 let tab = tabs[i]
-                HTML = HTML + '<input id="tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="tab' + (i + 1) + '">' + tab + '</label>'
+                HTML = HTML + '<input id="governance-tab' + (i + 1) + '" type="radio" name="tabs"' + checked + '><label for="governance-tab' + (i + 1) + '">' + tab + '</label>'
                 checked = ''
             }
 
@@ -49,13 +49,19 @@ function newGovernanceReportsReportsPage() {
 
                 switch (tab) {
                     case 'Profiles': {
-                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML() 
+                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML(1)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Referrals': {
+                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML(2)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                 }
-                
+
                 HTML = HTML + '</div>'
                 totalResults.set(tab, resultCounter)
             }
@@ -78,10 +84,17 @@ function newGovernanceReportsReportsPage() {
             }
 
             let docsContentDiv = document.getElementById('governance-content-div')
+
             docsContentDiv.innerHTML = HTML + UI.projects.governance.spaces.reportsSpace.footer.addFooter()
 
             UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
             UI.projects.education.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+
+            // If there is a tabIndex we will switch to that tab here.
+            if (tabIndex !== undefined) {
+                let tab = document.getElementById('governance-tab' + tabIndex)
+                tab.checked = true
+            }
         }
     }
 }

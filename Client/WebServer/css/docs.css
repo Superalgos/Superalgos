@@ -870,14 +870,14 @@ align-content: left;
 display: none;
 }
 
-#tab1:checked ~ .docs-search-result-content #content1,
-#tab2:checked ~ .docs-search-result-content #content2,
-#tab3:checked ~ .docs-search-result-content #content3,
-#tab4:checked ~ .docs-search-result-content #content4,
-#tab5:checked ~ .docs-search-result-content #content5,
-#tab6:checked ~ .docs-search-result-content #content6,
-#tab7:checked ~ .docs-search-result-content #content7,
-#tab8:checked ~ .docs-search-result-content #content8 {
+#docs-tab1:checked ~ .docs-search-result-content #content1,
+#docs-tab2:checked ~ .docs-search-result-content #content2,
+#docs-tab3:checked ~ .docs-search-result-content #content3,
+#docs-tab4:checked ~ .docs-search-result-content #content4,
+#docs-tab5:checked ~ .docs-search-result-content #content5,
+#docs-tab6:checked ~ .docs-search-result-content #content6,
+#docs-tab7:checked ~ .docs-search-result-content #content7,
+#docs-tab8:checked ~ .docs-search-result-content #content8 {
 display: block;
 }
 

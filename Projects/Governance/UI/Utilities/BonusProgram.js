@@ -73,9 +73,17 @@ function newGovernanceUtilitiesBonusProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload[programPropertyName] = {
-                bonusPower: 0,
-                bonus: {
+            if (node.payload[programPropertyName] === undefined) {
+                node.payload[programPropertyName] = {
+                    bonusPower: 0,
+                    bonus: {
+                        tokens: 0,
+                        percentage: 0
+                    }
+                }
+            } else {
+                node.payload[programPropertyName].bonusPower = 0
+                node.payload[programPropertyName].bonus = {
                     tokens: 0,
                     percentage: 0
                 }

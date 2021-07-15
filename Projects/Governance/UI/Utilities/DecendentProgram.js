@@ -84,13 +84,25 @@ function newGovernanceUtilitiesDecendentProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload[programPropertyName] = {
-                count: 0,
-                percentage: 0,
-                outgoingPower: 0,
-                ownPower: 0,
-                incomingPower: 0,
-                awarded: {
+            if (node.payload[programPropertyName] === undefined) {
+                node.payload[programPropertyName] = {
+                    count: 0,
+                    percentage: 0,
+                    outgoingPower: 0,
+                    ownPower: 0,
+                    incomingPower: 0,
+                    awarded: {
+                        tokens: 0,
+                        percentage: 0
+                    }
+                }
+            } else {
+                node.payload[programPropertyName].count = 0
+                node.payload[programPropertyName].percentage = 0
+                node.payload[programPropertyName].outgoingPower = 0
+                node.payload[programPropertyName].ownPower = 0
+                node.payload[programPropertyName].incomingPower = 0
+                node.payload[programPropertyName].awarded = {
                     tokens: 0,
                     percentage: 0
                 }
@@ -345,7 +357,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' +  programPowerName)
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming ' + programPowerName)
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 

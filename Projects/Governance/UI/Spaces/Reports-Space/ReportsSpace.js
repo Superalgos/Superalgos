@@ -7,6 +7,7 @@ function newGobernanceReportsSpace() {
         reportsPage: undefined,
         footer: undefined,
         userProfiles: undefined,
+        referrals: undefined,
         tablesSortingOrders: undefined,
         changeTableSortingOrder,
         physics: physics,
@@ -48,6 +49,9 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles.finalize()
         thisObject.userProfiles = undefined
 
+        thisObject.referrals.finalize()
+        thisObject.referrals = undefined
+
         isInitialized = false
     }
 
@@ -68,10 +72,12 @@ function newGobernanceReportsSpace() {
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
+        thisObject.referrals = newGovernanceReportsReferrals()
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
         thisObject.userProfiles.initialize()
+        thisObject.referrals.initialize()
 
         setupSidePanelTab()
 
@@ -143,10 +149,10 @@ function newGobernanceReportsSpace() {
         }
     }
 
-    function changeTableSortingOrder(table, property, order) {
+    function changeTableSortingOrder(table, property, order, tabIndex) {
         thisObject.tablesSortingOrders[table].property = property
         thisObject.tablesSortingOrders[table].order = order
-        thisObject.reportsPage.render()
+        thisObject.reportsPage.render(tabIndex)
     }
 
     function onOpening() {

@@ -873,14 +873,14 @@
     display: none;
     }
     
-    #tab1:checked ~ .governance-search-result-content #content1,
-    #tab2:checked ~ .governance-search-result-content #content2,
-    #tab3:checked ~ .governance-search-result-content #content3,
-    #tab4:checked ~ .governance-search-result-content #content4,
-    #tab5:checked ~ .governance-search-result-content #content5,
-    #tab6:checked ~ .governance-search-result-content #content6,
-    #tab7:checked ~ .governance-search-result-content #content7,
-    #tab8:checked ~ .governance-search-result-content #content8 {
+    #governance-tab1:checked ~ .governance-search-result-content #content1,
+    #governance-tab2:checked ~ .governance-search-result-content #content2,
+    #governance-tab3:checked ~ .governance-search-result-content #content3,
+    #governance-tab4:checked ~ .governance-search-result-content #content4,
+    #governance-tab5:checked ~ .governance-search-result-content #content5,
+    #governance-tab6:checked ~ .governance-search-result-content #content6,
+    #governance-tab7:checked ~ .governance-search-result-content #content7,
+    #governance-tab8:checked ~ .governance-search-result-content #content8 {
     display: block;
     }
     

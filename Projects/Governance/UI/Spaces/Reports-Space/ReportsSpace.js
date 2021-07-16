@@ -8,6 +8,7 @@ function newGobernanceReportsSpace() {
         footer: undefined,
         userProfiles: undefined,
         referrals: undefined,
+        supports: undefined,
         tablesSortingOrders: undefined,
         changeTableSortingOrder,
         physics: physics,
@@ -52,6 +53,9 @@ function newGobernanceReportsSpace() {
         thisObject.referrals.finalize()
         thisObject.referrals = undefined
 
+        thisObject.supports.finalize()
+        thisObject.supports = undefined
+
         isInitialized = false
     }
 
@@ -73,11 +77,13 @@ function newGobernanceReportsSpace() {
         thisObject.footer = newGovernanceReportsFooter()
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
         thisObject.referrals = newGovernanceReportsReferrals()
+        thisObject.supports = newGovernanceReportsSupports()
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
+        thisObject.supports.initialize()
 
         setupSidePanelTab()
 

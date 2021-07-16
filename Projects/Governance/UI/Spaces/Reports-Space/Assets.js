@@ -1,4 +1,4 @@
-function newGovernanceReportsPools() {
+function newGovernanceReportsAssets() {
     let thisObject = {
         addHTML: addHTML,
         initialize: initialize,
@@ -17,9 +17,9 @@ function newGovernanceReportsPools() {
 
     function addHTML(tabIndex) {
         return UI.projects.governance.utilities.commonTables.addHTML(
-            'pools',
-            'Pool',
-            'Pools',
+            'assets',
+            'Asset',
+            'Assets',
             tabIndex
         )
     }

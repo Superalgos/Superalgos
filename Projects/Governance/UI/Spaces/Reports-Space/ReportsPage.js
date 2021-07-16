@@ -78,6 +78,12 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Assets': {
+                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(6)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                 }
 
                 HTML = HTML + '</div>'

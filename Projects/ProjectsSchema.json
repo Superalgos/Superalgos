@@ -1073,6 +1073,11 @@
                     "name": "Tables",
                     "propertyName": "tables",
                     "functionName": "newGovernanceUtilitiesTables"
+                },
+                {
+                    "name": "Decendent Tables",
+                    "propertyName": "decendentTables",
+                    "functionName": "newGovernanceUtilitiesDecendentTables"
                 }
             ],
             "spaces": [

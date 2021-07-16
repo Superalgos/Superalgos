@@ -38,7 +38,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "User Profile",
                             "name": "Jeremy",
@@ -69,7 +71,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "tokensBonus": {
@@ -94,7 +98,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "a9ddce61-97b0-47e8-ad6c-e9438aca3913",
@@ -149,7 +155,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "User Profile",
                             "name": "Jeremy",
@@ -180,7 +188,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "tokensBonus": {
@@ -205,7 +215,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "f1020b53-23d4-4fea-b5d3-5409e13197a9",
@@ -260,7 +272,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "User Profile",
                             "name": "Jeremy",
@@ -291,7 +305,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "tokensBonus": {
@@ -316,7 +332,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "362a1ecb-dce9-4ebb-9b00-a20d3631f2f3",
@@ -423,7 +441,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Referrals Rewards",
@@ -454,7 +474,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Referrals Bonus",
@@ -524,7 +546,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Support Rewards",
@@ -555,7 +579,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Support Bonus",
@@ -625,7 +651,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Mentorship Rewards",
@@ -656,7 +684,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Mentorship Participation Bonus",
@@ -764,7 +794,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Voting Bonus",
@@ -834,7 +866,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Delegation Bonus",
@@ -904,7 +938,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Pool",
                                                     "name": "Staking Rewards",
@@ -1025,7 +1061,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "0b2863a0-d280-4a9a-9e2c-fe5bdbc54854",
@@ -1078,7 +1116,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "d66a7bf2-963a-4d28-b896-c41e83f610ae",
@@ -1132,7 +1172,9 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {}
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
             },
             "id": "ebfbf3db-d700-4a5e-b040-5f950acadce7",

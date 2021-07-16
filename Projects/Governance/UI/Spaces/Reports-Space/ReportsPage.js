@@ -5,6 +5,7 @@ function newGovernanceReportsReportsPage() {
         finalize: finalize
     }
 
+    let lastTabIndex 
     return thisObject
 
     function initialize() {
@@ -15,8 +16,15 @@ function newGovernanceReportsReportsPage() {
 
     }
 
-    function render(tabIndex) {
-
+    function render(tabIndex, filters) {
+        
+        /* Setup tabIndex */
+        if (tabIndex === undefined) {
+            tabIndex = lastTabIndex
+        } else {
+            lastTabIndex = tabIndex
+        }
+        
         let resultsArary = []
         let initialTime = new Date()
         buildHTML()
@@ -49,49 +57,49 @@ function newGovernanceReportsReportsPage() {
 
                 switch (tab) {
                     case 'Profiles': {
-                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML(1)
+                        let response = UI.projects.governance.spaces.reportsSpace.userProfiles.addHTML(1, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Referrals': {
-                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML(2)
+                        let response = UI.projects.governance.spaces.reportsSpace.referrals.addHTML(2, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Supporters': {
-                        let response = UI.projects.governance.spaces.reportsSpace.supports.addHTML(3)
+                        let response = UI.projects.governance.spaces.reportsSpace.supports.addHTML(3, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Mentors': {
-                        let response = UI.projects.governance.spaces.reportsSpace.mentors.addHTML(4)
+                        let response = UI.projects.governance.spaces.reportsSpace.mentors.addHTML(4, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Pools': {
-                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(5)
+                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(5, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Assets': {
-                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(6)
+                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(6, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Features': {
-                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(7)
+                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(7, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Positions': {
-                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(8)
+                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(8, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

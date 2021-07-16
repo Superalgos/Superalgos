@@ -15,12 +15,13 @@ function newGovernanceReportsReferrals() {
 
     }
 
-    function addHTML(tabIndex) {
+    function addHTML(tabIndex, filters) {
         return UI.projects.governance.utilities.decendentTables.addHTML(
             'referrals',
             'Referral Program',
             'referralProgram',
-            tabIndex
+            tabIndex, 
+            filters
         )
     }
 }

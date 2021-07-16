@@ -15,8 +15,20 @@ function newGovernanceReportsUserProfiles() {
 
     }
 
-    function addHTML(tabIndex) {
+    function addHTML(tabIndex, filters) {
 
+        /*
+        Setup Filters
+        */
+        let filtersObject
+        if (filters !== undefined) {
+            try {
+                filtersObject = JSON.parse(filters)
+            } catch (err) { }
+        }
+        /*
+        Other Variables
+        */
         let tableRecords = []
         let table = 'userProfiles'
         let tableRecordDefinition = {
@@ -71,7 +83,9 @@ function newGovernanceReportsUserProfiles() {
                 "tokenPower": userProfile.payload.tokenPower | 0
             }
 
-            tableRecords.push(tableRecord)
+            if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
+                tableRecords.push(tableRecord)
+            }
         }
         /*
         Get the sorting order for this table.

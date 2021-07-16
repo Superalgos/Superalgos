@@ -6,6 +6,7 @@ function newGobernanceReportsSpace() {
         sidePanelTab: undefined,
         reportsPage: undefined,
         footer: undefined,
+        filtersHeader: undefined,
         userProfiles: undefined,
         referrals: undefined,
         supports: undefined,
@@ -52,6 +53,9 @@ function newGobernanceReportsSpace() {
         thisObject.footer.finalize()
         thisObject.footer = undefined
 
+        thisObject.filtersHeader.finalize()
+        thisObject.filtersHeader = undefined
+
         thisObject.userProfiles.finalize()
         thisObject.userProfiles = undefined
 
@@ -95,6 +99,7 @@ function newGobernanceReportsSpace() {
 
         thisObject.reportsPage = newGovernanceReportsReportsPage()
         thisObject.footer = newGovernanceReportsFooter()
+        thisObject.filtersHeader = newGovernanceReportsFiltersHeader()
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
         thisObject.referrals = newGovernanceReportsReferrals()
         thisObject.supports = newGovernanceReportsSupports()
@@ -106,6 +111,7 @@ function newGobernanceReportsSpace() {
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
+        thisObject.filtersHeader.initialize()
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
         thisObject.mentors.initialize()

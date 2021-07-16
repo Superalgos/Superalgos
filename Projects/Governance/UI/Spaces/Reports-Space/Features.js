@@ -15,12 +15,13 @@ function newGovernanceReportsFeatures() {
 
     }
 
-    function addHTML(tabIndex) {
+    function addHTML(tabIndex, filters) {
         return UI.projects.governance.utilities.commonTables.addHTML(
             'features',
             'Feature',
             'Features',
-            tabIndex
+            tabIndex,
+            filters
         )
     }
 }

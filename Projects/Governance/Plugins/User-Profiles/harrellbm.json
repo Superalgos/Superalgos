@@ -183,7 +183,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset Class",
                                                     "name": "Launch-Scripts",
@@ -211,7 +213,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Asset Class",
                                             "name": "Superalgos",
@@ -239,7 +243,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Asset Class",
                                     "name": "Launch-Scripts",
@@ -409,7 +415,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Asset Class",
                                                     "name": "Root",
@@ -437,7 +445,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Asset Class",
                                             "name": "Superalgos",
@@ -465,7 +475,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Asset Class",
                                     "name": "Root",

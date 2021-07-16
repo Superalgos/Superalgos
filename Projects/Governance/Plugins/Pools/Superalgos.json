@@ -36,7 +36,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "Pools",
                             "name": "Foundations-Project",
@@ -69,7 +71,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -97,7 +101,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -125,7 +131,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -153,7 +161,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -216,7 +226,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -244,7 +256,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         }
                     ],
@@ -266,7 +280,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -301,7 +317,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "Assets",
                                     "name": "Superalgos",
@@ -328,7 +346,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -398,7 +418,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Assets",
                                             "name": "Blog-Tutorials",
@@ -431,7 +453,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Assets",
                                             "name": "In-App-Docs",
@@ -464,7 +488,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Assets",
                                             "name": "In-App-Tutorials",
@@ -497,7 +523,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {},
+                                        "uiObject": {
+                                            "isRunning": false
+                                        },
                                         "referenceParent": {
                                             "type": "Assets",
                                             "name": "Video-Tutorials",
@@ -524,7 +552,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -559,7 +589,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 {
@@ -587,7 +619,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 },
                                 {
@@ -615,7 +649,9 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {}
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
                                     }
                                 }
                             ],
@@ -637,7 +673,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         }
                     ],
@@ -660,7 +698,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 },
                 {
@@ -695,7 +735,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         },
                         {
@@ -723,7 +765,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {}
+                                "uiObject": {
+                                    "isRunning": false
+                                }
                             }
                         }
                     ],
@@ -745,7 +789,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {}
+                        "uiObject": {
+                            "isRunning": false
+                        }
                     }
                 }
             ],
@@ -803,7 +849,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "Positions",
                             "name": "Superalgos",
@@ -865,7 +913,9 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {},
+                        "uiObject": {
+                            "isRunning": false
+                        },
                         "referenceParent": {
                             "type": "Features",
                             "name": "Superalgos",

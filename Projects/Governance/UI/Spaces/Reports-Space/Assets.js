@@ -15,12 +15,13 @@ function newGovernanceReportsAssets() {
 
     }
 
-    function addHTML(tabIndex) {
+    function addHTML(tabIndex, filters) {
         return UI.projects.governance.utilities.commonTables.addHTML(
             'assets',
             'Asset',
             'Assets',
-            tabIndex
+            tabIndex, 
+            filters
         )
     }
 }

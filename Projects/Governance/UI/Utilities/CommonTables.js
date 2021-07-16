@@ -9,8 +9,18 @@ function newGovernanceUtilitiesCommonTables() {
         table,
         nodeType,
         hierarchyHeadsType,
-        tabIndex
+        tabIndex,
+        filters
     ) {
+        /*
+        Setup Filters
+        */
+        let filtersObject
+        if (filters !== undefined) {
+            try {
+                filtersObject = JSON.parse(filters)
+            } catch (err) { }
+        }
         let tableRecords = []
         let tableRecordDefinition = {
             "properties": [
@@ -60,11 +70,13 @@ function newGovernanceUtilitiesCommonTables() {
             let tableRecord = {
                 "name": node.name,
                 "tokensReward": node.payload.tokens | 0,
-                "weight": node.payload.weight ,
-                "weightPower": node.payload.votingProgram.votes 
+                "weight": node.payload.weight,
+                "weightPower": node.payload.votingProgram.votes
             }
 
-            tableRecords.push(tableRecord)
+            if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
+                tableRecords.push(tableRecord)
+            }
         }
         /*
         Get the sorting order for this table.

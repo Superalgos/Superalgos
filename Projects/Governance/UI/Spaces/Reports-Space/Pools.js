@@ -15,12 +15,13 @@ function newGovernanceReportsPools() {
 
     }
 
-    function addHTML(tabIndex) {
+    function addHTML(tabIndex, filters) {
         return UI.projects.governance.utilities.commonTables.addHTML(
             'pools',
             'Pool',
             'Pools',
-            tabIndex
+            tabIndex, 
+            filters
         )
     }
 }

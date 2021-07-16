@@ -25,25 +25,32 @@ function newGovernanceReportsUserProfiles() {
                     "name": "name",
                     "label": "User Profile",
                     "type": "string",
-                    "order": "ascending"
+                    "order": "ascending",
+                    "textAlign": "left"
                 },
                 {
                     "name": "blockchainPower",
                     "label": "Blockchain Power",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "delegatedPower",
                     "label": "Delegated Power",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "tokenPower",
                     "label": "Token Power",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 }
             ]
         }

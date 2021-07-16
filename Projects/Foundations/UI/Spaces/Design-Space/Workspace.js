@@ -16,6 +16,7 @@ function newWorkspace() {
         save: saveWorkspace,
         backup: backupWorkspace,
         share: shareWorkspace,
+        getNodesByTypeAndHierarchyHeadsType: getNodesByTypeAndHierarchyHeadsType, 
         getProjectsHeads: getProjectsHeads,
         getHierarchyHeads: getHierarchyHeads,
         getHierarchyHeadsById: getHierarchyHeadsById,
@@ -583,6 +584,20 @@ function newWorkspace() {
         return resultArray
     }
 
+    function getNodesByTypeAndHierarchyHeadsType(nodeType, hierarchyHeadsType) {
+        let hierarchyHeads = getHierarchyHeads()
+        let resultArray = []
+        if (hierarchyHeads === undefined) { return }
+        for (let i = 0; i < hierarchyHeads.length; i++) {
+            let hierarchyHead = hierarchyHeads[i]
+            if (hierarchyHead.type === hierarchyHeadsType) {
+
+                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
+                resultArray = resultArray.concat(nodeArray)
+            }
+        }
+        return resultArray
+    }
 
     function replaceWorkspaceByLoadingOne(project, name) {
 

@@ -72,6 +72,30 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Pools': {
+                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(5)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Assets': {
+                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(6)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Features': {
+                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(7)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Positions': {
+                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(8)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                 }
 
                 HTML = HTML + '</div>'

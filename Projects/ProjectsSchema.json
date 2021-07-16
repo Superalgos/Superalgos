@@ -1078,6 +1078,11 @@
                     "name": "Decendent Tables",
                     "propertyName": "decendentTables",
                     "functionName": "newGovernanceUtilitiesDecendentTables"
+                },
+                {
+                    "name": "Common Tables",
+                    "propertyName": "commonTables",
+                    "functionName": "newGovernanceUtilitiesCommonTables"
                 }
             ],
             "spaces": [

@@ -2380,8 +2380,8 @@
                                             "id": "e059f5c4-9132-4d76-9f3e-1060658fa704",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 31185.66090036391,
-                                                    "y": 24596.985540201556
+                                                    "x": 31208.309161233046,
+                                                    "y": 24564.938992301388
                                                 },
                                                 "targetPosition": {
                                                     "x": 30952.51711192682,
@@ -2404,6 +2404,1076 @@
                                                     "id": "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                 }
                                             }
+                                        },
+                                        {
+                                            "type": "Weight Votes Switch",
+                                            "name": "Superalgos Assets",
+                                            "config": "{}",
+                                            "project": "Governance",
+                                            "weightVotesSwitch": [
+                                                {
+                                                    "type": "Weight Votes Switch",
+                                                    "name": "Website Asset Class",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "weightVotesSwitch": [
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Website Section Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "1f125de4-0b59-4c18-9f9c-08386d4ffa4e",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31990.933803205186,
+                                                                            "y": 24749.81224447712
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31699.222827085883,
+                                                                            "y": 24819.845853633895
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "1612863a-0dfd-4771-a428-bfb23f454492"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "51aaf905-b8b7-4f1f-becf-424db9291655",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31995.529329264424,
+                                                                            "y": 24866.776193145964
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31699.222827085883,
+                                                                            "y": 24819.845853633895
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "8e8544e0-c3c7-4468-b17c-cddda9ed0be3"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "873f71c9-8fa6-4328-87b2-f91ffad842c4",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31955.01487639211,
+                                                                            "y": 24976.59542304868
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31699.222827085883,
+                                                                            "y": 24819.845853633895
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "7eea2000-adeb-4582-a3be-350aca52ec85"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "672a29ff-62d7-47d4-b160-0bf820e7774e",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31699.222827085883,
+                                                                    "y": 24819.845853633895
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31402.916324907343,
+                                                                    "y": 24772.915514121825
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Website Section",
+                                                                    "id": "5b352fde-218a-43b1-987e-df43aba8d9ed"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Website Section Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "b4d3a3a4-f642-4151-ad3a-613613df6296",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31923.70603380489,
+                                                                            "y": 25046.916234847955
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31636.060113344432,
+                                                                            "y": 24961.711631436778
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "16466802-c5fe-4217-8a9d-eb149f7abb8f"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "9264f168-5b57-453f-8cab-34f9e9ce6b12",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31869.203901781522,
+                                                                            "y": 25150.50774875173
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31636.060113344432,
+                                                                            "y": 24961.711631436778
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "37c7c874-60f9-4a0b-a3af-090b114a39d6"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Web Page Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "479da50a-83ba-4849-98e3-a2227767da4c",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31779.207741422317,
+                                                                            "y": 25225.356765235367
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31636.060113344432,
+                                                                            "y": 24961.711631436778
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Web Page",
+                                                                            "id": "17d4e7d6-d71e-499a-8fb2-12cc456cc30a"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "c52f2846-474a-49de-9442-38f85fc0afea",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31636.060113344432,
+                                                                    "y": 24961.711631436778
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31402.916324907343,
+                                                                    "y": 24772.915514121825
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Website Section",
+                                                                    "id": "d3908724-eb07-4e19-a7bd-1cfb660dfaee"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [],
+                                                    "featureWeightVotes": [],
+                                                    "positionWeightVotes": [],
+                                                    "id": "476b5941-7b0f-4e40-acaa-e80b7c2ec948",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 31402.916324907343,
+                                                            "y": 24772.915514121825
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 31128.852687614562,
+                                                            "y": 24650.894521199087
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 3,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
+                                                        "referenceParent": {
+                                                            "type": "Asset Class",
+                                                            "name": "Website",
+                                                            "id": "5d13e350-4267-4d2f-a3fa-a1fabd5df10d"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Weight Votes Switch",
+                                                    "name": "Blog Asset Class",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "weightVotesSwitch": [],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Blog Blog Post",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "b7372fd7-6f7b-4dc7-a9b8-c499c9d66ec9",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31649.64239651211,
+                                                                    "y": 24924.895241925216
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31361.996476051652,
+                                                                    "y": 24839.69063851404
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Blog Post",
+                                                                    "id": "119c90e5-ad13-4927-958d-466af5625cce"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Blog Blog Post",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "d3d7e591-67e0-4bb7-8d8b-a6113561fcdf",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31595.140264488742,
+                                                                    "y": 25028.48675582899
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31361.996476051652,
+                                                                    "y": 24839.69063851404
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Blog Post",
+                                                                    "id": "67ec3f6a-94ac-4864-b9f5-6db781fcdc95"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Blog Blog Post",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "07fc6eed-f794-46d8-9ab1-eb21895a18d6",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31505.144104129537,
+                                                                    "y": 25103.33577231263
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31361.996476051652,
+                                                                    "y": 24839.69063851404
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Blog Post",
+                                                                    "id": "464c7cf3-4914-4b8a-97dd-0d870af1f6e5"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "featureWeightVotes": [],
+                                                    "positionWeightVotes": [],
+                                                    "id": "79cff390-9e71-4345-81c4-0200f6a69db0",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 31361.996476051652,
+                                                            "y": 24839.69063851404
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 31128.852687614562,
+                                                            "y": 24650.894521199087
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 3,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
+                                                        "referenceParent": {
+                                                            "type": "Asset Class",
+                                                            "name": "Blog",
+                                                            "id": "43d8d45d-71ea-4155-8cb7-e0125efb12d5"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Weight Votes Switch",
+                                                    "name": "Youtube Channel Asset Class",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "weightVotesSwitch": [],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "b3a03655-0d4b-4da8-a250-5214f0157e19",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31560.98031260853,
+                                                                    "y": 25050.349188926353
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31305.188263302305,
+                                                                    "y": 24893.59961951157
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Youtube Video",
+                                                                    "id": "4cd7e133-2763-4108-b6fb-c96d6aea718f"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "ae9b1041-8135-48db-b75d-eb0175b888ce",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31481.523838990048,
+                                                                    "y": 25136.304717824052
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31305.188263302305,
+                                                                    "y": 24893.59961951157
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Youtube Video",
+                                                                    "id": "9a8d3673-3085-4cc7-8487-28d5af438f13"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Asset Weight Vote",
+                                                            "name": " Superalgos Youtube Channel Youtube Video",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "id": "77ca60ab-6fce-410f-ae3f-1aead62a6ef2",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31375.22187245908,
+                                                                    "y": 25185.310595630872
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31305.188263302305,
+                                                                    "y": 24893.59961951157
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {},
+                                                                "referenceParent": {
+                                                                    "type": "Asset",
+                                                                    "name": "Youtube Video",
+                                                                    "id": "a0e3e42c-61a8-4b11-a745-9f5f732895d9"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "featureWeightVotes": [],
+                                                    "positionWeightVotes": [],
+                                                    "id": "746a60bb-9eaa-4d22-8e97-10abe64d03c0",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 31305.188263302305,
+                                                            "y": 24893.59961951157
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 31128.852687614562,
+                                                            "y": 24650.894521199087
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 3,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
+                                                        "referenceParent": {
+                                                            "type": "Asset Class",
+                                                            "name": "Youtube Channel",
+                                                            "id": "c621a524-ca7f-43f7-a449-df053ae5f817"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Weight Votes Switch",
+                                                    "name": "Articles Asset Class",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "weightVotesSwitch": [
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Personal Blog Post Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "856e8a29-b60a-447d-809b-a93d81a45f3c",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31442.86944518628,
+                                                                    "y": 25148.58096045193
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31236.363072478154,
+                                                                    "y": 24930.968649148246
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Personal Blog Post",
+                                                                    "id": "43de1a71-ed2a-4e39-9c81-e68de5c7dcf1"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Crypto Media Article Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Coindesk Article Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "e4b7dce6-7a15-4e5b-815a-693d2e9b9a70",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31520.20903302949,
+                                                                            "y": 25453.74787540989
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31343.873457341746,
+                                                                            "y": 25211.042777097406
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Coindesk Article",
+                                                                            "id": "7f6a0951-d01f-44d5-be6c-d66e9deea609"
+                                                                        }
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Coin Telegraph Article Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "92b43ece-5531-4c30-8e2f-04dc8bbeaaa0",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31375.231996322043,
+                                                                            "y": 25509.399345707887
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31343.873457341746,
+                                                                            "y": 25211.042777097406
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Coin Telegraph Article",
+                                                                            "id": "4c957c39-5bce-484a-844d-3e0f6d2e79b4"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "e9328c49-8dc5-4a45-a079-838333a44296",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31343.873457341746,
+                                                                    "y": 25211.042777097406
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31236.363072478154,
+                                                                    "y": 24930.968649148246
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Crypto Media Article",
+                                                                    "id": "fa25480e-f8b5-4686-9e22-850a68bfb76b"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Mainstream Media Article Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [
+                                                                {
+                                                                    "type": "Weight Votes Switch",
+                                                                    "name": "Forbes Article Asset Class",
+                                                                    "config": "{}",
+                                                                    "project": "Governance",
+                                                                    "weightVotesSwitch": [],
+                                                                    "poolWeightVotes": [],
+                                                                    "assetWeightVotes": [],
+                                                                    "featureWeightVotes": [],
+                                                                    "positionWeightVotes": [],
+                                                                    "id": "50a02c10-c7b4-4c0f-bfdc-9c87c924a2f1",
+                                                                    "savedPayload": {
+                                                                        "position": {
+                                                                            "x": 31220.65690349343,
+                                                                            "y": 25530.763044133582
+                                                                        },
+                                                                        "targetPosition": {
+                                                                            "x": 31228.50998798579,
+                                                                            "y": 25230.865846640914
+                                                                        },
+                                                                        "floatingObject": {
+                                                                            "isPinned": false,
+                                                                            "isFrozen": false,
+                                                                            "isCollapsed": false,
+                                                                            "angleToParent": 3,
+                                                                            "distanceToParent": 3,
+                                                                            "arrangementStyle": 0
+                                                                        },
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
+                                                                        "referenceParent": {
+                                                                            "type": "Asset Class",
+                                                                            "name": "Forbes Article",
+                                                                            "id": "984b7746-9c92-45da-98fe-95ae51103568"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "7868354a-32ae-487f-a162-2cbee3c4cb8c",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31228.50998798579,
+                                                                    "y": 25230.865846640914
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31236.363072478154,
+                                                                    "y": 24930.968649148246
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Mainstream Media Article",
+                                                                    "id": "90bf3d8e-5fd4-4726-9dca-17f5a014f38c"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [],
+                                                    "featureWeightVotes": [],
+                                                    "positionWeightVotes": [],
+                                                    "id": "913e7be8-043f-4f6f-ab0d-cee42ca4b822",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 31236.363072478154,
+                                                            "y": 24930.968649148246
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 31128.852687614562,
+                                                            "y": 24650.894521199087
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 3,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
+                                                        "referenceParent": {
+                                                            "type": "Asset Class",
+                                                            "name": "Articles",
+                                                            "id": "d21a28b9-46aa-42ff-87b1-2bd61a83d550"
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "Weight Votes Switch",
+                                                    "name": "Referrers Asset Class",
+                                                    "config": "{}",
+                                                    "project": "Governance",
+                                                    "weightVotesSwitch": [
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Referrer to Website Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "2480d382-80fd-4ac4-908a-e4d273be9f7f",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31303.358854672744,
+                                                                    "y": 25212.896223608157
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31160.21122659486,
+                                                                    "y": 24949.251089809568
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Referrer to Website",
+                                                                    "id": "65124b42-5039-46d1-96a2-20005056950f"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Referrer to Github Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "b0202681-aee1-4e7f-854a-54fe35cfe0da",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31191.569765575157,
+                                                                    "y": 25247.60765842005
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31160.21122659486,
+                                                                    "y": 24949.251089809568
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Referrer to Github",
+                                                                    "id": "532260c8-ae9d-4f3a-94a2-fd736a556c63"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "Weight Votes Switch",
+                                                            "name": "Referrer to Youtube Asset Class",
+                                                            "config": "{}",
+                                                            "project": "Governance",
+                                                            "weightVotesSwitch": [],
+                                                            "poolWeightVotes": [],
+                                                            "assetWeightVotes": [],
+                                                            "featureWeightVotes": [],
+                                                            "positionWeightVotes": [],
+                                                            "id": "da8bcf15-2545-4a8e-a76c-aa4c5b892ed9",
+                                                            "savedPayload": {
+                                                                "position": {
+                                                                    "x": 31075.006623183683,
+                                                                    "y": 25236.897010270026
+                                                                },
+                                                                "targetPosition": {
+                                                                    "x": 31160.21122659486,
+                                                                    "y": 24949.251089809568
+                                                                },
+                                                                "floatingObject": {
+                                                                    "isPinned": false,
+                                                                    "isFrozen": false,
+                                                                    "isCollapsed": false,
+                                                                    "angleToParent": 3,
+                                                                    "distanceToParent": 3,
+                                                                    "arrangementStyle": 0
+                                                                },
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
+                                                                "referenceParent": {
+                                                                    "type": "Asset Class",
+                                                                    "name": "Referrer to Youtube",
+                                                                    "id": "a66e89c5-6e9b-4f79-8fbb-42ed70b51e09"
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "poolWeightVotes": [],
+                                                    "assetWeightVotes": [],
+                                                    "featureWeightVotes": [],
+                                                    "positionWeightVotes": [],
+                                                    "id": "17b76699-3479-45b5-b84c-97e36c036ae0",
+                                                    "savedPayload": {
+                                                        "position": {
+                                                            "x": 31160.21122659486,
+                                                            "y": 24949.251089809568
+                                                        },
+                                                        "targetPosition": {
+                                                            "x": 31128.852687614562,
+                                                            "y": 24650.894521199087
+                                                        },
+                                                        "floatingObject": {
+                                                            "isPinned": false,
+                                                            "isFrozen": false,
+                                                            "isCollapsed": false,
+                                                            "angleToParent": 3,
+                                                            "distanceToParent": 3,
+                                                            "arrangementStyle": 0
+                                                        },
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
+                                                        "referenceParent": {
+                                                            "type": "Asset Class",
+                                                            "name": "Referrers",
+                                                            "id": "8c924af1-c6c6-45b5-871b-ee015f22bc89"
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "poolWeightVotes": [],
+                                            "assetWeightVotes": [],
+                                            "featureWeightVotes": [],
+                                            "positionWeightVotes": [],
+                                            "id": "a974ed8d-787f-4965-aa84-171534847e18",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 31128.852687614562,
+                                                    "y": 24650.894521199087
+                                                },
+                                                "targetPosition": {
+                                                    "x": 30952.51711192682,
+                                                    "y": 24408.189422886604
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 3,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
+                                                "referenceParent": {
+                                                    "type": "Assets",
+                                                    "name": "Superalgos",
+                                                    "id": "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
+                                                }
+                                            }
                                         }
                                     ],
                                     "poolWeightVotes": [],
@@ -2417,8 +3487,8 @@
                                             "id": "7607658c-f3ad-42de-a316-35dd052e0477",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 31060.02749679041,
-                                                    "y": 24688.263550835763
+                                                    "x": 31022.550721083593,
+                                                    "y": 24699.900399005906
                                                 },
                                                 "targetPosition": {
                                                     "x": 30952.51711192682,

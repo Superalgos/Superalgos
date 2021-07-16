@@ -18,37 +18,48 @@ function newGovernanceUtilitiesDecendentTables() {
                     "name": "name",
                     "label": "User Profile",
                     "type": "string",
-                    "order": "ascending"
+                    "order": "ascending",
+                    "textAlign": "left"
                 },
                 {
                     "name": "ownPower",
                     "label": "Own Power",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "incoming",
                     "label": "Incoming",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "tokensAwarded",
                     "label": "Awarded",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "decendants",
                     "label": "Descendants",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "integer"
                 },
                 {
                     "name": "tokensBonus",
                     "label": "Bonus",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 }
             ]
         }

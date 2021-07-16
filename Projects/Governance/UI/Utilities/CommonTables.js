@@ -18,25 +18,32 @@ function newGovernanceUtilitiesCommonTables() {
                     "name": "name",
                     "label": "Name",
                     "type": "string",
-                    "order": "ascending"
+                    "order": "ascending",
+                    "textAlign": "left"
                 },
                 {
                     "name": "tokensReward",
                     "label": "Tokens Reward",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 },
                 {
                     "name": "weight",
                     "label": "Weight",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "percentage"
                 },
                 {
                     "name": "weightPower",
                     "label": "Weight Power",
                     "type": "number",
-                    "order": "descending"
+                    "order": "descending",
+                    "textAlign": "center",
+                    "format": "2 decimals"
                 }
             ]
         }

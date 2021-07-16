@@ -44,7 +44,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Julian-Molina",
@@ -75,7 +77,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "tokensBonus": {
@@ -100,7 +104,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "43a24543-03cf-4511-b670-63566159dbd7",
@@ -155,7 +161,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Julian-Molina",
@@ -186,7 +194,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "tokensBonus": {
@@ -211,7 +221,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "91d82012-4362-4fe0-b02b-0eb3b394ace5",
@@ -266,7 +278,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Julian-Molina",
@@ -297,7 +311,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Jeremy",
@@ -328,7 +344,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "tokensBonus": {
@@ -353,7 +371,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "8af4af68-62bf-4ad2-bf84-f1124cba0abf",
@@ -451,7 +471,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Feature",
                                                     "name": "Feature X",
@@ -647,7 +669,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
@@ -718,7 +742,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Feature Contribution Claim",
                                                     "name": "Feature X Data Mining",
@@ -794,7 +820,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Foundations Project",
@@ -825,7 +853,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "TensorFlow Project",
@@ -856,7 +886,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Governance Project",
@@ -887,7 +919,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Education Project",
@@ -918,7 +952,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Ethereum Project",
@@ -994,7 +1030,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "First Exchange Listing The Token",
@@ -1025,7 +1063,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "10K Stars on Github",
@@ -1095,7 +1135,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Marketing Assets",
@@ -1210,7 +1252,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "Blog-Tutorials",
@@ -1241,7 +1285,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "In-App-Docs",
@@ -1272,7 +1318,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "In-App-Tutorials",
@@ -1303,7 +1351,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "Video-Tutorials",
@@ -1373,7 +1423,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "In-App-Docs",
@@ -1404,7 +1456,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "In-App-Tutorials",
@@ -1435,7 +1489,9 @@
                                                                                     "distanceToParent": 3,
                                                                                     "arrangementStyle": 0
                                                                                 },
-                                                                                "uiObject": {},
+                                                                                "uiObject": {
+                                                                                    "isRunning": false
+                                                                                },
                                                                                 "referenceParent": {
                                                                                     "type": "Pool",
                                                                                     "name": "Video-Tutorials",
@@ -1538,7 +1594,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Completing Tutorials",
@@ -1569,7 +1627,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Reading the Docs",
@@ -1672,7 +1732,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Management",
@@ -1742,7 +1804,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Pool",
                                                                     "name": "Features",
@@ -1818,7 +1882,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Referrals Rewards",
@@ -1849,7 +1915,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Referrals Bonus",
@@ -1919,7 +1987,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Support Rewards",
@@ -1950,7 +2020,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Support Bonus",
@@ -2020,7 +2092,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Mentorship Rewards",
@@ -2051,7 +2125,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Mentorship Participation Bonus",
@@ -2159,7 +2235,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Voting Bonus",
@@ -2229,7 +2307,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Delegation Bonus",
@@ -2299,7 +2379,9 @@
                                                                             "distanceToParent": 3,
                                                                             "arrangementStyle": 0
                                                                         },
-                                                                        "uiObject": {},
+                                                                        "uiObject": {
+                                                                            "isRunning": false
+                                                                        },
                                                                         "referenceParent": {
                                                                             "type": "Pool",
                                                                             "name": "Staking Rewards",
@@ -2787,7 +2869,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Blog Post",
@@ -2818,7 +2902,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Blog Post",
@@ -2849,7 +2935,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Blog Post",
@@ -2919,7 +3007,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Youtube Video",
@@ -2950,7 +3040,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Youtube Video",
@@ -2981,7 +3073,9 @@
                                                                     "distanceToParent": 3,
                                                                     "arrangementStyle": 0
                                                                 },
-                                                                "uiObject": {},
+                                                                "uiObject": {
+                                                                    "isRunning": false
+                                                                },
                                                                 "referenceParent": {
                                                                     "type": "Asset",
                                                                     "name": "Youtube Video",
@@ -3502,7 +3596,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "Feature",
                                                     "name": "Feature X",
@@ -3567,7 +3663,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "User Profile",
                                                     "name": "Julian-Molina",
@@ -3646,7 +3744,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "d5ed432e-78bf-432e-be3b-8649932f7a65",
@@ -3728,7 +3828,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "b046f4e4-40b1-4e47-8fed-75a6a5c6029d",
@@ -3855,7 +3957,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {},
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                },
                                                 "referenceParent": {
                                                     "type": "User Profile",
                                                     "name": "Julian-Molina",
@@ -3886,7 +3990,9 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {}
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
                                             }
                                         }
                                     ],
@@ -3961,7 +4067,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "3ff7f410-911d-4cb8-9094-d816dee4dccb",

@@ -63,7 +63,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "create-shortcut.js",
@@ -94,7 +96,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "launch-linux-mac.sh",
@@ -125,7 +129,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "launch-windows.bat",
@@ -156,7 +162,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "superalgos.ico",
@@ -295,7 +303,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "README.md",
@@ -326,7 +336,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "run.js",
@@ -357,7 +369,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "setup.js",
@@ -388,7 +402,9 @@
                                                             "distanceToParent": 3,
                                                             "arrangementStyle": 0
                                                         },
-                                                        "uiObject": {},
+                                                        "uiObject": {
+                                                            "isRunning": false
+                                                        },
                                                         "referenceParent": {
                                                             "type": "Asset",
                                                             "name": "uninstall.js",
@@ -510,7 +526,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "c2ad753c-49b6-4675-9fdd-02b6967aaab2",
@@ -597,7 +615,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "4ac11744-6d87-413d-813e-f0963b156d8c",
@@ -681,7 +701,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Julian-Molina",
@@ -712,7 +734,9 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {},
+                                "uiObject": {
+                                    "isRunning": false
+                                },
                                 "referenceParent": {
                                     "type": "User Profile",
                                     "name": "Luis-Fernando-Molina",
@@ -743,7 +767,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "tokensBonus": {
@@ -768,7 +794,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "055d1919-2b4b-40f2-8793-9cc5eb765a88",
@@ -850,7 +878,9 @@
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
-                            "uiObject": {}
+                            "uiObject": {
+                                "isRunning": false
+                            }
                         }
                     },
                     "id": "02e75b99-0944-44dd-a434-9e307bdc7935",

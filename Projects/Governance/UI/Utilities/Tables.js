@@ -105,6 +105,8 @@ function newGovernanceUtilitiesTables() {
         HTML = HTML + '<tbody>'
 
         for (let j = 0; j < tableRecords.length; j++) {
+            let textAligment = 'center'
+            let format = 'text'
             let tableRecord = tableRecords[j]
 
             if (odd === true) {
@@ -120,7 +122,39 @@ function newGovernanceUtilitiesTables() {
             */
             for (var property in tableRecord) {
                 if (Object.prototype.hasOwnProperty.call(tableRecord, property)) {
-                    HTML = HTML + '<td>' + tableRecord[property] + '</td>'
+
+                    /*
+                    Get Text Align and Format
+                    */
+                    for (let i = 0; i < tableRecordDefinition.properties.length; i++) {
+                        let propertyDefinition = tableRecordDefinition.properties[i]
+                        if (property === propertyDefinition.name) {
+                            textAligment = propertyDefinition.textAlign
+                            format = propertyDefinition.format
+                            break
+                        }
+                    }
+                    let value = tableRecord[property]
+                    switch (format) {
+                        case 'text': {
+
+                            break
+                        }
+                        case 'integer': {
+                            value = parseFloat(value.toFixed(0)).toLocaleString('en')
+                            break
+                        }
+                        case '2 decimals': {
+                            value = parseFloat(value.toFixed(2)).toLocaleString('en')
+                            break
+                        }
+                        case 'percentage': {
+                            if (isNaN(value)) { value = 0 }
+                            value = (value * 100).toFixed(2) + " %"
+                            break
+                        }
+                    }
+                    HTML = HTML + '<td style="text-align:' + textAligment + ';">' + value + '</td>'
                 }
             }
 

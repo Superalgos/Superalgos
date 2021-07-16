@@ -130,12 +130,31 @@ function newGovernanceUtilitiesTables() {
                         let propertyDefinition = tableRecordDefinition.properties[i]
                         if (property === propertyDefinition.name) {
                             textAligment = propertyDefinition.textAlign
-                            format =  propertyDefinition.format
+                            format = propertyDefinition.format
                             break
                         }
                     }
+                    let value = tableRecord[property]
+                    switch (format) {
+                        case 'text': {
 
-                    HTML = HTML + '<td style="text-align:' + textAligment + ';">' + tableRecord[property] + '</td>'
+                            break
+                        }
+                        case 'integer': {
+                            value = parseFloat(value.toFixed(0)).toLocaleString('en')
+                            break
+                        }
+                        case '2 decimals': {
+                            value = parseFloat(value.toFixed(2)).toLocaleString('en')
+                            break
+                        }
+                        case 'percentage': {
+                            if (isNaN(value)) { value = 0 }
+                            value = (value * 100).toFixed(2) + " %"
+                            break
+                        }
+                    }
+                    HTML = HTML + '<td style="text-align:' + textAligment + ';">' + value + '</td>'
                 }
             }
 

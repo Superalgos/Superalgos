@@ -66,6 +66,12 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Mentors': {
+                        let response = UI.projects.governance.spaces.reportsSpace.mentors.addHTML(4)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                 }
 
                 HTML = HTML + '</div>'

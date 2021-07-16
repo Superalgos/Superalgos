@@ -56,6 +56,9 @@ function newGobernanceReportsSpace() {
         thisObject.supports.finalize()
         thisObject.supports = undefined
 
+        thisObject.mentors.finalize()
+        thisObject.mentors = undefined
+
         isInitialized = false
     }
 
@@ -78,12 +81,13 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles = newGovernanceReportsUserProfiles()
         thisObject.referrals = newGovernanceReportsReferrals()
         thisObject.supports = newGovernanceReportsSupports()
+        thisObject.mentors = newGovernanceReportsMentors()
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
-        thisObject.supports.initialize()
+        thisObject.mentors.initialize()
 
         setupSidePanelTab()
 

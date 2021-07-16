@@ -183,9 +183,7 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
+                                                "uiObject": {},
                                                 "referenceParent": {
                                                     "type": "Asset Class",
                                                     "name": "Launch-Scripts",
@@ -213,9 +211,7 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
+                                        "uiObject": {},
                                         "referenceParent": {
                                             "type": "Asset Class",
                                             "name": "Superalgos",
@@ -243,9 +239,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
+                                "uiObject": {},
                                 "referenceParent": {
                                     "type": "Asset Class",
                                     "name": "Launch-Scripts",
@@ -415,9 +409,7 @@
                                                     "distanceToParent": 3,
                                                     "arrangementStyle": 0
                                                 },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                },
+                                                "uiObject": {},
                                                 "referenceParent": {
                                                     "type": "Asset Class",
                                                     "name": "Root",
@@ -445,9 +437,7 @@
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        },
+                                        "uiObject": {},
                                         "referenceParent": {
                                             "type": "Asset Class",
                                             "name": "Superalgos",
@@ -475,9 +465,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
+                                "uiObject": {},
                                 "referenceParent": {
                                     "type": "Asset Class",
                                     "name": "Root",
@@ -531,9 +519,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 "votingProgram": {
@@ -569,9 +555,7 @@
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
+                                "uiObject": {}
                             }
                         }
                     ],
@@ -618,9 +602,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 "id": "fcceb17d-2c2a-4e24-ab5d-e2a8a2798f90",
@@ -641,9 +623,7 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {
-                        "isRunning": false
-                    }
+                    "uiObject": {}
                 }
             },
             {
@@ -789,9 +769,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 "id": "450eb600-3080-4d37-b8a2-12f71120573c",
@@ -812,9 +790,7 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {
-                        "isRunning": false
-                    }
+                    "uiObject": {}
                 }
             },
             {
@@ -871,9 +847,7 @@
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
-                        "uiObject": {
-                            "isRunning": false
-                        }
+                        "uiObject": {}
                     }
                 },
                 "id": "8f44d9ab-8ce6-4336-8b0e-0323d7440e75",
@@ -894,9 +868,7 @@
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
-                    "uiObject": {
-                        "isRunning": false
-                    }
+                    "uiObject": {}
                 }
             }
         ],
@@ -918,9 +890,7 @@
                 "distanceToParent": 3,
                 "arrangementStyle": 0
             },
-            "uiObject": {
-                "isRunning": false
-            }
+            "uiObject": {}
         }
     },
     "id": "107d3e44-1685-4540-8316-3bc6591298e9",
@@ -941,8 +911,6 @@
             "distanceToParent": 3,
             "arrangementStyle": 0
         },
-        "uiObject": {
-            "isRunning": false
-        }
+        "uiObject": {}
     }
 }

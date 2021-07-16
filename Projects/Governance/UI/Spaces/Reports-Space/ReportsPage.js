@@ -84,6 +84,18 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Features': {
+                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(7)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Positions': {
+                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(8)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                 }
 
                 HTML = HTML + '</div>'

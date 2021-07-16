@@ -25,7 +25,7 @@ function newGovernanceReportsReportsPage() {
             const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Pools', 'Assets', 'Features', 'Positions']
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
-            HTML = HTML + UI.projects.education.spaces.docsSpace.mainSearchPage.addSearchHeader()
+            HTML = HTML + UI.projects.governance.spaces.reportsSpace.filtersHeader.addFilterHeader()
 
             // Tabs
             HTML = HTML + '<div class="governance-report-page-header-tabs-container">'
@@ -123,8 +123,8 @@ function newGovernanceReportsReportsPage() {
 
             docsContentDiv.innerHTML = HTML + UI.projects.governance.spaces.reportsSpace.footer.addFooter()
 
-            UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()
-            UI.projects.education.spaces.docsSpace.mainSearchPage.setFocusOnSearchBox()
+            UI.projects.governance.spaces.reportsSpace.filtersHeader.detectEnterOnFiltersBox()
+            UI.projects.governance.spaces.reportsSpace.filtersHeader.setFocusOnFiltersBox()
 
             // If there is a tabIndex we will switch to that tab here.
             if (tabIndex !== undefined) {

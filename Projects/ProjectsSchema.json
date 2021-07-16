@@ -1083,6 +1083,11 @@
                     "name": "Common Tables",
                     "propertyName": "commonTables",
                     "functionName": "newGovernanceUtilitiesCommonTables"
+                },
+                {
+                    "name": "Filters",
+                    "propertyName": "filters",
+                    "functionName": "newGovernanceUtilitiesFilters"
                 }
             ],
             "spaces": [

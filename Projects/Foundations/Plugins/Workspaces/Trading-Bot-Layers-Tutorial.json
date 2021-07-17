@@ -32946,18 +32946,18 @@
                         "pluginFiles": [
                             {
                                 "type": "Plugin File",
-                                "name": "Sparta",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "name": "Bollinger",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Bollinger\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
-                                    "name": "Sparta",
+                                    "name": "Bollinger",
                                     "project": "Foundations",
-                                    "id": "2ccc5e2f-816d-411a-98dd-19f384c4fb56",
+                                    "id": "6d3e817c-9ca8-48a0-8f89-40815221b976",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18860.993523525696,
-                                            "y": 23633.802375894946
+                                            "x": 18856.560178585467,
+                                            "y": 16856.327479231342
                                         },
                                         "targetPosition": {
                                             "x": 30687.366680764007,
@@ -32967,7 +32967,7 @@
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -32976,7 +32976,7 @@
                                         }
                                     }
                                 },
-                                "id": "6cd79166-dec1-46e5-a54d-ce3ee5d877c2",
+                                "id": "9867d8c0-d64b-4e9d-9653-282dd1151af3",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30687.366680764007,
@@ -33001,18 +33001,18 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Bollinger",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "name": "Candles",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Candles\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
-                                    "name": "Bollinger",
+                                    "name": "Candles",
                                     "project": "Foundations",
-                                    "id": "f7d83aae-be92-418d-8da8-fc5a7d2e8275",
+                                    "id": "8d099418-d7bb-4fd5-b625-1a16e36b05a8",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18870.262986317583,
-                                            "y": 16847.295648831718
+                                            "x": 24931.262986317583,
+                                            "y": 16829.295648831718
                                         },
                                         "targetPosition": {
                                             "x": 30740.968084630065,
@@ -33022,7 +33022,7 @@
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -33031,7 +33031,7 @@
                                         }
                                     }
                                 },
-                                "id": "876bf0c3-5653-43b6-a377-2c9f2e32acac",
+                                "id": "33c255db-5694-4984-bf73-a927eaa37979",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30740.968084630065,
@@ -33045,7 +33045,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -33056,18 +33056,18 @@
                             },
                             {
                                 "type": "Plugin File",
-                                "name": "Candles",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "name": "Sparta",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Sparta\",\"folderName\":\"Data-Mines\",\"nodeType\":\"Data Mine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
-                                    "name": "Candles",
+                                    "name": "Sparta",
                                     "project": "Foundations",
-                                    "id": "7e7fa00f-3af9-433c-94ed-96c4de78c4bd",
+                                    "id": "4713b838-32cc-4736-9cdf-7e2eb62d218f",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 24938.81250391841,
-                                            "y": 16817.853795850122
+                                            "x": 18850.31250391841,
+                                            "y": 23641.853795850122
                                         },
                                         "targetPosition": {
                                             "x": 30936.74284343048,
@@ -33077,7 +33077,7 @@
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -33086,7 +33086,7 @@
                                         }
                                     }
                                 },
-                                "id": "10867c87-0955-4237-8b11-e2e07b937fba",
+                                "id": "583b2372-c8c4-4993-985f-84129127d83b",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30936.74284343048,
@@ -33141,17 +33141,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Masters",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Masters\",\n    \"folderName\": \"Trading-Mines\",\n    \"nodeType\": \"Trading Mine\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Masters",
                                     "project": "Foundations",
-                                    "id": "ad1ce785-858f-4cfc-ba68-108b5e0c54d9",
+                                    "id": "e47cfdec-46a7-47ad-a92a-ecb6294528b5",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 24927.217404066585,
-                                            "y": 29883.393045797242
+                                            "x": 24917.762986317583,
+                                            "y": 29896.60151122931
                                         },
                                         "targetPosition": {
                                             "x": 31040.968084630065,
@@ -33170,7 +33170,7 @@
                                         }
                                     }
                                 },
-                                "id": "8a64c00e-4f8c-49bf-b57d-4e2e388bae41",
+                                "id": "99f95bef-c2d8-42fb-9017-139889205a7b",
                                 "savedPayload": {
                                     "position": {
                                         "x": 31040.968084630065,
@@ -33253,17 +33253,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Sparta-WHB-BTC-USDT",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Sparta-WHB-BTC-USDT\",\"folderName\":\"Trading-Systems\",\"nodeType\":\"Trading System\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Sparta-WHB-BTC-USDT",
                                     "project": "Foundations",
-                                    "id": "0d138b32-51ae-48ab-b92a-6dffaa441290",
+                                    "id": "13155ba9-3703-4f6c-a163-0c77772b2a77",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 30899.763038984365,
-                                            "y": 29885.85999703028
+                                            "x": 30887.49357619248,
+                                            "y": 29907.795648831718
                                         },
                                         "targetPosition": {
                                             "x": 31711.788477879996,
@@ -33273,7 +33273,7 @@
                                             "isPinned": true,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -33282,7 +33282,7 @@
                                         }
                                     }
                                 },
-                                "id": "8cc06746-0b0f-4bc0-bd34-22ed46a24a8a",
+                                "id": "c02360c3-aea4-4c03-9729-abc2bd456e7e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 31711.788477879996,
@@ -33296,7 +33296,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -33365,17 +33365,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Low-Frequency",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Low-Frequency\",\"folderName\":\"Trading-Engines\",\"nodeType\":\"Trading Engine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Low-Frequency",
                                     "project": "Foundations",
-                                    "id": "e117a2a4-09b3-4181-8455-e680de3bdeb3",
+                                    "id": "8bc2e5a7-a96a-4866-91ae-143c023525dc",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 30902.55093774257,
-                                            "y": 35982.799392142086
+                                            "x": 30891.49357619248,
+                                            "y": 35982.80910295817
                                         },
                                         "targetPosition": {
                                             "x": 31711.788477879996,
@@ -33394,7 +33394,7 @@
                                         }
                                     }
                                 },
-                                "id": "e9270d67-4630-4ac9-91ca-1dec4fb5aa38",
+                                "id": "5fdb7f19-4c71-4b14-b3c5-eed2462ccbd3",
                                 "savedPayload": {
                                     "position": {
                                         "x": 31711.788477879996,
@@ -35057,7 +35057,6 @@
                     "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
                 },
                 "tutorial": {

@@ -1,0 +1,1589 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "" ,
+    "version": "3.0.0",
+    "title": "CoinGecko API V3"
+  },
+  "host": "api.coingecko.com",
+  "basePath": "/api/v3",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/ping": {
+      "get": {
+        "tags": [
+          "ping"
+        ],
+        "summary": "Check API server status",
+        "description": "Check API server status\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Status OK"
+          }
+        }
+      }
+    },
+    "/simple/price": {
+      "get": {
+        "tags": [
+          "simple"
+        ],
+        "summary": "Get the current price of any cryptocurrencies in any other supported currencies that you need.",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "id of coins, comma-separated if querying more than 1 coin\n*refers to <b>`coins/list`</b>",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currencies",
+            "in": "query",
+            "description": "vs_currency of coins, comma-separated if querying more than 1 vs_currency\n*refers to <b>`simple/supported_vs_currencies`</b>",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "description": "<b>true/false</b> to include market_cap, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "description": "<b>true/false</b> to include 24hr_vol, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_24hr_change",
+            "in": "query",
+            "description": "<b>true/false</b> to include 24hr_change, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_last_updated_at",
+            "in": "query",
+            "description": "<b>true/false</b> to include last_updated_at of price, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "price(s) of cryptocurrency"
+          }
+        }
+      }
+    },
+    "/simple/token_price/{id}": {
+      "get": {
+        "tags": [
+          "simple"
+        ],
+        "summary": "Get current price of tokens (using contract addresses) for a given platform in any other currency that you need.",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the platform issuing tokens (See asset_platforms endpoint for list of options)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contract_addresses",
+            "in": "query",
+            "description": "The contract address of tokens, comma separated",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currencies",
+            "in": "query",
+            "description": "vs_currency of coins, comma-separated if querying more than 1 vs_currency\n*refers to <b>`simple/supported_vs_currencies`</b>",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "include_market_cap",
+            "in": "query",
+            "description": "<b>true/false</b> to include market_cap, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_24hr_vol",
+            "in": "query",
+            "description": "<b>true/false</b> to include 24hr_vol, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_24hr_change",
+            "in": "query",
+            "description": "<b>true/false</b> to include 24hr_change, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_last_updated_at",
+            "in": "query",
+            "description": "<b>true/false</b> to include last_updated_at of price, <b>default: false</b>",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "price(s) of cryptocurrency"
+          }
+        }
+      }
+    },
+    "/simple/supported_vs_currencies": {
+      "get": {
+        "tags": [
+          "simple"
+        ],
+        "summary": "Get list of supported_vs_currencies.",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "list of supported_vs_currencies"
+          }
+        }
+      }
+    },
+    "/coins/list": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "List all supported coins id, name and symbol (no pagination required)",
+        "description": "Use this to obtain all the coins' id in order to make API calls",
+        "produces": [
+          "application/json"
+        ],
+        "parameters" : [
+          {
+            "name": "include_platform",
+            "in": "query",
+            "description": "flag to include platform contract addresses (eg. 0x.... for Ethereum based tokens). \n valid values: true, false",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all coins with id, name, and symbol"
+          }
+        }
+      }
+    },
+    "/coins/markets": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "List all supported coins price, market cap, volume, and market related data",
+        "description": "Use this to obtain all the coins market data (price, market cap, volume)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description":  "The ids of the coin, comma separated crytocurrency symbols (base). refers to `/coins/list`.\n<b>When left empty, returns numbers the coins observing the params `limit` and `start`</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description":  "filter by coin category. Refer to /coin/categories/list",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "valid values: <b>market_cap_desc, gecko_desc, gecko_asc, market_cap_asc, market_cap_desc, volume_asc, volume_desc, id_asc, id_desc</b>\nsort results by field.",
+            "default": "market_cap_desc",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "valid values: 1..250\n Total results per page",
+            "default": 100,
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "default": 1,
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "sparkline",
+            "in": "query",
+            "description": "Include sparkline 7 days data (eg. true, false)",
+            "default": false,
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "price_change_percentage",
+            "in": "query",
+            "description": "Include price change percentage in <b>1h, 24h, 7d, 14d, 30d, 200d, 1y</b> (eg. '`1h,24h,7d`' comma-separated, invalid values will be discarded)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all coins with market data"
+          }
+        }
+      }
+    },
+    "/coins/{id}": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get current data (name, price, market, ... including exchange tickers) for a coin",
+        "description": "Get current data (name, price, market, ... including exchange tickers) for a coin.<br><br> **IMPORTANT**:\n Ticker object is limited to 100 items, to get more tickers, use `/coins/{id}/tickers`\n Ticker `is_stale` is true when ticker that has not been updated/unchanged from the exchange for a while.\n Ticker `is_anomaly` is true if ticker's price is outliered by our system.\n You are responsible for managing how you want to display these information (e.g. footnote, different background, change opacity, hide)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "localization",
+            "in": "query",
+            "description": "Include all localized languages in response (true/false) <b>[default: true]</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tickers",
+            "in": "query",
+            "description": "Include tickers data (true/false) <b>[default: true]</b>",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "market_data",
+            "in": "query",
+            "description": "Include market_data (true/false) <b>[default: true]</b>",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "community_data",
+            "in": "query",
+            "description": "Include community_data data (true/false) <b>[default: true]</b>",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "developer_data",
+            "in": "query",
+            "description": "Include developer_data data (true/false) <b>[default: true]</b>",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sparkline",
+            "in": "query",
+            "description": "Include sparkline 7 days data (eg. true, false) <b>[default: false]</b>",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get current data for a coin"
+          }
+        }
+      }
+    },
+    "/coins/{id}/tickers": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get coin tickers (paginated to 100 items)",
+        "description": "Get coin tickers (paginated to 100 items)<br><br> **IMPORTANT**:\n Ticker `is_stale` is true when ticker that has not been updated/unchanged from the exchange for a while.\n Ticker `is_anomaly` is true if ticker's price is outliered by our system.\n You are responsible for managing how you want to display these information (e.g. footnote, different background, change opacity, hide)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins/list) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exchange_ids",
+            "in": "query",
+            "description": "filter results by exchange_ids (ref: v3/exchanges/list)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_exchange_logo",
+            "in": "query",
+            "description": "flag to show exchange_logo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "valid values: <b>trust_score_desc (default), trust_score_asc and volume_desc</b>",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "depth",
+            "in": "query",
+            "description": "flag to show 2% orderbook depth. valid values: true, false",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get coin tickers"
+          }
+        }
+      }
+    },
+    "/coins/{id}/history": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get historical data (name, price, market, stats) at a given date for a coin",
+        "description": "Get historical data (name, price, market, stats) at a given date for a coin\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "The date of data snapshot in dd-mm-yyyy eg. 30-12-2017",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "localization",
+            "in": "query",
+            "description": "Set to false to exclude localized languages in response",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical data at a given date for a coin"
+          }
+        }
+      }
+    },
+    "/coins/{id}/market_chart": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get historical market data include price, market cap, and 24h volume (granularity auto)",
+        "description": "Get historical market data include price, market cap, and 24h volume (granularity auto)\n <b>Minutely data will be used for duration within 1 day, Hourly data will be used for duration between 1 day and 90 days, Daily data will be used for duration above 90 days.</b>",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": "Data up to number of days ago (eg. 1,14,30,max)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "interval",
+            "in": "query",
+            "description": "Data interval. Possible value: daily",
+            "required":false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical market data include price, market cap, and 24h volume"
+          }
+        }
+      }
+    },
+    "/coins/{id}/market_chart/range": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get historical market data include price, market cap, and 24h volume within a range of timestamp (granularity auto)",
+        "description": "Get historical market data include price, market cap, and 24h volume within a range of timestamp (granularity auto)\n <b><ul><li>Data granularity is automatic (cannot be adjusted)</li><li>1 day from query time = 5 minute interval data</li><li>1 - 90 days from query time = hourly data</li><li>above 90 days from query time = daily data (00:00 UTC)</li></ul> </b>",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "From date in UNIX Timestamp (eg. 1392577232)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "To date in UNIX Timestamp (eg. 1422577232)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical market data include price, market cap, and 24h volume"
+          }
+        }
+      }
+    },
+    "/coins/{id}/status_updates": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get status updates for a given coin",
+        "description": "Get status updates for a given coin",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get paginated status updates for a given coin"
+          }
+        }
+      }
+    },
+    "/coins/{id}/contract/{contract_address}": {
+      "get": {
+        "tags": [
+          "contract"
+        ],
+        "summary": "Get coin info from contract address",
+        "description": "Get coin info from contract address",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Asset platform (See asset_platforms endpoint for list of options)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contract_address",
+            "in": "path",
+            "description": "Token's contract address",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get current data for a coin"
+          }
+        }
+      }
+    },
+    "/coins/{id}/contract/{contract_address}/market_chart/": {
+      "get": {
+        "tags": [
+          "contract"
+        ],
+        "summary": "Get historical market data include price, market cap, and 24h volume (granularity auto) from a contract address ",
+        "description": "Get historical market data include price, market cap, and 24h volume (granularity auto)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the platform issuing tokens (See asset_platforms endpoint for list of options)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contract_address",
+            "in": "path",
+            "description": "Token's contract address",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": "Data up to number of days ago (eg. 1,14,30,max)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical market data include price, market cap, and 24h volume"
+          }
+        }
+      }
+    },
+    "/coins/{id}/contract/{contract_address}/market_chart/range": {
+      "get": {
+        "tags": [
+          "contract"
+        ],
+        "summary": "Get historical market data include price, market cap, and 24h volume within a range of timestamp (granularity auto) from a contract address",
+        "description": "Get historical market data include price, market cap, and 24h volume within a range of timestamp (granularity auto)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the platform issuing tokens (See asset_platforms endpoint for list of options)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "contract_address",
+            "in": "path",
+            "description": "Token's contract address",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "From date in UNIX Timestamp (eg. 1392577232)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "To date in UNIX Timestamp (eg. 1422577232)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get historical market data include price, market cap, and 24h volume"
+          }
+        }
+      }
+    },
+    "/coins/{id}/ohlc": {
+      "get": {
+        "tags": [
+          "coins"
+        ],
+        "summary": "Get coin's OHLC",
+        "description": "Candle's body:\n\n1 - 2 days: 30 minutes\n3 - 30 days: 4 hours\n31 and before: 4 days",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the coin id (can be obtained from /coins/list) eg. bitcoin",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "vs_currency",
+            "in": "query",
+            "description": "The target currency of market data (usd, eur, jpy, etc.)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": " Data up to number of days ago (1/7/14/30/90/180/365/max)",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation\n\n[\n1594382400000 (time),\n1.1 (open),\n 2.2 (high),\n 3.3 (low),\n 4.4 (close)\n]",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "example": [
+                  1594382400000,
+                  1.1,
+                  2.2,
+                  3.3,
+                  4.4
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/asset_platforms": {
+      "get": {
+        "tags": [
+          "asset_platforms"
+        ],
+        "summary": "List all asset platforms (Blockchain networks)",
+        "description": "List all asset platforms",
+        "produces": [
+          "application/json"
+        ]
+      },
+      "responses": {
+        "200": {
+          "description": "List all asset_platforms"
+        }
+      }
+    },
+    "/coins/categories/list": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "List all categories",
+        "description": "List all categories",
+        "produces": [
+          "application/json"
+        ]
+      },
+      "responses": {
+        "200": {
+          "description": "List all categories"
+        }
+      }
+    },
+    "coins/categories": {
+      "get": {
+        "tags": [
+          "categories"
+        ],
+        "summary": "List all categories with market data",
+        "description": "List all categories with market data",
+        "produces": [
+          "application/json"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "order",
+          "in": "query",
+          "description": "valid values: <b>market_cap_desc (default), market_cap_asc, name_desc, name_asc, market_cap_change_24h_desc and market_cap_change_24h_asc</b>",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List all categories with market data"
+        }
+      }
+    },
+    "/exchanges": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "List all exchanges",
+        "description": "List all exchanges",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Valid values: 1...250\nTotal results per page\nDefault value:: 100",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page through results",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all exchanges"
+          }
+        }
+      }
+    },
+    "/exchanges/list": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "List all supported markets id and name (no pagination required)",
+        "description": "Use this to obtain all the markets' id in order to make API calls",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "List all coins with id and name"
+          }
+        }
+      }
+    },
+    "/exchanges/{id}": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "Get exchange volume in BTC and top 100 tickers only",
+        "description": "Get exchange volume in BTC and tickers<br><br> **IMPORTANT**:\n Ticker object is limited to 100 items, to get more tickers, use `/exchanges/{id}/tickers`\n Ticker `is_stale` is true when ticker that has not been updated/unchanged from the exchange for a while.\n Ticker `is_anomaly` is true if ticker's price is outliered by our system.\n You are responsible for managing how you want to display these information (e.g. footnote, different background, change opacity, hide)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the exchange id (can be obtained from /exchanges/list) eg. binance",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get exchange volume in BTC and top 100 tickers"
+          }
+        }
+      }
+    },
+    "/exchanges/{id}/tickers": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "Get exchange tickers (paginated, 100 tickers per page)",
+        "description": "Get exchange tickers (paginated)<br><br> **IMPORTANT**:\n Ticker `is_stale` is true when ticker that has not been updated/unchanged from the exchange for a while.\n Ticker `is_anomaly` is true if ticker's price is outliered by our system.\n You are responsible for managing how you want to display these information (e.g. footnote, different background, change opacity, hide)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the exchange id (can be obtained from /exchanges/list) eg. binance",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "coin_ids",
+            "in": "query",
+            "description": "filter tickers by coin_ids (ref: v3/coins/list)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_exchange_logo",
+            "in": "query",
+            "description": "flag to show exchange_logo",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          },
+          {
+
+            "name": "depth",
+            "in": "query",
+            "description": "flag to show 2% orderbook depth i.e., cost_to_move_up_usd and cost_to_move_down_usd",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "valid values: <b>trust_score_desc (default), trust_score_asc and volume_desc</b>",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get exchange tickers"
+          }
+        }
+      }
+    },
+    "/finance_platforms": {
+      "get": {
+        "tags": [
+          "finance"
+        ],
+        "summary": "List all finance platforms",
+        "description": "List all finance platforms",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page of results (paginated to 100 by default)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all finance platforms"
+          }
+        }
+      }
+    },
+    "/finance_products": {
+      "get": {
+        "tags": [
+          "finance"
+        ],
+        "summary": "List all finance products",
+        "description": "List all finance products",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description": "page of results (paginated to 100 by default)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start_at",
+            "in": "path",
+            "description": "start date of the financial products",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_at",
+            "in": "path",
+            "description": "end date of the financial products",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all finance products"
+          }
+        }
+      }
+    },
+    "/indexes": {
+      "get": {
+        "tags": [
+          "indexes"
+        ],
+        "summary": "List all market indexes",
+        "description": "List all market indexes",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all market indexes"
+          }
+        }
+      }
+    },
+    "/indexes/{market_id}/{id}": {
+      "get": {
+        "tags": [
+          "indexes"
+        ],
+        "summary": "get market index by market id and index id",
+        "description": "get market index by market id and index id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "market_id",
+            "in": "path",
+            "description": "pass the market id (can be obtained from /exchanges/list)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the index id (can be obtained from /indexes/list)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get market index by market id and index id"
+          }
+        }
+      }
+    },
+    "/indexes/list": {
+      "get": {
+        "tags": [
+          "indexes"
+        ],
+        "summary": "list market indexes id and name",
+        "description": "list market indexes id and name",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "list market indexes id and name"
+          }
+        }
+      }
+    },
+    "/derivatives": {
+      "get": {
+        "tags": [
+          "derivatives"
+        ],
+        "summary": "List all derivative tickers",
+        "description": "List all derivative tickers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "include_tickers",
+            "in": "query",
+            "description": "['all', 'unexpired'] - expired to show unexpired tickers, all to list all tickers, defaults to unexpired",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all derivative tickers"
+          }
+        }
+      }
+    },
+    "/derivatives/exchanges": {
+      "get": {
+        "tags": [
+          "derivatives"
+        ],
+        "summary": "List all derivative exchanges",
+        "description": "List all derivative exchanges",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "order",
+            "in": "query",
+            "description": "order results using following params name_asc，name_desc，open_interest_btc_asc，open_interest_btc_desc，trade_volume_24h_btc_asc，trade_volume_24h_btc_desc",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all derivative exchanges"
+          }
+        }
+      }
+    },
+    "/derivatives/exchanges/{id}": {
+      "get": {
+        "tags": [
+          "derivatives"
+        ],
+        "summary": "show derivative exchange data",
+        "description": "show derivative exchange data",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the exchange id (can be obtained from derivatives/exchanges/list) eg. bitmex",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "include_tickers",
+            "in": "query",
+            "description": "['all', 'unexpired'] - expired to show unexpired tickers, all to list all tickers, leave blank to omit tickers data in response",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "show derivative exchange data"
+          }
+        }
+      }
+    },
+    "/derivatives/exchanges/list": {
+      "get": {
+        "tags": [
+          "derivatives"
+        ],
+        "summary": "List all derivative exchanges name and identifier",
+        "description": "List all derivative exchanges name and identifier",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "List all derivative exchanges name and identifier"
+          }
+        }
+      }
+    },
+    "/exchanges/{id}/status_updates": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "Get status updates for a given exchange",
+        "description": "Get status updates for a given exchange",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the exchange id (can be obtained from /exchanges/list) eg. binance",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get paginated status updates for a given coin"
+          }
+        }
+      }
+    },
+    "/exchanges/{id}/volume_chart": {
+      "get": {
+        "tags": [
+          "exchanges"
+        ],
+        "summary": "Get volume_chart data for a given exchange",
+        "description": "Get volume_chart data for a given exchange",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "pass the exchange id (can be obtained from /exchanges/list) eg. binance",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "description": " Data up to number of days ago (eg. 1,14,30)",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get exchange volume_chart data"
+          }
+        }
+      }
+    },
+    "/status_updates": {
+      "get": {
+        "tags": [
+          "status_updates"
+        ],
+        "summary": "List all status_updates with data (description, category, created_at, user, user_title and pin)",
+        "description": "List all status_updates with data (description, category, created_at, user, user_title and pin)\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Filtered by category (eg. general, milestone, partnership, exchange_listing, software_release, fund_movement, new_listings, event)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "project_type",
+            "in": "query",
+            "description": "Filtered by Project Type (eg. coin, market). If left empty returns both status from coins and markets.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Total results per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page through results",
+            "required": false,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List all status_updates with data"
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Get events, paginated by 100",
+        "description": "Get events, paginated by 100\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "country_code",
+            "in": "query",
+            "description": "country_code of event (eg. 'US'). use <b>/api/v3/events/countries</b> for list of country_codes",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type of event (eg. 'Conference'). use <b>/api/v3/events/types</b> for list of types",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page of results (paginated by 100)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "upcoming_events_only",
+            "in": "query",
+            "description": "lists only upcoming events. <br>true, false</br> (defaults to true, set to false to list all events)",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "from_date",
+            "in": "query",
+            "description": "lists events after this date yyyy-mm-dd",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "to_date",
+            "in": "query",
+            "description": "lists events before this date yyyy-mm-dd (set upcoming_events_only to false if fetching past events)",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List events"
+          }
+        }
+      }
+    },
+    "/events/countries": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Get list of event countries",
+        "description": "Get list of event countries\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List event countries"
+          }
+        }
+      }
+    },
+    "/events/types": {
+      "get": {
+        "tags": [
+          "events"
+        ],
+        "summary": "Get list of events types",
+        "description": "Get list of event types\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List event types"
+          }
+        }
+      }
+    },
+    "/exchange_rates": {
+      "get": {
+        "tags": [
+          "exchange_rates"
+        ],
+        "summary": "Get BTC-to-Currency exchange rates",
+        "description": "Get BTC-to-Currency exchange rates\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List rates"
+          }
+        }
+      }
+    },
+    "/search/trending": {
+      "get": {
+        "tags": [
+          "trending"
+        ],
+        "summary": "Get trending search coins (Top-7) on CoinGecko in the last 24 hours",
+        "description": "Top-7 trending coins on CoinGecko as searched by users in the last 24 hours (Ordered by most popular first)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List trending coins by most popular first"
+          }
+        }
+      }
+    },
+    "/global": {
+      "get": {
+        "tags": [
+          "global"
+        ],
+        "summary": "Get cryptocurrency global data",
+        "description": "Get cryptocurrency global data\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Get global data - total_volume, total_market_cap, ongoing icos etc"
+          }
+        }
+      }
+    },
+    "/global/decentralized_finance_defi": {
+      "get": {
+        "tags": [
+          "global"
+        ],
+        "summary": "Get cryptocurrency global decentralized finance(defi) data",
+        "description": "Get Top 100 Cryptocurrency Global Eecentralized Finance(defi) data\n",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "defi_market_cap": {
+            "description": "Defi Market Capitalization in USD"
+          },
+          "eth_market_cap": {
+            "description": "Ethereum Market Capitalization in USD"
+          },
+          "defi_to_eth_ratio": {
+            "description": "defi_market_cap to eth_market_cap ratio"
+          },
+          "trading_volume_24h": {
+            "description": "defi trading volume in 24h in USD"
+          },
+          "defi_dominance": {
+            "description": "defi_market_cap to total_market_cap ratio"
+          },
+          "top_coin_name": {
+            "description": "defi coin with largest market_cap"
+          },
+          "top_coin_dominance": {
+            "description": "top defi coin market dominance"
+          }
+        }
+      }
+    },
+    "/companies/public_treasury/{coin_id}": {
+      "get": {
+        "tags": [
+          "companies (beta)"
+        ],
+        "summary": "Get public companies data",
+        "description": "Get public companies bitcoin or ethereum holdings (Ordered by total holdings descending)",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "coin_id",
+            "in": "path",
+            "description": "bitcoin or ethereum",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get public companies bitcoin or ethereum holdings"
+          }
+        }
+      }
+    },
+  },
+  "definitions": {}
+}

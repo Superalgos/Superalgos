@@ -4,8 +4,8 @@
     "type": "Tutorial - Welcome to Superalgos!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "tutorial"
+            "name": "tutorial",
+            "project": "Education"
         },
         "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
         "translations": [
@@ -30,7 +30,8 @@
             {
                 "language": "FR",
                 "text": "Je suis un tutoriel interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques!",
-                "updated": 1623946542352
+                "updated": 1623946542352,
+                "style": "Definition"
             }
         ]
     },
@@ -60,7 +61,8 @@
                 {
                     "language": "FR",
                     "text": "Je vais vous aider à démarrer, en vous montrant les outils qui vous aideront à vous déplacer facilement, et vous aider à découvrir toutes les choses que Superalgos vous faciliter.",
-                    "updated": 1623945805888
+                    "updated": 1623945805888,
+                    "style": "Text"
                 }
             ]
         },
@@ -89,7 +91,8 @@
                 {
                     "language": "FR",
                     "text": "Les tutoriels sont l'ultime outil d'initiation à Superalgos ! Commencer à utiliser Superalgos d'une autre manière serait une erreur, car aucune autre ressource ne vous permettra d'être opérationnel plus rapidement. Nous vous recommandons de suivre tous les tutoriels avant d'essayer de mettre en œuvre vos propres idées !",
-                    "updated": 1623946050005
+                    "updated": 1623946050005,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616410377766
@@ -119,7 +122,8 @@
                 {
                     "language": "FR",
                     "text": "S'il vous plaît, cliquez toujours sur Suivant pour continuer !",
-                    "updated": 1623950092303
+                    "updated": 1623950092303,
+                    "style": "Success"
                 }
             ]
         }

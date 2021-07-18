@@ -12,5 +12,6 @@
         "**/Log-Files": true,
         "**/Deprecated-Code": true
     },
-    "search.maintainFileSearchCache": true
+    "search.maintainFileSearchCache": true,
+    "json.maxItemsComputed": 0
 }

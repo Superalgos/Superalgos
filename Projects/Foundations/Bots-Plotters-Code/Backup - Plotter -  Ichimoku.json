@@ -1,0 +1,2010 @@
+{
+    "type": "Plotter",
+    "name": "Ichimoku",
+    "config": "{\n    \"codeName\": \"Plotter-Ichimoku\"\n}",
+    "project": "Foundations",
+    "modules": [
+        {
+            "type": "Plotter Module",
+            "name": "Ichimoku",
+            "config": "{\n    \"codeName\": \"Ichimoku\",\n    \"icon\": \"|moving-average\"\n}",
+            "project": "Foundations",
+            "shapes": {
+                "type": "Shapes",
+                "name": "New Shapes",
+                "project": "Foundations",
+                "chartPoints": [
+                    {
+                        "type": "Chart Points",
+                        "name": "New Chart Points",
+                        "project": "Foundations",
+                        "points": [
+                            {
+                                "type": "Point",
+                                "name": "Tenkan Begin",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.begin\ny = record.previous.tenkan",
+                                    "project": "Foundations",
+                                    "id": "827748a6-7f40-4a30-a811-f88883118c88",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21407.28404382087,
+                                            "y": 17083.20010938068
+                                        },
+                                        "targetPosition": {
+                                            "x": 21486.08070460425,
+                                            "y": 16872.44886679979
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "a56bb9d9-6e55-4fa3-936d-81582cf1f94d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21486.08070460425,
+                                        "y": 16872.44886679979
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Tenkan End",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.end\ny = record.tenkan",
+                                    "project": "Foundations",
+                                    "id": "3e816114-9409-4ef8-ae5b-92de87c7ba20",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21056.18393141158,
+                                            "y": 16783.332284707853
+                                        },
+                                        "targetPosition": {
+                                            "x": 21252.013962998055,
+                                            "y": 16672.53698368457
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "3eaf4ff4-cf81-4928-b2f8-26d75e89d3c0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21252.013962998055,
+                                        "y": 16672.53698368457
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Kijun Begin",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.begin\ny = record.previous.kijun",
+                                    "project": "Foundations",
+                                    "id": "9473832d-9c65-47c0-81b7-06e6399b21b1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20979.976963565343,
+                                            "y": 16327.937401930812
+                                        },
+                                        "targetPosition": {
+                                            "x": 21201.209317767232,
+                                            "y": 16368.940395166544
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "f7d3e6d3-089b-4bc7-8468-2e42bc6511b7",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21201.209317767232,
+                                        "y": 16368.940395166544
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Kijun End",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.end\ny = record.kijun",
+                                    "project": "Foundations",
+                                    "id": "01e0f6a0-132f-497a-8cbf-45f305163405",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21214.32122748352,
+                                            "y": 15930.0997878513
+                                        },
+                                        "targetPosition": {
+                                            "x": 21357.43882704602,
+                                            "y": 16103.715319113537
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "385613d8-5b52-44b9-be18-91bca1c86c47",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21357.43882704602,
+                                        "y": 16103.715319113537
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Span-A Begin",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.forwardBegin\ny = record.previous.plotspanA",
+                                    "project": "Foundations",
+                                    "id": "19cecf0e-124a-4394-8968-2edcb21cfbd8",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21649.564437632416,
+                                            "y": 15775.972083569697
+                                        },
+                                        "targetPosition": {
+                                            "x": 21647.60096714528,
+                                            "y": 16000.963516259137
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "fbac2c1f-aa48-421f-b725-4b62cc53fc41",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21647.60096714528,
+                                        "y": 16000.963516259137
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Span-A End",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.forwardEnd\ny = record.plotspanA",
+                                    "project": "Foundations",
+                                    "id": "1584a320-70a4-4487-8b2e-cbacab3288ad",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 22082.051458793885,
+                                            "y": 15937.672354857994
+                                        },
+                                        "targetPosition": {
+                                            "x": 21935.925647919594,
+                                            "y": 16108.763697118
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "cb4fb579-edd5-4de7-a831-003f24afcf39",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21935.925647919594,
+                                        "y": 16108.763697118
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Span-B Begin",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.forwardBegin\ny = record.previous.plotspanB",
+                                    "project": "Foundations",
+                                    "id": "66ad8d46-50dc-4306-9d06-a3c6f4ead8e2",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 22198.459677035702,
+                                            "y": 16358.10710334138
+                                        },
+                                        "targetPosition": {
+                                            "x": 22087.502546862765,
+                                            "y": 16376.674959000706
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 1,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "b7ab8f9c-d7a0-4c4d-b7d6-1e1d0c02eb83",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22087.502546862765,
+                                        "y": 16376.674959000706
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Point",
+                                "name": "Span-B End",
+                                "project": "Foundations",
+                                "pointFormula": {
+                                    "type": "Point Formula",
+                                    "name": "New Point Formula",
+                                    "code": "x = record.forwardEnd\ny = record.plotspanB",
+                                    "project": "Foundations",
+                                    "id": "e837a646-7549-469e-8d35-6c1cee681da4",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 22225.273709469042,
+                                            "y": 16793.534776636487
+                                        },
+                                        "targetPosition": {
+                                            "x": 22031.407148369697,
+                                            "y": 16679.33864497033
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {}
+                                    }
+                                },
+                                "id": "02355e05-fe68-4efc-bfae-d2cc6f1457c3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22031.407148369697,
+                                        "y": 16679.33864497033
+                                    },
+                                    "targetPosition": {
+                                        "x": 21643.67402617101,
+                                        "y": 16450.946381638012
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "3086f338-1640-4ebb-bafe-bf8cfd3da0ec",
+                        "savedPayload": {
+                            "position": {
+                                "x": 21643.67402617101,
+                                "y": 16450.946381638012
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 5,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "polygons": [
+                    {
+                        "type": "Polygon",
+                        "name": "Conversion Line",
+                        "project": "Foundations",
+                        "polygonBorder": {
+                            "type": "Polygon Border",
+                            "name": "New Polygon Border",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.TENKAN_GREEN\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2.5,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "e865a1b2-668e-427f-b16d-3ecc6c4f770f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 20744.224845340803,
+                                        "y": 16917.806191537493
+                                    },
+                                    "targetPosition": {
+                                        "x": 21193.60813598036,
+                                        "y": 16941.357371846818
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "5f0a0922-aecd-4b40-9fb3-b3fdd1207eea",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21193.60813598036,
+                                    "y": 16941.357371846818
+                                },
+                                "targetPosition": {
+                                    "x": 21642.99142661992,
+                                    "y": 16964.908552156143
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Tenkan Begin",
+                                "project": "Foundations",
+                                "id": "0e09b636-d71d-49d5-9d9a-6e3b067925ca",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21341.882653758432,
+                                        "y": 16630.493380691314
+                                    },
+                                    "targetPosition": {
+                                        "x": 21642.99142661992,
+                                        "y": 16964.908552156143
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Tenkan Begin",
+                                        "id": "a56bb9d9-6e55-4fa3-936d-81582cf1f94d"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Tenkan End",
+                                "project": "Foundations",
+                                "id": "b92598e2-5755-4a95-85f7-80bc63612184",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21666.542606929244,
+                                        "y": 16515.525261516585
+                                    },
+                                    "targetPosition": {
+                                        "x": 21642.99142661992,
+                                        "y": 16964.908552156143
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Tenkan End",
+                                        "id": "3eaf4ff4-cf81-4928-b2f8-26d75e89d3c0"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "59bb987c-d919-4454-ad68-f52a84639d18",
+                        "savedPayload": {
+                            "position": {
+                                "x": 21642.99142661992,
+                                "y": 16964.908552156143
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Polygon",
+                        "name": "Base Line",
+                        "project": "Foundations",
+                        "polygonBorder": {
+                            "type": "Polygon Border",
+                            "name": "New Polygon Border",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.PINK\"\n    },\n    \"atMousePosition\": {\n        \"opacity\": 1,\n        \"lineWidth\": 2.5,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.TRUE_RED\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "623a0cc7-8641-46ab-bb9b-6132f6b4374c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21365.433834067757,
+                                        "y": 16181.110090051756
+                                    },
+                                    "targetPosition": {
+                                        "x": 21666.542606929244,
+                                        "y": 16515.525261516585
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "639d75aa-1e58-4c36-8257-67168abafb05",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21666.542606929244,
+                                    "y": 16515.525261516585
+                                },
+                                "targetPosition": {
+                                    "x": 21967.651379790732,
+                                    "y": 16849.940432981413
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Kijun Begin",
+                                "project": "Foundations",
+                                "id": "eca8fef0-6505-4e10-908e-5fcf8a99293a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21991.202560100057,
+                                        "y": 16400.557142341855
+                                    },
+                                    "targetPosition": {
+                                        "x": 21967.651379790732,
+                                        "y": 16849.940432981413
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Kijun Begin",
+                                        "id": "f7d3e6d3-089b-4bc7-8468-2e42bc6511b7"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Kijun End",
+                                "project": "Foundations",
+                                "id": "09535200-2132-4847-960a-9ce3698e72b9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22302.06655125556,
+                                        "y": 16548.831660119926
+                                    },
+                                    "targetPosition": {
+                                        "x": 21967.651379790732,
+                                        "y": 16849.940432981413
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Kijun End",
+                                        "id": "385613d8-5b52-44b9-be18-91bca1c86c47"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "5ae2d724-fb7c-478e-bc67-bd08b88562bb",
+                        "savedPayload": {
+                            "position": {
+                                "x": 21967.651379790732,
+                                "y": 16849.940432981413
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Polygon",
+                        "name": "Span-A",
+                        "project": "Foundations",
+                        "polygonBorder": {
+                            "type": "Polygon Border",
+                            "name": "New Polygon Border",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 0.8,\n        \"lineWidth\": 2,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.JUNGLE_GREEN\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "77e51645-bb9d-4c7a-a8bb-70de2bca0f05",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22325.617731564886,
+                                        "y": 16099.448369480368
+                                    },
+                                    "targetPosition": {
+                                        "x": 22302.06655125556,
+                                        "y": 16548.831660119926
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "70f77c83-7b79-4a15-926e-173e9fcbf78f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22302.06655125556,
+                                    "y": 16548.831660119926
+                                },
+                                "targetPosition": {
+                                    "x": 22278.515370946236,
+                                    "y": 16998.214950759484
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A Begin",
+                                "project": "Foundations",
+                                "id": "878fdf21-37b6-4487-ba94-22f16b609ec4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22612.930542411064,
+                                        "y": 16697.106177897997
+                                    },
+                                    "targetPosition": {
+                                        "x": 22278.515370946236,
+                                        "y": 16998.214950759484
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A Begin",
+                                        "id": "fbac2c1f-aa48-421f-b725-4b62cc53fc41"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A End",
+                                "project": "Foundations",
+                                "id": "3d6e5394-4cef-41ce-8091-4b557155d5a9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22727.898661585794,
+                                        "y": 17021.76613106881
+                                    },
+                                    "targetPosition": {
+                                        "x": 22278.515370946236,
+                                        "y": 16998.214950759484
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A End",
+                                        "id": "cb4fb579-edd5-4de7-a831-003f24afcf39"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "c8fca9b3-dfe0-4442-8275-493b9d545d7a",
+                        "savedPayload": {
+                            "position": {
+                                "x": 22278.515370946236,
+                                "y": 16998.214950759484
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Polygon",
+                        "name": "Span-B",
+                        "project": "Foundations",
+                        "polygonBorder": {
+                            "type": "Polygon Border",
+                            "name": "New Polygon Border",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 0.8,\n        \"lineWidth\": 1,\n        \"lineDash\": [\n            0,\n            0\n        ],\n        \"paletteColor\": \"UI_COLOR.BYZANTINE_PINK\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "62ad6e42-cc75-4cf3-8217-b460a5b465f4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 23062.313833050623,
+                                        "y": 16720.65735820732
+                                    },
+                                    "targetPosition": {
+                                        "x": 22727.898661585794,
+                                        "y": 17021.76613106881
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "0637699a-e7e2-4d24-b5c0-7c76748dda74",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22727.898661585794,
+                                    "y": 17021.76613106881
+                                },
+                                "targetPosition": {
+                                    "x": 22393.483490120965,
+                                    "y": 17322.874903930297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B Begin",
+                                "project": "Foundations",
+                                "id": "3d4d544a-28fc-463b-b792-5d08ec382a6f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22842.866780760523,
+                                        "y": 17346.42608423962
+                                    },
+                                    "targetPosition": {
+                                        "x": 22393.483490120965,
+                                        "y": 17322.874903930297
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B Begin",
+                                        "id": "b7ab8f9c-d7a0-4c4d-b7d6-1e1d0c02eb83"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B End",
+                                "project": "Foundations",
+                                "id": "507b22e5-4ae9-4290-a0df-7d7bac232aa9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22694.592262982453,
+                                        "y": 17657.290075395125
+                                    },
+                                    "targetPosition": {
+                                        "x": 22393.483490120965,
+                                        "y": 17322.874903930297
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B End",
+                                        "id": "02355e05-fe68-4efc-bfae-d2cc6f1457c3"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "8bcba1bd-2717-4d86-a955-b7a396e27687",
+                        "savedPayload": {
+                            "position": {
+                                "x": 22393.483490120965,
+                                "y": 17322.874903930297
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Polygon",
+                        "name": "Cloud Green",
+                        "project": "Foundations",
+                        "polygonCondition": {
+                            "type": "Polygon Condition",
+                            "name": "New Polygon Condition",
+                            "code": "record.plotspanA > record.plotspanB",
+                            "project": "Foundations",
+                            "id": "13e89aa0-e3e2-40ac-abc6-0b98ee4bf44a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22677.152831037194,
+                                    "y": 17507.5465698981
+                                },
+                                "targetPosition": {
+                                    "x": 22245.208972342894,
+                                    "y": 17633.7388950858
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonBody": {
+                            "type": "Polygon Body",
+                            "name": "New Polygon Body",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 0.3,\n        \"paletteColor\": \"UI_COLOR.APPLE_GREEN\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "403e5719-537a-4f87-ba17-a2885f64f841",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 23133.05050687406,
+                                        "y": 17781.175015359426
+                                    },
+                                    "targetPosition": {
+                                        "x": 22689.129739608477,
+                                        "y": 17707.456955222613
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "a896ce8e-5bd8-49fc-b445-ac872d80ad69",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22689.129739608477,
+                                    "y": 17707.456955222613
+                                },
+                                "targetPosition": {
+                                    "x": 22245.208972342894,
+                                    "y": 17633.7388950858
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A Begin",
+                                "project": "Foundations",
+                                "id": "c42cc383-9c0e-4aea-851a-c224501448b4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22613.18269589189,
+                                        "y": 17892.766574644353
+                                    },
+                                    "targetPosition": {
+                                        "x": 22245.208972342894,
+                                        "y": 17633.7388950858
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A Begin",
+                                        "id": "fbac2c1f-aa48-421f-b725-4b62cc53fc41"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A End",
+                                "project": "Foundations",
+                                "id": "f315431a-2603-459e-9f05-34b8ee64356c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22464.35394332486,
+                                        "y": 18026.77258536351
+                                    },
+                                    "targetPosition": {
+                                        "x": 22245.208972342894,
+                                        "y": 17633.7388950858
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A End",
+                                        "id": "cb4fb579-edd5-4de7-a831-003f24afcf39"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B End",
+                                "project": "Foundations",
+                                "id": "52eb035e-85aa-4746-ad09-7a6f1b636f3c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22272.120841618158,
+                                        "y": 18082.93345348128
+                                    },
+                                    "targetPosition": {
+                                        "x": 22245.208972342894,
+                                        "y": 17633.7388950858
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B End",
+                                        "id": "02355e05-fe68-4efc-bfae-d2cc6f1457c3"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B Begin",
+                                "project": "Foundations",
+                                "id": "52b3d278-b029-46f3-8772-e7dd7b5d42a3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22074.557514149077,
+                                        "y": 18050.125830299097
+                                    },
+                                    "targetPosition": {
+                                        "x": 22245.208972342894,
+                                        "y": 17633.7388950858
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B Begin",
+                                        "id": "b7ab8f9c-d7a0-4c4d-b7d6-1e1d0c02eb83"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "d3ee5217-2b18-443a-a8dc-6884ff3711e9",
+                        "savedPayload": {
+                            "position": {
+                                "x": 22245.208972342894,
+                                "y": 17633.7388950858
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Polygon",
+                        "name": "Cloud Red",
+                        "project": "Foundations",
+                        "polygonCondition": {
+                            "type": "Polygon Condition",
+                            "name": "New Polygon Condition",
+                            "code": "record.plotspanA < record.plotspanB",
+                            "project": "Foundations",
+                            "id": "0486bacd-b7c4-468b-a2bd-fca7604d031a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22315.210899620626,
+                                    "y": 17964.90599696123
+                                },
+                                "targetPosition": {
+                                    "x": 21920.549019172082,
+                                    "y": 17748.70701426053
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonBody": {
+                            "type": "Polygon Body",
+                            "name": "New Polygon Body",
+                            "project": "Foundations",
+                            "style": {
+                                "type": "Style",
+                                "name": "New Style",
+                                "config": "{\n    \"default\": {\n        \"opacity\": 0.2,\n        \"paletteColor\": \"UI_COLOR.TRUE_PURPLE\"\n    }\n}",
+                                "project": "Foundations",
+                                "id": "acf85f27-802a-4609-a45f-f602dd9dcd1c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22444.094708420824,
+                                        "y": 18480.758864383904
+                                    },
+                                    "targetPosition": {
+                                        "x": 22182.321863796453,
+                                        "y": 18114.732939322217
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "styleConditions": [],
+                            "id": "f6448eec-e334-4c22-8d0e-a3c68316ce42",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22182.321863796453,
+                                    "y": 18114.732939322217
+                                },
+                                "targetPosition": {
+                                    "x": 21920.549019172082,
+                                    "y": 17748.70701426053
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "polygonVertexes": [
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A Begin",
+                                "project": "Foundations",
+                                "id": "ae3a2357-a62e-498d-81e0-90f06b7c3ec4",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21997.585505661173,
+                                        "y": 18192.063958211358
+                                    },
+                                    "targetPosition": {
+                                        "x": 21920.549019172082,
+                                        "y": 17748.70701426053
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A Begin",
+                                        "id": "fbac2c1f-aa48-421f-b725-4b62cc53fc41"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-A End",
+                                "project": "Foundations",
+                                "id": "cc92f4b4-eee9-4017-b30e-7e69d13f7200",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21797.59112658622,
+                                        "y": 18181.582696934947
+                                    },
+                                    "targetPosition": {
+                                        "x": 21920.549019172082,
+                                        "y": 17748.70701426053
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-A End",
+                                        "id": "cb4fb579-edd5-4de7-a831-003f24afcf39"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B End",
+                                "project": "Foundations",
+                                "id": "d7e2bed8-30ec-479d-8909-a1d6f05084a1",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21621.950066117486,
+                                        "y": 18085.365097833015
+                                    },
+                                    "targetPosition": {
+                                        "x": 21920.549019172082,
+                                        "y": 17748.70701426053
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B End",
+                                        "id": "02355e05-fe68-4efc-bfae-d2cc6f1457c3"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Polygon Vertex",
+                                "name": " Span-B Begin",
+                                "project": "Foundations",
+                                "id": "9fb73913-c17f-4c3f-b60f-b1f2821d740f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 21505.450190377054,
+                                        "y": 17922.468236439116
+                                    },
+                                    "targetPosition": {
+                                        "x": 21920.549019172082,
+                                        "y": 17748.70701426053
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {},
+                                    "referenceParent": {
+                                        "type": "Point",
+                                        "name": "Span-B Begin",
+                                        "id": "b7ab8f9c-d7a0-4c4d-b7d6-1e1d0c02eb83"
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "e1707dc5-c49a-4b2d-b2b9-d6fd2e064a3c",
+                        "savedPayload": {
+                            "position": {
+                                "x": 21920.549019172082,
+                                "y": 17748.70701426053
+                            },
+                            "targetPosition": {
+                                "x": 21944.100199481407,
+                                "y": 17299.32372362097
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "images": [],
+                "texts": [],
+                "id": "2a9c9e98-7ccf-4999-804c-2094204d1ca6",
+                "savedPayload": {
+                    "position": {
+                        "x": 21944.100199481407,
+                        "y": 17299.32372362097
+                    },
+                    "targetPosition": {
+                        "x": 21609.685028016578,
+                        "y": 17600.43249648246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "panels": [
+                {
+                    "type": "Plotter Panel",
+                    "name": "Ichimoku Cloud",
+                    "config": "{ \n  \"codeName\": \"\"\n}",
+                    "project": "Foundations",
+                    "panelData": [
+                        {
+                            "type": "Panel Data",
+                            "name": "Lagging Span",
+                            "config": "{\n  \"valueDecimals\": 2\n}",
+                            "project": "Foundations",
+                            "dataFormula": {
+                                "type": "Data Formula",
+                                "name": "New Data Formula",
+                                "code": "record.laggingSpan",
+                                "project": "Foundations",
+                                "id": "e923bf3d-c6c5-4f08-9292-4910b5aafd6f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22599.357849478307,
+                                        "y": 17734.762414522505
+                                    },
+                                    "targetPosition": {
+                                        "x": 22529.829025743944,
+                                        "y": 17948.750130688913
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "textStyle": {
+                                "type": "Text Style",
+                                "name": "New Text Style",
+                                "config": "{\n    \"paletteColor\": \"UI_COLOR.PATINATED_TURQUOISE\",\n    \"opacity\": 1,\n    \"fontSize\": 15\n}",
+                                "project": "Foundations",
+                                "id": "4b843355-d7ea-45af-8fb1-ecefe26e6a75",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22749.91223590905,
+                                        "y": 17901.970000254918
+                                    },
+                                    "targetPosition": {
+                                        "x": 22529.829025743944,
+                                        "y": 17948.750130688913
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "id": "ce794350-6644-4e6c-afac-e8a7a10c60ca",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22635.58027460933,
+                                    "y": 18156.29864268241
+                                },
+                                "targetPosition": {
+                                    "x": 22195.413854279115,
+                                    "y": 18249.8589035504
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Panel Data",
+                            "name": "Tenkan",
+                            "config": "{\n  \"valueDecimals\": 2\n}",
+                            "project": "Foundations",
+                            "dataFormula": {
+                                "type": "Data Formula",
+                                "name": "New Data Formula",
+                                "code": "record.tenkan",
+                                "project": "Foundations",
+                                "id": "468401fd-3794-4749-9434-4f9c2107db49",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22802.78786034174,
+                                        "y": 18005.744256251666
+                                    },
+                                    "targetPosition": {
+                                        "x": 22635.58027460933,
+                                        "y": 18156.29864268241
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "textStyle": {
+                                "type": "Text Style",
+                                "name": "New Text Style",
+                                "config": "{\n    \"paletteColor\": \"UI_COLOR.TENKAN_GREEN\",\n    \"opacity\": 1,\n    \"fontSize\": 15\n}",
+                                "project": "Foundations",
+                                "id": "32127f3e-22ec-4d64-ab18-90aef4433588",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22849.567990775737,
+                                        "y": 18225.827466416773
+                                    },
+                                    "targetPosition": {
+                                        "x": 22635.58027460933,
+                                        "y": 18156.29864268241
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "id": "f6d23c72-ba68-4d19-8291-53e729d60d43",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22644.797144918673,
+                                    "y": 18273.410083859726
+                                },
+                                "targetPosition": {
+                                    "x": 22195.413854279115,
+                                    "y": 18249.8589035504
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Panel Data",
+                            "name": "Kijun",
+                            "config": "{\n    \"valueDecimals\": 2\n}",
+                            "project": "Foundations",
+                            "dataFormula": {
+                                "type": "Data Formula",
+                                "name": "New Data Formula",
+                                "code": "record.kijun",
+                                "project": "Foundations",
+                                "id": "b00a3c5a-16ca-4a05-b8a2-87442f67e7ee",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22843.47249677704,
+                                        "y": 18342.13642058513
+                                    },
+                                    "targetPosition": {
+                                        "x": 22623.389286611935,
+                                        "y": 18388.916551019127
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "textStyle": {
+                                "type": "Text Style",
+                                "name": "New Text Style",
+                                "config": "{\n    \"paletteColor\": \"UI_COLOR.RUSTED_RED\",\n    \"opacity\": 1,\n    \"fontSize\": 15\n}",
+                                "project": "Foundations",
+                                "id": "f9456c22-246e-4ebb-9f1a-64023ddc007e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22773.94367304268,
+                                        "y": 18556.12413675154
+                                    },
+                                    "targetPosition": {
+                                        "x": 22623.389286611935,
+                                        "y": 18388.916551019127
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "id": "ab82afc6-55b3-4ec7-9e1e-eec7e1260efc",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22623.389286611935,
+                                    "y": 18388.916551019127
+                                },
+                                "targetPosition": {
+                                    "x": 22195.413854279115,
+                                    "y": 18249.8589035504
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Panel Data",
+                            "name": "Span A",
+                            "config": "{\n    \"valueDecimals\": 2\n}",
+                            "project": "Foundations",
+                            "dataFormula": {
+                                "type": "Data Formula",
+                                "name": "New Data Formula",
+                                "code": "record.spanA",
+                                "project": "Foundations",
+                                "id": "a275f6d4-c570-4d08-a93a-fcb8d2ed168a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22710.51034330701,
+                                        "y": 18653.802898749593
+                                    },
+                                    "targetPosition": {
+                                        "x": 22496.522627140603,
+                                        "y": 18584.27407501523
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "textStyle": {
+                                "type": "Text Style",
+                                "name": "New Text Style",
+                                "config": "{\n    \"paletteColor\": \"UI_COLOR.JUNGLE_GREEN\",\n    \"opacity\": 1,\n    \"fontSize\": 15\n}",
+                                "project": "Foundations",
+                                "id": "bf48ad18-804f-482c-ae5d-dbb0a3522237",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22543.3027575746,
+                                        "y": 18804.357285180336
+                                    },
+                                    "targetPosition": {
+                                        "x": 22496.522627140603,
+                                        "y": 18584.27407501523
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "id": "8b7ebb57-8606-435a-be7b-921bc4e6a2d5",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22572.815609854555,
+                                    "y": 18494.946469307164
+                                },
+                                "targetPosition": {
+                                    "x": 22195.413854279115,
+                                    "y": 18249.8589035504
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Panel Data",
+                            "name": "Span B",
+                            "config": "{\n  \"valueDecimals\": 2\n}",
+                            "project": "Foundations",
+                            "dataFormula": {
+                                "type": "Data Formula",
+                                "name": "New Data Formula",
+                                "code": "record.spanB",
+                                "project": "Foundations",
+                                "id": "2dafd617-bb89-4aad-b697-6a361de69a98",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22439.52850157785,
+                                        "y": 18857.232909613027
+                                    },
+                                    "targetPosition": {
+                                        "x": 22288.974115147106,
+                                        "y": 18690.025323880614
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "textStyle": {
+                                "type": "Text Style",
+                                "name": "New Text Style",
+                                "config": "{\n    \"paletteColor\": \"UI_COLOR.RED\",\n    \"opacity\": 1,\n    \"fontSize\": 15\n}",
+                                "project": "Foundations",
+                                "id": "34880e13-f3bd-4fa6-8245-cb47783fc1d1",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 22219.445291412743,
+                                        "y": 18904.013040047023
+                                    },
+                                    "targetPosition": {
+                                        "x": 22288.974115147106,
+                                        "y": 18690.025323880614
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {}
+                                }
+                            },
+                            "id": "375c2ae1-cdb0-42a9-a243-0ea3a9d486a0",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 22496.522627140603,
+                                    "y": 18584.27407501523
+                                },
+                                "targetPosition": {
+                                    "x": 22195.413854279115,
+                                    "y": 18249.8589035504
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "c2502509-bfd7-483e-bae8-db4db0ae302b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 22037.660460349398,
+                            "y": 17739.490143951185
+                        },
+                        "targetPosition": {
+                            "x": 21609.685028016578,
+                            "y": 17600.43249648246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "c5dedee0-0553-457c-9a14-5c5d97907cb2",
+            "savedPayload": {
+                "position": {
+                    "x": 21609.685028016578,
+                    "y": 17600.43249648246
+                },
+                "targetPosition": {
+                    "x": 21169.518607686365,
+                    "y": 17693.99275735045
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "id": "f1d66d3b-c40e-4633-aa38-0f85d032d1f8",
+    "savedPayload": {
+        "position": {
+            "x": 21112.94989843448,
+            "y": 18404.65854492363
+        },
+        "targetPosition": {
+            "x": 20730.35218735615,
+            "y": 18641.55301821844
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

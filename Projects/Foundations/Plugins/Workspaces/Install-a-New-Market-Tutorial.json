@@ -6762,17 +6762,17 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Candles",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Candles\",\n    \"folderName\": \"Data-Mines\",\n    \"nodeType\": \"Data Mine\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Candles",
                                     "project": "Foundations",
-                                    "id": "5f2dbcb0-77ae-40f1-8b84-b05a7f174809",
+                                    "id": "9814c6f1-0fc3-4e1f-b7bf-a44ebb25d51f",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 18835.262986317583,
-                                            "y": 18680.295648831718
+                                            "x": 18824.390260903143,
+                                            "y": 18693.75366298624
                                         },
                                         "targetPosition": {
                                             "x": 30860.968084630065,
@@ -6791,7 +6791,7 @@
                                         }
                                     }
                                 },
-                                "id": "11ecaf38-8baf-445e-b3f8-ad087f4a42fa",
+                                "id": "dec59053-1012-41eb-bf78-c383fc1354f1",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30860.968084630065,
@@ -6805,7 +6805,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -6846,21 +6846,21 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Masters",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\n    \"project\": \"Foundations\",\n    \"fileName\": \"Masters\",\n    \"folderName\": \"Trading-Mines\",\n    \"nodeType\": \"Trading Mine\"\n}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Masters",
                                     "project": "Foundations",
-                                    "id": "ad1ce785-858f-4cfc-ba68-108b5e0c54d9",
+                                    "id": "093e044a-b901-437a-8a6e-6c3e6f8bee1d",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 24941.217404066585,
-                                            "y": 18714.893045797242
+                                            "x": 24929.762986317583,
+                                            "y": 18727.35151122931
                                         },
                                         "targetPosition": {
-                                            "x": 31320.45102232534,
-                                            "y": 19544.930491916948
+                                            "x": 31160.968084630065,
+                                            "y": 18087.168466117855
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
@@ -6875,15 +6875,15 @@
                                         }
                                     }
                                 },
-                                "id": "8a64c00e-4f8c-49bf-b57d-4e2e388bae41",
+                                "id": "42c035ee-1180-4792-97f9-9806a98b792f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31320.45102232534,
-                                        "y": 19544.930491916948
+                                        "x": 31160.968084630065,
+                                        "y": 18087.168466117855
                                     },
                                     "targetPosition": {
-                                        "x": 31070.415084976332,
-                                        "y": 19111.835158656926
+                                        "x": 31253.673182942548,
+                                        "y": 18372.4854210064
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -7014,21 +7014,21 @@
                             {
                                 "type": "Plugin File",
                                 "name": "Low-Frequency",
-                                "config": "{\n\"codeName\": \"\"\n}",
+                                "config": "{\"project\":\"Foundations\",\"fileName\":\"Low-Frequency\",\"folderName\":\"Trading-Engines\",\"nodeType\":\"Trading Engine\"}",
                                 "project": "Foundations",
                                 "pluginFilePosition": {
                                     "type": "Plugin File Position",
                                     "name": "Low-Frequency",
                                     "project": "Foundations",
-                                    "id": "e117a2a4-09b3-4181-8455-e680de3bdeb3",
+                                    "id": "ead724ab-c92e-4218-965a-aecab232e99e",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 30923.55093774257,
-                                            "y": 24967.049392142086
+                                            "x": 30909.99357619248,
+                                            "y": 24978.559102958174
                                         },
                                         "targetPosition": {
-                                            "x": 29820.22642897682,
-                                            "y": 18678.80776835817
+                                            "x": 31831.788477879996,
+                                            "y": 19010.47352727043
                                         },
                                         "floatingObject": {
                                             "isPinned": true,
@@ -7043,15 +7043,15 @@
                                         }
                                     }
                                 },
-                                "id": "e9270d67-4630-4ac9-91ca-1dec4fb5aa38",
+                                "id": "7447757c-5347-4a9a-a4c4-2b4c70c05eb3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29820.22642897682,
-                                        "y": 18678.80776835817
+                                        "x": 31831.788477879996,
+                                        "y": 19010.47352727043
                                     },
                                     "targetPosition": {
-                                        "x": 30320.32799443869,
-                                        "y": 18678.805890109317
+                                        "x": 31589.083379567513,
+                                        "y": 18834.13795158269
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -7136,7 +7136,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -7228,17 +7228,17 @@
             "spaceStyle": {
                 "type": "Space Style",
                 "name": "My Space Style",
-                "config": "    {\n        \"backgroundColor\": \"UI_COLOR.BLACK\",\n        \"node\": {\n            \"fontSize\": 16,\n            \"imageSize\":  60,\n            \"type\": {\n                \"fontColor\": \"UI_COLOR.WHITE\"\n            },\n            \"name\": {\n                \"fontColor\": \"UI_COLOR.WHITE\"\n            },\n            \"menuItem\": {\n                \"backgroundColor\": \"UI_COLOR.BLACK\",\n                \"fontColor\": \"UI_COLOR.WHITE\",\n                \"fontSize\": 14,\n                \"imageSize\": 14\n            }\n        }\n    }",
+                "config": "{\n    \"backgroundColor\": \"UI_COLOR.BLACK\",\n    \"node\": {\n        \"fontSize\": 16,\n        \"imageSize\": 60,\n        \"type\": {\n            \"fontColor\": \"UI_COLOR.WHITE\"\n        },\n        \"name\": {\n            \"fontColor\": \"UI_COLOR.WHITE\"\n        },\n        \"menuItem\": {\n            \"backgroundColor\": \"UI_COLOR.BLACK\",\n            \"fontColor\": \"UI_COLOR.WHITE\",\n            \"fontSize\": 14,\n            \"imageSize\": 14\n        }\n    }\n}",
                 "project": "Foundations",
                 "id": "fad0e429-f7a7-4b62-a2a5-2ead29b8f695",
                 "savedPayload": {
                     "position": {
-                        "x": 25236.875,
-                        "y": 8701.347826086958
+                        "x": 25240.875,
+                        "y": 10717.347826086958
                     },
                     "targetPosition": {
-                        "x": 24936.875,
-                        "y": 8701.347826086958
+                        "x": 24940.875,
+                        "y": 10717.347826086958
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7254,17 +7254,17 @@
             "spaceSettings": {
                 "type": "Space Settings",
                 "name": "New Space Settings",
-                "config": "{\n    \"node\": {\n        \"distancePercentage\": 60,\n        \"radiusPercentage\": 85,\n        \"massPercentage\": 100,\n        \"animationSteps\": 2, \n        \"menuItem\": {\n            \"widthPercentage\": 100,\n            \"heightPercentage\": 60,\n            \"radiusPercentage\": 90\n        }\n    },\n    \"physics\": false\n}",
+                "config": "{\n    \"node\": {\n        \"distancePercentage\": 60,\n        \"radiusPercentage\": 85,\n        \"massPercentage\": 100,\n        \"animationSteps\": 2,\n        \"menuItem\": {\n            \"widthPercentage\": 100,\n            \"heightPercentage\": 60,\n            \"radiusPercentage\": 90\n        }\n    },\n    \"physics\": false\n}",
                 "project": "Foundations",
                 "id": "05c9d6d5-24c4-4eec-9aca-9668d6486fdd",
                 "savedPayload": {
                     "position": {
-                        "x": 24636.875,
-                        "y": 8701.347826086958
+                        "x": 24640.875,
+                        "y": 10717.347826086958
                     },
                     "targetPosition": {
-                        "x": 24936.875,
-                        "y": 8701.347826086958
+                        "x": 24940.875,
+                        "y": 10717.347826086958
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -8190,7 +8190,6 @@
                     "arrangementStyle": 0
                 },
                 "uiObject": {
-                    "isPlaying": false,
                     "isRunning": false
                 },
                 "tutorial": {
@@ -8198,7 +8197,6 @@
                 }
             }
         },
-        null,
         {
             "type": "Trading System",
             "name": "New Trading System",

@@ -174,6 +174,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                        if (childNode.type === "Tokens Mined") { continue }
 
                         let percentage = getPercentage(childNode)
 
@@ -191,6 +192,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                                if (childNode.type === "Tokens Mined") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
@@ -223,6 +225,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                        if (childNode.type === "Tokens Mined") { continue }
 
                         let percentage = getPercentage(childNode)
                         if (percentage === undefined || isNaN(percentage) === true) {
@@ -243,6 +246,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
+                                if (childNode.type === "Tokens Mined") { continue }
 
                                 let percentage = getPercentage(childNode)
                                 if (percentage === undefined || isNaN(percentage) === true) {

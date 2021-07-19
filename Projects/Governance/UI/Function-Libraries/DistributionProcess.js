@@ -22,7 +22,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         )
         /*
         Here we will run the Delegation Program, so that all the tokens
-        that are going to be delegated, are transfered to the Delegate User Profile.
+        that are going to be delegated, are transfered to the Delegate's User Profile.
         */
         UI.projects.governance.functionLibraries.delegationProgram.calculate(
             pools,
@@ -35,6 +35,9 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         UI.projects.governance.functionLibraries.tokenPower.calculateDelegatedPower(
             userProfiles
         )
+        /*
+        Run the Voting Program
+        */
         UI.projects.governance.functionLibraries.votingProgram.calculate(
             pools,
             features,
@@ -42,43 +45,64 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             positions,
             userProfiles
         )
-
+        /*
+        Now that we have all votes applied, we will calculate all weights
+        */
         UI.projects.governance.functionLibraries.weights.calculate(
             pools,
             features,
             assets,
             positions
         )
-
+        /*
+        Let's see how the tokens to be distributed flows into pools, assets, features and positions.
+        */
         UI.projects.governance.functionLibraries.tokens.calculate(
             pools
         )
-
+        /*
+        Run the Referral Program
+        */
         UI.projects.governance.functionLibraries.referralProgram.calculate(
             pools,
             userProfiles
         )
-
+        /*
+        Run the Support Program
+        */
         UI.projects.governance.functionLibraries.supportProgram.calculate(
             pools,
             userProfiles
         )
-
+        /*
+        Run the Mentorship Program
+        */
         UI.projects.governance.functionLibraries.mentorshipProgram.calculate(
             pools,
             userProfiles
         )
-
+        /*
+        Run the Staking Program
+        */
         UI.projects.governance.functionLibraries.stakingProgram.calculate(
             pools,
             userProfiles
         )
-
+        /*
+        Run the Claims Program
+        */
         UI.projects.governance.functionLibraries.claimsProgram.calculate(
             features,
             assets,
             positions,
             userProfiles
         )
+        /*
+        After all the programs were ran, we can calculate the tokens mining
+        calculation each profile.
+        */
+        UI.projects.governance.functionLibraries.tokenMining.calculate(
+        userProfiles
+    )
     }
 }

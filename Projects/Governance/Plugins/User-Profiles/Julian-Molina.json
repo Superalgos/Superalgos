@@ -1223,6 +1223,33 @@
             }
         }
     },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "02c80886-9f64-451a-a8a6-e23fadb26d97",
+        "savedPayload": {
+            "position": {
+                "x": 24663.166666666664,
+                "y": 23058.100619195047
+            },
+            "targetPosition": {
+                "x": 24963.166666666664,
+                "y": 23058.100619195047
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 2,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
     "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11",
     "savedPayload": {
         "position": {

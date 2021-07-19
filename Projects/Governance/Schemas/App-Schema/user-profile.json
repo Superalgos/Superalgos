@@ -18,6 +18,15 @@
             "relatedUiObject": "Token Power Switch"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Foundations",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tokensMined",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Tokens Mined",
+            "relatedUiObject": "Tokens Mined"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Foundations",
             "askConfirmation": true,
@@ -43,6 +52,12 @@
             "name": "tokenPowerSwitch",
             "type": "node",
             "childType": "Token Power Switch",
+            "autoAdd": true
+        },
+        {
+            "name": "tokensMined",
+            "type": "node",
+            "childType": "Tokens Mined",
             "autoAdd": true
         }
     ]

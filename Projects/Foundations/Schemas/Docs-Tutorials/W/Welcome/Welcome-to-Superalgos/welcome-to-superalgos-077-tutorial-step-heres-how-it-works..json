@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Here's How it Works...",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "layer-resistance"
+            "name": "layer\\layer-resistance",
+            "project": "Foundations"
         },
         "text": "Got it? The Trading Bot places the Limit Buy Order at the fourth support level! What's the logic behind this?",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¿Entiendes? ¡El Trading botl coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
-                "updated": 1624458595413
+                "updated": 1624458595413,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Es algo arbitrario, pero la estrategia define un cuchillo que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
-                    "updated": 1624458684445
+                    "updated": 1624458684445,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte!",
-                    "updated": 1624458716693
+                    "updated": 1624458716693,
+                    "style": "Callout"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Simplifying Complexity",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "trading-system"
+            "name": "trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "We haven't discussed trading systems as a framework, but a feature relevant to this explanation is that they may handle multiple strategies.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "No hemos hablado de los Trading Systems como un marco, pero una característica relevante para esta explicación es que pueden manejar múltiples estrategias.",
-                "updated": 1624460329052
+                "updated": 1624460329052,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Cada estrategia presenta un Open Stage y un Close Stage, cada uno con sus propias definiciones de ejecución. Cada etapa puede presentar múltiples algoritmos de ejecución y cada algoritmo puede manejar múltiples órdenes.",
-                    "updated": 1624460372216
+                    "updated": 1624460372216,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "¿Ves el patrón? Lo llamamos granularidad.",
-                    "updated": 1624460392079
+                    "updated": 1624460392079,
+                    "style": "Callout"
                 }
             ]
         },
@@ -70,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "Superalgos desglosa cada tema a la mínima expresión e integra las soluciones. Así es como le permite diseñar, implementar y administrar configuraciones de trading tan simples y tan complejas como puedas imaginar.",
-                    "updated": 1624460510159
+                    "updated": 1624460510159,
+                    "style": "Text"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What Is It We Are Testing?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "trading-system"
+            "name": "trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos!",
-                "updated": 1624455109238
+                "updated": 1624455109238,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "La idea de trading es comprar \"el cuchillo que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
-                    "updated": 1624455253344
+                    "updated": 1624455253344,
+                    "style": "Text"
                 }
             ]
         },
@@ -59,7 +61,8 @@
                 {
                     "language": "ES",
                     "text": "No discutamos los méritos de la idea de trading, sino la implementación. Esta es solo una demostración para mostrar las capacidades del Trading Bot, no la estrategia per se.",
-                    "updated": 1624455325589
+                    "updated": 1624455325589,
+                    "style": "Note"
                 }
             ]
         }

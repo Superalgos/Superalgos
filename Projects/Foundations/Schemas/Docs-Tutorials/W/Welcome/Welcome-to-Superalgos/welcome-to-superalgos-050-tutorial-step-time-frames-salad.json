@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Time Frames Salad?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-frame-scale"
+            "name": "time\\time-frame-scale",
+            "project": "Foundations"
         },
         "text": "News-flash about the Time Frame Scale: there is no automatic mode!",
         "translations": [
@@ -55,8 +55,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Ten cuidado cuando cambies la escala del marco de tiempo a tiempos más bajos! Dejar los marcos de tiempo demasiado rápido y sin ajustar la escala de tiempo puede hacer que se muestre demasiada información en la pantalla a la vez, lo que ralentiza tu computadora. La cantidad de información que puede manejar tu hardware depende del rendimiento de tu CPU y GPU.",
-                    "updated": 1624494758152,
+                    "text": "En los tiempos más bajos dejar los marcos de tiempo demasiado rápido y sin ajustar la escala de tiempo puede hacer que se muestre demasiada información en la pantalla a la vez, lo que ralentiza tu computadora. La cantidad de información que puede manejar tu hardware depende del rendimiento de tu CPU y GPU.",
+                    "updated": 1625881772119,
                     "style": "Important"
                 }
             ]

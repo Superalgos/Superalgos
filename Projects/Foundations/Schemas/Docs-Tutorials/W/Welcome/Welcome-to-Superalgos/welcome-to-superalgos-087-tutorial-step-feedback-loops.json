@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Feedback Loops",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "limit-buy-order"
+            "name": "limit\\limit-buy-order",
+            "project": "Foundations"
         },
         "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¡Echemos un vistazo a otro ejemplo para dejar que la noción del ciclo de retroalimentación constante se entienda antes de continuar!",
-                "updated": 1624463986592
+                "updated": 1624463986592,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Esta es la estructura de datos donde se guarda la información sobre las órdenes de compra límite.",
-                    "updated": 1624464006602
+                    "updated": 1624464006602,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "Ve a la Trading Engine Layers Manager en los gráficos (segundo contando desde la izquierda). Vaya hacia abajo y encienda el Limit Buy Orders layer. Ahora deslice el mouse sobre algunas de las órdenes de compra y verifique el efecto en los nodos en el espacio de diseño.",
-                    "updated": 1624464208051
+                    "updated": 1624464208051,
+                    "style": "Callout"
                 }
             ]
         },
@@ -70,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "¿Puedes imaginarte las implicaciones de tener este nivel de control sobre los datos administrados por el trading bot?",
-                    "updated": 1624464130332
+                    "updated": 1624464130332,
+                    "style": "Text"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Is It Working?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "binance"
+            "name": "crypto-exchanges\\binance",
+            "project": "Foundations"
         },
         "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",
         "updated": 1616435272813,
@@ -19,7 +19,8 @@
             {
                 "language": "ES",
                 "text": "La forma inequívoca de verificar si las cosas están funcionando bien es iniciar sesión en Binance y verificar tu historial de pedidos para BTC / USDT.",
-                "updated": 1624497071539
+                "updated": 1624497071539,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "¡Ve a Binance y echa un vistazo a lo que está pasando!",
-                    "updated": 1624484856566
+                    "updated": 1624484856566,
+                    "style": "Callout"
                 }
             ]
         },
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso!",
-                    "updated": 1624484917412
+                    "updated": 1624484917412,
+                    "style": "Note"
                 }
             ]
         }

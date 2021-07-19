@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Switching Gears...",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "layer-manager"
+            "name": "layer\\layer-manager",
+            "project": "Foundations"
         },
         "text": "Leaving scales behind, let's take a look at how the system makes data available on the charts.",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Dejando atrás las escalas, echemos un vistazo a cómo el sistema hace que los datos estén disponibles en los gráficos.",
-                "updated": 1624409028040
+                "updated": 1624409028040,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "Cada Timeline Chart tiene un Layer Manager asociado, que se representa como un menú desplegable que enumera varias capas.",
-                    "updated": 1624409085765
+                    "updated": 1624409085765,
+                    "style": "Text"
                 }
             ]
         },
@@ -53,7 +55,8 @@
                 {
                     "language": "ES",
                     "text": "Para abrir un Layers Manager, desplaza la rueda del mouse en su encabezado. ¡Usa la rueda del mouse para desplazarte por su contenido también!",
-                    "updated": 1624409187619
+                    "updated": 1624409187619,
+                    "style": "Callout"
                 }
             ]
         },
@@ -70,7 +73,8 @@
                 {
                     "language": "ES",
                     "text": "Ve el video en el siguiente paso para mayor claridad ...",
-                    "updated": 1624409230888
+                    "updated": 1624409230888,
+                    "style": "Text"
                 }
             ]
         }

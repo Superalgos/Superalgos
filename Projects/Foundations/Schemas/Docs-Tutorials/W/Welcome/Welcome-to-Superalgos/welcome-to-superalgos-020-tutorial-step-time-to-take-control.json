@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Time to Take Control!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "key-ctrl"
+            "name": "key\\key-ctrl",
+            "project": "Foundations"
         },
         "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!",
         "translations": [

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - That's Me On the Right!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "tutorial"
+            "name": "tutorial",
+            "project": "Education"
         },
         "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!",
         "translations": [
@@ -99,7 +99,8 @@
                 {
                     "language": "FR",
                     "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons !",
-                    "updated": 1623951096410
+                    "updated": 1623951096410,
+                    "style": "Callout"
                 }
             ]
         }

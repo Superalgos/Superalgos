@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Power of Data Mining",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "layer-resistance"
+            "name": "layer\\layer-resistance",
+            "project": "Foundations"
         },
         "text": "Why do levels jump up and down? There's something I haven't told you yet, 'cos I'm afraid it may blow your mind!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¿Por qué los niveles suben y bajan? Hay algo que aún no te he dicho, ¡porque me temo que te dejará boquiabierto!",
-                "updated": 1624458000076
+                "updated": 1624458000076,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "El bot realiza un seguimiento de todos los niveles de soporte activos desde el inicio del conjunto de datos, pero solo le muestra los cinco niveles más cercanos al precio actual.",
-                    "updated": 1624458026149
+                    "updated": 1624458026149,
+                    "style": "Callout"
                 }
             ]
         },
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "Hacer un seguimiento de la información para todo el conjunto de datos, que puede contar años, es el valor extraordinario de la minería de datos y el tipo de cosas que no podría calcular con una función sobre la marcha. El Plotter asociado con el Indicator Bot muestra dinámicamente los cinco niveles de soporte más cercanos al precio porque esos son los niveles relevantes para el contexto, ¡y así es como se construye el trazador!",
-                    "updated": 1624458153398
+                    "updated": 1624458153398,
+                    "style": "Text"
                 }
             ]
         }

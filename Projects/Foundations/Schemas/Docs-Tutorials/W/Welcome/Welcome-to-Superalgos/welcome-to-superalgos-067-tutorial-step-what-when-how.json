@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What? When? How?",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "trading-parameters"
+            "name": "trading\\trading-parameters",
+            "project": "Foundations"
         },
         "text": "Trading Parameters determine key aspects of how the trading session is run. Let's take a quick, superficial look...",
         "translations": [
@@ -80,7 +80,8 @@
                 {
                     "language": "ES",
                     "text": "Slippage: es irrelevante para este caso, ya que este Trading System en particular usa órdenes limitadas solamente.",
-                    "updated": 1624453374005
+                    "updated": 1624453374005,
+                    "style": "List"
                 }
             ]
         },
@@ -97,7 +98,8 @@
                 {
                     "language": "ES",
                     "text": "Fee Structure: 0.1% es el nivel inferior de Binance.",
-                    "updated": 1624453402067
+                    "updated": 1624453402067,
+                    "style": "List"
                 }
             ]
         },
@@ -115,7 +117,8 @@
                 {
                     "language": "ES",
                     "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters consulte la documentación.",
-                    "updated": 1624453528622
+                    "updated": 1624453528622,
+                    "style": "Text"
                 }
             ]
         }

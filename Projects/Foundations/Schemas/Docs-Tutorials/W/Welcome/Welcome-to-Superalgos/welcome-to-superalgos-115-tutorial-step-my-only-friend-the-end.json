@@ -4,8 +4,8 @@
     "type": "Tutorial Step - My Only Friend, The End!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "close-stage-event"
+            "name": "close\\close-stage-event",
+            "project": "Foundations"
         },
         "text": "Ok, my friend, this is the end! I hope you've enjoyed the show and that I've managed to get you hooked to Superalgos!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "Okay, amigo mío, ¡este es el final! ¡Espero que hayas disfrutado del espectáculo y haber logrado engancharte con Superalgos!",
-                "updated": 1624490056057
+                "updated": 1624490056057,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "No tengo ninguna duda de que no has visto nada como Superalgos antes, ¿verdad?",
-                    "updated": 1624490101875
+                    "updated": 1624490101875,
+                    "style": "Text"
                 }
             ]
         },
@@ -55,7 +57,8 @@
                 {
                     "language": "ES",
                     "text": "Si estás listo para seguir adelante, mi amigo el Basic Education Tutorial Completará tu comprensión sobre algunos aspectos básicos del sistema que necesita dominar antes de comenzar a aprender a construir Trading Systems!",
-                    "updated": 1624490158045
+                    "updated": 1624490158045,
+                    "style": "Callout"
                 }
             ]
         },
@@ -73,7 +76,8 @@
                 {
                     "language": "ES",
                     "text": "¡Terminamos! Haz clic en Siguiente para terminar conmigo y haz clic en Reproducir en el siguiente tutorial cuando estés listo.",
-                    "updated": 1624490242941
+                    "updated": 1624490242941,
+                    "style": "Success"
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Layers on Top of Layers",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "layer"
+            "name": "layer\\layer",
+            "project": "Foundations"
         },
         "text": "Your data mining operation features bots making data products. Each product is made available on the charts through a Layer in a Layer Manager.",
         "translations": [
@@ -17,8 +17,8 @@
             },
             {
                 "language": "ES",
-                "text": "Tu operación de minería de datos incluye bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
-                "updated": 1624494930065,
+                "text": "Tu operación de minería de incluye bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
+                "updated": 1625881909843,
                 "style": "Definition"
             }
         ],
@@ -37,8 +37,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El primer Layer Manager a la izquierda de este Time machine presenta tres capas. Esas capas representan los productos de datos del Trading System que estaremos viendo con los usos para tomar decisiones trading.",
-                    "updated": 1624409982355,
+                    "text": "El primer Layer Manager de este Time machine presenta tres capas que representan los productos de datos del Trading System que veremos mas adelante.",
+                    "updated": 1625883118231,
                     "style": "Text"
                 }
             ]

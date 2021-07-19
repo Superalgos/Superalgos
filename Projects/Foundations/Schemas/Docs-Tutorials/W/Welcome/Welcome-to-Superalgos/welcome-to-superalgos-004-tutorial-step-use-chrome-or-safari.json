@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Use Chrome or Safari!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "bullet\\bullet-warning",
+            "project": "Foundations"
         },
         "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",
         "updated": 1610612226890,
@@ -59,13 +59,12 @@
                     "updated": 1614712436380,
                     "style": "Text"
                 },
- {
+                {
                     "language": "FR",
                     "text": "Il est connu que les navigateurs se comportent différemment, et nous connaissons certaines fonctionnalités qui fonctionnent sur certains mais pas d'autres... Si vous êtes sur Chrome ou Safari, cliquez sur Suivant et continuez. Sinon, procédez comme suit :",
                     "updated": 1624490502941,
                     "style": "Text"
                 }
-          
             ]
         },
         {

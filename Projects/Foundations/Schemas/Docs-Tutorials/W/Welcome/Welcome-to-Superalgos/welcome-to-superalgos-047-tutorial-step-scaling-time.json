@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Scaling Time!",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "time-scale"
+            "name": "time\\time-scale",
+            "project": "Foundations"
         },
         "text": "Did you pick up the trick to scale time from the previous video? If not, go to the previous step and watch attentively!",
         "translations": [
@@ -18,7 +18,8 @@
             {
                 "language": "ES",
                 "text": "¿Aprendiste el truco para escalar el tiempo del video anterior? Si no es así, vaya al paso anterior y observa atentamente.",
-                "updated": 1624405955892
+                "updated": 1624405955892,
+                "style": "Definition"
             }
         ]
     },
@@ -36,7 +37,8 @@
                 {
                     "language": "ES",
                     "text": "¡Desplazar la rueda del mouse en la parte superior del cuadro de escala de tiempo reduce y expande el tiempo! Alternativamente, puedes apuntar el mouse al cuadro de escala y presionar las teclas de flecha laterales ← →",
-                    "updated": 1624406140665
+                    "updated": 1624406140665,
+                    "style": "Callout"
                 }
             ],
             "updated": 1616495837967
@@ -54,7 +56,8 @@
                 {
                     "language": "ES",
                     "text": "Señalar del video anterior: cuando la escala de tiempo sale del modo automático, los dos pequeños triángulos verdes que indican cada extremo de la escala automática desaparecen. ¡La escala se puede configurar en automático en cualquiera, en ninguno o en ambos lados!",
-                    "updated": 1624407303951
+                    "updated": 1624407303951,
+                    "style": "Note"
                 }
             ],
             "updated": 1616504911488

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Find the Node Challenge",
     "definition": {
         "icon": {
-           "project": "Foundations",
-            "name": "trading-engine"
+            "name": "trading\\trading-engine",
+            "project": "Foundations"
         },
         "text": "The Trading Engine administers the complexity entailed in automated trading by making information accessible to users and trading systems.",
         "translations": [
@@ -17,8 +17,9 @@
             },
             {
                 "language": "ES",
-                "text": "El Trading Engine administra la complejidad que conlleva el trading automatizado al hacer que la información sea accesible para los usuarios y los Trading Systems.",
-                "updated": 1624461290426
+                "text": "El Trading Engine administra la complejidad que lleva el trading automatizado al hacer que la información sea accesible para los usuarios y Trading Systems.",
+                "updated": 1625926154799,
+                "style": "Definition"
             }
         ]
     },
@@ -37,7 +38,8 @@
                 {
                     "language": "ES",
                     "text": "¿Recuerdas mis comentarios sobre la granularidad? ¿Cómo la fórmula del Trading System obtuvo el valor de la tasa objetivo de salida? Recordatorio rápido:",
-                    "updated": 1624461423083
+                    "updated": 1624461423083,
+                    "style": "Text"
                 }
             ]
         },
@@ -59,7 +61,8 @@
                 {
                     "language": "ES",
                     "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan!",
-                    "updated": 1624461765098
+                    "updated": 1624461765098,
+                    "style": "Callout"
                 }
             ]
         }

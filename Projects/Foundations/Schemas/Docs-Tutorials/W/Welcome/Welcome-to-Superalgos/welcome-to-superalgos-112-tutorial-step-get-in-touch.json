@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Get In Touch!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "telegram-bot"
         },
         "text": "Drop by to say hi, get help, and meet the Community! You may <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">join the new Discord Server</a> or the original Telegram groups below, where it all started!",
@@ -19,20 +19,22 @@
             {
                 "language": "ES",
                 "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo Discord Server o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
-                "updated": 1624488526215
+                "updated": 1624488526215,
+                "style": "Definition"
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "<li style=\"padding-bottom: 7px;\"><a href=\"https://t.me/superalgoscommunity\" target=\"_blank\" style=\"color:blue;\">Community Group</a> &mdash; Let's talk Superalgos!</li>",
-            "updated": 1610964967140,
+            "text": "Community Group — Let's talk Superalgos!",
+            "updated": 1626356740214,
             "translations": [
                 {
                     "language": "ES",
                     "text": "Community Group — ¡Hablemos de Superalgos!",
-                    "updated": 1624488546430
+                    "updated": 1624488546430,
+                    "style": "Text"
                 }
             ]
         },
@@ -44,7 +46,8 @@
                 {
                     "language": "ES",
                     "text": "Support Group — ¿Tienes algún problema y necesitas ayuda?",
-                    "updated": 1624488565737
+                    "updated": 1624488565737,
+                    "style": "Text"
                 }
             ]
         },

@@ -983,9 +983,14 @@
                     "functionName": "newGovernanceFunctionLibraryAssets"
                 },
                 {
-                    "name": "TokenPower",
+                    "name": "Token Power",
                     "propertyName": "tokenPower",
                     "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
+                    "name": "Token Mining",
+                    "propertyName": "tokenMining",
+                    "functionName": "newGovernanceFunctionLibraryTokenMining"
                 },
                 {
                     "name": "Voting Program",

@@ -97,5 +97,12 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             positions,
             userProfiles
         )
+        /*
+        After all the programs were ran, we can calculate the tokens mining
+        calculation each profile.
+        */
+        UI.projects.governance.functionLibraries.tokenMining.calculate(
+        userProfiles
+    )
     }
 }

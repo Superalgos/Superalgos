@@ -19,6 +19,7 @@ function newGobernanceReportsSpace() {
         assets: undefined,
         features: undefined,
         positions: undefined,
+        mining: undefined,
         tablesSortingOrders: undefined,
         changeTableSortingOrder,
         physics: physics,
@@ -96,6 +97,9 @@ function newGobernanceReportsSpace() {
         thisObject.positions.finalize()
         thisObject.positions = undefined
 
+        thisObject.mining.finalize()
+        thisObject.mining = undefined
+
         isInitialized = false
     }
 
@@ -128,6 +132,7 @@ function newGobernanceReportsSpace() {
         thisObject.assets = newGovernanceReportsAssets()
         thisObject.features = newGovernanceReportsFeatures()
         thisObject.positions = newGovernanceReportsPositions()
+        thisObject.mining = newGovernanceReportsMining()
 
         thisObject.reportsPage.initialize()
         thisObject.footer.initialize()
@@ -143,6 +148,7 @@ function newGobernanceReportsSpace() {
         thisObject.assets.initialize()
         thisObject.features.initialize()
         thisObject.positions.initialize()
+        thisObject.mining.initialize()        
 
         setupSidePanelTab()
 

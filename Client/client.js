@@ -16,6 +16,7 @@ process.on('uncaughtException', function (err) {
 })
 
 process.on('unhandledRejection', (reason, p) => {
+    // Signal user that a necissary node module is missing
     if (reason.code == 'MODULE_NOT_FOUND') {
         console.log("[ERROR] Node Modules not found. Running the node setup command and then restart")
         console.log('[ERROR] Client -> client-> reason = ' + JSON.stringify(reason))

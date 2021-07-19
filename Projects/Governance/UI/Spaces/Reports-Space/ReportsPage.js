@@ -30,7 +30,7 @@ function newGovernanceReportsReportsPage() {
         buildHTML()
 
         function buildHTML() {
-            const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Claims', 'Votes', 'Staking', 'Delegation', 'Pools', 'Assets', 'Features', 'Positions']
+            const tabs = ['Profiles', 'Referrals', 'Supporters', 'Mentors', 'Claims', 'Votes', 'Staking', 'Delegation', 'Pools', 'Assets', 'Features', 'Positions', 'Mining']
             let HTML = ''
             HTML = HTML + '<section id="governance-report-page-div" class="governance-search-page-container">'
             HTML = HTML + UI.projects.governance.spaces.reportsSpace.filtersHeader.addFilterHeader()
@@ -124,6 +124,12 @@ function newGovernanceReportsReportsPage() {
                     }
                     case 'Positions': {
                         let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(12, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
+                    case 'Mining': {
+                        let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(13, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

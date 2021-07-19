@@ -851,7 +851,7 @@
                 "config": "{\n    \"percentage\": 10\n}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
-                "stackingProgram": {
+                "stakingProgram": {
                     "type": "Staking Program",
                     "name": "New Staking Program",
                     "config": "{}",

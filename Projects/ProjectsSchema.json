@@ -1038,9 +1038,9 @@
                     "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
                 },
                 {
-                    "name": "Stacking Program",
-                    "propertyName": "stackingProgram",
-                    "functionName": "newGovernanceFunctionLibraryStackingProgram"
+                    "name": "Staking Program",
+                    "propertyName": "stakingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStakingProgram"
                 },
                 {
                     "name": "Profile Constructor",

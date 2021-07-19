@@ -3797,11 +3797,11 @@
             },
             {
                 "type": "Token Power Switch",
-                "name": "Stacking",
+                "name": "Staking",
                 "config": "{}",
                 "project": "Governance",
                 "tokenPowerSwitch": [],
-                "stackingProgram": {
+                "stakingProgram": {
                     "type": "Staking Program",
                     "name": "New Staking Program",
                     "config": "{}",

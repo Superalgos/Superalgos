@@ -1089,7 +1089,7 @@
                 }
             }
         },
-        "stackingProgram": {
+        "stakingProgram": {
             "type": "Staking Program",
             "name": "New Staking Program",
             "config": "{}",

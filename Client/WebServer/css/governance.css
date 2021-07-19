@@ -880,7 +880,11 @@
     #governance-tab5:checked ~ .governance-search-result-content #content5,
     #governance-tab6:checked ~ .governance-search-result-content #content6,
     #governance-tab7:checked ~ .governance-search-result-content #content7,
-    #governance-tab8:checked ~ .governance-search-result-content #content8 {
+    #governance-tab8:checked ~ .governance-search-result-content #content8,
+    #governance-tab9:checked ~ .governance-search-result-content #content9,
+    #governance-tab10:checked ~ .governance-search-result-content #content10,
+    #governance-tab11:checked ~ .governance-search-result-content #content11,
+    #governance-tab12:checked ~ .governance-search-result-content #content12 {
     display: block;
     }
     

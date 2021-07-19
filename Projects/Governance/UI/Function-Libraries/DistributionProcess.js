@@ -69,7 +69,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
 
-        UI.projects.governance.functionLibraries.stackingProgram.calculate(
+        UI.projects.governance.functionLibraries.stakingProgram.calculate(
             pools,
             userProfiles
         )

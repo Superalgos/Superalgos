@@ -47,9 +47,14 @@ function newGovernanceFunctionLibraryDelegationProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.delegationProgram = {
-                programPower: 0,
-                ownPower: 0
+            if (node.payload.delegationProgram === undefined) {
+                node.payload.delegationProgram = {
+                    programPower: 0,
+                    ownPower: 0
+                }
+            } else {
+                node.payload.delegationProgram.programPower = 0
+                node.payload.delegationProgram.ownPower = 0
             }
 
             if (node.type === 'User Profile') {

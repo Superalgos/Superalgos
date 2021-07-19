@@ -1,4 +1,4 @@
-function newGovernanceFunctionLibraryStackingProgram() {
+function newGovernanceFunctionLibraryStakingProgram() {
     let thisObject = {
         calculate: calculate
     }
@@ -12,7 +12,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Stacking Power that each User Profile at their Program
+        we need to accumulate all the Staking Power that each User Profile at their Program
         node has, because with that Power is that each Program node gets a share of the pool.
          */
         let accumulatedProgramPower = 0
@@ -51,7 +51,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Staking Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
-            if (program.payload.stackingProgram.isActive === false) { continue }
+            if (program.payload.stakingProgram.isActive === false) { continue }
 
             distributeProgram(program)
         }
@@ -62,7 +62,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
             let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Staking Program")
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
-            if (program.payload.stackingProgram.isActive === false) { continue }
+            if (program.payload.stakingProgram.isActive === false) { continue }
 
             calculateProgram(program)
         }
@@ -70,13 +70,25 @@ function newGovernanceFunctionLibraryStackingProgram() {
         function resetProgram(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.stackingProgram = {
-                count: 0,
-                percentage: 0,
-                outgoingPower: 0,
-                ownPower: 0,
-                incomingPower: 0,
-                awarded: {
+            if (node.payload.stakingProgram === undefined) {
+                node.payload.stakingProgram = {
+                    count: 0,
+                    percentage: 0,
+                    outgoingPower: 0,
+                    ownPower: 0,
+                    incomingPower: 0,
+                    awarded: {
+                        tokens: 0,
+                        percentage: 0
+                    }
+                }
+            } else {
+                node.payload.stakingProgram.count = 0
+                node.payload.stakingProgram.percentage = 0
+                node.payload.stakingProgram.outgoingPower = 0
+                node.payload.stakingProgram.ownPower = 0
+                node.payload.stakingProgram.incomingPower = 0
+                node.payload.stakingProgram.awarded = {
                     tokens: 0,
                     percentage: 0
                 }
@@ -92,21 +104,21 @@ function newGovernanceFunctionLibraryStackingProgram() {
             if (
                 userProfile.payload.blockchainTokens === undefined
             ) {
-                node.payload.stackingProgram.isActive = false
+                node.payload.stakingProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage("You need to setup this profile with the Profile Constructor, to access the Token Power of your account at the Blockchain.")
                 return
             }
-            node.payload.stackingProgram.isActive = true
+            node.payload.stakingProgram.isActive = true
         }
 
         function distributeProgram(programNode) {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
-            Here we will convert Token Power into Stacking Power. 
-            As per system rules Stacking Powar = tokensPower
+            Here we will convert Token Power into Staking Power. 
+            As per system rules Staking Powar = tokensPower
             */
             let programPower = programNode.payload.tokenPower
-            programNode.payload.stackingProgram.ownPower = programPower
+            programNode.payload.stakingProgram.ownPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower
         }
@@ -132,7 +144,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
                 programNode.payload.uiObject.setErrorMessage("Tokens Awarded Node is needed in order for this Program to get Tokens from the Program Pool.")
                 return
             }
-            programNode.payload.stackingProgram.awarded.tokens = programNode.payload.stackingProgram.ownPower * totalPowerRewardRatio
+            programNode.payload.stakingProgram.awarded.tokens = programNode.payload.stakingProgram.ownPower * totalPowerRewardRatio
 
             drawProgram(programNode)
         }
@@ -140,7 +152,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
         function drawProgram(node) {
             if (node.payload !== undefined) {
 
-                const ownPowerText = parseFloat(node.payload.stackingProgram.ownPower.toFixed(2)).toLocaleString('en')
+                const ownPowerText = parseFloat(node.payload.stakingProgram.ownPower.toFixed(2)).toLocaleString('en')
 
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
@@ -149,7 +161,7 @@ function newGovernanceFunctionLibraryStackingProgram() {
             }
             if (node.tokensAwarded !== undefined && node.tokensAwarded.payload !== undefined) {
 
-                const tokensAwardedText = parseFloat(node.payload.stackingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
+                const tokensAwardedText = parseFloat(node.payload.stakingProgram.awarded.tokens.toFixed(2)).toLocaleString('en')
 
                 node.tokensAwarded.payload.uiObject.valueAngleOffset = 0
                 node.tokensAwarded.payload.uiObject.valueAtAngle = false

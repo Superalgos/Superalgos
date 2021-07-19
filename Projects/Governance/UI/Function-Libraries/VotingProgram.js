@@ -73,11 +73,18 @@ function newGovernanceFunctionLibraryVotingProgram() {
         function resetVotes(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
-            node.payload.votingProgram = {
-                votes: 0,
-                ownPower: 0,
-                incomingPower: 0
+            if (node.payload.votingProgram === undefined) {
+                node.payload.votingProgram = {
+                    votes: 0,
+                    ownPower: 0,
+                    incomingPower: 0
+                }
+            } else {
+                node.payload.votingProgram.votes = 0
+                node.payload.votingProgram.ownPower = 0
+                node.payload.votingProgram.incomingPower = 0
             }
+
             /*
             When we reach certain node types, we will halt the distribution, because these are targets for 
             voting power.

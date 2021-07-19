@@ -11,6 +11,10 @@ function newGobernanceReportsSpace() {
         referrals: undefined,
         supports: undefined,
         mentors: undefined,
+        claims: undefined,
+        votes: undefined,
+        staking: undefined,
+        delegations: undefined,
         pools: undefined,
         assets: undefined,
         features: undefined,
@@ -68,6 +72,18 @@ function newGobernanceReportsSpace() {
         thisObject.mentors.finalize()
         thisObject.mentors = undefined
 
+        thisObject.claims.finalize()
+        thisObject.claims = undefined
+
+        thisObject.votes.finalize()
+        thisObject.votes = undefined
+
+        thisObject.staking.finalize()
+        thisObject.staking = undefined
+
+        thisObject.delegation.finalize()
+        thisObject.delegation = undefined
+
         thisObject.pools.finalize()
         thisObject.pools = undefined
 
@@ -104,6 +120,10 @@ function newGobernanceReportsSpace() {
         thisObject.referrals = newGovernanceReportsReferrals()
         thisObject.supports = newGovernanceReportsSupports()
         thisObject.mentors = newGovernanceReportsMentors()
+        thisObject.claims = newGovernanceReportsClaims()
+        thisObject.votes = newGovernanceReportsVotes()
+        thisObject.staking = newGovernanceReportsStaking()
+        thisObject.delegation = newGovernanceReportsDelegation()
         thisObject.pools = newGovernanceReportsPools()
         thisObject.assets = newGovernanceReportsAssets()
         thisObject.features = newGovernanceReportsFeatures()
@@ -115,6 +135,10 @@ function newGobernanceReportsSpace() {
         thisObject.userProfiles.initialize()
         thisObject.referrals.initialize()
         thisObject.mentors.initialize()
+        thisObject.claims.initialize()
+        thisObject.votes.initialize()
+        thisObject.staking.initialize()
+        thisObject.delegation.initialize()
         thisObject.pools.initialize()
         thisObject.assets.initialize()
         thisObject.features.initialize()

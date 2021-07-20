@@ -14,15 +14,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
         userProfiles
     ) {
 
-        /* Bonus Calculation is here */
-        UI.projects.governance.utilities.bonusProgram.run(
-            pools,
-            userProfiles,
-            "votingProgram",
-            "Voting-Bonus",
-            "Voting Program"
-        )
-
         /* Reset Votes at Pools */
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
@@ -70,6 +61,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
             distributeProgram(program)
         }
 
+        /* Bonus Calculation is here */
+        UI.projects.governance.utilities.bonusProgram.run(
+            pools,
+            userProfiles,
+            "votingProgram",
+            "Voting-Bonus",
+            "Voting Program"
+        )
+
         function resetVotes(node) {
             if (node === undefined) { return }
             if (node.payload === undefined) { return }
@@ -77,12 +77,15 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.payload.votingProgram = {
                     votes: 0,
                     ownPower: 0,
-                    incomingPower: 0
+                    incomingPower: 0,
+                    usedPower: 0
                 }
             } else {
                 node.payload.votingProgram.votes = 0
                 node.payload.votingProgram.ownPower = 0
                 node.payload.votingProgram.incomingPower = 0
+                node.payload.votingProgram.usedPower = 0
+
             }
 
             /*
@@ -176,159 +179,166 @@ function newGovernanceFunctionLibraryVotingProgram() {
             let votes = programNode.payload.tokenPower
             /*
             Set this initial votes as own power
-            */            
+            */
             programNode.payload.votingProgram.ownPower = votes
-            distributeProgramPower(programNode, votes)
-        }
+            distributeProgramPower(programNode, programNode, votes)
 
-        function distributeProgramPower(node, votes, percentage) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            if (node.payload.votingProgram === undefined) { return }
-
-            node.payload.votingProgram.votes = node.payload.votingProgram.votes + votes
-
-            if (node.type === 'Voting Program') {
-                node.payload.votingProgram.incomingPower = node.payload.votingProgram.votes - node.payload.votingProgram.ownPower
-            }
-            drawVotes(node, node.payload.votingProgram.votes, percentage)
-            /*
-            When we reach certain node types, we will halt the distribution, because these are targets for 
-            voting power.
-            */
-            if (
-                node.type === 'Position' ||
-                node.type === 'Asset' ||
-                node.type === 'Feature' ||
-                node.type === 'Pool' ||
-                node.type === 'Position Contribution Claim' ||
-                node.type === 'Asset Contribution Claim' ||
-                node.type === 'Feature Contribution Claim'
-            ) { return }
-            /*
-            For Votes to Profiles there is a special treamtment that needs to be done
-            so that votes can flow from Profiles to the Program without being affected
-            by Percentages.
-            */
-            switch (node.type) {
-                case 'User Profile Vote': {
-                    if (node.payload.referenceParent !== undefined) {
-                        distributeProgramPower(node.payload.referenceParent, votes / 10)
-                    }
-                    return
-                }
-                case 'User Profile': {
-                    let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
-                    if (program === undefined) { return }
-                    if (program.payload === undefined) { return }
-                    distributeProgramPower(program, votes)
-                    return
-                }
-            }
-            /*
-            If there is a reference parent defined, this means that the voting power is 
-            transfered to it and not distributed among children.
-            */
-            if (
-                node.payload.referenceParent !== undefined &&
-                node.type !== 'Votes Switch' &&
-                node.type !== 'Claim Votes Switch' &&
-                node.type !== 'Weight Votes Switch'
+            function distributeProgramPower(
+                currentProgramNode,
+                node,
+                votes,
+                percentage
             ) {
-                distributeProgramPower(node.payload.referenceParent, votes)
-                return
-            }
-            /*
-            Here we are inside the Voting Program, so we will crawl all it's children.
-            */
-            let schemaDocument = getSchemaDocument(node)
-            if (schemaDocument === undefined) { return }
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload.votingProgram === undefined) { return }
 
-            if (schemaDocument.childrenNodesProperties !== undefined) {
+                node.payload.votingProgram.votes = node.payload.votingProgram.votes + votes
+
+                if (node.type === 'Voting Program') {
+                    node.payload.votingProgram.incomingPower = node.payload.votingProgram.votes - node.payload.votingProgram.ownPower
+                }
+                drawVotes(node, node.payload.votingProgram.votes, percentage)
                 /*
-                Before distributing the voting power, we will calculate how the power 
-                is going to be switched between all nodes. The first pass is about
-                scanning all sibling nodes to see which ones have a percentage defined
-                at their config, and check that all percentages don't add more than 100.
+                When we reach certain node types, we will halt the distribution, because these are targets for 
+                voting power.
                 */
-                let totalPercentage = 0
-                let totalNodesWithoutPercentage = 0
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            if (childNode.type === 'Tokens Bonus') { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage !== undefined && isNaN(percentage) !== true) {
-                                totalPercentage = totalPercentage + percentage
-                            } else {
-                                totalNodesWithoutPercentage++
-                            }
+                if (
+                    node.type === 'Position' ||
+                    node.type === 'Asset' ||
+                    node.type === 'Feature' ||
+                    node.type === 'Pool' ||
+                    node.type === 'Position Contribution Claim' ||
+                    node.type === 'Asset Contribution Claim' ||
+                    node.type === 'Feature Contribution Claim'
+                ) { return }
+                /*
+                For Votes to Profiles there is a special treamtment that needs to be done
+                so that votes can flow from Profiles to the Program without being affected
+                by Percentages.
+                */
+                switch (node.type) {
+                    case 'User Profile Vote': {
+                        if (node.payload.referenceParent !== undefined) {
+                            currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
+                            distributeProgramPower(currentProgramNode, node.payload.referenceParent, votes / 10)
                         }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    if (childNode === undefined) { continue }
-                                    if (childNode.type === 'Tokens Bonus') { continue }
-                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                    if (percentage !== undefined && isNaN(percentage) !== true) {
-                                        totalPercentage = totalPercentage + percentage
-                                    } else {
-                                        totalNodesWithoutPercentage++
-                                    }
-                                }
-                            }
-                            break
-                        }
+                        return
+                    }
+                    case 'User Profile': {
+                        let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, 'Voting Program')
+                        if (program === undefined) { return }
+                        if (program.payload === undefined) { return }
+                        distributeProgramPower(currentProgramNode, program, votes)
+                        return
                     }
                 }
-                if (totalPercentage > 100) {
-                    node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                /*
+                If there is a reference parent defined, this means that the voting power is 
+                transfered to it and not distributed among children.
+                */
+                if (
+                    node.payload.referenceParent !== undefined &&
+                    node.type !== 'Votes Switch' &&
+                    node.type !== 'Claim Votes Switch' &&
+                    node.type !== 'Weight Votes Switch'
+                ) {
+                    currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
+                    distributeProgramPower(currentProgramNode, node.payload.referenceParent, votes)
                     return
                 }
-                let defaultPercentage = 0
-                if (totalNodesWithoutPercentage > 0) {
-                    defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
-                }
                 /*
-                Here we do the actual distribution.
+                Here we are inside the Voting Program, so we will crawl all it's children.
                 */
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
+                let schemaDocument = getSchemaDocument(node)
+                if (schemaDocument === undefined) { return }
 
-                    switch (property.type) {
-                        case 'node': {
-                            let childNode = node[property.name]
-                            if (childNode === undefined) { continue }
-                            if (childNode.type === 'Tokens Bonus') { continue }
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage === undefined || isNaN(percentage) === true) {
-                                percentage = defaultPercentage
-                            }
-                            distributeProgramPower(childNode, votes * percentage / 100, percentage)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = node[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-                                    let childNode = propertyArray[m]
-                                    if (childNode === undefined) { continue }
-                                    if (childNode.type === 'Tokens Bonus') { continue }
-                                    let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                    if (percentage === undefined || isNaN(percentage) === true) {
-                                        percentage = defaultPercentage
-                                    }
-                                    distributeProgramPower(childNode, votes * percentage / 100, percentage)
+                if (schemaDocument.childrenNodesProperties !== undefined) {
+                    /*
+                    Before distributing the voting power, we will calculate how the power 
+                    is going to be switched between all nodes. The first pass is about
+                    scanning all sibling nodes to see which ones have a percentage defined
+                    at their config, and check that all percentages don't add more than 100.
+                    */
+                    let totalPercentage = 0
+                    let totalNodesWithoutPercentage = 0
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
                                 }
                             }
-                            break
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                                            totalPercentage = totalPercentage + percentage
+                                        } else {
+                                            totalNodesWithoutPercentage++
+                                        }
+                                    }
+                                }
+                                break
+                            }
+                        }
+                    }
+                    if (totalPercentage > 100) {
+                        node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                        return
+                    }
+                    let defaultPercentage = 0
+                    if (totalNodesWithoutPercentage > 0) {
+                        defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                    }
+                    /*
+                    Here we do the actual distribution.
+                    */
+                    for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+                        let property = schemaDocument.childrenNodesProperties[i]
+
+                        switch (property.type) {
+                            case 'node': {
+                                let childNode = node[property.name]
+                                if (childNode === undefined) { continue }
+                                if (childNode.type === 'Tokens Bonus') { continue }
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage) === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeProgramPower(currentProgramNode, childNode, votes * percentage / 100, percentage)
+                            }
+                                break
+                            case 'array': {
+                                let propertyArray = node[property.name]
+                                if (propertyArray !== undefined) {
+                                    for (let m = 0; m < propertyArray.length; m++) {
+                                        let childNode = propertyArray[m]
+                                        if (childNode === undefined) { continue }
+                                        if (childNode.type === 'Tokens Bonus') { continue }
+                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage === undefined || isNaN(percentage) === true) {
+                                            percentage = defaultPercentage
+                                        }
+                                        distributeProgramPower(currentProgramNode, childNode, votes * percentage / 100, percentage)
+                                    }
+                                }
+                                break
+                            }
                         }
                     }
                 }

@@ -18,12 +18,12 @@
                 "referralProgram": {
                     "type": "Referral Program",
                     "name": "New Referral Program",
-                    "config": "{\n    \"percentage\": 80\n}",
+                    "config": "{\n    \"percentage\": 0\n}",
                     "project": "Governance",
                     "userReferrers": [
                         {
                             "type": "User Referrer",
-                            "name": "Julian-Molina",
+                            "name": "Jeremy",
                             "config": "{}",
                             "project": "Governance",
                             "id": "fb0a076c-b0a8-4f16-9a47-10a3f3489a0a",
@@ -49,8 +49,8 @@
                                 },
                                 "referenceParent": {
                                     "type": "User Profile",
-                                    "name": "Julian-Molina",
-                                    "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                    "name": "Jeremy",
+                                    "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
                                 }
                             }
                         }
@@ -3936,7 +3936,7 @@
                                     "userDelegates": [
                                         {
                                             "type": "User Delegate",
-                                            "name": "Julian-Molina",
+                                            "name": "",
                                             "config": "{}",
                                             "project": "Governance",
                                             "id": "d684a95b-fc8a-4545-8db5-601128a924cf",
@@ -3959,11 +3959,6 @@
                                                 },
                                                 "uiObject": {
                                                     "isRunning": false
-                                                },
-                                                "referenceParent": {
-                                                    "type": "User Profile",
-                                                    "name": "Julian-Molina",
-                                                    "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
                                                 }
                                             }
                                         },

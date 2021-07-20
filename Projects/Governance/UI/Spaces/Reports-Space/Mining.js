@@ -41,6 +41,13 @@ function newGovernanceReportsMining() {
                     "textAlign": "left"
                 },
                 {
+                    "name": "blockchainAccount",
+                    "label": "Blockchain Account",
+                    "type": "string",
+                    "order": "ascending",
+                    "textAlign": "left"
+                },
+                {
                     "name": "tokensAwarded",
                     "label": "Tokens Awarded",
                     "type": "number",
@@ -83,6 +90,7 @@ function newGovernanceReportsMining() {
 
             let tableRecord = {
                 "name": userProfile.name,
+                "blockchainAccount": userProfile.payload.blockchainAccount,
                 "tokensAwarded": userProfile.tokensMined.payload.tokensMined.awarded | 0,
                 "tokensBonus": userProfile.tokensMined.payload.tokensMined.bonus | 0,
                 "tokensMined": userProfile.tokensMined.payload.tokensMined.total | 0

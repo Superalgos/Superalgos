@@ -1,6 +1,6 @@
 function newGovernanceGlobalsReports() {
     let thisObject = {
-        REPORTS_SPACE_WIDTH: 900
+        REPORTS_SPACE_WIDTH: 1150
     }
     return thisObject
 }

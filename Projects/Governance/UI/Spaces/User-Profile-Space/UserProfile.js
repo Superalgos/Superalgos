@@ -96,6 +96,7 @@ function newGovernanceUserProfileSpace() {
                 }
 
                 let blockchainAccount = response.address
+                userProfile.payload.blockchainAccount = blockchainAccount
                 if (
                     blockchainAccount !== undefined &&
                     blockchainAccount !== "" &&

@@ -12,12 +12,12 @@
         "referralProgram": {
             "type": "Referral Program",
             "name": "New Referral Program",
-            "config": "{\n    \"percentage\": 60\n}",
+            "config": "{\n    \"percentage\": 2}",
             "project": "Governance",
             "userReferrers": [
                 {
                     "type": "User Referrer",
-                    "name": "Jeremy",
+                    "name": "Luis-Fernando-Molina",
                     "config": "{}",
                     "project": "Governance",
                     "id": "0aa9db01-7605-4a51-abd9-e233de6721d6",
@@ -43,8 +43,8 @@
                         },
                         "referenceParent": {
                             "type": "User Profile",
-                            "name": "Jeremy",
-                            "id": "759e9012-c995-47ed-92f1-7d204bf2b58e"
+                            "name": "Luis-Fernando-Molina",
+                            "id": "148911b3-b2f3-44fb-8cb4-017991789132"
                         }
                     }
                 }

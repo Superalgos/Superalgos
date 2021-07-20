@@ -1,4 +1,9 @@
 function newGovernanceUtilitiesDecendentProgram() {
+    /*
+    This Utility Module is intended to be used by all programs that have the 
+    concept of Decendents, and when the program requires to compute recursively
+    all decendents.
+    */
     let thisObject = {
         run: run
     }
@@ -91,6 +96,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                     outgoingPower: 0,
                     ownPower: 0,
                     incomingPower: 0,
+                    usedPower: 0,
                     awarded: {
                         tokens: 0,
                         percentage: 0
@@ -102,6 +108,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                 node.payload[programPropertyName].outgoingPower = 0
                 node.payload[programPropertyName].ownPower = 0
                 node.payload[programPropertyName].incomingPower = 0
+                node.payload[programPropertyName].usedPower = 0
                 node.payload[programPropertyName].awarded = {
                     tokens: 0,
                     percentage: 0
@@ -193,109 +200,118 @@ function newGovernanceUtilitiesDecendentProgram() {
             */
             programNode.payload[programPropertyName].ownPower = programPower
 
-            distributeProgramPower(programNode, programPower, count)
-        }
+            distributeProgramPower(programNode, programNode, programPower, count)
 
-        function distributeProgramPower(
-            node,
-            programPower,
-            count,
-            percentage
-        ) {
-            if (node === undefined) { return }
-            if (node.payload === undefined) { return }
-            if (node.payload[programPropertyName] === undefined) { return }
+            function distributeProgramPower(
+                currentProgramNode,
+                node,
+                programPower,
+                count,
+                percentage
+            ) {
+                if (node === undefined) { return }
+                if (node.payload === undefined) { return }
+                if (node.payload[programPropertyName] === undefined) { return }
 
-            switch (node.type) {
-                case programNodeType: {
-                    /*
-                    This is the point where we increase to our local count of descendents whatever it comes
-                    at the count parameters. If we are processing the User Profile of this Program
-                    then we will add zero, otherwise, 1.
-                    */
-                    node.payload[programPropertyName].count = node.payload[programPropertyName].count + count
-                    /*
-                    The outgoingPower of this node will be accumulating all the programPower flowing
-                    through it, no matter from where it comes. 
-                    */
-                    node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + programPower
-                    /*
-                    We need to adjust the balance that holds the accumulationt of all incomingPower of all Program
-                    nodes. To do this we will substratct the current incomingPower, bacause it is going to be recalculated
-                    inmediatelly after this, and then we will add it again after the recalcualtion.
-                    */
-                    accumulatedIncomingProgramPower = accumulatedIncomingProgramPower - node.payload[programPropertyName].incomingPower
-                    /*
-                    At any point in time, the incomingPower will be equal to the total of the outgoingPower minus
-                    the ownPower. This is like this because the outgoingPower is the accumulation of all the 
-                    power flow that is leaving this node, which includes the ownPower. That means that if we 
-                    substract the ownPower, we will have the accumulation of all the incomingPower, which 
-                    means all the power coming from other User Profiles referencing this one.
-                    */
-                    node.payload[programPropertyName].incomingPower = node.payload[programPropertyName].outgoingPower - node.payload[programPropertyName].ownPower
-                    /*
-                    Now that we have the incomingPower calculated again, we can add it again to the balance of all the incomingPower
-                    of all Program nodes.
-                    */
-                    accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
-
-                    if (node[usersArrayPropertyName] !== undefined) {
+                switch (node.type) {
+                    case programNodeType: {
                         /*
-                        Before distributing the program power, we will calculate how the power 
-                        is going to be switched between all nodes. The first pass is about
-                        scanning all sibling nodes to see which ones have a percentage defined
-                        at their config, and check that all percentages don't add more than 100.
+                        This is the point where we increase to our local count of descendents whatever it comes
+                        at the count parameters. If we are processing the User Profile of this Program
+                        then we will add zero, otherwise, 1.
                         */
-                        let totalPercentage = 0
-                        let totalNodesWithoutPercentage = 0
-                        for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
-                            let childNode = node[usersArrayPropertyName][i]
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage !== undefined && isNaN(percentage) !== true) {
-                                totalPercentage = totalPercentage + percentage
-                            } else {
-                                totalNodesWithoutPercentage++
+                        node.payload[programPropertyName].count = node.payload[programPropertyName].count + count
+                        /*
+                        The outgoingPower of this node will be accumulating all the programPower flowing
+                        through it, no matter from where it comes. 
+                        */
+                        node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + programPower
+                        /*
+                        We need to adjust the balance that holds the accumulationt of all incomingPower of all Program
+                        nodes. To do this we will substratct the current incomingPower, bacause it is going to be recalculated
+                        inmediatelly after this, and then we will add it again after the recalcualtion.
+                        */
+                        accumulatedIncomingProgramPower = accumulatedIncomingProgramPower - node.payload[programPropertyName].incomingPower
+                        /*
+                        At any point in time, the incomingPower will be equal to the total of the outgoingPower minus
+                        the ownPower. This is like this because the outgoingPower is the accumulation of all the 
+                        power flow that is leaving this node, which includes the ownPower. That means that if we 
+                        substract the ownPower, we will have the accumulation of all the incomingPower, which 
+                        means all the power coming from other User Profiles referencing this one.
+                        */
+                        node.payload[programPropertyName].incomingPower = node.payload[programPropertyName].outgoingPower - node.payload[programPropertyName].ownPower
+                        /*
+                        Now that we have the incomingPower calculated again, we can add it again to the balance of all the incomingPower
+                        of all Program nodes.
+                        */
+                        accumulatedIncomingProgramPower = accumulatedIncomingProgramPower + node.payload[programPropertyName].incomingPower
+
+                        if (node[usersArrayPropertyName] !== undefined) {
+                            /*
+                            Before distributing the program power, we will calculate how the power 
+                            is going to be switched between all nodes. The first pass is about
+                            scanning all sibling nodes to see which ones have a percentage defined
+                            at their config, and check that all percentages don't add more than 100.
+                            */
+                            let totalPercentage = 0
+                            let totalNodesWithoutPercentage = 0
+                            for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                                let childNode = node[usersArrayPropertyName][i]
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                    totalPercentage = totalPercentage + percentage
+                                } else {
+                                    totalNodesWithoutPercentage++
+                                }
+                            }
+                            if (totalPercentage > 100) {
+                                node.payload.uiObject.setErrorMessage('Program Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                                return
+                            }
+                            let defaultPercentage = 0
+                            if (totalNodesWithoutPercentage > 0) {
+                                defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
+                            }
+                            /*
+                            Here we do the actual distribution.
+                            */
+                            for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
+                                let childNode = node[usersArrayPropertyName][i]
+                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage) === true) {
+                                    percentage = defaultPercentage
+                                }
+                                distributeProgramPower(currentProgramNode, childNode, programPower * percentage / 100, 0, percentage)
                             }
                         }
-                        if (totalPercentage > 100) {
-                            node.payload.uiObject.setErrorMessage('Program Power Switching Error. Total Percentage of children nodes is grater that 100.')
-                            return
-                        }
-                        let defaultPercentage = 0
-                        if (totalNodesWithoutPercentage > 0) {
-                            defaultPercentage = (100 - totalPercentage) / totalNodesWithoutPercentage
-                        }
-                        /*
-                        Here we do the actual distribution.
-                        */
-                        for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
-                            let childNode = node[usersArrayPropertyName][i]
-                            let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                            if (percentage === undefined || isNaN(percentage) === true) {
-                                percentage = defaultPercentage
-                            }
-                            distributeProgramPower(childNode, programPower * percentage / 100, 0, percentage)
-                        }
+                        return
                     }
-                    return
-                }
-                case userNodeType: {
-                    node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower * percentage / 100
+                    case userNodeType: {
+                        let previousOutgoing = node.payload[programPropertyName].outgoingPower
+                        node.payload[programPropertyName].outgoingPower = node.payload.parentNode.payload[programPropertyName].outgoingPower * percentage / 100
 
-                    drawUserNode(node, percentage)
-                    if (node.payload.referenceParent !== undefined) {
-                        distributeProgramPower(node.payload.referenceParent, programPower / 10, 0)
+                        drawUserNode(node, percentage)
+                        if (node.payload.referenceParent !== undefined) {
+                            /*
+                            We want to accumulate the usedPower, but to keep the right balance, everytime we add to it the outgoingPower
+                            we need to substract the previous one, since this migth be executed at every user profile and also recurisvely.
+                            */
+                            currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower - previousOutgoing
+                            currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower + node.payload[programPropertyName].outgoingPower
+
+                            distributeProgramPower(currentProgramNode, node.payload.referenceParent, programPower / 10, 0)
+                        }
+                        return
                     }
-                    return
-                }
-                case 'User Profile': {
-                    let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, programNodeType)
-                    if (program === undefined) { return }
-                    if (program.payload === undefined) { return }
-                    if (program.payload[programPropertyName].isActive === false) { return }
+                    case 'User Profile': {
+                        let program = UI.projects.governance.utilities.validations.onlyOneProgram(node, programNodeType)
+                        if (program === undefined) { return }
+                        if (program.payload === undefined) { return }
+                        if (program.payload[programPropertyName].isActive === false) { return }
 
-                    distributeProgramPower(program, programPower, 0)
-                    return
+                        distributeProgramPower(program, program, programPower, 0)
+                        return
+                    }
                 }
             }
         }
